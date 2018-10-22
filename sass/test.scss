@@ -1,0 +1,87 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.wrap{
+	width: 100%;
+	height: calc(100% - 85px);
+	position: absolute;
+
+	background-color: #aaa;
+}
+.box{
+	width: 300px;
+	height: 300px;
+	overflow: hidden;
+	background: #f00;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+.box_a{
+	width: 600px;
+	height: 600px;
+	display: inline-block;
+	background-color: #00f;
+}
+.item{
+	width: 300px;
+	height: 300px;
+	float: left;
+	background-color: #0f0;
+	position: relative;
+	right: 0;
+	bottom: 0;
+	transition: .2s;
+}
+#goA,#goB,#goC,#goD{
+	display: none;
+
+}
+@mixin go {
+	width: 100px;
+	height: 100px;
+	position: fixed;
+	right: 0;
+	@content;
+}
+.g1{
+	@include go;
+	background: #00f;
+}
+#goA:checked ~ .item1{
+	background-color: #fff;
+	transition: .4s;
+
+}
+#goB:checked ~ .item2{
+	background-color: #fff;
+	transition: .4s;
+	right: 300px;
+}
+#goB:checked ~ .item1{
+	background-color: #fff;
+	transition: .2s;
+	right: 300px;
+}
+#goC:checked ~ .item3{
+	background-color: #fff;
+	transition: .4s;
+
+	bottom: 300px;
+
+}
+#goC:checked ~ .item1{
+	background-color: #fff;
+	transition: .2s;
+
+	bottom: 300px;
+
+}
+#goD:checked ~ .item4{
+	background-color: #fff;
+	transition: .4s;
+}
