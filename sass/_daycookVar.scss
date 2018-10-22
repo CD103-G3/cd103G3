@@ -16,7 +16,8 @@ $color_main1: #FCE444;	//小雞黃 / yellow / FCE444 ;
 $color_main2: #76391B;	//褐色 / brown / 76391B ; 
 $color_main3: #FCF2CA;	//淡黃色 / lightYellow / FCF2CA / ; 
 $color_main4: #BB7232;	//淡褐色 / lightBrown / #BB7232; 
-$color_hot: #FF5000;	//highlight橘 / highlightOrange / FF5000 ; 
+$color_hot: #FF5000;	//highlight橘 / highlightOrange / FF5000 ;
+$color_label: #208ee8;  //input focus 的label
 
 //RWD 用法@include rwd(sm,inline-block) inline-block不填寫則為float 
 $small_min:768px;	// @include rwd(sm){ 內容... }
