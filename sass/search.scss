@@ -8,7 +8,7 @@
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	outline: 1px solid #f00;
+	// outline: 1px solid #f00;
 }
 
 .search_wrap{
@@ -37,34 +37,56 @@
 		margin:100px auto 20px;
 		font-size: $fontSize_XXL;
 		position: relative;
+		border-radius: 50px;
+		border: 2px solid $color_main4;
 	}
 	#input_search{
+		font-size: $fontSize_XXL;
+		padding-left: 50px;
 		width: 100%;
 		height: 98px;
 		border-radius: 50px;
 		border: 0;
-		&:focus {   //提示字動畫
-			border: 0;
+		outline: none;
+		&:hover{
+			cursor: pointer;
 		}
 		&:focus + label,
 		&:valid + label{
-		top: -20px;
+		top: 0;
+		transform: translateY(-150%);
 		transition: .4s;
 		font-size: $fontSize_XL;
+		cursor: text;
+		}
+		&:focus {   //提示字動畫
+			border: 0;
+			cursor: text;
 		}
 	}
 	.input_pl{
 		position: absolute;
-		left: 30px;
+		left: 50px;
 		@include top50-50;
+		transition: .4s;
+		&:hover{
+			cursor: pointer;
+		}
 	}
 	#search{
+		height: 98px;
 		font-size: $fontSize_XXL;
+		font-family: $fmy;
 		position: absolute;
 		top: 50%;
-		right: 15px;
+		right: 50px;
+		background: #fff;
+		border: 0;
+		// outline: 0;
 		@include top50-50;
-
+		&:hover{
+			cursor: pointer;
+		}
 		.search_img{
 			width: 35px;
 			height: 35px;
