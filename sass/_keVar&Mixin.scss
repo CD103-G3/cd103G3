@@ -1,4 +1,9 @@
-//設定顏色
+//btn
+$btn_Wmin: 150px;
+$btn_Wmax: 250px;
+
+$btn_Wmin_sm: 200px;
+$btn_Wmax_sm: 300px;
 
 @mixin semi-transparent-colors($attribute,$color,$background){ 
   $percent: alpha($color) * 100%; //獲取顏色透明度值，並轉換成百分比 
@@ -10,25 +15,6 @@
 @mixin top50-50 {  //哪邊需要top減50的置中
   top: 50%;
   transform: translateY(-50%);
-}
-@mixin longin_to_btn {
-  width: 50%;
-  margin: 15px auto;
-  font-size: $fontSize_L;
-  // background-color: $color_main1;
-  background-color: #fff6;
-  border: 4px solid $color_main1;
-  display: block;
-  text-align: center;
-  padding: 6px 0;
-  @content;
-}
-@mixin btn_main1 {
-  font-size: $fontSize_L;
-  background-color: $color_main1;
-  border: 0;
-  font-family: $fmy;
-  @content;
 }
 @mixin close ($top,$left){
   &::before{

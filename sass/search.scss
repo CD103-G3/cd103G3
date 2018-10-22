@@ -1,0 +1,12 @@
+@import "daycookVar";
+@import "reset";
+@import "layout/daycookMixin";
+@import "keVar&Mixin.scss";
+@import "searchVar&Mixin";
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	// outline: 1px solid #f00;
+}

@@ -1,7 +1,8 @@
 @import "daycookVar";
 @import "reset";
-@import "daycookMixin";
-@import "longingMixin";
+@import "layout/daycookMixin";
+@import "loginVar&Mixin";
+@import "keVar&Mixin";
 
 *{
 	padding: 0;
@@ -20,13 +21,13 @@
 	transition: .4s;
 	// background-color: rgba($color_main3,.7);
 	@include semi-transparent-colors(background-color,rgba($color_main3,.9),$color_main3);
-  // position: fixed;
+  position: fixed;
   top: 100.228px;
   left: 0;
 	&_content{  //登入註冊置中框，顯示畫面區
     width: 100%;
     height: 100%;
-		// overflow: hidden;
+		overflow: hidden;
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -178,7 +179,7 @@
       position: relative;
       left: 50%;
       top: 15px;
-      transform: translateX(-60%);
+      transform: translateX(-90%);
     }
     img:nth-child(2){
       position: relative;
@@ -218,19 +219,17 @@
 @include rwd(sm,float) { 
   .longing_logo{
     display: block;
-    // position: fixed;
+    width: 15%;
+    position: fixed;
     top: calc(100px + 2%);
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-47%);
   }
   .longing_wrap{  //登入註冊滿版外圍
     z-index: 5;
-    // position: fixed;
     top: 0;
     &_content{  //登入註冊置中框，顯示畫面區
       height: 100%;
-      // overflow: hidden;
-      position: absolute;
       top: 70%;
       left: 0;
       right: 0;
