@@ -1,2 +1,8 @@
 node_modules
-libs
+
+libs 
+gulpfile.js 
+.bowerrc 
+bower.json 
+package-lock.json
+.gitignore
