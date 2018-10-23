@@ -19,8 +19,7 @@ time, mark, audio, video {
   font: inherit;
   font-family: 微軟正黑體, arial, "sans serif";
   color: #333333;
-  vertical-align: baseline;
-  box-sizing: border-box; }
+  vertical-align: baseline; }
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -91,7 +90,11 @@ table {
   display: block;
   clear: both; }
 
-button {
+.longing_wrap * {
+  box-sizing: border-box;
+  outline: 1px solid #f00; }
+
+.longing_wrap button {
   width: 50%;
   margin: auto;
   display: block;
@@ -352,15 +355,15 @@ button {
     float: left;
     box-sizing: border-box;
     padding: 10px; }
-  button {
-    width: 20%;
-    min-width: 300px; }
   .close_longing {
-    left: 62%;
-    top: 37.7%; }
+    left: 0;
+    right: calc(-30% - 180px);
+    top: 37.7%;
+    margin: auto; }
   .longing_logo {
-    width: 50%;
-    max-width: 425px;
+    width: 25%;
+    min-width: 230px;
+    max-width: 330px;
     display: block;
     position: fixed;
     top: calc(100px - 5%);
@@ -379,11 +382,13 @@ button {
         height: 200%; }
         .longing_wrap_content_cover .cover_run {
           font-size: 24px; }
+    .longing_wrap button {
+      width: 20%;
+      min-width: 300px; }
   .longing_wrap_content_cover .input_wrap {
     width: 20%;
-    min-width: 300px; }
-    .longing_wrap_content_cover .input_wrap label {
-      font-size: 20px; }
+    min-width: 300px;
+    margin: 25px auto 45px; }
     .longing_wrap_content_cover .input_wrap .input_mem {
       height: 50px;
       padding-left: 60px; }
@@ -396,6 +401,7 @@ button {
       height: 30px; }
   .longing_heard {
     width: 30%;
+    min-width: 450px;
     margin: auto;
     padding: 30px 0 40px; }
     .longing_heard .btn_to_sigin span {
@@ -421,6 +427,38 @@ button {
     width: 20%;
     min-width: 300px;
     margin: 60px auto; } }
+
+@media screen and (min-width: 1024px) {
+  .part-md-1 {
+    width: 8.33333%; }
+  .part-md-2 {
+    width: 16.66667%; }
+  .part-md-3 {
+    width: 25%; }
+  .part-md-4 {
+    width: 33.33333%; }
+  .part-md-5 {
+    width: 41.66667%; }
+  .part-md-6 {
+    width: 50%; }
+  .part-md-7 {
+    width: 58.33333%; }
+  .part-md-8 {
+    width: 66.66667%; }
+  .part-md-9 {
+    width: 75%; }
+  .part-md-10 {
+    width: 83.33333%; }
+  .part-md-11 {
+    width: 91.66667%; }
+  .part-md-12 {
+    width: 100%; }
+  .part-md-1, .part-md-2, .part-md-3, .part-md-4, .part-md-5, .part-md-6, .part-md-7, .part-md-8, .part-md-9, .part-md-10, .part-md-11, .part-md-12 {
+    float: left;
+    box-sizing: border-box;
+    padding: 10px; }
+  .close_longing {
+    top: 37.7%; } }
 
 @media screen and (min-width: 1200px) {
   .part-lg-1 {
@@ -451,8 +489,10 @@ button {
     float: left;
     box-sizing: border-box;
     padding: 10px; }
-  .longing_wrap_content_cover .input_wrap label {
-    font-size: 24px; }
+  .close_longing {
+    right: 0%;
+    left: 30%;
+    top: 37.7%; }
   .longing_wrap_content_cover .input_wrap .input_mem {
     height: 50px;
     padding-left: 60px; }
@@ -464,30 +504,34 @@ button {
     width: 30px;
     height: 30px; } }
 
-body {
-  background-color: #FCE444; }
-
 #close_chatBot {
   display: none; }
 
 #chatBot {
-  width: 25%;
-  min-width: 300px;
-  position: fixed;
-  right: 30px;
-  bottom: 30px; }
+  width: 100%;
+  position: absolute;
+  top: 100.228px;
+  left: 0; }
+  #chatBot * {
+    box-sizing: border-box; }
 
-.chatBot_pic {
-  width: 80px;
-  cursor: pointer; }
+.close_chatBot_pic img {
+  width: 50px;
+  vertical-align: middle; }
+
+#close_chatBot:checked ~ .close_chatBot_pic img {
+  display: none; }
+
+#close_chatBot:checked ~ .chatBot_contenier {
+  display: block;
+  width: auto;
+  height: 100%;
+  transition: height 0.4s; }
 
 .chatBot_contenier {
-  width: 100%;
-  height: 380px;
-  min-height: 360px;
+  display: none;
   background-color: #208ee8;
-  border-radius: 15px 15px 15px 15px;
-  padding: 0 15px 15px;
+  padding: 0 16px;
   text-align: center;
   letter-spacing: 1px; }
   .chatBot_contenier h3 {
@@ -515,33 +559,156 @@ body {
       right: 0; }
 
 #chatBot_content {
-  height: 65%;
   background-color: #fff;
   border-radius: 10px;
-  padding: 15px;
   text-align: left; }
-  #chatBot_content .chatBot_content {
-    border-radius: 10px;
-    background-color: #FCE444;
-    padding: 5px; }
+  #chatBot_content .chatBot_content_wrap {
+    padding: 16px 16px 60%;
+    max-height: 100px;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto; }
+    #chatBot_content .chatBot_content_wrap .chatBot_content {
+      border-radius: 10px;
+      background-color: #FCE444;
+      padding: 5px;
+      line-height: 1.6em; }
+    #chatBot_content .chatBot_content_wrap p {
+      margin: 15px 0; }
 
 .chatBot_keyword {
-  padding: 10px 0; }
+  padding: 10px 0;
+  overflow: scroll;
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap; }
+  .chatBot_keyword::-webkit-scrollbar {
+    width: 10px;
+    height: 10px; }
+  .chatBot_keyword::-webkit-scrollbar-thumb {
+    background-color: #9999;
+    background-color: #245075;
+    background-color: rgba(36, 80, 117, 0.7);
+    border-radius: 10px; }
+  .chatBot_keyword::-webkit-scrollbar-thumb:hover {
+    background-color: #777; }
+  .chatBot_keyword::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1px #333;
+    border-radius: 10px; }
   .chatBot_keyword li {
-    float: left;
-    margin: 0 5px;
+    display: inline-block;
+    margin-left: 5px;
     background-color: #FF5000;
     color: #fff;
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 5px;
     cursor: pointer; }
 
+.chatBot_text_Wrap {
+  padding: 16px 0;
+  position: relative; }
+
+#chatBot_search {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%); }
+
 .chatBot_text {
-  width: calc(100% - 15px);
-  height: 36px;
+  width: 100%;
+  height: 40px;
   padding-left: 15px;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 0; }
+
+@media screen and (min-width: 768px) {
+  .part-sm-1 {
+    width: 8.33333%; }
+  .part-sm-2 {
+    width: 16.66667%; }
+  .part-sm-3 {
+    width: 25%; }
+  .part-sm-4 {
+    width: 33.33333%; }
+  .part-sm-5 {
+    width: 41.66667%; }
+  .part-sm-6 {
+    width: 50%; }
+  .part-sm-7 {
+    width: 58.33333%; }
+  .part-sm-8 {
+    width: 66.66667%; }
+  .part-sm-9 {
+    width: 75%; }
+  .part-sm-10 {
+    width: 83.33333%; }
+  .part-sm-11 {
+    width: 91.66667%; }
+  .part-sm-12 {
+    width: 100%; }
+  .part-sm-1, .part-sm-2, .part-sm-3, .part-sm-4, .part-sm-5, .part-sm-6, .part-sm-7, .part-sm-8, .part-sm-9, .part-sm-10, .part-sm-11, .part-sm-12 {
+    float: left;
+    box-sizing: border-box;
+    padding: 10px; }
+  #chatBot {
+    max-width: 380px;
+    top: auto;
+    left: auto;
+    right: 30px;
+    bottom: 30px; }
+  .close_chatBot_pic {
+    float: right;
+    display: inline;
+    cursor: pointer; }
+  .chatBot_contenier {
+    width: 0;
+    height: 0;
+    border-radius: 15px 15px 15px 15px;
+    margin-bottom: 10px;
+    overflow: hidden; }
+    .chatBot_contenier .close_chatBot {
+      width: 35px;
+      height: 35px;
+      position: absolute;
+      right: 15px;
+      opacity: 0;
+      cursor: pointer; }
+  #chatBot_content {
+    border-radius: 10px; }
+  .chatBot_keyword {
+    padding: 10px 0;
+    overflow: scroll;
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap; }
+    .chatBot_keyword::-webkit-scrollbar {
+      width: 10px;
+      height: 10px; }
+    .chatBot_keyword::-webkit-scrollbar-thumb {
+      background-color: #9999;
+      background-color: #245075;
+      background-color: rgba(36, 80, 117, 0.7);
+      border-radius: 10px; }
+    .chatBot_keyword::-webkit-scrollbar-thumb:hover {
+      background-color: #777; }
+    .chatBot_keyword::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 1px #333;
+      border-radius: 10px; }
+  .chatBot_text {
+    width: 100%;
+    height: 40px;
+    padding-left: 15px;
+    border-radius: 10px;
+    border: 0; }
+  #close_chatBot:checked + div > .close_chatBot {
+    opacity: 1;
+    transition: 0.8s; }
+  #close_chatBot:checked ~ .close_chatBot_pic img {
+    display: block; }
+  #close_chatBot:checked ~ .chatBot_contenier {
+    display: block; }
+  #close_chatBot:checked ~ .chatBot_contenier {
+    height: 420px; } }
 
 .search_wrap {
   width: 100%;
@@ -550,6 +717,11 @@ body {
   top: 100.228px;
   left: 0;
   text-align: center; }
+  .search_wrap * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: 1px solid #f00; }
   .search_wrap:after {
     content: "";
     height: 100%;
@@ -572,7 +744,7 @@ body {
   .search_wrap #input_search {
     font-size: 48px;
     padding-left: 50px;
-    width: calc(100% - 50px);
+    width: 100%;
     height: 98px;
     border-radius: 50px;
     border: 0;

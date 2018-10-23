@@ -8,24 +8,34 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div id="chatBot">
-		<input type="checkbox" id="close_chatBot">
+	<div style="height: 100.228px; background-color: #322a9c;position: relative; z-index:5;"></div>
+	<div id="chatBot" class="clearfix">
+		<input type="checkbox" name="close_chatBot" id="close_chatBot">
 		<div class="chatBot_contenier">
 			<h3>日食客服機器人</h3>
 			<label for="close_chatBot" class="close_chatBot"></label>
 			<div id="chatBot_content">
-				<span class="chatBot_content">HI! 請問有甚麼需要幫助的嗎?</span>
+				<div class="chatBot_content_wrap">
+					<p class="chatBot_content">HI! 很高興為您服務，您可以點擊下方關鍵字或是直接輸入詢問內容!</p><p class="chatBot_content">HI! 很高興為您服務，您可以點擊下方關鍵字或是直接輸入詢問內容!</p><p class="chatBot_content">HI! 很高興為您服務，您可以點擊下方關鍵字或是直接輸入詢問內容!</p><p class="chatBot_content">HI! 很高興為您服務，您可以點擊下方關鍵字或是直接輸入詢問內容!</p>
+				</div>
 			</div>
 			<ul class="chatBot_keyword clearfix">
 				<li>營業時間</li>
 				<li>參加飯團</li>
 				<li>發起飯團</li>
+				<li>發起飯團</li>
+				<li>發起飯團</li>
+				<li>發起飯團</li>
 			</ul>
-			<div>
+			<div class="chatBot_text_Wrap">
+				<button type="submit" id="chatBot_search">送出</button>
 				<input type="text" class="chatBot_text">
 			</div>
 		</div>
-		<img src="images/chatBot.svg" alt="日食客服機器人"  class="chatBot_pic">
+		<label for="close_chatBot" class="close_chatBot_pic">
+			<img src="images/chatBot.svg" alt="日食客服機器人"  class="chatBot_pic">			
+		</label>
+
 	</div>
 </body>
 </html>
