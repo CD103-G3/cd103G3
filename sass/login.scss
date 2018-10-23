@@ -10,6 +10,41 @@
 	box-sizing: border-box;
 	// outline: 1px solid #f00;
 }
+button{ //各自頁的button按鈕
+  width: 50%;
+  margin: auto;
+  display: block;
+  cursor: pointer;
+  @include btn_main1;
+}
+#close_longing{
+  display: none;
+}
+%closeJumpWindow {
+  background-color: $color_main2;
+  width: 35px;
+  height: 3px;
+  position: absolute;
+}
+.close_longing{
+  width: 35px;
+  height: 35px;
+  position: fixed;
+  right: 15px;
+  top: calc(100.228px + 17.5px);
+  z-index: 6;
+  cursor: pointer;
+  @include close(50%,calc(50% - 17.5px)){
+    @extend %closeJumpWindow;
+  };
+}
+#close_longing:checked ~ .longing_wrap{
+  display: none;
+  transition: .2s;
+}
+#close_longing:checked ~ .close_longing{
+  display: none;
+}
 .longing_logo{
   display: none;
 }
@@ -52,18 +87,14 @@
       .cover_run{ //畫面切換的控制器label
         font-size: $fontSize_text;
       }
-      button{ //各自頁的button按鈕
-        width: 50%;
-        margin: auto;
-        font-size: $fontSize_L;
-        background-color: $color_main1;
-        border: 0;
-        display: block;
-        font-family: $fmy;
-      }
     }
   }	
-
+  label{
+    cursor: pointer;
+  }
+  input{
+    cursor: pointer;
+  }
 }
 #to_get_Psw:checked ~ .get_Psw,
 #to_get_Psw:checked ~ .sigin{ //登入頁的忘記密碼左來
@@ -97,6 +128,7 @@
     padding-left: 60px;
     &:focus {   //提示字動畫
       border: 0;
+      cursor: text;
     }
     &:focus + label,
     &:valid + label{
@@ -109,7 +141,6 @@
     position: absolute;
     left: 60px;
     @include top50-50();
-
   }
   img{  //icon
     width: 30px;
@@ -130,7 +161,9 @@
     left: calc(100% - 45px);
     width: 20px;
   }
-
+}
+#input_pl_check_text{
+  position: static;
 }
 .longing_heard{   //登入logo && 返回button && title
 	padding: 30px 0 40px;
@@ -143,6 +176,7 @@
       border-radius: 50px;
     }
     span{  //標題字
+      width: auto;
       font-size: $fontSize_L;
       position: absolute;
       left: 50%;
@@ -153,9 +187,8 @@
 	}
 }
 .sigin{   //登入頁面
-  position: relative;
   .longing_heard{
-    padding: 20px;
+    padding: 35px;
   }
   .cover_run{   //忘記密碼跟註冊的label
     text-align: center;
@@ -191,8 +224,6 @@
     padding: 0px 0 10%;
   }
 }
-
-
 .sigup{   //註冊
   position: relative;
   transition: .4s;
@@ -210,6 +241,10 @@
       background-color: $color_main1;
     }
   }
+  .part-12{
+    position: relative;
+    padding: 0;
+  }
   #sigup_go:checked ~ .sigup{
     left: -50%;
     transition: .4;
@@ -217,13 +252,22 @@
 }
 
 @include rwd(sm,float) { 
+  button{ //各自頁的button按鈕
+    width: 20%;
+    min-width: $btn_Wmin_sm;
+  }
+  .close_longing{
+    left: 62%;
+    top: 37.7%;
+  }
   .longing_logo{
+    width: 50%;
+    max-width: 425px;
     display: block;
-    width: 15%;
     position: fixed;
-    top: calc(100px + 2%);
-    left: 50%;
-    transform: translateX(-47%);
+    top: calc(100px - 5%);
+    left: 52%;
+    transform: translateX(-50%);
   }
   .longing_wrap{  //登入註冊滿版外圍
     z-index: 5;
@@ -239,19 +283,9 @@
         .cover_run{ //畫面切換的控制器label
           font-size: $fontSize_M;
         }
-        button{ //各自頁的button按鈕
-          width: 20%;
-          font-size: $fontSize_XL;
-          background-color: $color_main1;
-          border: 0;
-          display: block;
-          font-family: $fmy;
-          min-width: $btn_Wmin_sm;
-        }
       }
     }	
   }
-
   .input_wrap{  //input跟其他組合的外層
     width: 20%;
     min-width: $btn_Wmin_sm;
@@ -272,7 +306,6 @@
       height: 30px;
     }
   }
-
   .longing_heard{   //登入logo && 返回button && title
     width: 30%;
     margin: auto;
@@ -284,9 +317,8 @@
     }
   }
   .sigin{   //登入頁面
-    position: relative;
     .longing_heard{
-      padding: 20px;
+      padding: 47px;
     }
     .to_sigup{  //註冊label
         width: 20%;
@@ -318,7 +350,6 @@
         margin: 60px auto;
     }
   }
-
  }
  @include rwd(lg,float){
   .input_wrap{  //input跟其他組合的外層
@@ -339,5 +370,4 @@
       height: 30px;
     }
   }
-
  }
