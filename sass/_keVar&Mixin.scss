@@ -4,7 +4,7 @@ $btn_Wmax: 250px;
 
 $btn_Wmin_sm: 300px;
 $btn_Wmax_sm: 300px;
-
+//顏色設定 semi-transparent-color
 @mixin semi-transparent-colors($attribute,$color,$background){ 
   $percent: alpha($color) * 100%; //獲取顏色透明度值，並轉換成百分比 
   $opaque: opacify($color,1); //顏色不透明度1
@@ -12,10 +12,12 @@ $btn_Wmax_sm: 300px;
   #{$attribute}: $solid-color; //為不透明顏色，for不支持的瀏覽器 
   #{$attribute}: $color;//為透明顏色，for支持的瀏覽器 
 }
-@mixin top50-50 {  //哪邊需要top減50的置中
+//絕對定位的置中
+@mixin top50-50 {
   top: 50%;
   transform: translateY(-50%);
 }
+//關閉按鈕的close 偽類
 @mixin close ($top,$left){
   &::before{
     content: '';
@@ -33,4 +35,25 @@ $btn_Wmax_sm: 300px;
     transform: rotate(45deg);
     @content;
   }
+}
+//登入註冊頁的標籤label 假裝button的設定(因為預設關係，同樣CSS卻會長不一樣，所以另外設)
+@mixin longin_to_btn {
+  width: 50%;
+  margin: 15px auto;
+  font-size: $fontSize_L;
+  // background-color: $color_main1;
+  background-color: #fff6;
+  border: 2px solid $color_main1;
+  display: block;
+  text-align: center;
+  padding: 4px 0;
+  @content;
+}
+//登入註冊頁的標籤bottom樣式1
+@mixin btn_main1 {
+  font-size: $fontSize_L;
+  background-color: $color_main1;
+  border: 0;
+  font-family: $fmy;
+  @content;
 }
