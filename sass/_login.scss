@@ -1,5 +1,6 @@
 .clearfix:after {
   content: "";
+  height: 0;
   display: block;
   clear: both;
 }
@@ -283,8 +284,6 @@
 }
 
 @include rwd(sm, float) {
-
-
   .close_longing {
     left: 0;
     right: calc(-30% - 180px);

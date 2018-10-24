@@ -1,24 +1,24 @@
 .search_wrap {
   *{
-    padding: 0;
-    margin: 0;
     box-sizing: border-box;
     outline: 1px solid #f00;
   }
-  //登入
+  input[type="checkbox"]{
+    display: none;
+  }
   width: 100%;
   height: 100%;
   position: fixed;
   top: 100.228px;
   left: 0;
   text-align: center;
-  &:after {
-    content: "";
+  &:after {   //黃色那塊靠下
+    content: '';
     height: 100%;
     display: inline-block;
     vertical-align: bottom;
   }
-  .search_bg {
+  .search_bg {  //黃色那塊靠下
     width: 80%;
     height: 90%;
     background-color: $color_main3;
@@ -26,7 +26,7 @@
     display: inline-block;
     vertical-align: bottom;
   }
-  .input_wrap {
+  .input_wrap {   //輸入區
     width: 80%;
     margin: 100px auto 20px;
     font-size: $fontSize_XXL;
@@ -34,7 +34,7 @@
     border-radius: 50px;
     border: 2px solid $color_main4;
   }
-  #input_search {
+  #input_search {   //input搜尋內容
     font-size: $fontSize_XXL;
     padding-left: 50px;
     width: 100%;
@@ -59,7 +59,7 @@
       cursor: text;
     }
   }
-  .input_pl {
+  .input_pl {   //input的提示字
     position: absolute;
     left: 50px;
     @include top50-50;
@@ -68,7 +68,7 @@
       cursor: pointer;
     }
   }
-  #search {
+  #start_search {   //搜尋兩個字
     height: 98px;
     font-size: $fontSize_XXL;
     font-family: $fmy;
@@ -82,7 +82,7 @@
     &:hover {
       cursor: pointer;
     }
-    .search_img {
+    .search_img { //搜尋內的小雞雞
       width: 35px;
       height: 35px;
       border-radius: 50%;
@@ -100,4 +100,62 @@
       }
     }
   }
+}
+#bookmark_meal:checked ~ .bookmark_animation #bookmark_animation_meal,
+#bookmark_groupon:checked ~ .bookmark_animation #bookmark_animation_groupon {
+  background-color: #000;
+}
+.bookmark{
+  text-align: left;
+}
+.bookmark_animation{
+  text-align: center;
+  label{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    &:after{
+      content: '';
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  span{
+    font-size: 48px;
+    width: 100%;
+    padding-bottom: 67%;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+    // padding-bottom: 25%;
+    background-color: #fff9;
+  }
+}
+
+.bookmark_meal{
+  display: block;
+  .bookmark_meal_item{
+    width: 100%;
+    padding: 15px 0; 
+    span{
+      width: 110px;
+      display: inline-block;
+      background: transparent;
+      font-size: $fontSize_M;
+    }
+    label,#meal_Price1,#meal_Price2{
+      font-size: $fontSize_S;
+      display: inline-block;
+      text-align: center;
+      width: 95px;
+      padding: 0.5% 0;
+      background: #fff;
+      border-radius: 50px;
+      margin-left: 8px;
+      border: 0;
+    }
+  }
+
 }

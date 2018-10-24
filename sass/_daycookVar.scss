@@ -25,6 +25,10 @@ $small_min:768px;	// @include rwd(sm){ 內容... }
 $medium_min:1024px;	// @include rwd(md){ 內容... }
 $large_min:1200px;	// @include rwd(lg){ 內容... }
 
+
+//格線用法
+// @include grid(sm,12);
+// @include gridStyle(sm,float);
 //小白點裡的圖示大小
 
 $white_point: 50px;

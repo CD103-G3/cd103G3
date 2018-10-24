@@ -44,6 +44,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+.clearfix:after {
+  content: '';
+  height: 0;
+  display: block;
+  clear: both; }
+
 .part-1, .part-2, .part-3, .part-4, .part-5, .part-6, .part-7, .part-8, .part-9, .part-10, .part-11, .part-12 {
   float: left;
   box-sizing: border-box;
@@ -87,6 +93,7 @@ table {
 
 .clearfix:after {
   content: "";
+  height: 0;
   display: block;
   clear: both; }
 
@@ -504,12 +511,6 @@ table {
     width: 30px;
     height: 30px; } }
 
-<<<<<<< HEAD
-#close_chatBot {
-  display: none; }
-
-=======
->>>>>>> 93c4120835dc96a729a852b21a49356fd15d9039
 #chatBot {
   width: 100%;
   height: calc(100% - 100.228px);
@@ -517,8 +518,7 @@ table {
   top: 0;
   left: 0; }
   #chatBot * {
-    box-sizing: border-box;
-    outline: 1px solid #f00; }
+    box-sizing: border-box; }
 
 .chatBot_contenier_wrap {
   display: none;
@@ -561,13 +561,46 @@ table {
     background-color: #FCE444;
     padding: 10px;
     line-height: 1.6em;
-    margin: 10px 0; }
+    margin: 10px 0;
+    position: relative; }
+    #chatBot_content p:after {
+      content: '';
+      width: 0px;
+      height: 0px;
+      display: block;
+      border-radius: 15px; }
   #chatBot_content .chatBot_content_A {
     float: left;
     margin-right: 14%; }
+    #chatBot_content .chatBot_content_A:after {
+      content: '';
+      width: 100%;
+      height: 0;
+      display: block;
+      clear: both; }
+    #chatBot_content .chatBot_content_A:before {
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-right: 15px solid #FCE444;
+      border-left: 15px solid transparent;
+      position: absolute;
+      top: 5px;
+      left: -25px; }
   #chatBot_content .chatBot_content_Q {
-    float: right;
-    margin-left: 14%; }
+    float: right; }
+    #chatBot_content .chatBot_content_Q:after {
+      content: '';
+      height: 0;
+      display: block;
+      clear: both; }
+    #chatBot_content .chatBot_content_Q:before {
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-left: 15px solid #FCE444;
+      position: absolute;
+      top: 5px;
+      right: -25px; }
 
 .chatBot_keyword {
   padding: 10px 0;
@@ -690,7 +723,6 @@ table {
     height: auto; }
   .close_chatBot_pic {
     float: right;
-    display: inline;
     cursor: pointer; }
   .chatBot_contenier_wrap {
     width: 0;
@@ -736,12 +768,12 @@ table {
   left: 0;
   text-align: center; }
   .search_wrap * {
-    padding: 0;
-    margin: 0;
     box-sizing: border-box;
     outline: 1px solid #f00; }
+  .search_wrap input[type="checkbox"] {
+    display: none; }
   .search_wrap:after {
-    content: "";
+    content: '';
     height: 100%;
     display: inline-block;
     vertical-align: bottom; }
@@ -787,7 +819,7 @@ table {
     transition: 0.4s; }
     .search_wrap .input_pl:hover {
       cursor: pointer; }
-  .search_wrap #search {
+  .search_wrap #start_search {
     height: 98px;
     font-size: 48px;
     font-family: 微軟正黑體, arial, "sans serif";
@@ -798,9 +830,9 @@ table {
     border: 0;
     top: 50%;
     transform: translateY(-50%); }
-    .search_wrap #search:hover {
+    .search_wrap #start_search:hover {
       cursor: pointer; }
-    .search_wrap #search .search_img {
+    .search_wrap #start_search .search_img {
       width: 35px;
       height: 35px;
       border-radius: 50%;
@@ -809,9 +841,58 @@ table {
       position: absolute;
       right: 0;
       top: 0; }
-      .search_wrap #search .search_img:after {
+      .search_wrap #start_search .search_img:after {
         content: "";
         position: absolute;
         width: 10px;
         height: 3px;
         background-color: #333333; }
+
+#bookmark_meal:checked ~ .bookmark_animation #bookmark_animation_meal,
+#bookmark_groupon:checked ~ .bookmark_animation #bookmark_animation_groupon {
+  background-color: #000; }
+
+.bookmark {
+  text-align: left; }
+
+.bookmark_animation {
+  text-align: center; }
+  .bookmark_animation label {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    text-align: center; }
+    .bookmark_animation label:after {
+      content: '';
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle; }
+  .bookmark_animation span {
+    font-size: 48px;
+    width: 100%;
+    padding-bottom: 67%;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+    background-color: #fff9; }
+
+.bookmark_meal {
+  display: block; }
+  .bookmark_meal .bookmark_meal_item {
+    width: 100%;
+    padding: 15px 0; }
+    .bookmark_meal .bookmark_meal_item span {
+      width: 110px;
+      display: inline-block;
+      background: transparent;
+      font-size: 24px; }
+    .bookmark_meal .bookmark_meal_item label, .bookmark_meal .bookmark_meal_item #meal_Price1, .bookmark_meal .bookmark_meal_item #meal_Price2 {
+      font-size: 20px;
+      display: inline-block;
+      text-align: center;
+      width: 95px;
+      padding: 0.5% 0;
+      background: #fff;
+      border-radius: 50px;
+      margin-left: 8px;
+      border: 0; }
