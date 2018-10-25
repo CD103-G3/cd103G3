@@ -9,15 +9,18 @@
 </head>
 
 <body>
-	<div style="height: 100.228px; background-color: #322a9c;position: relative; z-index:5;"><button id="search">搜尋</button></div>
+	<div style="height: 100px; width: 100%;background-color: #322a9c;position: fixed; z-index:5;"><button id="search">搜尋</button></div>
 	<input type="checkbox" id="close_search" checked>
 	<label for="close_search" class="close_search"></label>
 	<div class="wrap search_wrap">
+		<div class="chickenMaster_wrap">
+			<img src="images/chickenMaster.png" alt="" class="chickenMaster">
+		</div>
 		<form action="" class="search_bg">
 			<!-- 輸入區 -->
 			<div class="input_wrap">
 				<input type="text" id="input_search" maxlength="30" required>
-				<label for="input_search" class="input_pl">請輸入挑戰或餐點關鍵字</label>
+				<label for="input_search" class="input_pl">請輸入餐點關鍵字</label>
 				<button type="submit" id="start_search">搜尋<span class="search_img"></span></button>
 			</div>
 			<!-- 頁籤區 -->
@@ -62,8 +65,8 @@
 					</div>
 					<div class="bookmark_meal_item clearfix">
 						<span>價格</span>
-						<input type="text" name="meal_Price" id="meal_Price1">
-
+						<input type="text" name="meal_Price" class="meal_Price" id="meal_Price1">
+						~
 						<input type="text" name="meal_Price" id="meal_Price2">
 					</div>
 				</div>

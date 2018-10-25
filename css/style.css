@@ -95,6 +95,12 @@ table {
   display: inline-block;
   vertical-align: middle; }
 
+.close_longing::before, .close_longing::after, .close_chatBot::before, .close_chatBot::after {
+  background-color: #76391B;
+  width: 35px;
+  height: 3px;
+  position: absolute; }
+
 .longing_wrap * {
   box-sizing: border-box;
   outline: 1px solid #f00; }
@@ -112,29 +118,23 @@ table {
 #close_longing {
   display: none; }
 
-.close_longing::before, .close_longing::after, .close_chatBot::before, .close_chatBot::after {
-  background-color: #76391B;
-  width: 35px;
-  height: 3px;
-  position: absolute; }
-
 .close_longing {
   width: 35px;
   height: 35px;
   position: fixed;
   right: 15px;
-  top: calc(100.228px + 17.5px);
+  top: calc(100px + 17px);
   z-index: 6;
   cursor: pointer; }
   .close_longing::before {
     content: '';
     top: 50%;
-    left: calc(50% - 17.5px);
+    left: calc(50% - 17px);
     transform: rotate(-45deg); }
   .close_longing::after {
     content: '';
     top: 50%;
-    left: calc(50% - 17.5px);
+    left: calc(50% - 17px);
     transform: rotate(45deg); }
 
 #close_longing:checked ~ .longing_wrap {
@@ -154,7 +154,7 @@ table {
   background-color: #fcf2ca;
   background-color: rgba(252, 242, 202, 0.9);
   position: fixed;
-  top: 100.228px;
+  top: 100px;
   left: 0; }
   .longing_wrap_content {
     width: 100%;
@@ -511,7 +511,7 @@ table {
 
 #chatBot {
   width: 100%;
-  height: calc(100% - 100.228px);
+  height: calc(100% - 100px);
   position: absolute;
   top: 0;
   left: 0; }
@@ -545,12 +545,12 @@ table {
     width: 10px;
     height: 10px; }
   #chatBot_content::-webkit-scrollbar-thumb {
-    background-color: #9999;
+    background-color: #BB7232;
     background-color: #245075;
     background-color: rgba(36, 80, 117, 0.7);
     border-radius: 10px; }
   #chatBot_content::-webkit-scrollbar-thumb:hover {
-    background-color: #777; }
+    background-color: #76391B; }
   #chatBot_content::-webkit-scrollbar-track {
     box-shadow: inset 0 0 1px #333;
     border-radius: 10px; }
@@ -610,12 +610,12 @@ table {
     width: 10px;
     height: 10px; }
   .chatBot_keyword::-webkit-scrollbar-thumb {
-    background-color: #9999;
+    background-color: #BB7232;
     background-color: #245075;
     background-color: rgba(36, 80, 117, 0.7);
     border-radius: 10px; }
   .chatBot_keyword::-webkit-scrollbar-thumb:hover {
-    background-color: #777; }
+    background-color: #76391B; }
   .chatBot_keyword::-webkit-scrollbar-track {
     box-shadow: inset 0 0 1px #333;
     border-radius: 10px; }
@@ -654,8 +654,8 @@ table {
   vertical-align: middle; }
 
 .close_chatBot {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 40px;
   position: absolute;
   right: 15px;
   cursor: pointer; }
@@ -673,7 +673,7 @@ table {
     right: 0; }
 
 #close_chatBot:checked ~ #chatBot {
-  top: 100.228px; }
+  top: 100px; }
 
 #close_chatBot:checked ~ #chatBot .close_chatBot_pic img {
   display: none; }
@@ -713,6 +713,7 @@ table {
     box-sizing: border-box;
     padding: 10px; }
   #chatBot {
+    width: auto;
     max-width: 380px;
     top: auto;
     left: auto;
@@ -729,8 +730,8 @@ table {
     margin-bottom: 10px;
     overflow: hidden; }
     .chatBot_contenier_wrap .close_chatBot {
-      width: 35px;
-      height: 35px;
+      width: 30px;
+      height: 40px;
       position: absolute;
       right: 15px;
       opacity: 0;
@@ -762,7 +763,7 @@ table {
   width: 100%;
   height: 100%;
   position: fixed;
-  top: 100.228px;
+  top: 100px;
   left: 0;
   text-align: center; }
   .search_wrap * {
@@ -774,26 +775,27 @@ table {
     content: '';
     height: 100%;
     display: inline-block;
-    vertical-align: bottom; }
+    vertical-align: top; }
   .search_wrap .search_bg {
     width: 80%;
-    height: 90%;
+    max-width: 1200px;
+    height: 80%;
     background-color: #FCF2CA;
-    border-radius: 50px;
+    border-radius: 0 0 50px 50px;
     display: inline-block;
-    vertical-align: bottom; }
+    vertical-align: top; }
   .search_wrap .input_wrap {
     width: 80%;
     margin: 100px auto 20px;
-    font-size: 48px;
+    font-size: 36px;
     position: relative;
     border-radius: 50px;
     border: 2px solid #BB7232; }
   .search_wrap #input_search {
-    font-size: 48px;
+    font-size: 36px;
     padding-left: 50px;
     width: 100%;
-    height: 98px;
+    line-height: 70px;
     border-radius: 50px;
     border: 0;
     outline: none; }
@@ -804,7 +806,7 @@ table {
       top: 0;
       transform: translateY(-150%);
       transition: 0.4s;
-      font-size: 36px;
+      font-size: 30px;
       cursor: text; }
     .search_wrap #input_search:focus {
       border: 0;
@@ -818,8 +820,8 @@ table {
     .search_wrap .input_pl:hover {
       cursor: pointer; }
   .search_wrap #start_search {
-    height: 98px;
-    font-size: 48px;
+    line-height: 70px;
+    font-size: 36px;
     font-family: 微軟正黑體, arial, "sans serif";
     position: absolute;
     top: 50%;
@@ -830,25 +832,40 @@ table {
     transform: translateY(-50%); }
     .search_wrap #start_search:hover {
       cursor: pointer; }
-    .search_wrap #start_search .search_img {
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      border: 3px solid #333333;
-      background-color: transparent;
-      position: absolute;
-      right: 0;
-      top: 0; }
-      .search_wrap #start_search .search_img:after {
-        content: "";
-        position: absolute;
-        width: 10px;
-        height: 3px;
-        background-color: #333333; }
 
-#bookmark_meal:checked ~ .bookmark_animation #bookmark_animation_meal,
-#bookmark_groupon:checked ~ .bookmark_animation #bookmark_animation_groupon {
-  background-color: #000; }
+.chickenMaster_wrap {
+  width: 30%;
+  position: absolute;
+  left: 0;
+  bottom: 85px; }
+  .chickenMaster_wrap:after {
+    content: '餐點或飯團二擇一，底下還有更多篩選條件喔!';
+    font-size: 24px;
+    width: 70%;
+    padding: 15px 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: left;
+    position: absolute;
+    right: 10%;
+    bottom: 100%; }
+  .chickenMaster_wrap:before {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+    background-color: #fff;
+    position: absolute;
+    right: 65%;
+    top: -10px;
+    z-index: 1;
+    transform: rotate(45deg); }
+  .chickenMaster_wrap .chickenMaster {
+    width: 100%;
+    transform: scaleX(-1); }
 
 .bookmark {
   text-align: left; }
@@ -858,17 +875,18 @@ table {
   .bookmark_animation label {
     width: 150px;
     height: 150px;
+    line-height: 150px;
     display: inline-block;
     cursor: pointer; }
     .bookmark_animation label:after {
       content: '';
       height: 100%; }
   .bookmark_animation span {
-    font-size: 48px;
+    font-size: 36px;
     width: 100%;
-    padding-bottom: 67%;
-    border-radius: 50%;
-    background-color: #fff9; }
+    line-height: 150px;
+    background-color: #fff9;
+    border-radius: 50%; }
 
 .bookmark_meal {
   display: block;
@@ -894,63 +912,67 @@ table {
         background-color: #FF5000; }
     .bookmark_meal .bookmark_meal_item label, .bookmark_meal .bookmark_meal_item #meal_Price1, .bookmark_meal .bookmark_meal_item #meal_Price2 {
       font-size: 20px;
+      font-weight: bold;
       display: inline-block;
       text-align: center;
       width: 95px;
       padding: 0.5% 0;
       background: #fff;
+      border: 1px solid #FF5000;
       border-radius: 50px;
       margin-right: 8px;
-      border: 0;
       cursor: pointer; }
     .bookmark_meal .bookmark_meal_item #meal_Price1, .bookmark_meal .bookmark_meal_item #meal_Price2 {
       cursor: text;
       position: relative; }
 
-#meal_Price1:after {
-  content: '';
-  width: 5535px;
-  height: 552px;
-  display: block;
-  top: 0;
-  left: 0;
-  background-color: #000; }
-
 #mealGenre_No1:hover ~ .mealGenre_No:nth-of-type(1) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #mealGenre_No1:checked ~ .mealGenre_No:nth-of-type(1) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #mealGenre_No2:hover ~ .mealGenre_No:nth-of-type(2) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #mealGenre_No2:checked ~ .mealGenre_No:nth-of-type(2) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #mealGenre_No3:hover ~ .mealGenre_No:nth-of-type(3) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #mealGenre_No3:checked ~ .mealGenre_No:nth-of-type(3) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #mealGenre_No4:hover ~ .mealGenre_No:nth-of-type(4) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #mealGenre_No4:checked ~ .mealGenre_No:nth-of-type(4) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #mealGenre_No5:hover ~ .mealGenre_No:nth-of-type(5) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #mealGenre_No5:checked ~ .mealGenre_No:nth-of-type(5) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #mealGenre_No6:hover ~ .mealGenre_No:nth-of-type(6) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #mealGenre_No6:checked ~ .mealGenre_No:nth-of-type(6) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #meal_Cal1:hover ~ .meal_Cal:nth-of-type(1) {
   background-color: #FF5000; }

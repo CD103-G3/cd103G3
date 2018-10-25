@@ -16,21 +16,16 @@
 #close_longing {
   display: none;
 }
-%closeJumpWindow {
-  background-color: $color_main2;
-  width: 35px;
-  height: 3px;
-  position: absolute;
-}
+
 .close_longing {
   width: 35px;
   height: 35px;
   position: fixed;
   right: 15px;
-  top: calc(100.228px + 17.5px);
+  top: calc(100px + 17px);
   z-index: 6;
   cursor: pointer;
-  @include close(50%, calc(50% - 17.5px)) {
+  @include close(50%, calc(50% - 17px)) {
     @extend %closeJumpWindow;
   }
 }
@@ -60,7 +55,7 @@
     $color_main3
   );
   position: fixed;
-  top: 100.228px;
+  top: 100px;
   left: 0;
   &_content {
     //登入註冊置中框，顯示畫面區

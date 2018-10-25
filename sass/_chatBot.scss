@@ -1,7 +1,7 @@
 #chatBot {
   //客服機器人最外層
   width: 100%;
-  height: calc(100% - 100.228px);
+  height: calc(100% - 100px);
   position: absolute;
   top: 0;
   left: 0;
@@ -137,8 +137,8 @@
 }
 .close_chatBot {
   //機器人開關按鈕
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 40px;
   position: absolute;
   right: 15px;
   cursor: pointer;
@@ -148,7 +148,7 @@
   }
 }
 #close_chatBot:checked ~ #chatBot{
-  top: 100.228px;
+  top: 100px;
 }
 #close_chatBot:checked ~ #chatBot .close_chatBot_pic img {
   display: none;
@@ -160,6 +160,7 @@
 }
 @include rwd(sm, float) {
   #chatBot {
+    width: auto;
     max-width: 380px;
     top: auto;
     left: auto;
@@ -178,8 +179,8 @@
     margin-bottom: 10px;
     overflow: hidden;
     .close_chatBot {
-      width: 35px;
-      height: 35px;
+      width: 30px;
+      height: 40px;
       position: absolute;
       right: 15px;
       opacity: 0;

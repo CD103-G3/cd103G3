@@ -4,6 +4,20 @@ $btn_Wmax: 250px;
 
 $btn_Wmin_sm: 300px;
 $btn_Wmax_sm: 300px;
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ib_middle{
+  display: inline-block;
+  vertical-align: middle;
+}
+%closeJumpWindow {
+  background-color: $color_main2;
+  width: 35px;
+  height: 3px;
+  position: absolute;
+}
+
+//@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin
 //顏色設定 semi-transparent-color
 @mixin semi-transparent-colors($attribute,$color,$background){ 
   $percent: alpha($color) * 100%; //獲取顏色透明度值，並轉換成百分比 
@@ -66,7 +80,7 @@ $btn_Wmax_sm: 300px;
   }
   &::-webkit-scrollbar-thumb {
     //移動的那塊
-    background-color: #9999;
+    background-color: $color_main4;
     @include semi-transparent-colors(
       background-color,
       rgba($color_hot2, 0.7),
@@ -75,7 +89,7 @@ $btn_Wmax_sm: 300px;
     border-radius: 10px;
   }
   &::-webkit-scrollbar-thumb:hover {
-    background-color: #777;
+    background-color: $color_main2;
   }
   &::-webkit-scrollbar-track {
     //背景
@@ -83,9 +97,4 @@ $btn_Wmax_sm: 300px;
     border-radius: 10px;
   }
   @content;
-}
-
-%ib_middle{
-  display: inline-block;
-  vertical-align: middle;
 }
