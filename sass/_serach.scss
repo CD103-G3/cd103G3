@@ -1,7 +1,7 @@
 .search_wrap {
   *{
     box-sizing: border-box;
-    outline: 1px solid #f00;
+    // outline: 1px solid #f00;
   }
   input[type="checkbox"]{
     display: none;
@@ -18,9 +18,9 @@
     display: inline-block;
     vertical-align: top;
   }
+
   .search_bg {  //黃色那塊靠下
     width: 80%;
-    max-width: 1200px;
     height: 80%;
     background-color: $color_main3;
     border-radius:0 0 50px 50px;
@@ -88,20 +88,23 @@
 }
 .chickenMaster_wrap{
   width: 30%;
+  max-width: 550px;
   position: absolute;
   left: 0;
   bottom: 85px;
   &:after{
-    content: '餐點或飯團二擇一，底下還有更多篩選條件喔!';
-    font-size: 24px;
-    width: 70%;
+    content: '除了關鍵字，可以選擇指定搜尋餐點或飯團，底下篩選還可複選喔!';
+    font-size: $fontSize_M;
+    line-height: 1.5em;
+    width: 60%;
+    min-width: 150px;
     padding: 15px 20px;
     border: 1px solid #000;
     border-radius: 10px;
     background-color: #fff;
     text-align: left;
     position: absolute;
-    right: 10%;
+    left: 30px;
     bottom: 100%;
   }
   &:before{
@@ -126,14 +129,23 @@
 
 .bookmark{
   text-align: left;
+  margin: 50px 0;
+  input[type="radio"]{
+    display: none;
+  }
 }
 .bookmark_animation{
   text-align: center;
+  position: relative;
   label{
-    width: 150px;
-    height: 150px;
-    line-height: 150px;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
     display: inline-block;
+    margin-left: 120px;
+    transform: translateX(-50%);
+    position: relative;
+    z-index: 1;
     cursor: pointer;
     &:after{
       content: '';
@@ -145,15 +157,109 @@
     font-size: $fontSize_XL;
     width: 100%;
     @extend %ib_middle;
-    line-height: 150px;
-    background-color: #fff9;
+    line-height: 120px;
+    background-color: #FEFAEA;
     border-radius: 50%;
+    transform:  scale(1) ;
+    transition: .4s;
+  }
+  .bookmark_animation1{
+    @extend %ball;
+    background: transparent;
+    width: 180px;
+    height: 80px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    animation: rot 10s infinite;
+    z-index: 0;
+    &::after{
+      content: '';
+      @extend %ball;
+      border-radius: 47%;
+      transform: translate(-50%,-70%);
+      @include semi-transparent-colors(background-color,rgba(#FEFAEA,.9),#FEFAEA);
+      animation: toBig2 4.5s infinite;
+    }
+    &::before{
+      content: '';
+      @extend %ball;
+      border-radius: 45%;
+      transform: translate(-50%,-70%);
+      @include semi-transparent-colors(background-color,rgba(#FEFAEA,.3),#FEFAEA);
+      animation: toBig 4.5s infinite;
+    }
+  }
+  .bookmark_animation2{
+    @extend %ball;
   }
 }
 
+#bookmark_meal:checked ~ .bookmark_animation > #bookmark_animation_meal span{
+  // animation: toBig2 .4s forwards;
+  transform:  scale(1.5) ;
+  transition: .4s;
+}
+#bookmark_groupon:checked + .bookmark_animation > #bookmark_animation_groupon span{
+  // animation: toBig 3s infinite -1.5s;
+  // animation: toBig2 .4s forwards;
+  transform:  scale(1.5) ;
+  transition: .4s;
+}
+
+
+
+@keyframes toBig  {
+  0% {
+    transform:  scale(1.7);
+  }
+  30% {
+    transform:  scale(1.5) rotate(360deg);
+  }
+  50% {
+    transform:  scale(1.5) ;
+  }
+  80% {
+    transform:  scale(1) ;
+  }
+  100% {
+    transform:  scale(1.7) rotate(180deg);
+  }
+  
+}
+@keyframes toBig2  {
+  0% {
+    transform:  scale(1.7);
+  }
+  30% {
+    transform:  scale(1.5) rotate(180deg);
+  }
+  50% {
+    transform:  scale(1.5) ;
+  }
+  80% {
+    transform:  scale(1) ;
+  }
+  100% {
+    transform:  scale(1.7) rotate(360deg);
+  }
+}
+
+@keyframes rot  {
+  0% {
+    transform:  rotate(0deg);
+  }
+  100% {
+    transform:  rotate(360deg);
+  }
+  
+}
 .bookmark_meal{
   display: block;
   padding-left: 25%;
+  padding-top: 30px;
   height: 100%;
   .bookmark_meal_item{
     width: 100%;
@@ -173,12 +279,17 @@
         height: 5px;
         border-radius: 50px;
         background-color: $color_hot;
+        margin: 5px 0;
       }
+    }
+    div{
+      width: 75%;
+      @extend %ib_middle;
     }
     label,#meal_Price1,#meal_Price2{
       font-size: $fontSize_S;
       font-weight: bold;
-      display: inline-block;
+      @extend %ib_middle;
       text-align: center;
       width: 95px;
       padding: 0.5% 0;
@@ -188,6 +299,9 @@
       margin-right: 8px;
       // border: 0;
       cursor: pointer;
+    }
+    .meal_Cal{
+      width: 130px;
     }
     #meal_Price1,#meal_Price2{
       cursor: text;
@@ -211,8 +325,11 @@
 @for $i from 1 through 6 {
   #meal_Cal#{$i}:hover ~  .meal_Cal:nth-of-type(#{$i}){
     background-color: $color_hot;
-  }
+    color: #fff;}
   #meal_Cal#{$i}:checked ~  .meal_Cal:nth-of-type(#{$i}){
     background-color: $color_hot;
-  }
+    color: #fff; }
+}
+@include rwd(sm,float){
+
 }

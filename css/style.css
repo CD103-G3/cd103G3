@@ -91,7 +91,7 @@ table {
 .part-12 {
   width: 100%; }
 
-.bookmark_animation label:after, .bookmark_animation span {
+.bookmark_animation label:after, .bookmark_animation span, .bookmark_meal .bookmark_meal_item div, .bookmark_meal .bookmark_meal_item label, .bookmark_meal .bookmark_meal_item #meal_Price1, .bookmark_meal .bookmark_meal_item #meal_Price2 {
   display: inline-block;
   vertical-align: middle; }
 
@@ -99,6 +99,13 @@ table {
   background-color: #76391B;
   width: 35px;
   height: 3px;
+  position: absolute; }
+
+.bookmark_animation .bookmark_animation1, .bookmark_animation .bookmark_animation1::after, .bookmark_animation .bookmark_animation1::before, .bookmark_animation .bookmark_animation2 {
+  top: 50%;
+  left: 0%;
+  width: 15px;
+  height: 15px;
   position: absolute; }
 
 .longing_wrap * {
@@ -767,8 +774,7 @@ table {
   left: 0;
   text-align: center; }
   .search_wrap * {
-    box-sizing: border-box;
-    outline: 1px solid #f00; }
+    box-sizing: border-box; }
   .search_wrap input[type="checkbox"] {
     display: none; }
   .search_wrap:after {
@@ -778,7 +784,6 @@ table {
     vertical-align: top; }
   .search_wrap .search_bg {
     width: 80%;
-    max-width: 1200px;
     height: 80%;
     background-color: #FCF2CA;
     border-radius: 0 0 50px 50px;
@@ -835,20 +840,23 @@ table {
 
 .chickenMaster_wrap {
   width: 30%;
+  max-width: 550px;
   position: absolute;
   left: 0;
   bottom: 85px; }
   .chickenMaster_wrap:after {
-    content: '餐點或飯團二擇一，底下還有更多篩選條件喔!';
+    content: '除了關鍵字，可以選擇指定搜尋餐點或飯團，底下篩選還可複選喔!';
     font-size: 24px;
-    width: 70%;
+    line-height: 1.5em;
+    width: 60%;
+    min-width: 150px;
     padding: 15px 20px;
     border: 1px solid #000;
     border-radius: 10px;
     background-color: #fff;
     text-align: left;
     position: absolute;
-    right: 10%;
+    left: 30px;
     bottom: 100%; }
   .chickenMaster_wrap:before {
     content: '';
@@ -868,15 +876,23 @@ table {
     transform: scaleX(-1); }
 
 .bookmark {
-  text-align: left; }
+  text-align: left;
+  margin: 50px 0; }
+  .bookmark input[type="radio"] {
+    display: none; }
 
 .bookmark_animation {
-  text-align: center; }
+  text-align: center;
+  position: relative; }
   .bookmark_animation label {
-    width: 150px;
-    height: 150px;
-    line-height: 150px;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
     display: inline-block;
+    margin-left: 120px;
+    transform: translateX(-50%);
+    position: relative;
+    z-index: 1;
     cursor: pointer; }
     .bookmark_animation label:after {
       content: '';
@@ -884,13 +900,79 @@ table {
   .bookmark_animation span {
     font-size: 36px;
     width: 100%;
-    line-height: 150px;
-    background-color: #fff9;
-    border-radius: 50%; }
+    line-height: 120px;
+    background-color: #FEFAEA;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: .4s; }
+  .bookmark_animation .bookmark_animation1 {
+    background: transparent;
+    width: 180px;
+    height: 80px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    animation: rot 10s infinite;
+    z-index: 0; }
+    .bookmark_animation .bookmark_animation1::after {
+      content: '';
+      border-radius: 47%;
+      transform: translate(-50%, -70%);
+      background-color: #fefaea;
+      background-color: rgba(254, 250, 234, 0.9);
+      animation: toBig2 4.5s infinite; }
+    .bookmark_animation .bookmark_animation1::before {
+      content: '';
+      border-radius: 45%;
+      transform: translate(-50%, -70%);
+      background-color: #fefaea;
+      background-color: rgba(254, 250, 234, 0.3);
+      animation: toBig 4.5s infinite; }
+
+#bookmark_meal:checked ~ .bookmark_animation > #bookmark_animation_meal span {
+  transform: scale(1.5);
+  transition: .4s; }
+
+#bookmark_groupon:checked + .bookmark_animation > #bookmark_animation_groupon span {
+  transform: scale(1.5);
+  transition: .4s; }
+
+@keyframes toBig {
+  0% {
+    transform: scale(1.7); }
+  30% {
+    transform: scale(1.5) rotate(360deg); }
+  50% {
+    transform: scale(1.5); }
+  80% {
+    transform: scale(1); }
+  100% {
+    transform: scale(1.7) rotate(180deg); } }
+
+@keyframes toBig2 {
+  0% {
+    transform: scale(1.7); }
+  30% {
+    transform: scale(1.5) rotate(180deg); }
+  50% {
+    transform: scale(1.5); }
+  80% {
+    transform: scale(1); }
+  100% {
+    transform: scale(1.7) rotate(360deg); } }
+
+@keyframes rot {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 
 .bookmark_meal {
   display: block;
   padding-left: 25%;
+  padding-top: 30px;
   height: 100%; }
   .bookmark_meal .bookmark_meal_item {
     width: 100%;
@@ -909,11 +991,13 @@ table {
         width: 105%;
         height: 5px;
         border-radius: 50px;
-        background-color: #FF5000; }
+        background-color: #FF5000;
+        margin: 5px 0; }
+    .bookmark_meal .bookmark_meal_item div {
+      width: 75%; }
     .bookmark_meal .bookmark_meal_item label, .bookmark_meal .bookmark_meal_item #meal_Price1, .bookmark_meal .bookmark_meal_item #meal_Price2 {
       font-size: 20px;
       font-weight: bold;
-      display: inline-block;
       text-align: center;
       width: 95px;
       padding: 0.5% 0;
@@ -922,6 +1006,8 @@ table {
       border-radius: 50px;
       margin-right: 8px;
       cursor: pointer; }
+    .bookmark_meal .bookmark_meal_item .meal_Cal {
+      width: 130px; }
     .bookmark_meal .bookmark_meal_item #meal_Price1, .bookmark_meal .bookmark_meal_item #meal_Price2 {
       cursor: text;
       position: relative; }
@@ -975,37 +1061,79 @@ table {
   color: #fff; }
 
 #meal_Cal1:hover ~ .meal_Cal:nth-of-type(1) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #meal_Cal1:checked ~ .meal_Cal:nth-of-type(1) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #meal_Cal2:hover ~ .meal_Cal:nth-of-type(2) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #meal_Cal2:checked ~ .meal_Cal:nth-of-type(2) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #meal_Cal3:hover ~ .meal_Cal:nth-of-type(3) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #meal_Cal3:checked ~ .meal_Cal:nth-of-type(3) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #meal_Cal4:hover ~ .meal_Cal:nth-of-type(4) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #meal_Cal4:checked ~ .meal_Cal:nth-of-type(4) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #meal_Cal5:hover ~ .meal_Cal:nth-of-type(5) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #meal_Cal5:checked ~ .meal_Cal:nth-of-type(5) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #meal_Cal6:hover ~ .meal_Cal:nth-of-type(6) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
 
 #meal_Cal6:checked ~ .meal_Cal:nth-of-type(6) {
-  background-color: #FF5000; }
+  background-color: #FF5000;
+  color: #fff; }
+
+@media screen and (min-width: 768px) {
+  .part-sm-1 {
+    width: 8.33333%; }
+  .part-sm-2 {
+    width: 16.66667%; }
+  .part-sm-3 {
+    width: 25%; }
+  .part-sm-4 {
+    width: 33.33333%; }
+  .part-sm-5 {
+    width: 41.66667%; }
+  .part-sm-6 {
+    width: 50%; }
+  .part-sm-7 {
+    width: 58.33333%; }
+  .part-sm-8 {
+    width: 66.66667%; }
+  .part-sm-9 {
+    width: 75%; }
+  .part-sm-10 {
+    width: 83.33333%; }
+  .part-sm-11 {
+    width: 91.66667%; }
+  .part-sm-12 {
+    width: 100%; }
+  .part-sm-1, .part-sm-2, .part-sm-3, .part-sm-4, .part-sm-5, .part-sm-6, .part-sm-7, .part-sm-8, .part-sm-9, .part-sm-10, .part-sm-11, .part-sm-12 {
+    float: left;
+    box-sizing: border-box;
+    padding: 10px; } }

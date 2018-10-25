@@ -26,42 +26,50 @@
 			<!-- 頁籤區 -->
 			<div class="bookmark">
 				<!-- 頁籤頭 -->
-				<input type="checkbox" id="bookmark_meal">
-				<input type="checkbox" id="bookmark_groupon">
+				<input type="radio" name="bookmark" id="bookmark_meal" checked>
+				<input type="radio" name="bookmark" id="bookmark_groupon">
 				<div class="bookmark_animation">
-					<label for="bookmark_meal" id="bookmark_animation_meal"><span>餐點</span></label>
+					<label for="bookmark_meal" id="bookmark_animation_meal" ><span>餐點</span></label>
+					<span class="bookmark_animation1"></span>
+					<span class="bookmark_animation2"></span>
 					<label for="bookmark_groupon" id="bookmark_animation_groupon"><span>飯團</span></label>
 				</div>
 				<!-- 頁籤內容 -->
 				<div class="bookmark_meal">
 					<div class="bookmark_meal_item clearfix">
 						<span>餐點類別</span>
-						<input type="checkbox" name="mealGenre_No" id="mealGenre_No1">
-						<input type="checkbox" name="mealGenre_No" id="mealGenre_No2">
-						<input type="checkbox" name="mealGenre_No" id="mealGenre_No3">
-						<input type="checkbox" name="mealGenre_No" id="mealGenre_No4">
-						<input type="checkbox" name="mealGenre_No" id="mealGenre_No5">
-						<input type="checkbox" name="mealGenre_No" id="mealGenre_No6">
+						<div>
+							<input type="checkbox" name="mealGenre_No" id="mealGenre_No1">
+							<input type="checkbox" name="mealGenre_No" id="mealGenre_No2">
+							<input type="checkbox" name="mealGenre_No" id="mealGenre_No3">
+							<input type="checkbox" name="mealGenre_No" id="mealGenre_No4">
+							<input type="checkbox" name="mealGenre_No" id="mealGenre_No5">
+							<input type="checkbox" name="mealGenre_No" id="mealGenre_No6">
 
-						<label for="mealGenre_No1" class="mealGenre_No">丼飯</label>
-						<label for="mealGenre_No2" class="mealGenre_No">便當</label>
-						<label for="mealGenre_No3" class="mealGenre_No">拉麵</label>
-						<label for="mealGenre_No4" class="mealGenre_No">定食</label>
-						<label for="mealGenre_No5" class="mealGenre_No">素食</label>
-						<label for="mealGenre_No6" class="mealGenre_No">鍋物</label>
+							<label for="mealGenre_No1" class="mealGenre_No">丼飯</label>
+							<label for="mealGenre_No2" class="mealGenre_No">便當</label>
+							<label for="mealGenre_No3" class="mealGenre_No">拉麵</label>
+							<label for="mealGenre_No4" class="mealGenre_No">定食</label>
+							<label for="mealGenre_No5" class="mealGenre_No">素食</label>
+							<label for="mealGenre_No6" class="mealGenre_No">鍋物</label>
+						</div>
+
 					</div>
 
 					<div class="bookmark_meal_item clearfix">
 						<span>卡路里</span>
-						<input type="checkbox" name="meal_Cal" id="meal_Cal1">
-						<input type="checkbox" name="meal_Cal" id="meal_Cal2">
-						<input type="checkbox" name="meal_Cal" id="meal_Cal3">
-						<input type="checkbox" name="meal_Cal" id="meal_Cal4">
+						<div>
+							<input type="checkbox" name="meal_Cal" id="meal_Cal1">
+							<input type="checkbox" name="meal_Cal" id="meal_Cal2">
+							<input type="checkbox" name="meal_Cal" id="meal_Cal3">
+							<input type="checkbox" name="meal_Cal" id="meal_Cal4">
 
-						<label for="meal_Cal1" class="meal_Cal">100-300</label>
-						<label for="meal_Cal2" class="meal_Cal">300-600</label>
-						<label for="meal_Cal3" class="meal_Cal">600-900</label>
-						<label for="meal_Cal4" class="meal_Cal">900up</label>
+							<label for="meal_Cal1" class="meal_Cal">100-300</label>
+							<label for="meal_Cal2" class="meal_Cal">300-600</label>
+							<label for="meal_Cal3" class="meal_Cal">600-900</label>
+							<label for="meal_Cal4" class="meal_Cal">900up</label>
+						</div>
+
 					</div>
 					<div class="bookmark_meal_item clearfix">
 						<span>價格</span>

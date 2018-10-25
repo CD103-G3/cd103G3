@@ -16,7 +16,15 @@ $btn_Wmax_sm: 300px;
   height: 3px;
   position: absolute;
 }
+//小球
+%ball{
+  top: 50%;
+  left: 0%;
+  width: 15px;
+  height: 15px;
 
+  position: absolute;
+}
 //@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin
 //顏色設定 semi-transparent-color
 @mixin semi-transparent-colors($attribute,$color,$background){ 
