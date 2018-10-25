@@ -111,39 +111,49 @@
 .bookmark_animation{
   text-align: center;
   label{
-    display: inline-block;
     width: 150px;
     height: 150px;
-    text-align: center;
+    display: inline-block;
+    cursor: pointer;
     &:after{
       content: '';
       height: 100%;
-      display: inline-block;
-      vertical-align: middle;
+      @extend %ib_middle;
     }
   }
   span{
     font-size: 48px;
     width: 100%;
     padding-bottom: 67%;
-    display: inline-block;
-    vertical-align: middle;
+    @extend %ib_middle;
     border-radius: 50%;
-    // padding-bottom: 25%;
     background-color: #fff9;
   }
 }
 
 .bookmark_meal{
   display: block;
+  padding-left: 25%;
+  height: 100%;
   .bookmark_meal_item{
     width: 100%;
-    padding: 15px 0; 
+    position: relative;
     span{
       width: 110px;
+      padding: 24px 0;
       display: inline-block;
+      text-align: center;
       background: transparent;
       font-size: $fontSize_M;
+      margin-right: 20px;
+      &:after{
+        content: '';
+        display: block;
+        width: 105%;
+        height: 5px;
+        border-radius: 50px;
+        background-color: $color_hot;
+      }
     }
     label,#meal_Price1,#meal_Price2{
       font-size: $fontSize_S;
@@ -153,9 +163,38 @@
       padding: 0.5% 0;
       background: #fff;
       border-radius: 50px;
-      margin-left: 8px;
+      margin-right: 8px;
       border: 0;
+      cursor: pointer;
+    }
+    #meal_Price1,#meal_Price2{
+      cursor: text;
+      position: relative;
     }
   }
-
+}
+#meal_Price1:after{
+  content: '';
+  width: 5535px;
+  height: 552px;
+  display: block;
+  top: 0;
+  left: 0;
+  background-color: #000;
+}
+@for $i from 1 through 6 {
+    #mealGenre_No#{$i}:hover ~  .mealGenre_No:nth-of-type(#{$i}){
+    background-color: $color_hot;
+  }
+  #mealGenre_No#{$i}:checked ~  .mealGenre_No:nth-of-type(#{$i}){
+    background-color: $color_hot;
+  }
+}
+@for $i from 1 through 6 {
+  #meal_Cal#{$i}:hover ~  .meal_Cal:nth-of-type(#{$i}){
+    background-color: $color_hot;
+  }
+  #meal_Cal#{$i}:checked ~  .meal_Cal:nth-of-type(#{$i}){
+    background-color: $color_hot;
+  }
 }

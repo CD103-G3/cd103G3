@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, min-scale=1, max-scale=1, shrink-to-fit=no">
 	<title>Title</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 	<div style="height: 100.228px; background-color: #322a9c;position: relative; z-index:5;"><button id="search">搜尋</button></div>
-	<input type="checkbox" id="close_search" checked >
-	<label for="close_search" class="close_search" ></label>
+	<input type="checkbox" id="close_search" checked>
+	<label for="close_search" class="close_search"></label>
 	<div class="wrap search_wrap">
 		<form action="" class="search_bg">
 			<!-- 輸入區 -->
@@ -20,12 +22,14 @@
 			</div>
 			<!-- 頁籤區 -->
 			<div class="bookmark">
+				<!-- 頁籤頭 -->
 				<input type="checkbox" id="bookmark_meal">
 				<input type="checkbox" id="bookmark_groupon">
 				<div class="bookmark_animation">
 					<label for="bookmark_meal" id="bookmark_animation_meal"><span>餐點</span></label>
 					<label for="bookmark_groupon" id="bookmark_animation_groupon"><span>飯團</span></label>
 				</div>
+				<!-- 頁籤內容 -->
 				<div class="bookmark_meal">
 					<div class="bookmark_meal_item clearfix">
 						<span>餐點類別</span>
@@ -35,7 +39,7 @@
 						<input type="checkbox" name="mealGenre_No" id="mealGenre_No4">
 						<input type="checkbox" name="mealGenre_No" id="mealGenre_No5">
 						<input type="checkbox" name="mealGenre_No" id="mealGenre_No6">
-						
+
 						<label for="mealGenre_No1" class="mealGenre_No">丼飯</label>
 						<label for="mealGenre_No2" class="mealGenre_No">便當</label>
 						<label for="mealGenre_No3" class="mealGenre_No">拉麵</label>
@@ -59,6 +63,7 @@
 					<div class="bookmark_meal_item clearfix">
 						<span>價格</span>
 						<input type="text" name="meal_Price" id="meal_Price1">
+
 						<input type="text" name="meal_Price" id="meal_Price2">
 					</div>
 				</div>
@@ -71,11 +76,12 @@
 
 
 
-<script>
-	document.getElementById('search').addEventListener("click", function (){
-    document.getElementById('close_search').checked=false;
-    // document.getElementById('to_sigin').checked=true;
-  },false);
-</script>
+	<script>
+		document.getElementById('search').addEventListener("click", function () {
+			document.getElementById('close_search').checked = false;
+			// document.getElementById('to_sigin').checked=true;
+		}, false);
+	</script>
 </body>
+
 </html>

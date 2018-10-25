@@ -91,11 +91,9 @@ table {
 .part-12 {
   width: 100%; }
 
-.clearfix:after {
-  content: "";
-  height: 0;
-  display: block;
-  clear: both; }
+.bookmark_animation label:after, .bookmark_animation span {
+  display: inline-block;
+  vertical-align: middle; }
 
 .longing_wrap * {
   box-sizing: border-box;
@@ -652,7 +650,7 @@ table {
   display: none; }
 
 .close_chatBot_pic img {
-  width: 50px;
+  width: 100px;
   vertical-align: middle; }
 
 .close_chatBot {
@@ -858,34 +856,42 @@ table {
 .bookmark_animation {
   text-align: center; }
   .bookmark_animation label {
-    display: inline-block;
     width: 150px;
     height: 150px;
-    text-align: center; }
+    display: inline-block;
+    cursor: pointer; }
     .bookmark_animation label:after {
       content: '';
-      height: 100%;
-      display: inline-block;
-      vertical-align: middle; }
+      height: 100%; }
   .bookmark_animation span {
     font-size: 48px;
     width: 100%;
     padding-bottom: 67%;
-    display: inline-block;
-    vertical-align: middle;
     border-radius: 50%;
     background-color: #fff9; }
 
 .bookmark_meal {
-  display: block; }
+  display: block;
+  padding-left: 25%;
+  height: 100%; }
   .bookmark_meal .bookmark_meal_item {
     width: 100%;
-    padding: 15px 0; }
+    position: relative; }
     .bookmark_meal .bookmark_meal_item span {
       width: 110px;
+      padding: 24px 0;
       display: inline-block;
+      text-align: center;
       background: transparent;
-      font-size: 24px; }
+      font-size: 24px;
+      margin-right: 20px; }
+      .bookmark_meal .bookmark_meal_item span:after {
+        content: '';
+        display: block;
+        width: 105%;
+        height: 5px;
+        border-radius: 50px;
+        background-color: #FF5000; }
     .bookmark_meal .bookmark_meal_item label, .bookmark_meal .bookmark_meal_item #meal_Price1, .bookmark_meal .bookmark_meal_item #meal_Price2 {
       font-size: 20px;
       display: inline-block;
@@ -894,5 +900,90 @@ table {
       padding: 0.5% 0;
       background: #fff;
       border-radius: 50px;
-      margin-left: 8px;
-      border: 0; }
+      margin-right: 8px;
+      border: 0;
+      cursor: pointer; }
+    .bookmark_meal .bookmark_meal_item #meal_Price1, .bookmark_meal .bookmark_meal_item #meal_Price2 {
+      cursor: text;
+      position: relative; }
+
+#meal_Price1:after {
+  content: '';
+  width: 5535px;
+  height: 552px;
+  display: block;
+  top: 0;
+  left: 0;
+  background-color: #000; }
+
+#mealGenre_No1:hover ~ .mealGenre_No:nth-of-type(1) {
+  background-color: #FF5000; }
+
+#mealGenre_No1:checked ~ .mealGenre_No:nth-of-type(1) {
+  background-color: #FF5000; }
+
+#mealGenre_No2:hover ~ .mealGenre_No:nth-of-type(2) {
+  background-color: #FF5000; }
+
+#mealGenre_No2:checked ~ .mealGenre_No:nth-of-type(2) {
+  background-color: #FF5000; }
+
+#mealGenre_No3:hover ~ .mealGenre_No:nth-of-type(3) {
+  background-color: #FF5000; }
+
+#mealGenre_No3:checked ~ .mealGenre_No:nth-of-type(3) {
+  background-color: #FF5000; }
+
+#mealGenre_No4:hover ~ .mealGenre_No:nth-of-type(4) {
+  background-color: #FF5000; }
+
+#mealGenre_No4:checked ~ .mealGenre_No:nth-of-type(4) {
+  background-color: #FF5000; }
+
+#mealGenre_No5:hover ~ .mealGenre_No:nth-of-type(5) {
+  background-color: #FF5000; }
+
+#mealGenre_No5:checked ~ .mealGenre_No:nth-of-type(5) {
+  background-color: #FF5000; }
+
+#mealGenre_No6:hover ~ .mealGenre_No:nth-of-type(6) {
+  background-color: #FF5000; }
+
+#mealGenre_No6:checked ~ .mealGenre_No:nth-of-type(6) {
+  background-color: #FF5000; }
+
+#meal_Cal1:hover ~ .meal_Cal:nth-of-type(1) {
+  background-color: #FF5000; }
+
+#meal_Cal1:checked ~ .meal_Cal:nth-of-type(1) {
+  background-color: #FF5000; }
+
+#meal_Cal2:hover ~ .meal_Cal:nth-of-type(2) {
+  background-color: #FF5000; }
+
+#meal_Cal2:checked ~ .meal_Cal:nth-of-type(2) {
+  background-color: #FF5000; }
+
+#meal_Cal3:hover ~ .meal_Cal:nth-of-type(3) {
+  background-color: #FF5000; }
+
+#meal_Cal3:checked ~ .meal_Cal:nth-of-type(3) {
+  background-color: #FF5000; }
+
+#meal_Cal4:hover ~ .meal_Cal:nth-of-type(4) {
+  background-color: #FF5000; }
+
+#meal_Cal4:checked ~ .meal_Cal:nth-of-type(4) {
+  background-color: #FF5000; }
+
+#meal_Cal5:hover ~ .meal_Cal:nth-of-type(5) {
+  background-color: #FF5000; }
+
+#meal_Cal5:checked ~ .meal_Cal:nth-of-type(5) {
+  background-color: #FF5000; }
+
+#meal_Cal6:hover ~ .meal_Cal:nth-of-type(6) {
+  background-color: #FF5000; }
+
+#meal_Cal6:checked ~ .meal_Cal:nth-of-type(6) {
+  background-color: #FF5000; }
