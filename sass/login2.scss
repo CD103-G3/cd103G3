@@ -79,10 +79,7 @@
 		opacity: 1;
 	  }
 }
-.check{
-	position: absolute;
-	right: 0;
-}
+
 //以上是動畫區
 
 .login_wrap{
@@ -91,6 +88,7 @@
 		font-size: $fontSize_text;
 		font-weight: bold;
 		color: #333333;
+		outline: 1px solid #f00;
 	}
 	input[type="radio"]{
 		display: none;
@@ -169,6 +167,15 @@
 		transition: 0.4s;
 	}
 }
+.longing_input{
+	.check{
+		left: calc(100% + 15px);
+	}
+	.eye{
+		left: calc(100% - 45px);
+	}
+}
+
 .cover_run_wrap{
 	text-align: center;
 	padding: 45px 0;
