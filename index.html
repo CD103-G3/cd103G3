@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>日食 Day Cook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/fullpage.css">
+    <link media="(max-width: 840px)" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.css" rel="stylesheet" />
+    <link media="(max-width: 840px)" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!-- <div class="indexFixed">
+    <a class="cashapon">
+        <img src="images/cashapon.png" alt="吃什麼小遊戲">
+    </a>
+    <a class="chatBot">
+        <img src="images/chatBot.png" alt="客服雞">
+    </a>
+</div> -->
+
+
+    <header>
+        <input type="checkbox" id="navctrl">
+        <div class="phone_nav">
+            <div id="view1"></div>
+            <div class="nav_left">
+                <label class="hb" for="navctrl">
+                    <span class="line"></span>
+                </label>
+            </div>
+            <div class="logo">
+                <a href="javascript:void(0)">
+                    <img src="image/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="nav_right">
+                <span class="seach_button">
+                    <img src="image/icon/search.svg" width="25" alt="seach">
+                    搜尋
+                </span>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li class="logo">
+                    <div id="view4"></div>
+                    <a href="javascript:void(0)">
+                        <img src="image/logo.png" alt="logo">
+                    </a>
+                </li>
+                <li class="member">
+                    <div id="view6"></div>
+                    <div class="before_login">
+                        <a href="javascript:void(0)">註冊</a>
+                        <a href="javascript:void(0)">登入</a>
+                    </div>
+                    <div class="after_login">
+                        <div>
+                            <img src="image/icon/user.svg" alt="member_Pic" class="member_Pic">
+                        </div>
+                        <div>
+                            <span><img src="image/icon/riceball.svg" width="30" alt="achievement_Pic" class="achievement_Pic">300積分</span><br>
+                            <span>Sara. always</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="meals">
+                    <div id="view5"></div>
+                    <a href="javascript:void(0)">日食餐點</a>
+                </li>
+                <li class="initiate">
+                    <div id="view2"></div>
+                    <a href="javascript:void(0)">發起飯糰</a>
+                </li>
+                <li class="participate">
+                    <div id="view3"></div>
+                    <a href="javascript:void(0)">參加飯糰</a>
+                </li>
+                <li class="table_hidden"><a href="javascript:void(0)">會員中心</a></li>
+                <li class="table_hidden"><a href="javascript:void(0)">克服雞器人</a></li>
+            </ul>
+        </nav>
+        <input type="checkbox" id="white_Point_control">
+        <label class="white_Point floaty" for="white_Point_control">
+            <ul>
+                <div id="view7"></div>
+                <li>
+                    <a href="javascript:void(0)">
+                        <img src="image/icon/cart.svg" alt="cart"><br>
+                        購物車
+                        <span>3</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <img src="image/icon/qrcode.svg" alt="qrcode"><br>
+                        快速取餐
+                        <span>2</span>
+                    </a>
+                </li>
+                <li class="table_hidden">
+                    <a href="javascript:void(0)">
+                        <img src="image/icon/game.svg" alt="game"><br>
+                        想吃什麼？
+                    </a>
+                </li>
+                <li class="table_hidden">
+                    <a href="javascript:void(0)">
+                        <img src="image/icon/if_General_-_Office_54_1471106.svg" alt="mc"><br>
+                        我的收藏
+                    </a>
+                </li>
+                <li class="table_hidden">
+                    <a href="javascript:void(0)">
+                        <img src="image/icon/riceball.svg" alt="riceball"><br>
+                        我的飯團
+                    </a>
+                </li>
+            </ul>
+        </label>
+    </header>
+
+    <!-- <div class="nav"></div> -->
+    <div id="fullpage">
+        <!-- 第一屏 -->
+        <div class="indexSearch section">
+            <div class="container">
+                <div class="indexSearch-searchBar">
+                    <form action="">
+                        <div>
+                            <select name="search" id="indexSearch-select">
+                                <option value="meal">餐點</option>
+                                <option value="meal">飯團</option>
+                            </select>
+                        </div>
+
+                        <input type="text" placeholder="雞排親子丼">
+                        <button class="indexSearch-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="indexSearch-rope">
+                            <img src="images/rope.svg" alt="">
+                            <img src="images/rope.svg" alt="">
+                        </div>
+                    </form>
+                </div>
+                <div class="indexSearch-conveyor">
+                    <div class="indexSearch-conveyorBox">
+                        <div class="indexSearch-table">
+                            <img class="indexSearch-tableImg" src="images/table.svg" alt="">
+                            <!-- <div class="indexSearch-meal">
+                                <img src="images/don1.png" alt="">
+                                <img src="images/don2.png" alt="">
+                                <img src="images/don3.png" alt="">
+                                <img src="images/don4.png" alt="">
+                                <img src="images/don6.png" alt="">
+                            </div> -->
+                            <ul>
+                                <li class="indexSearch-meal-1">
+                                    <div class="indexSearch-hover">
+                                        <p>豬肉親子丼
+                                            <span>75元</span>
+                                        </p>
+                                        <p>評分
+                                            <span>
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggEmpty.png" alt="">
+                                                <img src="images/eggEmpty.png" alt="">
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <img class="indexSearch-img" src="images/don1.png" alt="">
+                                </li>
+
+                                <li class="indexSearch-meal-2">
+                                    <div class="indexSearch-hover">
+                                        <p>海鮮親子丼
+                                            <span>75元</span>
+                                        </p>
+                                        <p>評分
+                                            <span>
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggEmpty.png" alt="">
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <img class="indexSearch-img" src="images/don2.png" alt="">
+                                </li>
+
+                                <li class="indexSearch-meal-3">
+                                    <div class="indexSearch-hover">
+                                        <p>生魚片親子丼
+                                            <span>80元</span>
+                                        </p>
+                                        <p>評分
+                                            <span>
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggEmpty.png" alt="">
+                                                <img src="images/eggEmpty.png" alt="">
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <img class="indexSearch-img" src="images/don3.png" alt="">
+                                </li>
+
+                                <li class="indexSearch-meal-4">
+                                    <div class="indexSearch-hover">
+                                        <p>鮭魚卵親子丼
+                                            <span>90元</span>
+                                        </p>
+                                        <p>評分
+                                            <span>
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggFull.png" alt="">
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <img class="indexSearch-img" src="images/don4.png" alt="">
+                                </li>
+
+                                <li class="indexSearch-meal-5">
+                                    <div class="indexSearch-hover">
+                                        <p>牛肉親子丼
+                                            <span>75元</span>
+                                        </p>
+                                        <p>評分
+                                            <span>
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggEmpty.png" alt="">
+                                                <img src="images/eggEmpty.png" alt="">
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <img class="indexSearch-img" src="images/don6.png" alt="">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第二屏 -->
+        <div class="indexJoin section">
+            <div class="container">
+                <div class="indexJoin-container">
+                    <div class="indexJoin-title">
+                        <h1>如何參加飯團</h1>
+                    </div>
+                    <div class="indexJoin-phoneBox">
+                        <div class="indexJoin-phone">
+                            <div class="indexJoin-info">
+                                <img src="images/logo3.png" alt="">
+                                點選下方按鈕，<br>看參加飯團教學。
+                            </div>
+                            <div class="indexJoin-stepOrigin">
+                                <div class="indexJoin-stepO1">
+                                    <img src="images/finger1.svg" alt="">
+                                </div>
+                                <div class="indexJoin-stepO2">
+                                    <p class="indexJoin-stepO2-btn">參加此飯團</p>
+                                    <img src="images/finger1.svg" alt="">
+                                </div>
+                                <div class="indexJoin-stepO3">
+                                    <div>
+                                        <p>取餐QRcode</p>
+                                        <p>豬排親子丼蓋飯</p>
+                                    </div>
+                                    <div class="indexJoin-stepO3-img">
+                                        <div></div>
+                                        <img src="images/joinQrcode.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="indexJoin-stepO4">
+                                    <div>
+                                        <p>感謝您的消費</p>
+                                        <p>請於賞味期2小時內享用完畢。</p>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-check"></i>
+                                        <span>取餐認證完成</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="indexJoin-stepQrcode">
+                                <div class="indexJoin-stepQr1">
+                                    <div>
+                                        <p>參加我發起的飯團：<br>「吃丼飯一週吧！」<br>使用邀請碼：0666<br>或掃QRcode：</p>
+                                        <img src="images/joinQrcode.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="indexJoin-stepQr2">
+                                    <div>
+                                        <p>我這就跟上。</p>
+                                    </div>
+                                </div>
+                                <div class="indexJoin-stepQr3">
+                                    <div class="indexJoin-stepQr3-box">
+                                        <p>掃描QRcode或輸入飯團代碼</p>
+                                        <p>飯團代碼：</p>
+                                        <div class="indexJoin-stepQr3-input">
+                                            <p>0666</p>
+                                        </div>
+                                        <div>
+                                            <p class="indexJoin-stepQr3-btn">輸入確認</p>
+                                            <img src="images/finger1.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="indexJoin-btn">
+                            <button type="button" id="indexJoin-btnO" style="--color: #fe9954">
+                                <p>自行挑選</p>
+                            </button>
+                            <button type="button" id="indexJoin-btnQr" style="--color: #faad2b">
+                                <p>邀請碼</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第三屏 -->
+        <div class="indexGroupon section">
+            <div class="container">
+                <div class="indexGroupon-container">
+                    <div class="indexGroupon-title">
+                        <h1>推薦官方飯團</h1>
+                        <h2>參加官方飯團可享9折優惠，再送你購物金！</h2>
+                    </div>
+                    <div class="indexGroupon-stage">
+                        <div class="indexGroupon-box owl-carousel">
+                            <div class="indexGroupon-part indexGroupon-part1 item">
+                                <div class="indexGroupon-sumTitle">
+                                    <h3>一週超值便當小資團</h3>
+                                    <div class="indexGroupon-average">
+                                        <p>75</p>
+                                        <p>平均一餐</p>
+                                    </div>
+                                </div>
+                                <img src="images/don1.png" alt="">
+                                <p class="indexGroupon-info">每日搭配不同菜色，省錢之餘也能兼具美味。</p>
+                                <div class="indexGroupon-sum">
+                                    <div class="indexGroupon-days">
+                                        <span>飯團天數｜</span>
+                                        <span>7天</span>
+                                    </div>
+                                    <div class="indexGroupon-count">
+                                        <span>參加人數｜</span>
+                                        <div class="indexGroupon-countBar">
+                                            <p>87/100</p>
+                                        </div>
+                                    </div>
+                                    <div class="indexGroupon-deadline">
+                                        <span>門檻截止｜</span>
+                                        <span>11/30前</span>
+                                    </div>
+                                </div>
+                                <div class="indexGroupon-btn">
+                                    <a href="#">查看飯團</a>
+                                </div>
+                            </div>
+                            <div class="indexGroupon-part indexGroupon-part2 item">
+                                <div class="indexGroupon-sumTitle">
+                                    <h3>今天吃丼飯</h3>
+                                    <div class="indexGroupon-average">
+                                        <p>80</p>
+                                        <p>平均一餐</p>
+                                    </div>
+                                </div>
+                                <img src="images/don2.png" alt="">
+                                <p class="indexGroupon-info">每日搭配不同菜色，省錢之餘也能兼具美味。</p>
+                                <div class="indexGroupon-sum">
+                                    <div class="indexGroupon-days">
+                                        <span>飯團天數｜</span>
+                                        <span>10天</span>
+                                    </div>
+                                    <div class="indexGroupon-count">
+                                        <span>參加人數｜</span>
+                                        <div class="indexGroupon-countBar">
+                                            <p>10/50</p>
+                                        </div>
+                                    </div>
+                                    <div class="indexGroupon-deadline">
+                                        <span>門檻截止｜</span>
+                                        <span>10/30前</span>
+                                    </div>
+                                </div>
+                                <div class="indexGroupon-btn">
+                                    <a href="#">查看飯團</a>
+                                </div>
+                            </div>
+                            <div class="indexGroupon-part indexGroupon-part3 item">
+                                <div class="indexGroupon-sumTitle">
+                                    <h3>增肥計畫大挑戰</h3>
+                                    <div class="indexGroupon-average">
+                                        <p>75</p>
+                                        <p>平均一餐</p>
+                                    </div>
+                                </div>
+                                <img src="images/don3.png" alt="">
+                                <p class="indexGroupon-info">每日搭配不同菜色，省錢之餘也能兼具美味。</p>
+                                <div class="indexGroupon-sum">
+                                    <div class="indexGroupon-days">
+                                        <span>飯團天數｜</span>
+                                        <span>14天</span>
+                                    </div>
+                                    <div class="indexGroupon-count">
+                                        <span>參加人數｜</span>
+                                        <div class="indexGroupon-countBar">
+                                            <p>10/30</p>
+                                        </div>
+                                    </div>
+                                    <div class="indexGroupon-deadline">
+                                        <span>門檻截止｜</span>
+                                        <span>11/30前</span>
+                                    </div>
+                                </div>
+                                <div class="indexGroupon-btn">
+                                    <a href="#">查看飯團</a>
+                                </div>
+                            </div>
+                            <div class="indexGroupon-part indexGroupon-part4 item">
+                                <div class="indexGroupon-sumTitle">
+                                    <h3>月底這樣吃</h3>
+                                    <div class="indexGroupon-average">
+                                        <p>60</p>
+                                        <p>平均一餐</p>
+                                    </div>
+                                </div>
+                                <img src="images/don4.png" alt="">
+                                <p class="indexGroupon-info">每日搭配不同菜色，省錢之餘也能兼具美味。</p>
+                                <div class="indexGroupon-sum">
+                                    <div class="indexGroupon-days">
+                                        <span>飯團天數｜</span>
+                                        <span>7天</span>
+                                    </div>
+                                    <div class="indexGroupon-count">
+                                        <span>參加人數｜</span>
+                                        <div class="indexGroupon-countBar">
+                                            <p>95/100</p>
+                                        </div>
+                                    </div>
+                                    <div class="indexGroupon-deadline">
+                                        <span>門檻截止｜</span>
+                                        <span>12/30前</span>
+                                    </div>
+                                </div>
+                                <div class="indexGroupon-btn">
+                                    <a href="#">查看飯團</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 第四屏 -->
+        <div class="indexMeal section">
+            <div class="container">
+                <div class="indexMeal-container">
+                    <div class="indexMeal-title">
+                        <h1>好評餐點</h1>
+                    </div>
+                    <div class="indexMeal-slider swiper-container">
+                        <div class="indexMeal-ctrl">
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                        <div class="indexMeal-box swiper-wrapper">
+                            <div class="indexMeal-part top1 swiper-slide">
+                                <div class="indexMeal-top">
+                                    <img class="indexMeal-topCk indexMeal-top1Ck" src="images/top1.svg" alt="">
+                                    <img class="indexMeal-meal" src="images/don2.png" alt="">
+                                    <img class="indexMeal-topW" src="images/topWings2.svg" alt="">
+                                </div>
+                                <div class="indexMeal-top1Sum indexMeal-topSum">
+                                    <div class="indexMeal-top1Left">
+                                        <h3>海鮮蛋包飯
+                                            <h4>80</h4>
+                                        </h3>
+                                        <p>評分
+                                            <span>
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggFull.png" alt="">
+                                                <img src="images/eggFull.png" alt="">
+                                            </span>
+                                        </p>
+                                        <div class="indexMeal-btn">
+                                            <a href="#">查看餐點</a>
+                                            <button>收藏</button>
+                                        </div>
+                                    </div>
+                                    <div class="indexMeal-top1Right">
+                                        <div class="indexMeal-mem">
+                                            <img src="images/mem.jpeg" alt="">
+                                        </div>
+                                        <span class="indexMeal-price">
+                                            <img src="images/price.png" alt="">
+                                            <p>3000積分</p>
+                                            <p>董董Sara</p>
+                                        </span>
+                                        <div class="indexMeal-mes">
+                                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;鋪在飯上的蛋分量十足，感覺至少用了兩顆蛋。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="indexMeal-part top2 swiper-slide">
+                                <div class="indexMeal-top">
+                                    <img class="indexMeal-topCk" src="images/top2.svg" alt="">
+                                    <img class="indexMeal-meal" src="images/don1.png" alt="">
+                                    <img class="indexMeal-topW" src="images/topWings1.svg" alt="">
+                                </div>
+                                <div class="indexMeal-topSum">
+                                    <h3>雞肉親子丼
+                                        <h4>75</h4>
+                                    </h3>
+                                    <p>評分
+                                        <span>
+                                            <img src="images/eggFull.png" alt="">
+                                            <img src="images/eggFull.png" alt="">
+                                            <img src="images/eggFull.png" alt="">
+                                            <img src="images/eggEmpty.png" alt="">
+                                            <img src="images/eggEmpty.png" alt="">
+                                        </span>
+                                    </p>
+                                    <div class="indexMeal-btn">
+                                        <a href="#">查看餐點</a>
+                                        <button>收藏</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="indexMeal-part top3 swiper-slide">
+                                <div class="indexMeal-top">
+                                    <img class="indexMeal-topCk" src="images/top3.svg" alt="">
+                                    <img class="indexMeal-meal" src="images/don4.png" alt="">
+                                    <img class="indexMeal-topW" src="images/topWings3.svg" alt="">
+                                </div>
+                                <div class="indexMeal-topSum">
+                                    <h3>牛肉親子丼
+                                        <h4>80</h4>
+                                    </h3>
+                                    <p>評分
+                                        <span>
+                                            <img src="images/eggFull.png" alt="">
+                                            <img src="images/eggFull.png" alt="">
+                                            <img src="images/eggEmpty.png" alt="">
+                                            <img src="images/eggEmpty.png" alt="">
+                                            <img src="images/eggEmpty.png" alt="">
+                                        </span>
+                                    </p>
+                                    <div class="indexMeal-btn">
+                                        <a href="#">查看餐點</a>
+                                        <button>收藏</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第五屏 -->
+        <div class="indexLogin section">
+            <div class="container">
+                <div class="indexLogin-title">
+                    <h1>現在加入日食</h1>
+                </div>
+                <div class="indexLogin-sum">
+                    <div>
+                        <p>註冊日食帳號即可獲得刮刮樂，刮開立即贈送購物金，訂餐現折優惠。使用註冊購物金，參加你的第一個飯團！</p>
+                    </div>
+                    <img src="images/login.svg" alt="">
+                </div>
+                <div class="indexLogin-btn">
+                    <button>註冊日食帳號</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <!-- <script src="js/jquery.mousewheel.min.js"></script> -->
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/indexSlider.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.esm.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.esm.bundle.js"></script>
+    <script src="js/indexJoin.js"></script>
+    <script src="js/indexBtn.js"></script>
+    <script src="js/indexCube3.js"></script>
+
+    <!-- fullpage -->
+
+    <script type="text/javascript" src="js/fullpage.min.js"></script>
+    <script type="text/javascript">
+
+        var myFullpage = new fullpage('#fullpage', {
+            verticalCentered: false,
+            // navigation: true,
+            css3: false
+        });
+    </script>
+
+
+    <!-- nav -->
+    <script>
+        for (var i = 1; i <= 7; i++) {
+            var view = document.querySelector("#view" + i);
+            struct1 = document.createElement("div");
+            struct1.className = "slice s" + 3;
+            for (var j = 2; j > 0; j--) {
+                struct2 = document.createElement("div");
+                struct2.className = "slice s" + j;
+                struct2.appendChild(struct1);
+                struct1 = struct2;
+            }
+            view.appendChild(struct2);
+        }
+    </script>
+
+
+</body>
+
+</html>
