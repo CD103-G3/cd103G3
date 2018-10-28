@@ -9,7 +9,8 @@
 </head>
 
 <body>
-	<div style="height: 100px; width: 100%;background-color: #322a9c;position: fixed; z-index:5;"><button id="search">搜尋</button></div>
+	<div style="height: 60px; width: 100%;background-color: #322a9c;position: fixed; z-index:5;">
+		<button id="search">搜尋</button></div>
 	<input type="checkbox" id="close_search" checked>
 	<div class="wrap search_wrap">
 		<label for="close_search" class="close_search"></label>
@@ -17,7 +18,7 @@
 			<!-- 輸入區 -->
 			<div class="input_wrap">
 				<input type="text" id="input_search" maxlength="30" required>
-				<label for="input_search" class="input_pl">請輸入餐點關鍵字</label>
+				<label for="input_search" class="input_pl">餐點關鍵字</label>
 				<button type="submit" id="start_search">搜尋<span class="search_img"></span></button>
 			</div>
 			<!-- 頁籤區 -->
@@ -71,8 +72,8 @@
 					<img src="images/chickenMaster.png" alt="" class="chickenMaster">
 				</div>				  
 				<!-- 頁籤內容 -->
-				<div class="bookmark_meal">
-					<div class="bookmark_meal_item clearfix">
+				<div class="bookmark_cetentier bookmark_meal">
+					<div class="bookmark_cetentier_item bookmark_meal_item clearfix">
 						<span>餐點類別</span>
 						<div>
 							<input type="checkbox" name="mealGenre_No" id="mealGenre_No1">
@@ -92,7 +93,7 @@
 
 					</div>
 
-					<div class="bookmark_meal_item clearfix">
+					<div class="bookmark_cetentier_item bookmark_meal_item clearfix">
 						<span>卡路里</span>
 						<div>
 							<input type="checkbox" name="meal_Cal" id="meal_Cal1">
@@ -101,21 +102,72 @@
 							<input type="checkbox" name="meal_Cal" id="meal_Cal4">
 
 							<label for="meal_Cal1" class="meal_Cal">100-300</label>
-							<label for="meal_Cal2" class="meal_Cal">300-600</label>
-							<label for="meal_Cal3" class="meal_Cal">600-900</label>
-							<label for="meal_Cal4" class="meal_Cal">900up</label>
+							<label for="meal_Cal2" class="meal_Cal">301-600</label>
+							<label for="meal_Cal3" class="meal_Cal">601-900</label>
+							<label for="meal_Cal4" class="meal_Cal">901up</label>
 						</div>
 
 					</div>
-					<div class="bookmark_meal_item clearfix">
+					<div class="bookmark_cetentier_item bookmark_meal_item clearfix">
 						<span>價格</span>
 						<input type="text" name="meal_Price" class="meal_Price" id="meal_Price1">
 						~
 						<input type="text" name="meal_Price" id="meal_Price2">
 					</div>
 				</div>
-				<div class="bookmark_groupon">
+				<div class="bookmark_cetentier bookmark_groupon">
+					<div class="bookmark_cetentier_item bookmark_groupon_item clearfix">
+						<span>飯糰TAG</span>
+						<div>
+							<input type="radio" name="groupon_TagName" id="groupon_TagNo1">
+							<input type="radio" name="groupon_TagName" id="groupon_TagNo2">
+							<input type="radio" name="groupon_TagName" id="groupon_TagNo3">
+							<input type="radio" name="groupon_TagName" id="groupon_TagNo4">
+							<input type="radio" name="groupon_TagName" id="groupon_TagNo5">
+							<input type="radio" name="groupon_TagName" id="groupon_TagNo6">
+							<input type="radio" name="groupon_TagName" id="groupon_TagNo7">
+							<input type="radio" name="groupon_TagName" id="groupon_TagNo8">
 
+							<label for="groupon_TagNo1" class="groupon_TagName">#健康</label>
+							<label for="groupon_TagNo2" class="groupon_TagName">#素食</label>
+							<label for="groupon_TagNo3" class="groupon_TagName">#肥</label>
+							<label for="groupon_TagNo4" class="groupon_TagName">#痛風</label>
+							<label for="groupon_TagNo5" class="groupon_TagName">#挑戰</label>
+							<label for="groupon_TagNo6" class="groupon_TagName">#豪華</label>
+							<label for="groupon_TagNo7" class="groupon_TagName">#湯麵</label>
+							<label for="groupon_TagNo8" class="groupon_TagName">#飯</label>
+						</div>
+					</div>
+
+					<div class="bookmark_cetentier_item bookmark_groupon_item clearfix">
+						<span>飯團餐數</span>
+						<div>
+							<input type="checkbox" name="grouponList_No" id="grouponList_No1">
+							<input type="checkbox" name="grouponList_No" id="grouponList_No2">
+							<input type="checkbox" name="grouponList_No" id="grouponList_No3">
+
+							<label for="grouponList_No1" class="grouponList_No">1~3餐</label>
+							<label for="grouponList_No2" class="grouponList_No">4~7餐</label>
+							<label for="grouponList_No3" class="grouponList_No">7餐以上</label>
+						</div>
+					</div>
+					<div class="bookmark_cetentier_item bookmark_groupon_item clearfix">
+						<span>平均價格</span>
+						<div>
+							<input type="checkbox" name="groupon_avg" id="groupon_avg1">
+							<input type="checkbox" name="groupon_avg" id="groupon_avg2">
+							<input type="checkbox" name="groupon_avg" id="groupon_avg3">
+							<input type="checkbox" name="groupon_avg" id="groupon_avg4">
+							<input type="checkbox" name="groupon_avg" id="groupon_avg5">
+
+							<label for="groupon_avg1" class="groupon_avg">1~70元</label>
+							<label for="groupon_avg2" class="groupon_avg">71~100元</label>
+							<label for="groupon_avg3" class="groupon_avg">101~200元</label>
+							<label for="groupon_avg4" class="groupon_avg">201~300元</label>
+							<label for="groupon_avg5" class="groupon_avg">301元以上</label>							
+						</div>
+
+					</div>
 				</div>
 			</div>
 		</form>

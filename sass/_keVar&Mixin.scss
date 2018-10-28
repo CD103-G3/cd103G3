@@ -36,17 +36,18 @@ $lh_sm:70px;
 @mixin top50-50 {
   top: 50%;
   transform: translateY(-50%);
+};
+
+%closeJumpWindow {
+  display: block;
+  background-color: $color_main2;
+  width: 35px;
+  height: 3px;
+  position: absolute;
 }
-  %closeJumpWindow {
-    display: block;
-    background-color: $color_main2;
-    width: 35px;
-    height: 3px;
-    position: absolute;
-  }
+
 //關閉按鈕的close 偽類
 @mixin close ($top,$left){
-
   &::before{
     content: '';
     @extend %closeJumpWindow;
