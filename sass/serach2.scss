@@ -1,20 +1,12 @@
-#close_search:checked ~ .search_wrap{
-  display: none;
-}
-.close_search{
-  width: 35px;
-  height: 35px;
-  position: absolute;
-  right: calc(10% + 35px);
-  top: 35px;
-  z-index: 6;
-  cursor: pointer;
-  @include close(50%, 50%) ;
-}
+@import "daycookVar";
+@import "reset";
+@import "layout/daycookMixin";
+@import "keVar&Mixin";
+@import "login"; //註冊登入
+@import "chatBot"; //客服機器人
 .search_wrap {
   * {
     box-sizing: border-box;
-    // outline: 1px solid #f00;
   }
   input[type="checkbox"] {
     display: none;
@@ -27,20 +19,30 @@
   z-index: 1;
   .search_bg {
     width: calc(100% - 30px);
-    padding-top: 28px;
     padding-bottom: 5px;
     margin: auto;
-    background-color: $color_main3;
+    background-color: transparent;
+    border: 50px solid $color_main3;
+    border-top: 0 solid;
   }
-  .input_wrap {//輸入區
+  .bookmark {
+    text-align: center;
+    margin: 50px 0;
+    input[type="radio"] {
+      display: none;
+    }
+  }
+  .input_wrap {
+    //輸入區
     width: 90%;
     font-size: $fontSize_S;
-    margin: 0 auto;
+    margin:0 auto;
     border-radius: 50px;
     border: 2px solid $color_main4;
     position: relative;
   }
-  #input_search {//input搜尋內容
+  #input_search {
+    //input搜尋內容
     width: 100%;
     font-size: $fontSize_M;
     line-height: $lh;
@@ -68,18 +70,21 @@
     @include top50-50;
     transition: 0.4s;
   }
-  #start_search { //搜尋兩個字
+  #start_search {
+    //搜尋兩個字
     font-size: $fontSize_M;
     font-family: $fmy;
     line-height: $lh;
     color: #fff;
     background-color: $color_main4;
-    border-radius:0 50px 50px 0;
+    border-radius: 0 50px 50px 0;
     border: 0;
     position: absolute;
     right: -1px;
     @include top50-50;
   }
+
+
 }
 .chickenMaster_wrap {
   width: 100%;
@@ -109,137 +114,43 @@
     top: 55%;
     z-index: 1;
     transform: rotate(45deg);
-    animation: search_down  0.5s infinite  ease-out  alternate ;
+    animation: search_down 0.5s infinite ease-out alternate;
   }
   .chickenMaster {
     width: 100%;
     transform: scaleX(-1);
   }
 }
-@keyframes search_down{
-  0%{
+@keyframes search_down {
+  0% {
     top: 55%;
   }
-  100%{
+  100% {
     top: 50%;
-  }
-}
-.bookmark {
-  margin: 50px 0;
-  input[type="radio"] {
-    display: none;
   }
 }
 
 .bookmark_animation {
-  padding: 25px;
+  width: 100%;
+  padding-left: 20%;
+  text-align: left;
+  * {
+    font-size: $fontSize_L;
+    display: inline-block;
+    padding: 15px 25px;
+    background-color: $color_main3;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+  }
+}
+.bookmark_meal {
   background-color: $color_main3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#bookmark_animation_meal,
-#bookmark_animation_groupon {
-  font-size: $fontSize_M;
-  transform: scale(1);
-  transition: 0.4s;
-  position: relative;
-  z-index: 1;
-  &::after,
-  &::before{
-    content: "";
-    @include size(80px);
-    border-width:3px;
-    border-style: solid;
-    position: absolute;
-    top: -28px;
-    left: -16px;
-    z-index: -1;
-  }
-  &::after {
-    border-radius: 47%;
-    @include semi-transparent-colors(border-color,rgba($color_main1,0.3),$color_main1)
-    @include semi-transparent-colors( background-color,rgba($color_main1,0.3),$color_main1)
-    transform: translate(0, 0) rotate(0);
-    animation: checkani 15s infinite linear;
-  }
-  &::before {
-    border-radius: 43%;
-    @include semi-transparent-colors(border-color,rgba($color_main1,1),$color_main1)
-    @include semi-transparent-colors( background-color,rgba($color_main1,1),$color_main1)
-    transform: translate(-1%, -1%) rotate(0);
-    animation: checkani 2s infinite  linear;
-  }
-}
-#bookmark_animation_meal {
-  margin-right: 80px;
-  &::after,
-  &::before {
-    animation-delay: 0.3s;
-  }
-}
-@keyframes checkani{
-  0% {
-    transform: translate(-1%, -1%) rotate(180deg)
-  }
-  100% {
-    transform: translate(-1%, -1%) rotate(360deg)
-  }
-}
-#bookmark_meal:checked ~ .bookmark_animation > #bookmark_animation_meal,
-#bookmark_groupon:checked + .bookmark_animation > #bookmark_animation_groupon {
-  // animation: toBig2 .4s forwards;
-  background-color: $color_main1;
-  transform: scale(1.4);
-  transition: 0.4s;
-}
-
-#bookmark_meal:checked ~ .bookmark_meal,
-#bookmark_groupon:checked ~ .bookmark_groupon{
+  padding-left: 25%;
+  padding-top: 75px;
+  padding-bottom: 5%;
   height: 100%;
-}
-.bookmark_animation_middle {
-  position: relative;
-  left: -30px;
-  animation: rotate 20s infinite linear;
-}
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.ball {
-  @include size(15px);
-  background-color: #fce444;
-  border-radius: 50%;
-  position: absolute;
-  animation: ballani 2s infinite alternate linear;
-}
-@keyframes ballani {
-  0% {
-    transform: translateX(40px);
-    @include size(15px);
-  }
-  100% {
-    transform: translateX(40px);
-    @include size(30px);
-  }
-}
-@for $i from 1 through 30 {
-  .container#{$i} {
-    transform: rotate(#{$i * 360/9}deg);
-    .ball {
-      animation-delay: -$i * 0.9s;
-    }
-  }
-}
-.bookmark_meal {  
-  height: 0;
-  overflow: hidden;
-  .bookmark_meal_item {//頁籤內容
+  .bookmark_meal_item {
+    //頁籤內容
     span {
       @extend %ib_middle;
       width: 110px;
@@ -304,7 +215,7 @@
     color: #fff;
   }
 }
-@include rwd(sm,float){
+@include rwd(sm, float) {
   .search_wrap {
     position: fixed;
     left: 0;
@@ -327,7 +238,6 @@
       //輸入區
       width: 80%;
       font-size: $fontSize_XL;
-      margin: 30px auto 0;
     }
     #input_search {
       //input搜尋內容
@@ -387,67 +297,14 @@
       border-right: 1px solid #000;
       background-color: #fff;
       right: 65%;
-      top: calc(58% - 9px );
+      top: calc(58% - 9px);
       animation: none;
     }
   }
-  .bookmark {
-    text-align: left;
-  }
-  .bookmark_animation {
-    padding: 80px;
-    // filter: url(#goo);
-    // -webkit-filter: contrast(10);
-  }
-  // #bok{
-  //   position: absolute;
-  // }
-  #bookmark_animation_meal,
-  #bookmark_animation_groupon {
-    font-size: $fontSize_L;
-    font-weight: bold;
-    cursor: pointer;
-    &::after,
-    &::before{
-      @include size(120px);
-      border-width:3px;
-      border-style: solid;
-      // -webkit-filter: blur(6px);
-      top: -42px;
-      left: -30px;
-    }
-    &::before {
-      @include semi-transparent-colors(border-color,rgba($color_main1,0.7),$color_main1)
-      @include semi-transparent-colors( background-color,rgba($color_main1,0.9),$color_main1)
-    }
-  }
-  #bookmark_animation_meal {
-    margin-right: 150px;
-  }
-  .bookmark_animation_middle {
-    left: -65px;
-    // -webkit-filter: blur(6px)	;
-  }
-  
-  .ball {
-    @include size(20px);
-    animation: ballani 2s infinite alternate linear;
-  }
-  
-  @keyframes ballani {
-    0% {
-      transform: translateX(85px);
-      @include size(20px);
-    }
-    100% {
-      transform: translateX(85px);
-      @include size(45px);
-    }
-  }
+
   .bookmark_meal {
     display: block;
     padding-left: 25%;
-    padding-top: 30px;
     .bookmark_meal_item {
       width: 100%;
       position: relative;
@@ -464,7 +321,7 @@
       #meal_Price1,
       #meal_Price2 {
         width: 82px;
-      } 
+      }
       span {
         width: 110px;
         padding: 20px 0;
@@ -498,35 +355,17 @@
   }
 }
 
-
-@include rwd(md,float){
-
+@include rwd(md, float) {
   .chickenMaster_wrap {
     &:after {
       width: 58%;
       bottom: 40%;
     }
     &:before {
-      top: calc(60% - 9px );
+      top: calc(60% - 9px);
     }
   }
-  .bookmark_animation {
-    // filter: url(#goo);
-    // -webkit-filter: contrast(10);
-  }
-  // #bok{
-  //   position: absolute;
-  // }
-  #bookmark_animation_meal,
-  #bookmark_animation_groupon {
-    &::after,
-    &::before{
-      content: "";
-      // -webkit-filter: blur(6px);
-      top: -42px;
-      left: -30px;
-    }
-  }
+
   .bookmark_meal {
     .bookmark_meal_item {
       div {
@@ -539,18 +378,17 @@
     }
   }
 }
-@include rwd(lg,float){
+@include rwd(lg, float) {
   .chickenMaster_wrap {
     &:after {
       width: 70%;
       bottom: 39%;
     }
     &:before {
-      top: calc(61% - 9px );
+      top: calc(61% - 9px);
     }
   }
-  .bookmark_animation {
-    padding: 100px;}
+
   .bookmark_meal {
     .bookmark_meal_item {
       &:after {
@@ -573,8 +411,6 @@
         cursor: text;
         position: relative;
       }
-      
-
     }
-  }  
+  }
 }

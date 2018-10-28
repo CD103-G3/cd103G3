@@ -63,6 +63,7 @@
       clear: both;
     }
     &:before{
+      content: '';
       border-top: 15px solid transparent;
       border-bottom:15px solid transparent;
       border-right: 15px solid $color_main1;
@@ -81,6 +82,7 @@
       clear: both;
     }
     &:before{
+      content: '';
       border-top: 15px solid transparent;
       border-bottom:15px solid transparent;
       border-right: 15px solid transparent;
@@ -142,9 +144,7 @@
   position: absolute;
   right: 15px;
   cursor: pointer;
-  @include close(50%, 0%) {
-    @extend %closeJumpWindow;
-    right: 0;
+  @include close(100%, 50%) {
   }
 }
 #close_chatBot:checked ~ #chatBot{
@@ -185,10 +185,6 @@
       right: 15px;
       opacity: 0;
       cursor: pointer;
-      // @include close(50%, 0%) {
-      //   @extend %closeJumpWindow;
-      //   right: 0;
-      // }
     }
   }
   .chatBot_keyword {

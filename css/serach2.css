@@ -97,7 +97,7 @@ table {
   display: inline-block;
   vertical-align: middle; }
 
-.close_longing::before, .close_longing::after, .close_chatBot::before, .close_chatBot::after, .close_search::before, .close_search::after {
+.close_longing::before, .close_longing::after, .close_chatBot::before, .close_chatBot::after {
   display: block;
   background-color: #76391B;
   width: 35px;
@@ -762,28 +762,6 @@ table {
     display: block;
     height: 420px; } }
 
-#close_search:checked ~ .search_wrap {
-  display: none; }
-
-.close_search {
-  width: 35px;
-  height: 35px;
-  position: absolute;
-  right: calc(10% + 35px);
-  top: 35px;
-  z-index: 6;
-  cursor: pointer; }
-  .close_search::before {
-    content: '';
-    transform: rotate(-45deg);
-    top: calc( 50% - 17px);
-    left: calc( 50% - 17px); }
-  .close_search::after {
-    content: '';
-    transform: rotate(45deg);
-    top: calc( 50% - 17px);
-    left: calc( 50% - 17px); }
-
 .search_wrap {
   width: 100%;
   height: 100%;
@@ -797,10 +775,16 @@ table {
     display: none; }
   .search_wrap .search_bg {
     width: calc(100% - 30px);
-    padding-top: 28px;
     padding-bottom: 5px;
     margin: auto;
-    background-color: #FCF2CA; }
+    background-color: transparent;
+    border: 50px solid #FCF2CA;
+    border-top: 0 solid; }
+  .search_wrap .bookmark {
+    text-align: center;
+    margin: 50px 0; }
+    .search_wrap .bookmark input[type="radio"] {
+      display: none; }
   .search_wrap .input_wrap {
     width: 90%;
     font-size: 20px;
@@ -872,7 +856,7 @@ table {
     top: 55%;
     z-index: 1;
     transform: rotate(45deg);
-    animation: search_down  0.5s infinite  ease-out  alternate; }
+    animation: search_down 0.5s infinite ease-out alternate; }
   .chickenMaster_wrap .chickenMaster {
     width: 100%;
     transform: scaleX(-1); }
@@ -883,259 +867,24 @@ table {
   100% {
     top: 50%; } }
 
-.bookmark {
-  margin: 50px 0; }
-  .bookmark input[type="radio"] {
-    display: none; }
-
 .bookmark_animation {
-  padding: 25px;
-  background-color: #FCF2CA;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
-#bookmark_animation_meal,
-#bookmark_animation_groupon {
-  font-size: 24px;
-  transform: scale(1);
-  transition: 0.4s;
-  position: relative;
-  z-index: 1; }
-  #bookmark_animation_meal::after, #bookmark_animation_meal::before,
-  #bookmark_animation_groupon::after,
-  #bookmark_animation_groupon::before {
-    content: "";
-    width: 80px;
-    height: 80px;
-    border-width: 3px;
-    border-style: solid;
-    position: absolute;
-    top: -28px;
-    left: -16px;
-    z-index: -1; }
-  #bookmark_animation_meal::after,
-  #bookmark_animation_groupon::after {
-    border-radius: 47%;
-    border-color: #fce444;
-    border-color: rgba(252, 228, 68, 0.3);
-    background-color: #fce444;
-    background-color: rgba(252, 228, 68, 0.3);
-    transform: translate(0, 0) rotate(0);
-    animation: checkani 15s infinite linear; }
-  #bookmark_animation_meal::before,
-  #bookmark_animation_groupon::before {
-    border-radius: 43%;
-    border-color: #fce444;
-    border-color: #fce444;
-    background-color: #fce444;
-    background-color: #fce444;
-    transform: translate(-1%, -1%) rotate(0);
-    animation: checkani 2s infinite  linear; }
-
-#bookmark_animation_meal {
-  margin-right: 80px; }
-  #bookmark_animation_meal::after, #bookmark_animation_meal::before {
-    animation-delay: 0.3s; }
-
-@keyframes checkani {
-  0% {
-    transform: translate(-1%, -1%) rotate(180deg); }
-  100% {
-    transform: translate(-1%, -1%) rotate(360deg); } }
-
-#bookmark_meal:checked ~ .bookmark_animation > #bookmark_animation_meal,
-#bookmark_groupon:checked + .bookmark_animation > #bookmark_animation_groupon {
-  background-color: #FCE444;
-  transform: scale(1.4);
-  transition: 0.4s; }
-
-#bookmark_meal:checked ~ .bookmark_meal,
-#bookmark_groupon:checked ~ .bookmark_groupon {
-  height: 100%; }
-
-.bookmark_animation_middle {
-  position: relative;
-  left: -30px;
-  animation: rotate 20s infinite linear; }
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
-
-.ball {
-  width: 15px;
-  height: 15px;
-  background-color: #fce444;
-  border-radius: 50%;
-  position: absolute;
-  animation: ballani 2s infinite alternate linear; }
-
-@keyframes ballani {
-  0% {
-    transform: translateX(40px);
-    width: 15px;
-    height: 15px; }
-  100% {
-    transform: translateX(40px);
-    width: 30px;
-    height: 30px; } }
-
-.container1 {
-  transform: rotate(40deg); }
-  .container1 .ball {
-    animation-delay: -0.9s; }
-
-.container2 {
-  transform: rotate(80deg); }
-  .container2 .ball {
-    animation-delay: -1.8s; }
-
-.container3 {
-  transform: rotate(120deg); }
-  .container3 .ball {
-    animation-delay: -2.7s; }
-
-.container4 {
-  transform: rotate(160deg); }
-  .container4 .ball {
-    animation-delay: -3.6s; }
-
-.container5 {
-  transform: rotate(200deg); }
-  .container5 .ball {
-    animation-delay: -4.5s; }
-
-.container6 {
-  transform: rotate(240deg); }
-  .container6 .ball {
-    animation-delay: -5.4s; }
-
-.container7 {
-  transform: rotate(280deg); }
-  .container7 .ball {
-    animation-delay: -6.3s; }
-
-.container8 {
-  transform: rotate(320deg); }
-  .container8 .ball {
-    animation-delay: -7.2s; }
-
-.container9 {
-  transform: rotate(360deg); }
-  .container9 .ball {
-    animation-delay: -8.1s; }
-
-.container10 {
-  transform: rotate(400deg); }
-  .container10 .ball {
-    animation-delay: -9s; }
-
-.container11 {
-  transform: rotate(440deg); }
-  .container11 .ball {
-    animation-delay: -9.9s; }
-
-.container12 {
-  transform: rotate(480deg); }
-  .container12 .ball {
-    animation-delay: -10.8s; }
-
-.container13 {
-  transform: rotate(520deg); }
-  .container13 .ball {
-    animation-delay: -11.7s; }
-
-.container14 {
-  transform: rotate(560deg); }
-  .container14 .ball {
-    animation-delay: -12.6s; }
-
-.container15 {
-  transform: rotate(600deg); }
-  .container15 .ball {
-    animation-delay: -13.5s; }
-
-.container16 {
-  transform: rotate(640deg); }
-  .container16 .ball {
-    animation-delay: -14.4s; }
-
-.container17 {
-  transform: rotate(680deg); }
-  .container17 .ball {
-    animation-delay: -15.3s; }
-
-.container18 {
-  transform: rotate(720deg); }
-  .container18 .ball {
-    animation-delay: -16.2s; }
-
-.container19 {
-  transform: rotate(760deg); }
-  .container19 .ball {
-    animation-delay: -17.1s; }
-
-.container20 {
-  transform: rotate(800deg); }
-  .container20 .ball {
-    animation-delay: -18s; }
-
-.container21 {
-  transform: rotate(840deg); }
-  .container21 .ball {
-    animation-delay: -18.9s; }
-
-.container22 {
-  transform: rotate(880deg); }
-  .container22 .ball {
-    animation-delay: -19.8s; }
-
-.container23 {
-  transform: rotate(920deg); }
-  .container23 .ball {
-    animation-delay: -20.7s; }
-
-.container24 {
-  transform: rotate(960deg); }
-  .container24 .ball {
-    animation-delay: -21.6s; }
-
-.container25 {
-  transform: rotate(1000deg); }
-  .container25 .ball {
-    animation-delay: -22.5s; }
-
-.container26 {
-  transform: rotate(1040deg); }
-  .container26 .ball {
-    animation-delay: -23.4s; }
-
-.container27 {
-  transform: rotate(1080deg); }
-  .container27 .ball {
-    animation-delay: -24.3s; }
-
-.container28 {
-  transform: rotate(1120deg); }
-  .container28 .ball {
-    animation-delay: -25.2s; }
-
-.container29 {
-  transform: rotate(1160deg); }
-  .container29 .ball {
-    animation-delay: -26.1s; }
-
-.container30 {
-  transform: rotate(1200deg); }
-  .container30 .ball {
-    animation-delay: -27s; }
+  width: 100%;
+  padding-left: 20%;
+  text-align: left; }
+  .bookmark_animation * {
+    font-size: 30px;
+    display: inline-block;
+    padding: 15px 25px;
+    background-color: #FCF2CA;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer; }
 
 .bookmark_meal {
-  height: 0;
-  overflow: hidden; }
+  background-color: #FCF2CA;
+  padding-left: 25%;
+  padding-top: 75px;
+  padding-bottom: 5%;
+  height: 100%; }
   .bookmark_meal .bookmark_meal_item span {
     width: 110px;
     padding: 24px 0;
@@ -1310,8 +1059,7 @@ table {
       vertical-align: top; }
     .search_wrap .input_wrap {
       width: 80%;
-      font-size: 36px;
-      margin: 30px auto 0; }
+      font-size: 36px; }
     .search_wrap #input_search {
       font-size: 36px;
       line-height: 70px; }
@@ -1359,51 +1107,9 @@ table {
       right: 65%;
       top: calc(58% - 9px);
       animation: none; }
-  .bookmark {
-    text-align: left; }
-  .bookmark_animation {
-    padding: 80px; }
-  #bookmark_animation_meal,
-  #bookmark_animation_groupon {
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer; }
-    #bookmark_animation_meal::after, #bookmark_animation_meal::before,
-    #bookmark_animation_groupon::after,
-    #bookmark_animation_groupon::before {
-      width: 120px;
-      height: 120px;
-      border-width: 3px;
-      border-style: solid;
-      top: -42px;
-      left: -30px; }
-    #bookmark_animation_meal::before,
-    #bookmark_animation_groupon::before {
-      border-color: #fce444;
-      border-color: rgba(252, 228, 68, 0.7);
-      background-color: #fce444;
-      background-color: rgba(252, 228, 68, 0.9); }
-  #bookmark_animation_meal {
-    margin-right: 150px; }
-  .bookmark_animation_middle {
-    left: -65px; }
-  .ball {
-    width: 20px;
-    height: 20px;
-    animation: ballani 2s infinite alternate linear; }
-  @keyframes ballani {
-    0% {
-      transform: translateX(85px);
-      width: 20px;
-      height: 20px; }
-    100% {
-      transform: translateX(85px);
-      width: 45px;
-      height: 45px; } }
   .bookmark_meal {
     display: block;
-    padding-left: 25%;
-    padding-top: 30px; }
+    padding-left: 25%; }
     .bookmark_meal .bookmark_meal_item {
       width: 100%;
       position: relative; }
@@ -1477,12 +1183,6 @@ table {
     bottom: 40%; }
   .chickenMaster_wrap:before {
     top: calc(60% - 9px); }
-  #bookmark_animation_meal::after, #bookmark_animation_meal::before,
-  #bookmark_animation_groupon::after,
-  #bookmark_animation_groupon::before {
-    content: "";
-    top: -42px;
-    left: -30px; }
   .bookmark_meal .bookmark_meal_item div {
     width: 80%; }
   .bookmark_meal .bookmark_meal_item #meal_Price1,
@@ -1523,8 +1223,6 @@ table {
     bottom: 39%; }
   .chickenMaster_wrap:before {
     top: calc(61% - 9px); }
-  .bookmark_animation {
-    padding: 100px; }
   .bookmark_meal .bookmark_meal_item:after {
     content: "";
     display: none; }

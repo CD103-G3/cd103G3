@@ -5,24 +5,22 @@ $btn_Wmax: 250px;
 $btn_Wmin_sm: 300px;
 $btn_Wmax_sm: 300px;
 
+//搜尋頁的搜尋框line-height
+$lh:36px;
+$lh_sm:70px;
+
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %ib_middle{
   display: inline-block;
   vertical-align: middle;
 }
-%closeJumpWindow {
-  background-color: $color_main2;
-  width: 35px;
-  height: 3px;
-  position: absolute;
-}
+
 //小球
 %ball{
   top: 50%;
   left: 0%;
   width: 15px;
   height: 15px;
-
   position: absolute;
 }
 //@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin
@@ -39,22 +37,30 @@ $btn_Wmax_sm: 300px;
   top: 50%;
   transform: translateY(-50%);
 }
+  %closeJumpWindow {
+    display: block;
+    background-color: $color_main2;
+    width: 35px;
+    height: 3px;
+    position: absolute;
+  }
 //關閉按鈕的close 偽類
 @mixin close ($top,$left){
+
   &::before{
     content: '';
-    // @extend %closeJumpWindow;
-    top: $top;
-    left: $left;
+    @extend %closeJumpWindow;
     transform: rotate(-45deg);
+    top: calc( #{$top} - 17px );
+    left: calc( #{$left} - 17px );
     @content;
   }
   &::after{
     content: '';
-    // @extend %closeJumpWindow;
-    top: $top;
-    left: $left;
+    @extend %closeJumpWindow;
     transform: rotate(45deg);
+    top: calc( #{$top} - 17px );
+    left: calc( #{$left} - 17px );
     @content;
   }
 }
@@ -105,4 +111,9 @@ $btn_Wmax_sm: 300px;
     border-radius: 10px;
   }
   @content;
+}
+//正方形
+@mixin size($w, $h: $w) {
+  width: $w;
+  height: $h;
 }

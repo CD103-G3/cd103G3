@@ -16,7 +16,6 @@
 #close_longing {
   display: none;
 }
-
 .close_longing {
   width: 35px;
   height: 35px;
@@ -25,8 +24,7 @@
   top: calc(100px + 17px);
   z-index: 6;
   cursor: pointer;
-  @include close(50%, calc(50% - 17px)) {
-    @extend %closeJumpWindow;
+  @include close(100%, 50%) {
   }
 }
 #close_longing:checked ~ .longing_wrap {

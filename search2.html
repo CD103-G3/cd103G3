@@ -5,67 +5,30 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, min-scale=1, max-scale=1, shrink-to-fit=no">
 	<title>Title</title>
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/serach2.css">
 </head>
 
 <body>
 	<div style="height: 100px; width: 100%;background-color: #322a9c;position: fixed; z-index:5;"><button id="search">搜尋</button></div>
 	<input type="checkbox" id="close_search" checked>
+	<label for="close_search" class="close_search"></label>
 	<div class="wrap search_wrap">
-		<label for="close_search" class="close_search"></label>
-		<form action="" class="search_bg">
-			<!-- 輸入區 -->
-			<div class="input_wrap">
-				<input type="text" id="input_search" maxlength="30" required>
-				<label for="input_search" class="input_pl">請輸入餐點關鍵字</label>
-				<button type="submit" id="start_search">搜尋<span class="search_img"></span></button>
-			</div>
-			<!-- 頁籤區 -->
-			<div class="bookmark">
+
+			<form action="" class="search_bg">
+				<!-- 頁籤區 -->
+				<div class="bookmark">
 				<!-- 頁籤頭 -->
 				<input type="radio" name="bookmark" id="bookmark_meal" checked>
 				<input type="radio" name="bookmark" id="bookmark_groupon">
-				<!-- <svg id="bok" xmlns="http://www.w3.org/2000/svg" version="1.1">
-					<defs>
-					<filter id="goo">
-						<feGaussianBlur in="SourceGraphic" stdDeviation="60" result="blur" />
-						<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
-						<feBlend in="SourceGraphic" in2="goo" />
-						</filter>
-					</defs>
-				</svg> -->
 				<div class="bookmark_animation">
 					<label for="bookmark_meal" id="bookmark_animation_meal">餐點</label>
-					<div class="bookmark_animation_middle">
-						<div class="container1">
-							<div class="ball"></div>
-						</div>
-						<div class="container2">
-							<div class="ball"></div>
-						</div>
-						<div class="container3">
-							<div class="ball"></div>
-						</div>
-						<div class="container4">
-							<div class="ball"></div>
-						</div>
-						<div class="container5">
-							<div class="ball"></div>
-						</div>
-						<div class="container6">
-							<div class="ball"></div>
-						</div>
-						<div class="container7">
-							<div class="ball"></div>
-						</div>
-						<div class="container8">
-							<div class="ball"></div>
-						</div>
-						<div class="container9">
-							<div class="ball"></div>
-						</div>
-					</div>
 					<label for="bookmark_groupon" id="bookmark_animation_groupon">飯糰</label>
+				</div>
+				<!-- 輸入框 -->
+				<div class="input_wrap">
+					<input type="text" id="input_search" maxlength="30" required>
+					<label for="input_search" class="input_pl">請輸入餐點關鍵字</label>
+					<button type="submit" id="start_search">搜尋<span class="search_img"></span></button>
 				</div>
 				<div class="chickenMaster_wrap">
 					<img src="images/chickenMaster.png" alt="" class="chickenMaster">
@@ -117,8 +80,8 @@
 				<div class="bookmark_groupon">
 
 				</div>
-			</div>
-		</form>
+			</form>
+		</div>
 	</div>
 
 
