@@ -88,7 +88,6 @@
 //老師傅
 .chickenMaster_wrap {
   width: 100%;
-  padding-top: 30%;
   position: relative;
   left: -30px;
   &:after {
@@ -111,7 +110,7 @@
     border-right: 5px solid #000;
     position: absolute;
     right: 25%;
-    top: 55%;
+    top: 0%;
     z-index: 1;
     transform: rotate(45deg);
     animation: search_down 0.5s infinite ease-out alternate;
@@ -364,25 +363,26 @@
     .input_wrap {
       //輸入區
       width: 80%;
-      font-size: $fontSize_XL;
+      font-size: $fontSize_L;
       margin: 30px auto 0;
-    }
-    #input_search {
-      //input搜尋內容
-      font-size: $fontSize_XL;
-      line-height: $lh_sm;
-      &:hover {
-        cursor: pointer;
-      }
-      &:focus + label,
-      &:valid + label {
+      #input_search {
+        //input搜尋內容
         font-size: $fontSize_L;
-        cursor: text;
-      }
-      &:focus {
-        cursor: text;
-      }
+        line-height: $lh_sm;
+        &:hover {
+          cursor: pointer;
+        }
+        &:focus + label,
+        &:valid + label {
+          font-size: $fontSize_L;
+          cursor: text;
+        }
+        &:focus {
+          cursor: text;
+        }
+      }      
     }
+
     .input_pl {
       //input的提示字
       left: 50px;
@@ -419,14 +419,14 @@
       top: auto;
       right: auto;
       left: 30px;
-      bottom: 42%;
+      bottom: 100%;
     }
     &:before {
       border-bottom: 1px solid #000;
       border-right: 1px solid #000;
       background-color: #fff;
       right: 65%;
-      top: calc(58% - 9px);
+      top: calc(0% - 9px);
       animation: none;
     }
   }
@@ -546,10 +546,10 @@
       &:after {
         content: '除了關鍵字，可以選擇指定搜尋餐點或飯團，底下篩選還可複選喔!';
         width: 32%;
-        bottom: 40%;
+        bottom: 100%;
       }
       &:before {
-        top: calc(60% - 9px);
+        top: calc(0% - 9px);
       }
     }
     .bookmark_animation {
@@ -579,10 +579,10 @@
     .chickenMaster_wrap {
       &:after {
         width: 70%;
-        bottom: 39%;
+        bottom: 100%;
       }
       &:before {
-        top: calc(61% - 9px);
+        top: calc(0% - 9px);
       }
     }
     .bookmark_animation {

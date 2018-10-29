@@ -439,7 +439,6 @@ table {
 
 .chickenMaster_wrap {
   width: 100%;
-  padding-top: 30%;
   position: relative;
   left: -30px; }
   .chickenMaster_wrap:after {
@@ -462,7 +461,7 @@ table {
     border-right: 5px solid #000;
     position: absolute;
     right: 25%;
-    top: 55%;
+    top: 0%;
     z-index: 1;
     transform: rotate(45deg);
     animation: search_down 0.5s infinite ease-out alternate; }
@@ -916,19 +915,19 @@ table {
       vertical-align: top; }
     .search_wrap .input_wrap {
       width: 80%;
-      font-size: 36px;
+      font-size: 30px;
       margin: 30px auto 0; }
-    .search_wrap #input_search {
-      font-size: 36px;
-      line-height: 70px; }
-      .search_wrap #input_search:hover {
-        cursor: pointer; }
-      .search_wrap #input_search:focus + label,
-      .search_wrap #input_search:valid + label {
+      .search_wrap .input_wrap #input_search {
         font-size: 30px;
-        cursor: text; }
-      .search_wrap #input_search:focus {
-        cursor: text; }
+        line-height: 70px; }
+        .search_wrap .input_wrap #input_search:hover {
+          cursor: pointer; }
+        .search_wrap .input_wrap #input_search:focus + label,
+        .search_wrap .input_wrap #input_search:valid + label {
+          font-size: 30px;
+          cursor: text; }
+        .search_wrap .input_wrap #input_search:focus {
+          cursor: text; }
     .search_wrap .input_pl {
       left: 50px; }
       .search_wrap .input_pl:hover {
@@ -958,13 +957,13 @@ table {
       top: auto;
       right: auto;
       left: 30px;
-      bottom: 42%; }
+      bottom: 100%; }
     .chickenMaster_wrap:before {
       border-bottom: 1px solid #000;
       border-right: 1px solid #000;
       background-color: #fff;
       right: 65%;
-      top: calc(58% - 9px);
+      top: calc(0% - 9px);
       animation: none; }
   .bookmark {
     text-align: left; }
@@ -1078,9 +1077,9 @@ table {
   .chickenMaster_wrap:after {
     content: '除了關鍵字，可以選擇指定搜尋餐點或飯團，底下篩選還可複選喔!';
     width: 32%;
-    bottom: 40%; }
+    bottom: 100%; }
   .chickenMaster_wrap:before {
-    top: calc(60% - 9px); }
+    top: calc(0% - 9px); }
   #bookmark_animation_meal::after, #bookmark_animation_meal::before,
   #bookmark_animation_groupon::after,
   #bookmark_animation_groupon::before {
@@ -1122,9 +1121,9 @@ table {
     padding: 10px; }
   .chickenMaster_wrap:after {
     width: 70%;
-    bottom: 39%; }
+    bottom: 100%; }
   .chickenMaster_wrap:before {
-    top: calc(61% - 9px); }
+    top: calc(0% - 9px); }
   .bookmark_animation {
     padding: 100px; }
   .bookmark_cetentier {
@@ -1234,8 +1233,7 @@ table {
     box-sizing: border-box;
     font-size: 16px;
     font-weight: bold;
-    color: #333333;
-    outline: 1px solid #f00; }
+    color: #333333; }
   .login_wrap input[type="radio"] {
     display: none; }
 
@@ -1294,10 +1292,12 @@ table {
     transition: 0.4s; }
 
 .longing_input .check {
-  left: calc(100% + 15px); }
+  left: calc(100% + 15px);
+  display: none; }
 
 .longing_input .eye {
-  left: calc(100% - 45px); }
+  left: calc(100% - 45px);
+  display: none; }
 
 .cover_run_wrap {
   text-align: center;

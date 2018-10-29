@@ -5,11 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, min-scale=1, max-scale=1, shrink-to-fit=no">
 	<title>Title</title>
 	<link rel="stylesheet" type="text/css" href="css/login2.css">
+	
 </head>
 <body>
 	<div style="height: 100px; background-color: #425075;position: relative; z-index:5;"><button id="login">登入/註冊</button></div>
 	
-	<input type="checkbox" id="close_login" >
+	<input type="checkbox" id="close_login">
 	<div id="login_wrap" class="login_wrap">
 		<label for="close_login" class="close_login btn_cup"></label>
 		<div class="login_heard clearfix"></div>
@@ -33,9 +34,7 @@
 					<input type="password" id="sigin_member_Psw" class="input_mem" required>
 					<label for="sigin_member_Psw" class="input_pl">密碼</label>
 					<label for="sigin_member_Psw"><img src="images/lock.svg"></label>
-					<img src="images/eye_y.png" class="eye Y">
-					<img src="images/eye_n.png" class="eye N">
-				</div>
+					<img src="images/eye_n.png" class="eye"></div>
 				<div class="cover_run_wrap">
 					<button type="submit" class="btn_cup">登入</button>
 				</div>
@@ -46,33 +45,26 @@
 		<div class="login_mark_cetentier to_sigup clearfix">
 			<form action="" method="POST">
 				<div class="input_wrap longing_input">
-					<input type="text" id="sigup_member_Id" class="input_mem" required>
+					<input type="text" id="sigup_member_Id" class="input_mem need_check need_check_id"required>
 					<label for="sigup_member_Id" class="input_pl">帳號</label>
 					<label for="sigup_member_Id"><img src="images/user.svg"></label>
-				</div>
+					<img src="images/checkN.svg" class="check"></div>
 				<div class="input_wrap longing_input">
-					<input type="password" id="sigup_member_Psw" class="input_mem" required>
+					<input type="password" id="sigup_member_Psw" class="input_mem need_check need_check_psw" required>
 					<label for="sigup_member_Psw" class="input_pl">密碼</label>
 					<label for="sigup_member_Psw"><img src="images/lock.svg"></label>
-					<img src="images/eye_y.png" class="eye Y">
-					<img src="images/eye_n.png" class="eye N">
-					<img src="images/check-circle-ture.svg" class="check Y">
-					<img src="images/check-circle-ture.svg" class="check N">
-				</div>
+					<img src="images/eye_n.png" class="eye"><img src="images/checkN.svg" class="check"></div>
 				<div class="input_wrap longing_input">
-					<input type="text" id="sigup_member_Nick" class="input_mem" required>
+					<input type="text" id="sigup_member_Nick" class="input_mem need_check need_check_nick"required>
 					<label for="sigup_member_Nick" class="input_pl">暱稱</label>
-					<label for="sigup_member_Nick"><img src="images/lock.svg"></label>
-				</div>
+					<label for="sigup_member_Nick"><img src="images/lock.svg"></label><img src="images/checkN.svg" class="check"></div>
 				<div class="input_wrap longing_input">
-					<input type="text" id="sigup_email" class="input_mem" required>
+					<input type="text" id="sigup_email" class="input_mem need_check need_check_email" required>
 					<label for="sigup_email" class="input_pl">email</label>
 					<label for="sigup_email" ><img src="images/email.svg"></label>
-					<img src="images/check-circle-ture.svg" class="check Y">
-					<img src="images/check-circle-ture.svg" class="check N">
-				</div>
+					<img src="images/checkN.svg" class="check"></div>
 				<div class="cover_run_wrap">
-					<button type="submit" class="btn_cup">註冊</button>
+					<button type="submit" class="btn_cup" id="sigup">註冊</button>
 				</div>
 			</form>
 		</div>
@@ -85,12 +77,10 @@
 					<label for="get_Psw_member_Id" class="input_pl">帳號</label>
 				</div>
 				<div class="input_wrap longing_input">
-					<input type="text" id="get_Psw_member_Psw" class="input_mem" required>
+					<input type="text" id="get_Psw_member_Psw" class="input_mem need_check need_check_email" required>
 					<label for="get_Psw_emailmember_Psw" class="input_pl">email</label>
 					<label for="get_Psw_emailmember_Psw"><img src="images/lock.svg"></label>
-					<img src="images/check-circle-ture.svg" class="check Y">
-					<img src="images/check-circle-ture.svg" class="check N">
-				</div>
+					<img src="images/checkN.svg" class="check"></div>
 				<div class="cover_run_wrap"> 
 					<button type="submit" class="btn_cup">重設密碼</button>
 				</div>
@@ -102,10 +92,81 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 	<script>
-	  document.getElementById('login').addEventListener("click", function (){
-		document.getElementById('close_login').checked=false;
-	  },false);
-	
+		document.getElementById('login').addEventListener("click", function (){
+			document.getElementById('close_login').checked=false;
+		},false);
+
+		var longing_input = document.getElementsByClassName('longing_input');
+		var eye = document.getElementsByClassName('eye');
+		var check = document.getElementsByClassName('check');
+		var need_check = document.getElementsByClassName('need_check');
+		var need_check_id = document.getElementById('sigup_member_Id');
+		var need_check_psw = document.getElementById('sigup_member_Psw')
+		var need_check_nick = document.getElementById('sigup_member_Nick');
+		var need_check_email = document.getElementById('sigup_email');
+		var sigup = document.getElementById('sigup');
+
+		
+
+		var checkAry = [0,0,0,0];
+			need_check[0].addEventListener('change',function () {
+				this.parentNode.lastChild.style.display='block';
+				if(need_check_id.value.length < 3 || need_check_id.value.length > 40){
+					alert("請輸入3~40個字");
+					this.parentNode.lastChild.src='images/checkN.svg';
+					return false;
+					checkAry[0]=false;
+					
+				}else{
+					this.parentNode.lastChild.src='images/checkY.svg';	
+					checkAry[0]=true;
+				}
+			});
+
+			need_check[1].addEventListener('change',function () {
+				this.parentNode.lastChild.style.display='block';
+				if(need_check_psw.value.length < 3 || need_check_psw.value.length > 6){
+					alert("請輸入3~6個字");
+					this.parentNode.lastChild.src='images/checkN.svg';	
+					return false;
+					checkAry[1]=false;
+				}else{
+					this.parentNode.lastChild.src='images/checkY.svg';
+					checkAry[1]=ture;	
+				}
+			});
+
+			need_check[2].addEventListener('change',function () {
+				this.parentNode.lastChild.style.display='block';
+				if(need_check_nick.value.length < 1 || need_check_nick.value.length > 10){
+					alert("請輸入1~10個字");
+					this.parentNode.lastChild.src='images/checkN.svg';
+					return false;
+					checkAry[2]=false;	
+				}else{
+					this.parentNode.lastChild.src='images/checkY.svg';	
+					checkAry[2]=ture;
+				}			
+			});
+
+			need_check[3].addEventListener('change',function () {
+				this.parentNode.lastChild.style.display='block';
+				if(need_check_email.value.indexOf('@') < 1  || need_check_email.value.indexOf('.com') < 1){
+					alert("請輸入電子信箱格式");
+					this.parentNode.lastChild.src='images/checkN.svg';	
+					return false;
+					checkAry[3]=false;
+				}else{
+					this.parentNode.lastChild.src='images/checkY.svg';	
+					checkAry[3]=true;
+				}		
+			});
+
+		// sigup.addEventListener('submit',function (){
+		// 	if(reduce(checkAry)=4){
+		// 		alert("OK");
+		// 	}
+		// });
 	</script>
 </body>
 </html>
