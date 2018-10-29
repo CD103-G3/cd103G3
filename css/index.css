@@ -1,0 +1,1622 @@
+@charset "UTF-8";
+header {
+  height: 80px; }
+  header * {
+    font-size: 0;
+    font-family: sans-serif, "微軟正黑體", "Microsoft JhengHei"; }
+  header a, header .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header button {
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none; }
+  header #navctrl {
+    display: none; }
+    header #navctrl:checked ~ .phone_nav .hb .line {
+      transform: rotate(360deg);
+      opacity: 0;
+      transition: 0.3s; }
+    header #navctrl:checked ~ .phone_nav .hb:before {
+      transform: translateY(13.5px) rotate(225deg);
+      transition: 0.3s; }
+    header #navctrl:checked ~ .phone_nav .hb:after {
+      transform: translateY(-13px) rotate(-225deg);
+      transition: 0.3s; }
+    header #navctrl:checked ~ nav {
+      transform: translate(-350px, 1000px) rotate(0deg);
+      top: -1000px;
+      left: 350px;
+      transition: transform 1s; }
+  header .phone_nav {
+    padding: 0 40px 0 10px;
+    height: 75px;
+    background: url(../image/nav_background_768.png) repeat-x;
+    position: relative; }
+    header .phone_nav:after {
+      content: '';
+      width: 0;
+      height: 120%;
+      display: inline-block;
+      vertical-align: middle; }
+    header .phone_nav div {
+      width: 33.33333333%;
+      text-align: center;
+      vertical-align: middle;
+      display: inline-block; }
+      header .phone_nav div.nav_left {
+        text-align: left; }
+      header .phone_nav div.nav_right {
+        text-align: right; }
+    header .phone_nav .hb {
+      margin: auto;
+      width: 70px;
+      height: 50px;
+      cursor: pointer;
+      opacity: .8;
+      transition: .5s;
+      position: absolute;
+      top: 28%;
+      z-index: 1001; }
+      header .phone_nav .hb .line, header .phone_nav .hb:before, header .phone_nav .hb:after {
+        content: '';
+        margin: auto;
+        width: 60%;
+        height: 3px;
+        background-color: #fff;
+        display: block;
+        position: absolute;
+        top: 20%;
+        right: 0;
+        bottom: 21%;
+        left: 0;
+        transition: 0.3s; }
+      header .phone_nav .hb:before {
+        bottom: auto; }
+      header .phone_nav .hb:after {
+        top: auto; }
+    header .phone_nav .logo img {
+      height: 90px; }
+    header .phone_nav .seach_button {
+      padding: 23px 9px 18px;
+      color: #76391b;
+      border-radius: 50%;
+      background-color: #fcf2ca;
+      box-shadow: 1px 3px 1px #ad6631;
+      cursor: pointer; }
+      header .phone_nav .seach_button img {
+        margin-top: -6px;
+        vertical-align: middle; }
+  header nav {
+    transition: 1s;
+    position: absolute;
+    transform: translate(0, 0) rotate(-90deg);
+    top: -1000px;
+    left: 350px;
+    transition: transform 1s; }
+    header nav:before {
+      content: '';
+      width: 1100px;
+      height: 1100px;
+      border-radius: 50%;
+      background-color: #425075;
+      transform-origin: left top;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      top: 0;
+      left: 0; }
+    header nav ul {
+      position: relative;
+      left: 50%; }
+      header nav ul li {
+        margin-bottom: 20px; }
+      header nav ul .logo {
+        margin-bottom: 30px; }
+        header nav ul .logo img {
+          margin-top: -15px;
+          height: 140px; }
+      header nav ul .member {
+        margin-bottom: 35px; }
+        header nav ul .member .before_login {
+          display: none; }
+          header nav ul .member .before_login a, header nav ul .member .before_login .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header nav ul .member .before_login button {
+            margin-right: 20px; }
+        header nav ul .member .after_login {
+          display: inline-block; }
+          header nav ul .member .after_login div {
+            display: inline-block;
+            vertical-align: middle; }
+            header nav ul .member .after_login div .member_Pic {
+              width: 35px;
+              height: 35px;
+              border-radius: 50%; }
+            header nav ul .member .after_login div img {
+              cursor: pointer; }
+            header nav ul .member .after_login div span {
+              padding: 5px 10px;
+              font-size: 12px;
+              color: #fff;
+              display: inline-block; }
+              header nav ul .member .after_login div span .achievement_Pic {
+                margin: -5px 8px 0 2px;
+                vertical-align: middle; }
+  header #white_Point_control {
+    display: none; }
+    header #white_Point_control:checked ~ .white_Point {
+      width: 70vmin;
+      height: 70vmin;
+      transform: translate(-50%, -50%);
+      transition: 1s;
+      top: 50%;
+      left: 50%; }
+      header #white_Point_control:checked ~ .white_Point li {
+        display: inline-block; }
+  header .white_Point {
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: #425075;
+    position: fixed;
+    transition: 1s;
+    top: 80px;
+    right: 0%;
+    z-index: 101; }
+    header .white_Point.floaty.active {
+      z-index: 10001; }
+    header .white_Point.floaty:before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      margin-left: 0;
+      margin-top: 0; }
+    header .white_Point.floaty.active:before {
+      content: "";
+      display: block;
+      top: -500%;
+      left: -500%;
+      width: 1100%;
+      height: 1100%; }
+    header .white_Point ul {
+      text-align: center; }
+      header .white_Point ul li {
+        margin: 0 auto;
+        width: 50%;
+        height: 23.33333333vmin;
+        display: none; }
+        header .white_Point ul li:after {
+          content: '';
+          width: 0;
+          height: 100%;
+          vertical-align: middle;
+          display: inline-block; }
+        header .white_Point ul li a, header .white_Point ul li .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white_Point ul li button {
+          font-size: 16px;
+          vertical-align: middle;
+          display: inline-block; }
+          header .white_Point ul li a img, header .white_Point ul li .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button img, .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white_Point ul li button img {
+            margin-bottom: 5px;
+            width: 40%; }
+        header .white_Point ul li:nth-of-type(1) {
+          width: 100%; }
+        header .white_Point ul li:nth-of-type(4), header .white_Point ul li:nth-of-type(5) {
+          max-width: 120px; }
+  header #view1 {
+    display: none; }
+
+@media screen and (min-width: 1024px) {
+  header {
+    background-image: url(../image/nav_background.png);
+    font-size: 0;
+    text-align: center; }
+    header #navctrl:checked ~ nav {
+      transform: translate(0, 0) rotate(0deg);
+      top: 0px;
+      left: 0px;
+      transition: 0s; }
+    header .phone_nav {
+      padding: 0;
+      width: 14.28571428%;
+      height: 100px;
+      background: none;
+      display: inline-block;
+      vertical-align: top;
+      position: relative; }
+      header .phone_nav div.nav_right {
+        width: 100%;
+        text-align: center; }
+        header .phone_nav div.nav_right .seach_button {
+          padding: 10px 40px 10px 10px;
+          border-radius: 20px;
+          font-size: 16px; }
+      header .phone_nav .nav_left, header .phone_nav .logo {
+        font-size: 0;
+        margin: 0;
+        padding: 0;
+        display: none; }
+        header .phone_nav .nav_left img, header .phone_nav .logo img {
+          height: 120px; }
+    header nav {
+      width: 71.42857142%;
+      position: relative;
+      display: inline-block;
+      transform: translate(0, 0) rotate(0deg);
+      transition: 0s;
+      top: 0px;
+      left: 0px;
+      vertical-align: top; }
+      header nav:before {
+        display: none; }
+      header nav ul {
+        width: 100%;
+        height: 100px;
+        display: inline-block;
+        position: static; }
+        header nav ul li {
+          width: 20%;
+          height: 100px;
+          display: inline-block;
+          vertical-align: top; }
+          header nav ul li:after {
+            content: '';
+            width: 0;
+            height: 120%;
+            display: inline-block;
+            vertical-align: middle; }
+          header nav ul li.table_hidden {
+            display: none; }
+          header nav ul li.logo {
+            transform: translateX(200%); }
+          header nav ul li.member {
+            transform: translateX(300%); }
+          header nav ul li.meals {
+            transform: translateX(100%); }
+          header nav ul li.initiate {
+            transform: translateX(-300%); }
+          header nav ul li.participate {
+            transform: translateX(-300%); }
+    header #white_Point_control {
+      display: none; }
+      header #white_Point_control:checked ~ .white_Point {
+        width: 14.28571428%;
+        height: 100px;
+        transform: translate(0, 0);
+        transition: 0s;
+        position: static; }
+        header #white_Point_control:checked ~ .white_Point li.table_hidden {
+          display: none; }
+    header .white_Point {
+      margin: auto;
+      width: 14.28571428%;
+      height: 100px;
+      border-radius: 0;
+      background: none;
+      vertical-align: top;
+      display: inline-block;
+      transform: translate(0, 0);
+      transition: 0s;
+      position: static; }
+      header .white_Point:checked ~ .white_Point {
+        width: 50px;
+        height: 50px;
+        transform: translate(0, 0);
+        position: static; }
+      header .white_Point ul {
+        height: 100%; }
+        header .white_Point ul:after {
+          content: '';
+          width: 0;
+          height: 120%;
+          display: inline-block;
+          vertical-align: middle; }
+        header .white_Point ul li {
+          width: auto;
+          height: auto;
+          display: inline-block; }
+          header .white_Point ul li.table_hidden {
+            display: none; }
+          header .white_Point ul li:nth-of-type(1) {
+            width: auto; }
+          header .white_Point ul li a, header .white_Point ul li .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white_Point ul li button {
+            margin: 0 8px;
+            padding: 6px;
+            font-size: 0;
+            color: #76391b;
+            border-radius: 20px;
+            background-color: #fcf2ca;
+            box-shadow: 1px 3px 1px #ad6631;
+            display: inline-block;
+            position: relative; }
+            header .white_Point ul li a img, header .white_Point ul li .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button img, .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white_Point ul li button img {
+              width: 25px;
+              height: 25px; }
+            header .white_Point ul li a span, header .white_Point ul li .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button span, .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white_Point ul li button span {
+              padding: 3px 7px 5px;
+              font-size: 8px;
+              color: #fff;
+              background-color: #AD6631;
+              border-radius: 50%;
+              position: absolute;
+              top: -8px;
+              right: -4px; }
+    header #view1, header #view2, header #view3, header #view4, header #view5, header #view6, header #view7 {
+      width: 100%;
+      height: 100px;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1; }
+      header #view1 .slice, header #view2 .slice, header #view3 .slice, header #view4 .slice, header #view5 .slice, header #view6 .slice, header #view7 .slice {
+        width: 100%;
+        height: 10px;
+        transform-style: preserve-3d;
+        transform-origin: center top;
+        transition: 150ms ease-in-out;
+        background-image: url(../image/nav_background.png);
+        perspective: 1000px;
+        position: relative;
+        top: 100%; }
+      header #view1 .s1, header #view2 .s1, header #view3 .s1, header #view4 .s1, header #view5 .s1, header #view6 .s1, header #view7 .s1 {
+        height: 80px;
+        background: none;
+        top: 0; }
+    header li:not(.logo):not(.member):hover .s2 {
+      border: 2px solid #2d3e51;
+      border-bottom: none;
+      border-radius: 5px 5px 5px 5px;
+      transition-delay: 150ms;
+      transform: translate3d(-4px, 0, 0) rotate3d(1, 0, 0, -180deg);
+      background-color: #425075; }
+    header li:not(.logo):not(.member):hover .s3 {
+      border: 2px solid #2d3e51;
+      border-bottom: none;
+      border-radius: 5px 5px 5px 5px;
+      transition-delay: 100ms;
+      transform: translate3d(-6px, 0, 0) rotate3d(1, 0, 0, -180deg);
+      background-color: #425075; }
+    header #view1 .s1 {
+      background-position: 0% 0; }
+    header #view1 .s2 {
+      background-position: 0% -80px; }
+    header #view1 .s3 {
+      background-position: 0% -90px; }
+    header #view2 .s1 {
+      background-position: -100% 0; }
+    header #view2 .s2 {
+      background-position: -100% -80px; }
+    header #view2 .s3 {
+      background-position: -100% -90px; }
+    header #view3 .s1 {
+      background-position: -200% 0; }
+    header #view3 .s2 {
+      background-position: -200% -80px; }
+    header #view3 .s3 {
+      background-position: -200% -90px; }
+    header #view4 .s1 {
+      background-position: -300% 0; }
+    header #view4 .s2 {
+      background-position: -300% -80px; }
+    header #view4 .s3 {
+      background-position: -300% -90px; }
+    header #view5 .s1 {
+      background-position: -400% 0; }
+    header #view5 .s2 {
+      background-position: -400% -80px; }
+    header #view5 .s3 {
+      background-position: -400% -90px; }
+    header #view6 .s1 {
+      background-position: -500% 0; }
+    header #view6 .s2 {
+      background-position: -500% -80px; }
+    header #view6 .s3 {
+      background-position: -500% -90px; }
+    header #view7 .s1 {
+      background-position: -600% 0; }
+    header #view7 .s2 {
+      background-position: -600% -80px; }
+    header #view7 .s3 {
+      background-position: -600% -90px; } }
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a,
+.indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none; }
+
+.searchBtn {
+  width: 80px;
+  height: 40px;
+  margin: auto;
+  font-size: 18px;
+  color: #000;
+  background-color: #fff;
+  border-radius: 1000px; }
+
+.indexTitle, .indexJoin .container .indexJoin-container .indexJoin-title h1, .indexGroupon .container .indexGroupon-container .indexGroupon-title h1, .indexMeal .container .indexMeal-title h1, .indexLogin .container .indexLogin-title h1 {
+  text-align: center;
+  font-size: 24px;
+  color: #76391b; }
+
+@media screen and (min-width: 768px) {
+  .indexTitle, .indexJoin .container .indexJoin-container .indexJoin-title h1, .indexGroupon .container .indexGroupon-container .indexGroupon-title h1, .indexMeal .container .indexMeal-title h1, .indexLogin .container .indexLogin-title h1 {
+    font-size: 28px;
+    padding: 20px 0; } }
+
+.section {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
+
+.container {
+  margin: auto; }
+
+.mainBtn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn, .indexLogin .container .indexLogin-btn button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 0;
+  border-radius: 1000px;
+  background-color: #fce444;
+  box-shadow: 0 4px 0 #bb7232; }
+
+.joinBtn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button, .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button:hover {
+  opacity: 1;
+  cursor: pointer;
+  border: 10px solid rgba(255, 255, 255, 0.5);
+  transition: 0.5s background-color ease, 0.2s border ease;
+  border-radius: calc(var(--x) / var(--size) * 100%) calc(var(--dx) / var(--size) * 100%) calc(var(--dx) / var(--size) * 100%) calc(var(--x) / var(--size) * 100%)/calc(var(--y) / var(--size) * 100%) calc(var(--y) / var(--size) * 100%) calc(var(--dy) / var(--size) * 100%) calc(var(--dy) / var(--size) * 100%); }
+
+header {
+  z-index: 1000;
+  position: relative; }
+
+.indexSearch {
+  width: 100%;
+  margin: -7px 0 0 0;
+  background-image: url("../images/background.png");
+  background-size: 100vh; }
+  .indexSearch .indexSearch-searchBar {
+    position: relative;
+    padding: 180px 0; }
+    .indexSearch .indexSearch-searchBar form {
+      width: 70%;
+      max-width: 600px;
+      height: 40px;
+      margin: auto;
+      padding: 5px 10px;
+      border-radius: 1000px;
+      border: 6px solid #bb7232;
+      background-color: #fcf2ca;
+      box-shadow: 0 6px #76391b;
+      position: relative; }
+      .indexSearch .indexSearch-searchBar form div {
+        display: inline-block; }
+        .indexSearch .indexSearch-searchBar form div::after {
+          content: "▾";
+          font-family: FontAwesome;
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          top: 10px;
+          left: 60px;
+          font-size: 20px;
+          color: #fff; }
+        .indexSearch .indexSearch-searchBar form div #indexSearch-select {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          border: none;
+          font-size: 20px;
+          padding: 16px 34px 16px 16px;
+          border-radius: 1000px;
+          border: none;
+          background-color: #bb7232;
+          color: #fff;
+          letter-spacing: 1px;
+          position: relative;
+          top: -10px;
+          left: -14px; }
+      .indexSearch .indexSearch-searchBar form input[type="text"] {
+        width: 50%;
+        background-color: transparent;
+        border: none;
+        font-size: 18px;
+        position: absolute;
+        top: 15px;
+        left: 100px; }
+      .indexSearch .indexSearch-searchBar form .indexSearch-btn {
+        font-size: 20px;
+        padding: 16px 10px 16px;
+        margin: -11px -11px -11px -13px;
+        border-radius: 1000px;
+        border: none;
+        background-color: #bb7232;
+        color: #fff;
+        letter-spacing: 1px;
+        cursor: pointer;
+        width: 62px;
+        height: 62px;
+        position: absolute;
+        right: 0px; }
+      .indexSearch .indexSearch-searchBar form .indexSearch-rope img:nth-child(1) {
+        width: 15px;
+        position: absolute;
+        bottom: 45px;
+        left: 10%;
+        transform: translateX(-50%); }
+      .indexSearch .indexSearch-searchBar form .indexSearch-rope img:nth-child(2) {
+        width: 15px;
+        position: absolute;
+        bottom: 45px;
+        right: 10%;
+        transform: translateX(50%);
+        transform: rotateY(180deg); }
+  .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox {
+    width: 300%;
+    overflow: hidden;
+    position: absolute;
+    bottom: 8vh;
+    left: 0; }
+    .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table img.indexSearch-tableImg {
+      width: 100%;
+      display: inline-block;
+      height: 240px; }
+    .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul {
+      width: 100%;
+      position: absolute;
+      bottom: 110px;
+      left: 0;
+      display: inline-block; }
+      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li {
+        width: 130px;
+        margin: auto 1vw;
+        display: inline-block;
+        position: absolute;
+        left: -150%;
+        bottom: 0;
+        cursor: pointer; }
+        .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li:hover div.indexSearch-hover {
+          opacity: 1;
+          transition: 1s; }
+        .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li div.indexSearch-hover {
+          width: 200px;
+          height: 70px;
+          background-color: #fcf2ca;
+          position: absolute;
+          border-radius: 30px;
+          top: 80%;
+          left: 45%;
+          transform: translateX(-50%);
+          opacity: 0;
+          transition: 1s;
+          z-index: 2; }
+          .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li div.indexSearch-hover p {
+            text-align: center;
+            padding: 5px 20px;
+            font-size: 18px; }
+            .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li div.indexSearch-hover p span {
+              font-size: 16px; }
+              .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li div.indexSearch-hover p span img {
+                width: 15px;
+                height: 20px;
+                min-height: 20px; }
+        .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li img.indexSearch-img {
+          display: inline-block;
+          width: 100%;
+          min-height: auto;
+          max-height: 150px;
+          height: auto;
+          margin: auto 1vw;
+          position: relative;
+          left: -10%; }
+
+@keyframes moving {
+  0% {
+    left: -10%; }
+  100% {
+    left: 100%; } }
+      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li.indexSearch-meal-1 {
+        animation: moving 15s linear 0s infinite; }
+      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li.indexSearch-meal-2 {
+        animation: moving 15s linear 3s infinite; }
+      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li.indexSearch-meal-3 {
+        animation: moving 15s linear 6s infinite; }
+      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li.indexSearch-meal-4 {
+        animation: moving 15s linear 9s infinite; }
+      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li.indexSearch-meal-5 {
+        animation: moving 15s linear 12s infinite; }
+      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul:hover li {
+        animation-play-state: paused; }
+
+@media screen and (min-width: 768px) {
+  .indexSearch {
+    background-size: 100%; }
+    .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox {
+      width: 100%;
+      position: absolute;
+      bottom: 10vh;
+      left: 0; }
+      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table img {
+        width: 100%;
+        display: inline-block;
+        min-height: 200px; }
+      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul {
+        width: 100%;
+        position: absolute;
+        bottom: 110px;
+        left: 0;
+        display: inline-block; }
+        .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li {
+          width: 20vw;
+          max-width: 170px;
+          margin: auto 1vw;
+          display: inline-block; }
+          .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li img.indexSearch-img {
+            margin: auto 2%; } }
+
+@media screen and (min-width: 1200px) {
+  .indexSearch {
+    height: calc(100vh - 100px);
+    background-image: url(../images/background0.png);
+    background-position: bottom; } }
+
+.indexJoin {
+  background-image: url(../images/background5.jpg);
+  width: 100%;
+  background-repeat: no-repeat;
+  height: calc(100vh - 7px);
+  text-align: center; }
+  .indexJoin::after {
+    content: "";
+    width: 0;
+    height: 112%;
+    display: inline-block;
+    vertical-align: middle; }
+  .indexJoin .container {
+    display: inline-block;
+    vertical-align: middle; }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone {
+      width: 197px;
+      height: 350px;
+      margin: 0 auto;
+      background-image: url(../images/phone.svg);
+      background-size: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-info {
+        font-size: 16px;
+        padding: 80px 28px 0;
+        text-align: center; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-info img {
+          width: 100px;
+          margin: -30px 0 10px;
+          border-radius: 50%;
+          background-color: #fcf2ca;
+          padding: 10px; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(1) {
+        width: 156px;
+        position: absolute;
+        top: 43px;
+        left: 20px; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(2) {
+        width: 100px;
+        position: absolute;
+        right: -20px;
+        bottom: 0;
+        animation: stepO1 1s 0.5s infinite alternate; }
+
+@keyframes stepO1 {
+  0% {
+    bottom: 0px; }
+  100% {
+    bottom: 150px; } }
+
+@keyframes stepO2-btn {
+  0% {
+    background-color: #fce444;
+    box-shadow: 0 4px 0 #bb7232; }
+  100% {
+    background-color: #bb7232;
+    box-shadow: 0 4px 0 #fce444;
+    color: #fff; } }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQr3-btn {
+        display: inline-block;
+        position: absolute;
+        left: 37px;
+        bottom: 100px;
+        animation: stepO2-btn 1s 1.2s 1 normal;
+        animation-fill-mode: forwards; }
+
+@keyframes stepO2-finger {
+  0% {
+    right: -60px;
+    bottom: 60px; }
+  100% {
+    right: 15px;
+    bottom: 10px; } }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img:nth-child(1) {
+        width: 127px;
+        position: absolute;
+        left: 36px;
+        top: 40px; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img.finger2 {
+        width: 100px;
+        position: absolute;
+        right: -60px;
+        bottom: 60px;
+        animation: stepO2-finger 0.8s 0.5s 1 normal;
+        animation-fill-mode: forwards;
+        z-index: 1; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) {
+        text-align: center; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(1) {
+          padding: 50px 0 8px;
+          font-size: 20px;
+          font-weight: bold; }
+
+@keyframes stepO3-scan {
+  0% {
+    width: 120px;
+    height: 120px;
+    margin: -10px 0 0 -10px;
+    background-color: transparent; }
+  33% {
+    width: 120px;
+    height: 120px;
+    margin: -10px 0 0 -10px;
+    background-color: rgba(233, 79, 79, 0.6); }
+  66% {
+    width: 130px;
+    height: 130px;
+    margin: -15px 0 0 -15px;
+    background-color: rgba(250, 236, 34, 0.6); }
+  100% {
+    width: 120px;
+    height: 120px;
+    margin: -10px 0 0 -10px;
+    background-color: rgba(77, 235, 156, 0.6); } }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img {
+        text-align: center;
+        margin: 30px auto;
+        position: relative; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img div {
+          width: 120px;
+          height: 120px;
+          background-color: transparent;
+          display: inline-block;
+          text-align: center;
+          margin: -10px 0 0 -10px;
+          position: absolute;
+          animation: stepO3-scan 0.9s 0.5s 1 ease-in-out;
+          animation-fill-mode: forwards; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img div:before {
+            content: "";
+            width: 5px;
+            height: 5px;
+            background-color: #000;
+            box-shadow: 0 130px 0 #000;
+            position: absolute;
+            top: -10px;
+            left: -10px; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img div:after {
+            content: "";
+            width: 5px;
+            height: 5px;
+            background-color: #000;
+            box-shadow: 0 130px 0 #000;
+            position: absolute;
+            top: -10px;
+            right: -10px; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img img {
+          display: inline-block;
+          width: 100px;
+          text-align: center; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 {
+        overflow: hidden; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) {
+          position: relative;
+          top: 0;
+          text-align: center;
+          width: 145px;
+          margin: 0 0 0 26px; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(1) {
+            padding: 50px 0 8px;
+            font-size: 20px;
+            font-weight: bold; }
+
+@keyframes stepO4 {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) {
+          height: 150px; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) i.fa-check {
+            font-size: 60px;
+            color: #fce444;
+            text-shadow: 0 5px #bb7232;
+            position: absolute;
+            top: 145px;
+            left: 70px;
+            animation: stepO4 1s 0 1 ease-in;
+            animation-fill-mode: forwards; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) span {
+            display: inline-block;
+            position: absolute;
+            top: 220px;
+            left: 50px;
+            animation: stepO4 1s 0 1 ease-in;
+            animation-fill-mode: forwards; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div {
+        width: 120px;
+        padding: 10px 8px 0;
+        background: #bef18c;
+        border-radius: 10px;
+        font-size: 13px;
+        position: absolute;
+        top: 60px;
+        left: 30px; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div:before {
+          content: "";
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 10px 8px 0;
+          border-color: transparent #bef18c transparent transparent;
+          position: absolute;
+          top: 10px;
+          left: -10px; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 img {
+        width: 50px;
+        height: 50px;
+        margin: 10px auto;
+        background-color: #fff;
+        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr2 div {
+        width: 95px;
+        padding: 10px 8px;
+        background: #bef18c;
+        border-radius: 10px;
+        font-size: 13px;
+        position: absolute;
+        bottom: 80px;
+        right: 30px; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr2 div:before {
+          content: "";
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 8px 10px 0 0;
+          border-color: #bef18c transparent transparent transparent;
+          position: absolute;
+          bottom: 10px;
+          right: -10px; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 {
+        position: relative; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box {
+          width: 105px;
+          height: 176px;
+          padding: 15px 10px;
+          background-color: #fcf2ca;
+          border-radius: 10px;
+          position: absolute;
+          top: 65px;
+          left: 35px; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(1) {
+            font-size: 14px;
+            text-align: center; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(2) {
+            padding: 20px 10px 10px;
+            font-size: 16px;
+            font-weight: bold; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input {
+            width: 65px;
+            border: 2px solid #76391b;
+            padding: 5px 8px;
+            border-radius: 10px;
+            margin: 0 10px; }
+
+@keyframes typing {
+  from {
+    width: 0; } }
+
+@keyframes caret {
+  50% {
+    border-color: transparent; } }
+            .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input p {
+              width: 34px;
+              text-align: left;
+              border-right: 1px solid;
+              overflow: hidden;
+              white-space: nowrap;
+              animation: typing 1.2s steps(4), caret 0.3s steps(1) infinite; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
+            text-align: center;
+            width: 70px;
+            margin: 10px auto 0;
+            padding: 6px 10px; }
+
+@keyframes stepQr3 {
+  0% {
+    right: -50px;
+    bottom: -30px; }
+  100% {
+    right: -30px;
+    bottom: -70px; } }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box img {
+            width: 100px;
+            position: absolute;
+            right: -50px;
+            bottom: -30px;
+            animation: stepQr3 0.6s 1.4s alternate;
+            animation-fill-mode: forwards; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
+            animation: stepO2-btn 0.7s 2s 1 normal;
+            animation-fill-mode: forwards; }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn {
+      display: inline-block;
+      position: relative;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button {
+        --x: 84;
+        --y: 75;
+        --size: 128;
+        width: 30vw;
+        height: 30vw;
+        max-width: 130px;
+        max-height: 130px;
+        transition: 0.5s all ease;
+        background: var(--color);
+        border: 0 solid transparent;
+        box-sizing: border-box;
+        border-radius: 50%;
+        display: inline-block;
+        font-size: 0;
+        opacity: 0.8;
+        --dx: calc(var(--size) - var(--x));
+        --dy: calc(var(--size) - var(--y));
+        margin: 0 10px; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button:disabled {
+          color: #000; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button p {
+          font-size: 18px;
+          text-align: center;
+          position: relative;
+          top: 50%; }
+
+@media screen and (min-width: 768px) {
+  .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone {
+    width: 281px;
+    height: 500px;
+    margin: 0 auto;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative; }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-info {
+      font-size: 20px;
+      padding: 80px 28px 0;
+      text-align: center; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-info img {
+        width: 150px;
+        margin: -10px 20px 35px; }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(1) {
+      width: 222px;
+      position: absolute;
+      left: 28px;
+      top: 67px; }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(2) {
+      width: 100px;
+      right: -20px;
+      bottom: 60px;
+      animation: stepO1-sm 1s 0.5s infinite alternate;
+      z-index: 1; }
+  @keyframes stepO1-sm {
+    0% {
+      bottom: 60px; }
+    100% {
+      bottom: 260px; } }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQr3-btn {
+      left: 75px;
+      bottom: 150px; }
+  @keyframes stepO2-finger-sm {
+    0% {
+      right: -14px;
+      bottom: 180px; }
+    100% {
+      right: 60px;
+      bottom: 60px; } }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img:nth-child(1) {
+      width: 166px;
+      position: absolute;
+      left: 59px;
+      top: 55px; }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img.finger2 {
+      width: 100px;
+      position: absolute;
+      right: -14px;
+      bottom: 180px;
+      animation: stepO2-finger-sm 0.8s 0.5s 1 normal;
+      animation-fill-mode: forwards;
+      z-index: 1; }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) {
+      text-align: center; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(1) {
+        padding: 100px 0 20px;
+        font-size: 26px; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(2) {
+        font-size: 22px; }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img {
+      margin: 50px auto; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img div {
+        animation: stepO3-scan 0.9s 0.5s 1 ease-in-out;
+        animation-fill-mode: forwards; }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 {
+      overflow: hidden; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) {
+        position: relative;
+        top: 0;
+        text-align: center;
+        width: 225px;
+        margin: 0 0 0 26px; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(1) {
+          padding: 100px 0 20px;
+          font-size: 26px; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(2) {
+          font-size: 22px;
+          padding: 0 20px; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) {
+        height: 150px; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) i.fa-check {
+          font-size: 80px;
+          top: 220px;
+          left: 100px;
+          animation: stepO4 1s 0 1 ease-in;
+          animation-fill-mode: forwards; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) span {
+          font-size: 20px;
+          top: 310px;
+          left: 78px;
+          animation: stepO4 1s 0 1 ease-in;
+          animation-fill-mode: forwards; }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div {
+      width: 160px;
+      font-size: 16px;
+      top: 70px;
+      left: 47px;
+      text-align: left; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div img {
+        width: 80px;
+        height: 80px;
+        margin: 10px auto; }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr2 div {
+      width: 120px;
+      font-size: 16px;
+      bottom: 135px;
+      right: 50px; }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 {
+      position: relative; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box {
+        width: 150px;
+        height: 230px;
+        top: 90px;
+        left: 54px; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(1) {
+          font-size: 18px;
+          text-align: center; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(2) {
+          padding: 30px 0px 20px;
+          font-size: 20px; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input {
+          width: 80px;
+          border: 2px solid #76391b;
+          padding: 5px 8px;
+          border-radius: 10px;
+          margin: 0 24px; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input p {
+            width: 40px;
+            font-size: 16px;
+            animation: typing 1.2s steps(4), caret 0.3s steps(1) infinite; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
+          text-align: center;
+          width: 80px;
+          margin: 32px auto 0;
+          padding: 6px 10px; }
+  .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn {
+    display: inline-block;
+    position: relative;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0; }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button {
+      max-width: 200px;
+      max-height: 200px;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      position: absolute;
+      bottom: 200px; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button p {
+        font-size: 26px;
+        text-align: center;
+        position: relative;
+        top: 50%; }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnO {
+      left: calc(-281px - 20vw); }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnQr {
+      right: -20vw; } }
+
+@media screen and (min-width: 1200px) {
+  .indexJoin {
+    width: 100%;
+    height: calc(100vh - 100px);
+    text-align: center; }
+    .indexJoin::after {
+      content: "";
+      width: 0;
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle; }
+    .indexJoin .container {
+      display: inline-block;
+      vertical-align: middle; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn {
+        display: inline-block;
+        position: relative;
+        top: -50%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button {
+          max-width: 200px;
+          max-height: 200px;
+          width: 180px;
+          height: 180px;
+          margin: 0 auto;
+          position: absolute;
+          bottom: 200px; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button p {
+            font-size: 26px;
+            text-align: center;
+            position: relative;
+            top: 50%; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnO {
+          left: calc(-281px - 20vw); }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnQr {
+          right: -20vw; } }
+
+.indexGroupon {
+  width: 100%;
+  display: grid;
+  place-content: center;
+  background-image: url(../images/backgroundegg.png);
+  height: calc(100vh - 60px); }
+  .indexGroupon::after {
+    display: none; }
+  .indexGroupon .container .indexGroupon-container .indexGroupon-title h2 {
+    display: none; }
+  .indexGroupon .container .indexGroupon-container .indexGroupon-box {
+    display: flex;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    position: relative; }
+    .indexGroupon .container .indexGroupon-container .indexGroupon-box .owl-item {
+      width: 100%; }
+    .indexGroupon .container .indexGroupon-container .indexGroupon-box .owl-nav {
+      font-size: 70px;
+      color: #76391b; }
+      .indexGroupon .container .indexGroupon-container .indexGroupon-box .owl-nav .owl-prev {
+        position: absolute;
+        top: 200px;
+        left: 20px; }
+      .indexGroupon .container .indexGroupon-container .indexGroupon-box .owl-nav .owl-next {
+        position: absolute;
+        top: 200px;
+        right: 20px; }
+    .indexGroupon .container .indexGroupon-container .indexGroupon-box .owl-dot {
+      display: none; }
+    .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part {
+      width: 260px;
+      margin: 20px auto;
+      background-color: #f7f4e7;
+      border-radius: 20px;
+      box-shadow: 5px 3px 10px rgba(49, 49, 49, 0.3);
+      position: relative;
+      flex-wrap: nowrap; }
+      .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle {
+        margin: 0 0 0 -12px;
+        padding: 8px;
+        background-color: #fce444;
+        position: relative; }
+        .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle h3 {
+          padding: 0 0 0 12px; }
+        .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle:before {
+          content: "";
+          position: absolute;
+          bottom: -7px;
+          left: 0;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 12px 7px 0;
+          border-color: transparent #bb7232 transparent transparent; }
+        .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average {
+          width: 86px;
+          height: 86px;
+          background-image: url(../images/average.png);
+          background-size: 100%;
+          background-position: center;
+          background-repeat: no-repeat;
+          position: absolute;
+          top: -25px;
+          right: -16px; }
+          .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average p:nth-child(1) {
+            padding: 16px 0 0;
+            font-size: 24px;
+            text-align: center; }
+            .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average p:nth-child(1)::after {
+              content: " 元";
+              font-size: 14px; }
+          .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average p:nth-child(2) {
+            margin: -2px 0 0;
+            text-align: center;
+            font-size: 13px; }
+      .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part img {
+        width: 80%;
+        margin: 25px 50% 10px;
+        padding: 10px 0px;
+        transform: translateX(-50%);
+        text-align: center;
+        background-color: #fcf2ca;
+        border-radius: 20px; }
+      .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-info {
+        width: 190px;
+        margin: 0 auto 15px;
+        text-align: center;
+        line-height: 1.6rem; }
+      .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sum {
+        width: 190px;
+        margin: 0px auto;
+        line-height: 2rem; }
+        .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sum .indexGroupon-countBar {
+          display: inline-block;
+          width: 100px;
+          height: 16px;
+          border-radius: 1000px;
+          background-color: #76391b;
+          line-height: 16px; }
+          .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sum .indexGroupon-countBar p {
+            width: 0;
+            height: 16px;
+            margin: 0 0 0 -1px;
+            text-align: center;
+            font-size: 10px;
+            background-color: #fce444;
+            border-radius: 1000px; }
+      .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-deadline {
+        padding-bottom: 20px; }
+      .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-btn {
+        text-align: right; }
+        .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-btn a, .indexGroupon .indexMeal .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-btn .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-btn .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexGroupon .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-btn button, .indexMeal .indexGroupon .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-btn button {
+          display: block;
+          padding: 8px 10px;
+          background-color: #fce444;
+          border-radius: 20px 0 20px 0;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          color: #000; }
+
+@keyframes countBar1 {
+  0% {
+    width: 0; }
+  100% {
+    width: 87px; } }
+
+@keyframes countBar2 {
+  0% {
+    width: 0; }
+  100% {
+    width: 50px; } }
+
+@keyframes countBar3 {
+  0% {
+    width: 0; }
+  100% {
+    width: 35px; } }
+
+@keyframes countBar4 {
+  0% {
+    width: 0; }
+  100% {
+    width: 95px; } }
+    .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part1 .indexGroupon-sum .indexGroupon-count p {
+      width: 0;
+      animation: countBar1 1s linear 5s 1;
+      animation-fill-mode: forwards; }
+    .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part2 .indexGroupon-sum .indexGroupon-count p {
+      width: 0;
+      animation: countBar2 1s linear 5.2s 1;
+      animation-fill-mode: forwards; }
+    .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part3 .indexGroupon-sum .indexGroupon-count p {
+      width: 0;
+      animation: countBar3 1s linear 5.4s 1;
+      animation-fill-mode: forwards; }
+    .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part4 .indexGroupon-sum .indexGroupon-count p {
+      width: 0;
+      animation: countBar4 1s linear 5.6s 1;
+      animation-fill-mode: forwards; }
+
+.indexGroupon-desc {
+  display: none; }
+
+@media screen and (min-width: 1200px) {
+  .indexGroupon-mobile {
+    display: none; }
+  .indexGroupon-desc {
+    display: grid; }
+    .indexGroupon-desc .container .indexGroupon-container .indexGroupon-box .indexGroupon-part {
+      margin: 0px 20px; } }
+
+.indexMeal {
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+  align-items: center; }
+  .indexMeal::after {
+    content: "";
+    width: 0;
+    height: 112%;
+    display: inline-block;
+    vertical-align: middle; }
+  .indexMeal .container {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: 32px; }
+    .indexMeal .container .indexMeal-slider {
+      width: 280px;
+      height: 425px;
+      margin: auto; }
+      .indexMeal .container .indexMeal-slider .indexMeal-ctrl .swiper-button-next,
+      .indexMeal .container .indexMeal-slider .indexMeal-ctrl .swiper-button-prev {
+        font-size: 16px; }
+      .indexMeal .container .indexMeal-slider .indexMeal-box {
+        position: relative; }
+        .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part {
+          margin: 0 auto;
+          list-style: none; }
+          .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top {
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2; }
+            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top .indexMeal-topCk {
+              width: 250px; }
+            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top .indexMeal-topW {
+              width: 200px;
+              margin: 0 auto;
+              position: absolute;
+              top: 120px;
+              left: calc(50% + 5px);
+              transform: translateX(-50%); }
+            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top .indexMeal-meal {
+              width: 200px;
+              position: absolute;
+              top: 120px;
+              left: 50%;
+              transform: translateX(-50%); }
+          .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum {
+            width: 280px;
+            margin: -32px auto 0;
+            padding: 50px 0;
+            background-image: url(../images/stage2.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            text-align: center; }
+            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum h3 {
+              display: inline;
+              font-size: 26px;
+              line-height: 1rem; }
+            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum h4 {
+              display: inline;
+              font-size: 24px; }
+              .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum h4::after {
+                content: " 元";
+                font-size: 16px; }
+            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum p {
+              font-size: 18px;
+              line-height: 2.5rem; }
+              .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum p span img {
+                width: 15px; }
+            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn a, .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
+              display: inline-block;
+              padding: 5px 10px;
+              background-color: #fce444;
+              border-radius: 1000px;
+              color: #000;
+              font-size: 16px;
+              box-shadow: 0 4px 0 #bb7232; }
+            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
+              border: 0; }
+          .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top1Sum .indexMeal-top1Right {
+            display: none; }
+          .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top1Sum .indexMeal-mes {
+            display: none; }
+
+@media screen and (min-width: 840px) {
+  .indexMeal {
+    width: 100%;
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .indexMeal::after {
+      content: "";
+      display: none; }
+    .indexMeal .container {
+      top: 100px; }
+      .indexMeal .container .indexMeal-title {
+        position: relative;
+        top: -31px; }
+      .indexMeal .container .indexMeal-slider {
+        width: 100%;
+        height: auto;
+        margin: auto; }
+        .indexMeal .container .indexMeal-slider .indexMeal-box {
+          position: relative;
+          display: flex; }
+          .indexMeal .container .indexMeal-slider .indexMeal-box .top2 {
+            order: -1; }
+          .indexMeal .container .indexMeal-slider .indexMeal-box .top1 {
+            position: relative;
+            top: -31px; }
+            .indexMeal .container .indexMeal-slider .indexMeal-box .top1 div.indexMeal-topSum {
+              height: 260px;
+              background-image: url(../images/stage1.png); }
+              .indexMeal .container .indexMeal-slider .indexMeal-box .top1 div.indexMeal-topSum .indexMeal-top1Left {
+                position: relative;
+                top: 31px; } }
+
+.indexLogin {
+  width: 100%;
+  height: calc(100vh - 60px);
+  text-align: center; }
+  .indexLogin::after {
+    content: "";
+    width: 0;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle; }
+  .indexLogin .container {
+    display: inline-block;
+    vertical-align: middle; }
+    .indexLogin .container .indexLogin-sum {
+      position: relative; }
+      .indexLogin .container .indexLogin-sum div {
+        width: 240px;
+        height: 188px;
+        margin: auto;
+        background-repeat: no-repeat;
+        background-image: url(../images/gun1.svg);
+        background-size: 100%; }
+        .indexLogin .container .indexLogin-sum div p {
+          padding: 27px 38px;
+          margin: auto;
+          text-align: center;
+          font-size: 17px; }
+      .indexLogin .container .indexLogin-sum img {
+        width: 60vw;
+        max-width: 300px;
+        margin: 10px auto 0;
+        position: relative; }
+    .indexLogin .container .indexLogin-btn {
+      text-align: center; }
+      .indexLogin .container .indexLogin-btn button {
+        cursor: pointer; }
+
+@media screen and (min-width: 768px) {
+  .indexLogin {
+    width: 100%;
+    height: calc(100vh - 100px); }
+    .indexLogin .container .indexLogin-sum {
+      position: relative; }
+  @keyframes gun {
+    0% {
+      transform: scale(0.3, 0.3);
+      opacity: 0.9;
+      font-size: 0; }
+    25% {
+      transform: scale(0.6, 0.6);
+      opacity: 0.5;
+      font-size: 0; }
+    75% {
+      transform: scale(0.4, 0.4);
+      opacity: 0.7;
+      font-size: 0; }
+    100% {
+      transform: scale(1, 1);
+      opacity: 1; } }
+      .indexLogin .container .indexLogin-sum div:nth-child(1) {
+        width: 300px;
+        height: 260px;
+        margin: auto;
+        background-repeat: no-repeat;
+        background-image: url(../images/gun2.svg);
+        background-size: 100%;
+        position: absolute;
+        top: 8px;
+        left: 176px;
+        z-index: 1;
+        opacity: 0.7;
+        animation: gun 3s ease-in-out 0s 3 alternate;
+        animation-fill-mode: forwards;
+        transform-origin: left center; }
+        .indexLogin .container .indexLogin-sum div:nth-child(1) p {
+          padding: 64px 41px;
+          margin: 0 0 0 6px;
+          text-align: center;
+          font-size: 20px; }
+      .indexLogin .container .indexLogin-sum img {
+        width: 60vw;
+        max-width: 300px;
+        margin: 10px auto 0;
+        position: relative; }
+    .indexLogin .container .indexLogin-btn {
+      text-align: center; }
+      .indexLogin .container .indexLogin-btn button {
+        cursor: pointer; } }

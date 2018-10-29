@@ -1,0 +1,712 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none; }
+
+.searchBtn {
+  width: 80px;
+  height: 40px;
+  margin: auto;
+  font-size: 18px;
+  color: #000;
+  background-color: #fff;
+  border-radius: 1000px; }
+
+.indexTitle, .indexJoin .container .indexJoin-container .indexJoin-title h1, .indexGroupon .container .indexGroupon-title h1, .indexMeal .container .indexMeal-title h1, .indexLogin .indexLogin-title h1 {
+  padding: 10vh 0 2vh;
+  text-align: center;
+  font-size: 32px;
+  color: brown; }
+
+.indexsubTitle, .indexGroupon .container .indexGroupon-title h2 {
+  width: 80%;
+  text-align: center;
+  font-size: 18px;
+  color: brown; }
+
+.nav {
+  width: 100%;
+  height: 60px;
+  background-color: #000;
+  position: fixed;
+  z-index: 10; }
+
+@media screen and (min-width: 1200px) {
+  .nav {
+    height: 150px; } }
+
+.section {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
+
+.container {
+  margin: auto; }
+
+.mainBtn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn, .indexLogin .indexLogin-btn button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 0;
+  border-radius: 1000px;
+  background-color: #FCE444;
+  box-shadow: 0 4px 0 #BB7232; }
+
+.joinBtn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn div, .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn div:hover {
+  opacity: 1;
+  cursor: pointer;
+  border: 10px solid rgba(255, 255, 255, 0.5);
+  transition: .5s background-color ease, .2s border ease;
+  border-radius: calc(var(--x) / var(--size) * 100%) calc(var(--dx) / var(--size) * 100%) calc(var(--dx) / var(--size) * 100%) calc(var(--x) / var(--size) * 100%)/calc(var(--y) / var(--size) * 100%) calc(var(--y) / var(--size) * 100%) calc(var(--dy) / var(--size) * 100%) calc(var(--dy) / var(--size) * 100%); }
+
+.indexSearch {
+  width: 100%;
+  height: calc(100vh - 60px);
+  background-image: url("../images/background.png"); }
+  .indexSearch .indexSearch-searchBar {
+    padding: 180px 0; }
+    .indexSearch .indexSearch-searchBar form {
+      width: 70%;
+      max-width: 600px;
+      height: 40px;
+      margin: auto;
+      padding: 5px 10px;
+      border-radius: 1000px;
+      border: 6px solid #76391B;
+      background-color: #FCE444;
+      position: relative; }
+      .indexSearch .indexSearch-searchBar form button:nth-child(1), .indexSearch .indexSearch-searchBar form .indexSearch-btn {
+        font-size: 18px;
+        padding: 8px 8px;
+        margin: 0px 0 0 -5px;
+        border-radius: 1000px;
+        border: none;
+        background-color: #76391B;
+        color: #fff;
+        letter-spacing: 1px; }
+      .indexSearch .indexSearch-searchBar form input[type="text"] {
+        width: 50%;
+        background-color: transparent;
+        border: none;
+        font-size: 18px; }
+      .indexSearch .indexSearch-searchBar form .indexSearch-btn {
+        width: 41px;
+        height: 41px;
+        font-size: 18px;
+        position: absolute;
+        top: 5px;
+        right: 6px; }
+  .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox {
+    width: 300%;
+    overflow-x: hidden;
+    position: absolute;
+    bottom: 8vh;
+    left: 0; }
+    .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table img {
+      width: 100%;
+      display: inline-block;
+      height: 240px; }
+    .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table .indexSearch-meal {
+      display: inline-block;
+      position: absolute;
+      bottom: 110px;
+      left: 0; }
+      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table .indexSearch-meal img {
+        display: inline-block;
+        width: 13%;
+        min-height: auto;
+        max-width: auto;
+        max-height: 130px;
+        height: auto;
+        margin: auto 1vw; }
+
+@media screen and (min-width: 768px) {
+  .indexSearch .indexSearch-searchBar {
+    padding: 250px 0; }
+  .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox {
+    width: 100%;
+    position: absolute;
+    bottom: 10vh;
+    left: 0; }
+    .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table img {
+      width: 100%;
+      display: inline-block;
+      min-height: 200px; }
+    .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table .indexSearch-meal {
+      position: absolute;
+      bottom: 110px;
+      text-align: center; }
+      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table .indexSearch-meal img {
+        display: inline-block;
+        width: 13%;
+        min-height: auto;
+        height: auto;
+        margin: auto 2%; } }
+
+@media screen and (min-width: 1200px) {
+  .indexSearch {
+    height: calc(100vh - 150px);
+    background-image: url(../images/background0.png);
+    background-position: bottom; } }
+
+.indexJoin {
+  width: 100%;
+  height: calc(100vh - 60px); }
+  .indexJoin .container .indexJoin-container {
+    width: 100%; }
+    .indexJoin .container .indexJoin-container .indexJoin-title {
+      padding: 20px 0 0; }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone {
+      width: 197px;
+      height: 350px;
+      margin: 0 auto;
+      background-image: url(../images/phone.svg);
+      background-size: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-info {
+        font-size: 16px;
+        padding: 80px 28px 0;
+        text-align: center; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img {
+        width: 100px;
+        position: absolute;
+        right: -20px;
+        bottom: 0;
+        animation: stepO1 1s .5s infinite alternate; }
+
+@keyframes stepO1 {
+  0% {
+    bottom: 0px; }
+  100% {
+    bottom: 150px; } }
+
+@keyframes stepO2-btn {
+  0% {
+    background-color: #FCE444;
+    box-shadow: 0 4px 0 #BB7232; }
+  100% {
+    background-color: #BB7232;
+    box-shadow: 0 4px 0 #FCE444;
+    color: #fff; } }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQr3-btn {
+        display: inline-block;
+        position: absolute;
+        left: 37px;
+        bottom: 100px;
+        animation: stepO2-btn 1s 1.2s 1 normal;
+        animation-fill-mode: forwards; }
+
+@keyframes stepO2-finger {
+  0% {
+    right: -60px;
+    bottom: 60px; }
+  100% {
+    right: 15px;
+    bottom: 10px; } }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img {
+        width: 100px;
+        position: absolute;
+        right: -60px;
+        bottom: 60px;
+        animation: stepO2-finger .8s .5s 1 normal;
+        animation-fill-mode: forwards; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) {
+        text-align: center; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(1) {
+          padding: 70px 0 10px;
+          font-size: 20px;
+          font-weight: bold; }
+
+@keyframes stepO3-scan {
+  0% {
+    width: 120px;
+    height: 120px;
+    margin: -10px 0 0 -10px;
+    background-color: transparent; }
+  33% {
+    width: 120px;
+    height: 120px;
+    margin: -10px 0 0 -10px;
+    background-color: rgba(233, 79, 79, 0.6); }
+  66% {
+    width: 130px;
+    height: 130px;
+    margin: -15px 0 0 -15px;
+    background-color: rgba(250, 236, 34, 0.6); }
+  100% {
+    width: 120px;
+    height: 120px;
+    margin: -10px 0 0 -10px;
+    background-color: rgba(77, 235, 156, 0.6); } }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img {
+        text-align: center;
+        margin: 30px auto;
+        position: relative; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img div {
+          width: 120px;
+          height: 120px;
+          background-color: transparent;
+          display: inline-block;
+          text-align: center;
+          margin: -10px 0 0 -10px;
+          position: absolute;
+          animation: stepO3-scan .9s .5s 1 ease-in-out;
+          animation-fill-mode: forwards; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img div:before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background-color: #000;
+            box-shadow: 0 130px 0 #000;
+            position: absolute;
+            top: -10px;
+            left: -10px; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img div:after {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background-color: #000;
+            box-shadow: 0 130px 0 #000;
+            position: absolute;
+            top: -10px;
+            right: -10px; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img img {
+          display: inline-block;
+          width: 100px;
+          text-align: center; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 {
+        overflow: hidden; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div {
+          text-align: center;
+          width: 145px;
+          margin: 0 0 0 26px; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div p:nth-child(1) {
+            padding-top: 70px;
+            font-size: 20px;
+            font-weight: bold; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO5 {
+        overflow: hidden; }
+
+@keyframes stepO5-check {
+  0% {
+    top: 155px; }
+  100% {
+    top: 30px; } }
+
+@keyframes stepO5-span {
+  0% {
+    top: 185px; }
+  100% {
+    top: 60px; } }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO5 div {
+          height: 150px; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO5 div i.fa-check {
+            font-size: 60px;
+            color: #FCE444;
+            text-shadow: 0 5px #BB7232;
+            position: relative;
+            top: 155px;
+            left: 70px;
+            animation: stepO5-check .8s .2s 1 ease-in;
+            animation-fill-mode: forwards; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO5 div span {
+            display: inline-block;
+            position: relative;
+            top: 185px;
+            left: -15px;
+            animation: stepO5-span .8s .2s 1 ease-in;
+            animation-fill-mode: forwards; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div {
+        width: 120px;
+        padding: 10px 8px 0;
+        background: #bef18c;
+        border-radius: 10px;
+        font-size: 13px;
+        position: absolute;
+        top: 60px;
+        left: 30px; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div:before {
+          content: '';
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 10px 8px 0;
+          border-color: transparent #bef18c transparent transparent;
+          position: absolute;
+          top: 10px;
+          left: -10px; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 img {
+        width: 50px;
+        height: 50px;
+        margin: 10px auto;
+        background-color: #fff;
+        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr2 div {
+        width: 95px;
+        padding: 10px 8px;
+        background: #bef18c;
+        border-radius: 10px;
+        font-size: 13px;
+        position: absolute;
+        bottom: 80px;
+        right: 30px; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr2 div:before {
+          content: '';
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 8px 10px 0 0;
+          border-color: #bef18c transparent transparent transparent;
+          position: absolute;
+          bottom: 10px;
+          right: -10px; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 {
+        position: relative; }
+        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box {
+          width: 105px;
+          height: 176px;
+          padding: 15px 10px;
+          background-color: #FCF2CA;
+          border-radius: 10px;
+          position: absolute;
+          top: 65px;
+          left: 35px; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(1) {
+            font-size: 14px;
+            text-align: center; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(2) {
+            padding: 20px 10px 10px;
+            font-size: 16px;
+            font-weight: bold; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input {
+            width: 65px;
+            border: 2px solid #76391B;
+            padding: 5px 8px;
+            border-radius: 10px;
+            margin: 0 10px; }
+
+@keyframes typing {
+  from {
+    width: 0; } }
+
+@keyframes caret {
+  50% {
+    border-color: transparent; } }
+            .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input p {
+              width: 34px;
+              text-align: left;
+              border-right: 1px solid;
+              overflow: hidden;
+              white-space: nowrap;
+              animation: typing 1.2s steps(4), caret 0.3s steps(1) infinite; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
+            text-align: center;
+            width: 70px;
+            margin: 10px auto 0;
+            padding: 6px 10px; }
+
+@keyframes stepQr3 {
+  0% {
+    right: -50px;
+    bottom: -30px; }
+  100% {
+    right: -30px;
+    bottom: -70px; } }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box img {
+            width: 100px;
+            position: absolute;
+            right: -50px;
+            bottom: -30px;
+            animation: stepQr3 .6s 1.4s alternate;
+            animation-fill-mode: forwards; }
+          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
+            animation: stepO2-btn .7s 2s 1 normal;
+            animation-fill-mode: forwards; }
+    .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn {
+      display: inline-block;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0; }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn div {
+        --x: 84;
+        --y: 75;
+        --size: 128;
+        width: 30vw;
+        height: 30vw;
+        max-width: 200px;
+        max-height: 200px;
+        transition: .5s all ease;
+        background: var(--color);
+        border: 0 solid transparent;
+        box-sizing: border-box;
+        border-radius: 50%;
+        display: inline-block;
+        font-size: 0;
+        opacity: .8;
+        --dx: calc(var(--size) - var(--x));
+        --dy: calc(var(--size) - var(--y)); }
+      .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn p {
+        font-size: 18px;
+        text-align: center;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%); }
+
+@media screen and (min-width: 375px) {
+  .indexJoin .container #indexJoin-btn div {
+    position: relative;
+    top: 20px; } }
+
+.indexGroupon {
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: grid;
+  place-content: center;
+  background-image: url(../images/backgroundegg.png); }
+  .indexGroupon .container .indexGroupon-title {
+    padding: 20px 0 0; }
+    .indexGroupon .container .indexGroupon-title h2 {
+      display: none; }
+  .indexGroupon .container .indexGroupon-box {
+    display: flex;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    position: relative; }
+    .indexGroupon .container .indexGroupon-box .owl-nav {
+      font-size: 70px;
+      color: #76391B; }
+      .indexGroupon .container .indexGroupon-box .owl-nav .owl-prev {
+        position: absolute;
+        top: 200px;
+        left: 20px; }
+      .indexGroupon .container .indexGroupon-box .owl-nav .owl-next {
+        position: absolute;
+        top: 200px;
+        right: 20px; }
+    .indexGroupon .container .indexGroupon-box .owl-dot {
+      display: none; }
+    .indexGroupon .container .indexGroupon-box .indexGroupon-part {
+      width: 260px;
+      margin: 20px auto;
+      background-color: #f7f4e7;
+      border-radius: 20px;
+      box-shadow: 5px 3px 10px rgba(49, 49, 49, 0.3);
+      position: relative;
+      left: 5px;
+      flex-wrap: nowrap; }
+      .indexGroupon .container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle {
+        margin: 0 0 0 -12px;
+        padding: 8px;
+        background-color: #FCE444;
+        position: relative; }
+        .indexGroupon .container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle h3 {
+          padding: 0 0 0 12px; }
+        .indexGroupon .container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle:before {
+          content: '';
+          position: absolute;
+          bottom: -7px;
+          left: 0;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 12px 7px 0;
+          border-color: transparent #BB7232 transparent transparent; }
+        .indexGroupon .container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average {
+          width: 86px;
+          height: 86px;
+          background-image: url(../images/average.png);
+          background-size: 100%;
+          background-position: center;
+          background-repeat: no-repeat;
+          position: absolute;
+          top: -25px;
+          right: -16px; }
+          .indexGroupon .container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average p:nth-child(1) {
+            padding: 16px 0 0;
+            font-size: 24px;
+            text-align: center; }
+            .indexGroupon .container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average p:nth-child(1)::after {
+              content: ' 元';
+              font-size: 14px; }
+          .indexGroupon .container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average p:nth-child(2) {
+            margin: -2px 0 0;
+            text-align: center;
+            font-size: 13px; }
+      .indexGroupon .container .indexGroupon-box .indexGroupon-part img {
+        width: 80%;
+        margin: 25px 50% 10px;
+        padding: 10px 0px;
+        transform: translateX(-50%);
+        text-align: center;
+        background-color: #FCF2CA;
+        border-radius: 20px; }
+      .indexGroupon .container .indexGroupon-box .indexGroupon-part .indexGroupon-info {
+        width: 190px;
+        margin: 0 auto 15px;
+        text-align: center;
+        line-height: 1.6rem; }
+      .indexGroupon .container .indexGroupon-box .indexGroupon-part .indexGroupon-sum {
+        width: 190px;
+        margin: 0px auto;
+        line-height: 2rem; }
+        .indexGroupon .container .indexGroupon-box .indexGroupon-part .indexGroupon-sum .indexGroupon-countBar {
+          display: inline-block;
+          width: 100px;
+          height: 16px;
+          border-radius: 1000px;
+          background-color: #76391B;
+          line-height: 16px; }
+          .indexGroupon .container .indexGroupon-box .indexGroupon-part .indexGroupon-sum .indexGroupon-countBar p {
+            width: 87px;
+            height: 16px;
+            margin: 0 0 0 -1px;
+            text-align: center;
+            font-size: 10px;
+            background-color: #FCE444;
+            border-radius: 1000px; }
+      .indexGroupon .container .indexGroupon-box .indexGroupon-part .indexGroupon-deadline {
+        padding-bottom: 20px; }
+      .indexGroupon .container .indexGroupon-box .indexGroupon-part .indexGroupon-btn {
+        text-align: right; }
+        .indexGroupon .container .indexGroupon-box .indexGroupon-part .indexGroupon-btn a, .indexGroupon .indexMeal .container .indexGroupon-box .indexGroupon-part .indexGroupon-btn .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .indexGroupon .container .indexGroupon-box .indexGroupon-part .indexGroupon-btn .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexGroupon .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn .indexGroupon-box .indexGroupon-part .indexGroupon-btn button, .indexMeal .indexGroupon .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn .indexGroupon-box .indexGroupon-part .indexGroupon-btn button {
+          display: block;
+          padding: 8px 10px;
+          background-color: #FCE444;
+          border-radius: 20px 0 20px 0;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          color: #000; }
+
+.indexMeal {
+  width: 100%;
+  height: calc(100vh - 60px); }
+  .indexMeal .container {
+    display: inline-block; }
+    .indexMeal .container .indexMeal-title {
+      padding: 20px 0 0; }
+    .indexMeal .container .indexMeal-slider {
+      width: 100%;
+      height: 100vh;
+      margin: auto;
+      overflow: hidden; }
+      .indexMeal .container .indexMeal-slider .indexMeal-box {
+        position: relative;
+        display: flex;
+        justify-content: space-around; }
+        .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part {
+          margin: 0 auto;
+          list-style: none; }
+          .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top {
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2; }
+            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top .indexMeal-topCk {
+              width: 250px; }
+            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top .indexMeal-topW {
+              width: 200px;
+              margin: 0 auto;
+              position: absolute;
+              top: 120px;
+              left: calc(50% + 5px);
+              transform: translateX(-50%); }
+            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top .indexMeal-meal {
+              width: 200px;
+              position: absolute;
+              top: 120px;
+              left: 50%;
+              transform: translateX(-50%); }
+          .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum {
+            width: 280px;
+            margin: -32px auto 0;
+            padding: 50px 0;
+            background-image: url(../images/stage2.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            text-align: center; }
+            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum h3 {
+              display: inline;
+              font-size: 26px;
+              line-height: 1rem; }
+            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum h4 {
+              display: inline;
+              font-size: 24px; }
+              .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum h4::after {
+                content: ' 元';
+                font-size: 16px; }
+            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum p {
+              font-size: 18px;
+              line-height: 2.5rem; }
+              .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum p span img {
+                width: 15px; }
+            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn a, .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
+              display: inline-block;
+              padding: 5px 10px;
+              background-color: #FCE444;
+              border-radius: 1000px;
+              color: #000;
+              font-size: 16px;
+              box-shadow: 0 4px 0 #BB7232; }
+            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
+              border: 0; }
+          .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top1Sum .indexMeal-top1Right {
+            display: none; }
+          .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top1Sum .indexMeal-mes {
+            display: none; }
+
+@media screen and (min-width: 1200px) {
+  .indexMeal {
+    height: calc(100vh - 150px); } }
+
+.indexLogin {
+  width: 100%;
+  height: calc(100vh - 60px);
+  margin: auto;
+  display: grid;
+  background-image: url(../images/background7.jpg); }
+  .indexLogin .indexLogin-title {
+    padding: 20px 0 0; }
+  .indexLogin .indexLogin-sum {
+    display: flex;
+    flex-direction: column; }
+    .indexLogin .indexLogin-sum img {
+      width: 250px;
+      margin: 20px auto; }
+    .indexLogin .indexLogin-sum p {
+      width: 330px;
+      order: -1;
+      padding: 30px 10px;
+      margin: auto;
+      text-align: center;
+      border-radius: 50px;
+      background-color: #FCF2CA;
+      font-size: 18px;
+      position: relative; }
+      .indexLogin .indexLogin-sum p::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 40px 5px 0 15px;
+        border-color: #FCF2CA transparent transparent transparent;
+        transform: rotate(30deg);
+        position: absolute;
+        right: 100px;
+        bottom: -30px; }
+  .indexLogin .indexLogin-btn {
+    text-align: center; }
+    .indexLogin .indexLogin-btn button {
+      cursor: pointer; }
+
+@media screen and (min-width: 1200px) {
+  .indexLogin {
+    height: calc(100vh - 150px); } }
