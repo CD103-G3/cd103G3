@@ -1,7 +1,17 @@
 @import "daycookVar";
-@import "reset";
-@import "layout/daycookMixin";
-@import "keVar&Mixin";
+@import "layout/reset";
+@import "daycookMixin";
+@import "Team-mixins/ke_mixin";
 @import "login";//註冊登入
 @import "chatBot";//客服機器人
 @import "serach"; //搜尋
+@import "layout/nav";//nav
+
+.space{
+	height: 75px;
+}
+@media screen and (min-width: 768px){
+	.space{
+		height: 100px;
+	}
+}

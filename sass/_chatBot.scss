@@ -1,10 +1,10 @@
 #chatBot {
   //客服機器人最外層
   width: 100%;
-  height: calc(100% - 100px);
+  height: calc(100% - 75px);
   position: absolute;
-  top: 0;
   left: 0;
+  z-index: 10;
   * {
     box-sizing: border-box;
     // outline: 1px solid #f00;
@@ -44,13 +44,6 @@
     line-height: 1.6em;
     margin: 10px 0;
     position: relative;
-    &:after {
-      content: '';
-      width: 0px;
-      height: 0px;
-      display: block;
-      border-radius: 15px;
-    }
   }
   .chatBot_content_A {
     float: left;
@@ -139,18 +132,27 @@
 }
 .close_chatBot {
   //機器人開關按鈕
-  width: 30px;
+  width: 40px;
   height: 40px;
   position: absolute;
   right: 15px;
   cursor: pointer;
   @include close(100%, 50%) {
+    &::before{
+      top: calc( 100% - 20px );
+      left: calc( 50% - 20px );
+    }
+    &::after{
+      top: calc( 100% - 20px );
+      left: calc( 50% - 20px );
+    }    
   }
 }
+
 #close_chatBot:checked ~ #chatBot{
-  top: 100px;
+  top: 75px;
 }
-#close_chatBot:checked ~ #chatBot .close_chatBot_pic img {
+#chatBot .close_chatBot_pic img {
   display: none;
 }
 #close_chatBot:checked ~ #chatBot .chatBot_contenier_wrap {
@@ -167,6 +169,7 @@
     right: 30px;
     bottom: 30px;
     height: auto;
+    z-index: 99;
   }
   .close_chatBot_pic {
     float: right;
@@ -175,7 +178,7 @@
   .chatBot_contenier_wrap {
     width: 0;
     height: 0;
-    border-radius: 15px 15px 15px 15px;
+    border-radius: 20px;
     margin-bottom: 10px;
     overflow: hidden;
     .close_chatBot {
@@ -208,9 +211,9 @@
     opacity: 1;
     transition: 0.8s;
   }
-  #close_chatBot:checked ~ #chatBot .close_chatBot_pic img {
-    display: block;
-  }
+#chatBot .close_chatBot_pic img {
+  display: block;
+}
   #close_chatBot:checked ~ #chatBot .chatBot_contenier_wrap {
     display: block;
     height: 420px;

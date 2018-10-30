@@ -1,3 +1,6 @@
+#close_search{
+  display: none;
+}
 #close_search:checked ~ .search_wrap {
   display: none;
 }
@@ -15,7 +18,6 @@
 .search_wrap {
   * {
     box-sizing: border-box;
-    outline: 1px solid #f00;
   }
   input[type="checkbox"] {
     display: none;
@@ -25,7 +27,7 @@
   text-align: center;
   position: absolute;
   top: 60px;
-  z-index: 1;
+  z-index: 11;
   .search_bg {
     width: calc(100% - 32px);
     padding-top: 50px;
@@ -72,6 +74,7 @@
     }
     #start_search {
       //搜尋兩個字
+      width: 100px;
       font-size: $fontSize_M;
       font-family: $fmy;
       height: 100%;

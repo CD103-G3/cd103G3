@@ -1,9 +1,11 @@
 @import "daycookVar";
-@import "reset";
-@import "layout/daycookMixin";
-@import "keVar&Mixin";
-@import "login"; //註冊登入
-@import "chatBot"; //客服機器人
+@import "layout/reset";
+@import "daycookMixin";
+@import "Team-mixins/ke_mixin";
+@import "login";//註冊登入
+@import "chatBot";//客服機器人
+@import "layout/nav";//客服機器人
+
 .search_wrap {
   * {
     box-sizing: border-box;
