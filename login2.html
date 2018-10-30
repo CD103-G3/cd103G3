@@ -5,11 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, min-scale=1, max-scale=1, shrink-to-fit=no">
 	<title>Title</title>
 	<link rel="stylesheet" type="text/css" href="css/login2.css">
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 <body>
-	<div style="height: 100px; background-color: #425075;position: relative; z-index:5;"><button id="login">登入/註冊</button></div>
-	
+	<div style="height: 60px; background-color: #425075;position: relative; z-index:5;"><button id="login">登入/註冊</button></div>
 	<input type="checkbox" id="close_login">
 	<div id="login_wrap" class="login_wrap">
 		<label for="close_login" class="close_login btn_cup"></label>
@@ -43,19 +43,19 @@
 		</div>
 		<!-- 註冊 -->
 		<div class="login_mark_cetentier to_sigup clearfix">
-			<form action="" method="POST">
+			<form action="" method="POST" id="check_form" onsubmit="return checkSubmit(1)">
 				<div class="input_wrap longing_input">
 					<input type="text" id="sigup_member_Id" class="input_mem need_check need_check_id"required>
-					<label for="sigup_member_Id" class="input_pl">帳號</label>
+					<label for="sigup_member_Id" class="input_pl" maxlength="40">帳號</label>
 					<label for="sigup_member_Id"><img src="images/user.svg"></label>
 					<img src="images/checkN.svg" class="check"></div>
 				<div class="input_wrap longing_input">
-					<input type="password" id="sigup_member_Psw" class="input_mem need_check need_check_psw" required>
+					<input type="password" id="sigup_member_Psw" class="input_mem need_check need_check_psw" maxlength="6" required>
 					<label for="sigup_member_Psw" class="input_pl">密碼</label>
 					<label for="sigup_member_Psw"><img src="images/lock.svg"></label>
 					<img src="images/eye_n.png" class="eye"><img src="images/checkN.svg" class="check"></div>
 				<div class="input_wrap longing_input">
-					<input type="text" id="sigup_member_Nick" class="input_mem need_check need_check_nick"required>
+					<input type="text" id="sigup_member_Nick" class="input_mem need_check need_check_nick" maxlength="10" required>
 					<label for="sigup_member_Nick" class="input_pl">暱稱</label>
 					<label for="sigup_member_Nick"><img src="images/lock.svg"></label><img src="images/checkN.svg" class="check"></div>
 				<div class="input_wrap longing_input">
@@ -64,13 +64,13 @@
 					<label for="sigup_email" ><img src="images/email.svg"></label>
 					<img src="images/checkN.svg" class="check"></div>
 				<div class="cover_run_wrap">
-					<button type="submit" class="btn_cup" id="sigup">註冊</button>
+					<button type="submit" class="btn_cup" >註冊</button>
 				</div>
 			</form>
 		</div>
 		<!-- 忘記密碼 -->
 		<div class="login_mark_cetentier to_get_Psw clearfix">
-			<form action="" method="POST">
+			<form action="" method="POST" onsubmit="return checkSubmit(0)">
 				<div class="input_wrap longing_input">
 					<input type="text" id="get_Psw_member_Id" class="input_mem" required>
 					<label for="get_Psw_member_Id" ><img src="images/user.svg"></label>
@@ -89,8 +89,7 @@
 	</div>
 	
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+	
 	<script>
 		document.getElementById('login').addEventListener("click", function (){
 			document.getElementById('close_login').checked=false;
@@ -103,70 +102,173 @@
 		var need_check_id = document.getElementById('sigup_member_Id');
 		var need_check_psw = document.getElementById('sigup_member_Psw')
 		var need_check_nick = document.getElementById('sigup_member_Nick');
-		var need_check_email = document.getElementById('sigup_email');
-		var sigup = document.getElementById('sigup');
+		var need_check_email = document.getElementsByClassName('need_check_email');
+		var newPlace = "<div class='login_placeholder'></div>";
 
+		var checkAry = [];
+
+
+	// var containSpecial = new RegExp(/[(\ )(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/) (\<)(\>)(\?)(\)]+/);
+
+
+		need_check_id.addEventListener('keyup',function () {	//帳號
+			this.parentNode.lastChild.style.display='block';
+			// var a = need_check_id.value;
+			// var chk=containSpecial.test(a);
+			// if(chk==true){
+
+			// 	$(this).parent().append(newPlace);
+			// 	$(this).parent().find($('.login_placeholder')).text("不可輸入特殊符號");
+			// 	this.parentNode.lastChild.src='images/checkN.svg';
+
+			// 	checkAry[0]=false;				
+			// }
+			var VL = this.value.length;
+			var hasNumABC = false;
+			var temp = need_check_id.value.toUpperCase().split("");
+				for( let i=0; i<temp.length; i++){
+					var char = temp[i];
+					if( char >= '0' && char <= '9'){
+						hasNumABC = true;
+					}else if(char >= 'A' && char <= 'Z'){
+						hasNumABC = true;
+					}else{
+						hasNumABC = false;
+						break;
+					}
+				}
+			if( hasNumABC===false ){   // 1111111
+				$(this).parent().append(newPlace);
+				$(this).parent().find($('.login_placeholder')).text("請用英文或數字");
+				this? this.preventDefault() : event.returnValue = false;
+				checkAry[1]=false;
+			}else if(VL < 3 || VL > 40 || this.value == ""){	
+				var PlaceholderLenght = 3 - need_check_id.value.length;
+				this.parentNode.lastChild.src='images/checkN.svg';
+				$(this).parent().append(newPlace);
+				$(this).parent().find($('.login_placeholder')).text("還差"+ PlaceholderLenght+"個字");
+			
+				checkAry[1]=false;
+			}else{
+				$(this).parent().find($('.login_placeholder')).remove();
+				this.parentNode.lastChild.src='images/checkY.svg';
+				
+				checkAry[1]=true;					
+
+			}
+		});
+
+		need_check_psw.addEventListener('keyup',function () {	//密碼
+			this.parentNode.lastChild.style.display='block';
+			var VL = this.value.length;
+			var hasNumABC = false;
+			var temp = need_check_psw.value.toUpperCase().split("");
+				for( let i=0; i<temp.length; i++){
+					var char = temp[i];
+					if( char >= '0' && char <= '9'){
+						hasNumABC = true;
+					}else if(char >= 'A' && char <= 'Z'){
+						hasNumABC = true;
+					}else{
+						hasNumABC = false;
+						break;
+					}
+				}
+			if( hasNumABC===false ){   // 1111111
+				$(this).parent().append(newPlace);
+				$(this).parent().find($('.login_placeholder')).text("請用英文或數字");
+				this? this.preventDefault() : event.returnValue = false;
+				checkAry[2]=false;
+			}else if(VL < 3 || VL > 40 || this.value == ""){	
+				var PlaceholderLenght = 3 - need_check_psw.value.length;
+				this.parentNode.lastChild.src='images/checkN.svg';
+				$(this).parent().append(newPlace);
+				$(this).parent().find($('.login_placeholder')).text("還差"+ PlaceholderLenght+"個字");
+			
+				checkAry[2]=false;
+			}else{
+				$(this).parent().find($('.login_placeholder')).remove();
+				this.parentNode.lastChild.src='images/checkY.svg';
+				
+				checkAry[2]=true;					
+
+			}
+		});
+
+		need_check_nick.addEventListener('keyup',function () {	//暱稱
+			this.parentNode.lastChild.style.display='block';
+			var VL = this.value.length;
+			if(VL < 1 || VL > 10){
+				this.parentNode.lastChild.src='images/checkN.svg';
+				$(this).parent().append(newPlace);
+				$(this).parent().find($('.login_placeholder')).text("店員將以此名稱呼您");
+				$(this).parent().find($('.login_placeholder')).style.width='80%';
+				checkAry[3]=false;	
+			}else{
+				this.parentNode.lastChild.src='images/checkY.svg';
+				checkAry[3]=true;
+			}			
+		});
+		need_check_email[0].addEventListener('change',function () {	//註冊信箱
+			this.parentNode.lastChild.style.display='block';
+			if(this.value.indexOf('@') < 1  || this.value.indexOf('.com') < 1){
+				$(this).parent().append(newPlace);
+				$(this).parent().find($('.login_placeholder')).text("email格式有誤");
+				this.parentNode.lastChild.src='images/checkN.svg';
+				checkAry[4]=false;
+			}
+			else{
+				$(this).parent().find($('.login_placeholder')).remove();
+				this.parentNode.lastChild.src='images/checkY.svg';
+				checkAry[4]=true;
+			}		
+		});
+		need_check_email[1].addEventListener('change',function () {	//申請密碼信箱
+			this.parentNode.lastChild.style.display='block';
+			if(this.value.indexOf('@') < 1  || this.value.indexOf('.com') < 1){
+				$(this).parent().append(newPlace);
+				$(this).parent().find($('.login_placeholder')).text("email格式有誤");
+				this.parentNode.lastChild.src='images/checkN.svg';
+				checkAry[0]=false;
+			}
+			else{
+				$(this).parent().find($('.login_placeholder')).remove();
+				this.parentNode.lastChild.src='images/checkY.svg';
+				checkAry[0]=true;
+			}		
+		});
 		
 
-		var checkAry = [0,0,0,0];
-			need_check[0].addEventListener('change',function () {
-				this.parentNode.lastChild.style.display='block';
-				if(need_check_id.value.length < 3 || need_check_id.value.length > 40){
-					alert("請輸入3~40個字");
-					this.parentNode.lastChild.src='images/checkN.svg';
+
+		function checkSubmit(a) {	//判斷是否填寫完整
+			for (let i = a; i < 5; i++) {
+				if(checkAry[a]==false){
+					alert("內"+i +': '+checkAry[i]);
 					return false;
-					checkAry[0]=false;
-					
-				}else{
-					this.parentNode.lastChild.src='images/checkY.svg';	
-					checkAry[0]=true;
 				}
-			});
-
-			need_check[1].addEventListener('change',function () {
-				this.parentNode.lastChild.style.display='block';
-				if(need_check_psw.value.length < 3 || need_check_psw.value.length > 6){
-					alert("請輸入3~6個字");
-					this.parentNode.lastChild.src='images/checkN.svg';	
+				alert("外"+i +': '+checkAry[i]);
+				if(checkAry[i]==false){
+					alert("內"+i +': '+checkAry[i]);
 					return false;
-					checkAry[1]=false;
-				}else{
-					this.parentNode.lastChild.src='images/checkY.svg';
-					checkAry[1]=ture;	
 				}
-			});
+			}
+			alert("YES");
+			return true;
+		}
 
-			need_check[2].addEventListener('change',function () {
-				this.parentNode.lastChild.style.display='block';
-				if(need_check_nick.value.length < 1 || need_check_nick.value.length > 10){
-					alert("請輸入1~10個字");
-					this.parentNode.lastChild.src='images/checkN.svg';
-					return false;
-					checkAry[2]=false;	
-				}else{
-					this.parentNode.lastChild.src='images/checkY.svg';	
-					checkAry[2]=ture;
-				}			
-			});
 
-			need_check[3].addEventListener('change',function () {
-				this.parentNode.lastChild.style.display='block';
-				if(need_check_email.value.indexOf('@') < 1  || need_check_email.value.indexOf('.com') < 1){
-					alert("請輸入電子信箱格式");
-					this.parentNode.lastChild.src='images/checkN.svg';	
-					return false;
-					checkAry[3]=false;
-				}else{
-					this.parentNode.lastChild.src='images/checkY.svg';	
-					checkAry[3]=true;
-				}		
-			});
 
-		// sigup.addEventListener('submit',function (){
-		// 	if(reduce(checkAry)=4){
-		// 		alert("OK");
+
+		// eye.addEventListener('click', function() {
+		// 	this.src='images/eye_y.svg';
+		// 	if (this.index()) {
+		// 		$pwd.find('#sigup_member_Psw').attr('type', 'password');
+		// 	} else {
+		// 		$pwd.find('#sigup_member_Psw').attr('type', 'text');
 		// 	}
 		// });
+
+	
 	</script>
 </body>
 </html>
