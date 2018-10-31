@@ -26,31 +26,26 @@ var need_check_email = document.getElementsByClassName('need_check_email');
 var newPlace = "<div class='login_placeholder'></div>";
 var checkAry = [];
 
-// var containSpecial = new RegExp(/[(\ )(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/) (\<)(\>)(\?)(\)]+/);
-	// var a = need_check_id.value;
-	// var chk=containSpecial.test(a);
-	// if(chk==true){
+var memCheckReg = new RegExp(/[(\ )(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/) (\<)(\>)(\?)(\)]+/);
 
-	// 	$(this).parent().append(newPlace);
-	// 	$(this).parent().find($('.login_placeholder')).text("不可輸入特殊符號");
-	// 	this.parentNode.lastChild.src='images/checkN.svg';
-
-	// 	checkAry[0]=false;				
-	// }
+var emailCheckReg = new RegExp(/[(\ )(\~)(\!)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\/) (\<)(\>)(\?)(\)]+/);
 
 
 need_check_id.addEventListener('input',function () {	//帳號
 	this.parentNode.lastChild.style.display='block';
-
 	var VL = this.value.length;
 	var hasNumABC = false;
-	var temp = need_check_id.value.toUpperCase().split("");
+	var temp = this.value.toUpperCase().split("");
+	var temp2 = memCheckReg.test(this.value);
 		for( let i=0; i<temp.length; i++){
 			var char = temp[i];
 			if( char >= '0' && char <= '9'){
 				hasNumABC = true;
 			}else if(char >= 'A' && char <= 'Z'){
 				hasNumABC = true;
+			}else if(temp2==true){
+				hasNumABC = false;
+				break;
 			}else{
 				hasNumABC = false;
 				break;
@@ -81,13 +76,17 @@ need_check_psw.addEventListener('input',function () {	//密碼
 	this.parentNode.lastChild.style.display='block';
 	var VL = this.value.length;
 	var hasNumABC = false;
-	var temp = need_check_psw.value.toUpperCase().split("");
+	var temp = this.value.toUpperCase().split("");
+	var temp2 = memCheckReg.test(this.value);
 		for( let i=0; i<temp.length; i++){
 			var char = temp[i];
 			if( char >= '0' && char <= '9'){
 				hasNumABC = true;
 			}else if(char >= 'A' && char <= 'Z'){
 				hasNumABC = true;
+			}else if(temp2==true){
+				hasNumABC = false;
+				break;
 			}else{
 				hasNumABC = false;
 				break;
@@ -118,7 +117,20 @@ need_check_psw.addEventListener('input',function () {	//密碼
 need_check_nick.addEventListener('input',function () {	//暱稱
 	this.parentNode.lastChild.style.display='block';
 	var VL = this.value.length;
-	if(VL < 1 || VL > 10){
+	var hasNumABC = true;
+	var temp2 = memCheckReg.test(this.value);
+		for( let i=0; i<VL; i++){
+			if(temp2==true){
+				hasNumABC = false;
+				break;
+			}
+		}
+	if( hasNumABC===false ){   // 1111111
+		this.parentNode.lastChild.src='images/checkN.svg';
+		$(this).parent().append(newPlace);
+		$(this).parent().find($('.login_placeholder')).text("請用英文或數字");
+		checkAry[3]=false;
+	}else if(VL < 1 || VL > 10){
 		this.parentNode.lastChild.src='images/checkN.svg';
 		$(this).parent().append(newPlace);
 		$(this).parent().find($('.login_placeholder')).text("店員將以此名稱呼您");
@@ -132,34 +144,60 @@ need_check_nick.addEventListener('input',function () {	//暱稱
 });
 need_check_email[0].addEventListener('change',function () {	//註冊信箱
 	this.parentNode.lastChild.style.display='block';
-	if(this.value.indexOf('@') < 1  || this.value.indexOf('.com') < 1){
+	var VL = this.value.length;
+	var hasNumABC = true;
+	var temp2 = emailCheckReg.test(this.value);
+		for( let i=0; i<VL; i++){
+			if(temp2==true){
+				hasNumABC = false;
+				break;
+			}
+		}
+	if( hasNumABC===false ){   // 1111111
+		this.parentNode.lastChild.src='images/checkN.svg';
 		$(this).parent().append(newPlace);
 		$(this).parent().find($('.login_placeholder')).text("email格式有誤");
+		checkAry[4]=false;
+	}else if(this.value.indexOf('@') < 1  || this.value.indexOf('.com') < 1){
+		this.parentNode.lastChild.src='images/checkN.svg';
+		$(this).parent().append(newPlace);
+		$(this).parent().find($('.login_placeholder')).text("請輸入email格式");
 		this.parentNode.lastChild.src='images/checkN.svg';
 		checkAry[4]=false;
-	}
-	else{
-		$(this).parent().find($('.login_placeholder')).remove();
+	}else{
 		this.parentNode.lastChild.src='images/checkY.svg';
+		$(this).parent().find($('.login_placeholder')).remove();
 		checkAry[4]=true;
 	}		
 });
 need_check_email[1].addEventListener('change',function () {	//申請密碼信箱
 	this.parentNode.lastChild.style.display='block';
-	if(this.value.indexOf('@') < 1  || this.value.indexOf('.com') < 1){
+	var VL = this.value.length;
+	var hasNumABC = true;
+	var temp2 = emailCheckReg.test(this.value);
+		for( let i=0; i<VL; i++){
+			if(temp2==true){
+				hasNumABC = false;
+				break;
+			}
+		}
+	if( hasNumABC===false ){   // 1111111
+		this.parentNode.lastChild.src='images/checkN.svg';
 		$(this).parent().append(newPlace);
 		$(this).parent().find($('.login_placeholder')).text("email格式有誤");
+		checkAry[0]=false;
+	}else if(this.value.indexOf('@') < 1  || this.value.indexOf('.com') < 1){
+		this.parentNode.lastChild.src='images/checkN.svg';
+		$(this).parent().append(newPlace);
+		$(this).parent().find($('.login_placeholder')).text("請輸入email格式");
 		this.parentNode.lastChild.src='images/checkN.svg';
 		checkAry[0]=false;
-	}
-	else{
+	}else{
 		$(this).parent().find($('.login_placeholder')).remove();
 		this.parentNode.lastChild.src='images/checkY.svg';
 		checkAry[0]=true;
 	}		
 });
-
-
 
 function checkSubmit(a) {	//判斷是否填寫完整
 	for (let i = a; i < 5; i++) {

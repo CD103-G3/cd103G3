@@ -322,7 +322,7 @@
   }
 }
 
-@include rwd(sm, float) {
+@include rwd(sm) {
   .close_search {
     width: 35px;
     height: 35px;
@@ -532,7 +532,7 @@
     }
   }
 
-  @include rwd(md, float) {
+  @include rwd(md) {
     .chickenMaster_wrap {
       &:after {
         content: '除了關鍵字，可以選擇指定搜尋餐點或飯團，底下篩選還可複選喔!';
@@ -566,7 +566,7 @@
       }
     }
   }
-  @include rwd(lg, float) {
+  @include rwd(lg) {
     .chickenMaster_wrap {
       &:after {
         width: 70%;

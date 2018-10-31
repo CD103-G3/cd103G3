@@ -21,7 +21,12 @@
 	border-bottom: 10px solid $color_bonus;
 	transition: .4s;
 }
-
+#to_sigin:checked ~ .login_mark .sig_in{
+	border-radius: 0 50px;
+}
+#to_sigup:checked ~ .login_mark .sig_up{
+	border-radius: 50px 0px;
+}
 #close_login:checked ~ #login_wrap { //關閉跳窗
 	display: none;
 }
@@ -31,7 +36,7 @@
 	background-color: $color_bonus;
 	border-radius: 50% 0 0 50%;
 	position: absolute;
-	left: calc(100% - 55px );
+	left: c100(55);
 	top: -35px;
 	@include close(90%, 55%){
 		border-radius: 50px;
@@ -95,10 +100,6 @@
 	}
 	overflow-x: hidden;
 	overflow-y: scroll;
-    background-image: url(../images/bg-dot.png);
-	background-position: top left;
-	background-size: 6px 6px;
-	background-repeat: repeat;
 	@include semi-transparent-colors(background-color,rgba($color_main3,1),$color_main3);
 	border: 10px solid $color_bonus;
 }
@@ -111,9 +112,46 @@
 		float: left;
 		padding: 15px 0;
 		font-size: $fontSize_M;
-		border-bottom: 10px solid #0003;
+		border-bottom: 10px solid $color_bonus;
+		background-color: transparent;
+		border-radius: 0 50px;
 		color: #0008;
+		transition: .4s;
+		position: relative;
+		z-index: 0;
+		&:before{
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			border-radius: 0 50px;
+			background-color: $color_bonus;	
+			left: 0;
+			top: 0;
+			z-index: -1;
+		}
+		&:after{
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 30%;
+			background-color: $color_bonus;
+			left: 0;
+			top: 0;
+			z-index: -1;
+			transform: rotate(15deg);
+			border-radius: 0 0 50px 50px;
+		}
+
 	}
+	label:nth-child(2){
+		border-radius: 50px 0px;
+		&:before{
+			border-radius: 50px 0px;
+			background-color: $color_bonus;	
+		}
+	}
+	
 }
 .longing_input{
 	width: 60%;
@@ -220,13 +258,13 @@
 	font-size: $fontSize_S;
 	color: $color_main2;
 }
-@include rwd(sm,float){
+@include rwd(sm){
 	.close_login{	//叉叉按鈕
 		width: 70px;
 		height: 70px;
 		border-radius: 0 50% 0 50%;
 		position: absolute;
-		left: 79%;
+		left: c100(70);
 		top: 0px;
 		z-index: 10;
 		&:after{
@@ -265,7 +303,9 @@
 		background-color: #aaa9;
 	}
 	.login_wrap{
-		width: 320px;
+		min-width: 320px;
+		width: rwdW(320);
+		min-height: 550px;
 		height: 65%;
 		overflow-x: inherit;
 		overflow-y: inherit;

@@ -11,3 +11,9 @@
     margin: $mt auto; 
     @content;   
 }
+@function rwdW($px){
+	@return $px * 100 /1200 + %;
+  }
+@function c100($px){
+	@return calc( 100% - #{$px}px );
+}

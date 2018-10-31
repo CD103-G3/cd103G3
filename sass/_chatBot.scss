@@ -14,7 +14,7 @@
   //客服雞以上的物件的wrap
   display: none;
   height: 100%;
-  background-color: $color_label;
+  background-color: $color_chatBot;
   padding: 0 16px;
   text-align: center;
   letter-spacing: 1px;
@@ -22,7 +22,7 @@
     padding: 15px 0;
     display: inline-block;
     font-weight: bold;
-    color: #fff;
+    color: $color_main2;
   }
 }
 #chatBot_content {
@@ -30,7 +30,7 @@
   background-color: #fff;
   border-radius: 10px;
   text-align: left;
-  height: calc(100% - 175px);
+  height: calc(100% - 185px);
   overflow: hidden;
   overflow: scroll;
   overflow-x: hidden;
@@ -39,7 +39,7 @@
   @include chatBot_scrollbar;
   p {
     border-radius: 10px;
-    background-color: $color_main1;
+    background-color: $color_chatBot_text;
     padding: 10px;
     line-height: 1.6em;
     margin: 10px 0;
@@ -107,16 +107,21 @@
 .chatBot_text_Wrap {
   padding: 16px 0;
   position: relative;
+  @include nextAndCancel-BTN(100px);
+
 }
 #chatBot_search {
   position: absolute;
   right: 10px;
-  @include top50-50;
+  top: 50%;
+  transform: translateY(-80%);
 }
+
+
 .chatBot_text {
   font-size: $fontSize_S;
   width: 100%;
-  height: 40px;
+  height: 50px;
   padding-left: 15px;
   border-radius: 10px;
   border: 0;
@@ -160,7 +165,7 @@
   width: auto;
   transition: height 0.4s;
 }
-@include rwd(sm, float) {
+@include rwd(sm) {
   #chatBot {
     width: auto;
     max-width: 380px;
@@ -199,7 +204,6 @@
   }
   .chatBot_text {
     width: 100%;
-    height: 40px;
     padding-left: 15px;
     border-radius: 10px;
     border: 0;
@@ -216,7 +220,7 @@
 }
   #close_chatBot:checked ~ #chatBot .chatBot_contenier_wrap {
     display: block;
-    height: 420px;
+    height: 470px;
   }
 
 }

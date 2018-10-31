@@ -119,6 +119,12 @@ table {
   border-bottom: 10px solid #FED44F;
   transition: .4s; }
 
+#to_sigin:checked ~ .login_mark .sig_in {
+  border-radius: 0 50px; }
+
+#to_sigup:checked ~ .login_mark .sig_up {
+  border-radius: 50px 0px; }
+
 #close_login:checked ~ #login_wrap {
   display: none; }
 
@@ -128,7 +134,7 @@ table {
   background-color: #FED44F;
   border-radius: 50% 0 0 50%;
   position: absolute;
-  left: calc(100% - 55px);
+  left: calc( 100% - 55px);
   top: -35px;
   z-index: 10; }
   .close_login::before {
@@ -182,10 +188,6 @@ table {
 .login_wrap {
   overflow-x: hidden;
   overflow-y: scroll;
-  background-image: url(../images/bg-dot.png);
-  background-position: top left;
-  background-size: 6px 6px;
-  background-repeat: repeat;
   background-color: #fcf2ca;
   background-color: #fcf2ca;
   border: 10px solid #FED44F; }
@@ -206,8 +208,39 @@ table {
     float: left;
     padding: 15px 0;
     font-size: 24px;
-    border-bottom: 10px solid #0003;
-    color: #0008; }
+    border-bottom: 10px solid #FED44F;
+    background-color: transparent;
+    border-radius: 0 50px;
+    color: #0008;
+    transition: .4s;
+    position: relative;
+    z-index: 0; }
+    .login_mark label:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 0 50px;
+      background-color: #FED44F;
+      left: 0;
+      top: 0;
+      z-index: -1; }
+    .login_mark label:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 30%;
+      background-color: #FED44F;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      transform: rotate(15deg);
+      border-radius: 0 0 50px 50px; }
+  .login_mark label:nth-child(2) {
+    border-radius: 50px 0px; }
+    .login_mark label:nth-child(2):before {
+      border-radius: 50px 0px;
+      background-color: #FED44F; }
 
 .longing_input {
   width: 60%;
@@ -303,25 +336,8 @@ table {
     top: 2px; }
 
 .cancelBTN {
-  position: relative;
-  display: inline-block;
-  width: 65%;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  color: #fff;
-  background-color: #76391B;
-  box-shadow: 0px 4px 0px #FED44F;
-  border-radius: 100px;
-  transition: .2s;
-  cursor: pointer;
   background-color: #FCF2CA;
   color: #76391B; }
-  .cancelBTN:hover {
-    opacity: .7;
-    transition: .2s; }
-  .cancelBTN:active {
-    top: 2px; }
 
 .to_sigup .cover_run_wrap {
   padding: 32px 0; }
@@ -335,40 +351,12 @@ table {
   color: #76391B; }
 
 @media screen and (min-width: 768px) {
-  .part-sm-1 {
-    width: 8.33333%; }
-  .part-sm-2 {
-    width: 16.66667%; }
-  .part-sm-3 {
-    width: 25%; }
-  .part-sm-4 {
-    width: 33.33333%; }
-  .part-sm-5 {
-    width: 41.66667%; }
-  .part-sm-6 {
-    width: 50%; }
-  .part-sm-7 {
-    width: 58.33333%; }
-  .part-sm-8 {
-    width: 66.66667%; }
-  .part-sm-9 {
-    width: 75%; }
-  .part-sm-10 {
-    width: 83.33333%; }
-  .part-sm-11 {
-    width: 91.66667%; }
-  .part-sm-12 {
-    width: 100%; }
-  .part-sm-1, .part-sm-2, .part-sm-3, .part-sm-4, .part-sm-5, .part-sm-6, .part-sm-7, .part-sm-8, .part-sm-9, .part-sm-10, .part-sm-11, .part-sm-12 {
-    float: left;
-    box-sizing: border-box;
-    padding: 10px; }
   .close_login {
     width: 70px;
     height: 70px;
     border-radius: 0 50% 0 50%;
     position: absolute;
-    left: 79%;
+    left: calc( 100% - 70px);
     top: 0px;
     z-index: 10; }
     .close_login:after {
@@ -391,7 +379,9 @@ table {
     z-index: 3;
     background-color: #aaa9; }
   .login_wrap {
-    width: 320px;
+    min-width: 320px;
+    width: 26.66667%;
+    min-height: 550px;
     height: 65%;
     overflow-x: inherit;
     overflow-y: inherit;
@@ -424,7 +414,7 @@ table {
 .chatBot_contenier_wrap {
   display: none;
   height: 100%;
-  background-color: #208ee8;
+  background-color: #FFE26A;
   padding: 0 16px;
   text-align: center;
   letter-spacing: 1px; }
@@ -432,13 +422,13 @@ table {
     padding: 15px 0;
     display: inline-block;
     font-weight: bold;
-    color: #fff; }
+    color: #76391B; }
 
 #chatBot_content {
   background-color: #fff;
   border-radius: 10px;
   text-align: left;
-  height: calc(100% - 175px);
+  height: calc(100% - 185px);
   overflow: hidden;
   overflow: scroll;
   overflow-x: hidden;
@@ -449,17 +439,15 @@ table {
     height: 10px; }
   #chatBot_content::-webkit-scrollbar-thumb {
     background-color: #BB7232;
-    background-color: #425075;
-    background-color: rgba(66, 80, 117, 0.7);
     border-radius: 10px; }
   #chatBot_content::-webkit-scrollbar-thumb:hover {
     background-color: #76391B; }
   #chatBot_content::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 1px #333;
+    box-shadow: inset 0 0 1px #BB7232;
     border-radius: 10px; }
   #chatBot_content p {
     border-radius: 10px;
-    background-color: #FCE444;
+    background-color: #FEDA46;
     padding: 10px;
     line-height: 1.6em;
     margin: 10px 0;
@@ -510,13 +498,11 @@ table {
     height: 10px; }
   .chatBot_keyword::-webkit-scrollbar-thumb {
     background-color: #BB7232;
-    background-color: #425075;
-    background-color: rgba(66, 80, 117, 0.7);
     border-radius: 10px; }
   .chatBot_keyword::-webkit-scrollbar-thumb:hover {
     background-color: #76391B; }
   .chatBot_keyword::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 1px #333;
+    box-shadow: inset 0 0 1px #BB7232;
     border-radius: 10px; }
   .chatBot_keyword li {
     display: inline-block;
@@ -530,17 +516,47 @@ table {
 .chatBot_text_Wrap {
   padding: 16px 0;
   position: relative; }
+  .chatBot_text_Wrap .nextBTN,
+  .chatBot_text_Wrap .cancelBTN {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    background-color: #76391B;
+    box-shadow: 0px 4px 0px #FED44F;
+    border-radius: 100px;
+    transition: .2s;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 20px;
+    background-color: #BB7232;
+    color: #fff;
+    font-family: 微軟正黑體, arial, "sans serif";
+    border: 0; }
+    .chatBot_text_Wrap .nextBTN:hover,
+    .chatBot_text_Wrap .cancelBTN:hover {
+      opacity: .7;
+      transition: .2s; }
+    .chatBot_text_Wrap .nextBTN:active,
+    .chatBot_text_Wrap .cancelBTN:active {
+      top: 2px; }
+  .chatBot_text_Wrap .cancelBTN {
+    background-color: #FCF2CA;
+    color: #76391B; }
 
 #chatBot_search {
   position: absolute;
   right: 10px;
   top: 50%;
-  transform: translateY(-50%); }
+  transform: translateY(-80%); }
 
 .chatBot_text {
   font-size: 20px;
   width: 100%;
-  height: 40px;
+  height: 50px;
   padding-left: 15px;
   border-radius: 10px;
   border: 0; }
@@ -593,34 +609,6 @@ table {
   transition: height 0.4s; }
 
 @media screen and (min-width: 768px) {
-  .part-sm-1 {
-    width: 8.33333%; }
-  .part-sm-2 {
-    width: 16.66667%; }
-  .part-sm-3 {
-    width: 25%; }
-  .part-sm-4 {
-    width: 33.33333%; }
-  .part-sm-5 {
-    width: 41.66667%; }
-  .part-sm-6 {
-    width: 50%; }
-  .part-sm-7 {
-    width: 58.33333%; }
-  .part-sm-8 {
-    width: 66.66667%; }
-  .part-sm-9 {
-    width: 75%; }
-  .part-sm-10 {
-    width: 83.33333%; }
-  .part-sm-11 {
-    width: 91.66667%; }
-  .part-sm-12 {
-    width: 100%; }
-  .part-sm-1, .part-sm-2, .part-sm-3, .part-sm-4, .part-sm-5, .part-sm-6, .part-sm-7, .part-sm-8, .part-sm-9, .part-sm-10, .part-sm-11, .part-sm-12 {
-    float: left;
-    box-sizing: border-box;
-    padding: 10px; }
   #chatBot {
     width: auto;
     max-width: 380px;
@@ -654,7 +642,6 @@ table {
     white-space: nowrap; }
   .chatBot_text {
     width: 100%;
-    height: 40px;
     padding-left: 15px;
     border-radius: 10px;
     border: 0; }
@@ -667,7 +654,7 @@ table {
     display: block; }
   #close_chatBot:checked ~ #chatBot .chatBot_contenier_wrap {
     display: block;
-    height: 420px; } }
+    height: 470px; } }
 
 #close_search {
   display: none; }
@@ -1176,34 +1163,6 @@ table {
   color: #fff; }
 
 @media screen and (min-width: 768px) {
-  .part-sm-1 {
-    width: 8.33333%; }
-  .part-sm-2 {
-    width: 16.66667%; }
-  .part-sm-3 {
-    width: 25%; }
-  .part-sm-4 {
-    width: 33.33333%; }
-  .part-sm-5 {
-    width: 41.66667%; }
-  .part-sm-6 {
-    width: 50%; }
-  .part-sm-7 {
-    width: 58.33333%; }
-  .part-sm-8 {
-    width: 66.66667%; }
-  .part-sm-9 {
-    width: 75%; }
-  .part-sm-10 {
-    width: 83.33333%; }
-  .part-sm-11 {
-    width: 91.66667%; }
-  .part-sm-12 {
-    width: 100%; }
-  .part-sm-1, .part-sm-2, .part-sm-3, .part-sm-4, .part-sm-5, .part-sm-6, .part-sm-7, .part-sm-8, .part-sm-9, .part-sm-10, .part-sm-11, .part-sm-12 {
-    float: left;
-    box-sizing: border-box;
-    padding: 10px; }
   .close_search {
     width: 35px;
     height: 35px;
@@ -1360,34 +1319,6 @@ table {
       cursor: text; } }
 
 @media screen and (min-width: 768px) and (min-width: 1024px) {
-  .part-md-1 {
-    width: 8.33333%; }
-  .part-md-2 {
-    width: 16.66667%; }
-  .part-md-3 {
-    width: 25%; }
-  .part-md-4 {
-    width: 33.33333%; }
-  .part-md-5 {
-    width: 41.66667%; }
-  .part-md-6 {
-    width: 50%; }
-  .part-md-7 {
-    width: 58.33333%; }
-  .part-md-8 {
-    width: 66.66667%; }
-  .part-md-9 {
-    width: 75%; }
-  .part-md-10 {
-    width: 83.33333%; }
-  .part-md-11 {
-    width: 91.66667%; }
-  .part-md-12 {
-    width: 100%; }
-  .part-md-1, .part-md-2, .part-md-3, .part-md-4, .part-md-5, .part-md-6, .part-md-7, .part-md-8, .part-md-9, .part-md-10, .part-md-11, .part-md-12 {
-    float: left;
-    box-sizing: border-box;
-    padding: 10px; }
   .chickenMaster_wrap:after {
     content: '除了關鍵字，可以選擇指定搜尋餐點或飯團，底下篩選還可複選喔!';
     width: 32%;
@@ -1405,34 +1336,6 @@ table {
     position: relative; } }
 
 @media screen and (min-width: 1200px) {
-  .part-lg-1 {
-    width: 8.33333%; }
-  .part-lg-2 {
-    width: 16.66667%; }
-  .part-lg-3 {
-    width: 25%; }
-  .part-lg-4 {
-    width: 33.33333%; }
-  .part-lg-5 {
-    width: 41.66667%; }
-  .part-lg-6 {
-    width: 50%; }
-  .part-lg-7 {
-    width: 58.33333%; }
-  .part-lg-8 {
-    width: 66.66667%; }
-  .part-lg-9 {
-    width: 75%; }
-  .part-lg-10 {
-    width: 83.33333%; }
-  .part-lg-11 {
-    width: 91.66667%; }
-  .part-lg-12 {
-    width: 100%; }
-  .part-lg-1, .part-lg-2, .part-lg-3, .part-lg-4, .part-lg-5, .part-lg-6, .part-lg-7, .part-lg-8, .part-lg-9, .part-lg-10, .part-lg-11, .part-lg-12 {
-    float: left;
-    box-sizing: border-box;
-    padding: 10px; }
   .chickenMaster_wrap:after {
     width: 70%;
     bottom: 100%; }

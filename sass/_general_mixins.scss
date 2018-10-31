@@ -49,7 +49,6 @@
 		border: 0;
     }
     .cancelBTN {
-        @include btn($w);
         background-color: $color_main3;
         color: $color_main2;
     }
