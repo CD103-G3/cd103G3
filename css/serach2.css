@@ -116,7 +116,7 @@ table {
 #to_sigin:checked ~ .login_mark .sig_in,
 #to_sigup:checked ~ .login_mark .sig_up {
   color: #333333;
-  border-bottom: 10px solid #FCE444;
+  border-bottom: 10px solid #425075;
   transition: .4s; }
 
 #close_login:checked ~ #login_wrap {
@@ -125,7 +125,7 @@ table {
 .close_login {
   width: 70px;
   height: 70px;
-  background-color: #FCE444;
+  background-color: #425075;
   border-radius: 50% 0 0 50%;
   position: absolute;
   left: calc(100% - 55px);
@@ -170,19 +170,25 @@ table {
     left: 55px;
     transition: 0.4s; }
 
-.login_wrap {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  background-color: #fcf2ca;
-  background-color: #fcf2ca;
-  border: 10px solid #FCE444;
+#login_wrap {
   position: fixed;
-  top: 75px;
+  top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  margin: auto;
-  z-index: 20; }
+  z-index: 20;
+  background-color: #aaa9; }
+
+.login_wrap {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-image: url(../images/bg-dot.png);
+  background-position: top left;
+  background-size: 6px 6px;
+  background-repeat: repeat;
+  background-color: #fcf2ca;
+  background-color: #fcf2ca;
+  border: 10px solid #425075; }
   .login_wrap * {
     box-sizing: border-box;
     font-size: 16px;
@@ -191,9 +197,6 @@ table {
     outline: 1px solid #f00; }
   .login_wrap input[type="radio"] {
     display: none; }
-
-.login_heard {
-  height: 20%; }
 
 .login_mark {
   text-align: center;
@@ -280,7 +283,7 @@ table {
     background-color: #BB7232;
     box-shadow: 2px 5px 0px #76391B;
     transition: .2s;
-    color: #fff9; }
+    color: #fff; }
     .cover_run_wrap button:hover {
       box-shadow: 0px 0px 0px #76391B;
       transform: translate(2px, 5px);
@@ -329,28 +332,17 @@ table {
   .close_login {
     width: 70px;
     height: 70px;
-    background-color: #FCE444;
-    border-radius: 50% 0 0 50%;
+    border-radius: 0 50% 0 50%;
     position: absolute;
-    left: calc(100% - 55px);
-    top: -35px;
-    border-radius: 50px;
+    left: 79%;
+    top: 0px;
     z-index: 10; }
     .close_login:after {
       transform: translate(-10%, -10px) rotate(45deg); }
     .close_login:before {
       transform: translate(-10%, -10px) rotate(-45deg); }
-  #to_sigin:checked ~ .login_mark .sig_in,
-  #to_sigup:checked ~ .login_mark .sig_up {
-    color: #333333;
-    border-bottom: 20px solid #FCE444;
-    transition: .4s; }
   .btn_cup {
     cursor: pointer; }
-  .close_login {
-    border-radius: 50%;
-    left: 100%;
-    top: -35px; }
   .input_mem:focus {
     cursor: text;
     margin-right: -20px;
@@ -360,28 +352,27 @@ table {
   .input_mem:focus ~ label,
   .input_mem:valid ~ label {
     left: -35px; }
+  #login_wrap {
+    position: fixed;
+    z-index: 3;
+    background-color: #aaa9; }
   .login_wrap {
     width: 320px;
-    height: 640px;
+    height: 65%;
     overflow-x: inherit;
     overflow-y: inherit;
-    border: 20px solid #FCE444;
     border-radius: 50px;
-    position: fixed;
-    top: 100px;
+    box-shadow: 4px 4px 17px #aaa;
+    position: absolute;
+    top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    margin: auto;
-    z-index: 3; }
-  .login_heard {
-    height: 25%;
-    border-radius: 50px 50px 0 0; }
+    margin: auto; }
   .login_mark {
-    padding: 15px 0; }
+    padding: 100px 0 15px; }
     .login_mark label {
-      font-size: 30px;
-      border-bottom: 20px solid #0003; }
+      font-size: 30px; }
   .longing_input input {
     border-radius: 50px; }
   .cover_run_wrap button {
@@ -496,7 +487,7 @@ table {
   .chatBot_keyword li {
     display: inline-block;
     margin-left: 5px;
-    background-color: #FF5000;
+    background-color: rgba(237, 174, 91, 0.89);
     color: #fff;
     border-radius: 10px;
     padding: 5px;
@@ -1199,7 +1190,7 @@ header {
       height: 2px;
       margin-left: -2.5%;
       border-radius: 50px;
-      background-color: #FF5000; }
+      background-color: rgba(237, 174, 91, 0.89); }
   .bookmark_meal .bookmark_meal_item div {
     width: 75%; }
   .bookmark_meal .bookmark_meal_item label,
@@ -1210,7 +1201,7 @@ header {
     width: 95px;
     padding: 2% 0;
     background: #fff;
-    border: 1px solid #FF5000;
+    border: 1px solid rgba(237, 174, 91, 0.89);
     border-radius: 50px;
     margin: 4px; }
   .bookmark_meal .bookmark_meal_item .meal_Cal {
@@ -1222,99 +1213,99 @@ header {
     margin: auto; }
 
 #mealGenre_No1:hover ~ .mealGenre_No:nth-of-type(1) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #mealGenre_No1:checked ~ .mealGenre_No:nth-of-type(1) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #mealGenre_No2:hover ~ .mealGenre_No:nth-of-type(2) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #mealGenre_No2:checked ~ .mealGenre_No:nth-of-type(2) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #mealGenre_No3:hover ~ .mealGenre_No:nth-of-type(3) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #mealGenre_No3:checked ~ .mealGenre_No:nth-of-type(3) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #mealGenre_No4:hover ~ .mealGenre_No:nth-of-type(4) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #mealGenre_No4:checked ~ .mealGenre_No:nth-of-type(4) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #mealGenre_No5:hover ~ .mealGenre_No:nth-of-type(5) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #mealGenre_No5:checked ~ .mealGenre_No:nth-of-type(5) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #mealGenre_No6:hover ~ .mealGenre_No:nth-of-type(6) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #mealGenre_No6:checked ~ .mealGenre_No:nth-of-type(6) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #meal_Cal1:hover ~ .meal_Cal:nth-of-type(1) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #meal_Cal1:checked ~ .meal_Cal:nth-of-type(1) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #meal_Cal2:hover ~ .meal_Cal:nth-of-type(2) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #meal_Cal2:checked ~ .meal_Cal:nth-of-type(2) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #meal_Cal3:hover ~ .meal_Cal:nth-of-type(3) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #meal_Cal3:checked ~ .meal_Cal:nth-of-type(3) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #meal_Cal4:hover ~ .meal_Cal:nth-of-type(4) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #meal_Cal4:checked ~ .meal_Cal:nth-of-type(4) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #meal_Cal5:hover ~ .meal_Cal:nth-of-type(5) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #meal_Cal5:checked ~ .meal_Cal:nth-of-type(5) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #meal_Cal6:hover ~ .meal_Cal:nth-of-type(6) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 #meal_Cal6:checked ~ .meal_Cal:nth-of-type(6) {
-  background-color: #FF5000;
+  background-color: rgba(237, 174, 91, 0.89);
   color: #fff; }
 
 @media screen and (min-width: 768px) {
@@ -1422,7 +1413,7 @@ header {
         width: 90%;
         height: 2px;
         border-radius: 50px;
-        background-color: #FF5000;
+        background-color: rgba(237, 174, 91, 0.89);
         margin: 5px 0; }
       .bookmark_meal .bookmark_meal_item label,
       .bookmark_meal .bookmark_meal_item #meal_Price1,

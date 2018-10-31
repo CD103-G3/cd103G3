@@ -169,13 +169,7 @@
         border-color,
         rgba($color_main1, 0.3),
         $color_main1
-      )
-      @include
-      semi-transparent-colors(
-        background-color,
-        rgba($color_main1, 0.3),
-        $color_main1
-      )
+      );
       transform: translate(0, 0) rotate(0);
     animation: checkani 15s infinite linear;
   }
@@ -185,14 +179,8 @@
         border-color,
         rgba($color_main1, 1),
         $color_main1
-      )
-      @include
-      semi-transparent-colors(
-        background-color,
-        rgba($color_main1, 1),
-        $color_main1
-      )
-      transform: translate(-1%, -1%) rotate(0);
+      );
+    transform: translate(-1%, -1%) rotate(0);
     animation: checkani 2s infinite linear;
   }
 }

@@ -116,7 +116,7 @@ table {
 #to_sigin:checked ~ .login_mark .sig_in,
 #to_sigup:checked ~ .login_mark .sig_up {
   color: #333333;
-  border-bottom: 10px solid #FCE444;
+  border-bottom: 10px solid #FED44F;
   transition: .4s; }
 
 #close_login:checked ~ #login_wrap {
@@ -125,7 +125,7 @@ table {
 .close_login {
   width: 70px;
   height: 70px;
-  background-color: #FCE444;
+  background-color: #FED44F;
   border-radius: 50% 0 0 50%;
   position: absolute;
   left: calc(100% - 55px);
@@ -148,7 +148,7 @@ table {
   transition: 0.4s;
   outline: 0; }
   .input_mem:invalid {
-    border-bottom: 2px solid #FCE444; }
+    border-bottom: 2px solid #FF5000; }
   .input_mem:focus {
     border: 0;
     margin-right: -10px;
@@ -170,19 +170,25 @@ table {
     left: 55px;
     transition: 0.4s; }
 
-.login_wrap {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  background-color: #fcf2ca;
-  background-color: #fcf2ca;
-  border: 10px solid #FCE444;
+#login_wrap {
   position: fixed;
-  top: 75px;
+  top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  margin: auto;
-  z-index: 20; }
+  z-index: 20;
+  background-color: #aaa9; }
+
+.login_wrap {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-image: url(../images/bg-dot.png);
+  background-position: top left;
+  background-size: 6px 6px;
+  background-repeat: repeat;
+  background-color: #fcf2ca;
+  background-color: #fcf2ca;
+  border: 10px solid #FED44F; }
   .login_wrap * {
     box-sizing: border-box;
     font-size: 16px;
@@ -191,9 +197,6 @@ table {
     outline: 1px solid #f00; }
   .login_wrap input[type="radio"] {
     display: none; }
-
-.login_heard {
-  height: 20%; }
 
 .login_mark {
   text-align: center;
@@ -270,21 +273,55 @@ table {
 .cover_run_wrap {
   text-align: center;
   padding: 45px 0; }
-  .cover_run_wrap button {
-    width: 65%;
-    height: 36px;
-    font-size: 24px;
-    font-family: 微軟正黑體, arial, "sans serif";
-    border-radius: 50px;
-    border: 0;
-    background-color: #BB7232;
-    box-shadow: 2px 5px 0px #76391B;
-    transition: .2s;
-    color: #fff9; }
-    .cover_run_wrap button:hover {
-      box-shadow: 0px 0px 0px #76391B;
-      transform: translate(2px, 5px);
-      transition: .4s; }
+
+.nextBTN,
+.cancelBTN {
+  position: relative;
+  display: inline-block;
+  width: 65%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: #76391B;
+  box-shadow: 0px 4px 0px #FED44F;
+  border-radius: 100px;
+  transition: .2s;
+  cursor: pointer;
+  margin: 10px;
+  font-size: 20px;
+  background-color: #BB7232;
+  color: #fff;
+  font-family: 微軟正黑體, arial, "sans serif";
+  border: 0; }
+  .nextBTN:hover,
+  .cancelBTN:hover {
+    opacity: .7;
+    transition: .2s; }
+  .nextBTN:active,
+  .cancelBTN:active {
+    top: 2px; }
+
+.cancelBTN {
+  position: relative;
+  display: inline-block;
+  width: 65%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: #76391B;
+  box-shadow: 0px 4px 0px #FED44F;
+  border-radius: 100px;
+  transition: .2s;
+  cursor: pointer;
+  background-color: #FCF2CA;
+  color: #76391B; }
+  .cancelBTN:hover {
+    opacity: .7;
+    transition: .2s; }
+  .cancelBTN:active {
+    top: 2px; }
 
 .to_sigup .cover_run_wrap {
   padding: 32px 0; }
@@ -295,7 +332,7 @@ table {
   display: inline-block;
   text-align: center;
   font-size: 20px;
-  color: #208ee8; }
+  color: #76391B; }
 
 @media screen and (min-width: 768px) {
   .part-sm-1 {
@@ -329,28 +366,17 @@ table {
   .close_login {
     width: 70px;
     height: 70px;
-    background-color: #FCE444;
-    border-radius: 50% 0 0 50%;
+    border-radius: 0 50% 0 50%;
     position: absolute;
-    left: calc(100% - 55px);
-    top: -35px;
-    border-radius: 50px;
+    left: 79%;
+    top: 0px;
     z-index: 10; }
     .close_login:after {
       transform: translate(-10%, -10px) rotate(45deg); }
     .close_login:before {
       transform: translate(-10%, -10px) rotate(-45deg); }
-  #to_sigin:checked ~ .login_mark .sig_in,
-  #to_sigup:checked ~ .login_mark .sig_up {
-    color: #333333;
-    border-bottom: 20px solid #FCE444;
-    transition: .4s; }
   .btn_cup {
     cursor: pointer; }
-  .close_login {
-    border-radius: 50%;
-    left: 100%;
-    top: -35px; }
   .input_mem:focus {
     cursor: text;
     margin-right: -20px;
@@ -360,28 +386,27 @@ table {
   .input_mem:focus ~ label,
   .input_mem:valid ~ label {
     left: -35px; }
+  #login_wrap {
+    position: fixed;
+    z-index: 3;
+    background-color: #aaa9; }
   .login_wrap {
     width: 320px;
-    height: 640px;
+    height: 65%;
     overflow-x: inherit;
     overflow-y: inherit;
-    border: 20px solid #FCE444;
     border-radius: 50px;
-    position: fixed;
-    top: 100px;
+    box-shadow: 4px 4px 17px #aaa;
+    position: absolute;
+    top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    margin: auto;
-    z-index: 3; }
-  .login_heard {
-    height: 25%;
-    border-radius: 50px 50px 0 0; }
+    margin: auto; }
   .login_mark {
-    padding: 15px 0; }
+    padding: 100px 0 15px; }
     .login_mark label {
-      font-size: 30px;
-      border-bottom: 20px solid #0003; }
+      font-size: 30px; }
   .longing_input input {
     border-radius: 50px; }
   .cover_run_wrap button {
@@ -804,8 +829,6 @@ table {
     border-radius: 47%;
     border-color: #fce444;
     border-color: rgba(252, 228, 68, 0.3);
-    background-color: #fce444;
-    background-color: rgba(252, 228, 68, 0.3);
     transform: translate(0, 0) rotate(0);
     animation: checkani 15s infinite linear; }
   #bookmark_animation_meal::before,
@@ -813,8 +836,6 @@ table {
     border-radius: 43%;
     border-color: #fce444;
     border-color: #fce444;
-    background-color: #fce444;
-    background-color: #fce444;
     transform: translate(-1%, -1%) rotate(0);
     animation: checkani 2s infinite linear; }
 
