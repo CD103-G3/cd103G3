@@ -48,13 +48,7 @@ table {
   height: 0;
   clear: both; }
 
-.bookmark_cetentier div, .bookmark_cetentier label,
-.bookmark_cetentier #meal_Price1,
-.bookmark_cetentier #meal_Price2, .bookmark_cetentier_item span {
-  display: inline-block;
-  vertical-align: middle; }
-
-.close_login::before, .close_login::after, .close_chatBot::before, .close_chatBot::after, .close_search::before, .close_search::after {
+.close_login::before, .close_login::after, .close_chatBot::before, .close_chatBot::after {
   display: block;
   background-color: #76391B;
   width: 35px;
@@ -119,12 +113,6 @@ table {
   border-bottom: 10px solid #FED44F;
   transition: .4s; }
 
-#to_sigin:checked ~ .login_mark .sig_in {
-  border-radius: 0 50px; }
-
-#to_sigup:checked ~ .login_mark .sig_up {
-  border-radius: 50px 0px; }
-
 #close_login:checked ~ #login_wrap {
   display: none; }
 
@@ -134,8 +122,8 @@ table {
   background-color: #FED44F;
   border-radius: 50% 0 0 50%;
   position: absolute;
-  left: calc( 100% - 55px);
-  top: -35px;
+  left: calc( 100% - 70px);
+  top: 0px;
   z-index: 10; }
   .close_login::before {
     content: '';
@@ -177,8 +165,8 @@ table {
     transition: 0.4s; }
 
 #login_wrap {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: 60px;
   left: 0;
   bottom: 0;
   right: 0;
@@ -190,7 +178,8 @@ table {
   overflow-y: scroll;
   background-color: #fcf2ca;
   background-color: #fcf2ca;
-  border: 10px solid #FED44F; }
+  border: 10px solid #FED44F;
+  height: 100%; }
   .login_wrap * {
     box-sizing: border-box;
     font-size: 16px;
@@ -202,45 +191,18 @@ table {
 
 .login_mark {
   text-align: center;
-  padding: 50px 0 15px; }
+  padding: 100px 0 15px; }
   .login_mark label {
     width: 50%;
     float: left;
     padding: 15px 0;
     font-size: 24px;
-    border-bottom: 10px solid #FED44F;
+    border-bottom: 10px solid #0003;
     background-color: transparent;
-    border-radius: 0 50px;
     color: #0008;
     transition: .4s;
     position: relative;
     z-index: 0; }
-    .login_mark label:before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 0 50px;
-      background-color: #FED44F;
-      left: 0;
-      top: 0;
-      z-index: -1; }
-    .login_mark label:after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 30%;
-      background-color: #FED44F;
-      left: 0;
-      top: 0;
-      z-index: -1;
-      transform: rotate(15deg);
-      border-radius: 0 0 50px 50px; }
-  .login_mark label:nth-child(2) {
-    border-radius: 50px 0px; }
-    .login_mark label:nth-child(2):before {
-      border-radius: 50px 0px;
-      background-color: #FED44F; }
 
 .longing_input {
   width: 60%;
@@ -306,38 +268,36 @@ table {
 .cover_run_wrap {
   text-align: center;
   padding: 45px 0; }
-
-.nextBTN,
-.cancelBTN {
-  position: relative;
-  display: inline-block;
-  width: 65%;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  color: #fff;
-  background-color: #76391B;
-  box-shadow: 0px 4px 0px #FED44F;
-  border-radius: 100px;
-  transition: .2s;
-  cursor: pointer;
-  margin: 10px;
-  font-size: 20px;
-  background-color: #BB7232;
-  color: #fff;
-  font-family: 微軟正黑體, arial, "sans serif";
-  border: 0; }
-  .nextBTN:hover,
-  .cancelBTN:hover {
-    opacity: .7;
-    transition: .2s; }
-  .nextBTN:active,
-  .cancelBTN:active {
-    top: 2px; }
-
-.cancelBTN {
-  background-color: #FCF2CA;
-  color: #76391B; }
+  .cover_run_wrap .nextBTN,
+  .cover_run_wrap .cancelBTN {
+    position: relative;
+    display: inline-block;
+    width: 65%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    background-color: #76391B;
+    box-shadow: 0px 4px 0px #FED44F;
+    border-radius: 100px;
+    transition: .2s;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 20px;
+    background-color: #BB7232;
+    color: #fff;
+    font-family: 微軟正黑體, arial, "sans serif";
+    border: 0; }
+    .cover_run_wrap .nextBTN:hover,
+    .cover_run_wrap .cancelBTN:hover {
+      opacity: .7;
+      transition: .2s; }
+    .cover_run_wrap .nextBTN:active,
+    .cover_run_wrap .cancelBTN:active {
+      top: 2px; }
+  .cover_run_wrap .cancelBTN {
+    background-color: #FCF2CA;
+    color: #76391B; }
 
 .to_sigup .cover_run_wrap {
   padding: 32px 0; }
@@ -659,707 +619,105 @@ table {
 #close_search {
   display: none; }
 
-#close_search:checked ~ .search_wrap {
-  display: none; }
-
-.close_search {
-  width: 35px;
-  height: 35px;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  z-index: 6;
-  cursor: pointer; }
-  .close_search::before {
-    content: '';
-    transform: rotate(-45deg);
-    top: calc( 50% - 17px);
-    left: calc( 50% - 17px); }
-  .close_search::after {
-    content: '';
-    transform: rotate(45deg);
-    top: calc( 50% - 17px);
-    left: calc( 50% - 17px); }
-
 .search_wrap {
+  background-color: rgba(255, 255, 255, 0.8);
   width: 100%;
-  height: 100%;
-  text-align: center;
-  position: absolute;
-  top: 60px;
-  z-index: 11; }
+  position: fixed;
+  top: 100px;
+  left: 0; }
   .search_wrap * {
-    box-sizing: border-box; }
-  .search_wrap input[type="checkbox"] {
+    box-sizing: border-box;
+    font-family: 微軟正黑體, arial, "sans serif";
+    outline: 1px solid #f00; }
+  .search_wrap input[type="checkbox"],
+  .search_wrap input[type="radio"] {
     display: none; }
-  .search_wrap .search_bg {
-    width: calc(100% - 32px);
-    padding-top: 50px;
-    padding-bottom: 5px;
-    margin: auto;
-    background-color: #FCF2CA; }
-  .search_wrap .input_wrap {
-    width: 90%;
-    font-size: 20px;
-    margin: 0 auto;
-    border-radius: 50px;
-    border: 2px solid #BB7232;
-    position: relative; }
-    .search_wrap .input_wrap #input_search {
-      width: 100%;
-      font-size: 24px;
-      line-height: 36px;
-      padding-left: 15px;
-      padding-right: 60px;
-      border-radius: 50px;
-      border: 0;
-      outline: none; }
-      .search_wrap .input_wrap #input_search:focus + label,
-      .search_wrap .input_wrap #input_search:valid + label {
-        top: 0;
-        transform: translateY(-150%);
-        transition: 0.4s;
-        font-size: 16px; }
-      .search_wrap .input_wrap #input_search:focus {
-        border: 0; }
-    .search_wrap .input_wrap .input_pl {
-      position: absolute;
-      left: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      transition: 0.4s; }
-    .search_wrap .input_wrap #start_search {
-      width: 100px;
-      font-size: 24px;
-      font-family: 微軟正黑體, arial, "sans serif";
-      height: 100%;
-      color: #fff;
-      background-color: #BB7232;
-      border-radius: 0 50px 50px 0;
-      border: 0;
-      position: absolute;
-      right: -3px;
-      top: 50%;
-      transform: translateY(-50%); }
 
-.chickenMaster_wrap {
+.search_bg {
+  max-width: 1200px;
   width: 100%;
-  position: relative;
-  left: -30px; }
-  .chickenMaster_wrap:after {
-    content: "除了關鍵字，可以選擇指定搜尋餐點或飯團，底下篩選還可複選喔!";
-    width: 60%;
-    font-size: 16px;
-    line-height: 1.5em;
-    text-align: left;
-    padding: 10px;
-    border-radius: 10px;
-    position: absolute;
-    top: 35px;
-    right: -35px; }
-  .chickenMaster_wrap:before {
-    content: "";
-    width: 18px;
-    height: 18px;
-    display: block;
-    border-bottom: 5px solid #000;
-    border-right: 5px solid #000;
-    position: absolute;
-    right: 25%;
-    top: 0%;
-    z-index: 1;
-    transform: rotate(45deg);
-    animation: search_down 0.5s infinite ease-out alternate; }
-  .chickenMaster_wrap .chickenMaster {
-    width: 100%;
-    transform: scaleX(-1); }
-
-@keyframes search_down {
-  0% {
-    top: 55%; }
-  100% {
-    top: 50%; } }
+  margin: auto;
+  padding: 25px 16px 0; }
 
 .bookmark {
-  margin: 50px 0; }
-  .bookmark input[type="radio"] {
-    display: none; }
-
-.bookmark_animation {
-  padding: 25px;
-  background-color: #FCF2CA;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
-#bookmark_animation_meal,
-#bookmark_animation_groupon {
-  font-size: 24px;
-  transform: scale(1);
-  transition: 0.4s;
-  position: relative;
-  z-index: 1; }
-  #bookmark_animation_meal::after, #bookmark_animation_meal::before,
-  #bookmark_animation_groupon::after,
-  #bookmark_animation_groupon::before {
-    content: "";
-    width: 80px;
-    height: 80px;
-    border-width: 3px;
-    border-style: solid;
-    position: absolute;
-    top: -28px;
-    left: -16px;
-    z-index: -1; }
-  #bookmark_animation_meal::after,
-  #bookmark_animation_groupon::after {
-    border-radius: 47%;
-    border-color: #fce444;
-    border-color: rgba(252, 228, 68, 0.3);
-    transform: translate(0, 0) rotate(0);
-    animation: checkani 15s infinite linear; }
-  #bookmark_animation_meal::before,
-  #bookmark_animation_groupon::before {
-    border-radius: 43%;
-    border-color: #fce444;
-    border-color: #fce444;
-    transform: translate(-1%, -1%) rotate(0);
-    animation: checkani 2s infinite linear; }
-
-#bookmark_animation_meal {
-  margin-right: 80px; }
-  #bookmark_animation_meal::after, #bookmark_animation_meal::before {
-    animation-delay: 0.3s; }
-
-@keyframes checkani {
-  0% {
-    transform: translate(-1%, -1%) rotate(180deg); }
-  100% {
-    transform: translate(-1%, -1%) rotate(360deg); } }
-
-#bookmark_meal:checked ~ .bookmark_animation > #bookmark_animation_meal,
-#bookmark_groupon:checked + .bookmark_animation > #bookmark_animation_groupon {
-  background-color: #FCE444;
-  transform: scale(1.4);
-  transition: 0.4s; }
-
-#bookmark_meal:checked ~ .bookmark_meal,
-#bookmark_groupon:checked ~ .bookmark_groupon {
-  display: block; }
-
-.bookmark_animation_middle {
-  position: relative;
-  left: -30px;
-  animation: rotate 20s infinite linear; }
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
-
-.ball {
-  width: 15px;
-  height: 15px;
-  background-color: #fce444;
-  border-radius: 50%;
-  position: absolute;
-  animation: ballani 2s infinite alternate linear; }
-
-@keyframes ballani {
-  0% {
-    transform: translateX(40px);
-    width: 15px;
-    height: 15px; }
-  100% {
-    transform: translateX(40px);
-    width: 30px;
-    height: 30px; } }
-
-.container1 {
-  transform: rotate(40deg); }
-  .container1 .ball {
-    animation-delay: -0.9s; }
-
-.container2 {
-  transform: rotate(80deg); }
-  .container2 .ball {
-    animation-delay: -1.8s; }
-
-.container3 {
-  transform: rotate(120deg); }
-  .container3 .ball {
-    animation-delay: -2.7s; }
-
-.container4 {
-  transform: rotate(160deg); }
-  .container4 .ball {
-    animation-delay: -3.6s; }
-
-.container5 {
-  transform: rotate(200deg); }
-  .container5 .ball {
-    animation-delay: -4.5s; }
-
-.container6 {
-  transform: rotate(240deg); }
-  .container6 .ball {
-    animation-delay: -5.4s; }
-
-.container7 {
-  transform: rotate(280deg); }
-  .container7 .ball {
-    animation-delay: -6.3s; }
-
-.container8 {
-  transform: rotate(320deg); }
-  .container8 .ball {
-    animation-delay: -7.2s; }
-
-.container9 {
-  transform: rotate(360deg); }
-  .container9 .ball {
-    animation-delay: -8.1s; }
-
-.container10 {
-  transform: rotate(400deg); }
-  .container10 .ball {
-    animation-delay: -9s; }
-
-.container11 {
-  transform: rotate(440deg); }
-  .container11 .ball {
-    animation-delay: -9.9s; }
-
-.container12 {
-  transform: rotate(480deg); }
-  .container12 .ball {
-    animation-delay: -10.8s; }
-
-.container13 {
-  transform: rotate(520deg); }
-  .container13 .ball {
-    animation-delay: -11.7s; }
-
-.container14 {
-  transform: rotate(560deg); }
-  .container14 .ball {
-    animation-delay: -12.6s; }
-
-.container15 {
-  transform: rotate(600deg); }
-  .container15 .ball {
-    animation-delay: -13.5s; }
-
-.container16 {
-  transform: rotate(640deg); }
-  .container16 .ball {
-    animation-delay: -14.4s; }
-
-.container17 {
-  transform: rotate(680deg); }
-  .container17 .ball {
-    animation-delay: -15.3s; }
-
-.container18 {
-  transform: rotate(720deg); }
-  .container18 .ball {
-    animation-delay: -16.2s; }
-
-.container19 {
-  transform: rotate(760deg); }
-  .container19 .ball {
-    animation-delay: -17.1s; }
-
-.container20 {
-  transform: rotate(800deg); }
-  .container20 .ball {
-    animation-delay: -18s; }
-
-.container21 {
-  transform: rotate(840deg); }
-  .container21 .ball {
-    animation-delay: -18.9s; }
-
-.container22 {
-  transform: rotate(880deg); }
-  .container22 .ball {
-    animation-delay: -19.8s; }
-
-.container23 {
-  transform: rotate(920deg); }
-  .container23 .ball {
-    animation-delay: -20.7s; }
-
-.container24 {
-  transform: rotate(960deg); }
-  .container24 .ball {
-    animation-delay: -21.6s; }
-
-.container25 {
-  transform: rotate(1000deg); }
-  .container25 .ball {
-    animation-delay: -22.5s; }
-
-.container26 {
-  transform: rotate(1040deg); }
-  .container26 .ball {
-    animation-delay: -23.4s; }
-
-.container27 {
-  transform: rotate(1080deg); }
-  .container27 .ball {
-    animation-delay: -24.3s; }
-
-.container28 {
-  transform: rotate(1120deg); }
-  .container28 .ball {
-    animation-delay: -25.2s; }
-
-.container29 {
-  transform: rotate(1160deg); }
-  .container29 .ball {
-    animation-delay: -26.1s; }
-
-.container30 {
-  transform: rotate(1200deg); }
-  .container30 .ball {
-    animation-delay: -27s; }
-
-.bookmark_cetentier {
-  display: none; }
-  .bookmark_cetentier div {
-    width: 100%; }
-  .bookmark_cetentier label,
-  .bookmark_cetentier #meal_Price1,
-  .bookmark_cetentier #meal_Price2 {
-    font-size: 20px;
-    font-weight: bold;
-    width: 82px;
-    padding: 2% 0;
-    background: #fff;
-    border: 1px solid #FF5000;
-    border-radius: 50px;
-    margin: 4px; }
-
-.bookmark_cetentier_item span {
-  width: 110px;
-  padding: 24px 0;
-  font-size: 24px; }
-  .bookmark_cetentier_item span:after {
-    content: "";
-    display: inline-block;
-    width: 105%;
-    height: 2px;
-    margin-left: -2.5%;
-    border-radius: 50px;
-    background-color: #FF5000; }
-
-.bookmark_cetentier_item .meal_Cal,
-.bookmark_cetentier_item .grouponList_No,
-.bookmark_cetentier_item .groupon_avg {
-  width: 124px; }
-
-.bookmark_cetentier_item #meal_Price1,
-.bookmark_cetentier_item #meal_Price2 {
-  display: block;
-  width: 124px;
+  padding: 25px 0;
+  width: 80%;
   margin: auto; }
-
-#mealGenre_No1:hover ~ .mealGenre_No:nth-of-type(1) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#mealGenre_No1:checked ~ .mealGenre_No:nth-of-type(1) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#mealGenre_No2:hover ~ .mealGenre_No:nth-of-type(2) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#mealGenre_No2:checked ~ .mealGenre_No:nth-of-type(2) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#mealGenre_No3:hover ~ .mealGenre_No:nth-of-type(3) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#mealGenre_No3:checked ~ .mealGenre_No:nth-of-type(3) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#mealGenre_No4:hover ~ .mealGenre_No:nth-of-type(4) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#mealGenre_No4:checked ~ .mealGenre_No:nth-of-type(4) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#mealGenre_No5:hover ~ .mealGenre_No:nth-of-type(5) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#mealGenre_No5:checked ~ .mealGenre_No:nth-of-type(5) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#mealGenre_No6:hover ~ .mealGenre_No:nth-of-type(6) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#mealGenre_No6:checked ~ .mealGenre_No:nth-of-type(6) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#meal_Cal1:hover ~ .meal_Cal:nth-of-type(1) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#meal_Cal1:checked ~ .meal_Cal:nth-of-type(1) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#meal_Cal2:hover ~ .meal_Cal:nth-of-type(2) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#meal_Cal2:checked ~ .meal_Cal:nth-of-type(2) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#meal_Cal3:hover ~ .meal_Cal:nth-of-type(3) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#meal_Cal3:checked ~ .meal_Cal:nth-of-type(3) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#meal_Cal4:hover ~ .meal_Cal:nth-of-type(4) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#meal_Cal4:checked ~ .meal_Cal:nth-of-type(4) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#meal_Cal5:hover ~ .meal_Cal:nth-of-type(5) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#meal_Cal5:checked ~ .meal_Cal:nth-of-type(5) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#meal_Cal6:hover ~ .meal_Cal:nth-of-type(6) {
-  background-color: #FF5000;
-  color: #fff; }
-
-#meal_Cal6:checked ~ .meal_Cal:nth-of-type(6) {
-  background-color: #FF5000;
-  color: #fff; }
-
-@media screen and (min-width: 768px) {
-  .close_search {
-    width: 35px;
-    height: 35px;
-    position: absolute;
-    right: calc(10% + 35px);
-    top: 35px;
-    z-index: 6;
+  .bookmark label {
+    font-size: 36px;
+    padding: 15px 55px;
+    position: relative;
     cursor: pointer; }
-  .search_wrap {
-    position: fixed;
-    left: 0;
-    top: 100px; }
-    .search_wrap:after {
-      content: "";
-      height: 100%;
-      display: inline-block;
-      vertical-align: top; }
-    .search_wrap .search_bg {
-      width: 80%;
-      height: 80%;
-      border-radius: 0 0 50px 50px;
-      display: inline-block;
-      vertical-align: top; }
-    .search_wrap .input_wrap {
-      width: 80%;
-      font-size: 30px;
-      margin: 30px auto 0; }
-      .search_wrap .input_wrap #input_search {
-        font-size: 30px;
-        line-height: 70px; }
-        .search_wrap .input_wrap #input_search:hover {
-          cursor: pointer; }
-        .search_wrap .input_wrap #input_search:focus + label,
-        .search_wrap .input_wrap #input_search:valid + label {
-          font-size: 30px;
-          cursor: text; }
-        .search_wrap .input_wrap #input_search:focus {
-          cursor: text; }
-    .search_wrap .input_pl {
-      left: 50px; }
-      .search_wrap .input_pl:hover {
-        cursor: pointer; }
-    .search_wrap #start_search {
-      font-size: 36px;
-      color: #333333;
-      background-color: #fff;
-      right: 4px; }
-      .search_wrap #start_search:hover {
-        cursor: pointer; }
-  .chickenMaster_wrap {
-    width: 30%;
-    min-width: 352px;
-    max-width: 550px;
-    position: absolute;
-    left: 0;
-    bottom: 10%; }
-    .chickenMaster_wrap:after {
-      content: '指定搜尋餐點或飯團進行搜尋!';
-      width: 15%;
-      min-width: 80px;
-      font-size: 20px;
-      padding: 15px 20px;
-      border: 1px solid #000;
-      background-color: #fff;
-      top: auto;
-      right: auto;
-      left: 30px;
-      bottom: 100%; }
-    .chickenMaster_wrap:before {
-      border-bottom: 1px solid #000;
-      border-right: 1px solid #000;
-      background-color: #fff;
-      right: 65%;
-      top: calc(0% - 9px);
-      animation: none; }
-  .bookmark {
-    text-align: left; }
-  .bookmark_animation {
-    padding: 80px; }
-  #bookmark_animation_meal,
-  #bookmark_animation_groupon {
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer; }
-    #bookmark_animation_meal::after, #bookmark_animation_meal::before,
-    #bookmark_animation_groupon::after,
-    #bookmark_animation_groupon::before {
-      width: 120px;
-      height: 120px;
-      border-width: 3px;
-      border-style: solid;
-      top: -42px;
-      left: -30px; }
-    #bookmark_animation_meal::before,
-    #bookmark_animation_groupon::before {
-      border-color: #fce444;
-      border-color: rgba(252, 228, 68, 0.7);
-      background-color: #fce444;
-      background-color: rgba(252, 228, 68, 0.9); }
-  #bookmark_animation_meal {
-    margin-right: 150px; }
-  .bookmark_animation_middle {
-    left: -65px; }
-  .ball {
-    width: 20px;
-    height: 20px;
-    animation: ballani 2s infinite alternate linear; }
-  @keyframes ballani {
-    0% {
-      transform: translateX(85px);
-      width: 20px;
-      height: 20px; }
-    100% {
-      transform: translateX(85px);
-      width: 45px;
-      height: 45px; } }
-  .bookmark_cetentier {
-    padding-left: 13%;
-    padding-top: 30px;
-    width: 100%; }
-  .bookmark_cetentier_item {
+    .bookmark label:after, .bookmark label:before {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      top: 0;
+      bottom: 0;
+      margin: auto; }
+    .bookmark label:after {
+      width: 24px;
+      height: 24px;
+      left: 0;
+      background-color: #FED44F;
+      border: 4px solid #fff; }
+    .bookmark label:before {
+      content: '';
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      left: -4px;
+      background-color: #FED44F; }
+
+.search_bg .input_wrap {
+  width: 80%;
+  height: 98px;
+  margin: auto;
+  overflow: hidden;
+  border: 1px solid #FCE444;
+  border-radius: 50px;
+  position: relative; }
+  .search_bg .input_wrap .mainBTN {
+    position: relative;
+    display: inline-block;
     width: 100%;
-    position: relative; }
-    .bookmark_cetentier_item:after {
-      content: "";
-      display: block;
-      width: 90%;
-      height: 2px;
-      border-radius: 50px;
-      background-color: #FF5000;
-      margin: 5px 0; }
-    .bookmark_cetentier_item span {
-      width: 110px;
-      padding: 20px 0;
-      display: inline-block;
-      text-align: center;
-      background: transparent;
-      font-size: 24px; }
-      .bookmark_cetentier_item span:after {
-        content: "";
-        display: none; }
-    .bookmark_cetentier_item div {
-      width: 75%; }
-    .bookmark_cetentier_item label,
-    .bookmark_cetentier_item #meal_Price1,
-    .bookmark_cetentier_item #meal_Price2 {
-      text-align: center;
-      margin: 4px;
-      cursor: pointer;
-      padding: 0.5% 0; }
-    .bookmark_cetentier_item #meal_Price1,
-    .bookmark_cetentier_item #meal_Price2 {
-      display: inline-block;
-      cursor: text; } }
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: 600;
+    color: #76391B;
+    background-color: #FCE444;
+    box-shadow: 0px 4px 0px #76391B;
+    border-radius: 100px;
+    transition: .2s;
+    cursor: pointer;
+    margin: auto;
+    font-size: 20px;
+    max-width: 150px;
+    transition: .2s; }
+    .search_bg .input_wrap .mainBTN:hover {
+      opacity: .7;
+      transition: .2s; }
+    .search_bg .input_wrap .mainBTN:active {
+      top: 2px; }
 
-@media screen and (min-width: 768px) and (min-width: 1024px) {
-  .chickenMaster_wrap:after {
-    content: '除了關鍵字，可以選擇指定搜尋餐點或飯團，底下篩選還可複選喔!';
-    width: 32%;
-    bottom: 100%; }
-  .chickenMaster_wrap:before {
-    top: calc(0% - 9px); }
-  #bookmark_animation_meal::after, #bookmark_animation_meal::before,
-  #bookmark_animation_groupon::after,
-  #bookmark_animation_groupon::before {
-    content: "";
-    top: -42px;
-    left: -30px; }
-  #meal_Price1,
-  #meal_Price2 {
-    position: relative; } }
+.input_search {
+  width: 100%;
+  height: 98px;
+  font-size: 36px;
+  padding: 15px 35px;
+  border-radius: 50px;
+  border: 0;
+  background-color: #fff5; }
 
-@media screen and (min-width: 1200px) {
-  .chickenMaster_wrap:after {
-    width: 70%;
-    bottom: 100%; }
-  .chickenMaster_wrap:before {
-    top: calc(0% - 9px); }
-  .bookmark_animation {
-    padding: 100px; }
-  .bookmark_cetentier {
-    padding-left: 25%; }
-  .bookmark_cetentier_item:after {
-    content: "";
-    display: none; }
-  .bookmark_cetentier_item div {
-    width: 80%; }
-  .bookmark_cetentier_item span {
-    background: transparent;
-    margin-right: 10px;
-    padding: 10px 0 0; }
-    .bookmark_cetentier_item span:after {
-      display: inline-block; }
-  .bookmark_cetentier_item #meal_Price1,
-  .bookmark_cetentier_item #meal_Price2 {
-    cursor: text;
-    position: relative; } }
+#start_search {
+  position: absolute;
+  right: 15px;
+  font-size: 36px;
+  border: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 66px; }
 
 header {
   height: 80px;

@@ -21,12 +21,7 @@
 	border-bottom: 10px solid $color_bonus;
 	transition: .4s;
 }
-#to_sigin:checked ~ .login_mark .sig_in{
-	border-radius: 0 50px;
-}
-#to_sigup:checked ~ .login_mark .sig_up{
-	border-radius: 50px 0px;
-}
+
 #close_login:checked ~ #login_wrap { //關閉跳窗
 	display: none;
 }
@@ -36,8 +31,8 @@
 	background-color: $color_bonus;
 	border-radius: 50% 0 0 50%;
 	position: absolute;
-	left: c100(55);
-	top: -35px;
+	left: c100(70);
+	top: 0px;
 	@include close(90%, 55%){
 		border-radius: 50px;
 	};
@@ -79,8 +74,8 @@
 
 //以上是動態區
 #login_wrap{
-	position: fixed;
-	top: 0;
+	position: absolute;
+	top: 60px;
 	left: 0;
 	bottom: 0;
 	right: 0;
@@ -102,55 +97,24 @@
 	overflow-y: scroll;
 	@include semi-transparent-colors(background-color,rgba($color_main3,1),$color_main3);
 	border: 10px solid $color_bonus;
+	height: 100%;
 }
 
 .login_mark{
 	text-align: center;
-	padding: 50px 0 15px; 
+	padding: 100px 0 15px; 
 	label{
 		width: 50%;
 		float: left;
 		padding: 15px 0;
 		font-size: $fontSize_M;
-		border-bottom: 10px solid $color_bonus;
+		border-bottom: 10px solid #0003;
 		background-color: transparent;
-		border-radius: 0 50px;
 		color: #0008;
 		transition: .4s;
 		position: relative;
-		z-index: 0;
-		&:before{
-			content: '';
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			border-radius: 0 50px;
-			background-color: $color_bonus;	
-			left: 0;
-			top: 0;
-			z-index: -1;
+		z-index: 0; 
 		}
-		&:after{
-			content: '';
-			position: absolute;
-			width: 100%;
-			height: 30%;
-			background-color: $color_bonus;
-			left: 0;
-			top: 0;
-			z-index: -1;
-			transform: rotate(15deg);
-			border-radius: 0 0 50px 50px;
-		}
-
-	}
-	label:nth-child(2){
-		border-radius: 50px 0px;
-		&:before{
-			border-radius: 50px 0px;
-			background-color: $color_bonus;	
-		}
-	}
 	
 }
 .longing_input{
@@ -240,9 +204,11 @@
 	// 		transition: .4s;		
 	// 	}
 	// }
+	@include nextAndCancel-BTN(65%);
 }
+
 // @include main-BTN(65%);
-@include nextAndCancel-BTN(65%);
+
 .to_sigup{
 	.cover_run_wrap{
 		padding: 32px 0;		

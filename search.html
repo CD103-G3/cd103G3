@@ -9,20 +9,12 @@
 </head>
 
 <body>
-	<div style="height: 60px; width: 100%;background-color: #322a9c;position: fixed; z-index:5;">
-		<button id="search">搜尋</button></div>
+	<button id="search"  style="position: fixed; z-index:5;">搜尋</button></div>
+	<img src="images/main.jpg" alt=""style="height: 100vh; width: 100%;">
 	<input type="checkbox" id="close_search" checked>
 	<div class="wrap search_wrap">
 		<label for="close_search" class="close_search"></label>
 		<form action="" class="search_bg">
-			<!-- 輸入區 -->
-			<div class="input_wrap">
-				<input type="text" id="input_search" maxlength="30" required>
-				<label for="input_search" class="input_pl">餐點關鍵字</label>
-				<button type="submit" id="start_search">搜尋<span class="search_img"></span></button>
-			</div>
-			<!-- 頁籤區 -->
-			<div class="bookmark">
 				<!-- 頁籤頭 -->
 				<input type="radio" name="bookmark" id="bookmark_meal" checked>
 				<input type="radio" name="bookmark" id="bookmark_groupon">
@@ -35,42 +27,17 @@
 						</filter>
 					</defs>
 				</svg> -->
-				<div class="bookmark_animation">
+				<div class="bookmark">
 					<label for="bookmark_meal" id="bookmark_animation_meal">餐點</label>
-					<div class="bookmark_animation_middle">
-						<div class="container1">
-							<div class="ball"></div>
-						</div>
-						<div class="container2">
-							<div class="ball"></div>
-						</div>
-						<div class="container3">
-							<div class="ball"></div>
-						</div>
-						<div class="container4">
-							<div class="ball"></div>
-						</div>
-						<div class="container5">
-							<div class="ball"></div>
-						</div>
-						<div class="container6">
-							<div class="ball"></div>
-						</div>
-						<div class="container7">
-							<div class="ball"></div>
-						</div>
-						<div class="container8">
-							<div class="ball"></div>
-						</div>
-						<div class="container9">
-							<div class="ball"></div>
-						</div>
-					</div>
 					<label for="bookmark_groupon" id="bookmark_animation_groupon">飯糰</label>
 				</div>
-				<div class="chickenMaster_wrap">
-					<img src="images/chickenMaster.png" alt="" class="chickenMaster">
-				</div>				  
+
+
+				<!-- 輸入區 -->
+				<div class="input_wrap">
+					<input type="text" id="input_search" class="input_search" maxlength="30" placeholder="請輸入餐點關鍵字">
+					<button type="submit" id="start_search" class="mainBTN">搜尋<span class="search_img"></span></button>
+				</div>
 				<!-- 頁籤內容 -->
 				<div class="bookmark_cetentier bookmark_meal">
 					<div class="bookmark_cetentier_item bookmark_meal_item clearfix">
@@ -115,7 +82,7 @@
 						<input type="text" name="meal_Price" id="meal_Price2">
 					</div>
 				</div>
-				<div class="bookmark_cetentier bookmark_groupon">
+				<!-- <div class="bookmark_cetentier bookmark_groupon">
 					<div class="bookmark_cetentier_item bookmark_groupon_item clearfix">
 						<span>飯糰TAG</span>
 						<div>
@@ -168,12 +135,9 @@
 						</div>
 
 					</div>
-				</div>
-			</div>
+				</div> -->
 		</form>
 	</div>
-
-
 
 	<script>
 		document.getElementById('search').addEventListener("click", function () {
