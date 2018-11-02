@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 //@import "daycookVar";
-=======
 
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
 
 //字體:
 $fontSize_text: 16px;
@@ -20,7 +17,6 @@ $color_main1: #FCE444;	//小雞黃 / yellow / FCE444 ;
 $color_main2: #76391B;	//褐色 / brown / 76391B ; 
 $color_main3: #FCF2CA;	//淡黃色 / lightYellow / FCF2CA / ; 
 $color_main4: #BB7232;	//淡褐色 / lightBrown / #BB7232; 
-<<<<<<< HEAD
 $color_main5: rgb(209, 114, 31);	//淡褐色 / lightBrown /rgb(209, 114, 31); 
 $color_hot: #FF5000;	//highlight橘 / highlightOrange / FF5000 ;
 $color_label: #208ee8;  //input focus 的label
@@ -29,19 +25,10 @@ $color_bonus: #FED44F;
 $color_chatBot: #FFE26A;
 $color_chatBot_text: #FEDA46;
 //RWD 用法@include rwd(sm)  
-=======
-$color_hot: #FF5000;	//highlight橘 / highlightOrange / FF5000 ;
-$color_label: #208ee8;  //input focus 的label
-$color_hot2: #425075;
-
-//RWD 用法@include rwd(sm,inline-block) inline-block不填寫則為float 
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
 $small_min:768px;	// @include rwd(sm){ 內容... }
 $medium_min:1024px;	// @include rwd(md){ 內容... }
 $large_min:1200px;	// @include rwd(lg){ 內容... }
 
-<<<<<<< HEAD
-=======
 $breakpoint : (
 small: 576px,
 moblie :  768px,
@@ -49,6 +36,5 @@ medium: 992px,
 desktop: 1200px
 );
 
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
 //小白點裡的圖示大小
 $white_point: 100px;

@@ -1,12 +1,9 @@
 header{
     height: 80px;
-<<<<<<< HEAD
     width: 100%;
     position: fixed;
     z-index: 100;
-=======
     margin-bottom: 20px;
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
     
     *{
         font-size: 0;
@@ -23,11 +20,7 @@ header{
     #navctrl{
         display: none;
 
-<<<<<<< HEAD
         &:checked ~ .phone-nav .hb{ 
-=======
-        &:checked ~ .phone_nav .hb{ 
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
             
             .line{
                 transform: rotate(360deg);
@@ -54,17 +47,10 @@ header{
         }
     }
 
-<<<<<<< HEAD
     .phone-nav{
         padding: 0 40px 0 10px;
         height: 75px;
         background: url(../image/nav_background_768.png) repeat-x;
-=======
-    .phone_nav{
-        padding: 0 40px 0 10px;
-        height: 75px;
-        background: url(../images/nav_background_768.png) repeat-x;
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
         position: relative;
 
         &:after{
@@ -81,19 +67,11 @@ header{
             vertical-align: middle;
             display: inline-block;
             
-<<<<<<< HEAD
             &.nav-left{
                 text-align: left;
             }
 
             &.nav-right{
-=======
-            &.nav_left{
-                text-align: left;
-            }
-
-            &.nav_right{
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
                 text-align: right;
             }
         }
@@ -139,11 +117,7 @@ header{
             height: 90px;
         }
   
-<<<<<<< HEAD
         .seach-button{
-=======
-        .seach_button{
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
             padding: 23px 9px 18px;
             color: #76391b;
             border-radius: 50%;
@@ -166,10 +140,6 @@ header{
         top: -1000px;
         left: 350px;
         transition: transform 1s;
-<<<<<<< HEAD
-=======
-        z-index:1;
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
         // transform: translate(-1000px, -350px) rotate(90deg);
 
         &:before{
@@ -205,11 +175,7 @@ header{
             .member{
                 margin-bottom: 35px;
 
-<<<<<<< HEAD
                 .before-login{
-=======
-                .before_login{
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
                    display: none;
 
                     a{
@@ -217,22 +183,14 @@ header{
                     }
                 }
 
-<<<<<<< HEAD
                 .after-login{
-=======
-                .after_login{
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
                     display: inline-block;
                     
                     div{
                         display: inline-block;
                         vertical-align: middle;
                 
-<<<<<<< HEAD
                         .member-Pic{
-=======
-                        .member_Pic{
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
                             width: 35px;
                             height: 35px;
                             border-radius: 50%;
@@ -248,11 +206,7 @@ header{
                             color: #fff;
                             display: inline-block;
                 
-<<<<<<< HEAD
                             .achievement-Pic{
-=======
-                            .achievement_Pic{
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
                                 margin: -5px 8px 0 2px;
                                 vertical-align: middle;
                             }
@@ -263,17 +217,10 @@ header{
         }
     }
 
-<<<<<<< HEAD
     #white-Point-control{
         display: none;
 
         &:checked ~ .white-Point{
-=======
-    #white_Point_control{
-        display: none;
-
-        &:checked ~ .white_Point{
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
             width: 70vmin;
             height: 70vmin;
             transform: translate(-50%, -50%);
@@ -287,11 +234,7 @@ header{
         }
     }
     
-<<<<<<< HEAD
     .white-Point{
-=======
-    .white_Point{
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
         margin: auto;
         width: 50px;
         height: 50px;
@@ -374,11 +317,7 @@ header{
 @media screen and (min-width: 1024px){
 
     header{          
-<<<<<<< HEAD
         background-image: url(../image/nav_background.png);       
-=======
-        background-image: url(../images/nav_background.png);       
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
         font-size: 0;
         text-align: center;
 
@@ -391,11 +330,7 @@ header{
             }
         }
 
-<<<<<<< HEAD
         .phone-nav{      
-=======
-        .phone_nav{      
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
             padding: 0;
             width: 14.28571428%;
             height: 100px;
@@ -404,30 +339,18 @@ header{
             vertical-align: top;
             position: relative;
 
-<<<<<<< HEAD
             div.nav-right{    
                 width: 100%;
                 text-align: center;
 
                 .seach-button{         
-=======
-            div.nav_right{    
-                width: 100%;
-                text-align: center;
-
-                .seach_button{         
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
                     padding: 10px 40px 10px 10px;
                     border-radius: 20px;
                     font-size: 16px;
                 }
             }
             
-<<<<<<< HEAD
             .nav-left, .logo{     
-=======
-            .nav_left, .logo{     
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
                 font-size: 0;
                 margin: 0;
                 padding: 0;
@@ -474,11 +397,7 @@ header{
                         vertical-align: middle;
                     }
 
-<<<<<<< HEAD
                     &.table-hidden{
-=======
-                    &.table_hidden{
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
                         display: none;
                     }
 
@@ -505,17 +424,10 @@ header{
             }
         }
         
-<<<<<<< HEAD
         #white-Point-control{
             display: none;
     
             &:checked ~ .white-Point{
-=======
-        #white_Point_control{
-            display: none;
-    
-            &:checked ~ .white_Point{
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
                 width: 14.28571428%;
                 height: 100px;
                 transform: translate(0, 0);
@@ -523,22 +435,14 @@ header{
                 position: static;
 
                 li{    
-<<<<<<< HEAD
                     &.table-hidden{    
-=======
-                    &.table_hidden{    
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
                         display: none;
                     }
                 }
             }
         }
         
-<<<<<<< HEAD
         .white-Point{   
-=======
-        .white_Point{   
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
             margin: auto;
             width: 14.28571428%;
             height: 100px;
@@ -550,11 +454,7 @@ header{
             transition: 0s;
             position: static;
             
-<<<<<<< HEAD
             &:checked ~ .white-Point{
-=======
-            &:checked ~ .white_Point{
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
                 width: 50px;
                 height: 50px;
                 transform: translate(0, 0);
@@ -577,11 +477,7 @@ header{
                     height: auto;
                     display: inline-block;
 
-<<<<<<< HEAD
                     &.table-hidden{    
-=======
-                    &.table_hidden{    
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
                         display: none;
                     }
                     
@@ -635,11 +531,7 @@ header{
                 transform-style: preserve-3d;
                 transform-origin: center top;
                 transition: 150ms ease-in-out;
-<<<<<<< HEAD
                 background-image: url(../image/nav_background.png);
-=======
-                background-image: url(../images/nav_background.png);
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
                 perspective: 1000px;
                 position: relative; 
                 top: 100%;
