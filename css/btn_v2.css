@@ -108,39 +108,97 @@ body {
 td {
   border: 1px solid #000;
   width: 300px;
-  height: 300px;
-  text-align: center;
-  filter: url(#goo); }
+  height: 100px;
+  text-align: center; }
 
 div {
   display: inline-block; }
 
-.mainBTN {
+.mainBTN.v2 {
   z-index: 1;
   transition: 1s;
-  box-shadow: 0 0 0 0; }
-  .mainBTN:hover {
+  box-shadow: 0 0 0 0;
+  height: 40px; }
+  .mainBTN.v2:hover {
     opacity: 1;
-    color: #fff;
     transition: 1s; }
-  .mainBTN:hover .mainBall {
-    top: -100%;
-    transition: 1s; }
-  .mainBTN .mainBall {
-    width: 120px;
-    height: 120px;
-    background-color: #76391B;
+    .mainBTN.v2:hover .wrap .mainBall {
+      top: -40%; }
+
+.wrap {
+  width: 200px;
+  height: 40px;
+  border-radius: 50px;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  filter: url(#goo);
+  z-index: -1; }
+  .wrap .mainBall {
+    width: 100px;
+    height: 70px;
+    background-color: #ffc853;
     position: absolute;
-    top: 140%;
     border-radius: 50%;
-    z-index: -1; }
-  .mainBTN .b1 {
-    left: -25%;
+    top: 105%;
+    z-index: 1; }
+  .wrap .b1 {
+    left: -15%;
     transition: 1.2s; }
-  .mainBTN .b2 {
+  .wrap .b2 {
     left: 50%;
     transform: translateX(-50%);
     transition: 1s; }
-  .mainBTN .b3 {
+  .wrap .b3 {
     left: 60%;
     transition: 1.5s; }
+
+.subBTN.v2 {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  z-index: 1; }
+  .subBTN.v2 .subBall {
+    position: absolute;
+    top: auto;
+    left: auto;
+    display: block;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: #b86b28;
+    transition: width 0.8s ease-in-out, height 0.8s ease-in-out;
+    transform: translate(-50%, -50%);
+    z-index: -1; }
+  .subBTN.v2:hover {
+    color: tint(#b86b28, 75%);
+    opacity: 1; }
+    .subBTN.v2:hover .subBall {
+      height: 500px;
+      width: 500px; }
+
+.cancelBTN.v2 {
+  z-index: 5;
+  transition: 0; }
+  .cancelBTN.v2:hover {
+    opacity: 1; }
+    .cancelBTN.v2:hover .cancelBall {
+      width: 65px;
+      height: 65px;
+      transform: translate(-50%, -50%); }
+  .cancelBTN.v2 .wrap {
+    background-color: #ffc853;
+    overflow: visible;
+    filter: url(#goo); }
+  .cancelBTN.v2 .cancelBall {
+    width: 40px;
+    height: 30px;
+    background-color: #ffc853;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-radius: 50%/ 60% 40% 60% 40%;
+    transition: width 0.8s ease-in-out, height 0.8s ease-in-out;
+    transform: translate(-50%, 0%);
+    z-index: -1;
+    transition: .2s; }

@@ -5,33 +5,38 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="css/test.css">
+	<link rel="stylesheet" href="css/btn_v2.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<title>Document</title>
 	<!-- CSS 原始碼 -->
 </head>
 
 <body>
-
-
 	<h2>複製以下 sass code 來使用</h2>
 	<p>$w 為maxWidth，自行設定</p>
 	<table>
 		<tr>
+			<td>版本\按鈕說明</td>
 			<td><h3>主要按鈕</h3> @include main-BTN($w); </td>
 			<td><h3>次要按鈕</h3> @include sub-BTN($w); </td>
 			<td><h3>取消、上下一步按鈕</h3>  @include nextAndCancel-BTN($w);</td>
 			<td><h3>加減按鈕</h3> @include plusAndMinus-BTN; </td>
 		</tr>
 		<tr>
-			<td><div class="mainBTN">
-				加入購物車
-				<span class="mainBall b1"></span>
-				<span class="mainBall b2"></span>
-				<span class="mainBall b3"></span>
-			</div></td>
+			<td>v1</td>
+			<td>
+				<div class="mainBTN">
+					加入購物車
+					<div class="wrap">
+						<div class="mainBall b1"></div>
+						<div class="mainBall b2"></div>
+						<div class="mainBall b3"></div>
+					</div>
+				</div>
 			<td>
 				<div class="subBTN">
 					查看飯團
+					<div class="subBall b1"></div>
 				</div>
 			</td>
 			<td>
@@ -40,6 +45,9 @@
 				</div>
 				<div class="cancelBTN">
 					取消 / 上一步
+					<div class="wrap">
+						<div class="cancelBall"></div>
+					</div>
 				</div>
 			</td>
 			<td>
@@ -49,16 +57,42 @@
 			</td>
 
 		</tr>
+		<tr>
+			<td>v2</td>
+			<td>
+				<div class="mainBTN v2">
+					加入購物車
+					<div class="wrap">
+						<div class="mainBall b1"></div>
+						<div class="mainBall b2"></div>
+						<div class="mainBall b3"></div>
+					</div>
+				</div>
+			<td>
+				<div class="subBTN v2">
+					查看飯團
+					<div class="subBall b1"></div>
+				</div>
+			</td>
+			<td>
+				<div class="plusAndMinus">
+					+
+				</div>
+				<div class="cancelBTN v2">
+					取消 / 上一步
+					<div class="wrap">
+						<div class="cancelBall"></div>
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="nextBTN">
+					確認
+				</div>
+			</td>
+		</tr>
 	</table>
-
-
-
-
-
 	<br>
-
-
-
 	<!-- 複製以下的html, css, js，只有放分數的地方可以更改class -->
 	<!-- 放分數的地方，隨資料庫變動  -->
 	<p>
@@ -97,7 +131,7 @@
 	<svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: block; height: 0; width: 0;">
 		<defs>
 		<filter id="goo">
-			<feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur"></feGaussianBlur>
+			<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
 			<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo"></feColorMatrix>
 			<feBlend in="SourceGraphic" in2="goo"></feBlend>
 		</filter>
@@ -110,6 +144,39 @@
 		}
 	</style>
 	<script>
+		$(function() {  
+			$('.subBTN')
+				.on('mouseenter', function(e) {
+						var parentOffset = $(this).offset(),
+						relX = e.pageX - parentOffset.left,
+						relY = e.pageY - parentOffset.top;
+						$(this).find('.subBall').css({top:relY, left:relX})
+				})
+				.on('mouseout', function(e) {
+						var parentOffset = $(this).offset(),
+						relX = e.pageX - parentOffset.left,
+						relY = e.pageY - parentOffset.top;
+					$(this).find('.subBall').css({top:relY, left:relX})
+				});
+			});
+		
+		$(function() {  
+			$('.cancelBTN')
+				.on('mousemove', function(e) {
+						var parentOffset = $(this).offset();
+						console.log("left:"+parentOffset.left);
+						console.log("top:"+parentOffset.top);
+						var relX = e.pageX - parentOffset.left;
+						var relY = e.pageY - parentOffset.top;
+						console.log("in:"+relX);
+						console.log("in:"+relY);
+						$(this).find('.cancelBall').css({top:relY, left:relX})
+				})
+				.on('mouseout', function(e) {
+					$(this).find('.cancelBall').css({top:0,left:50+'%'})
+				});
+			});
+
 		function $all(all) {
 			return document.querySelectorAll(all);
 		}
@@ -149,16 +216,14 @@
 			}
 		}
 	</script>
-
-	<script>
-		window.onload = function () {
-			score.get(
+	 <script>
+			window.onload = function() {
+				score.get(
 				'.scoreNum', //抓取分數的容器，用class
-				'asset/scoreEgg_w.svg',  //預設的白色評分
+				'asset/scoreEgg_w.svg' ,  //預設的白色評分
 				'asset/scoreEgg_y.svg');  //顯示的有顏色評分
-		}
-	</script>
-	<!-- -->
+			}
+		</script>
 </body>
 
 </html>
