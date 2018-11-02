@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
 //$w 為maxWidth設定
 
 // 1. 主要按鈕
@@ -5,10 +9,17 @@
     .mainBTN {
         @include btn(100%, light) {
             margin: auto;
+<<<<<<< HEAD
 			font-size: $fontSize_S;
             max-width: $w;
             transition: .2s;
 		}
+=======
+            font-size: $fontSize_S;
+            max-width: $w;
+            transition: .2;
+        }
+>>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
     }
 }
 
@@ -19,7 +30,11 @@
             margin: auto;
             font-size: $fontSize_S;
             max-width: $w;
+<<<<<<< HEAD
             transition: .2s;
+=======
+            transition: .2;
+>>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
         }
     }
 }
@@ -44,17 +59,32 @@
         margin: 10px;
         font-size: $fontSize_S;
         background-color: $color_main4;
+<<<<<<< HEAD
 		color: #fff;
 		font-family: $fmy;
 		border: 0;
     }
     .cancelBTN {
+=======
+        color: #fff;
+    }
+    .cancelBTN {
+        @include btn($w);
+>>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
         background-color: $color_main3;
         color: $color_main2;
     }
 }
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+>>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
 // 通用按鈕設定
 @mixin btn($w, $bgc:null) {
     
