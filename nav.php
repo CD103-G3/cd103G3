@@ -1,5 +1,6 @@
 <?php
-	// require_once("login.php");
+	require_once("login.php");
+	require_once("chatBot.php");
 ?>
 <header>
 	<input type="checkbox" id="navctrl">
@@ -32,7 +33,7 @@
 			</li>
 			<li class="index-member">
 				<div id="view6"></div>
-				<div class="before-login">
+				<div class="before-login" id="control_login">
 					<a href="javascript:void(0)">註冊</a>
 					<a href="javascript:void(0)">登入</a>
 				</div>
@@ -59,7 +60,7 @@
 				<a href="javascript:void(0)">參加飯團</a>
 			</li>
 			<li class="table-hidden"><a href="javascript:void(0)">會員中心</a></li>
-			<li class="table-hidden"><a href="javascript:void(0)">客服雞器人</a></li>
+			<li class="table-hidden"><a href="javascript:void(0)" id="control_chatBot">客服雞器人</a></li>
 		</ul>
 	</nav>
 	<label class="white-Point floaty" for="white-Point-control">
@@ -102,7 +103,7 @@
 </header>
 
 <div class="nav_height"></div>
-
+<script src="js/ke.js"></script>
 <script src="js/floaty.js"></script>
 <script>
 

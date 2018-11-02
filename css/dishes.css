@@ -18,7 +18,8 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
   padding: 0;
-  border: 0; }
+  border: 0;
+  vertical-align: baseline; }
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -43,8 +44,18 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+.clearfix:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0;
+  clear: both; }
+
 header {
   height: 80px;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
   margin-bottom: 20px; }
   header * {
     font-size: 0;
@@ -55,14 +66,14 @@ header {
     text-decoration: none; }
   header #navctrl {
     display: none; }
-    header #navctrl:checked ~ .phone_nav .hb .line {
+    header #navctrl:checked ~ .phone-nav .hb .line {
       transform: rotate(360deg);
       opacity: 0;
       transition: 0.3s; }
-    header #navctrl:checked ~ .phone_nav .hb:before {
+    header #navctrl:checked ~ .phone-nav .hb:before {
       transform: translateY(13.5px) rotate(225deg);
       transition: 0.3s; }
-    header #navctrl:checked ~ .phone_nav .hb:after {
+    header #navctrl:checked ~ .phone-nav .hb:after {
       transform: translateY(-13px) rotate(-225deg);
       transition: 0.3s; }
     header #navctrl:checked ~ nav {
@@ -70,27 +81,27 @@ header {
       top: -1000px;
       left: 350px;
       transition: transform 1s; }
-  header .phone_nav {
+  header .phone-nav {
     padding: 0 40px 0 10px;
     height: 75px;
     background: url(../images/nav_background_768.png) repeat-x;
     position: relative; }
-    header .phone_nav:after {
+    header .phone-nav:after {
       content: '';
       width: 0;
       height: 120%;
       display: inline-block;
       vertical-align: middle; }
-    header .phone_nav div {
+    header .phone-nav div {
       width: 33.33333333%;
       text-align: center;
       vertical-align: middle;
       display: inline-block; }
-      header .phone_nav div.nav_left {
+      header .phone-nav div.nav-left {
         text-align: left; }
-      header .phone_nav div.nav_right {
+      header .phone-nav div.nav-right {
         text-align: right; }
-    header .phone_nav .hb {
+    header .phone-nav .hb {
       margin: auto;
       width: 70px;
       height: 50px;
@@ -100,7 +111,7 @@ header {
       position: absolute;
       top: 28%;
       z-index: 1001; }
-      header .phone_nav .hb .line, header .phone_nav .hb:before, header .phone_nav .hb:after {
+      header .phone-nav .hb .line, header .phone-nav .hb:before, header .phone-nav .hb:after {
         content: '';
         margin: auto;
         width: 60%;
@@ -113,20 +124,20 @@ header {
         bottom: 21%;
         left: 0;
         transition: 0.3s; }
-      header .phone_nav .hb:before {
+      header .phone-nav .hb:before {
         bottom: auto; }
-      header .phone_nav .hb:after {
+      header .phone-nav .hb:after {
         top: auto; }
-    header .phone_nav .logo img {
+    header .phone-nav .logo img {
       height: 90px; }
-    header .phone_nav .seach_button {
+    header .phone-nav .seach-button {
       padding: 23px 9px 18px;
       color: #76391b;
       border-radius: 50%;
       background-color: #fcf2ca;
       box-shadow: 1px 3px 1px #ad6631;
       cursor: pointer; }
-      header .phone_nav .seach_button img {
+      header .phone-nav .seach-button img {
         margin-top: -6px;
         vertical-align: middle; }
   header nav {
@@ -135,8 +146,7 @@ header {
     transform: translate(0, 0) rotate(-90deg);
     top: -1000px;
     left: 350px;
-    transition: transform 1s;
-    z-index: 1; }
+    transition: transform 1s; }
     header nav:before {
       content: '';
       width: 1100px;
@@ -160,41 +170,41 @@ header {
           height: 140px; }
       header nav ul .member {
         margin-bottom: 35px; }
-        header nav ul .member .before_login {
+        header nav ul .member .before-login {
           display: none; }
-          header nav ul .member .before_login a {
+          header nav ul .member .before-login a {
             margin-right: 20px; }
-        header nav ul .member .after_login {
+        header nav ul .member .after-login {
           display: inline-block; }
-          header nav ul .member .after_login div {
+          header nav ul .member .after-login div {
             display: inline-block;
             vertical-align: middle; }
-            header nav ul .member .after_login div .member_Pic {
+            header nav ul .member .after-login div .member-Pic {
               width: 35px;
               height: 35px;
               border-radius: 50%; }
-            header nav ul .member .after_login div img {
+            header nav ul .member .after-login div img {
               cursor: pointer; }
-            header nav ul .member .after_login div span {
+            header nav ul .member .after-login div span {
               padding: 5px 10px;
               font-size: 12px;
               color: #fff;
               display: inline-block; }
-              header nav ul .member .after_login div span .achievement_Pic {
+              header nav ul .member .after-login div span .achievement-Pic {
                 margin: -5px 8px 0 2px;
                 vertical-align: middle; }
-  header #white_Point_control {
+  header #white-Point-control {
     display: none; }
-    header #white_Point_control:checked ~ .white_Point {
+    header #white-Point-control:checked ~ .white-Point {
       width: 70vmin;
       height: 70vmin;
       transform: translate(-50%, -50%);
       transition: 1s;
       top: 50%;
       left: 50%; }
-      header #white_Point_control:checked ~ .white_Point li {
+      header #white-Point-control:checked ~ .white-Point li {
         display: inline-block; }
-  header .white_Point {
+  header .white-Point {
     margin: auto;
     width: 50px;
     height: 50px;
@@ -205,9 +215,9 @@ header {
     top: 80px;
     right: 0%;
     z-index: 101; }
-    header .white_Point.floaty.active {
+    header .white-Point.floaty.active {
       z-index: 10001; }
-    header .white_Point.floaty:before {
+    header .white-Point.floaty:before {
       content: "";
       display: block;
       position: absolute;
@@ -215,39 +225,42 @@ header {
       height: 100%;
       margin-left: 0;
       margin-top: 0; }
-    header .white_Point.floaty.active:before {
+    header .white-Point.floaty.active:before {
       content: "";
       display: block;
       top: -500%;
       left: -500%;
       width: 1100%;
       height: 1100%; }
-    header .white_Point ul {
+    header .white-Point ul {
       text-align: center; }
-      header .white_Point ul li {
+      header .white-Point ul li {
         margin: 0 auto;
         width: 50%;
         height: 23.33333333vmin;
         display: none; }
-        header .white_Point ul li:after {
+        header .white-Point ul li:after {
           content: '';
           width: 0;
           height: 100%;
           vertical-align: middle;
           display: inline-block; }
-        header .white_Point ul li a {
+        header .white-Point ul li a {
           font-size: 16px;
           vertical-align: middle;
           display: inline-block; }
-          header .white_Point ul li a img {
+          header .white-Point ul li a img {
             margin-bottom: 5px;
             width: 40%; }
-        header .white_Point ul li:nth-of-type(1) {
+        header .white-Point ul li:nth-of-type(1) {
           width: 100%; }
-        header .white_Point ul li:nth-of-type(4), header .white_Point ul li:nth-of-type(5) {
+        header .white-Point ul li:nth-of-type(4), header .white-Point ul li:nth-of-type(5) {
           max-width: 120px; }
   header #view1 {
     display: none; }
+
+.nav_height {
+  height: 75px; }
 
 @media screen and (min-width: 1024px) {
   header {
@@ -259,7 +272,7 @@ header {
       top: 0px;
       left: 0px;
       transition: 0s; }
-    header .phone_nav {
+    header .phone-nav {
       padding: 0;
       width: 14.28571428%;
       height: 100px;
@@ -267,19 +280,19 @@ header {
       display: inline-block;
       vertical-align: top;
       position: relative; }
-      header .phone_nav div.nav_right {
+      header .phone-nav div.nav-right {
         width: 100%;
         text-align: center; }
-        header .phone_nav div.nav_right .seach_button {
+        header .phone-nav div.nav-right .seach-button {
           padding: 10px 40px 10px 10px;
           border-radius: 20px;
           font-size: 16px; }
-      header .phone_nav .nav_left, header .phone_nav .logo {
+      header .phone-nav .nav-left, header .phone-nav .logo {
         font-size: 0;
         margin: 0;
         padding: 0;
         display: none; }
-        header .phone_nav .nav_left img, header .phone_nav .logo img {
+        header .phone-nav .nav-left img, header .phone-nav .logo img {
           height: 120px; }
     header nav {
       width: 71.42857142%;
@@ -308,7 +321,7 @@ header {
             height: 120%;
             display: inline-block;
             vertical-align: middle; }
-          header nav ul li.table_hidden {
+          header nav ul li.table-hidden {
             display: none; }
           header nav ul li.logo {
             transform: translateX(200%); }
@@ -320,17 +333,17 @@ header {
             transform: translateX(-300%); }
           header nav ul li.participate {
             transform: translateX(-300%); }
-    header #white_Point_control {
+    header #white-Point-control {
       display: none; }
-      header #white_Point_control:checked ~ .white_Point {
+      header #white-Point-control:checked ~ .white-Point {
         width: 14.28571428%;
         height: 100px;
         transform: translate(0, 0);
         transition: 0s;
         position: static; }
-        header #white_Point_control:checked ~ .white_Point li.table_hidden {
+        header #white-Point-control:checked ~ .white-Point li.table-hidden {
           display: none; }
-    header .white_Point {
+    header .white-Point {
       margin: auto;
       width: 14.28571428%;
       height: 100px;
@@ -341,30 +354,31 @@ header {
       transform: translate(0, 0);
       transition: 0s;
       position: static; }
-      header .white_Point:checked ~ .white_Point {
+      header .white-Point:checked ~ .white-Point {
         width: 50px;
         height: 50px;
         transform: translate(0, 0);
         position: static; }
-      header .white_Point ul {
+      header .white-Point ul {
         height: 100%; }
-        header .white_Point ul:after {
+        header .white-Point ul:after {
           content: '';
           width: 0;
           height: 120%;
           display: inline-block;
           vertical-align: middle; }
-        header .white_Point ul li {
+        header .white-Point ul li {
           width: auto;
           height: auto;
           display: inline-block; }
-          header .white_Point ul li.table_hidden {
+          header .white-Point ul li.table-hidden {
             display: none; }
-          header .white_Point ul li:nth-of-type(1) {
+          header .white-Point ul li:nth-of-type(1) {
             width: auto; }
-          header .white_Point ul li a {
+          header .white-Point ul li a {
             margin: 0 8px;
-            padding: 6px;
+            width: 40px;
+            height: 40px;
             font-size: 0;
             color: #76391b;
             border-radius: 20px;
@@ -372,10 +386,10 @@ header {
             box-shadow: 1px 3px 1px #ad6631;
             display: inline-block;
             position: relative; }
-            header .white_Point ul li a img {
-              width: 25px;
-              height: 25px; }
-            header .white_Point ul li a span {
+            header .white-Point ul li a img {
+              margin: 7.5px;
+              width: 25px; }
+            header .white-Point ul li a span {
               padding: 3px 7px 5px;
               font-size: 8px;
               color: #fff;
@@ -461,7 +475,9 @@ header {
     header #view7 .s2 {
       background-position: -600% -80px; }
     header #view7 .s3 {
-      background-position: -600% -90px; } }
+      background-position: -600% -90px; }
+  .nav_height {
+    height: 100px; } }
 
 body {
   font-family: 微軟正黑體, arial, "sans serif"; }

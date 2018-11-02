@@ -1,7 +1,3 @@
-@import "daycookMixin";
-@import "daycookVar";
-@import "nav";
-
 // 共用
 //間距
 $space_lr: 0 16px;     //手機左右
@@ -243,7 +239,8 @@ body{
 }
 //留言板結束
 
-@include rwd(sm,float) {  //768px
+@include rwd(sm) {  //768px
+    @include grid(sm, 12);
     // 共用
     .wrapper{ 
         padding: $space_sm_lr;
@@ -316,7 +313,8 @@ body{
     //留言板結束
 }
 
-@include rwd(md,float) {  //1024px
+@include rwd(md) {  //1024px
+    @include grid(md, 12);
     //產品介紹
     .banner-pic{
         padding: 0 15px 0 0;
@@ -370,7 +368,8 @@ body{
         }
     }
 }
-@include rwd(lg,float) { //1200px
+@include rwd(lg) { //1200px
+    @include grid(lg, 12);
     .wrapper{ 
         width: 1200px; 
         padding: 0;
