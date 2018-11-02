@@ -50,7 +50,7 @@ header{
     .phone-nav{
         padding: 0 40px 0 10px;
         height: 75px;
-        background: url(../image/nav_background_768.png) repeat-x;
+        background: url(../images/nav_background_768.png) repeat-x;
         position: relative;
 
         &:after{
@@ -314,10 +314,14 @@ header{
     }
 }
 
+.nav_height{
+    height: 75px;
+}
+
 @media screen and (min-width: 1024px){
 
     header{          
-        background-image: url(../image/nav_background.png);       
+        background-image: url(../images/nav_background.png);       
         font-size: 0;
         text-align: center;
 
@@ -487,7 +491,8 @@ header{
 
                     a{
                         margin: 0 8px;
-                        padding: 6px;
+                        width: 40px;
+                        height: 40px;
                         font-size: 0;
                         color: #76391b;
                         border-radius: 20px;
@@ -497,8 +502,8 @@ header{
                         position: relative;
                     
                         img{
+                            margin: 7.5px;
                             width: 25px;
-                            height: 25px;
                         }
 
                         span{
@@ -531,7 +536,7 @@ header{
                 transform-style: preserve-3d;
                 transform-origin: center top;
                 transition: 150ms ease-in-out;
-                background-image: url(../image/nav_background.png);
+                background-image: url(../images/nav_background.png);
                 perspective: 1000px;
                 position: relative; 
                 top: 100%;
@@ -568,5 +573,10 @@ header{
                 }
             }      
         }
-    }    
+    }      
+
+    .nav_height{
+        height: 100px;
+    }
 }
+
