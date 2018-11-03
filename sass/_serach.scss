@@ -1,86 +1,291 @@
 #close_search{
   display: none;
 }
+.close_search{
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  // right: 150px;
+  right: rwdW(150);
+  top: 25px;
+  cursor: pointer;
+  @include close(100%,50%){
+    background-color: #fff;
+  };
+}
+#close_search:checked ~ .search_wrap{
+  display: none;
+}
 .search_wrap{
   *{
     box-sizing: border-box;
     font-family: $fmy;
-    outline: 1px solid #f00;
+    // outline: 1px solid #f00;
   }
   input[type="checkbox"],
   input[type="radio"]{
     display: none;
   }
-  background-color: rgba(255,255,255,0.8);
+  label{
+    color: #fff;
+    cursor: pointer;
+  }
+  span{
+    color:#fff;
+  }
+  background-color: rgba(0,0,0,0.8);
   width: 100%;
+  min-height: 328px;
   position: fixed;
   top: 100px;
   left: 0;
 }
 .search_bg{
   max-width: $large_min;
-  width: 100%;
   margin: auto;
   padding: 25px 16px 0;
-
 }
-.bookmark{
+.bookmark{  //頁籤wrap
   padding: 25px 0;
-  width: 80%;
-  margin: auto;
-  label{
-    font-size: $fontSize_XL;
+  margin: auto 25px;
+  @include bookMarkTag(label,$fontSize_XL,24px,32px,$color_bonus){  //搜尋頁籤radio樣式
     padding: 15px 55px;
-    position: relative;
-    cursor: pointer;
-    &:after,
-    &:before{
-      content: '';
-      position: absolute;
-      border-radius: 50%;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-    }
-    &:after{
-      @include size(24px);
-      left: 0;
-      background-color: $color_bonus;
-      border: 4px solid #fff;
-    }
-    &:before{
-      content: '';
-      @include size(40px);
-      position: absolute;
-      left: -4px;
-      background-color: $color_bonus;
-    }
+  }
+  #bookmark_animation_groupon:after,
+  #bookmark_animation_meal:after{   //內圈顏色
+    background-color: $color_main3;
   }
 }
-.search_bg .input_wrap{
-  width: 80%;
-  height: 98px;
+#bookmark_meal:checked ~ .bookmark #bookmark_animation_meal,
+#bookmark_groupon:checked ~ .bookmark #bookmark_animation_groupon{  //checked換顏色
+  &:after{
+    background-color: $color_bonus;
+  }
+}
+
+.search_bg .input_wrap{ //輸入區
+  height: 90px;
   margin: auto;
   overflow: hidden;
-  border: 1px solid $color_main1;
+  border: 5px solid $color_main1;
   border-radius: 50px;
   position: relative;
-  @include main-BTN(150px);
+  @include main-BTN(150px); //引用按鈕
+  @include inputSearch(86px,$fontSize_XL);//引用輸入框的樣式
 }
-.input_search{
-  width: 100%;
-  height: 98px;
-  font-size: $fontSize_XL;
-  padding: 15px 35px;
-  border-radius: 50px;
-  border: 0;
-  background-color: #fff5;
-}
-#start_search{
+
+#start_search{ //輸入搜尋的按鈕
   position: absolute;
   right: 15px;
   font-size: $fontSize_XL;
   border: 0;
   @include top50-50;
   height: 66px;
+  line-height: 66px;
+}
+.search_bg .bookmark_cetentier_more{  //顯示更多
+  display: inline-block;
+  border: 0;
+  background-color: transparent;
+  margin: 20px 0;
+  color: $color_hot;
+  &:hover{
+    color: rgb(255, 110, 43);
+  }
+}
+
+.bookmark_cetentier{  //隱藏頁籤內容
+  padding: 0 25px ; 
+  display: none;
+}
+#bookmark_meal:checked ~ .bookmark_meal,
+#bookmark_groupon:checked ~ .bookmark_groupon{  //顯示頁籤內容
+  display: block;
+}
+.bookmark_meal_item ~ .bookmark_meal_item,
+.bookmark_groupon_item ~ .bookmark_groupon_item{  //隱藏更多內容
+  display: none;
+}
+#bookmark_cetentier_more_groupon:checked ~ .bookmark_groupon_item,
+#bookmark_cetentier_more_meal:checked ~ .bookmark_meal_item{   //顯示更多內容
+  display: block;
+}
+.bookmark_cetentier_item{ //所有頁籤item
+  padding: 10px 0 25px;
+  div{
+    display: inline-block;
+    text-align: center;
+  }
+  span{
+    display: inline-block;
+    padding-top:8px;
+    padding-bottom: 8px; 
+    text-align: center;
+  }
+  span:nth-of-type(1){
+    width: 100px;
+  }
+}
+.bookmark_meal_item{  //餐點條件類別的item
+  @include searchChecked(label){
+    display: inline-block;
+    padding: 8px 24px 8px 36px;
+    margin-right: 10px;
+    @include searchCheckedTani($color_main4,#fff);
+  }
+  input[type="text"]{
+    @include inputSearchText(auto,$fontSize_text,#ffa500);
+    width: 150px;
+    border: 2px solid $color_main4;
+    padding: 5px 15px;
+    outline: 0 solid;
+    text-align: center;
+    background-color: transparent;
+    &:hover{
+      background-color: #fff5;
+    }
+    &:focus{
+      background-color: #fff5;
+    }
+  }
+  .meal_Cal{
+    min-width: 128px;
+  }
+}
+.bookmark_groupon_item{ //飯團條件類別的item
+  .groupon_TagName{ //飯團TAG
+    display: inline-block;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-right: 10px;
+    vertical-align: middle;
+    font-size: $fontSize_S;
+    img{
+      width: 15px;
+      height: 15px;
+      margin: 0 5px;
+      vertical-align: middle;
+    }   
+    &:hover{
+      color: $color_main4;
+      transition: .4s;
+    }
+  }
+  & ~ .bookmark_groupon_item{ //飯團TAG，之後的item
+  @include searchChecked(label){  //label checkbox樣式
+      display: inline-block;
+      padding: 8px 24px 8px 36px;
+      margin-right: 10px;
+      @include searchCheckedTani($color_main4,#fff); //label checkbox動畫樣式
+    }
+  }
+}
+
+@for $i from 1 through 6 {
+  input[name="mealGenre_No"]:nth-of-type(#{$i}):checked ~ .mealGenre_No:nth-of-type(#{$i}) {
+    background-color: $color_main4;
+    color: #fff;
+    // &::before{ //打勾勾
+    //   width: 6px;
+    //   left: 11px;
+    //   transform: rotate(225deg);
+    //   background-color: #fff;
+    //   transition: .4s;
+    // }
+    // &::after{
+    //   transform: rotate(315deg);
+    //   background-color: #fff;
+    //   transition: .4s;
+    // }
+    &::before{
+      height: 12px;
+      transform: rotate(225deg);
+      background-color: #fff;
+      border-radius: 50%;
+      transform-origin: 35%  30%;
+      transition: transform .2s ,height .2s .1s;
+    }
+    &::after{
+      height: 9px;
+      width: 9px;
+      background-color: $color_main4;
+      border-radius: 50%;
+      transform: rotate(315deg);
+      transform-origin: 0% 25%;
+      transition: .2s;
+      z-index: 1;
+    }
+  }
+}
+@for $i from 1 through 4 {
+  input[name="meal_Cal"]:nth-of-type(#{$i}):checked ~ .meal_Cal:nth-of-type(#{$i}) {
+    background-color: $color_main4;
+    color: #fff;
+    &::before{
+      height: 12px;
+      transform: rotate(225deg);
+      background-color: #fff;
+      border-radius: 50%;
+      transform-origin: 35%  30%;
+      transition: transform .2s ,height .2s .1s;
+    }
+    &::after{
+      height: 9px;
+      width: 9px;
+      background-color: $color_main4;
+      border-radius: 50%;
+      transform: rotate(315deg);
+      transform-origin: 0% 25%;
+      transition: .2s;
+      z-index: 1;
+    }
+  }
+}
+@for $i from 1 through 3 {
+  input[name="grouponList_No"]:nth-of-type(#{$i}):checked ~ .grouponList_No:nth-of-type(#{$i}) {
+    background-color: $color_main4;
+    color: #fff;
+    &::before{
+      height: 12px;
+      transform: rotate(225deg);
+      background-color: #fff;
+      border-radius: 50%;
+      transform-origin: 35%  30%;
+      transition: transform .2s ,height .2s .1s;
+    }
+    &::after{
+      height: 9px;
+      width: 9px;
+      background-color: $color_main4;
+      border-radius: 50%;
+      transform: rotate(315deg);
+      transform-origin: 0% 25%;
+      transition: .2s;
+      z-index: 1;
+    }
+  }
+}
+@for $i from 1 through 4 {
+  input[name="groupon_avg"]:nth-of-type(#{$i}):checked ~ .groupon_avg:nth-of-type(#{$i}) {
+    background-color: $color_main4;
+    color: #fff;
+    &::before{
+      height: 12px;
+      transform: rotate(225deg);
+      background-color: #fff;
+      border-radius: 50%;
+      transform-origin: 35%  30%;
+      transition: transform .2s ,height .2s .1s;
+    }
+    &::after{
+      height: 9px;
+      width: 9px;
+      background-color: $color_main4;
+      border-radius: 50%;
+      transform: rotate(315deg);
+      transform-origin: 0% 25%;
+      transition: .2s;
+      z-index: 1;
+    }
+  }
 }

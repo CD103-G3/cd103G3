@@ -14,6 +14,19 @@ $lh_sm:70px;
   display: inline-block;
   vertical-align: middle;
 }
+%closeJumpWindow {
+  display: block;
+  background-color: $color_main2;
+  width: 35px;
+  height: 3px;
+  position: absolute;
+}
+//去outline
+%outline_false{
+  border: 0;
+  outline: 0 solid;
+}
+
 //@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin
 //顏色設定 semi-transparent-color
 @mixin semi-transparent-colors($attribute,$color,$background){ 
@@ -28,14 +41,6 @@ $lh_sm:70px;
   top: 50%;
   transform: translateY(-50%);
 };
-
-%closeJumpWindow {
-  display: block;
-  background-color: $color_main2;
-  width: 35px;
-  height: 3px;
-  position: absolute;
-}
 
 //關閉按鈕的close 偽類
 @mixin close ($top,$left){
@@ -140,5 +145,113 @@ $i: 1;
       @extend %grid_#{$attr}
     }
   }  
-}
+};
 
+//search
+@mixin inputSearch($height,$fontSize){  //搜尋input
+  .input_search{
+    width: 100%;
+    height: $height;
+    font-size: $fontSize;
+    padding: 15px 35px;
+    border-radius: 50px;
+    background-color: #fff5;
+    color: $color_main1;
+    @content;
+    @extend %outline_false;
+    &::-webkit-input-placeholder {
+      color: #ffa500;
+      opacity: .7;
+    }
+  }
+}
+@mixin bookMarkClass($name,$fontSize,$aSize,$bSize,$color) {
+  .#{$name}{
+    @content;
+    @include bookMark($fontSize,$aSize,$bSize,$color);
+  };
+};
+@mixin bookMarkTag($name,$fontSize,$aSize,$bSize,$color) {
+  #{$name}{
+    @content;
+    @include bookMark($fontSize,$aSize,$bSize,$color);
+  };
+};
+@mixin bookMark($fontSize,$aSize,$bSize,$color) {  //搜尋頁籤radio樣式
+  font-size: $fontSize;
+  position: relative;
+  cursor: pointer;
+  &:after,
+  &:before{
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  &:after{  //內圈
+    @include size($aSize);
+    left: ($aSize + $bSize)/2 - $aSize;
+    background-color: $color;
+    // border: 4px solid transparent;
+  }
+  &:before{  //外圈
+    @include size($bSize);
+    position: absolute;
+    left: ($aSize + $bSize)/2 - $bSize;
+    // background-color: $color_bonus;
+    border: 4px solid $color;
+  }
+}
+@mixin searchChecked($tag) {
+  #{$tag}{
+    border-radius: 50px;
+    border: 2px solid $color_main4;
+    position: relative;
+    transition: .4s;
+    cursor: pointer;
+    @content;
+  }
+}
+@mixin searchCheckedTani($colorA,$colorB) { //checkbox樣式
+  &:after,&:before{
+    content: '';
+    width: 12px;
+    height: 2px;
+    background-color: $colorA;
+    position: absolute;
+    left: 15px;
+    border-radius: 20px;
+    @include top50-50;
+    // transition:height .1s,border-radius 0s .1s, transform .4s .2s;
+    transition: .5s;
+  }
+  &:after{
+    transform: rotate(45deg);
+  }
+  &:before{
+    transform: rotate(-45deg);
+  }
+  &:hover{
+    background-color: $colorA;
+    &::after,
+    &::before{
+      background-color: $colorB; 
+    }
+  }
+}
+@mixin inputSearchText($height,$fontSize,$color){  //搜尋條件input
+    height: $height;
+    font-size: $fontSize;
+    padding: 15px 35px;
+    border-radius: 50px;
+    background-color: #fff5;
+    color: $color;
+    @content;
+    @extend %outline_false;
+    &::-webkit-input-placeholder {
+      color: #ffa500;
+      opacity: .7;
+    }
+}
