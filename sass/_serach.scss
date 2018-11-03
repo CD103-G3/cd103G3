@@ -33,7 +33,7 @@
   span{
     color:#fff;
   }
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.65);
   width: 100%;
   min-height: 328px;
   position: fixed;
@@ -48,12 +48,12 @@
 .bookmark{  //頁籤wrap
   padding: 25px 0;
   margin: auto 25px;
-  @include bookMarkTag(label,$fontSize_XL,24px,32px,$color_bonus){  //搜尋頁籤radio樣式
+  @include bookMarkTag(label,$fontSize_L,20px,28px,$color_bonus){  //搜尋頁籤radio樣式
     padding: 15px 55px;
   }
   #bookmark_animation_groupon:after,
   #bookmark_animation_meal:after{   //內圈顏色
-    background-color: $color_main3;
+    background-color: transparent;
   }
 }
 #bookmark_meal:checked ~ .bookmark #bookmark_animation_meal,
@@ -134,7 +134,7 @@
     @include searchCheckedTani($color_main4,#fff);
   }
   input[type="text"]{
-    @include inputSearchText(auto,$fontSize_text,#ffa500);
+    @include inputSearchText(auto,$fontSize_text,#fff);
     width: 150px;
     border: 2px solid $color_main4;
     padding: 5px 15px;
@@ -142,10 +142,10 @@
     text-align: center;
     background-color: transparent;
     &:hover{
-      background-color: #fff5;
+      background-color: rgba(0,0,0,0.25);
     }
     &:focus{
-      background-color: #fff5;
+      background-color: rgba(0,0,0,0.25);
     }
   }
   .meal_Cal{
@@ -185,18 +185,6 @@
   input[name="mealGenre_No"]:nth-of-type(#{$i}):checked ~ .mealGenre_No:nth-of-type(#{$i}) {
     background-color: $color_main4;
     color: #fff;
-    // &::before{ //打勾勾
-    //   width: 6px;
-    //   left: 11px;
-    //   transform: rotate(225deg);
-    //   background-color: #fff;
-    //   transition: .4s;
-    // }
-    // &::after{
-    //   transform: rotate(315deg);
-    //   background-color: #fff;
-    //   transition: .4s;
-    // }
     &::before{
       height: 12px;
       transform: rotate(225deg);

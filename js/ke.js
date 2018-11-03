@@ -213,16 +213,26 @@ if(document.getElementById('control_search')!=null){
 	}, false);
 }
 //搜尋
-var groupon_TagName = document.getElementsByClassName('groupon_TagName');
+var groupon_TagName = document.getElementsByName('groupon_TagName');
+
+
 
 	for (let i = 0; i < groupon_TagName.length; i++) {
-		console.log(groupon_TagName.length);
-
 		groupon_TagName[i].addEventListener('click',function () {
-			if($(this).find($('img')).attr('src','images/tag_N.svg')){
-				$(this).find($('img')).attr('src','images/tag_Y.svg');
+			var N = 'images/tag_N.svg' ;
+			var Y = 'images/tag_Y.svg' ;
+			var a = $(this).parent()
+			console.log(a);
+
+			if(groupon_TagName.checked=false){
+				$(this).parent().find($('img')).attr('src',Y);
 			}else{
-				$(this).find($('img')).attr('src','images/tag_N.svg');
+				$(this).parent().find($('img')).attr('src',N);
 			}
+			// if($(this).find($('img')).src=N){
+			// 	$(this).find($('img')).attr('src','images/tag_Y.svg');
+			// }else if($(this).find($('img')).src=Y){
+			// 	$(this).find($('img')).attr('src','images/tag_N.svg');
+			// }
 		})
 	};	

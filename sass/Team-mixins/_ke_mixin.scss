@@ -155,12 +155,12 @@ $i: 1;
     font-size: $fontSize;
     padding: 15px 35px;
     border-radius: 50px;
-    background-color: #fff5;
+    background-color: rgba(0,0,0,0.25);
     color: $color_main1;
     @content;
     @extend %outline_false;
     &::-webkit-input-placeholder {
-      color: #ffa500;
+      color: #fff;
       opacity: .7;
     }
   }
@@ -246,12 +246,12 @@ $i: 1;
     font-size: $fontSize;
     padding: 15px 35px;
     border-radius: 50px;
-    background-color: #fff5;
+    background-color:rgba(0,0,0,0.25);
     color: $color;
     @content;
     @extend %outline_false;
     &::-webkit-input-placeholder {
-      color: #ffa500;
+      color: #fff;
       opacity: .7;
     }
 }
