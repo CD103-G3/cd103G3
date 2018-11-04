@@ -46,7 +46,6 @@ $lh-sm:70px;
 @mixin close ($top,$left){
   &::before{
     content: '';
-    @extend %closeJumpWindow;
     transform: rotate(-45deg);
     top: calc( #{$top} - 17px );
     left: calc( #{$left} - 17px );
@@ -55,7 +54,6 @@ $lh-sm:70px;
   }
   &::after{
     content: '';
-    @extend %closeJumpWindow;
     transform: rotate(45deg);
     top: calc( #{$top} - 17px );
     left: calc( #{$left} - 17px );

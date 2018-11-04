@@ -1,7 +1,9 @@
 #close-search {
+  //叉叉input隱藏
   display: none;
 }
 .close-search {
+  //叉叉label
   width: 35px;
   height: 35px;
   position: absolute;
@@ -9,7 +11,9 @@
   top: 15px;
   cursor: pointer;
   @include close(100%, 50%) {
+    //叉叉的位置與樣式
     background-color: #fff;
+    @extend %closeJumpWindow; //叉叉的尺寸樣式
   }
   @include rwd(sm) {
     top: 25px;
@@ -17,10 +21,12 @@
   }
 }
 #close-search:checked ~ .search-wrap {
+  //叉叉按下 搜尋跳窗隱藏
   display: none;
   z-index: 0;
 }
 .search-wrap {
+  //搜尋跳窗
   //最外層
   * {
     box-sizing: border-box;
@@ -37,6 +43,7 @@
   span {
     color: #fff;
   }
+  width: 100%;
   position: fixed;
   top: 60px;
   z-index: 50;
@@ -49,6 +56,7 @@
   background-color: rgba(0, 0, 0, 0.65);
 }
 .search-bg {
+  //搜尋置中
   //包內容
   max-width: $large-min;
   padding: 0px 16px;
@@ -114,7 +122,6 @@
   } //引用輸入框的樣式
   @include rwd(sm) {
     height: 90px;
-    line-height: 86px;
   }
 }
 #start-search {
@@ -136,12 +143,11 @@
     line-height: 66px;
     color: #000;
   }
-  .img-search{
+  .img-search {
     width: 24px;
 
-    @include rwd(sm){
+    @include rwd(sm) {
       width: 35px;
-
     }
   }
 }
@@ -334,5 +340,6 @@
 @for $i from 1 through 4 {
   input[name="groupon-avg"]:nth-of-type(#{$i}):checked
     ~ .groupon-avg:nth-of-type(#{$i}) {
+      @extend %forChecked;
   }
 }

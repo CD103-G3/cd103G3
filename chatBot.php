@@ -5,6 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>chatBot</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- <script src="libs\gsap\src\minified\plugins\CSSPlugin.min.js"></script> -->
+	<script type="text/javascript" src="libs\gsap\src\minified\plugins\TextPlugin.min.js"></script>
+	<script src="libs\gsap\src\minified\plugins\CSSRulePlugin.min.js"></script>
+	<script src="libs\gsap\src\minified\TweenMax.min.js"></script>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -24,6 +29,7 @@
 				<div style="clear: both"></div>
 				<p class="chatBot-content-A">我們從週一到週五二十四小時不休息唷!</p>
 				<div style="clear: both"></div>
+				
 			</div>
 			<ul class="chatBot-keyword clearfix">
 				<li>營業時間</li>
@@ -39,9 +45,11 @@
 			</form>
 		</div>
 		<label for="close-chatBot" class="close-chatBot-pic">
-			<img src="images/chatBot.svg" alt="日食客服機器人"  class="chatBot-pic">			
+			<img src="images/chatBot.svg" alt="日食客服機器人"  class="chatBot-pic">
+			<span class="chatBot-shonw"></span>
 		</label>
-
 	</div>
+	<script src="js/ke.js"></script>
+
 </body>
 </html>

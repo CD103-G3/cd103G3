@@ -25,7 +25,7 @@
 			<!-- 輸入區 -->
 			<div class="input-wrap">
 				<input type="text" id="input-search" class="input-search" maxlength="30" placeholder="請輸入餐點關鍵字">
-				<button type="submit" id="start-search" class="mainBTN">搜尋<span class="search-img"></span></button>
+				<button type="submit" id="start-search" class="mainBTN">搜尋<span class="search-img"><img src="images/search.svg" alt="搜尋" class="img-search"></span></button>
 			</div>
 			<!-- 頁籤內容 -->
 			<div class="bookmark-cetentier bookmark-meal">
@@ -125,7 +125,7 @@
 	</div>
 
 
-	<!-- <script src="js/ke.js"></script> -->
+	<script src="js/ke.js"></script>
 </body>
 
 </html>

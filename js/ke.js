@@ -1,8 +1,47 @@
 if(document.getElementById('control-chatBot')!=null){
+	var closeChatBot = document.getElementById('close-chatBot');
 	document.getElementById('control-chatBot').addEventListener('click',function () {
-		document.getElementById('close-chatBot').checked=false;
+		closeChatBot.checked=false;
 		document.getElementById('navctrl').checked=false;
 	});	
+	var chatBotText = document.getElementsByClassName('chatBot-text')[0];
+	chatBotText.addEventListener('input',function () {
+		var newText = `<p class="chatBot-content-Q"><span></span><span></span><span></span></p><div style="clear: both"></div>`;
+		// var = chatBotText.lastChild
+		var span = document.querySelectorAll('.chatBot-content-Q span')
+		var content = document.getElementById('chatBot-content');
+		if(span.length<1){
+			$('#chatBot-content').append(newText);
+		}else if(chatBotText.value.length="" || chatBotText.value.length==0){
+			content.removeChild(content.lastChild.previousSibling);
+		}
+	});
+	// var a = document.getElementsByClassName('close-chatBot-pic');
+	// console.log(a);
+	// var ani = new TimelineMax({
+	// 	repeat: -1,
+	// 	repeatDelay: -0.01,
+	// 	yoyo: true
+	// });
+	// var tw01 = TweenMax.fromTo(".chatBot-shonw", 0.5, {
+	// 	x:0
+	// },{
+	// 	width:'30%',
+	// 	ease: Back.easeOut.config(0)
+	// });
+	// var tw02 = TweenMax.fromTo(".chatBot-pic", 0.5, {
+	// 	x:0
+	// },{
+	// 	y: -10,
+	// 	ease: Back.easeOut.config(0)
+	// });
+	// document.querySelector('.close-chatBot-pic').addEventListener('mouseover',function () {
+	// 	ani.add([tw01,tw02]);
+	// 	ani.play();
+	// });
+	// document.querySelector('.close-chatBot-pic').addEventListener('mouseout',function () {
+	// 	ani.stop();
+	// });
 }
 if(document.getElementById('control-login')!=null){
 	document.getElementById('control-login').addEventListener('click',function () {
@@ -225,5 +264,15 @@ if(document.getElementById('control-search')!=null){//搜尋
 			}
 		})
 	};	
-
+	var markGroupon = document.getElementById('bookmark-animation-groupon');
+	var markMeal = document.getElementById('bookmark-animation-meal');
+	var markGrouponText = $('#bookmark-animation-groupon').text();
+	var markMealText = $('#bookmark-animation-meal').text();
+	// var markSearchValue = markSearch.placeholder;
+	markGroupon.addEventListener('click',function () {
+		$('#input-search').attr("placeholder","請輸入"+markGrouponText+"關鍵字");
+	})
+	markMeal.addEventListener('click',function () {
+		$('#input-search').attr("placeholder","請輸入"+markMealText+"關鍵字");
+	})
 }

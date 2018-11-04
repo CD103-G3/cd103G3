@@ -5,7 +5,7 @@
   }
   width: 100%;
   height: calc(100% - 75px);
-  position: absolute;
+  position: fixed;
   top:75px;
   left: 0;
   z-index: 50;
@@ -84,7 +84,7 @@
       content: '';
       border-top: 15px solid transparent;
       border-bottom:15px solid transparent;
-      border-right: 15px solid $color-main1;
+      border-right: 15px solid $color_chatBot_text;
       border-left:15px solid transparent;
       position: absolute;
       top: 5px;
@@ -104,14 +104,42 @@
       border-top: 15px solid transparent;
       border-bottom:15px solid transparent;
       border-right: 15px solid transparent;
-      border-left:15px solid $color-main1;
+      border-left:15px solid $color_chatBot_text;
       position: absolute;
       top: 5px;
       right: -25px;
     }
+    span{
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 5px;
+      background-color: $color_main2;
+      border-radius: 50%;
+      position: relative;
+      top: 0;
+      animation: point 0.7s infinite alternate;
+    }
+    @for $i from 1 to 4 {
+      span:nth-child(#{$i}){
+        animation-delay: $i * 0.1s;
+        // background-color: #fff;
+      }
+    }    
   }
 }
 
+@keyframes point{
+  0%{
+    top: 0px;
+  }
+  50%{
+    top: 10px;
+  }
+  100%{
+    top: -2px;
+  }
+}
 .chatBot-keyword {
   padding: 10px 0;
   overflow: scroll;
@@ -141,7 +169,7 @@
 }
 #chatBot-search {
   position: absolute;
-  right: 10px;
+  right: 00px;
   top: 50%;
   transform: translateY(-80%);
 }
@@ -177,6 +205,7 @@
     height: 40px;
   }
   @include close(100%, 50%) {
+    @extend %closeJumpWindow ;
     &::before{
       top: calc( 100% - 20px );
       left: calc( 50% - 20px );
@@ -199,5 +228,44 @@
   .close-chatBot-pic {
     float: right;
     cursor: pointer;
+    position: relative;
+    text-align: center;
+    &:hover .chatBot-shonw{
+      // width: 30%;
+      // transition: .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: chatBotShonw .7s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275) alternate;
+    }
+    &:hover .chatBot-pic{
+      // top: -10px;
+      // transition: .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: chatBotPic .7s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275) alternate;
+    }
+    .chatBot-shonw{
+      display: inline-block;
+      width: 70%;
+      height: 10px;
+      background-color: #0009;
+      border-radius: 50%;
+      transition: .4s;
+      // animation: chatBotShonw .7s 1;
+    }
+    .chatBot-pic{
+      position: relative;
+      top: 10px;
+      transition: .4s;
+
+      // animation: chatBotPic .7s 1;
+    }
+  }
+}
+@keyframes chatBotShonw{
+  100%{
+    width: 30%;
+    background-color: #0007;
+  }
+}
+@keyframes chatBotPic{
+  100%{
+    top: -10px;
   }
 }
