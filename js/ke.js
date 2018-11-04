@@ -1,20 +1,20 @@
-if(document.getElementById('control_chatBot')!=null){
-	document.getElementById('control_chatBot').addEventListener('click',function () {
-		document.getElementById('close_chatBot').checked=true;
+if(document.getElementById('control-chatBot')!=null){
+	document.getElementById('control-chatBot').addEventListener('click',function () {
+		document.getElementById('close-chatBot').checked=false;
 		document.getElementById('navctrl').checked=false;
 	});	
 }
-if(document.getElementById('control_login')!=null){
-	document.getElementById('control_login').addEventListener('click',function () {
-		document.getElementById('close_login').checked=false;
+if(document.getElementById('control-login')!=null){
+	document.getElementById('control-login').addEventListener('click',function () {
+		document.getElementById('close-login').checked=false;
 		document.getElementById('navctrl').checked=false;		
 	});
 	var eye = document.getElementsByClassName('eye');
-	var need_check_id = document.getElementById('sigup_member_Id');
-	var need_check_psw = document.getElementById('sigup_member_Psw')
-	var need_check_nick = document.getElementById('sigup_member_Nick');
-	var need_check_email = document.getElementsByClassName('need_check_email');
-	var newPlace = "<div class='login_placeholder'></div>";
+	var needCheckId = document.getElementById('sigup-member-Id');
+	var needCheckPsw = document.getElementById('sigup-member-Psw')
+	var needCheckNick = document.getElementById('sigup-member-Nick');
+	var needCheckEmail = document.getElementsByClassName('need-check-email');
+	var newPlace = "<div class='login-placeholder'></div>";
 	var checkAry = [];
 
 	var memCheckReg = new RegExp(/[(\ )(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/) (\<)(\>)(\?)(\)]+/);
@@ -22,7 +22,7 @@ if(document.getElementById('control_login')!=null){
 	var emailCheckReg = new RegExp(/[(\ )(\~)(\!)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\/) (\<)(\>)(\?)(\)]+/);
 
 
-	need_check_id.addEventListener('input',function () {	//帳號
+	needCheckId.addEventListener('input',function () {	//帳號
 		this.parentNode.lastChild.style.display='block';
 		var VL = this.value.length;
 		var hasNumABC = false;
@@ -45,17 +45,17 @@ if(document.getElementById('control_login')!=null){
 		if( hasNumABC===false ){   // 1111111
 			this.parentNode.lastChild.src='images/checkN.svg';
 			$(this).parent().append(newPlace);
-			$(this).parent().find($('.login_placeholder')).text("請用英文或數字");
+			$(this).parent().find($('.login-placeholder')).text("請用英文或數字");
 			checkAry[1]=false;
 		}else if(VL < 3 || VL > 40 || this.value == ""){	
-			var PlaceholderLenght = 3 - need_check_id.value.length;
+			var PlaceholderLenght = 3 - needCheckId.value.length;
 			this.parentNode.lastChild.src='images/checkN.svg';
 			$(this).parent().append(newPlace);
-			$(this).parent().find($('.login_placeholder')).text("還差"+ PlaceholderLenght+"個字");
+			$(this).parent().find($('.login-placeholder')).text("還差"+ PlaceholderLenght+"個字");
 		
 			checkAry[1]=false;
 		}else{
-			$(this).parent().find($('.login_placeholder')).remove();
+			$(this).parent().find($('.login-placeholder')).remove();
 			this.parentNode.lastChild.src='images/checkY.svg';
 			
 			checkAry[1]=true;					
@@ -63,7 +63,7 @@ if(document.getElementById('control_login')!=null){
 		}
 	});
 
-	need_check_psw.addEventListener('input',function () {	//密碼
+	needCheckPsw.addEventListener('input',function () {	//密碼
 		this.parentNode.lastChild.style.display='block';
 		var VL = this.value.length;
 		var hasNumABC = false;
@@ -86,25 +86,25 @@ if(document.getElementById('control_login')!=null){
 		if( hasNumABC===false ){   // 1111111
 			this.parentNode.lastChild.src='images/checkN.svg';
 			$(this).parent().append(newPlace);
-			$(this).parent().find($('.login_placeholder')).text("請用英文或數字");
+			$(this).parent().find($('.login-placeholder')).text("請用英文或數字");
 			this? this.preventDefault() : event.returnValue = false;
 			checkAry[2]=false;
 		}else if(VL < 3 || VL > 40 || this.value == ""){	
-			var PlaceholderLenght = 3 - need_check_psw.value.length;
+			var PlaceholderLenght = 3 - needCheckPsw.value.length;
 			this.parentNode.lastChild.src='images/checkN.svg';
 			$(this).parent().append(newPlace);
-			$(this).parent().find($('.login_placeholder')).text("還差"+ PlaceholderLenght+"個字");
+			$(this).parent().find($('.login-placeholder')).text("還差"+ PlaceholderLenght+"個字");
 		
 			checkAry[2]=false;
 		}else{
-			$(this).parent().find($('.login_placeholder')).remove();
+			$(this).parent().find($('.login-placeholder')).remove();
 			this.parentNode.lastChild.src='images/checkY.svg';
 			
 			checkAry[2]=true;					
 		}
 	});
 
-	need_check_nick.addEventListener('input',function () {	//暱稱
+	needCheckNick.addEventListener('input',function () {	//暱稱
 		this.parentNode.lastChild.style.display='block';
 		var VL = this.value.length;
 		var hasNumABC = true;
@@ -118,21 +118,21 @@ if(document.getElementById('control_login')!=null){
 		if( hasNumABC===false ){   // 1111111
 			this.parentNode.lastChild.src='images/checkN.svg';
 			$(this).parent().append(newPlace);
-			$(this).parent().find($('.login_placeholder')).text("請用英文或數字");
+			$(this).parent().find($('.login-placeholder')).text("請用英文或數字");
 			checkAry[3]=false;
 		}else if(VL < 1 || VL > 10){
 			this.parentNode.lastChild.src='images/checkN.svg';
 			$(this).parent().append(newPlace);
-			$(this).parent().find($('.login_placeholder')).text("店員將以此名稱呼您");
-			$(this).parent().find($('.login_placeholder')).style.width='80%';
+			$(this).parent().find($('.login-placeholder')).text("店員將以此名稱呼您");
+			$(this).parent().find($('.login-placeholder')).style.width='80%';
 			checkAry[3]=false;	
 		}else{
-			$(this).parent().find($('.login_placeholder')).remove();
+			$(this).parent().find($('.login-placeholder')).remove();
 			this.parentNode.lastChild.src='images/checkY.svg';
 			checkAry[3]=true;
 		}			
 	});
-	need_check_email[0].addEventListener('change',function () {	//註冊信箱
+	needCheckEmail[0].addEventListener('change',function () {	//註冊信箱
 		this.parentNode.lastChild.style.display='block';
 		var VL = this.value.length;
 		var hasNumABC = true;
@@ -146,21 +146,21 @@ if(document.getElementById('control_login')!=null){
 		if( hasNumABC===false ){   // 1111111
 			this.parentNode.lastChild.src='images/checkN.svg';
 			$(this).parent().append(newPlace);
-			$(this).parent().find($('.login_placeholder')).text("email格式有誤");
+			$(this).parent().find($('.login-placeholder')).text("email格式有誤");
 			checkAry[4]=false;
 		}else if(this.value.indexOf('@') < 1  || this.value.indexOf('.com') < 1){
 			this.parentNode.lastChild.src='images/checkN.svg';
 			$(this).parent().append(newPlace);
-			$(this).parent().find($('.login_placeholder')).text("請輸入email格式");
+			$(this).parent().find($('.login-placeholder')).text("請輸入email格式");
 			this.parentNode.lastChild.src='images/checkN.svg';
 			checkAry[4]=false;
 		}else{
 			this.parentNode.lastChild.src='images/checkY.svg';
-			$(this).parent().find($('.login_placeholder')).remove();
+			$(this).parent().find($('.login-placeholder')).remove();
 			checkAry[4]=true;
 		}		
 	});
-	need_check_email[1].addEventListener('change',function () {	//申請密碼信箱
+	needCheckEmail[1].addEventListener('change',function () {	//申請密碼信箱
 		this.parentNode.lastChild.style.display='block';
 		var VL = this.value.length;
 		var hasNumABC = true;
@@ -174,16 +174,16 @@ if(document.getElementById('control_login')!=null){
 		if( hasNumABC===false ){   // 1111111
 			this.parentNode.lastChild.src='images/checkN.svg';
 			$(this).parent().append(newPlace);
-			$(this).parent().find($('.login_placeholder')).text("email格式有誤");
+			$(this).parent().find($('.login-placeholder')).text("email格式有誤");
 			checkAry[0]=false;
 		}else if(this.value.indexOf('@') < 1  || this.value.indexOf('.com') < 1){
 			this.parentNode.lastChild.src='images/checkN.svg';
 			$(this).parent().append(newPlace);
-			$(this).parent().find($('.login_placeholder')).text("請輸入email格式");
+			$(this).parent().find($('.login-placeholder')).text("請輸入email格式");
 			this.parentNode.lastChild.src='images/checkN.svg';
 			checkAry[0]=false;
 		}else{
-			$(this).parent().find($('.login_placeholder')).remove();
+			$(this).parent().find($('.login-placeholder')).remove();
 			this.parentNode.lastChild.src='images/checkY.svg';
 			checkAry[0]=true;
 		}		
@@ -205,23 +205,22 @@ if(document.getElementById('control_login')!=null){
 		return true;
 		}
 }
-if(document.getElementById('control_search')!=null){//搜尋
+if(document.getElementById('control-search')!=null){//搜尋
 
-	var closebtn = document.getElementById('close_search');
-	document.getElementById('control_search').addEventListener("click", function () {
+	var closebtn = document.getElementById('close-search');
+	document.getElementById('control-search').addEventListener("click", function () {
 		closebtn.checked = false;
-		// document.getElementById('to_sigin').checked=true;
 	}, false);
 
-	var groupon_TagName = document.getElementsByName('groupon_TagName');
+	var grouponTagName = document.getElementsByName('groupon-TagName');
 
-	for (let i = 0; i < groupon_TagName.length; i++) {
-		groupon_TagName[i].addEventListener('input',function () {
+	for (let i = 0; i < grouponTagName.length; i++) {
+		grouponTagName[i].addEventListener('input',function () {
 			var N = 'images/tag_N.svg' ;
 			var Y = 'images/tag_Y.svg' ;
-			var b = $(this).parent().find($('.groupon_TagName')[i]).find($('img'));
-			if(groupon_TagName[i].checked=true){
-				$('.groupon_TagName').find($('img')).attr('src',N);
+			var b = $(this).parent().find($('.groupon-TagName')[i]).find($('img'));
+			if(grouponTagName[i].checked=true){
+				$('.groupon-TagName').find($('img')).attr('src',N);
 				b.attr('src',Y);
 			}
 		})

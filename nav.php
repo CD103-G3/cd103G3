@@ -18,7 +18,7 @@
 			</a>
 		</div>
 		<div class="nav-right">			
-			<span class="seach-button">
+			<span class="seach-button" id="control-search">
 				<img src="images/icon/search.svg" width="25" alt="seach">
 				搜尋
 			</span>
@@ -34,7 +34,7 @@
 			</li>
 			<li class="index-member">
 				<div id="view6"></div>
-				<div class="before-login" id="control_login">
+				<div class="before-login" id="control-login">
 					<a href="javascript:void(0)">註冊</a>
 					<a href="javascript:void(0)">登入</a>
 				</div>
@@ -61,7 +61,7 @@
 				<a href="javascript:void(0)">參加飯團</a>
 			</li>
 			<li class="table-hidden"><a href="javascript:void(0)">會員中心</a></li>
-			<li class="table-hidden"><a href="javascript:void(0)" id="control_chatBot">客服雞器人</a></li>
+			<li class="table-hidden"><a href="javascript:void(0)" id="control-chatBot">客服雞器人</a></li>
 		</ul>
 	</nav>
 	<label class="white-Point floaty" for="white-Point-control">
@@ -104,6 +104,7 @@
 </header>
 
 <div class="nav_height"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="js/ke.js"></script>
 <script src="js/floaty.js"></script>
 <script>
@@ -150,7 +151,6 @@
 		if(isOpen&&w<768){
 			var classVal = whitePoint.getAttribute("class").replace("floaty","");
 			whitePoint.setAttribute("class",classVal);//删除floaty
-			alert(classVal);
 			whitePoint.style.width = minwh * 0.7 + 'px';
 			whitePoint.style.height = minwh * 0.7  + 'px';
 			
@@ -168,7 +168,6 @@
 
 			var classVal = whitePoint.getAttribute("class").concat(" floaty");
 			whitePoint.setAttribute("class",classVal);//添加floaty
-			alert(classVal);
 
 			whitePoint.style.width = "50px";
 			whitePoint.style.height = "50px";

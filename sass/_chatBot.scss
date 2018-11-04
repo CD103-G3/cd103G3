@@ -1,18 +1,33 @@
 #chatBot {
   //客服機器人最外層
+  * {
+    box-sizing: border-box;
+  }
   width: 100%;
   height: calc(100% - 75px);
   position: absolute;
   top:75px;
   left: 0;
-  z-index: 10;
-  * {
-    box-sizing: border-box;
+  z-index: 50;
+  @include rwd(sm){
+    width: auto;
+    max-width: 380px;
+    top: auto;
+    left: auto;
+    right: 30px;
+    bottom: 30px;
+    height: auto;
+    z-index: 99;
   }
+}
+#close-chatBot:checked ~ #chatBot .chatBot-contenier-wrap {
+  width: 0;
+  height: 0;
+  display: none;
 }
 .chatBot-contenier-wrap {
   //客服雞以上的物件的wrap
-  display: none;
+  display: block;
   height: 100%;
   background-color: $color-chatBot;
   padding: 0 16px;
@@ -24,6 +39,15 @@
     display: inline-block;
     font-weight: bold;
     color: $color-main2;
+  }
+  @include rwd(sm){
+      transition: height 0.4s;
+      display: block;
+      height: 470px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      overflow: hidden;
+
   }
 }
 #chatBot-content {
@@ -108,6 +132,7 @@
     padding: 5px;
     cursor: pointer;
   }
+
 }
 .chatBot-text-Wrap {
   position: relative;
@@ -147,6 +172,10 @@
   top: 10px;
   right: 15px;
   cursor: pointer;
+  @include rwd(sm){
+    width: 30px;
+    height: 40px;
+  }
   @include close(100%, 50%) {
     &::before{
       top: calc( 100% - 20px );
@@ -159,73 +188,16 @@
   }
 }
 
-#close-chatBot:checked ~ #chatBot{
-  top: 75px;
-}
 #chatBot .close-chatBot-pic img {
   display: none;
-}
-#close-chatBot:checked ~ #chatBot .chatBot-contenier-wrap {
-  display: block;
-  width: auto;
-  transition: height 0.4s;
-}
-@include rwd(sm) {
-  #chatBot {
-    width: auto;
-    max-width: 380px;
-    top: auto;
-    left: auto;
-    right: 30px;
-    bottom: 30px;
-    height: auto;
-    z-index: 99;
+  @include rwd(sm){
+      display: block;
   }
+}
+
+@include rwd(sm) {
   .close-chatBot-pic {
     float: right;
     cursor: pointer;
   }
-  .chatBot-contenier-wrap {
-    width: 0;
-    height: 0;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    overflow: hidden;
-    .close-chatBot {
-      width: 30px;
-      height: 40px;
-      position: absolute;
-      right: 15px;
-      opacity: 0;
-      cursor: pointer;
-    }
-  }
-  .chatBot-keyword {
-    padding: 10px 0;
-    overflow: scroll;
-    overflow-y: hidden;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  .chatBot-text {
-    width: 100%;
-    padding-left: 15px;
-    border-radius: 10px;
-    border: 0;
-  }
-  #close-chatBot:checked ~ #chatBot{
-    top: auto;
-  }
-  #close-chatBot:checked ~ #chatBot .close-chatBot {
-    opacity: 1;
-    transition: 0.8s;
-  }
-#chatBot .close-chatBot-pic img {
-  display: block;
-}
-  #close-chatBot:checked ~ #chatBot .chatBot-contenier-wrap {
-    display: block;
-    height: 470px;
-  }
-
 }

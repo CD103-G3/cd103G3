@@ -5,11 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, min-scale=1, max-scale=1, shrink-to-fit=no">
 	<title>Title</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
 </head>
 <body>
-	<input type="checkbox" id="close-login" checked>
+	<input type="checkbox" id="close-login" checked >
 	<div id="login-wrap">
 		<div class="login-wrap">
 			<label for="close-login" class="close-login btn-cup"></label>
@@ -33,7 +33,7 @@
 						<input type="password" id="sigin-member-Psw" class="input-mem" required>
 						<label for="sigin-member-Psw" class="input-pl">密碼</label>
 						<label for="sigin-member-Psw"><img src="images/lock.svg"></label>
-						<img src="images/eye-n.png" class="eye"></div>
+						<img src="images/eye_n.png" class="eye"></div>
 					<div class="cover-run-wrap">
 						<button type="submit" class="btn-cup nextBTN">登入</button>
 					</div>
@@ -89,8 +89,6 @@
 				
 	</div>
 	
-
-	
-	<script src="js/ke.js"></script>
+	<!-- <script src="js/ke.js"></script> -->
 </body>
 </html>

@@ -31,6 +31,7 @@
 #close-login:checked ~ #login-wrap {
   //關閉跳窗
   display: none;
+  z-index: 0;
 }
 .close-login {
   //叉叉按鈕
@@ -44,7 +45,17 @@
   @include close(90%, 55%) {
     border-radius: 50px;
   }
-  z-index: 10;
+  z-index: 50;
+
+  @include rwd(sm) {
+    border-radius: 0 50% 0 50%;
+    &:after {
+      transform: translate(-10%, -10px) rotate(45deg);
+    }
+    &:before {
+      transform: translate(-10%, -10px) rotate(-45deg);
+    }
+  }
 }
 .input-mem {
   transition: 0.4s;
@@ -57,17 +68,28 @@
     margin-right: -10px;
     transition: 0.4s;
     padding: 0 15px 0 45px;
+    @include rwd(sm) {
+      cursor: text;
+      margin-right: -20px;
+      margin-left: auto;
+    }
   }
   &:valid {
     margin-right: -10px;
     padding: 0 15px 0 45px;
     transition: 0.4s;
+    @include rwd(sm) {
+      margin-right: -20px;
+    }
   }
   &:focus ~ label,
   &:valid ~ label {
     left: -45px;
     transition: 0.4s;
     font-size: $fontSize-text;
+    @include rwd(sm) {
+      left: -35px;
+    }
   }
   &:focus ~ label > img {
     left: 55px;
@@ -85,8 +107,12 @@
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 20;
+  z-index: 50;
   background-color: #aaa9;
+  @include rwd(sm) {
+    position: fixed;
+    background-color: #aaa9;
+  }
 }
 .login-wrap {
   * {
@@ -107,6 +133,22 @@
   );
   border: 10px solid $color-bonus;
   height: 100%;
+  @include rwd(sm) {
+    width: rwdW(320);
+    min-width: 320px;
+    min-height: 550px;
+    height: 65%;
+    overflow-x: inherit;
+    overflow-y: inherit;
+    border-radius: 50px;
+    box-shadow: 4px 4px 17px #aaa;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+  }
 }
 .login-mark {
   text-align: center;
@@ -122,6 +164,9 @@
     transition: 0.4s;
     position: relative;
     z-index: 0;
+    @include rwd(sm) {
+      font-size: $fontSize-L;
+    }
   }
 }
 .longing-input {
@@ -148,6 +193,9 @@
     border-radius: 50px;
     border: 0;
     background: #fff9;
+    @include rwd(sm) {
+      border-radius: 50px;
+    }
   }
   label {
     font-size: $fontSize-text;
@@ -211,6 +259,11 @@
   // 	}
   // }
   @include nextAndCancel-BTN(65%);
+  button {
+    @include rwd(sm) {
+      width: 70%;
+    }
+  }
 }
 
 // @include main-BTN(65%);
@@ -230,80 +283,8 @@
   color: $color-main2;
 }
 @include rwd(sm) {
-  .close-login {
-    //叉叉按鈕
-    width: 70px;
-    height: 70px;
-    border-radius: 0 50% 0 50%;
-    position: absolute;
-    left: c100(70);
-    top: 0px;
-    z-index: 10;
-    &:after {
-      transform: translate(-10%, -10px) rotate(45deg);
-    }
-    &:before {
-      transform: translate(-10%, -10px) rotate(-45deg);
-    }
-  }
-
   .btn-cup {
     //表示可按鈕的手指鼠標
     cursor: pointer;
-  }
-  .input-mem {
-    &:focus {
-      cursor: text;
-      margin-right: -20px;
-      margin-left: auto;
-    }
-    &:valid {
-      margin-right: -20px;
-    }
-    &:focus ~ label,
-    &:valid ~ label {
-      left: -35px;
-    }
-  }
-
-  //以上是動態區
-  #login-wrap {
-    position: fixed;
-    z-index: 3;
-    background-color: #aaa9;
-  }
-  .login-wrap {
-    min-width: 320px;
-    width: rwdW(320);
-    min-height: 550px;
-    height: 65%;
-    overflow-x: inherit;
-    overflow-y: inherit;
-    border-radius: 50px;
-    box-shadow: 4px 4px 17px #aaa;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-  }
-
-  .login-mark {
-    padding: 100px 0 15px;
-    label {
-      font-size: $fontSize-L;
-    }
-  }
-  .longing-input {
-    input {
-      border-radius: 50px;
-    }
-  }
-
-  .cover-run-wrap {
-    button {
-      width: 70%;
-    }
   }
 }

@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<input type="checkbox" name="close-chatBot" id="close-chatBot">
+	<input type="checkbox" name="close-chatBot" id="close-chatBot" checked>
 	<div id="chatBot" class="clearfix">
 		<div class="chatBot-contenier-wrap">
 			<h3>日食客服機器人</h3>

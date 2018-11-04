@@ -7,11 +7,10 @@
 @import "general_mixins";
 @import "Team-mixins/ke_mixin";
 @import "login";//註冊登入
-@import "chatBot";//客服機器人
 @import "serach"; //搜尋
 @import "layout/nav";//nav
 @import "eatDetail"; //餐點詳細
-
+@import "chatBot";//客服機器人
 .space{
 	height: 75px;
 }

@@ -125,7 +125,7 @@
 	</div>
 
 
-	<script src="js/ke.js"></script>
+	<!-- <script src="js/ke.js"></script> -->
 </body>
 
 </html>
