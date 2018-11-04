@@ -10,9 +10,7 @@
 </head>
 
 <body>
-	<button id="control-search" style="position: fixed; z-index:5;">搜尋</button></div>
-	<img src="images/main.jpg" alt="" style="height: 100vh; width: 100%;">
-	<input type="checkbox" id="close-search">
+	<input type="checkbox" id="close-search" checked>
 	<div class="wrap search-wrap">
 		<label for="close-search" class="close-search"></label>
 		<form action="" class="search-bg">

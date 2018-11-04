@@ -17,3 +17,6 @@
 @function c100($px){
 	@return calc( 100% - #{$px}px );
 }
+@function c50($px){
+	@return calc( 50% - #{$px}px );
+}

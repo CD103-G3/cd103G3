@@ -205,34 +205,26 @@ if(document.getElementById('control_login')!=null){
 		return true;
 		}
 }
-if(document.getElementById('control_search')!=null){
+if(document.getElementById('control_search')!=null){//搜尋
 
+	var closebtn = document.getElementById('close_search');
 	document.getElementById('control_search').addEventListener("click", function () {
-		document.getElementById('close_search').checked = false;
+		closebtn.checked = false;
 		// document.getElementById('to_sigin').checked=true;
 	}, false);
-}
-//搜尋
-var groupon_TagName = document.getElementsByName('groupon_TagName');
 
-
+	var groupon_TagName = document.getElementsByName('groupon_TagName');
 
 	for (let i = 0; i < groupon_TagName.length; i++) {
-		groupon_TagName[i].addEventListener('click',function () {
+		groupon_TagName[i].addEventListener('input',function () {
 			var N = 'images/tag_N.svg' ;
 			var Y = 'images/tag_Y.svg' ;
-			var a = $(this).parent()
-			console.log(a);
-
-			if(groupon_TagName.checked=false){
-				$(this).parent().find($('img')).attr('src',Y);
-			}else{
-				$(this).parent().find($('img')).attr('src',N);
+			var b = $(this).parent().find($('.groupon_TagName')[i]).find($('img'));
+			if(groupon_TagName[i].checked=true){
+				$('.groupon_TagName').find($('img')).attr('src',N);
+				b.attr('src',Y);
 			}
-			// if($(this).find($('img')).src=N){
-			// 	$(this).find($('img')).attr('src','images/tag_Y.svg');
-			// }else if($(this).find($('img')).src=Y){
-			// 	$(this).find($('img')).attr('src','images/tag_N.svg');
-			// }
 		})
 	};	
+
+}
