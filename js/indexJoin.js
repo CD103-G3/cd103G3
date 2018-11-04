@@ -120,18 +120,3 @@ $(document).ready(function() {
       .delay(1000);
   });
 });
-
-//好評餐點
-//   if (window.innerWidth > 1200) {
-//     $(".indexGroupon-box").removeClass("owl-carousel owl-loaded owl-drag");
-//   } else {
-//     $(".indexGroupon-box").removeClass("owl-carousel owl-loaded owl-drag");
-//   }
-
-//   $(window).resize(function() {
-//     if (window.innerWidth > 1200) {
-//       $(".indexGroupon-box").removeClass("owl-carousel owl-loaded owl-drag");
-//     } else {
-//       $(".indexGroupon-box").removeClass("owl-carousel owl-loaded owl-drag");
-//     }
-//   });

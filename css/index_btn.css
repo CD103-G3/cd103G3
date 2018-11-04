@@ -1,0 +1,22 @@
+#indexJoin-btn div {
+  counter-increment: number;
+  width: 10vw;
+  height: 10vw;
+  min-width: 5em;
+  min-height: 5em;
+  transition: 0.5s all ease;
+  background: var(--color, #aaa);
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  border-radius: 50%;
+  margin: 0.5em;
+  opacity: 0.7;
+  --dx: calc(var(--size) - var(--x));
+  --dy: calc(var(--size) - var(--y)); }
+
+#indexJoin-btn div:hover {
+  opacity: 1;
+  cursor: pointer;
+  border: calc(2px + 0.85vw) solid rgba(255, 255, 255, 0.5);
+  transition: 0.5s background-color ease, 0.2s border ease;
+  border-radius: calc(var(--x) / var(--size) * 100%) calc(var(--dx) / var(--size) * 100%) calc(var(--dx) / var(--size) * 100%) calc(var(--x) / var(--size) * 100%)/calc(var(--y) / var(--size) * 100%) calc(var(--y) / var(--size) * 100%) calc(var(--dy) / var(--size) * 100%) calc(var(--dy) / var(--size) * 100%); }

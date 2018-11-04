@@ -1,23 +1,72 @@
 @charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a,
+.indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 header {
-  height: 80px; }
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  z-index: 2; }
   header * {
     font-size: 0;
     font-family: sans-serif, "微軟正黑體", "Microsoft JhengHei"; }
-  header a, header .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header button {
+  header a, header .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header button {
     font-size: 24px;
     color: #fff;
     text-decoration: none; }
   header #navctrl {
     display: none; }
-    header #navctrl:checked ~ .phone_nav .hb .line {
+    header #navctrl:checked ~ .phone-nav .hb .line {
       transform: rotate(360deg);
       opacity: 0;
       transition: 0.3s; }
-    header #navctrl:checked ~ .phone_nav .hb:before {
+    header #navctrl:checked ~ .phone-nav .hb:before {
       transform: translateY(13.5px) rotate(225deg);
       transition: 0.3s; }
-    header #navctrl:checked ~ .phone_nav .hb:after {
+    header #navctrl:checked ~ .phone-nav .hb:after {
       transform: translateY(-13px) rotate(-225deg);
       transition: 0.3s; }
     header #navctrl:checked ~ nav {
@@ -25,27 +74,27 @@ header {
       top: -1000px;
       left: 350px;
       transition: transform 1s; }
-  header .phone_nav {
+  header .phone-nav {
     padding: 0 40px 0 10px;
     height: 75px;
-    background: url(../image/nav_background_768.png) repeat-x;
+    background: url(../images/nav_background_768.png) repeat-x;
     position: relative; }
-    header .phone_nav:after {
+    header .phone-nav:after {
       content: '';
       width: 0;
       height: 120%;
       display: inline-block;
       vertical-align: middle; }
-    header .phone_nav div {
+    header .phone-nav div {
       width: 33.33333333%;
       text-align: center;
       vertical-align: middle;
       display: inline-block; }
-      header .phone_nav div.nav_left {
+      header .phone-nav div.nav-left {
         text-align: left; }
-      header .phone_nav div.nav_right {
+      header .phone-nav div.nav-right {
         text-align: right; }
-    header .phone_nav .hb {
+    header .phone-nav .hb {
       margin: auto;
       width: 70px;
       height: 50px;
@@ -55,7 +104,7 @@ header {
       position: absolute;
       top: 28%;
       z-index: 1001; }
-      header .phone_nav .hb .line, header .phone_nav .hb:before, header .phone_nav .hb:after {
+      header .phone-nav .hb .line, header .phone-nav .hb:before, header .phone-nav .hb:after {
         content: '';
         margin: auto;
         width: 60%;
@@ -68,20 +117,20 @@ header {
         bottom: 21%;
         left: 0;
         transition: 0.3s; }
-      header .phone_nav .hb:before {
+      header .phone-nav .hb:before {
         bottom: auto; }
-      header .phone_nav .hb:after {
+      header .phone-nav .hb:after {
         top: auto; }
-    header .phone_nav .logo img {
+    header .phone-nav .logo img {
       height: 90px; }
-    header .phone_nav .seach_button {
+    header .phone-nav .seach-button {
       padding: 23px 9px 18px;
       color: #76391b;
       border-radius: 50%;
       background-color: #fcf2ca;
       box-shadow: 1px 3px 1px #ad6631;
       cursor: pointer; }
-      header .phone_nav .seach_button img {
+      header .phone-nav .seach-button img {
         margin-top: -6px;
         vertical-align: middle; }
   header nav {
@@ -112,43 +161,43 @@ header {
         header nav ul .logo img {
           margin-top: -15px;
           height: 140px; }
-      header nav ul .member {
+      header nav ul .index-member {
         margin-bottom: 35px; }
-        header nav ul .member .before_login {
+        header nav ul .index-member .before-login {
           display: none; }
-          header nav ul .member .before_login a, header nav ul .member .before_login .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header nav ul .member .before_login button {
+          header nav ul .index-member .before-login a, header nav ul .index-member .before-login .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header nav ul .index-member .before-login button {
             margin-right: 20px; }
-        header nav ul .member .after_login {
+        header nav ul .index-member .after-login {
           display: inline-block; }
-          header nav ul .member .after_login div {
+          header nav ul .index-member .after-login div {
             display: inline-block;
             vertical-align: middle; }
-            header nav ul .member .after_login div .member_Pic {
+            header nav ul .index-member .after-login div .member-Pic {
               width: 35px;
               height: 35px;
               border-radius: 50%; }
-            header nav ul .member .after_login div img {
+            header nav ul .index-member .after-login div img {
               cursor: pointer; }
-            header nav ul .member .after_login div span {
+            header nav ul .index-member .after-login div span {
               padding: 5px 10px;
               font-size: 12px;
               color: #fff;
               display: inline-block; }
-              header nav ul .member .after_login div span .achievement_Pic {
+              header nav ul .index-member .after-login div span .achievement-Pic {
                 margin: -5px 8px 0 2px;
                 vertical-align: middle; }
-  header #white_Point_control {
+  header #white-Point-control {
     display: none; }
-    header #white_Point_control:checked ~ .white_Point {
+    header #white-Point-control:checked ~ .white-Point {
       width: 70vmin;
       height: 70vmin;
       transform: translate(-50%, -50%);
       transition: 1s;
       top: 50%;
       left: 50%; }
-      header #white_Point_control:checked ~ .white_Point li {
+      header #white-Point-control:checked ~ .white-Point li {
         display: inline-block; }
-  header .white_Point {
+  header .white-Point {
     margin: auto;
     width: 50px;
     height: 50px;
@@ -159,9 +208,9 @@ header {
     top: 80px;
     right: 0%;
     z-index: 101; }
-    header .white_Point.floaty.active {
+    header .white-Point.floaty.active {
       z-index: 10001; }
-    header .white_Point.floaty:before {
+    header .white-Point.floaty:before {
       content: "";
       display: block;
       position: absolute;
@@ -169,43 +218,46 @@ header {
       height: 100%;
       margin-left: 0;
       margin-top: 0; }
-    header .white_Point.floaty.active:before {
+    header .white-Point.floaty.active:before {
       content: "";
       display: block;
       top: -500%;
       left: -500%;
       width: 1100%;
       height: 1100%; }
-    header .white_Point ul {
+    header .white-Point ul {
       text-align: center; }
-      header .white_Point ul li {
+      header .white-Point ul li {
         margin: 0 auto;
         width: 50%;
         height: 23.33333333vmin;
         display: none; }
-        header .white_Point ul li:after {
+        header .white-Point ul li:after {
           content: '';
           width: 0;
           height: 100%;
           vertical-align: middle;
           display: inline-block; }
-        header .white_Point ul li a, header .white_Point ul li .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white_Point ul li button {
+        header .white-Point ul li a, header .white-Point ul li .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white-Point ul li button {
           font-size: 16px;
           vertical-align: middle;
           display: inline-block; }
-          header .white_Point ul li a img, header .white_Point ul li .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button img, .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white_Point ul li button img {
+          header .white-Point ul li a img, header .white-Point ul li .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button img, .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white-Point ul li button img {
             margin-bottom: 5px;
             width: 40%; }
-        header .white_Point ul li:nth-of-type(1) {
+        header .white-Point ul li:nth-of-type(1) {
           width: 100%; }
-        header .white_Point ul li:nth-of-type(4), header .white_Point ul li:nth-of-type(5) {
+        header .white-Point ul li:nth-of-type(4), header .white-Point ul li:nth-of-type(5) {
           max-width: 120px; }
   header #view1 {
     display: none; }
 
+.nav_height {
+  height: 75px; }
+
 @media screen and (min-width: 1024px) {
   header {
-    background-image: url(../image/nav_background.png);
+    background-image: url(../images/nav_background.png);
     font-size: 0;
     text-align: center; }
     header #navctrl:checked ~ nav {
@@ -213,7 +265,7 @@ header {
       top: 0px;
       left: 0px;
       transition: 0s; }
-    header .phone_nav {
+    header .phone-nav {
       padding: 0;
       width: 14.28571428%;
       height: 100px;
@@ -221,19 +273,19 @@ header {
       display: inline-block;
       vertical-align: top;
       position: relative; }
-      header .phone_nav div.nav_right {
+      header .phone-nav div.nav-right {
         width: 100%;
         text-align: center; }
-        header .phone_nav div.nav_right .seach_button {
+        header .phone-nav div.nav-right .seach-button {
           padding: 10px 40px 10px 10px;
           border-radius: 20px;
           font-size: 16px; }
-      header .phone_nav .nav_left, header .phone_nav .logo {
+      header .phone-nav .nav-left, header .phone-nav .logo {
         font-size: 0;
         margin: 0;
         padding: 0;
         display: none; }
-        header .phone_nav .nav_left img, header .phone_nav .logo img {
+        header .phone-nav .nav-left img, header .phone-nav .logo img {
           height: 120px; }
     header nav {
       width: 71.42857142%;
@@ -262,11 +314,11 @@ header {
             height: 120%;
             display: inline-block;
             vertical-align: middle; }
-          header nav ul li.table_hidden {
+          header nav ul li.table-hidden {
             display: none; }
           header nav ul li.logo {
             transform: translateX(200%); }
-          header nav ul li.member {
+          header nav ul li.index-member {
             transform: translateX(300%); }
           header nav ul li.meals {
             transform: translateX(100%); }
@@ -274,17 +326,17 @@ header {
             transform: translateX(-300%); }
           header nav ul li.participate {
             transform: translateX(-300%); }
-    header #white_Point_control {
+    header #white-Point-control {
       display: none; }
-      header #white_Point_control:checked ~ .white_Point {
+      header #white-Point-control:checked ~ .white-Point {
         width: 14.28571428%;
         height: 100px;
         transform: translate(0, 0);
         transition: 0s;
         position: static; }
-        header #white_Point_control:checked ~ .white_Point li.table_hidden {
+        header #white-Point-control:checked ~ .white-Point li.table-hidden {
           display: none; }
-    header .white_Point {
+    header .white-Point {
       margin: auto;
       width: 14.28571428%;
       height: 100px;
@@ -295,30 +347,31 @@ header {
       transform: translate(0, 0);
       transition: 0s;
       position: static; }
-      header .white_Point:checked ~ .white_Point {
+      header .white-Point:checked ~ .white-Point {
         width: 50px;
         height: 50px;
         transform: translate(0, 0);
         position: static; }
-      header .white_Point ul {
+      header .white-Point ul {
         height: 100%; }
-        header .white_Point ul:after {
+        header .white-Point ul:after {
           content: '';
           width: 0;
           height: 120%;
           display: inline-block;
           vertical-align: middle; }
-        header .white_Point ul li {
+        header .white-Point ul li {
           width: auto;
           height: auto;
           display: inline-block; }
-          header .white_Point ul li.table_hidden {
+          header .white-Point ul li.table-hidden {
             display: none; }
-          header .white_Point ul li:nth-of-type(1) {
+          header .white-Point ul li:nth-of-type(1) {
             width: auto; }
-          header .white_Point ul li a, header .white_Point ul li .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white_Point ul li button {
+          header .white-Point ul li a, header .white-Point ul li .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white-Point ul li button {
             margin: 0 8px;
-            padding: 6px;
+            width: 40px;
+            height: 40px;
             font-size: 0;
             color: #76391b;
             border-radius: 20px;
@@ -326,10 +379,10 @@ header {
             box-shadow: 1px 3px 1px #ad6631;
             display: inline-block;
             position: relative; }
-            header .white_Point ul li a img, header .white_Point ul li .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button img, .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white_Point ul li button img {
-              width: 25px;
-              height: 25px; }
-            header .white_Point ul li a span, header .white_Point ul li .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button span, .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white_Point ul li button span {
+            header .white-Point ul li a img, header .white-Point ul li .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button img, .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white-Point ul li button img {
+              margin: 7.5px;
+              width: 25px; }
+            header .white-Point ul li a span, header .white-Point ul li .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button span, .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white-Point ul li button span {
               padding: 3px 7px 5px;
               font-size: 8px;
               color: #fff;
@@ -352,7 +405,7 @@ header {
         transform-style: preserve-3d;
         transform-origin: center top;
         transition: 150ms ease-in-out;
-        background-image: url(../image/nav_background.png);
+        background-image: url(../images/nav_background.png);
         perspective: 1000px;
         position: relative;
         top: 100%; }
@@ -360,14 +413,14 @@ header {
         height: 80px;
         background: none;
         top: 0; }
-    header li:not(.logo):not(.member):hover .s2 {
+    header li:not(.logo):not(.index-member):hover .s2 {
       border: 2px solid #2d3e51;
       border-bottom: none;
       border-radius: 5px 5px 5px 5px;
       transition-delay: 150ms;
       transform: translate3d(-4px, 0, 0) rotate3d(1, 0, 0, -180deg);
       background-color: #425075; }
-    header li:not(.logo):not(.member):hover .s3 {
+    header li:not(.logo):not(.index-member):hover .s3 {
       border: 2px solid #2d3e51;
       border-bottom: none;
       border-radius: 5px 5px 5px 5px;
@@ -415,7 +468,436 @@ header {
     header #view7 .s2 {
       background-position: -600% -80px; }
     header #view7 .s3 {
-      background-position: -600% -90px; } }
+      background-position: -600% -90px; }
+  .nav_height {
+    height: 100px; } }
+
+header {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  z-index: 2; }
+  header * {
+    font-size: 0;
+    font-family: sans-serif, "微軟正黑體", "Microsoft JhengHei"; }
+  header a, header .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header button {
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none; }
+  header #navctrl {
+    display: none; }
+    header #navctrl:checked ~ .phone-nav .hb .line {
+      transform: rotate(360deg);
+      opacity: 0;
+      transition: 0.3s; }
+    header #navctrl:checked ~ .phone-nav .hb:before {
+      transform: translateY(13.5px) rotate(225deg);
+      transition: 0.3s; }
+    header #navctrl:checked ~ .phone-nav .hb:after {
+      transform: translateY(-13px) rotate(-225deg);
+      transition: 0.3s; }
+    header #navctrl:checked ~ nav {
+      transform: translate(-350px, 1000px) rotate(0deg);
+      top: -1000px;
+      left: 350px;
+      transition: transform 1s; }
+  header .phone-nav {
+    padding: 0 40px 0 10px;
+    height: 75px;
+    background: url(../images/nav_background_768.png) repeat-x;
+    position: relative; }
+    header .phone-nav:after {
+      content: '';
+      width: 0;
+      height: 120%;
+      display: inline-block;
+      vertical-align: middle; }
+    header .phone-nav div {
+      width: 33.33333333%;
+      text-align: center;
+      vertical-align: middle;
+      display: inline-block; }
+      header .phone-nav div.nav-left {
+        text-align: left; }
+      header .phone-nav div.nav-right {
+        text-align: right; }
+    header .phone-nav .hb {
+      margin: auto;
+      width: 70px;
+      height: 50px;
+      cursor: pointer;
+      opacity: .8;
+      transition: .5s;
+      position: absolute;
+      top: 28%;
+      z-index: 1001; }
+      header .phone-nav .hb .line, header .phone-nav .hb:before, header .phone-nav .hb:after {
+        content: '';
+        margin: auto;
+        width: 60%;
+        height: 3px;
+        background-color: #fff;
+        display: block;
+        position: absolute;
+        top: 20%;
+        right: 0;
+        bottom: 21%;
+        left: 0;
+        transition: 0.3s; }
+      header .phone-nav .hb:before {
+        bottom: auto; }
+      header .phone-nav .hb:after {
+        top: auto; }
+    header .phone-nav .logo img {
+      height: 90px; }
+    header .phone-nav .seach-button {
+      padding: 23px 9px 18px;
+      color: #76391b;
+      border-radius: 50%;
+      background-color: #fcf2ca;
+      box-shadow: 1px 3px 1px #ad6631;
+      cursor: pointer; }
+      header .phone-nav .seach-button img {
+        margin-top: -6px;
+        vertical-align: middle; }
+  header nav {
+    transition: 1s;
+    position: absolute;
+    transform: translate(0, 0) rotate(-90deg);
+    top: -1000px;
+    left: 350px;
+    transition: transform 1s; }
+    header nav:before {
+      content: '';
+      width: 1100px;
+      height: 1100px;
+      border-radius: 50%;
+      background-color: #425075;
+      transform-origin: left top;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      top: 0;
+      left: 0; }
+    header nav ul {
+      position: relative;
+      left: 50%; }
+      header nav ul li {
+        margin-bottom: 20px; }
+      header nav ul .logo {
+        margin-bottom: 30px; }
+        header nav ul .logo img {
+          margin-top: -15px;
+          height: 140px; }
+      header nav ul .index-member {
+        margin-bottom: 35px; }
+        header nav ul .index-member .before-login {
+          display: none; }
+          header nav ul .index-member .before-login a, header nav ul .index-member .before-login .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header nav ul .index-member .before-login button {
+            margin-right: 20px; }
+        header nav ul .index-member .after-login {
+          display: inline-block; }
+          header nav ul .index-member .after-login div {
+            display: inline-block;
+            vertical-align: middle; }
+            header nav ul .index-member .after-login div .member-Pic {
+              width: 35px;
+              height: 35px;
+              border-radius: 50%; }
+            header nav ul .index-member .after-login div img {
+              cursor: pointer; }
+            header nav ul .index-member .after-login div span {
+              padding: 5px 10px;
+              font-size: 12px;
+              color: #fff;
+              display: inline-block; }
+              header nav ul .index-member .after-login div span .achievement-Pic {
+                margin: -5px 8px 0 2px;
+                vertical-align: middle; }
+  header #white-Point-control {
+    display: none; }
+    header #white-Point-control:checked ~ .white-Point {
+      width: 70vmin;
+      height: 70vmin;
+      transform: translate(-50%, -50%);
+      transition: 1s;
+      top: 50%;
+      left: 50%; }
+      header #white-Point-control:checked ~ .white-Point li {
+        display: inline-block; }
+  header .white-Point {
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: #425075;
+    position: fixed;
+    transition: 1s;
+    top: 80px;
+    right: 0%;
+    z-index: 101; }
+    header .white-Point.floaty.active {
+      z-index: 10001; }
+    header .white-Point.floaty:before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      margin-left: 0;
+      margin-top: 0; }
+    header .white-Point.floaty.active:before {
+      content: "";
+      display: block;
+      top: -500%;
+      left: -500%;
+      width: 1100%;
+      height: 1100%; }
+    header .white-Point ul {
+      text-align: center; }
+      header .white-Point ul li {
+        margin: 0 auto;
+        width: 50%;
+        height: 23.33333333vmin;
+        display: none; }
+        header .white-Point ul li:after {
+          content: '';
+          width: 0;
+          height: 100%;
+          vertical-align: middle;
+          display: inline-block; }
+        header .white-Point ul li a, header .white-Point ul li .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white-Point ul li button {
+          font-size: 16px;
+          vertical-align: middle;
+          display: inline-block; }
+          header .white-Point ul li a img, header .white-Point ul li .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button img, .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white-Point ul li button img {
+            margin-bottom: 5px;
+            width: 40%; }
+        header .white-Point ul li:nth-of-type(1) {
+          width: 100%; }
+        header .white-Point ul li:nth-of-type(4), header .white-Point ul li:nth-of-type(5) {
+          max-width: 120px; }
+  header #view1 {
+    display: none; }
+
+.nav_height {
+  height: 75px; }
+
+@media screen and (min-width: 1024px) {
+  header {
+    background-image: url(../images/nav_background.png);
+    font-size: 0;
+    text-align: center; }
+    header #navctrl:checked ~ nav {
+      transform: translate(0, 0) rotate(0deg);
+      top: 0px;
+      left: 0px;
+      transition: 0s; }
+    header .phone-nav {
+      padding: 0;
+      width: 14.28571428%;
+      height: 100px;
+      background: none;
+      display: inline-block;
+      vertical-align: top;
+      position: relative; }
+      header .phone-nav div.nav-right {
+        width: 100%;
+        text-align: center; }
+        header .phone-nav div.nav-right .seach-button {
+          padding: 10px 40px 10px 10px;
+          border-radius: 20px;
+          font-size: 16px; }
+      header .phone-nav .nav-left, header .phone-nav .logo {
+        font-size: 0;
+        margin: 0;
+        padding: 0;
+        display: none; }
+        header .phone-nav .nav-left img, header .phone-nav .logo img {
+          height: 120px; }
+    header nav {
+      width: 71.42857142%;
+      position: relative;
+      display: inline-block;
+      transform: translate(0, 0) rotate(0deg);
+      transition: 0s;
+      top: 0px;
+      left: 0px;
+      vertical-align: top; }
+      header nav:before {
+        display: none; }
+      header nav ul {
+        width: 100%;
+        height: 100px;
+        display: inline-block;
+        position: static; }
+        header nav ul li {
+          width: 20%;
+          height: 100px;
+          display: inline-block;
+          vertical-align: top; }
+          header nav ul li:after {
+            content: '';
+            width: 0;
+            height: 120%;
+            display: inline-block;
+            vertical-align: middle; }
+          header nav ul li.table-hidden {
+            display: none; }
+          header nav ul li.logo {
+            transform: translateX(200%); }
+          header nav ul li.index-member {
+            transform: translateX(300%); }
+          header nav ul li.meals {
+            transform: translateX(100%); }
+          header nav ul li.initiate {
+            transform: translateX(-300%); }
+          header nav ul li.participate {
+            transform: translateX(-300%); }
+    header #white-Point-control {
+      display: none; }
+      header #white-Point-control:checked ~ .white-Point {
+        width: 14.28571428%;
+        height: 100px;
+        transform: translate(0, 0);
+        transition: 0s;
+        position: static; }
+        header #white-Point-control:checked ~ .white-Point li.table-hidden {
+          display: none; }
+    header .white-Point {
+      margin: auto;
+      width: 14.28571428%;
+      height: 100px;
+      border-radius: 0;
+      background: none;
+      vertical-align: top;
+      display: inline-block;
+      transform: translate(0, 0);
+      transition: 0s;
+      position: static; }
+      header .white-Point:checked ~ .white-Point {
+        width: 50px;
+        height: 50px;
+        transform: translate(0, 0);
+        position: static; }
+      header .white-Point ul {
+        height: 100%; }
+        header .white-Point ul:after {
+          content: '';
+          width: 0;
+          height: 120%;
+          display: inline-block;
+          vertical-align: middle; }
+        header .white-Point ul li {
+          width: auto;
+          height: auto;
+          display: inline-block; }
+          header .white-Point ul li.table-hidden {
+            display: none; }
+          header .white-Point ul li:nth-of-type(1) {
+            width: auto; }
+          header .white-Point ul li a, header .white-Point ul li .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white-Point ul li button {
+            margin: 0 8px;
+            width: 40px;
+            height: 40px;
+            font-size: 0;
+            color: #76391b;
+            border-radius: 20px;
+            background-color: #fcf2ca;
+            box-shadow: 1px 3px 1px #ad6631;
+            display: inline-block;
+            position: relative; }
+            header .white-Point ul li a img, header .white-Point ul li .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button img, .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white-Point ul li button img {
+              margin: 7.5px;
+              width: 25px; }
+            header .white-Point ul li a span, header .white-Point ul li .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button span, .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white-Point ul li button span {
+              padding: 3px 7px 5px;
+              font-size: 8px;
+              color: #fff;
+              background-color: #AD6631;
+              border-radius: 50%;
+              position: absolute;
+              top: -8px;
+              right: -4px; }
+    header #view1, header #view2, header #view3, header #view4, header #view5, header #view6, header #view7 {
+      width: 100%;
+      height: 100px;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1; }
+      header #view1 .slice, header #view2 .slice, header #view3 .slice, header #view4 .slice, header #view5 .slice, header #view6 .slice, header #view7 .slice {
+        width: 100%;
+        height: 10px;
+        transform-style: preserve-3d;
+        transform-origin: center top;
+        transition: 150ms ease-in-out;
+        background-image: url(../images/nav_background.png);
+        perspective: 1000px;
+        position: relative;
+        top: 100%; }
+      header #view1 .s1, header #view2 .s1, header #view3 .s1, header #view4 .s1, header #view5 .s1, header #view6 .s1, header #view7 .s1 {
+        height: 80px;
+        background: none;
+        top: 0; }
+    header li:not(.logo):not(.index-member):hover .s2 {
+      border: 2px solid #2d3e51;
+      border-bottom: none;
+      border-radius: 5px 5px 5px 5px;
+      transition-delay: 150ms;
+      transform: translate3d(-4px, 0, 0) rotate3d(1, 0, 0, -180deg);
+      background-color: #425075; }
+    header li:not(.logo):not(.index-member):hover .s3 {
+      border: 2px solid #2d3e51;
+      border-bottom: none;
+      border-radius: 5px 5px 5px 5px;
+      transition-delay: 100ms;
+      transform: translate3d(-6px, 0, 0) rotate3d(1, 0, 0, -180deg);
+      background-color: #425075; }
+    header #view1 .s1 {
+      background-position: 0% 0; }
+    header #view1 .s2 {
+      background-position: 0% -80px; }
+    header #view1 .s3 {
+      background-position: 0% -90px; }
+    header #view2 .s1 {
+      background-position: -100% 0; }
+    header #view2 .s2 {
+      background-position: -100% -80px; }
+    header #view2 .s3 {
+      background-position: -100% -90px; }
+    header #view3 .s1 {
+      background-position: -200% 0; }
+    header #view3 .s2 {
+      background-position: -200% -80px; }
+    header #view3 .s3 {
+      background-position: -200% -90px; }
+    header #view4 .s1 {
+      background-position: -300% 0; }
+    header #view4 .s2 {
+      background-position: -300% -80px; }
+    header #view4 .s3 {
+      background-position: -300% -90px; }
+    header #view5 .s1 {
+      background-position: -400% 0; }
+    header #view5 .s2 {
+      background-position: -400% -80px; }
+    header #view5 .s3 {
+      background-position: -400% -90px; }
+    header #view6 .s1 {
+      background-position: -500% 0; }
+    header #view6 .s2 {
+      background-position: -500% -80px; }
+    header #view6 .s3 {
+      background-position: -500% -90px; }
+    header #view7 .s1 {
+      background-position: -600% 0; }
+    header #view7 .s2 {
+      background-position: -600% -80px; }
+    header #view7 .s3 {
+      background-position: -600% -90px; }
+  .nav_height {
+    height: 100px; } }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -424,7 +906,7 @@ header {
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a,
-.indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, abbr, acronym, address, big, cite, code,
+.indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
@@ -464,39 +946,17 @@ table {
   border-spacing: 0; }
 
 * {
-  margin: 0;
-  padding: 0;
   text-decoration: none; }
 
-.searchBtn {
-  width: 80px;
-  height: 40px;
-  margin: auto;
-  font-size: 18px;
-  color: #000;
-  background-color: #fff;
-  border-radius: 1000px; }
+body {
+  overflow-x: hidden; }
 
-.indexTitle, .indexJoin .container .indexJoin-container .indexJoin-title h1, .indexGroupon .container .indexGroupon-container .indexGroupon-title h1, .indexMeal .container .indexMeal-title h1, .indexLogin .container .indexLogin-title h1 {
-  text-align: center;
-  font-size: 24px;
+
+a,
+.indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
   color: #76391b; }
 
-@media screen and (min-width: 768px) {
-  .indexTitle, .indexJoin .container .indexJoin-container .indexJoin-title h1, .indexGroupon .container .indexGroupon-container .indexGroupon-title h1, .indexMeal .container .indexMeal-title h1, .indexLogin .container .indexLogin-title h1 {
-    font-size: 28px;
-    padding: 20px 0; } }
-
-.section {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; }
-
-.container {
-  margin: auto; }
-
-.mainBtn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn, .indexLogin .container .indexLogin-btn button {
+.mainBtn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
   padding: 10px 20px;
   font-size: 16px;
   border: 0;
@@ -504,258 +964,406 @@ table {
   background-color: #fce444;
   box-shadow: 0 4px 0 #bb7232; }
 
-.joinBtn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button, .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button:hover {
+.joinBtn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button:hover {
   opacity: 1;
   cursor: pointer;
   border: 10px solid rgba(255, 255, 255, 0.5);
   transition: 0.5s background-color ease, 0.2s border ease;
   border-radius: calc(var(--x) / var(--size) * 100%) calc(var(--dx) / var(--size) * 100%) calc(var(--dx) / var(--size) * 100%) calc(var(--x) / var(--size) * 100%)/calc(var(--y) / var(--size) * 100%) calc(var(--y) / var(--size) * 100%) calc(var(--dy) / var(--size) * 100%) calc(var(--dy) / var(--size) * 100%); }
 
-header {
-  z-index: 1000;
-  position: relative; }
-
 .indexSearch {
   width: 100%;
-  margin: -7px 0 0 0;
-  background-image: url("../images/background.png");
-  background-size: 100vh; }
-  .indexSearch .indexSearch-searchBar {
-    position: relative;
-    padding: 180px 0; }
-    .indexSearch .indexSearch-searchBar form {
-      width: 70%;
-      max-width: 600px;
-      height: 40px;
-      margin: auto;
-      padding: 5px 10px;
-      border-radius: 1000px;
-      border: 6px solid #bb7232;
-      background-color: #fcf2ca;
-      box-shadow: 0 6px #76391b;
-      position: relative; }
-      .indexSearch .indexSearch-searchBar form div {
-        display: inline-block; }
-        .indexSearch .indexSearch-searchBar form div::after {
-          content: "▾";
-          font-family: FontAwesome;
-          position: absolute;
-          width: 20px;
-          height: 20px;
-          top: 10px;
-          left: 60px;
-          font-size: 20px;
-          color: #fff; }
-        .indexSearch .indexSearch-searchBar form div #indexSearch-select {
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
+  height: calc(100vh - 75px); }
+  .indexSearch .wrap .indexSearch-wrap {
+    height: 100vh;
+    background-image: url(../images/index_1_bg_mobileA.png);
+    background-size: 100vh;
+    background-position: center bottom;
+    background-repeat: no-repeat; }
+    .indexSearch .wrap .indexSearch-wrap .indexSearch-bg {
+      display: none; }
+    .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar {
+      position: relative;
+      padding: 130px 0; }
+      .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form {
+        width: 70%;
+        max-width: 600px;
+        height: 40px;
+        margin: auto;
+        padding: 5px 10px;
+        border-radius: 1000px;
+        border: 6px solid #bb7232;
+        background-color: #fcf2ca;
+        box-shadow: 0 6px #76391b;
+        position: relative; }
+        .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form div {
+          display: inline-block; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form div::after {
+            content: "▾";
+            font-family: FontAwesome;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 16px;
+            left: 58px;
+            font-size: 18px;
+            color: #fff; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form div #indexSearch-select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border: none;
+            font-size: 20px;
+            padding: 16px 34px 16px 16px;
+            border-radius: 1000px;
+            border: none;
+            background-color: #bb7232;
+            color: #fff;
+            letter-spacing: 1px;
+            position: relative;
+            top: -10px;
+            left: -14px; }
+        .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form input[type="text"] {
+          width: 50%;
+          background-color: transparent;
           border: none;
+          font-size: 18px;
+          position: absolute;
+          top: 15px;
+          left: 100px; }
+        .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form .indexSearch-btn {
           font-size: 20px;
-          padding: 16px 34px 16px 16px;
+          padding: 16px 10px 16px;
+          margin: -11px -11px -11px -13px;
           border-radius: 1000px;
           border: none;
           background-color: #bb7232;
           color: #fff;
           letter-spacing: 1px;
-          position: relative;
-          top: -10px;
-          left: -14px; }
-      .indexSearch .indexSearch-searchBar form input[type="text"] {
-        width: 50%;
-        background-color: transparent;
-        border: none;
-        font-size: 18px;
-        position: absolute;
-        top: 15px;
-        left: 100px; }
-      .indexSearch .indexSearch-searchBar form .indexSearch-btn {
-        font-size: 20px;
-        padding: 16px 10px 16px;
-        margin: -11px -11px -11px -13px;
-        border-radius: 1000px;
-        border: none;
-        background-color: #bb7232;
-        color: #fff;
-        letter-spacing: 1px;
-        cursor: pointer;
-        width: 62px;
-        height: 62px;
-        position: absolute;
-        right: 0px; }
-      .indexSearch .indexSearch-searchBar form .indexSearch-rope img:nth-child(1) {
-        width: 15px;
-        position: absolute;
-        bottom: 45px;
-        left: 10%;
-        transform: translateX(-50%); }
-      .indexSearch .indexSearch-searchBar form .indexSearch-rope img:nth-child(2) {
-        width: 15px;
-        position: absolute;
-        bottom: 45px;
-        right: 10%;
-        transform: translateX(50%);
-        transform: rotateY(180deg); }
-  .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox {
-    width: 300%;
-    overflow: hidden;
-    position: absolute;
-    bottom: 8vh;
-    left: 0; }
-    .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table img.indexSearch-tableImg {
-      width: 100%;
-      display: inline-block;
-      height: 240px; }
-    .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul {
-      width: 100%;
-      position: absolute;
-      bottom: 110px;
-      left: 0;
-      display: inline-block; }
-      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li {
-        width: 130px;
-        margin: auto 1vw;
-        display: inline-block;
-        position: absolute;
-        left: -150%;
-        bottom: 0;
-        cursor: pointer; }
-        .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li:hover div.indexSearch-hover {
-          opacity: 1;
-          transition: 1s; }
-        .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li div.indexSearch-hover {
-          width: 200px;
-          height: 70px;
-          background-color: #fcf2ca;
+          cursor: pointer;
+          width: 62px;
+          height: 62px;
           position: absolute;
-          border-radius: 30px;
-          top: 80%;
-          left: 45%;
-          transform: translateX(-50%);
-          opacity: 0;
-          transition: 1s;
-          z-index: 2; }
-          .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li div.indexSearch-hover p {
-            text-align: center;
-            padding: 5px 20px;
-            font-size: 18px; }
-            .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li div.indexSearch-hover p span {
-              font-size: 16px; }
-              .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li div.indexSearch-hover p span img {
-                width: 15px;
-                height: 20px;
-                min-height: 20px; }
-        .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li img.indexSearch-img {
+          right: 0px; }
+        .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form .indexSearch-rope img:nth-child(1) {
+          width: 15px;
+          position: absolute;
+          bottom: 45px;
+          left: 10%;
+          transform: translateX(-50%); }
+        .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form .indexSearch-rope img:nth-child(2) {
+          width: 15px;
+          position: absolute;
+          bottom: 45px;
+          right: 10%;
+          transform: translateX(50%);
+          transform: rotateY(180deg); }
+    .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner {
+      width: 100%;
+      max-width: 450px;
+      max-height: 200px;
+      position: absolute;
+      bottom: 20vh;
+      left: 50%;
+      transform: translateX(-50%); }
+
+@keyframes typing {
+  from {
+    width: 0; } }
+
+@keyframes caret {
+  50% {
+    border-color: transparent; } }
+
+@keyframes owner {
+  50% {
+    transform: rotate(0deg); } }
+      .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner img:nth-child(2) {
+        width: 100%;
+        max-width: 62px;
+        position: absolute;
+        top: 32px;
+        left: 30%;
+        transform: rotate(-15deg);
+        z-index: -1;
+        animation: owner 3s 1s infinite alternate; }
+      .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner div {
+        width: 120px;
+        height: 60px;
+        background-color: #fcf2ca;
+        display: inline-block;
+        border-radius: 100px;
+        position: absolute;
+        bottom: 19vh;
+        left: 20px; }
+        .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner div::after {
+          content: "";
+          width: 0;
+          height: 0;
+          position: absolute;
+          bottom: -4px;
+          right: 0;
+          transform: rotate(-45deg);
+          border-style: solid;
+          border-width: 20px 7.5px 0 7.5px;
+          border-color: #fcf2ca transparent transparent transparent; }
+        .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner div p {
+          width: 120px;
+          font-size: 16px;
+          color: #76391b;
+          line-height: 60px;
+          text-align: left;
+          padding: 0 0 0 12px;
+          overflow: hidden;
+          white-space: nowrap;
+          animation: typing 1s steps(8) 1; }
+    .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox {
+      width: 300%;
+      position: absolute;
+      bottom: 6vh;
+      left: 0; }
+      .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table {
+        position: relative;
+        top: 50px; }
+        .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table .indexSearch-tableImg {
           display: inline-block;
-          width: 100%;
-          min-height: auto;
-          max-height: 150px;
-          height: auto;
-          margin: auto 1vw;
+          padding: 40px 0;
           position: relative;
-          left: -10%; }
+          top: 0;
+          left: 0; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table .indexSearch-tableImg img {
+            height: 125px; }
+        .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol {
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: inline-block; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li {
+            width: 130px;
+            margin: auto 20px;
+            display: inline-block;
+            position: absolute;
+            left: -150%;
+            top: 0;
+            cursor: pointer; }
+            .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li:hover div.indexSearch-hover {
+              opacity: 1;
+              transition: 1s; }
+            .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover {
+              width: 200px;
+              height: 70px;
+              background-color: #fcf2ca;
+              position: absolute;
+              border-radius: 30px;
+              top: 80%;
+              left: 45%;
+              transform: translateX(-50%);
+              opacity: 0;
+              transition: 1s;
+              z-index: 2; }
+              .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p {
+                text-align: center;
+                padding: 5px 20px;
+                font-size: 20px; }
+                .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p span {
+                  font-size: 16px; }
+                  .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p span img {
+                    width: 15px;
+                    height: 20px;
+                    min-height: 20px; }
+            .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li img.indexSearch-mealImg {
+              display: inline-block;
+              width: 100%;
+              min-height: auto;
+              max-height: 150px;
+              height: auto;
+              margin: auto 1vw;
+              position: relative;
+              left: -10%; }
 
 @keyframes moving {
   0% {
     left: -10%; }
   100% {
     left: 100%; } }
-      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li.indexSearch-meal-1 {
-        animation: moving 15s linear 0s infinite; }
-      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li.indexSearch-meal-2 {
-        animation: moving 15s linear 3s infinite; }
-      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li.indexSearch-meal-3 {
-        animation: moving 15s linear 6s infinite; }
-      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li.indexSearch-meal-4 {
-        animation: moving 15s linear 9s infinite; }
-      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li.indexSearch-meal-5 {
-        animation: moving 15s linear 12s infinite; }
-      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul:hover li {
-        animation-play-state: paused; }
-
-@media screen and (min-width: 768px) {
-  .indexSearch {
-    background-size: 100%; }
-    .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox {
-      width: 100%;
-      position: absolute;
-      bottom: 10vh;
-      left: 0; }
-      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table img {
-        width: 100%;
-        display: inline-block;
-        min-height: 200px; }
-      .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul {
-        width: 100%;
-        position: absolute;
-        bottom: 110px;
-        left: 0;
-        display: inline-block; }
-        .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li {
-          width: 20vw;
-          max-width: 170px;
-          margin: auto 1vw;
-          display: inline-block; }
-          .indexSearch .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ul li img.indexSearch-img {
-            margin: auto 2%; } }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-1 {
+            animation: moving 15s linear 0s infinite; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-2 {
+            animation: moving 15s linear 3s infinite; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-3 {
+            animation: moving 15s linear 6s infinite; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-4 {
+            animation: moving 15s linear 9s infinite; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-5 {
+            animation: moving 15s linear 12s infinite; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol:hover li {
+            animation-play-state: paused; }
 
 @media screen and (min-width: 1200px) {
   .indexSearch {
-    height: calc(100vh - 100px);
-    background-image: url(../images/background0.png);
-    background-position: bottom; } }
+    height: calc(100vh - 100px); }
+    .indexSearch .wrap .indexSearch-wrap {
+      background-image: url(../images/index_1_bg_desktopA.png);
+      background-size: 100%; }
+      .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar {
+        padding: 160px 0; }
+        .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form .indexSearch-rope img:nth-child(1) {
+          bottom: 41px; }
+        .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form .indexSearch-rope img:nth-child(2) {
+          bottom: 41px; }
+      .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner {
+        width: 100%;
+        max-width: 450px;
+        max-height: 200px;
+        position: absolute;
+        bottom: calc(21vh - 3px);
+        left: 90%;
+        transform: translateX(-50%); }
+        .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner img:nth-child(2) {
+          width: 100%;
+          max-width: 65px;
+          position: absolute;
+          top: 35px;
+          left: 138px; }
+      .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox {
+        width: 150%;
+        overflow: hidden;
+        position: absolute;
+        bottom: 4vh;
+        left: 0; }
+        .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table .indexSearch-tableImg {
+          width: 100%; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table .indexSearch-tableImg img {
+            height: 170px; }
+        .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol {
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: inline-block; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li {
+            width: 190px;
+            margin: auto 20px;
+            display: inline-block;
+            position: absolute;
+            left: -150%;
+            top: 0;
+            cursor: pointer; }
+            .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li:hover div.indexSearch-hover {
+              opacity: 1;
+              transition: 1s; }
+            .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover {
+              width: 200px;
+              height: 70px;
+              background-color: #fcf2ca;
+              position: absolute;
+              border-radius: 30px;
+              top: 80%;
+              left: 45%;
+              transform: translateX(-50%);
+              opacity: 0;
+              transition: 1s;
+              z-index: 2; }
+              .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p {
+                text-align: center;
+                padding: 5px 20px;
+                font-size: 20px; }
+                .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p span {
+                  font-size: 16px; }
+                  .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p span img {
+                    width: 15px;
+                    height: 20px;
+                    min-height: 20px; }
+            .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li img.indexSearch-mealImg {
+              display: inline-block;
+              width: 100%;
+              min-height: auto;
+              max-height: 150px;
+              height: auto;
+              margin: auto 1vw;
+              position: relative;
+              left: -10%; }
+  @keyframes moving {
+    0% {
+      left: -10%; }
+    100% {
+      left: 100%; } }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-1 {
+            animation: moving 15s linear 0s infinite; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-2 {
+            animation: moving 15s linear 3s infinite; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-3 {
+            animation: moving 15s linear 6s infinite; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-4 {
+            animation: moving 15s linear 9s infinite; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-5 {
+            animation: moving 15s linear 12s infinite; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol:hover li {
+            animation-play-state: paused; } }
 
 .indexJoin {
-  background-image: url(../images/background5.jpg);
+  padding: 30px 0 0;
   width: 100%;
-  background-repeat: no-repeat;
-  height: calc(100vh - 7px);
-  text-align: center; }
-  .indexJoin::after {
-    content: "";
-    width: 0;
-    height: 112%;
-    display: inline-block;
-    vertical-align: middle; }
-  .indexJoin .container {
-    display: inline-block;
-    vertical-align: middle; }
-    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone {
-      width: 197px;
-      height: 350px;
-      margin: 0 auto;
-      background-image: url(../images/phone.svg);
-      background-size: 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-      position: relative; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-info {
-        font-size: 16px;
-        padding: 80px 28px 0;
-        text-align: center; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-info img {
-          width: 100px;
-          margin: -30px 0 10px;
-          border-radius: 50%;
-          background-color: #fcf2ca;
-          padding: 10px; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(1) {
-        width: 156px;
-        position: absolute;
-        top: 43px;
-        left: 20px; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(2) {
+  background-image: url(../images/index_bgColor.png); }
+  .indexJoin .wrap .indexJoin-wrap .indexJoin-title {
+    padding: 20px 0;
+    text-align: center; }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-title img {
+      height: 48px; }
+  .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone {
+    width: 197px;
+    height: 315px;
+    margin: 0 auto;
+    background-image: url(../images/index_phone.svg);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative; }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(1) {
+      width: 100px;
+      position: absolute;
+      top: 190px;
+      left: -70px;
+      z-index: 2; }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(2) {
+      width: 100px;
+      position: absolute;
+      top: 190px;
+      right: -70px;
+      z-index: 2; }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info {
+      padding: 100px 28px 0;
+      text-align: center; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info img {
         width: 100px;
-        position: absolute;
-        right: -20px;
-        bottom: 0;
-        animation: stepO1 1s 0.5s infinite alternate; }
+        margin: -30px 0 10px;
+        border-radius: 50%;
+        background-color: #fcf2ca;
+        padding: 10px; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info p {
+        color: #76391b;
+        font-size: 18px;
+        font-weight: bolder;
+        letter-spacing: 0.5px;
+        line-height: 1.2rem; }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(1) {
+      width: 156px;
+      position: absolute;
+      top: 43px;
+      left: 20px; }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(2) {
+      width: 100px;
+      position: absolute;
+      right: -40px;
+      bottom: 0;
+      animation: stepO1 1s 0.5s infinite alternate; }
 
 @keyframes stepO1 {
   0% {
     bottom: 0px; }
   100% {
-    bottom: 150px; } }
+    bottom: 125px; } }
 
 @keyframes stepO2-btn {
   0% {
@@ -765,40 +1373,45 @@ header {
     background-color: #bb7232;
     box-shadow: 0 4px 0 #fce444;
     color: #fff; } }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQr3-btn {
-        display: inline-block;
-        position: absolute;
-        left: 37px;
-        bottom: 100px;
-        animation: stepO2-btn 1s 1.2s 1 normal;
-        animation-fill-mode: forwards; }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQr3-btn {
+      display: inline-block;
+      position: absolute;
+      left: 37px;
+      bottom: 60px;
+      animation: stepO2-btn 1s 1.2s 1 normal;
+      animation-fill-mode: forwards; }
 
 @keyframes stepO2-finger {
   0% {
     right: -60px;
     bottom: 60px; }
   100% {
-    right: 15px;
-    bottom: 10px; } }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img:nth-child(1) {
-        width: 127px;
-        position: absolute;
-        left: 36px;
-        top: 40px; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img.finger2 {
-        width: 100px;
-        position: absolute;
-        right: -60px;
-        bottom: 60px;
-        animation: stepO2-finger 0.8s 0.5s 1 normal;
-        animation-fill-mode: forwards;
-        z-index: 1; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) {
-        text-align: center; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(1) {
-          padding: 50px 0 8px;
-          font-size: 20px;
-          font-weight: bold; }
+    right: 16px;
+    bottom: -32px; } }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img:nth-child(1) {
+      width: 127px;
+      position: absolute;
+      left: 36px;
+      top: 40px; }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img.finger2 {
+      width: 100px;
+      position: absolute;
+      right: -40px;
+      bottom: 25px;
+      animation: stepO2-finger 0.8s 0.5s 1 normal;
+      animation-fill-mode: forwards;
+      z-index: 1; }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) {
+      text-align: center; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(1) {
+        padding: 70px 0 8px;
+        font-size: 20px;
+        font-weight: bolder;
+        color: #333333; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(2) {
+        font-size: 16px;
+        font-weight: bolder;
+        color: #76391b; }
 
 @keyframes stepO3-scan {
   0% {
@@ -821,545 +1434,518 @@ header {
     height: 120px;
     margin: -10px 0 0 -10px;
     background-color: rgba(77, 235, 156, 0.6); } }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img {
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img {
+      text-align: center;
+      margin: 30px auto;
+      position: relative; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img div {
+        width: 120px;
+        height: 120px;
+        background-color: transparent;
+        display: inline-block;
         text-align: center;
-        margin: 30px auto;
-        position: relative; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img div {
-          width: 120px;
-          height: 120px;
-          background-color: transparent;
-          display: inline-block;
-          text-align: center;
-          margin: -10px 0 0 -10px;
-          position: absolute;
-          animation: stepO3-scan 0.9s 0.5s 1 ease-in-out;
-          animation-fill-mode: forwards; }
-          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img div:before {
-            content: "";
-            width: 5px;
-            height: 5px;
-            background-color: #000;
-            box-shadow: 0 130px 0 #000;
-            position: absolute;
-            top: -10px;
-            left: -10px; }
-          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img div:after {
-            content: "";
-            width: 5px;
-            height: 5px;
-            background-color: #000;
-            box-shadow: 0 130px 0 #000;
-            position: absolute;
-            top: -10px;
-            right: -10px; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img img {
-          display: inline-block;
-          width: 100px;
-          text-align: center; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 {
-        overflow: hidden; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) {
-          position: relative;
-          top: 0;
-          text-align: center;
-          width: 145px;
-          margin: 0 0 0 26px; }
-          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(1) {
-            padding: 50px 0 8px;
-            font-size: 20px;
-            font-weight: bold; }
+        margin: -10px 0 0 -10px;
+        position: absolute;
+        animation: stepO3-scan 0.9s 0.5s 1 ease-in-out;
+        animation-fill-mode: forwards; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img img {
+        display: inline-block;
+        width: 100px;
+        text-align: center; }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 {
+      overflow: hidden; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) {
+        position: relative;
+        top: 0;
+        text-align: center;
+        width: 145px;
+        margin: 0 0 0 26px; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(1) {
+          padding: 70px 0 8px;
+          font-size: 20px;
+          font-weight: bolder;
+          color: #333333; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(2) {
+          font-size: 16px;
+          font-weight: bolder;
+          color: #76391b;
+          line-height: 1.2rem; }
 
 @keyframes stepO4 {
   0% {
     opacity: 0; }
   100% {
     opacity: 1; } }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) {
-          height: 150px; }
-          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) i.fa-check {
-            font-size: 60px;
-            color: #fce444;
-            text-shadow: 0 5px #bb7232;
-            position: absolute;
-            top: 145px;
-            left: 70px;
-            animation: stepO4 1s 0 1 ease-in;
-            animation-fill-mode: forwards; }
-          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) span {
-            display: inline-block;
-            position: absolute;
-            top: 220px;
-            left: 50px;
-            animation: stepO4 1s 0 1 ease-in;
-            animation-fill-mode: forwards; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div {
-        width: 120px;
-        padding: 10px 8px 0;
-        background: #bef18c;
-        border-radius: 10px;
-        font-size: 13px;
-        position: absolute;
-        top: 60px;
-        left: 30px; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div:before {
-          content: "";
-          width: 0;
-          height: 0;
-          border-style: solid;
-          border-width: 0 10px 8px 0;
-          border-color: transparent #bef18c transparent transparent;
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) {
+        height: 150px; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) i.fa-check {
+          font-size: 60px;
+          color: #fce444;
+          text-shadow: 0 5px #bb7232;
           position: absolute;
-          top: 10px;
-          left: -10px; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 img {
-        width: 50px;
-        height: 50px;
-        margin: 10px auto;
-        background-color: #fff;
-        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr2 div {
-        width: 95px;
-        padding: 10px 8px;
-        background: #bef18c;
-        border-radius: 10px;
-        font-size: 13px;
-        position: absolute;
-        bottom: 80px;
-        right: 30px; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr2 div:before {
-          content: "";
-          width: 0;
-          height: 0;
-          border-style: solid;
-          border-width: 8px 10px 0 0;
-          border-color: #bef18c transparent transparent transparent;
+          top: 145px;
+          left: 70px;
+          animation: stepO4 1s 0 1 ease-in;
+          animation-fill-mode: forwards; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) span {
+          display: inline-block;
           position: absolute;
-          bottom: 10px;
-          right: -10px; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 {
-        position: relative; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box {
-          width: 105px;
-          height: 176px;
-          padding: 15px 10px;
-          background-color: #fcf2ca;
+          top: 220px;
+          left: 50px;
+          animation: stepO4 1s 0 1 ease-in;
+          animation-fill-mode: forwards;
+          color: #FF5000;
+          font-weight: bolder;
+          font-size: 16px; }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div {
+      width: 120px;
+      padding: 10px 8px 0;
+      background: #bef18c;
+      border-radius: 10px;
+      font-size: 13px;
+      position: absolute;
+      top: 60px;
+      left: 32px; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div:before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 10px 8px 0;
+        border-color: transparent #bef18c transparent transparent;
+        position: absolute;
+        top: 10px;
+        left: -10px; }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 img {
+      width: 50px;
+      height: 50px;
+      margin: 10px auto;
+      background-color: #fff;
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr2 div {
+      width: 95px;
+      padding: 10px 8px;
+      background: #bef18c;
+      border-radius: 10px;
+      font-size: 13px;
+      position: absolute;
+      bottom: 66px;
+      right: 32px; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr2 div:before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 10px 0 0;
+        border-color: #bef18c transparent transparent transparent;
+        position: absolute;
+        bottom: 10px;
+        right: -10px; }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 {
+      position: relative; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box {
+        width: 105px;
+        height: 176px;
+        padding: 30px 10px 0;
+        background-color: #fcf2ca;
+        border-radius: 10px;
+        position: absolute;
+        top: 52px;
+        left: 35px; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(1) {
+          font-size: 14px;
+          text-align: center;
+          line-height: 1.2rem;
+          color: #76391b; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(2) {
+          padding: 20px 11px 10px;
+          font-size: 18px;
+          font-weight: bold;
+          color: #333333; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input {
+          width: 65px;
+          border: 2px solid #76391b;
+          padding: 5px 8px;
           border-radius: 10px;
-          position: absolute;
-          top: 65px;
-          left: 35px; }
-          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(1) {
-            font-size: 14px;
-            text-align: center; }
-          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(2) {
-            padding: 20px 10px 10px;
-            font-size: 16px;
-            font-weight: bold; }
-          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input {
-            width: 65px;
-            border: 2px solid #76391b;
-            padding: 5px 8px;
-            border-radius: 10px;
-            margin: 0 10px; }
-
-@keyframes typing {
-  from {
-    width: 0; } }
-
-@keyframes caret {
-  50% {
-    border-color: transparent; } }
-            .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input p {
-              width: 34px;
-              text-align: left;
-              border-right: 1px solid;
-              overflow: hidden;
-              white-space: nowrap;
-              animation: typing 1.2s steps(4), caret 0.3s steps(1) infinite; }
-          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
-            text-align: center;
-            width: 70px;
-            margin: 10px auto 0;
-            padding: 6px 10px; }
+          margin: 0 10px; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input p {
+            width: 34px;
+            text-align: left;
+            border-right: 1px solid;
+            color: #bb7232;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 1.2s steps(4), caret 0.3s steps(1) infinite; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
+          text-align: center;
+          width: 70px;
+          margin: 18px auto 0;
+          padding: 6px 10px; }
 
 @keyframes stepQr3 {
   0% {
     right: -50px;
     bottom: -30px; }
   100% {
-    right: -30px;
-    bottom: -70px; } }
-          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box img {
-            width: 100px;
-            position: absolute;
-            right: -50px;
-            bottom: -30px;
-            animation: stepQr3 0.6s 1.4s alternate;
-            animation-fill-mode: forwards; }
-          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
-            animation: stepO2-btn 0.7s 2s 1 normal;
-            animation-fill-mode: forwards; }
-    .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn {
+    right: -25px;
+    bottom: -77px; } }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box img {
+          width: 100px;
+          position: absolute;
+          right: -50px;
+          bottom: -22px;
+          animation: stepQr3 0.6s 1.4s alternate;
+          animation-fill-mode: forwards; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
+          animation: stepO2-btn 0.7s 2s 1 normal;
+          animation-fill-mode: forwards; }
+  .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0;
+    margin: 30px 0; }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button {
+      --x: 84;
+      --y: 75;
+      --size: 128;
+      width: 30vw;
+      height: 30vw;
+      max-width: 130px;
+      max-height: 130px;
+      transition: 0.5s all ease;
+      background: var(--color);
+      border: 0 solid transparent;
+      box-sizing: border-box;
+      border-radius: 50%;
       display: inline-block;
-      position: relative;
-      top: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button {
-        --x: 84;
-        --y: 75;
-        --size: 128;
-        width: 30vw;
-        height: 30vw;
-        max-width: 130px;
-        max-height: 130px;
-        transition: 0.5s all ease;
-        background: var(--color);
-        border: 0 solid transparent;
-        box-sizing: border-box;
-        border-radius: 50%;
-        display: inline-block;
-        font-size: 0;
-        opacity: 0.8;
-        --dx: calc(var(--size) - var(--x));
-        --dy: calc(var(--size) - var(--y));
-        margin: 0 10px; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button:disabled {
-          color: #000; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button p {
-          font-size: 18px;
-          text-align: center;
-          position: relative;
-          top: 50%; }
+      font-size: 0;
+      opacity: 0.8;
+      --dx: calc(var(--size) - var(--x));
+      --dy: calc(var(--size) - var(--y));
+      margin: 0 10px;
+      background-image: url(../images/index_watermark.svg);
+      background-size: 150%; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button:disabled {
+        color: #000; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button p {
+        font-size: 18px;
+        text-align: center;
+        position: relative;
+        top: 50%; }
 
 @media screen and (min-width: 768px) {
-  .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone {
-    width: 281px;
-    height: 500px;
-    margin: 0 auto;
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+  .indexJoin .wrap {
     position: relative; }
-    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-info {
-      font-size: 20px;
-      padding: 80px 28px 0;
-      text-align: center; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-info img {
-        width: 150px;
-        margin: -10px 20px 35px; }
-    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(1) {
-      width: 222px;
-      position: absolute;
-      left: 28px;
-      top: 67px; }
-    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(2) {
-      width: 100px;
-      right: -20px;
-      bottom: 60px;
-      animation: stepO1-sm 1s 0.5s infinite alternate;
-      z-index: 1; }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone {
+      width: 281px;
+      height: 500px;
+      margin: 0 auto;
+      background-size: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg {
+        z-index: 1; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(1) {
+          width: 200px;
+          position: absolute;
+          top: 231px;
+          left: -240px; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(2) {
+          width: 200px;
+          position: absolute;
+          top: 231px;
+          right: -240px; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info {
+        padding: 125px 28px 0;
+        text-align: center; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info img {
+          width: 150px;
+          margin: -10px 20px 24px; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info p {
+          font-size: 24px;
+          line-height: 2rem; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(1) {
+        width: 222px;
+        position: absolute;
+        left: 28px;
+        top: 87px; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(2) {
+        width: 100px;
+        right: -20px;
+        bottom: 60px;
+        animation: stepO1-sm 1s 0.5s infinite alternate;
+        z-index: 1; }
   @keyframes stepO1-sm {
     0% {
       bottom: 60px; }
     100% {
       bottom: 260px; } }
-    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn, .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQr3-btn {
-      left: 75px;
-      bottom: 150px; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQr3-btn {
+        left: 75px;
+        bottom: 108px; }
   @keyframes stepO2-finger-sm {
     0% {
       right: -14px;
-      bottom: 180px; }
+      bottom: 100px; }
     100% {
       right: 60px;
-      bottom: 60px; } }
-    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img:nth-child(1) {
-      width: 166px;
-      position: absolute;
-      left: 59px;
-      top: 55px; }
-    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img.finger2 {
-      width: 100px;
-      position: absolute;
-      right: -14px;
-      bottom: 180px;
-      animation: stepO2-finger-sm 0.8s 0.5s 1 normal;
-      animation-fill-mode: forwards;
-      z-index: 1; }
-    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) {
-      text-align: center; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(1) {
-        padding: 100px 0 20px;
-        font-size: 26px; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(2) {
-        font-size: 22px; }
-    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img {
-      margin: 50px auto; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img div {
-        animation: stepO3-scan 0.9s 0.5s 1 ease-in-out;
-        animation-fill-mode: forwards; }
-    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 {
-      overflow: hidden; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) {
-        position: relative;
-        top: 0;
-        text-align: center;
-        width: 225px;
-        margin: 0 0 0 26px; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(1) {
-          padding: 100px 0 20px;
-          font-size: 26px; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(2) {
-          font-size: 22px;
-          padding: 0 20px; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) {
-        height: 150px; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) i.fa-check {
-          font-size: 80px;
-          top: 220px;
-          left: 100px;
-          animation: stepO4 1s 0 1 ease-in;
+      bottom: 13px; } }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img:nth-child(1) {
+        width: 190px;
+        position: absolute;
+        left: 45px;
+        top: 100px; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img.finger2 {
+        width: 100px;
+        position: absolute;
+        right: -14px;
+        bottom: 105px;
+        animation: stepO2-finger-sm 0.8s 0.5s 1 normal;
+        animation-fill-mode: forwards;
+        z-index: 1; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) {
+        text-align: center; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(1) {
+          padding: 130px 0 20px;
+          font-size: 28px; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(2) {
+          font-size: 22px; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img {
+        margin: 50px auto; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img div {
+          animation: stepO3-scan 0.9s 0.5s 1 ease-in-out;
           animation-fill-mode: forwards; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) span {
-          font-size: 20px;
-          top: 310px;
-          left: 78px;
-          animation: stepO4 1s 0 1 ease-in;
-          animation-fill-mode: forwards; }
-    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div {
-      width: 160px;
-      font-size: 16px;
-      top: 70px;
-      left: 47px;
-      text-align: left; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div img {
-        width: 80px;
-        height: 80px;
-        margin: 10px auto; }
-    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr2 div {
-      width: 120px;
-      font-size: 16px;
-      bottom: 135px;
-      right: 50px; }
-    .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 {
-      position: relative; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box {
-        width: 150px;
-        height: 230px;
-        top: 90px;
-        left: 54px; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(1) {
-          font-size: 18px;
-          text-align: center; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(2) {
-          padding: 30px 0px 20px;
-          font-size: 20px; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input {
-          width: 80px;
-          border: 2px solid #76391b;
-          padding: 5px 8px;
-          border-radius: 10px;
-          margin: 0 24px; }
-          .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input p {
-            width: 40px;
-            font-size: 16px;
-            animation: typing 1.2s steps(4), caret 0.3s steps(1) infinite; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 {
+        overflow: hidden; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) {
+          position: relative;
+          top: 0;
           text-align: center;
+          width: 225px;
+          margin: 0 0 0 26px; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(1) {
+            padding: 130px 0 20px;
+            font-size: 28px; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(2) {
+            font-size: 22px;
+            padding: 0 20px;
+            line-height: 1.8rem; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) {
+          height: 150px; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) i.fa-check {
+            font-size: 80px;
+            top: 245px;
+            left: 100px;
+            animation: stepO4 1s 0 1 ease-in;
+            animation-fill-mode: forwards; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) span {
+            font-size: 20px;
+            top: 342px;
+            left: 78px;
+            animation: stepO4 1s 0 1 ease-in;
+            animation-fill-mode: forwards; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div {
+        width: 160px;
+        font-size: 16px;
+        top: 120px;
+        left: 50px;
+        text-align: left; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div img {
           width: 80px;
-          margin: 32px auto 0;
-          padding: 6px 10px; }
-  .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn {
-    display: inline-block;
-    position: relative;
-    top: -50%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0; }
-    .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button {
-      max-width: 200px;
-      max-height: 200px;
-      width: 150px;
-      height: 150px;
-      margin: 0 auto;
-      position: absolute;
-      bottom: 200px; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button p {
-        font-size: 26px;
-        text-align: center;
-        position: relative;
-        top: 50%; }
-    .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnO {
-      left: calc(-281px - 20vw); }
-    .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnQr {
-      right: -20vw; } }
+          height: 80px;
+          margin: 10px auto; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr2 div {
+        width: 120px;
+        font-size: 16px;
+        bottom: 120px;
+        right: 50px; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 {
+        position: relative; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box {
+          width: 170px;
+          height: 230px;
+          top: 120px;
+          left: 45px; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(1) {
+            font-size: 18px;
+            text-align: center; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(2) {
+            padding: 30px 25px 20px;
+            font-size: 20px; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input {
+            width: 100px;
+            border: 2px solid #76391b;
+            padding: 5px 8px;
+            border-radius: 10px;
+            margin: 0 24px; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input p {
+              width: 40px;
+              font-size: 16px;
+              animation: typing 1.2s steps(4), caret 0.3s steps(1) infinite; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
+            text-align: center;
+            width: 100px;
+            margin: 32px auto 0;
+            padding: 6px 10px; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box img {
+            right: -34px;
+            bottom: -10px; }
+    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn {
+      display: inline-block;
+      position: relative;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button {
+        max-width: 200px;
+        max-height: 200px;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 320px; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button p {
+          font-size: 26px;
+          text-align: center;
+          position: relative;
+          top: 50%; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnO {
+        right: 200px; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnQr {
+        left: 200px; } }
 
 @media screen and (min-width: 1200px) {
-  .indexJoin {
-    width: 100%;
-    height: calc(100vh - 100px);
-    text-align: center; }
-    .indexJoin::after {
-      content: "";
-      width: 0;
-      height: 100%;
-      display: inline-block;
-      vertical-align: middle; }
-    .indexJoin .container {
-      display: inline-block;
-      vertical-align: middle; }
-      .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn {
-        display: inline-block;
-        position: relative;
-        top: -50%;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 0; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button {
-          max-width: 200px;
-          max-height: 200px;
-          width: 180px;
-          height: 180px;
-          margin: 0 auto;
-          position: absolute;
-          bottom: 200px; }
-          .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn button p {
-            font-size: 26px;
-            text-align: center;
-            position: relative;
-            top: 50%; }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnO {
-          left: calc(-281px - 20vw); }
-        .indexJoin .container .indexJoin-container .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnQr {
-          right: -20vw; } }
+  .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(1) {
+    position: absolute;
+    top: 231px;
+    left: -300px; }
+  .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(2) {
+    position: absolute;
+    top: 231px;
+    right: -300px; }
+  .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnO {
+    right: 260px; }
+  .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnQr {
+    left: 260px; } }
 
 .indexGroupon {
   width: 100%;
-  display: grid;
-  place-content: center;
-  background-image: url(../images/backgroundegg.png);
-  height: calc(100vh - 60px); }
+  padding: 30px 0; }
   .indexGroupon::after {
     display: none; }
-  .indexGroupon .container .indexGroupon-container .indexGroupon-title h2 {
+  .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-title {
+    padding: 20px 0;
+    text-align: center; }
+    .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-title img {
+      height: 48px; }
+  .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .owl-item {
+    width: 100%; }
+  .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .owl-nav {
+    font-size: 70px;
+    color: #76391b; }
+    .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .owl-nav .owl-prev {
+      position: absolute;
+      top: 200px;
+      left: 20px; }
+    .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .owl-nav .owl-next {
+      position: absolute;
+      top: 200px;
+      right: 20px; }
+  .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .owl-dot {
     display: none; }
-  .indexGroupon .container .indexGroupon-container .indexGroupon-box {
-    display: flex;
-    position: relative;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+  .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part {
+    width: 260px;
+    margin: 20px auto;
+    background-color: #f7f4e7;
+    border-radius: 20px;
+    box-shadow: 5px 3px 10px rgba(49, 49, 49, 0.3);
     position: relative; }
-    .indexGroupon .container .indexGroupon-container .indexGroupon-box .owl-item {
-      width: 100%; }
-    .indexGroupon .container .indexGroupon-container .indexGroupon-box .owl-nav {
-      font-size: 70px;
-      color: #76391b; }
-      .indexGroupon .container .indexGroupon-container .indexGroupon-box .owl-nav .owl-prev {
+    .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle {
+      margin: 0 0 0 -12px;
+      padding: 8px;
+      background-color: #fce444;
+      position: relative; }
+      .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle h3 {
+        padding: 0 0 0 12px; }
+      .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle:before {
+        content: "";
         position: absolute;
-        top: 200px;
-        left: 20px; }
-      .indexGroupon .container .indexGroupon-container .indexGroupon-box .owl-nav .owl-next {
+        bottom: -7px;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 12px 7px 0;
+        border-color: transparent #bb7232 transparent transparent; }
+      .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average {
+        width: 86px;
+        height: 86px;
+        background-image: url(../images/index_average.png);
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
         position: absolute;
-        top: 200px;
-        right: 20px; }
-    .indexGroupon .container .indexGroupon-container .indexGroupon-box .owl-dot {
-      display: none; }
-    .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part {
-      width: 260px;
-      margin: 20px auto;
-      background-color: #f7f4e7;
-      border-radius: 20px;
-      box-shadow: 5px 3px 10px rgba(49, 49, 49, 0.3);
-      position: relative;
-      flex-wrap: nowrap; }
-      .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle {
-        margin: 0 0 0 -12px;
-        padding: 8px;
-        background-color: #fce444;
-        position: relative; }
-        .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle h3 {
-          padding: 0 0 0 12px; }
-        .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle:before {
-          content: "";
-          position: absolute;
-          bottom: -7px;
-          left: 0;
+        top: -25px;
+        right: -16px; }
+        .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average p:nth-child(1) {
+          padding: 16px 0 0;
+          font-size: 24px;
+          text-align: center; }
+          .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average p:nth-child(1)::after {
+            content: "元";
+            font-size: 14px; }
+        .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average p:nth-child(2) {
+          text-align: center;
+          font-size: 13px; }
+    .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part img {
+      width: 80%;
+      margin: 25px 50% 10px;
+      padding: 10px 0px;
+      transform: translateX(-50%);
+      text-align: center;
+      background-color: #fcf2ca;
+      border-radius: 20px; }
+    .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-info {
+      width: 190px;
+      margin: 0 auto 15px;
+      text-align: center;
+      line-height: 1.6rem; }
+    .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sum {
+      width: 190px;
+      margin: 0px auto;
+      line-height: 2rem; }
+      .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sum .indexGroupon-countBar {
+        display: inline-block;
+        width: 100px;
+        height: 16px;
+        border-radius: 1000px;
+        background-color: #76391b;
+        line-height: 16px; }
+        .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sum .indexGroupon-countBar p {
           width: 0;
-          height: 0;
-          border-style: solid;
-          border-width: 0 12px 7px 0;
-          border-color: transparent #bb7232 transparent transparent; }
-        .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average {
-          width: 86px;
-          height: 86px;
-          background-image: url(../images/average.png);
-          background-size: 100%;
-          background-position: center;
-          background-repeat: no-repeat;
-          position: absolute;
-          top: -25px;
-          right: -16px; }
-          .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average p:nth-child(1) {
-            padding: 16px 0 0;
-            font-size: 24px;
-            text-align: center; }
-            .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average p:nth-child(1)::after {
-              content: " 元";
-              font-size: 14px; }
-          .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average p:nth-child(2) {
-            margin: -2px 0 0;
-            text-align: center;
-            font-size: 13px; }
-      .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part img {
-        width: 80%;
-        margin: 25px 50% 10px;
-        padding: 10px 0px;
-        transform: translateX(-50%);
-        text-align: center;
-        background-color: #fcf2ca;
-        border-radius: 20px; }
-      .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-info {
-        width: 190px;
-        margin: 0 auto 15px;
-        text-align: center;
-        line-height: 1.6rem; }
-      .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sum {
-        width: 190px;
-        margin: 0px auto;
-        line-height: 2rem; }
-        .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sum .indexGroupon-countBar {
-          display: inline-block;
-          width: 100px;
           height: 16px;
-          border-radius: 1000px;
-          background-color: #76391b;
-          line-height: 16px; }
-          .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-sum .indexGroupon-countBar p {
-            width: 0;
-            height: 16px;
-            margin: 0 0 0 -1px;
-            text-align: center;
-            font-size: 10px;
-            background-color: #fce444;
-            border-radius: 1000px; }
-      .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-deadline {
-        padding-bottom: 20px; }
-      .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-btn {
-        text-align: right; }
-        .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-btn a, .indexGroupon .indexMeal .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-btn .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-btn .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexGroupon .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-btn button, .indexMeal .indexGroupon .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn .indexGroupon-container .indexGroupon-box .indexGroupon-part .indexGroupon-btn button {
-          display: block;
-          padding: 8px 10px;
+          margin: 0 0 0 -1px;
+          text-align: center;
+          font-size: 10px;
           background-color: #fce444;
-          border-radius: 20px 0 20px 0;
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          color: #000; }
+          border-radius: 1000px; }
+    .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-deadline {
+      padding-bottom: 20px; }
+    .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-btn {
+      text-align: right; }
+      .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-btn a, .indexGroupon .indexMeal .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-btn .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-btn .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexGroupon .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-btn button, .indexMeal .indexGroupon .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-btn button {
+        display: block;
+        padding: 8px 10px;
+        background-color: #fce444;
+        border-radius: 20px 0 20px 0;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        color: #000; }
 
 @keyframes countBar1 {
   0% {
@@ -1384,22 +1970,22 @@ header {
     width: 0; }
   100% {
     width: 95px; } }
-    .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part1 .indexGroupon-sum .indexGroupon-count p {
-      width: 0;
-      animation: countBar1 1s linear 5s 1;
-      animation-fill-mode: forwards; }
-    .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part2 .indexGroupon-sum .indexGroupon-count p {
-      width: 0;
-      animation: countBar2 1s linear 5.2s 1;
-      animation-fill-mode: forwards; }
-    .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part3 .indexGroupon-sum .indexGroupon-count p {
-      width: 0;
-      animation: countBar3 1s linear 5.4s 1;
-      animation-fill-mode: forwards; }
-    .indexGroupon .container .indexGroupon-container .indexGroupon-box .indexGroupon-part4 .indexGroupon-sum .indexGroupon-count p {
-      width: 0;
-      animation: countBar4 1s linear 5.6s 1;
-      animation-fill-mode: forwards; }
+  .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part1 .indexGroupon-sum .indexGroupon-count p {
+    width: 0;
+    animation: countBar1 1s linear 5s 1;
+    animation-fill-mode: forwards; }
+  .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part2 .indexGroupon-sum .indexGroupon-count p {
+    width: 0;
+    animation: countBar2 1s linear 5.2s 1;
+    animation-fill-mode: forwards; }
+  .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part3 .indexGroupon-sum .indexGroupon-count p {
+    width: 0;
+    animation: countBar3 1s linear 5.4s 1;
+    animation-fill-mode: forwards; }
+  .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part4 .indexGroupon-sum .indexGroupon-count p {
+    width: 0;
+    animation: countBar4 1s linear 5.6s 1;
+    animation-fill-mode: forwards; }
 
 .indexGroupon-desc {
   display: none; }
@@ -1408,215 +1994,192 @@ header {
   .indexGroupon-mobile {
     display: none; }
   .indexGroupon-desc {
-    display: grid; }
-    .indexGroupon-desc .container .indexGroupon-container .indexGroupon-box .indexGroupon-part {
-      margin: 0px 20px; } }
+    display: grid;
+    place-content: center; }
+    .indexGroupon-desc .wrap .indexGroupon-wrap .indexGroupon-stage {
+      padding: 150px 0 0;
+      background-image: url(../images/index_grouponBento.svg);
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: 100%; }
+      .indexGroupon-desc .wrap .indexGroupon-wrap .indexGroupon-stage img:nth-child(1) {
+        width: 100%;
+        position: relative;
+        top: 384px;
+        left: 0;
+        z-index: 1; }
+      .indexGroupon-desc .wrap .indexGroupon-wrap .indexGroupon-stage .indexGroupon-box {
+        display: flex;
+        position: relative;
+        top: 0;
+        bottom: 45px;
+        right: 0;
+        margin: 0 auto;
+        position: relative; }
+        .indexGroupon-desc .wrap .indexGroupon-wrap .indexGroupon-stage .indexGroupon-box .indexGroupon-part {
+          margin: 0px 20px;
+          top: -47px;
+          box-shadow: 0px 0px 20px rgba(49, 49, 49, 0.3); }
+          .indexGroupon-desc .wrap .indexGroupon-wrap .indexGroupon-stage .indexGroupon-box .indexGroupon-part:hover {
+            top: -168px;
+            transition: top 1s; } }
 
 .indexMeal {
   width: 100%;
-  height: calc(100vh - 60px);
-  display: flex;
-  align-items: center; }
-  .indexMeal::after {
-    content: "";
-    width: 0;
-    height: 112%;
-    display: inline-block;
-    vertical-align: middle; }
-  .indexMeal .container {
-    display: inline-block;
-    vertical-align: middle;
-    position: relative;
-    top: 32px; }
-    .indexMeal .container .indexMeal-slider {
-      width: 280px;
-      height: 425px;
-      margin: auto; }
-      .indexMeal .container .indexMeal-slider .indexMeal-ctrl .swiper-button-next,
-      .indexMeal .container .indexMeal-slider .indexMeal-ctrl .swiper-button-prev {
-        font-size: 16px; }
-      .indexMeal .container .indexMeal-slider .indexMeal-box {
-        position: relative; }
-        .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part {
+  padding: 0px 0 30px;
+  position: relative; }
+  .indexMeal #indexMeal-canvas {
+    display: none; }
+  .indexMeal .wrap .indexMeal-title {
+    padding: 20px 0;
+    text-align: center; }
+    .indexMeal .wrap .indexMeal-title img {
+      height: 48px; }
+  .indexMeal .wrap .mount {
+    display: none; }
+  .indexMeal .wrap .indexMeal-confetti {
+    display: none; }
+  .indexMeal .wrap .indexMeal-slider {
+    width: 280px;
+    height: 425px;
+    margin: auto; }
+    .indexMeal .wrap .indexMeal-slider .swiper-container-horizontal .swiper-scrollbar .swiper-scrollbar-drag {
+      background-color: #fce444; }
+    .indexMeal .wrap .indexMeal-slider .indexMeal-box {
+      position: relative; }
+      .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part {
+        margin: 0 auto;
+        list-style: none;
+        bottom: 0; }
+        .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top {
           margin: 0 auto;
-          list-style: none; }
-          .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top {
+          text-align: center;
+          position: relative;
+          z-index: 2; }
+          .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top .indexMeal-topCk {
+            width: 250px; }
+          .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top .indexMeal-topW {
+            width: 200px;
             margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 2; }
-            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top .indexMeal-topCk {
-              width: 250px; }
-            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top .indexMeal-topW {
-              width: 200px;
-              margin: 0 auto;
-              position: absolute;
-              top: 120px;
-              left: calc(50% + 5px);
-              transform: translateX(-50%); }
-            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top .indexMeal-meal {
-              width: 200px;
-              position: absolute;
-              top: 120px;
-              left: 50%;
-              transform: translateX(-50%); }
-          .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum {
-            width: 280px;
-            margin: -32px auto 0;
-            padding: 50px 0;
-            background-image: url(../images/stage2.png);
-            background-size: 100%;
-            background-repeat: no-repeat;
-            text-align: center; }
-            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum h3 {
-              display: inline;
-              font-size: 26px;
-              line-height: 1rem; }
-            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum h4 {
-              display: inline;
-              font-size: 24px; }
-              .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum h4::after {
-                content: " 元";
-                font-size: 16px; }
-            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum p {
-              font-size: 18px;
-              line-height: 2.5rem; }
-              .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum p span img {
-                width: 15px; }
-            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn a, .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
-              display: inline-block;
-              padding: 5px 10px;
-              background-color: #fce444;
-              border-radius: 1000px;
-              color: #000;
-              font-size: 16px;
-              box-shadow: 0 4px 0 #bb7232; }
-            .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
-              border: 0; }
-          .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top1Sum .indexMeal-top1Right {
-            display: none; }
-          .indexMeal .container .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top1Sum .indexMeal-mes {
-            display: none; }
+            position: absolute;
+            top: 120px;
+            left: 50%;
+            transform: translateX(-50%); }
+          .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top .indexMeal-meal {
+            width: 185px;
+            position: absolute;
+            top: 120px;
+            left: 50%;
+            transform: translateX(-50%); }
+        .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum {
+          width: 280px;
+          margin: -32px auto 0;
+          padding: 50px 0;
+          background-image: url(../images/index_stage2.png);
+          background-size: 100%;
+          background-repeat: no-repeat;
+          text-align: center; }
+          .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum h3 {
+            display: inline;
+            font-size: 26px; }
+          .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum h4 {
+            display: inline;
+            font-size: 24px; }
+            .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum h4::after {
+              content: " 元";
+              font-size: 16px; }
+          .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum p {
+            font-size: 18px;
+            line-height: 2.5rem; }
+            .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum p span img {
+              width: 15px; }
+          .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn a, .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #fce444;
+            border-radius: 1000px;
+            color: #000;
+            font-size: 16px;
+            box-shadow: 0 4px 0 #bb7232; }
+          .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
+            border: 0; }
 
 @media screen and (min-width: 840px) {
   .indexMeal {
     width: 100%;
-    height: calc(100vh - 100px);
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    position: relative; }
     .indexMeal::after {
       content: "";
       display: none; }
-    .indexMeal .container {
-      top: 100px; }
-      .indexMeal .container .indexMeal-title {
+    .indexMeal #indexMeal-canvas {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%; }
+    .indexMeal .wrap .mount {
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none; }
+    .indexMeal .wrap .indexMeal-confetti {
+      display: block;
+      position: relative;
+      left: 45%;
+      cursor: pointer; }
+      .indexMeal .wrap .indexMeal-confetti .indexMeal-confetti-left {
+        display: inline-block;
         position: relative;
-        top: -31px; }
-      .indexMeal .container .indexMeal-slider {
-        width: 100%;
-        height: auto;
-        margin: auto; }
-        .indexMeal .container .indexMeal-slider .indexMeal-box {
+        margin: 0 -4px 0 0; }
+        .indexMeal .wrap .indexMeal-confetti .indexMeal-confetti-left .indexMeal-confetti-hoverL {
+          transform: rotate(20deg);
+          transform-origin: right top;
+          transition: transform 1s 0 0.5s ease-in; }
+        .indexMeal .wrap .indexMeal-confetti .indexMeal-confetti-left img {
+          width: 50px;
+          transform-origin: right top; }
+      .indexMeal .wrap .indexMeal-confetti .indexMeal-confetti-right {
+        display: inline-block;
+        margin: 0 0 0 -4px; }
+        .indexMeal .wrap .indexMeal-confetti .indexMeal-confetti-right .indexMeal-confetti-hoverR {
+          transform: rotate(-20deg);
+          transform-origin: left top;
+          transition: transform 1s 0 0.5s ease-in; }
+        .indexMeal .wrap .indexMeal-confetti .indexMeal-confetti-right img {
+          width: 50px;
+          transform: rotate(14deg);
+          transform-origin: left top; }
+    .indexMeal .wrap .indexMeal-slider {
+      width: 100%;
+      height: auto;
+      margin: auto; }
+      .indexMeal .wrap .indexMeal-slider .indexMeal-box {
+        position: relative;
+        display: flex;
+        overflow: hidden; }
+        .indexMeal .wrap .indexMeal-slider .indexMeal-box .indexMEal-part {
+          cursor: pointer; }
+        .indexMeal .wrap .indexMeal-slider .indexMeal-box .top3 {
           position: relative;
-          display: flex; }
-          .indexMeal .container .indexMeal-slider .indexMeal-box .top2 {
-            order: -1; }
-          .indexMeal .container .indexMeal-slider .indexMeal-box .top1 {
-            position: relative;
-            top: -31px; }
-            .indexMeal .container .indexMeal-slider .indexMeal-box .top1 div.indexMeal-topSum {
-              height: 260px;
-              background-image: url(../images/stage1.png); }
-              .indexMeal .container .indexMeal-slider .indexMeal-box .top1 div.indexMeal-topSum .indexMeal-top1Left {
-                position: relative;
-                top: 31px; } }
-
-.indexLogin {
-  width: 100%;
-  height: calc(100vh - 60px);
-  text-align: center; }
-  .indexLogin::after {
-    content: "";
-    width: 0;
-    height: 100%;
-    display: inline-block;
-    vertical-align: middle; }
-  .indexLogin .container {
-    display: inline-block;
-    vertical-align: middle; }
-    .indexLogin .container .indexLogin-sum {
-      position: relative; }
-      .indexLogin .container .indexLogin-sum div {
-        width: 240px;
-        height: 188px;
-        margin: auto;
-        background-repeat: no-repeat;
-        background-image: url(../images/gun1.svg);
-        background-size: 100%; }
-        .indexLogin .container .indexLogin-sum div p {
-          padding: 27px 38px;
-          margin: auto;
-          text-align: center;
-          font-size: 17px; }
-      .indexLogin .container .indexLogin-sum img {
-        width: 60vw;
-        max-width: 300px;
-        margin: 10px auto 0;
-        position: relative; }
-    .indexLogin .container .indexLogin-btn {
-      text-align: center; }
-      .indexLogin .container .indexLogin-btn button {
-        cursor: pointer; }
-
-@media screen and (min-width: 768px) {
-  .indexLogin {
-    width: 100%;
-    height: calc(100vh - 100px); }
-    .indexLogin .container .indexLogin-sum {
-      position: relative; }
-  @keyframes gun {
-    0% {
-      transform: scale(0.3, 0.3);
-      opacity: 0.9;
-      font-size: 0; }
-    25% {
-      transform: scale(0.6, 0.6);
-      opacity: 0.5;
-      font-size: 0; }
-    75% {
-      transform: scale(0.4, 0.4);
-      opacity: 0.7;
-      font-size: 0; }
-    100% {
-      transform: scale(1, 1);
-      opacity: 1; } }
-      .indexLogin .container .indexLogin-sum div:nth-child(1) {
-        width: 300px;
-        height: 260px;
-        margin: auto;
-        background-repeat: no-repeat;
-        background-image: url(../images/gun2.svg);
-        background-size: 100%;
-        position: absolute;
-        top: 8px;
-        left: 176px;
-        z-index: 1;
-        opacity: 0.7;
-        animation: gun 3s ease-in-out 0s 3 alternate;
-        animation-fill-mode: forwards;
-        transform-origin: left center; }
-        .indexLogin .container .indexLogin-sum div:nth-child(1) p {
-          padding: 64px 41px;
-          margin: 0 0 0 6px;
-          text-align: center;
-          font-size: 20px; }
-      .indexLogin .container .indexLogin-sum img {
-        width: 60vw;
-        max-width: 300px;
-        margin: 10px auto 0;
-        position: relative; }
-    .indexLogin .container .indexLogin-btn {
-      text-align: center; }
-      .indexLogin .container .indexLogin-btn button {
-        cursor: pointer; } }
+          top: 163px; }
+        .indexMeal .wrap .indexMeal-slider .indexMeal-box .top2 {
+          position: relative;
+          top: 163px;
+          order: -1; }
+        .indexMeal .wrap .indexMeal-slider .indexMeal-box .top1 {
+          position: relative;
+          top: 163px; }
+          .indexMeal .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum {
+            height: 97px;
+            background-image: url(../images/index_stage1.png); }
+            .indexMeal .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum h3,
+            .indexMeal .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum h4,
+            .indexMeal .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum p,
+            .indexMeal .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum .indexMeal-btn {
+              position: relative;
+              top: 31px; } }

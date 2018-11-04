@@ -1,3 +1,8 @@
+@import "daycookVar";
+@import "reset";
+@import "general_mixins";
+@import "nav";
+
 //變數
 @import "nav";
 @import "reset";
@@ -14,55 +19,27 @@ $borderRadius: 1000px;
 $grouponBr: 20px;
 $boxshadow: 0 4px 0 $color_main4;
 
+//字體:
+$fontSize_text: 16px;
+$fontSize_S: 20px;
+$fontSize_M: 24px;
+$fontSize_L: 30px;
+$fontSize_XL: 36px;
+$fontSize_XXL: 48px;
+$fmy: 微軟正黑體, arial, "sans serif";
+$lineHeight: 1.6;
+
 * {
-  margin: 0;
-  padding: 0;
+  // outline: 1px solid red;
   text-decoration: none;
-  //   outline: 1px red solid;
 }
 
-.searchBtn {
-  width: 80px;
-  height: $searchHeight;
-  margin: auto;
-  font-size: 18px;
-  color: $black;
-  background-color: $white;
-  border-radius: $borderRadius;
+body {
+  overflow-x: hidden;
 }
 
-.indexTitle {
-  text-align: center;
-  font-size: 24px;
+a {
   color: $color_main2;
-}
-
-@media screen and (min-width: 768px) {
-  .indexTitle {
-    font-size: 28px;
-    padding: 20px 0;
-  }
-}
-
-// .indexsubTitle {
-//   width: 80%;
-//   // padding: 50px 0;
-//   text-align: center;
-//   font-size: 18px;
-//   color: $color_main4;
-// }
-
-.section {
-  background: {
-    size: cover;
-    position: center;
-    repeat: no-repeat;
-    attachment: fixed;
-  }
-}
-
-.container {
-  margin: auto;
 }
 
 .mainBtn {
@@ -86,282 +63,308 @@ $boxshadow: 0 4px 0 $color_main4;
     calc(var(--dy) / var(--size) * 100%);
 }
 
-header {
-  z-index: 1000;
-  position: relative;
-}
+//---------------------------------------------//
 
-//第一屏
+// 第一屏 搜尋/迴轉台
+
 .indexSearch {
   width: 100%;
-  margin: -7px 0 0 0;
-  // height: calc(100vh - 60px);
-  background-image: url("../images/background.png");
-  background-size: 100vh;
+  height: calc(100vh - 75px);
+  // background-color: #ff0;
+  .wrap {
+    .indexSearch-wrap {
+      height: 100vh;
+      // background-color: $color_main3;
+      background-image: url(../images/index_1_bg_mobileA.png);
+      background-size: 100vh;
+      background-position: center bottom;
+      background-repeat: no-repeat;
 
-  .indexSearch-searchBar {
-    position: relative;
-    padding: 180px 0;
+      .indexSearch-bg {
+        display: none;
+      }
+      .indexSearch-searchBar {
+        position: relative;
+        padding: 130px 0;
 
-    form {
-      width: 70%;
-      max-width: 600px;
-      height: $searchHeight;
-      margin: auto;
-      padding: 5px 10px;
-      border-radius: $borderRadius;
-      border: 6px solid $color_main4;
-      background-color: $color_main3;
-      box-shadow: 0 6px $color_main2;
-      position: relative;
-
-      div {
-        display: inline-block;
-
-        &::after {
-          content: "▾";
-          font-family: FontAwesome;
-          position: absolute;
-          width: 20px;
-          height: 20px;
-          top: 10px;
-          left: 60px;
-          font-size: 20px;
-          color: $white;
-        }
-
-        #indexSearch-select {
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
-          border: none;
-          font-size: 20px;
-          padding: 16px 34px 16px 16px;
+        form {
+          width: 70%;
+          max-width: 600px;
+          height: 40px;
+          margin: auto;
+          padding: 5px 10px;
           border-radius: $borderRadius;
-          border: none;
-          background-color: $color_main4;
-          color: $white;
-          letter-spacing: 1px;
+          border: 6px solid $color_main4;
+          background-color: $color_main3;
+          box-shadow: 0 6px $color_main2;
           position: relative;
-          top: -10px;
-          left: -14px;
-        }
-      }
 
-      input[type="text"] {
-        width: 50%;
-        background-color: transparent;
-        border: none;
-        font-size: 18px;
-        position: absolute;
-        top: 15px;
-        left: 100px;
-      }
-
-      .indexSearch-btn {
-        font-size: 20px;
-        padding: 16px 10px 16px;
-        margin: -11px -11px -11px -13px;
-        border-radius: $borderRadius;
-        border: none;
-        background-color: $color_main4;
-        color: $white;
-        letter-spacing: 1px;
-        cursor: pointer;
-
-        width: 62px;
-        height: 62px;
-        position: absolute;
-        right: 0px;
-      }
-
-      .indexSearch-rope {
-        img:nth-child(1) {
-          width: 15px;
-          position: absolute;
-          bottom: 45px;
-          left: 10%;
-          transform: translateX(-50%);
-        }
-
-        img:nth-child(2) {
-          width: 15px;
-          position: absolute;
-          bottom: 45px;
-          right: 10%;
-          transform: translateX(50%);
-          transform: rotateY(180deg);
-        }
-      }
-    }
-  }
-
-  .indexSearch-conveyor {
-    .indexSearch-conveyorBox {
-      width: 300%;
-      overflow: hidden;
-      position: absolute;
-      bottom: 8vh;
-      left: 0;
-
-      .indexSearch-table {
-        img.indexSearch-tableImg {
-          width: 100%;
-          display: inline-block;
-          height: 240px;
-        }
-
-        ul {
-          width: 100%;
-          position: absolute;
-          bottom: 110px;
-          left: 0;
-          display: inline-block;
-
-          li {
-            width: 130px;
-            margin: auto 1vw;
+          div {
             display: inline-block;
+
+            &::after {
+              content: "▾";
+              font-family: FontAwesome;
+              position: absolute;
+              width: 20px;
+              height: 20px;
+              top: 16px;
+              left: 58px;
+              font-size: 18px;
+              color: $white;
+            }
+
+            #indexSearch-select {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              border: none;
+              font-size: $fontSize_S;
+              padding: 16px 34px 16px 16px;
+              border-radius: $borderRadius;
+              border: none;
+              background-color: $color_main4;
+              color: $white;
+              letter-spacing: 1px;
+              position: relative;
+              top: -10px;
+              left: -14px;
+            }
+          }
+
+          input[type="text"] {
+            width: 50%;
+            background-color: transparent;
+            border: none;
+            font-size: 18px;
             position: absolute;
-            left: -150%;
-            bottom: 0;
+            top: 15px;
+            left: 100px;
+          }
+
+          .indexSearch-btn {
+            font-size: $fontSize_S;
+            padding: 16px 10px 16px;
+            margin: -11px -11px -11px -13px;
+            border-radius: $borderRadius;
+            border: none;
+            background-color: $color_main4;
+            color: $white;
+            letter-spacing: 1px;
             cursor: pointer;
 
-            &:hover div.indexSearch-hover {
-              opacity: 1;
-              transition: 1s;
-            }
+            width: 62px;
+            height: 62px;
+            position: absolute;
+            right: 0px;
+          }
 
-            div.indexSearch-hover {
-              width: 200px;
-              height: 70px;
-              background-color: $color_main3;
+          .indexSearch-rope {
+            img:nth-child(1) {
+              width: 15px;
               position: absolute;
-              border-radius: 30px;
-              top: 80%;
-              left: 45%;
+              bottom: 45px;
+              left: 10%;
               transform: translateX(-50%);
-              opacity: 0;
-              transition: 1s;
-              z-index: 2;
-
-              p {
-                text-align: center;
-                padding: 5px 20px;
-                font-size: 18px;
-
-                span {
-                  font-size: 16px;
-                  img {
-                    width: 15px;
-                    height: 20px;
-                    min-height: 20px;
-                  }
-                }
-              }
             }
 
-            img.indexSearch-img {
-              display: inline-block;
-              width: 100%;
-              min-height: auto;
-              // max-width: auto;
-              max-height: 150px;
-              height: auto;
-              margin: auto 1vw;
-              position: relative;
-              left: -10%;
+            img:nth-child(2) {
+              width: 15px;
+              position: absolute;
+              bottom: 45px;
+              right: 10%;
+              transform: translateX(50%);
+              transform: rotateY(180deg);
             }
-          }
-
-          @keyframes moving {
-            0% {
-              left: -10%;
-            }
-
-            100% {
-              left: 100%;
-            }
-          }
-          li.indexSearch-meal-1 {
-            animation: moving 15s linear 0s infinite;
-          }
-
-          li.indexSearch-meal-2 {
-            animation: moving 15s linear 3s infinite;
-          }
-
-          li.indexSearch-meal-3 {
-            animation: moving 15s linear 6s infinite;
-          }
-
-          li.indexSearch-meal-4 {
-            animation: moving 15s linear 9s infinite;
-          }
-
-          li.indexSearch-meal-5 {
-            animation: moving 15s linear 12s infinite;
-          }
-
-          &:hover li {
-            animation-play-state: paused;
           }
         }
       }
-    }
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .indexSearch {
-    background-size: 100%;
-
-    .indexSearch-conveyor {
-      .indexSearch-conveyorBox {
-        width: 100%;
-        position: absolute;
-        bottom: 10vh;
-        left: 0;
-
-        .indexSearch-table {
-          img {
-            width: 100%;
-            display: inline-block;
-            min-height: 200px;
+      .indexSearch-conveyor {
+        .indexSearch-owner {
+          width: 100%;
+          max-width: 450px;
+          max-height: 200px;
+          position: absolute;
+          bottom: 20vh;
+          left: 50%;
+          transform: translateX(-50%);
+          @keyframes typing {
+            from {
+              width: 0;
+            }
           }
-
-          ul {
+          @keyframes caret {
+            50% {
+              border-color: transparent;
+            }
+          }
+          @keyframes owner {
+            50% {
+              transform: rotate(0deg);
+            }
+          }
+          img:nth-child(2) {
             width: 100%;
+            max-width: 62px;
             position: absolute;
-            bottom: 110px;
-            left: 0;
+            top: 32px;
+            left: 30%;
+            transform: rotate(-15deg);
+            z-index: -1;
+            animation: owner 3s 1s infinite alternate;
+          }
+          div {
+            width: 120px;
+            height: 60px;
+            background-color: $color_main3;
             display: inline-block;
+            border-radius: 100px;
+            position: absolute;
+            bottom: 19vh;
+            left: 20px;
+            &::after {
+              content: "";
+              width: 0;
+              height: 0;
+              position: absolute;
+              bottom: -4px;
+              right: 0;
+              transform: rotate(-45deg);
+              border-style: solid;
+              border-width: 20px 7.5px 0 7.5px;
+              border-color: $color_main3 transparent transparent transparent;
+            }
+            p {
+              width: 120px;
+              font-size: $fontSize_text;
+              color: $color_main2;
+              line-height: 60px;
+              text-align: left;
+              padding: 0 0 0 12px;
+              overflow: hidden;
+              white-space: nowrap;
+              animation: typing 1s steps(8) 1;
+            }
+          }
+        }
+        .indexSearch-conveyorBox {
+          width: 300%;
+          position: absolute;
+          bottom: 6vh;
+          left: 0;
 
-            li {
-              width: 20vw;
-              max-width: 170px;
-              margin: auto 1vw;
+          .indexSearch-table {
+            position: relative;
+            top: 50px;
+            .indexSearch-tableImg {
+              // width: 100%;
+              display: inline-block;
+              padding: 40px 0;
+              position: relative;
+              top: 0;
+              left: 0;
+              img {
+                // width: 100%;
+                height: 125px;
+              }
+            }
+
+            ol {
+              width: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
               display: inline-block;
 
-              img.indexSearch-img {
-                margin: auto 2%;
+              li {
+                width: 130px;
+                margin: auto 20px;
+                display: inline-block;
+                position: absolute;
+                left: -150%;
+                top: 0;
+                cursor: pointer;
+
+                &:hover div.indexSearch-hover {
+                  opacity: 1;
+                  transition: 1s;
+                }
+
+                .indexSearch-hover {
+                  width: 200px;
+                  height: 70px;
+                  background-color: $color_main3;
+                  position: absolute;
+                  border-radius: 30px;
+                  top: 80%;
+                  left: 45%;
+                  transform: translateX(-50%);
+                  opacity: 0;
+                  transition: 1s;
+                  z-index: 2;
+
+                  p {
+                    text-align: center;
+                    padding: 5px 20px;
+                    font-size: $fontSize_S;
+
+                    span {
+                      font-size: $fontSize_text;
+                      img {
+                        width: 15px;
+                        height: 20px;
+                        min-height: 20px;
+                      }
+                    }
+                  }
+                }
+
+                img.indexSearch-mealImg {
+                  display: inline-block;
+                  width: 100%;
+                  min-height: auto;
+                  max-height: 150px;
+                  height: auto;
+                  margin: auto 1vw;
+                  position: relative;
+                  left: -10%;
+                }
+              }
+
+              @keyframes moving {
+                0% {
+                  left: -10%;
+                }
+
+                100% {
+                  left: 100%;
+                }
+              }
+              li.indexSearch-meal-1 {
+                animation: moving 15s linear 0s infinite;
+              }
+
+              li.indexSearch-meal-2 {
+                animation: moving 15s linear 3s infinite;
+              }
+
+              li.indexSearch-meal-3 {
+                animation: moving 15s linear 6s infinite;
+              }
+
+              li.indexSearch-meal-4 {
+                animation: moving 15s linear 9s infinite;
+              }
+
+              li.indexSearch-meal-5 {
+                animation: moving 15s linear 12s infinite;
+              }
+
+              &:hover li {
+                animation-play-state: paused;
               }
             }
           }
-
-          // .indexSearch-meal {
-          //   position: absolute;
-          //   bottom: 110px;
-          //   text-align: center;
-
-          //   img {
-          //     display: inline-block;
-          //     width: 13%;
-          //     min-height: auto;
-          //     height: auto;
-          //     margin: auto 2%;
-          //   }
-          // }
         }
       }
     }
@@ -371,55 +374,206 @@ header {
 @media screen and (min-width: 1200px) {
   .indexSearch {
     height: calc(100vh - 100px);
-    background-image: url(../images/background0.png);
-    background-position: bottom;
+    .wrap {
+      .indexSearch-wrap {
+        background-image: url(../images/index_1_bg_desktopA.png);
+        background-size: 100%;
+
+        .indexSearch-searchBar {
+          padding: 160px 0;
+          form {
+            .indexSearch-rope {
+              img:nth-child(1) {
+                bottom: 41px;
+              }
+
+              img:nth-child(2) {
+                bottom: 41px;
+              }
+            }
+          }
+        }
+        .indexSearch-conveyor {
+          .indexSearch-owner {
+            width: 100%;
+            max-width: 450px;
+            max-height: 200px;
+            position: absolute;
+            bottom: calc(21vh - 3px);
+            left: 90%;
+            transform: translateX(-50%);
+
+            img:nth-child(2) {
+              width: 100%;
+              max-width: 65px;
+              position: absolute;
+              top: 35px;
+              left: 138px;
+            }
+          }
+          .indexSearch-conveyorBox {
+            width: 150%;
+            overflow: hidden;
+            position: absolute;
+            bottom: 4vh;
+            left: 0;
+
+            .indexSearch-table {
+              .indexSearch-tableImg {
+                width: 100%;
+                img {
+                  height: 170px;
+                }
+              }
+
+              ol {
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: inline-block;
+
+                li {
+                  width: 190px;
+                  margin: auto 20px;
+                  display: inline-block;
+                  position: absolute;
+                  left: -150%;
+                  top: 0;
+                  cursor: pointer;
+
+                  &:hover div.indexSearch-hover {
+                    opacity: 1;
+                    transition: 1s;
+                  }
+
+                  .indexSearch-hover {
+                    width: 200px;
+                    height: 70px;
+                    background-color: $color_main3;
+                    position: absolute;
+                    border-radius: 30px;
+                    top: 80%;
+                    left: 45%;
+                    transform: translateX(-50%);
+                    opacity: 0;
+                    transition: 1s;
+                    z-index: 2;
+
+                    p {
+                      text-align: center;
+                      padding: 5px 20px;
+                      font-size: $fontSize_S;
+
+                      span {
+                        font-size: $fontSize_text;
+                        img {
+                          width: 15px;
+                          height: 20px;
+                          min-height: 20px;
+                        }
+                      }
+                    }
+                  }
+
+                  img.indexSearch-mealImg {
+                    display: inline-block;
+                    width: 100%;
+                    min-height: auto;
+                    max-height: 150px;
+                    height: auto;
+                    margin: auto 1vw;
+                    position: relative;
+                    left: -10%;
+                  }
+                }
+
+                @keyframes moving {
+                  0% {
+                    left: -10%;
+                  }
+
+                  100% {
+                    left: 100%;
+                  }
+                }
+                li.indexSearch-meal-1 {
+                  animation: moving 15s linear 0s infinite;
+                }
+
+                li.indexSearch-meal-2 {
+                  animation: moving 15s linear 3s infinite;
+                }
+
+                li.indexSearch-meal-3 {
+                  animation: moving 15s linear 6s infinite;
+                }
+
+                li.indexSearch-meal-4 {
+                  animation: moving 15s linear 9s infinite;
+                }
+
+                li.indexSearch-meal-5 {
+                  animation: moving 15s linear 12s infinite;
+                }
+
+                &:hover li {
+                  animation-play-state: paused;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
-//第二屏
+// 第二屏 參加飯團動畫
 .indexJoin {
-  background-image: url(../images/background5.jpg);
+  padding: 30px 0 0;
   width: 100%;
-
-  background-repeat: no-repeat;
-  // background: #fbe2bf;
-  // height: calc(100vh - 30px);
-  height: calc(100vh - 7px);
-  text-align: center;
-
-  &::after {
-    content: "";
-    width: 0;
-    height: 112%;
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  .container {
-    display: inline-block;
-    vertical-align: middle;
-
-    .indexJoin-container {
+  // height: 100vh;
+  background-image: url(../images/index_bgColor.png);
+  .wrap {
+    .indexJoin-wrap {
       .indexJoin-title {
-        h1 {
-          @extend .indexTitle;
+        padding: 20px 0;
+        text-align: center;
+        img {
+          height: 48px;
         }
       }
-
       .indexJoin-phoneBox {
         .indexJoin-phone {
           width: 197px;
-          height: 350px;
+          height: 315px;
           margin: 0 auto;
-          background-image: url(../images/phone.svg);
+          background-image: url(../images/index_phone.svg);
           background-size: 100%;
           background-position: center;
           background-repeat: no-repeat;
           position: relative;
 
+          .indexJoin-bg {
+            img:nth-child(1) {
+              width: 100px;
+              position: absolute;
+              top: 190px;
+              left: -70px;
+              z-index: 2;
+            }
+            img:nth-child(2) {
+              width: 100px;
+              position: absolute;
+              top: 190px;
+              right: -70px;
+              z-index: 2;
+            }
+          }
+
           .indexJoin-info {
-            font-size: 16px;
-            padding: 80px 28px 0;
+            padding: 100px 28px 0;
             text-align: center;
 
             img {
@@ -428,6 +582,13 @@ header {
               border-radius: 50%;
               background-color: $color_main3;
               padding: 10px;
+            }
+            p {
+              color: $color_main2;
+              font-size: 18px;
+              font-weight: bolder;
+              letter-spacing: 0.5px;
+              line-height: 1.2rem;
             }
           }
 
@@ -442,7 +603,7 @@ header {
               img:nth-child(2) {
                 width: 100px;
                 position: absolute;
-                right: -20px;
+                right: -40px;
                 bottom: 0;
                 animation: stepO1 1s 0.5s infinite alternate;
               }
@@ -453,7 +614,7 @@ header {
                 }
 
                 100% {
-                  bottom: 150px;
+                  bottom: 125px;
                 }
               }
             }
@@ -477,7 +638,7 @@ header {
                 display: inline-block;
                 position: absolute;
                 left: 37px;
-                bottom: 100px;
+                bottom: 60px;
                 animation: stepO2-btn 1s 1.2s 1 normal;
                 animation-fill-mode: forwards;
               }
@@ -489,8 +650,8 @@ header {
                 }
 
                 100% {
-                  right: 15px;
-                  bottom: 10px;
+                  right: 16px;
+                  bottom: -32px;
                 }
               }
               img:nth-child(1) {
@@ -503,8 +664,8 @@ header {
               img.finger2 {
                 width: 100px;
                 position: absolute;
-                right: -60px;
-                bottom: 60px;
+                right: -40px;
+                bottom: 25px;
                 animation: stepO2-finger 0.8s 0.5s 1 normal;
                 animation-fill-mode: forwards;
                 z-index: 1;
@@ -516,9 +677,15 @@ header {
                 text-align: center;
 
                 p:nth-child(1) {
-                  padding: 50px 0 8px;
-                  font-size: 20px;
-                  font-weight: bold;
+                  padding: 70px 0 8px;
+                  font-size: $fontSize_S;
+                  font-weight: bolder;
+                  color: $color_txt;
+                }
+                p:nth-child(2) {
+                  font-size: $fontSize_text;
+                  font-weight: bolder;
+                  color: $color_main2;
                 }
               }
 
@@ -568,27 +735,27 @@ header {
                   animation: stepO3-scan 0.9s 0.5s 1 ease-in-out;
                   animation-fill-mode: forwards;
 
-                  &:before {
-                    content: "";
-                    width: 5px;
-                    height: 5px;
-                    background-color: $black;
-                    box-shadow: 0 130px 0 $black;
-                    position: absolute;
-                    top: -10px;
-                    left: -10px;
-                  }
+                  // &:before {
+                  //   content: "";
+                  //   width: 5px;
+                  //   height: 5px;
+                  //   background-color: $black;
+                  //   box-shadow: 0 130px 0 $black;
+                  //   position: absolute;
+                  //   top: -10px;
+                  //   left: -10px;
+                  // }
 
-                  &:after {
-                    content: "";
-                    width: 5px;
-                    height: 5px;
-                    background-color: $black;
-                    box-shadow: 0 130px 0 $black;
-                    position: absolute;
-                    top: -10px;
-                    right: -10px;
-                  }
+                  // &:after {
+                  //   content: "";
+                  //   width: 5px;
+                  //   height: 5px;
+                  //   background-color: $black;
+                  //   box-shadow: 0 130px 0 $black;
+                  //   position: absolute;
+                  //   top: -10px;
+                  //   right: -10px;
+                  // }
                 }
 
                 img {
@@ -610,9 +777,16 @@ header {
                 margin: 0 0 0 26px;
 
                 p:nth-child(1) {
-                  padding: 50px 0 8px;
-                  font-size: 20px;
-                  font-weight: bold;
+                  padding: 70px 0 8px;
+                  font-size: $fontSize_S;
+                  font-weight: bolder;
+                  color: $color_txt;
+                }
+                p:nth-child(2) {
+                  font-size: $fontSize_text;
+                  font-weight: bolder;
+                  color: $color_main2;
+                  line-height: 1.2rem;
                 }
               }
 
@@ -647,6 +821,9 @@ header {
                   left: 50px;
                   animation: stepO4 1s 0 1 ease-in;
                   animation-fill-mode: forwards;
+                  color: $color_hot;
+                  font-weight: bolder;
+                  font-size: $fontSize_text;
                 }
               }
             }
@@ -662,7 +839,7 @@ header {
                 font-size: 13px;
                 position: absolute;
                 top: 60px;
-                left: 30px;
+                left: 32px;
 
                 &:before {
                   content: "";
@@ -694,8 +871,8 @@ header {
                 border-radius: 10px;
                 font-size: 13px;
                 position: absolute;
-                bottom: 80px;
-                right: 30px;
+                bottom: 66px;
+                right: 32px;
 
                 &:before {
                   content: "";
@@ -717,22 +894,25 @@ header {
               .indexJoin-stepQr3-box {
                 width: 105px;
                 height: 176px;
-                padding: 15px 10px;
+                padding: 30px 10px 0;
                 background-color: $color_main3;
                 border-radius: 10px;
                 position: absolute;
-                top: 65px;
+                top: 52px;
                 left: 35px;
 
                 p:nth-child(1) {
                   font-size: 14px;
                   text-align: center;
+                  line-height: 1.2rem;
+                  color: $color_main2;
                 }
 
                 p:nth-child(2) {
-                  padding: 20px 10px 10px;
-                  font-size: 16px;
+                  padding: 20px 11px 10px;
+                  font-size: 18px;
                   font-weight: bold;
+                  color: $color_txt;
                 }
 
                 .indexJoin-stepQr3-input {
@@ -741,23 +921,11 @@ header {
                   padding: 5px 8px;
                   border-radius: 10px;
                   margin: 0 10px;
-
-                  @keyframes typing {
-                    from {
-                      width: 0;
-                    }
-                  }
-
-                  @keyframes caret {
-                    50% {
-                      border-color: transparent;
-                    }
-                  }
-
                   p {
                     width: 34px;
                     text-align: left;
                     border-right: 1px solid;
+                    color: $color_main4;
                     overflow: hidden;
                     white-space: nowrap;
                     animation: typing 1.2s steps(4),
@@ -769,7 +937,7 @@ header {
                   @extend .mainBtn;
                   text-align: center;
                   width: 70px;
-                  margin: 10px auto 0;
+                  margin: 18px auto 0;
                   padding: 6px 10px;
                 }
 
@@ -780,8 +948,8 @@ header {
                   }
 
                   100% {
-                    right: -30px;
-                    bottom: -70px;
+                    right: -25px;
+                    bottom: -77px;
                   }
                 }
 
@@ -789,7 +957,7 @@ header {
                   width: 100px;
                   position: absolute;
                   right: -50px;
-                  bottom: -30px;
+                  bottom: -22px;
                   animation: stepQr3 0.6s 1.4s alternate;
                   animation-fill-mode: forwards;
                 }
@@ -807,10 +975,10 @@ header {
         #indexJoin-btn {
           display: inline-block;
           position: relative;
-          top: -30px;
           left: 50%;
           transform: translateX(-50%);
           font-size: 0;
+          margin: 30px 0;
 
           button {
             --x: 84;
@@ -832,6 +1000,8 @@ header {
             --dy: calc(var(--size) - var(--y));
             @extend .joinBtn;
             margin: 0 10px;
+            background-image: url(../images/index_watermark.svg);
+            background-size: 150%;
 
             &:disabled {
               color: $black;
@@ -853,13 +1023,28 @@ header {
     }
   }
 }
-
 @media screen and (min-width: 768px) {
   .indexJoin {
-    .container {
-      .indexJoin-container {
+    .wrap {
+      position: relative;
+      .indexJoin-wrap {
         .indexJoin-phoneBox {
           .indexJoin-phone {
+            .indexJoin-bg {
+              z-index: 1;
+              img:nth-child(1) {
+                width: 200px;
+                position: absolute;
+                top: 231px;
+                left: -240px;
+              }
+              img:nth-child(2) {
+                width: 200px;
+                position: absolute;
+                top: 231px;
+                right: -240px;
+              }
+            }
             width: 281px;
             height: 500px;
             margin: 0 auto;
@@ -869,13 +1054,17 @@ header {
             position: relative;
 
             .indexJoin-info {
-              font-size: 20px;
-              padding: 80px 28px 0;
+              padding: 125px 28px 0;
               text-align: center;
 
               img {
                 width: 150px;
-                margin: -10px 20px 35px;
+                margin: -10px 20px 24px;
+              }
+
+              p {
+                font-size: $fontSize_M;
+                line-height: 2rem;
               }
             }
 
@@ -885,7 +1074,7 @@ header {
                   width: 222px;
                   position: absolute;
                   left: 28px;
-                  top: 67px;
+                  top: 87px;
                 }
 
                 img:nth-child(2) {
@@ -910,32 +1099,32 @@ header {
               .indexJoin-stepO2 {
                 .indexJoin-stepO2-btn {
                   left: 75px;
-                  bottom: 150px;
+                  bottom: 108px;
                 }
 
                 @keyframes stepO2-finger-sm {
                   0% {
                     right: -14px;
-                    bottom: 180px;
+                    bottom: 100px;
                   }
 
                   100% {
                     right: 60px;
-                    bottom: 60px;
+                    bottom: 13px;
                   }
                 }
 
                 img:nth-child(1) {
-                  width: 166px;
+                  width: 190px;
                   position: absolute;
-                  left: 59px;
-                  top: 55px;
+                  left: 45px;
+                  top: 100px;
                 }
                 img.finger2 {
                   width: 100px;
                   position: absolute;
                   right: -14px;
-                  bottom: 180px;
+                  bottom: 105px;
                   animation: stepO2-finger-sm 0.8s 0.5s 1 normal;
                   animation-fill-mode: forwards;
                   z-index: 1;
@@ -947,8 +1136,8 @@ header {
                   text-align: center;
 
                   p:nth-child(1) {
-                    padding: 100px 0 20px;
-                    font-size: 26px;
+                    padding: 130px 0 20px;
+                    font-size: 28px;
                   }
 
                   p:nth-child(2) {
@@ -977,13 +1166,14 @@ header {
                   margin: 0 0 0 26px;
 
                   p:nth-child(1) {
-                    padding: 100px 0 20px;
-                    font-size: 26px;
+                    padding: 130px 0 20px;
+                    font-size: 28px;
                   }
 
                   p:nth-child(2) {
                     font-size: 22px;
                     padding: 0 20px;
+                    line-height: 1.8rem;
                   }
                 }
 
@@ -992,7 +1182,7 @@ header {
 
                   i.fa-check {
                     font-size: 80px;
-                    top: 220px;
+                    top: 245px;
                     left: 100px;
                     animation: stepO4 1s 0 1 ease-in;
                     animation-fill-mode: forwards;
@@ -1000,7 +1190,7 @@ header {
 
                   span {
                     font-size: 20px;
-                    top: 310px;
+                    top: 342px;
                     left: 78px;
                     animation: stepO4 1s 0 1 ease-in;
                     animation-fill-mode: forwards;
@@ -1014,8 +1204,8 @@ header {
                 div {
                   width: 160px;
                   font-size: 16px;
-                  top: 70px;
-                  left: 47px;
+                  top: 120px;
+                  left: 50px;
                   text-align: left;
 
                   img {
@@ -1030,7 +1220,7 @@ header {
                 div {
                   width: 120px;
                   font-size: 16px;
-                  bottom: 135px;
+                  bottom: 120px;
                   right: 50px;
                 }
               }
@@ -1039,10 +1229,10 @@ header {
                 position: relative;
 
                 .indexJoin-stepQr3-box {
-                  width: 150px;
+                  width: 170px;
                   height: 230px;
-                  top: 90px;
-                  left: 54px;
+                  top: 120px;
+                  left: 45px;
 
                   p:nth-child(1) {
                     font-size: 18px;
@@ -1050,12 +1240,12 @@ header {
                   }
 
                   p:nth-child(2) {
-                    padding: 30px 0px 20px;
+                    padding: 30px 25px 20px;
                     font-size: 20px;
                   }
 
                   .indexJoin-stepQr3-input {
-                    width: 80px;
+                    width: 100px;
                     border: 2px solid $color_main2;
                     padding: 5px 8px;
                     border-radius: 10px;
@@ -1071,41 +1261,18 @@ header {
 
                   .indexJoin-stepQr3-btn {
                     text-align: center;
-                    width: 80px;
+                    width: 100px;
                     margin: 32px auto 0;
                     padding: 6px 10px;
                   }
-
-                  // @keyframes stepQr3 {
-                  //     0% {
-                  //         right: -50px;
-                  //         bottom: -30px;
-                  //     }
-
-                  //     100% {
-                  //         right: -30px;
-                  //         bottom: -70px;
-                  //     }
-                  // }
-
-                  // img {
-                  //     width: 100px;
-                  //     position: absolute;
-                  //     right: -50px;
-                  //     bottom: -30px;
-                  //     animation: stepQr3 .6s 1.4s alternate;
-                  //     animation-fill-mode: forwards;
-                  // }
-
-                  // .indexJoin-stepQr3-btn {
-                  //     animation: stepO2-btn .7s 2s 1 normal;
-                  //     animation-fill-mode: forwards;
-                  // }
+                  img {
+                    right: -34px;
+                    bottom: -10px;
+                  }
                 }
               }
             }
           }
-
           #indexJoin-btn {
             display: inline-block;
             position: relative;
@@ -1121,7 +1288,7 @@ header {
               height: 150px;
               margin: 0 auto;
               position: absolute;
-              bottom: 200px;
+              bottom: 320px;
 
               p {
                 font-size: 26px;
@@ -1132,10 +1299,10 @@ header {
             }
 
             #indexJoin-btnO {
-              left: calc(-281px - 20vw);
+              right: 200px;
             }
             #indexJoin-btnQr {
-              right: -20vw;
+              left: 200px;
             }
           }
         }
@@ -1143,59 +1310,31 @@ header {
     }
   }
 }
-
 @media screen and (min-width: 1200px) {
   .indexJoin {
-    width: 100%;
-    height: calc(100vh - 100px);
-    text-align: center;
-
-    &::after {
-      content: "";
-      width: 0;
-      height: 100%;
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    .container {
-      // position: relative;
-      // top: 32px;
-      display: inline-block;
-      vertical-align: middle;
-
-      .indexJoin-container {
+    .wrap {
+      .indexJoin-wrap {
         .indexJoin-phoneBox {
-          #indexJoin-btn {
-            display: inline-block;
-            position: relative;
-            top: -50%;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0;
-
-            button {
-              max-width: 200px;
-              max-height: 200px;
-              width: 180px;
-              height: 180px;
-              margin: 0 auto;
-              position: absolute;
-              bottom: 200px;
-
-              p {
-                font-size: 26px;
-                text-align: center;
-                position: relative;
-                top: 50%;
+          .indexJoin-phone {
+            .indexJoin-bg {
+              img:nth-child(1) {
+                position: absolute;
+                top: 231px;
+                left: -300px;
+              }
+              img:nth-child(2) {
+                position: absolute;
+                top: 231px;
+                right: -300px;
               }
             }
-
+          }
+          #indexJoin-btn {
             #indexJoin-btnO {
-              left: calc(-281px - 20vw);
+              right: 260px;
             }
             #indexJoin-btnQr {
-              right: -20vw;
+              left: 260px;
             }
           }
         }
@@ -1203,45 +1342,32 @@ header {
     }
   }
 }
-
-//第三屏
+// 第三屏 官方飯團推薦
 .indexGroupon {
   width: 100%;
-  // height: 600px;
-  display: grid;
-  place-content: center;
-  background-image: url(../images/backgroundegg.png);
-  height: calc(100vh - 60px);
+  padding: 30px 0;
 
   &::after {
     display: none;
   }
 
-  .container {
-    // display: inline-block;
-    // vertical-align: middle;
-
-    .indexGroupon-container {
-      // position: relative;
-      // top: 32px;
+  .wrap {
+    .indexGroupon-wrap {
       .indexGroupon-title {
-        h1 {
-          @extend .indexTitle;
-        }
-
-        h2 {
-          display: none;
+        padding: 20px 0;
+        text-align: center;
+        img {
+          height: 48px;
         }
       }
       .indexGroupon-box {
-        display: flex;
-        position: relative;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        position: relative;
+        // display: flex;
+        // position: relative;
+        // top: 0;
+        // bottom: 0;
+        // left: 0;
+        // right: 0;
+        // margin: 0 auto;
 
         .owl-item {
           width: 100%;
@@ -1276,7 +1402,7 @@ header {
           box-shadow: 5px 3px 10px rgba(49, 49, 49, 0.3);
           position: relative;
           // left: 5px;
-          flex-wrap: nowrap;
+          // flex-wrap: nowrap;
 
           .indexGroupon-sumTitle {
             margin: 0 0 0 -12px;
@@ -1304,7 +1430,7 @@ header {
             .indexGroupon-average {
               width: 86px;
               height: 86px;
-              background-image: url(../images/average.png);
+              background-image: url(../images/index_average.png);
               background-size: 100%;
               background-position: center;
               background-repeat: no-repeat;
@@ -1318,13 +1444,12 @@ header {
                 text-align: center;
 
                 &::after {
-                  content: " 元";
+                  content: "元";
                   font-size: 14px;
                 }
               }
 
               p:nth-child(2) {
-                margin: -2px 0 0;
                 text-align: center;
                 font-size: 13px;
               }
@@ -1490,66 +1615,91 @@ header {
   }
   .indexGroupon-desc {
     display: grid;
-    .container {
-      .indexGroupon-container {
-        .indexGroupon-box {
-          .indexGroupon-part {
-            margin: 0px 20px;
+    place-content: center;
+    .wrap {
+      .indexGroupon-wrap {
+        .indexGroupon-stage {
+          padding: 150px 0 0;
+          background-image: url(../images/index_grouponBento.svg);
+          background-repeat: no-repeat;
+          background-position: bottom;
+          background-size: 100%;
+          img:nth-child(1) {
+            width: 100%;
+            position: relative;
+            top: 384px;
+            left: 0;
+            z-index: 1;
+          }
+          .indexGroupon-box {
+            display: flex;
+            position: relative;
+            top: 0;
+            bottom: 45px;
+            right: 0;
+            margin: 0 auto;
+            position: relative;
+            .indexGroupon-part {
+              margin: 0px 20px;
+              top: -47px;
+              box-shadow: 0px 0px 20px rgba(49, 49, 49, 0.3);
+              &:hover {
+                top: -168px;
+                transition: top 1s;
+              }
+            }
           }
         }
       }
     }
   }
 }
-//第四屏
+
+// 第四屏 好評餐點推薦
 .indexMeal {
   width: 100%;
-  height: calc(100vh - 60px);
-  display: flex;
-  align-items: center;
-
-  &::after {
-    content: "";
-    width: 0;
-    height: 112%;
-    display: inline-block;
-    vertical-align: middle;
+  padding: 0px 0 30px;
+  position: relative;
+  // display: flex;
+  // align-items: center;
+  #indexMeal-canvas {
+    display: none;
   }
-
-  .container {
-    display: inline-block;
-    vertical-align: middle;
-    position: relative;
-    top: 32px;
-
+  .wrap {
     .indexMeal-title {
-      h1 {
-        @extend .indexTitle;
+      padding: 20px 0;
+      text-align: center;
+      img {
+        height: 48px;
       }
     }
-
+    .mount {
+      display: none;
+    }
+    .indexMeal-confetti {
+      display: none;
+    }
+    // .trigger {
+    //   display: none;
+    // }
     .indexMeal-slider {
-      // width: 100%;
-      // height: 100vh;
       width: 280px;
       height: 425px;
       margin: auto;
-      // overflow: hidden;
 
-      .indexMeal-ctrl {
-        .swiper-button-next,
-        .swiper-button-prev {
-          font-size: 16px;
+      .swiper-container-horizontal {
+        .swiper-scrollbar {
+          .swiper-scrollbar-drag {
+            background-color: $color_main1;
+          }
         }
       }
       .indexMeal-box {
         position: relative;
-        // display: flex;
-        // justify-content: space-around;
-
         .indexMeal-part {
           margin: 0 auto;
           list-style: none;
+          bottom: 0;
 
           .indexMeal-top {
             margin: 0 auto;
@@ -1566,15 +1716,16 @@ header {
               margin: 0 auto;
               position: absolute;
               top: 120px;
-              left: calc(50% + 5px);
+              left: 50%;
               transform: translateX(-50%);
             }
 
             .indexMeal-meal {
-              width: 200px;
+              width: 185px;
               position: absolute;
               top: 120px;
               left: 50%;
+
               transform: translateX(-50%);
             }
           }
@@ -1583,7 +1734,7 @@ header {
             width: 280px;
             margin: -32px auto 0;
             padding: 50px 0;
-            background-image: url(../images/stage2.png);
+            background-image: url(../images/index_stage2.png);
             background-size: 100%;
             background-repeat: no-repeat;
             text-align: center;
@@ -1591,7 +1742,6 @@ header {
             h3 {
               display: inline;
               font-size: 26px;
-              line-height: 1rem;
             }
 
             h4 {
@@ -1607,9 +1757,6 @@ header {
             p {
               font-size: 18px;
               line-height: 2.5rem;
-
-              // position: relative;
-              // top: 40px;
               span {
                 img {
                   width: 15px;
@@ -1624,7 +1771,7 @@ header {
                 background-color: $color_main1;
                 border-radius: $borderRadius;
                 color: $black;
-                font-size: 16px;
+                font-size: $fontSize_text;
                 box-shadow: $boxshadow;
               }
 
@@ -1634,221 +1781,112 @@ header {
               }
             }
           }
-
-          .indexMeal-top1Sum {
-            .indexMeal-top1Right {
-              display: none;
-            }
-
-            .indexMeal-mes {
-              display: none;
-            }
-          }
         }
       }
     }
   }
 }
-
 @media screen and (min-width: 840px) {
   .indexMeal {
     width: 100%;
-    height: calc(100vh - 100px);
     display: flex;
     justify-content: center;
     align-items: center;
-
+    position: relative;
     &::after {
       content: "";
       display: none;
     }
-
-    .container {
-      top: 100px;
-
-      .indexMeal-title {
-        position: relative;
-        top: -31px;
+    #indexMeal-canvas {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    .wrap {
+      .mount {
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
       }
+      .indexMeal-confetti {
+        display: block;
+        position: relative;
+        left: 45%;
+        cursor: pointer;
 
+        .indexMeal-confetti-left {
+          display: inline-block;
+          position: relative;
+          margin: 0 -4px 0 0;
+          .indexMeal-confetti-hoverL {
+            transform: rotate(20deg);
+            transform-origin: right top;
+            transition: transform 1s 0 0.5s ease-in;
+          }
+          img {
+            width: 50px;
+            transform-origin: right top;
+          }
+        }
+        .indexMeal-confetti-right {
+          display: inline-block;
+          margin: 0 0 0 -4px;
+          .indexMeal-confetti-hoverR {
+            transform: rotate(-20deg);
+            transform-origin: left top;
+            transition: transform 1s 0 0.5s ease-in;
+          }
+          img {
+            width: 50px;
+            transform: rotate(14deg);
+            transform-origin: left top;
+          }
+        }
+      }
       .indexMeal-slider {
         width: 100%;
         height: auto;
-        // width: 280px;
-        // height: 425px;
         margin: auto;
 
         .indexMeal-box {
           position: relative;
           display: flex;
-          // top: 50%;
-          // transform: translateY(-50%);
-
+          overflow: hidden;
+          .indexMEal-part {
+            cursor: pointer;
+          }
+          .top3 {
+            position: relative;
+            // top: 31px;
+            top: 163px;
+          }
           .top2 {
+            position: relative;
+            // top: 31px;
+            top: 163px;
             order: -1;
           }
           .top1 {
             position: relative;
-            top: -31px;
-            div.indexMeal-topSum {
-              height: 260px;
-              background-image: url(../images/stage1.png);
-              .indexMeal-top1Left {
+            top: 163px;
+            .indexMeal-topSum {
+              height: 97px;
+              background-image: url(../images/index_stage1.png);
+
+              h3,
+              h4,
+              p,
+              .indexMeal-btn {
                 position: relative;
                 top: 31px;
               }
             }
           }
-        }
-      }
-    }
-  }
-}
-
-//第五屏
-.indexLogin {
-  width: 100%;
-  height: calc(100vh - 60px);
-  text-align: center;
-  // background: {
-  //   image: url(../images/background4.jpg);
-  // }
-
-  &::after {
-    content: "";
-    width: 0;
-    height: 100%;
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  .container {
-    display: inline-block;
-    vertical-align: middle;
-
-    .indexLogin-title {
-      h1 {
-        @extend .indexTitle;
-      }
-    }
-
-    .indexLogin-sum {
-      position: relative;
-
-      div {
-        width: 240px;
-        height: 188px;
-        margin: auto;
-        background-repeat: no-repeat;
-        background-image: url(../images/gun1.svg);
-        background-size: 100%;
-        p {
-          padding: 27px 38px;
-          margin: auto;
-          text-align: center;
-          font-size: 17px;
-        }
-      }
-
-      img {
-        width: 60vw;
-        max-width: 300px;
-        margin: 10px auto 0;
-        position: relative;
-      }
-    }
-
-    .indexLogin-btn {
-      text-align: center;
-
-      button {
-        @extend .mainBtn;
-        cursor: pointer;
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .indexLogin {
-    width: 100%;
-    height: calc(100vh - 100px);
-
-    // &::after {
-    //   content: "";
-    //   width: 0;
-    //   height: 112%;
-    //   display: inline-block;
-    //   vertical-align: middle;
-    // }
-
-    .container {
-      // display: inline-block;
-      // vertical-align: middle;
-
-      .indexLogin-sum {
-        position: relative;
-
-        @keyframes gun {
-          0% {
-            transform: scale(0.3, 0.3);
-            opacity: 0.9;
-            font-size: 0;
-          }
-
-          25% {
-            transform: scale(0.6, 0.6);
-            opacity: 0.5;
-            font-size: 0;
-          }
-
-          75% {
-            transform: scale(0.4, 0.4);
-            opacity: 0.7;
-            font-size: 0;
-          }
-          100% {
-            transform: scale(1, 1);
-            opacity: 1;
-          }
-        }
-        div:nth-child(1) {
-          width: 300px;
-          height: 260px;
-          margin: auto;
-          background-repeat: no-repeat;
-          background-image: url(../images/gun2.svg);
-          background-size: 100%;
-          position: absolute;
-          top: 8px;
-          left: 176px;
-          z-index: 1;
-          opacity: 0.7;
-          animation: gun 3s ease-in-out 0s 3 alternate;
-          animation-fill-mode: forwards;
-          transform-origin: left center;
-
-          p {
-            padding: 64px 41px;
-            margin: 0 0 0 6px;
-            text-align: center;
-            font-size: 20px;
-          }
-        }
-
-        img {
-          width: 60vw;
-          max-width: 300px;
-          margin: 10px auto 0;
-          position: relative;
-        }
-      }
-
-      .indexLogin-btn {
-        text-align: center;
-
-        button {
-          cursor: pointer;
         }
       }
     }
