@@ -79,7 +79,7 @@
   //頁籤wrap
   padding: 25px 0;
   margin: auto 15px;
-  @include bookMarkTag(label, $fontSize-S, 10px, 18px, $color-bonus) {
+  @include bookMarkTag(label, $fontSize_S, 10px, 18px, $color-bonus) {
     //搜尋頁籤radio樣式
     padding: 15px 30px;
   }
@@ -90,7 +90,7 @@
   }
   @include rwd(sm) {
     margin: auto 25px;
-    @include bookMarkTag(label, $fontSize-XL, 20px, 28px, $color-bonus) {
+    @include bookMarkTag(label, $fontSize_L, 20px, 28px, $color_bonus) {
       padding: 15px 55px;
     }
   }
@@ -116,7 +116,7 @@
     padding: 15px 80px 15px 15px;
     @include rwd(sm) {
       height: 90px;
-      font-size: $fontSize-XL;
+      font-size: $fontSize-L;
       padding: 15px 35px;
     }
   } //引用輸入框的樣式

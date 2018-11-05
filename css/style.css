@@ -569,9 +569,8 @@ table {
 
 #to-sigin:checked ~ .login-mark .sig-in,
 #to-sigup:checked ~ .login-mark .sig-up {
-  color: #FED44F;
-  text-shadow: 1px 1px 1px #BB7232;
-  transform: scale(1.2);
+  color: #333333;
+  border-bottom: 10px solid #FED44F;
   transition: 0.4s; }
 
 #close-login:checked ~ #login-wrap {
@@ -579,7 +578,7 @@ table {
   z-index: 0; }
 
 .close-login {
-  width: 70px;
+  width: 50px;
   height: 50px;
   background-color: #FED44F;
   border-radius: 0 50% 0 20%;
@@ -591,18 +590,19 @@ table {
     content: '';
     transform: rotate(-45deg);
     top: calc( 85% - 17px);
-    left: calc( 30% - 17px);
+    left: calc( 45% - 17px);
     border-radius: 50%;
     border-radius: 50px; }
   .close-login::after {
     content: '';
     transform: rotate(45deg);
     top: calc( 85% - 17px);
-    left: calc( 30% - 17px);
+    left: calc( 45% - 17px);
     border-radius: 50%;
     border-radius: 50px; }
   @media screen and (min-width: 768px) {
     .close-login {
+      width: 70px;
       height: 70px;
       left: calc( 100% - 70px);
       border-radius: 0 50% 0 50%; }
@@ -692,7 +692,7 @@ table {
     .login-wrap {
       width: 26.66667%;
       min-width: 320px;
-      min-height: 550px;
+      min-height: 600px;
       height: 65%;
       overflow-x: inherit;
       overflow-y: inherit;
@@ -707,16 +707,18 @@ table {
 
 .login-mark {
   text-align: center;
-  padding: 30px 0 15px; }
+  padding: 50px 0 15px; }
   @media screen and (min-width: 768px) {
     .login-mark {
       padding: 100px 0 15px; } }
   .login-mark label {
-    float: cetent;
+    width: 50%;
+    float: left;
     padding: 15px 25px;
     font-size: 24px;
     background-color: transparent;
-    color: #0008;
+    border-bottom: 10px solid #0005;
+    color: #0005;
     transition: 0.4s;
     position: relative;
     z-index: 0; }
@@ -948,7 +950,7 @@ table {
       margin: auto 25px; }
       .bookmark label {
         padding: 15px 55px;
-        font-size: 36px;
+        font-size: 30px;
         position: relative;
         cursor: pointer; }
         .bookmark label:after, .bookmark label:before {
@@ -1016,7 +1018,7 @@ table {
     @media screen and (min-width: 768px) {
       .search-bg .input-wrap .input-search {
         height: 90px;
-        font-size: 36px;
+        font-size: 30px;
         padding: 15px 35px; } }
     .search-bg .input-wrap .input-search::-webkit-input-placeholder {
       color: #fff;
@@ -2155,8 +2157,8 @@ body {
   .chatBot-keyword li {
     display: inline-block;
     margin-left: 5px;
-    background-color: #FF5000;
     color: #fff;
+    background-color: #BB7232;
     border-radius: 10px;
     padding: 5px;
     cursor: pointer; }
@@ -2258,15 +2260,15 @@ body {
       display: block; } }
 
 @media screen and (min-width: 768px) {
+  #chatBot:hover .chatBot-shonw {
+    animation: chatBotShonw 0.7s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275) alternate; }
+  #chatBot:hover .chatBot-pic {
+    animation: chatBotPic 0.7s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275) alternate; }
   .close-chatBot-pic {
     float: right;
     cursor: pointer;
     position: relative;
     text-align: center; }
-    .close-chatBot-pic:hover .chatBot-shonw {
-      animation: chatBotShonw 0.7s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275) alternate; }
-    .close-chatBot-pic:hover .chatBot-pic {
-      animation: chatBotPic 0.7s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275) alternate; }
     .close-chatBot-pic .chatBot-shonw {
       display: inline-block;
       width: 70%;

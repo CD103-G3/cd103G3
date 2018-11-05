@@ -5,43 +5,58 @@ if(document.getElementById('control-chatBot')!=null){
 		document.getElementById('navctrl').checked=false;
 	});	
 	var chatBotText = document.getElementsByClassName('chatBot-text')[0];
-	chatBotText.addEventListener('input',function () {
+	var content = document.getElementById('chatBot-content');
+	var container = document.getElementById('chatBot-container');
+
+	chatBotText.addEventListener('keyup',function () {
+		//HTML包含小黑點
 		var newText = `<p class="chatBot-content-Q"><span></span><span></span><span></span></p><div style="clear: both"></div>`;
 		// var = chatBotText.lastChild
+		//小黑點
 		var span = document.querySelectorAll('.chatBot-content-Q span')
-		var content = document.getElementById('chatBot-content');
-		if(span.length<1){
+		//輸入字串長度大於等於1時，新增HTML包含小白點
+		if(chatBotText.value.length >= 1){
+			console.log("chatBotText.value.length >= 1:"+chatBotText.value.length);
 			$('#chatBot-content').append(newText);
-		}else if(chatBotText.value.length="" || chatBotText.value.length==0){
-			content.removeChild(content.lastChild.previousSibling);
-		}
+			// container.removeChild(container.lastChild.previousSibling);
+		}else if(chatBotText.value.length < 1){
+			console.log("chatBotText.value.length < 1:"+chatBotText.value.length);
+			content.removeChild(content.lastChild);
+			// $('.chatBot-container').remove('span');
+		};				
+		if(span.length<1){
+			console.log("span.length:"+span.length);
+
+		};
+
+		var h = container.offsetHeight;
+		//送出的同時滾動卷軸到最後一筆留言
+		document.getElementById('chatBot-content').scrollTo({
+			top: h,
+			left: 0,
+			behavior: 'smooth',
+		});
 	});
-	// var a = document.getElementsByClassName('close-chatBot-pic');
-	// console.log(a);
-	// var ani = new TimelineMax({
-	// 	repeat: -1,
-	// 	repeatDelay: -0.01,
-	// 	yoyo: true
-	// });
-	// var tw01 = TweenMax.fromTo(".chatBot-shonw", 0.5, {
-	// 	x:0
-	// },{
-	// 	width:'30%',
-	// 	ease: Back.easeOut.config(0)
-	// });
-	// var tw02 = TweenMax.fromTo(".chatBot-pic", 0.5, {
-	// 	x:0
-	// },{
-	// 	y: -10,
-	// 	ease: Back.easeOut.config(0)
-	// });
-	// document.querySelector('.close-chatBot-pic').addEventListener('mouseover',function () {
-	// 	ani.add([tw01,tw02]);
-	// 	ani.play();
-	// });
-	// document.querySelector('.close-chatBot-pic').addEventListener('mouseout',function () {
-	// 	ani.stop();
-	// });
+	document.getElementById('chatBot-search').addEventListener('click',function () {
+		var newText = `<p class="chatBot-content-Q">${chatBotText.value}</p><div style="clear: both"></div>`;
+		//清除content-Q的span
+		content.removeChild(content.lastChild);
+		// content.removeChild(content.lastChild.previousSibling);
+		//把你打的字加到對話區
+		container.innerHTML += newText;
+		// //清空textarea中的字
+		chatBotText.value = '';
+		//找到對話框的高度，並設定變數
+		var h = container.offsetHeight;
+		//送出的同時滾動卷軸到最後一筆留言
+		document.getElementById('chatBot-content').scrollTo({
+			top: h,
+			left: 0,
+			behavior: 'smooth',
+		});		
+	});
+
+	
 }
 if(document.getElementById('control-login')!=null){
 	document.getElementById('control-login').addEventListener('click',function () {

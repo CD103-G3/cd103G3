@@ -154,8 +154,9 @@
   li {
     display: inline-block;
     margin-left: 5px;
-    background-color: $color-hot;
+    // border: 1px solid $color-hot;
     color: #fff;
+    background-color: $color-main4;
     border-radius: 10px;
     padding: 5px;
     cursor: pointer;
@@ -225,6 +226,12 @@
 }
 
 @include rwd(sm) {
+  #chatBot:hover .chatBot-shonw{
+    animation: chatBotShonw .7s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275) alternate;
+  }
+  #chatBot:hover .chatBot-pic{
+    animation: chatBotPic .7s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275) alternate;
+  }
   .close-chatBot-pic {
     float: right;
     cursor: pointer;
@@ -233,12 +240,12 @@
     &:hover .chatBot-shonw{
       // width: 30%;
       // transition: .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      animation: chatBotShonw .7s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275) alternate;
+      // animation: chatBotShonw .7s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275) alternate;
     }
     &:hover .chatBot-pic{
       // top: -10px;
       // transition: .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      animation: chatBotPic .7s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275) alternate;
+      // animation: chatBotPic .7s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275) alternate;
     }
     .chatBot-shonw{
       display: inline-block;
