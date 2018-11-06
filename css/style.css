@@ -502,6 +502,13 @@ table {
   height: 0;
   clear: both; }
 
+button, input[type="button"] {
+  -webkit-appearance: none;
+  /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
+  -moz-appearance: none;
+  /* FireFox */
+  appearance: none; }
+
 .close-login::before, .close-login::after, .close-search::before, .close-search::after, .close-chatBot::before, .close-chatBot::after {
   display: block;
   background-color: #76391B;
@@ -2261,9 +2268,9 @@ body {
 
 @media screen and (min-width: 768px) {
   #chatBot:hover .chatBot-shonw {
-    animation: chatBotShonw 0.7s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275) alternate; }
+    animation: chatBotShonw 1s infinite cubic-bezier(0.44, -0.96, 0.14, 0.91) alternate; }
   #chatBot:hover .chatBot-pic {
-    animation: chatBotPic 0.7s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275) alternate; }
+    animation: chatBotPic 1s infinite cubic-bezier(0.44, -0.96, 0.14, 0.91) alternate; }
   .close-chatBot-pic {
     float: right;
     cursor: pointer;
@@ -2273,7 +2280,8 @@ body {
       display: inline-block;
       width: 70%;
       height: 10px;
-      background-color: #0009;
+      background-color: #000;
+      opacity: .7;
       border-radius: 50%;
       transition: .4s; }
     .close-chatBot-pic .chatBot-pic {
@@ -2282,13 +2290,26 @@ body {
       transition: .4s; } }
 
 @keyframes chatBotShonw {
+  0% {
+    width: 70%;
+    background-color: #000;
+    opacity: .7; }
+  10% {
+    width: 73%;
+    background-color: #000;
+    opacity: .8; }
   100% {
     width: 30%;
-    background-color: #0007; } }
+    background-color: #000;
+    opacity: .6; } }
 
 @keyframes chatBotPic {
+  0% {
+    top: 10px; }
+  10% {
+    top: 11px; }
   100% {
-    top: -10px; } }
+    top: -7px; } }
 
 .space {
   height: 75px; }

@@ -6,6 +6,13 @@
   height: 0;
   clear: both; }
 
+button, input[type="button"] {
+  -webkit-appearance: none;
+  /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
+  -moz-appearance: none;
+  /* FireFox */
+  appearance: none; }
+
 * {
   font-size: 16px;
   font-family: 微軟正黑體, arial, "sans serif";

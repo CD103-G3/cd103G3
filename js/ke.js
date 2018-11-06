@@ -4,38 +4,48 @@ if(document.getElementById('control-chatBot')!=null){
 		closeChatBot.checked=false;
 		document.getElementById('navctrl').checked=false;
 	});	
-	var chatBotText = document.getElementsByClassName('chatBot-text')[0];
-	var content = document.getElementById('chatBot-content');
-	var container = document.getElementById('chatBot-container');
+	var chatBotText = document.getElementsByClassName('chatBot-text')[0];//輸入框
+	var content = document.getElementById('chatBot-content');//內容第一層
+	var container = document.getElementById('chatBot-container');//內容第二層(包p)
+	var chatBotSearch = document.getElementById('chatBot-search');//送出按鈕
 
 	chatBotText.addEventListener('keyup',function () {
-		//HTML包含小黑點
-		var newText = `<p class="chatBot-content-Q"><span></span><span></span><span></span></p><div style="clear: both"></div>`;
-		// var = chatBotText.lastChild
-		//小黑點
-		var span = document.querySelectorAll('.chatBot-content-Q span')
-		//輸入字串長度大於等於1時，新增HTML包含小白點
-		if(chatBotText.value.length >= 1){
-			console.log("chatBotText.value.length >= 1:"+chatBotText.value.length);
-			$('#chatBot-content').append(newText);
-			// container.removeChild(container.lastChild.previousSibling);
-		}else if(chatBotText.value.length < 1){
-			console.log("chatBotText.value.length < 1:"+chatBotText.value.length);
-			content.removeChild(content.lastChild);
-			// $('.chatBot-container').remove('span');
-		};				
-		if(span.length<1){
-			console.log("span.length:"+span.length);
+		// console.log("刪除誰:"+content.lastChild.tagName);
+		console.log(container.lastChild.previousSibling.tagName);
 
-		};
+		// //小黑點
+		// var Qspan = document.querySelectorAll('.chatBot-content-Q span');
 
-		var h = container.offsetHeight;
-		//送出的同時滾動卷軸到最後一筆留言
-		document.getElementById('chatBot-content').scrollTo({
-			top: h,
-			left: 0,
-			behavior: 'smooth',
-		});
+		// //HTML包含小黑點
+		// var newText = `<p class="chatBot-content-Q"><span></span><span></span><span></span></p><div style="clear: both"></div>`;
+
+		// //輸入字串長度大於等於1時，新增div包含小白點
+		// if(chatBotText.value!=0){
+		// 	if(Qspan.length<1){
+		// 		$('#chatBot-content').append(newText);
+		// 	};
+		// 	console.log("Qspan:"+Qspan);
+		// 	console.log("keyCode:"+chatBotText.keyCode);
+		// 	// container.removeChild(container.lastChild.previousSibling);
+		// 	// if(this.keyCode == 13) {
+		//  	// 	document.forms["chatBot"].submit();
+		//  	// }
+ 		// }else{
+		// 	console.log("長度:"+chatBotText.value.length);
+		// 	console.log("內容:"+chatBotText.value);
+		// 	content.removeChild(content.lastChild);
+		// 	// $('.chatBot-container').remove('span');
+		// 	// if(span.length<1){
+		// 	// 	console.log("span.length:"+span.length);
+		// 	// };
+		// }
+		// var h = container.offsetHeight;
+		// //送出的同時滾動卷軸到最後一筆留言
+		// document.getElementById('chatBot-content').scrollTo({
+		// 	top: h,
+		// 	left: 0,
+		// 	behavior: 'smooth',
+		// });
 	});
 	document.getElementById('chatBot-search').addEventListener('click',function () {
 		var newText = `<p class="chatBot-content-Q">${chatBotText.value}</p><div style="clear: both"></div>`;
@@ -55,7 +65,12 @@ if(document.getElementById('control-chatBot')!=null){
 			behavior: 'smooth',
 		});		
 	});
-
+	//form的submit按下enter送出表單keypress
+	// function checkSubmit(e) {
+	// 	if(e && e.keyCode == 13) {
+	// 	document.forms[0].submit();
+	// 	}
+	// };
 	
 }
 if(document.getElementById('control-login')!=null){
