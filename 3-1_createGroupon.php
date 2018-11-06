@@ -17,7 +17,7 @@
         
     <div class="maxWidthWrapper">
         <div class="step-container clearfix">
-                <!-- 這裡放步驟 -->
+                <!-- 這裡放步驟    -->
                 <h2>發起飯團!</h2>
                 <ul class="step-wrapper clearfix">
                     <li class="grid-4 active">
