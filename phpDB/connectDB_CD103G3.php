@@ -5,5 +5,5 @@
     $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
     $pdo = new PDO($db, $user,$ps, $options);
 
-    echo 'connect successful';
+    // echo 'connect successful';
 ?>

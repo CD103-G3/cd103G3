@@ -80,10 +80,36 @@ function initDayCook() {
     }
 
 
-    
+    //產生之前選的餐點，3-2
+    getMeal();
+    mealArray = storage.addMealList.substr(0, storage.addMealList.length - 1).split(',');
     // alert(mealArray.length);
+    if($id('mealArea')) {
+        if(storage.addMealList.length > 1) {
+            for(let i in mealArray) {
+                mealCount++;
+                var mealId = mealArray[i];
+                var mealInfo = storage.getItem(mealArray[i]);     
+                createMealBox(mealId, mealInfo);
+                
+                // originalPrice -= mealPrice;
+                grouponPrice = Math.floor(originalPrice * 0.6);
+                $id('originPrice').innerText = originalPrice;
+                $id('salePrice').innerText = grouponPrice;
+                $id('addedMealNow').innerText = mealCount;
+                $class('grouponDay')[0].innerText = mealCount;
     
+                $id('mealAreaInfo').style.display = 'none';
+                var mealBG = mealId + '_bg';
+                // console.log($id('mealBG'));
+                $id(mealBG).style.left = '0px';
+                $id(mealBG).style.opacity = '.7';
     
+                calBonus();
+            }
+            // createMealBox(e);
+        }
+    }
     
     
     // 產生從今天開始的後七天
@@ -116,10 +142,6 @@ function initDayCook() {
                 // groupon tag
                 var optionIndex = $id('grouponTag').selectedIndex;
                 storage.grouponInfo += $id('grouponTag').options[optionIndex].innerText + '|';
-
-                //groupon tag no.
-                var tagNo = $id('grouponTag').options[optionIndex].value.replace('tag','');
-                storage.grouponInfo += tagNo + '|';
             } else {
                 alert('請輸入飯團名稱~');
             }
@@ -134,21 +156,14 @@ function initDayCook() {
         };
     }
 
-    //產生之前選的餐點，3-2
-    if($id('mealArea')) {
-        getMeal();
-    }
-    mealArray = storage.addMealList.substr(0, storage.addMealList.length - 1).split(',');
-
-
     // 註冊3-3確定發起的按鈕
     if($id('3_3_confirmCreate_BTN')) {
         // 產生meal 和其相關數據
         createMealList();
         $id('3_3_confirmCreate_BTN').onclick = function() {
             // 清空storage
-            // alert('已成功發起飯團!!');
-            
+            alert('已成功發起飯團!!');
+            storage.clear();
             
         };
     }
@@ -279,38 +294,6 @@ function checkInput() {
     }
 }
 
-
-// 3-2
-function setMealArea() {
-    if($id('mealArea')) {
-        if(storage.addMealList.length > 1) {
-            for(let i in mealArray) {
-                // mealCount++;
-                var mealId = mealArray[i];
-                var mealInfo = storage.getItem(mealArray[i]);     
-                createMealBox(mealId, mealInfo);
-                
-                // originalPrice -= mealPrice;
-                grouponPrice = Math.floor(originalPrice * 0.6);
-                $id('originPrice').innerText = originalPrice;
-                $id('salePrice').innerText = grouponPrice;
-                $id('addedMealNow').innerText = storage.mealCount;
-                $class('grouponDay')[0].innerText = storage.mealCount;
-    
-                $id('mealAreaInfo').style.display = 'none';
-                var mealBG = mealId + '_bg';
-                // console.log($id('mealBG'));
-                $id(mealBG).style.left = '0px';
-                $id(mealBG).style.opacity = '.7';
-    
-                calBonus();
-            }
-            // createMealBox(e);
-        }
-    }
-}
-
-
 function createMealList(e) {
     // setting title and tag
     var grouponInfo = storage.grouponInfo.split('|');
@@ -337,7 +320,6 @@ function createMealList(e) {
     $class('people')[0].innerText = storage.numIn;
     $class('people')[1].innerText = storage.numIn;
     bonusNow = Math.round(storage.numIn * parseInt(storage.mealCount) / 10);
-    console.log(bonusNow);
     $class('bonus-coin')[0].innerText = bonusNow;
     $class('bonus')[0].innerText = bonusNow;
     //setting  price
@@ -375,7 +357,6 @@ function genRandomTitle() {
 function calBonus() {
     bonusNow = Math.round(storage.numIn * parseInt(storage.mealCount) / 10);
     $id('3_2Bonus').innerText = bonusNow;
-    $class('bonus-coin')[0].innerText = bonusNow;
 }
 
 // 計算餐點數量

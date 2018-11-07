@@ -67,7 +67,7 @@
                         <option value="gt1">超健康</option>
                         <option value="gt1">超省錢</option>
                         <option value="gt1">大家快來吃!</option> -->
-                        <?php require_once("grouponTag.php"); ?>
+                        <?php require_once("3-1grouponTag.php"); ?>
                     </select>
                 </div>
                 
@@ -76,7 +76,7 @@
         </div>
         <div class="btn-container page3_1 clearfix">
             <div class="cancelBTN">
-                回上一步
+                回首頁
             </div>
             <a class="nextBTN" id="page3_1_BTN" href="3-2_createGroupon_selectMeal.html">
                 確認並繼續

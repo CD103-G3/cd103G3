@@ -147,7 +147,7 @@
             <a class="cancelBTN" href="3-2_createGroupon_selectMeal.html">
                 回上一步
             </a>
-            <a class="nextBTN" href="3-4_createGroupon_successfule.html" id="3_3_confirmCreate_BTN">
+            <a class="nextBTN"  id="3_3_confirmCreate_BTN">
                 確認並繼續
             </a>
         </div>
@@ -159,4 +159,30 @@
         <!-- 放footer -->
     </footer>
 </body>
+<script>
+    window.addEventListener('load', function() {
+        $id('3_3_confirmCreate_BTN').onclick = function() {
+            var info = storage.grouponInfo;
+            // console.log(storage.grouponInfo);
+            var infoArr = storage.grouponInfo.split('|');
+            var bonus = document.getElementsByClassName('bonus')[0].innerHTML;
+            // console.log(bonus);
+            // console.log(infoArr[3]);
+            var endDateNum = parseInt(infoArr[1]) + parseInt(storage.mealCount);
+            var grouponList = {
+                groupon_Name: infoArr[0],
+                groupon_TagNo: infoArr[3],
+                groupon_Founder: '日食小編',
+                startDate: infoArr[1],
+                endDate: endDateNum,
+                groupon_Bonus: bonus,
+                groupon_MemberNeed: storage.numIn,
+            }
+            var str = JSON.stringify(grouponList);
+            location.href = '3-3_createGroupon.php?jsonStr=' + str;
+            
+        }
+    });
+
+</script>
 </html>
