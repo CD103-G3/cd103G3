@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, min-scale=1, max-scale=1, shrink-to-fit=no">
-	<title>Title</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
 	<input type="checkbox" id="close-search" checked>
 	<div class="wrap search-wrap">
 		<label for="close-search" class="close-search"></label>
 		<form action="" class="search-bg">
-			<!-- 頁籤頭 -->
+			<!-- 頁籤類別 -->
 			<input type="radio" name="bookmark" id="bookmark-meal" checked>
 			<input type="radio" name="bookmark" id="bookmark-groupon">
 			<div class="bookmark">
@@ -22,13 +11,14 @@
 				<label for="bookmark-groupon" id="bookmark-animation-groupon">飯團</label>
 			</div>
 
-			<!-- 輸入區 -->
+			<!-- 輸入關鍵字區 -->
 			<div class="input-wrap">
 				<input type="text" id="input-search" class="input-search" maxlength="30" placeholder="請輸入餐點關鍵字">
 				<button type="submit" id="start-search" class="mainBTN">搜尋<span class="search-img"><img src="images/search.svg" alt="搜尋" class="img-search"></span></button>
 			</div>
-			<!-- 頁籤內容 -->
+			<!-- 頁籤類別內容-餐點 -->
 			<div class="bookmark-cetentier bookmark-meal">
+				<!-- 餐點類別 -->
 				<div class="bookmark-cetentier-item bookmark-meal-item clearfix">
 					<input type="checkbox" name="mealGenre-No" id="mealGenre-No1">
 					<input type="checkbox" name="mealGenre-No" id="mealGenre-No2">
@@ -44,8 +34,10 @@
 					<label for="mealGenre-No5" class="mealGenre-No">素食</label>
 					<label for="mealGenre-No6" class="mealGenre-No">鍋物</label>
 				</div>
+				<!-- 顯示更多按鈕 -->
 				<input type="checkbox" id="bookmark-cetentier-more-meal">
 				<label for="bookmark-cetentier-more-meal" class="bookmark-cetentier-more meal">顯示更多 +</label>
+				<!-- 卡路里 -->
 				<div class="bookmark-cetentier-item bookmark-meal-item clearfix">
 					<span>卡路里</span>
 					<div>
@@ -60,6 +52,7 @@
 						<label for="meal-Cal4" class="meal-Cal">901up</label>
 					</div>
 				</div>
+				<!-- 金額限制 -->
 				<div class="bookmark-cetentier-item bookmark-meal-item clearfix">
 					<span>價格</span>
 					<input type="text" name="meal-Price" class="meal-Price" id="meal-Price1" placeholder="最低金額">
@@ -67,7 +60,9 @@
 					<input type="text" name="meal-Price" id="meal-Price2" placeholder="最高金額">
 				</div>
 			</div>
+			<!-- 頁籤類別內容-飯團 -->
 			<div class="bookmark-cetentier bookmark-groupon">
+				<!-- TAG標籤 -->
 				<div class="bookmark-cetentier-item bookmark-groupon-item clearfix">
 					<div class="tagname-wrap clearfix">
 						<input type="radio" name="groupon-TagName" id="groupon-TagNo1" checked>
@@ -91,8 +86,10 @@
 						<label for="groupon-TagNo9" class="groupon-TagName"><img src="images/tag_N.svg" alt="飯">飯</label>
 					</div>
 				</div>
+				<!-- 顯示更多按鈕 -->
 				<input type="checkbox" id="bookmark-cetentier-more-groupon">
 				<label for="bookmark-cetentier-more-groupon" class="bookmark-cetentier-more groupon">顯示更多 +</label>
+				<!-- 餐數篩選 -->
 				<div class="bookmark-cetentier-item bookmark-groupon-item clearfix">
 					<span>飯團餐數</span>
 					<div>
@@ -105,6 +102,7 @@
 						<label for="grouponList-No3" class="grouponList-No">7餐以上</label>
 					</div>
 				</div>
+				<!-- 價格篩選 -->
 				<div class="bookmark-cetentier-item bookmark-groupon-item clearfix">
 					<span>平均價格</span>
 					<div>
@@ -124,8 +122,3 @@
 		</form>
 	</div>
 
-
-	<script src="js/ke.js"></script>
-</body>
-
-</html>

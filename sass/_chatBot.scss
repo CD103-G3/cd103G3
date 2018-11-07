@@ -8,7 +8,7 @@
   position: fixed;
   top:75px;
   left: 0;
-  z-index: 50;
+  z-index: 0;
   @include rwd(sm){
     width: auto;
     max-width: 380px;
@@ -24,6 +24,7 @@
   width: 0;
   height: 0;
   display: none;
+  z-index: 0;
 }
 .chatBot-contenier-wrap {
   //客服雞以上的物件的wrap

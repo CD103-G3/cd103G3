@@ -115,7 +115,7 @@
 //以上是動態區
 #login-wrap {
   position: absolute;
-  top: 60px;
+  top: 75px;
   left: 0;
   bottom: 0;
   right: 0;
@@ -123,6 +123,7 @@
   background-color: #aaa9;
   @include rwd(sm) {
     position: fixed;
+    top: 100px;
     background-color: #aaa9;
   }
 }
