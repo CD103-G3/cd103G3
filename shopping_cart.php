@@ -58,8 +58,8 @@
                             </td>
                             <td>NT$200</td>
                             <td>
-                                <p><img src="images/icon/if_General_-_Office_54_1471106.svg" alt="collection" id="collection"><span>收藏</span></span></p>
-                                <p><img src="images/icon/trash.svg" alt="delete" id="delete"><span>刪除</span></p>
+                                <p><img src="images/icon/heart_black.svg" alt="collection" id="collection"><span>收藏</span></span></p>
+                                <p><img src="images/icon/trash_black.svg" alt="delete" id="delete"><span>刪除</span></p>
                             </td>
                         </tr>
                     </table>

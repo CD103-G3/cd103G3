@@ -1,9 +1,8 @@
 header{
-    height: 80px;
     width: 100%;
+    height: 80px;
     position: fixed;
     z-index: 100;
-    margin-bottom: 20px;
     
     *{
         font-size: 0;
@@ -15,8 +14,11 @@ header{
         font-size: 24px;
         color: #fff;
         text-decoration: none;  
+    };
+    label{
+        font-size: 24px;
+        color: #fff;
     }
-
     #navctrl{
         display: none;
 
@@ -118,6 +120,7 @@ header{
         }
   
         .seach-button{
+            font-size: 0;
             padding: 23px 9px 18px;
             color: #76391b;
             border-radius: 50%;
@@ -172,19 +175,22 @@ header{
                 } 
             }
 
-            .member{
+            .index-member{
                 margin-bottom: 35px;
 
                 .before-login{
-                   display: none;
-
-                    a{
-                        margin-right: 20px;
-                    }
+                //    display: none;
+                font-size: 24px;
+                color: #fff;
+                display: inline-block;
+                    // a{
+                        // margin-right: 20px;
+                    // }
                 }
-
+                
                 .after-login{
-                    display: inline-block;
+                    // display: inline-block;
+                    display: none;
                     
                     div{
                         display: inline-block;
@@ -217,61 +223,44 @@ header{
         }
     }
 
-    #white-Point-control{
-        display: none;
+    // #white-Point-control{
+    //     display: none;
 
-        &:checked ~ .white-Point{
-            width: 70vmin;
-            height: 70vmin;
-            transform: translate(-50%, -50%);
-            transition: 1s;
-            top: 50%;
-            left: 50%;
+    //     &:checked ~ .white-Point{
+    //         width: 70vmin;
+    //         height: 70vmin;
+    //         transform: translate(-50%, -50%);
+    //         transition: 1s;
+    //         top: 50%;
+    //         left: 50%;
 
-            li{
-                display: inline-block;
-            }
-        }
-    }
+    //         li{
+    //             display: inline-block;
+    //         }
+    //     }
+    // }
     
     .white-Point{
         margin: auto;
         width: 50px;
         height: 50px;
+        // width: 70vmin;
+        // height: 70vmin;
         border-radius: 15px;
         background-color: #425075;
         position: fixed;
-        transition: 1s;
-        top: 80px;
-        right: 0%;
+        // transition: 1s;
+        // top: 15vmin;
+        // right: 15vmin;
         z-index: 101;
-
-        &.floaty.active {
-            z-index: 10001;
-        }
-        
-        &.floaty:before{
-            content: "";
-            display: block;
-            position: absolute;;
-            width: 100%;
-            height: 100%;
-            margin-left: 0;
-            margin-top: 0;
-        }
-        
-        &.floaty.active:before {
-            content: "";
-            display: block;
-            top: -500%;
-            left: -500%;
-            width: 1100%;
-            height: 1100%;
-        }
 
         ul{
             text-align: center;
             
+            .phone-hidden{    
+                display: none;
+            }
+
             li{
                 margin: 0 auto;
                 width: 50%;
@@ -293,7 +282,7 @@ header{
 
                     img{
                         margin-bottom: 5px;
-                        width: 40%;
+                        width: 30%;
                     }
                 }
 
@@ -403,13 +392,14 @@ header{
 
                     &.table-hidden{
                         display: none;
+                 
                     }
 
                     &.logo{
                         transform: translateX(200%);
                     }   
 
-                    &.member{
+                    &.index-member{
                         transform: translateX(300%);
                     }
                     
@@ -428,23 +418,23 @@ header{
             }
         }
         
-        #white-Point-control{
-            display: none;
+        // #white-Point-control{
+        //     display: none;
     
-            &:checked ~ .white-Point{
-                width: 14.28571428%;
-                height: 100px;
-                transform: translate(0, 0);
-                transition: 0s;
-                position: static;
+        //     &:checked ~ .white-Point{
+        //         width: 14.28571428%;
+        //         height: 100px;
+        //         transform: translate(0, 0);
+        //         transition: 0s;
+        //         position: static;
 
-                li{    
-                    &.table-hidden{    
-                        display: none;
-                    }
-                }
-            }
-        }
+        //         li{    
+        //             &.table-hidden{    
+        //                 display: none;
+        //             }
+        //         }
+        //     }
+        // }
         
         .white-Point{   
             margin: auto;
@@ -476,14 +466,18 @@ header{
                     vertical-align: middle;
                 }
 
+                .phone-hidden{    
+                    display: inline-block;
+                }
+
+                .table-hidden{    
+                    display: none;
+                }
+
                 li{    
                     width: auto;
                     height: auto;
                     display: inline-block;
-
-                    &.table-hidden{    
-                        display: none;
-                    }
                     
                     &:nth-of-type(1){
                         width: auto;
@@ -551,7 +545,7 @@ header{
 
         @for $j from 2 through 3{
   
-            li:not(.logo):not(.member):hover .s#{$j}{ 
+            li:not(.logo):not(.index-member):hover .s#{$j}{ 
                 border: 2px solid #2d3e51;
                 border-bottom: none;
                 border-radius: 5px 5px 5px 5px;
@@ -579,4 +573,3 @@ header{
         height: 100px;
     }
 }
-
