@@ -45,15 +45,35 @@
   }
   width: 100%;
   position: fixed;
-  top: 60px;
+  top: 0px;
   z-index: 50;
+  padding-top:60px; 
   @include rwd(sm) {
     width: 100%;
     position: fixed;
-    top: 100px;
+    top: 0px;
     left: 0;
+    padding-top:100px; 
   }
-  background-color: rgba(0, 0, 0, 0.65);
+  // background-color: rgba(0, 0, 0, 0.65);
+
+  // background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+  // background-blend-mode: multiply,multiply;
+  // background: linear-gradient(to top,rgba(55,55,55,0.8) 65%, rgba(255,255,255,0.8) 100%); 
+  background-color:#FBF3CC;
+  // &:after{
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   right: 0;
+  //   background-image: url(../images/nav_background.png);
+  //   background-size: cover;
+  //   z-index: -1;
+  // }
+
+
 }
 .search-bg {
   //搜尋置中
@@ -115,7 +135,7 @@
   @include inputSearch(40px, $fontSize-S) {
     padding: 15px 80px 15px 15px;
     @include rwd(sm) {
-      height: 90px;
+      height: 80px;
       font-size: $fontSize-L;
       padding: 15px 35px;
     }

@@ -10,8 +10,8 @@ document.getElementById("close-chatBot").addEventListener("click", function() {
   let submit = document.getElementById("chatBot-search");
   //刪除小黑點
   function delQpoint() {
-    console.log(container.lastChild.previousSibling.tagName);
-    console.log(container.lastChild.tagName);
+    // console.log(container.lastChild.previousSibling.tagName);
+    // console.log(container.lastChild.tagName);
     container.removeChild(container.lastChild.previousSibling); //刪除container的最後一個小孩的上一個兄弟
     container.removeChild(container.lastChild); //刪除container的最後一個小孩
   }
@@ -52,7 +52,7 @@ document.getElementById("close-chatBot").addEventListener("click", function() {
         $("#chatBot-container").append(newText);
       }
       if (window.event.which == 13) {
-        console.log("good");
+        // console.log("window.event.which == 13");
         // document.forms["chatBot"].submit();
         chatBotSubmit();
       }
@@ -65,13 +65,13 @@ document.getElementById("close-chatBot").addEventListener("click", function() {
   });
   submit.addEventListener("click", function() {
     if (chatUserText.value != 0) {
-      console.log("good");
+      // console.log("chatUserText.value != 0");
       // document.forms["chatBot"].submit();
       chatBotSubmit();
     }
   });
   //使用關鍵字
-  let keyword = document.querySelectorAll(".chatBot-keyword li");
+  var keyword = document.querySelectorAll(".chatBot-keyword li");
   for (let i = 0; i < keyword.length; i++) {
     keyword[i].addEventListener("click", function() {
       let newText = `<p class="chatBot-content-Q">${
@@ -82,42 +82,50 @@ document.getElementById("close-chatBot").addEventListener("click", function() {
     });
   }
   //移動關鍵字
-  let keywordWrap = document.querySelector(".chatBot-keyword");
-  keywordWrap.addEventListener("mouseover", function() {
-    let maxW = getComputedStyle(keywordWrap, null).width;
-    let minW = -maxW;
-    function scrollFunc() {
-      var orient = event.deltaY;
-      // var speed=orient/100;
-      console.log("orient:" + orient);
-      // console.log("maxW:"+maxW);
-      // if (orient >= 0) {
-      //   console.log("orient:"+orient);
-      //   // sum += 30;
-      //   // console.log("sum:"+sum);
-      // }
-      // else if(sum <=minW){
-      //   sum = minW;
-      // }else if(sum <= maxW && sum >=minW){
-      //   sum += orient;
-      // }
-      // console.log("speed:"+speed);
-      // console.log("sum:" + sum);
-      // keywordWrap.scrollTo({
-      //   top: 0,
-      //   left: sum,
-      //   behavior: "smooth"
-      // });
+  var keywordWrap = document.querySelector(".chatBot-keyword");
+  var cc = 0;
+  var maxW = 0;
+  var keywordWidth = [];
+  for (let i = 0;  i < keyword.length; i++) {
+    keywordWidth.push(parseInt(getComputedStyle(keyword[i], null).width));
+    maxW += keywordWidth[i];
+    console.log(maxW);
+  }
+  keywordWrap.onmousewheel = addKey;
+    function addKey(e) {
+      var e = e || window.event;
+      // console.log();
+      if (keywordWrap.contains(e.target)) {
+        var minW = -(maxW);
+        var orient = event.deltaY;
+        if(orient > 0 ){
+          cc += 35;
+          if(cc > maxW){
+            cc = maxW;
+          }
+        }else if(orient < 0){
+          cc -= 35;
+          if(cc < minW){
+           cc = minW;
+          }
+        }
+        keywordWrap.scrollTo({
+          top: 0,
+          left: cc,
+          behavior: "smooth"
+        });
+      }
+      event.preventDefault();
+      e.stopPropagation()
     }
-    //找到對話框的高度，並設定變數
-    let windowX = event.clientX; //網頁總寬
-    let myX = event.offsetX; //滑鼠在網頁的位置
-    let a = windowX - myX;
-    // console.log("windowX:"+windowX);
-    console.log("myX:" + myX);
-    // console.log("a:"+a);
-    // console.log("w:"+w);
-
-    // let move =
-  });
 });
+
+    // //找到對話框的高度，並設定變數
+    // let windowX = event.clientX; //網頁總寬
+    // let myX = event.offsetX; //滑鼠在網頁的位置
+    // let a = windowX - myX;
+    // // console.log("windowX:"+windowX);
+    // // console.log("myX:" + myX);
+    // // console.log("a:"+a);
+    // // console.log("w:"+w);
+    // // let move =

@@ -56,6 +56,9 @@ header {
     font-size: 24px;
     color: #fff;
     text-decoration: none; }
+  header label {
+    font-size: 24px;
+    color: #fff; }
   header #navctrl {
     display: none; }
     header #navctrl:checked ~ .phone-nav .hb .line {
@@ -123,6 +126,7 @@ header {
     header .phone-nav .logo img {
       height: 90px; }
     header .phone-nav .seach-button {
+      font-size: 0;
       padding: 23px 9px 18px;
       color: #76391b;
       border-radius: 50%;
