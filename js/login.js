@@ -1,4 +1,10 @@
+var memCheckReg = new RegExp(
+	/[(\ )(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/) (\<)(\>)(\?)(\)]+/
+);
 
+var emailCheckReg = new RegExp(
+	/[(\ )(\~)(\!)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\/) (\<)(\>)(\?)(\)]+/
+);
 document.getElementById("close-login").addEventListener("click", function() {
 	document.getElementById("navctrl").checked = false;
 	var eye = document.getElementsByClassName("eye");
@@ -9,13 +15,7 @@ document.getElementById("close-login").addEventListener("click", function() {
 	var newPlace = "<div class='login-placeholder'></div>";
 	var checkAry = [];
   
-	var memCheckReg = new RegExp(
-	  /[(\ )(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/) (\<)(\>)(\?)(\)]+/
-	);
-  
-	var emailCheckReg = new RegExp(
-	  /[(\ )(\~)(\!)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\/) (\<)(\>)(\?)(\)]+/
-	);
+
   
 	needCheckId.addEventListener("input", function() {
 	  //帳號

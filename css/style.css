@@ -1565,6 +1565,9 @@ body {
   height: 0;
   display: none; }
 
+#UserText {
+  display: none; }
+
 .chatBot-contenier-wrap {
   display: block;
   height: 100%;
