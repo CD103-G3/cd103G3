@@ -9,13 +9,31 @@ try {
     $createG = json_decode($jsonStr);
     $sql = "INSERT INTO `groupon` (`groupon_No`, `groupon_Name`,  `groupon_TagNo`, `groupon_Founder`, `startDate`, `endDate`, `groupon_Bonus`,`groupon_MemberNeed`, `memberNow`, `discount`) VALUES
     (NULL, '$createG->groupon_Name', '$createG->groupon_TagNo', '$createG->groupon_Founder', CURDATE() + $createG->startDate, CURDATE() + $createG->endDate, '$createG->groupon_Bonus', '$createG->groupon_MemberNeed', '0', '0')";
-    echo $sql;
+    
 
     // 抓系統日期 + N天
     // 抓最新一筆的飯團編號
-    $meal = $pdo -> prepare($sql);
-    $meal -> execute();
-    
+    $groupon = $pdo -> prepare($sql);
+    $groupon -> execute();
+
+//------------------------------
+    //取得最新一筆ID
+    $sql_lastID =  'SELECT LAST_INSERT_ID()';
+    $groupon = $pdo -> prepare($sql_lastID);
+    $groupon -> execute();
+    $idArr = $groupon -> fetch();
+    //最新ID在此
+    $id = $idArr[0];
+//------------------------------
+    //更新飯團的餐點清單array
+    $mealListJson = $_REQUEST['mealList'];
+    $mealList = json_decode($mealListJson);
+    //迴圈更新資料庫
+    foreach($mealList as $j => $mealListR) {
+        $sqlAddMeal = "INSERT INTO `grouponlist` (`grouponList_No`, `meal_No`, `groupon_No`) VALUES (NULL, '$mealListR', '$id')";
+        $addMeal = $pdo -> prepare($sqlAddMeal);
+        $addMeal -> execute();
+    };
 
     header("Location: 3-4_createGroupon_successful.html");
 }catch(PDOException $e) {

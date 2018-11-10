@@ -173,6 +173,10 @@ function initDayCook() {
     if($all('.circleChart').length > 0) {
         circleChart();
     }
+    if($id('searchGrouponById')) {
+        $id('searchGrouponById').addEventListener('click',searchGrouponById );
+        $id('searchId').addEventListener('keyup', searchGrouponById);
+    }
 
     
     //add meal function
@@ -504,12 +508,10 @@ function createMealBox(meal, mealInfo) {
 
     var mealList = storage.getItem(meal);
     let info = mealList.substr(0, mealList.length).split('|');
-    console.log(info);
     var mealName = info[0];
     var mealPrice = info[1];
     var mealPic = info[2];
     originalPrice += parseInt(mealPrice);
-    console.log(parseInt(mealPrice));
     grouponPrice = originalPrice * 0.6;
 
 
@@ -575,7 +577,11 @@ function changeMealInfo(e) {
     var thisInfo = this.id;
     $id('grouponDetail_pic').src = this.children[1].children[0].src;
     $id('grouponDetail_title').innerHTML = this.children[2].innerText;
+    // console.log(this.getElementsByClassName('mealInfo')[0].value);
+    $id('grouponDetail_info').innerHTML = this.getElementsByClassName('mealInfo')[0].value;
+    $id('grouponDetail_kcal').innerHTML = this.getElementsByClassName('mealCal')[0].value;
     var smallPicChange = $('.mealSmallPic-container .meal-box');
+    // 更改class
     for(let i in smallPicChange) {
         smallPicChange[i].className = 'meal-box';
     }
@@ -587,6 +593,8 @@ function changeMealInfo(e) {
     for(let x = 0 ; x < $all('.scoreEgg-container ul li').length; x++) {
     $all('.scoreEgg-container ul li img')[x].src = 'asset/scoreEgg_w.svg';
     }
+
+    //蛋蛋分數
     $class('scoreEgg-container')[0].setAttribute('score', thisScore);
     eggScore.egg({
         container: $all('.score-wrapper'),
@@ -733,6 +741,18 @@ function circleChart(e) {
             });
         }
     });
+}
+//用code搜尋飯團
+function searchGrouponById(e) {
+    var originId = $id('searchId').value.replace('g','');
+    var grouponId = (parseInt(originId) - 1234 ) / 2 - 10;
+    if(e.keyCode == 13) {
+        location.href = '6-1_grouponDetail.php?no=' + grouponId;
+    } else if(e.button == 0) {
+        location.href = '6-1_grouponDetail.php?no=' + grouponId;
+    }
+    //groupon代碼編碼為 ((no+10)*2)+1234
+    //groupon代碼解碼
 }
 
 // 6-3 tweenMax

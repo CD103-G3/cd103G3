@@ -161,6 +161,7 @@
 </body>
 <script>
     window.addEventListener('load', function() {
+        
         $id('3_3_confirmCreate_BTN').onclick = function() {
             var info = storage.grouponInfo;
             // console.log(storage.grouponInfo);
@@ -178,8 +179,15 @@
                 groupon_Bonus: bonus,
                 groupon_MemberNeed: storage.numIn,
             }
+            // var mealArr = new Array();
+            // 取得餐點array
+            var mealArr = 
+            storage.addMealList.substr(0, storage.addMealList.length - 1).replace(/meal/g,'').split(',');
+
+            var mealList = JSON.stringify(mealArr);
+
             var str = JSON.stringify(grouponList);
-            location.href = '3-3_createGroupon.php?jsonStr=' + str;
+            location.href = '3-3_createGroupon.php?jsonStr=' + str + '&mealList=' + mealList;
             
         }
     });
