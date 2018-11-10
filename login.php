@@ -1,4 +1,3 @@
-
 	<input type="checkbox" id="close-login" checked>
 	<div id="login-wrap">
 		<div class="login-wrap">
@@ -13,7 +12,7 @@
 
 			<!-- 登入 -->
 			<div class="login-mark-cetentier to-sigin clearfix">
-				<form action="" method="POST">
+				<form action="" method="POST" onsubmit="return checkSubmit()">
 					<div class="input-wrap longing-input">
 						<input type="text" id="sigin-member-Id" class="input-mem" required>
 						<label for="sigin-member-Id" class="input-pl">帳號</label>
@@ -32,7 +31,7 @@
 			</div>
 			<!-- 註冊 -->
 			<div class="login-mark-cetentier to-sigup clearfix">
-				<form action="" method="POST" id="check-form" onsubmit="return checkSubmit(1)">
+				<form action="" method="POST" id="check-form" onsubmit="return checkSubmit()">
 					<div class="input-wrap longing-input">
 						<input type="text" id="sigup-member-Id" class="input-mem need-check need-check-id"required>
 						<label for="sigup-member-Id" class="input-pl" maxlength="40">帳號</label>
@@ -59,7 +58,7 @@
 			</div>
 			<!-- 忘記密碼 -->
 			<div class="login-mark-cetentier to-get-Psw clearfix">
-				<form action="" method="POST" onsubmit="return checkSubmit(0)">
+				<form action="" method="POST" onsubmit="return checkSubmit()">
 					<div class="input-wrap longing-input">
 						<input type="text" id="get-Psw-member-Id" class="input-mem" required>
 						<label for="get-Psw-member-Id" ><img src="images/user.svg"></label>
@@ -79,7 +78,7 @@
 				
 	</div>
 <script>
-	function checkSubmit(a) {
+	function checkSubmit() {
 	  return false;
 	}
 </script>

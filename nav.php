@@ -1,4 +1,6 @@
 <?php
+ob_start();
+session_start();
 	require_once("login.php");
 	require_once("search.php");
 	require_once("chatBot.php");

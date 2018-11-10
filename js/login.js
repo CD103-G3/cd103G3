@@ -262,16 +262,106 @@ document.getElementById("close-login").addEventListener("click", function() {
     }
   });
 });
+var beforeLogin = document.getElementsByClassName('before-login')[0];
+var afterLogin = document.getElementsByClassName('after-login')[0];
+var memberPic = document.getElementsByClassName('member-Pic')[0];
 
 $id('siginSubmit').addEventListener('click',function () {
-	
+  var obj = {};
+  obj.member_Id=$id("sigin-member-Id").value;
+  obj.member_Psw=$id("sigin-member-Psw").value;
+  var jsonStr = JSON.stringify( obj );
+
+  //產生XMLHttpRequest物件
+  xhr = new XMLHttpRequest();
+ //註冊callback function寫法2 -> onload=4
+  xhr.onload = function (){
+      if( xhr.status == 200){ //OK
+          if(xhr.responseText.indexOf("not found") != -1){ //回傳的資料中有not found
+            alert("帳密錯誤");
+          }else{ //登入成功
+            beforeLogin.style.display='none';
+            afterLogin.style.display='inline-block';
+            // alert(xhr.responseText);
+            var nike = document.querySelectorAll('.after-login span')[1];
+            var aaa = xhr.responseText.split(',');
+            alert(aaa[0]);
+            alert(aaa[1]);
+            nike.innerText = aaa[0];
+            // memberPic.src = '';
+            // //將登箱中表單上的資料清空，並隱藏起來
+            // $id('lightBox').style.display = 'none';
+            // $id('memId').value = '';
+            // $id('memPsw').value = ''; 
+            // $id('spanLogin').innerHTML = '登出';  
+            document.getElementById("close-login").checked = true;
+          }
+      }else{
+        alert(xhr.status);
+      }
+  }
+  xhr.open("post", "siginSubmit.php", true);//設定好所要連結的程式
+  xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");//setRequestHeader("head","value") 設定HTTP請求的請求標頭
+  var data_info = "jsonStr=" + jsonStr;
+  xhr.send(data_info);  //送出資料
+
 },false);
 $id('sigupSubmit').addEventListener('click',function () {
-	LoginAjax(1);
+  if(LoginAjax(1)==true){
+    var needCheckEmail = document.getElementsByClassName("need-check-email")[1];
+    var obj = {};
+    obj.member_Id=$id("sigup-member-Id").value;
+    obj.member_Psw=$id("sigup-member-Psw").value;
+    obj.member_Nick=$id("sigup-member-Nick").value;
+    obj.email=needCheckEmail.value;
+    var jsonStr = JSON.stringify( obj );
+  
+    //產生XMLHttpRequest物件
+    xhr = new XMLHttpRequest();
+   //註冊callback function寫法2 -> onload=4
+    xhr.onload = function (){
+        if( xhr.status == 200){ //OK
+          var aaa = xhr.responseText.split(',');
+          alert("aaa.indexOf('not found'):"+aaa.indexOf("not found"));
+          alert(aaa);
+            if(xhr.responseText.indexOf("not found") != -1){ //回傳的資料中有not found 表示尚無此資料
+              beforeLogin.style.display='none';
+              afterLogin.style.display='inline-block';
+              // alert(xhr.responseText);
+              var nike = document.querySelectorAll('.after-login span')[1];
+              alert("aaa[0]"+aaa[0]);
+              alert("aaa[1]"+aaa[1]);
+              alert("aaa[2]"+aaa[2]);
+              nike.innerText = aaa[1];
+              // memberPic.src = '';
+              // //將登箱中表單上的資料清空，並隱藏起來
+              // $id('lightBox').style.display = 'none';
+              // $id('memId').value = '';
+              // $id('memPsw').value = ''; 
+              // $id('spanLogin').innerHTML = '登出';  
+              document.getElementById("close-login").checked = true;
+            }else{ //註冊失敗
+              if(xhr.responseText.indexOf("hasName") != -1){
+                alert("已有人使用");
+              }
+            }
+        }else{
+          alert(xhr.status);
+        }
+    }
+    xhr.open("post", "sigupSubmit.php", true);//設定好所要連結的程式
+    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");//setRequestHeader("head","value") 設定HTTP請求的請求標頭
+    var data_info = "jsonStr=" + jsonStr;
+    xhr.send(data_info);  //送出資料
+  }else{
+    alert("填寫完整才能註冊唷!");
+  }
+
 },false);
 $id('getPswSubmit').addEventListener('click',function () {
 	LoginAjax(0);
 },false);
+
 function LoginAjax(a) {
   //判斷是否填寫完整
   for (let i = a; i < 5; i++) {
@@ -285,5 +375,5 @@ function LoginAjax(a) {
       return false;
     }
   }
-  alert("aaaa");
+  return true;
 }
