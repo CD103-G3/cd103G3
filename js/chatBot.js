@@ -29,12 +29,13 @@ document.getElementById("close-chatBot").addEventListener("click", function() {
     });
   }
 
-  function chatBotSubmit() {
+  function chatBotSubmit(text) {
+    alert(text);
     //傳PHP端
     var obj = {};
-    obj.keyword = chatUserText.value;
+    obj.keyword = text;
     var jsonStr = JSON.stringify(obj);
-    $id("UserText").innerHTML = chatUserText.value;
+    $id("UserText").innerHTML = text;
     //使用者打的文字
     let newText =
       "<p class='chatBot-content-Q'>" +
@@ -95,7 +96,7 @@ document.getElementById("close-chatBot").addEventListener("click", function() {
         $("#chatBot-container").append(newText);
       }
       if (window.event.which == 13) { //判斷鍵盤有按下Enter,就送出內容
-        chatBotSubmit();
+        chatBotSubmit(chatUserText.value);
       }
     } else if (Qpoint.length >= 1) {//因為上面都沒有符合,等於無內容,那就可以移除小黑點。
       delQpoint();
@@ -104,18 +105,14 @@ document.getElementById("close-chatBot").addEventListener("click", function() {
   });
   $id("chatBot-search").addEventListener("click", function() {
     if (chatUserText.value != "") {
-      chatBotSubmit();
+      chatBotSubmit(chatUserText.value);
     }
   });
   //使用關鍵字
   var keyword = document.querySelectorAll(".chatBot-keyword li");
   for (let i = 0; i < keyword.length; i++) {
     keyword[i].addEventListener("click", function() {
-      let newText = `<p class="chatBot-content-Q">${
-        keyword[i].innerText
-      }</p><div style="clear: both"></div>`;
-      container.innerHTML += newText;
-      chatBotScrollTo(container, content);
+      chatBotSubmit(keyword[i].innerText)
     });
   }
   //移動關鍵字
@@ -156,13 +153,3 @@ document.getElementById("close-chatBot").addEventListener("click", function() {
     e.stopPropagation();
   }
 });
-
-// //找到對話框的高度，並設定變數
-// let windowX = event.clientX; //網頁總寬
-// let myX = event.offsetX; //滑鼠在網頁的位置
-// let a = windowX - myX;
-// // console.log("windowX:"+windowX);
-// // console.log("myX:" + myX);
-// // console.log("a:"+a);
-// // console.log("w:"+w);
-// // let move =
