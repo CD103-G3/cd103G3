@@ -45,15 +45,11 @@ body {
 }
 
 .indexScroll {
+  height: calc(100% + 110vh);
   background-image: url(../素材/woodbg2.png);
   background-repeat: repeat;
   position: relative;
-  // .indexScroll-box {
-  //   width: 100vw;
-  //   height: 100vh;
-  //   background-color: transparent;
-  //   opacity: 0;
-  // }
+  top: 110vh;
   .indexScroll-wrap {
     position: relative;
     top: 0vw;
@@ -117,8 +113,9 @@ a {
   width: 100%;
   height: calc(100vh - 75px);
   // background-color: #ff0;
-  // position: fixed;
+  position: fixed;
   .wrap {
+    // position: fixed;
     .indexSearch-wrap {
       height: calc(100vh - 75px);
       // background-color: $color_main3;
@@ -434,10 +431,10 @@ a {
 
 @media screen and (min-width: 1200px) {
   .indexSearch {
-    height: calc(115vh - 100px);
+    height: calc(100vh - 100px);
     .wrap {
       .indexSearch-wrap {
-        height: calc(115vh - 100px);
+        height: calc(100vh - 100px);
         background-image: url(../images/index_1_bg_desktopA.png);
         background-size: 100%;
 
@@ -594,8 +591,6 @@ a {
 .indexJoin {
   padding: 30px 0 0;
   width: 100%;
-  // height: 100vh;
-  // background-image: url(../images/index_bgColor.png);
   .wrap {
     .indexJoin-wrap {
       .indexJoin-title {
@@ -1084,8 +1079,6 @@ a {
             margin: 0 10px;
             background-image: url(../images/index_watermark.svg);
             background-size: 150%;
-            box-shadow: inset -10px -30px 0 rgba(231, 89, 7, 0.2),
-              inset 10px 30px 0 rgba(221, 109, 5, 0.25);
 
             &:disabled {
               color: $black;
@@ -1197,9 +1190,6 @@ a {
             }
 
             .indexJoin-stepOrigin {
-              // div {
-              //   display: none;
-              // }
               .indexJoin-stepO1 {
                 img:nth-child(1) {
                   width: 222px;
@@ -1524,14 +1514,6 @@ a {
         }
       }
       .indexGroupon-box {
-        // display: flex;
-        // position: relative;
-        // top: 0;
-        // bottom: 0;
-        // left: 0;
-        // right: 0;
-        // margin: 0 auto;
-
         .owl-item {
           width: 100%;
         }
@@ -1564,8 +1546,6 @@ a {
           border-radius: $grouponBr;
           box-shadow: 5px 3px 10px rgba(49, 49, 49, 0.3);
           position: relative;
-          // left: 5px;
-          // flex-wrap: nowrap;
 
           .indexGroupon-sumTitle {
             margin: 0 0 0 -12px;
@@ -1819,15 +1799,12 @@ a {
 }
 
 // 第四屏 好評餐點推薦
-.indexMeal {
+
+.indexMeal-mobile {
   width: 100%;
   padding: 0px 0 30px;
   position: relative;
-  // display: flex;
-  // align-items: center;
-  #indexMeal-canvas {
-    display: none;
-  }
+
   .wrap {
     .indexMeal-title {
       padding: 20px 0;
@@ -1839,12 +1816,7 @@ a {
     .mount {
       display: none;
     }
-    .indexMeal-confetti {
-      display: none;
-    }
-    // .trigger {
-    //   display: none;
-    // }
+
     .indexMeal-slider {
       width: 280px;
       height: 425px;
@@ -1949,8 +1921,16 @@ a {
     }
   }
 }
+
+.indexMeal-desc {
+  display: none;
+}
+
 @media screen and (min-width: 840px) {
-  .indexMeal {
+  .indexMeal-mobile {
+    display: none;
+  }
+  .indexMeal-desc {
     width: 100%;
     max-width: 100%;
     display: flex;
@@ -1961,6 +1941,7 @@ a {
       content: "";
       display: none;
     }
+
     #indexMeal-canvas {
       opacity: 0;
       position: absolute;
@@ -1968,7 +1949,15 @@ a {
       left: 0;
       width: 100%;
     }
+
     .wrap {
+      .indexMeal-title {
+        padding: 20px 0;
+        text-align: center;
+        img {
+          height: 48px;
+        }
+      }
       .mount {
         display: block;
         position: absolute;
@@ -2077,6 +2066,7 @@ a {
           }
         }
       }
+
       .indexMeal-slider {
         width: 100%;
         height: auto;
@@ -2086,19 +2076,98 @@ a {
           position: relative;
           display: flex;
           overflow: hidden;
-          .indexMEal-part {
+          .indexMeal-part {
+            margin: 0 auto;
+            list-style: none;
+            bottom: 0;
             cursor: pointer;
-          }
-          .top3 {
-            position: relative;
-            // top: 31px;
-            top: 163px;
-          }
-          .top2 {
-            position: relative;
-            // top: 31px;
-            top: 163px;
-            order: -1;
+
+            .indexMeal-top {
+              margin: 0 auto;
+              text-align: center;
+              position: relative;
+              z-index: 2;
+
+              .indexMeal-topCk {
+                width: 250px;
+              }
+
+              .indexMeal-topW {
+                width: 200px;
+                margin: 0 auto;
+                position: absolute;
+                top: 120px;
+                left: 50%;
+                transform: translateX(-50%);
+              }
+
+              .indexMeal-meal {
+                width: 185px;
+                position: absolute;
+                top: 120px;
+                left: 50%;
+
+                transform: translateX(-50%);
+              }
+            }
+
+            .indexMeal-topSum {
+              width: 280px;
+              margin: -32px auto 0;
+              padding: 50px 0;
+              background-image: url(../images/index_stage2.png);
+              background-size: 100%;
+              background-repeat: no-repeat;
+              text-align: center;
+
+              h3 {
+                display: inline;
+                font-size: 26px;
+              }
+
+              h4 {
+                display: inline;
+                font-size: 24px;
+
+                &::after {
+                  content: " 元";
+                  font-size: 16px;
+                }
+              }
+
+              p {
+                font-size: 18px;
+                line-height: 2.5rem;
+                span {
+                  img {
+                    width: 15px;
+                  }
+                }
+              }
+
+              .indexMeal-btn {
+                a {
+                  display: inline-block;
+                  padding: 5px 10px;
+                  background-color: $color_main1;
+                  border-radius: $borderRadius;
+                  color: $black;
+                  font-size: $fontSize_text;
+                  box-shadow: $boxshadow;
+                }
+
+                button {
+                  display: inline-block;
+                  padding: 5px 10px;
+                  background-color: $color_main1;
+                  border-radius: $borderRadius;
+                  color: $black;
+                  font-size: $fontSize_text;
+                  box-shadow: $boxshadow;
+                  border: 0;
+                }
+              }
+            }
           }
           .top1 {
             position: relative;
@@ -2115,6 +2184,15 @@ a {
                 top: 31px;
               }
             }
+          }
+          .top2 {
+            position: relative;
+            top: 163px;
+            order: -1;
+          }
+          .top3 {
+            position: relative;
+            top: 163px;
           }
         }
       }
@@ -2134,13 +2212,46 @@ a {
       }
       .indexLogin-sum {
         box-sizing: border-box;
+
+        .indexLogin-scratch {
+          position: relative;
+          width: 300px;
+          height: 300px;
+          margin: 0 auto;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          -o-user-select: none;
+          user-select: none;
+          cursor: url("../images/index_coinCursor.png"), default;
+
+          .indexLogin-canvas {
+            position: absolute;
+            top: 0;
+            cursor: url("../images/index_coinCursor.png"), default;
+          }
+          .indexLogin-scratch-wrap {
+            width: 100%;
+            max-width: 450px;
+            height: 100%;
+            max-height: 450px;
+            background: url("../images/index_scratch_bg.svg") no-repeat center
+              center;
+            background-size: auto 100%;
+            backface-visibility: hidden;
+            overflow: hidden;
+            z-index: -3;
+          }
+        }
+
         .indexLogin-info {
           order: 1;
           text-align: center;
-          margin: -20px 0 0;
           img {
             width: 180px;
             display: inline-block;
+            position: relative;
+            top: -50px;
           }
           div {
             width: 180px;
@@ -2148,7 +2259,7 @@ a {
             border-radius: 90px;
             position: relative;
             display: inline-block;
-            bottom: 40px;
+            bottom: 90px;
             left: -30px;
             box-shadow: inset -6px -4px 0 $color_main2;
             &:before {
@@ -2160,9 +2271,8 @@ a {
               border-color: transparent $color_main4 transparent transparent;
               transform: rotate(-16deg);
               position: absolute;
-              top: 28px;
-              left: -15px;
-              z-index: -1;
+              top: 24px;
+              left: -19px;
             }
             p {
               padding: 24px 28px;
@@ -2187,31 +2297,83 @@ a {
   }
 }
 
-.indexLogin-scratch {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  margin: 0 auto;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
+@media screen and (min-width: 768px) {
+  .indexLogin {
+    .wrap {
+      .indexLogin-wrap {
+        .indexLogin-sum {
+          display: flex;
+          justify-content: space-around;
+          .indexLogin-scratch {
+            margin: 0 0 0 -50px;
+            .indexLogin-canvas {
+              position: absolute;
+              top: 0;
+              cursor: url("../images/index_coinCursor.png"), default;
+            }
+            .indexLogin-scratch-wrap {
+              width: 100%;
+              max-width: 450px;
+              height: 100%;
+              max-height: 450px;
+              background: url("../images/index_scratch_bg.svg") no-repeat center
+                center;
+              background-size: auto 100%;
+              backface-visibility: hidden;
+              overflow: hidden;
+              z-index: -3;
+            }
+          }
 
-.indexLogin-canvas {
-  position: absolute;
-  top: 0;
-}
-
-.indexLogin-scratch-wrap {
-  width: 100%;
-  max-width: 450px;
-  height: 100%;
-  max-height: 450px;
-  background: url("../images/index_scratch_bg.svg") no-repeat center center;
-  background-size: auto 100%;
-  backface-visibility: hidden;
-  overflow: hidden;
-  z-index: -3;
+          .indexLogin-info {
+            order: -1;
+            text-align: center;
+            img {
+              width: 180px;
+              display: inline-block;
+              position: relative;
+              margin: 80px 20px 0;
+              top: -50px;
+              left: 0;
+            }
+            div {
+              width: 180px;
+              background-color: $color_main4;
+              border-radius: 90px;
+              position: relative;
+              display: inline-block;
+              bottom: 90px;
+              left: -30px;
+              box-shadow: inset -6px -4px 0 $color_main2;
+              &:before {
+                content: "";
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 10px 60px 25px 0;
+                border-color: transparent $color_main4 transparent transparent;
+                transform: rotate(-16deg);
+                position: absolute;
+                top: 24px;
+                left: -19px;
+              }
+              p {
+                padding: 24px 28px;
+                letter-spacing: 0.6px;
+                line-height: 1.5rem;
+                border-radius: 100px;
+                font-size: 18px;
+                text-align: center;
+                color: $white;
+              }
+            }
+          }
+        }
+        .indexLogin-btn {
+          text-align: center;
+          margin: -20px 0 0;
+        }
+      }
+    }
+  }
 }

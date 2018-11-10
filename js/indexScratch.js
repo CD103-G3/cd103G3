@@ -14,7 +14,7 @@
   image.onload = function() {
     ctx2.drawImage(image, 0, 0);
   };
-  brush.src = "images/brush.png";
+  brush.src = "images/indexScratch_brush.png";
 
   canvas.addEventListener("mousedown", handleMouseDown, false);
   canvas.addEventListener("touchstart", handleMouseDown, false);
