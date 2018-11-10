@@ -7,7 +7,7 @@
 			<label for="close-chatBot" class="close-chatBot"></label>
 			<div id="chatBot-content" class="clearfix">
 				<div id="chatBot-container">
-					<p class="chatBot-content-A">HI! 很高興為您服務，您可以點擊下方關鍵字或是直接輸入詢問內容!</p><div style="clear:both"></div><p class="chatBot-content-Q">請問營業時間?</p><div style="clear:both"></div></div>
+					<p class="chatBot-content-A">HI! 很高興為您服務，您可以點擊下方關鍵字或是直接輸入詢問內容!</p><div style="clear:both"></div></div>
 			</div>
 			<ul class="chatBot-keyword clearfix">
 				<li>營業時間</li>

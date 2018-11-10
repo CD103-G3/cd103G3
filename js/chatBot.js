@@ -28,27 +28,83 @@ document.getElementById("close-chatBot").addEventListener("click", function() {
       behavior: "smooth"
     });
   }
-
-  function chatBotSubmit(text) {
-    alert(text);
-    //傳PHP端
-    var obj = {};
-    obj.keyword = text;
-    var jsonStr = JSON.stringify(obj);
-    $id("UserText").innerHTML = text;
+  var botSearch = "";
+  function addChatText(text) {
+    //新增內容
     //使用者打的文字
+    $id("UserText").innerHTML = text;
     let newText =
       "<p class='chatBot-content-Q'>" +
       $id("UserText").innerText +
-      "</p><div style='clear: both'></div>";
+      "</p><div style='clear:both'></div>";
+    botSearch = $id("UserText").innerText;
     $id("UserText").innerHTML = "";
-    //清除小黑點content-Q的span
-    delQpoint();
     //把使用者的文字加到對話區
     container.innerHTML += newText;
     //清空input的字
     chatUserText.value = "";
     chatBotScrollTo(container, content);
+  }
+  function chatBotSubmit() {
+    if (botSearch.indexOf("飯團") != -1) {
+      if (
+        botSearch.indexOf("參加") != -1 &&
+        botSearch.indexOf("飯團") != -1 
+      ) {
+        botSearch = "參加飯團";
+      } else if (
+        botSearch.indexOf("發起") != -1 &&
+        botSearch.indexOf("飯團") != -1 &&
+        botSearch.indexOf("參加") == -1 &&
+        botSearch.indexOf("折扣") == -1
+      ) {
+        botSearch = "發起飯團";
+      } else if (botSearch.indexOf("折扣") != -1) {
+        botSearch = "飯團折扣";
+      }else if(botSearch != ""){
+        botSearch = "啥東東啦";
+      }
+    } else if (
+      botSearch.indexOf("時間") != -1 ||
+      botSearch.indexOf("營業") != -1 ||
+      botSearch.indexOf("優惠") != -1
+    ) {
+      if (botSearch.indexOf("營業") != -1 && botSearch.indexOf("優惠") == -1) {
+        botSearch = "營業時間";
+      }
+    } else if (botSearch.indexOf("取餐") != -1) {
+      console.log(botSearch);
+      if (botSearch.indexOf("無法") != -1 && botSearch.indexOf("如何") == -1) {
+        botSearch = "不要問我";
+      } else if (botSearch.indexOf("如何") != -1) {
+        botSearch = "如何取餐";
+      }else if(botSearch != ""){
+        botSearch = "啥東東啦";
+      }
+    } else if (botSearch.indexOf("購物金") != -1) {
+      if (botSearch.indexOf("如何") != -1) {
+        if (botSearch.indexOf("使用") != -1) {
+          botSearch = "如何使用購物金";
+        } else if (
+          botSearch.indexOf("取") != -1 ||
+          botSearch.indexOf("獲") != -1
+        ) {
+          botSearch = "如何獲得購取金";
+        }
+      }else if(botSearch != ""){
+        botSearch = "啥東東啦";
+      }
+    } else if (botSearch != "") {
+      botSearch = "安安";
+    }
+    CallAjax(botSearch);
+  }
+  var BotText ="";
+  function CallAjax(text) {
+    //傳PHP端
+    var obj = {};
+    obj.keyword = text;
+    var jsonStr = JSON.stringify(obj);
 
     //=====使用Ajax 回server端,取回關鍵字內容, 放到頁面上
     var xhr = new XMLHttpRequest();
@@ -56,63 +112,77 @@ document.getElementById("close-chatBot").addEventListener("click", function() {
       if (xhr.status == 200) {
         if (xhr.responseText.indexOf("not found") != -1) {
           //回傳的資料中有not found
-          alert("啊~甚麼~你可以點選關鍵字問問我");
+          BotText = "啊~甚麼~你可以點選關鍵字問問我";
         } else {
           //查有此keyword
-          let BotText = `<p class="chatBot-content-A">${
-            xhr.responseText
-          }</p><div style="clear: both"></div>`;
-          //把關鍵字內容加到對話區
-          container.innerHTML += BotText;
-          chatBotScrollTo(container, content);
-          //卷軸滑到底
+          BotText = xhr.responseText.replace(/(\r\n)/g , "<br>");
         }
+        //把關鍵字內容加到對話區
+        container.innerHTML += `<p class="chatBot-content-A">${BotText}</p><div style="clear: both"></div>`;
+        //卷軸滑到底
+        chatBotScrollTo(container, content);
       } else {
         alert(xhr.status);
       }
     };
-
     xhr.open("post", "chatBotSaveSession.php", true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     var data_info = "jsonStr=" + jsonStr;
     xhr.send(data_info);
   }
-
   chatUserText.addEventListener("keyup", function() {
     //小黑點
-    let Qpoint = document.querySelectorAll(".chatBot-content-Q span");
+    var Qpoint = document.querySelectorAll(".chatBot-content-Q span");
     //HTML包含小黑點
     let newText = `<p class="chatBot-content-Q"><span></span><span></span><span></span></p><div style="clear: both"></div>`;
     //輸入字串長度大於等於1時，新增div包含小白點
-    if (chatUserText.value != "") { //如果內容沒有空值
+    if (chatUserText.value != "") {
+      //如果內容沒有空值
       if (
         chatUserText.value === null ||
         chatUserText.value.match(/^ *$/) !== null
-      ) {//如果內容的值是空白值
+      ) {
+        //如果內容的值是空白值
         $id("chatBot-search").disabled = true;
         return;
       }
-      if (Qpoint.length < 1) { //判斷有沒有小黑點,沒有就加。
+      if (Qpoint.length < 1) {
+        //判斷有沒有小黑點,沒有就加。
         $("#chatBot-container").append(newText);
       }
-      if (window.event.which == 13) { //判斷鍵盤有按下Enter,就送出內容
-        chatBotSubmit(chatUserText.value);
+      if (window.event.which == 13) {
+        //判斷鍵盤有按下Enter,就送出內容
+        delQpoint();
+        addChatText(chatUserText.value);
+        chatBotSubmit();
       }
-    } else if (Qpoint.length >= 1) {//因為上面都沒有符合,等於無內容,那就可以移除小黑點。
-      delQpoint();
+    }else{
+      if (Qpoint.length >= 1) {
+        //小黑點
+        delQpoint();
+      }
     }
     chatBotScrollTo(container, content);
   });
   $id("chatBot-search").addEventListener("click", function() {
     if (chatUserText.value != "") {
-      chatBotSubmit(chatUserText.value);
+      delQpoint();
+      addChatText(chatUserText.value);
+      chatBotSubmit();
     }
   });
   //使用關鍵字
   var keyword = document.querySelectorAll(".chatBot-keyword li");
   for (let i = 0; i < keyword.length; i++) {
     keyword[i].addEventListener("click", function() {
-      chatBotSubmit(keyword[i].innerText)
+      var Qpoint = document.querySelectorAll(".chatBot-content-Q span");
+
+      if (Qpoint.length >= 1) {
+        //小黑點
+        delQpoint();
+      }
+      addChatText(keyword[i].innerText);
+      CallAjax(keyword[i].innerText);
     });
   }
   //移動關鍵字

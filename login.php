@@ -25,7 +25,7 @@
 						<label for="sigin-member-Psw"><img src="images/lock.svg"></label>
 						<img src="images/eye_n.png" class="eye"></div>
 					<div class="cover-run-wrap">
-						<button type="submit" class="btn-cup nextBTN">登入</button>
+						<button type="submit" class="btn-cup nextBTN" id="siginSubmit">登入</button>
 					</div>
 				</form>
 				<label for="to-get-Psw" class="cover-run to-Psw btn-cup">忘記密碼?</label>
@@ -53,7 +53,7 @@
 						<label for="sigup-email" ><img src="images/email.svg"></label>
 						<img src="images/checkN.svg" class="check"></div>
 					<div class="cover-run-wrap">
-						<button type="submit" class="btn-cup nextBTN" >註冊</button>
+						<button type="submit" class="btn-cup nextBTN" id="sigupSubmit">註冊</button>
 					</div>
 				</form>
 			</div>
@@ -71,10 +71,15 @@
 						<label for="get-Psw-emailmember-Psw"><img src="images/lock.svg"></label>
 						<img src="images/checkN.svg" class="check"></div>
 					<div class="cover-run-wrap"> 
-						<button type="submit" class="btn-cup nextBTN">重設密碼</button>
+						<button type="submit" class="btn-cup nextBTN" id="getPswSubmit">重設密碼</button>
 					</div>
 				</form>
 			</div>
 		</div>
 				
 	</div>
+<script>
+	function checkSubmit(a) {
+	  return false;
+	}
+</script>

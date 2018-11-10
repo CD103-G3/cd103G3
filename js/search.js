@@ -1,4 +1,6 @@
-
+function $id(id) {
+  return document.getElementById(id);
+}
 document.getElementById("close-search").addEventListener("click", function() {
   var grouponTagName = document.getElementsByName("groupon-TagName");
 
