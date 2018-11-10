@@ -480,7 +480,29 @@ body {
 
 .indexScroll {
   background-image: url(../素材/woodbg2.png);
-  background-repeat: repeat; }
+  background-repeat: repeat;
+  position: relative; }
+  .indexScroll .indexScroll-wrap {
+    position: relative;
+    top: 0vw; }
+    .indexScroll .indexScroll-wrap .indexScroll-hand {
+      position: absolute;
+      top: -6.1vw;
+      left: 46.7vw;
+      z-index: 2; }
+      .indexScroll .indexScroll-wrap .indexScroll-hand img {
+        width: 1.2vw; }
+    .indexScroll .indexScroll-wrap .indexScroll-chicken {
+      position: absolute;
+      top: -12.9vw;
+      left: 46.6vw; }
+      .indexScroll .indexScroll-wrap .indexScroll-chicken img {
+        width: 16vw; }
+    .indexScroll .indexScroll-wrap .indexScroll-top {
+      position: absolute;
+      top: -9vw; }
+      .indexScroll .indexScroll-wrap .indexScroll-top img {
+        width: 100vw; }
 
 
 a,
@@ -504,9 +526,9 @@ a,
 
 .indexSearch {
   width: 100%;
-  height: calc(110vh - 75px); }
+  height: calc(100vh - 75px); }
   .indexSearch .wrap .indexSearch-wrap {
-    height: calc(110vh - 75px);
+    height: calc(100vh - 75px);
     background-image: url(../images/index_1_bg_mobileA.png);
     background-size: 100vh;
     background-position: center bottom;
@@ -735,18 +757,18 @@ a,
 
 @media screen and (min-width: 768px) {
   .indexSearch {
-    height: calc(105vh - 75px); }
+    height: calc(100vh - 75px); }
     .indexSearch .wrap {
-      height: calc(105vh - 75px); }
+      height: calc(100vh - 75px); }
       .indexSearch .wrap .indexSearch-wrap {
         background-image: url(../images/index_1_bg_desktopA.png);
         background-size: cover; } }
 
 @media screen and (min-width: 1200px) {
   .indexSearch {
-    height: calc(110vh - 100px); }
+    height: calc(115vh - 100px); }
     .indexSearch .wrap .indexSearch-wrap {
-      height: calc(110vh - 100px);
+      height: calc(115vh - 100px);
       background-image: url(../images/index_1_bg_desktopA.png);
       background-size: 100%; }
       .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar {
