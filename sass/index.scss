@@ -4,9 +4,6 @@
 @import "nav";
 
 //變數
-@import "nav";
-@import "reset";
-@import "daycookVar";
 $color_main1: #fce444; //小雞黃 / yellow / #FCE444 ;
 $color_main2: #76391b; //褐色 / brown / 7#6391B ;
 $color_main3: #fcf2ca; //淡黃色 / lightYellow / #FCF2CA;
@@ -34,8 +31,22 @@ $lineHeight: 1.6;
   text-decoration: none;
 }
 
+// html,
+// body {
+//   width: 100%;
+//   height: 100%;
+//   overflow-x: hidden;
+//   position: relative;
+// }
+
+// html,
 body {
   overflow-x: hidden;
+}
+
+.indexScroll {
+  background-image: url(../素材/woodbg2.png);
+  background-repeat: repeat;
 }
 
 a {
@@ -69,11 +80,11 @@ a {
 
 .indexSearch {
   width: 100%;
-  height: calc(100vh - 75px);
+  height: calc(110vh - 75px);
   // background-color: #ff0;
   .wrap {
     .indexSearch-wrap {
-      height: 100vh;
+      height: calc(110vh - 75px);
       // background-color: $color_main3;
       background-image: url(../images/index_1_bg_mobileA.png);
       background-size: 100vh;
@@ -180,9 +191,10 @@ a {
         }
       }
       .indexSearch-conveyor {
+        cursor: url("../images/index_handCursor.png"), default;
         .indexSearch-owner {
           width: 100%;
-          max-width: 450px;
+          max-width: 300px;
           max-height: 200px;
           position: absolute;
           bottom: 20vh;
@@ -283,11 +295,11 @@ a {
                 position: absolute;
                 left: -150%;
                 top: 0;
-                cursor: pointer;
+                cursor: url("../images/index_handCursor.png"), default;
 
                 &:hover div.indexSearch-hover {
                   opacity: 1;
-                  transition: 1s;
+                  transition: 1s ease-in;
                 }
 
                 .indexSearch-hover {
@@ -300,7 +312,7 @@ a {
                   left: 45%;
                   transform: translateX(-50%);
                   opacity: 0;
-                  transition: 1s;
+                  transition: 1s ease-in;
                   z-index: 2;
 
                   p {
@@ -371,11 +383,25 @@ a {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .indexSearch {
+    height: calc(105vh - 75px);
+    .wrap {
+      height: calc(105vh - 75px);
+      .indexSearch-wrap {
+        background-image: url(../images/index_1_bg_desktopA.png);
+        background-size: cover;
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 1200px) {
   .indexSearch {
-    height: calc(100vh - 100px);
+    height: calc(110vh - 100px);
     .wrap {
       .indexSearch-wrap {
+        height: calc(110vh - 100px);
         background-image: url(../images/index_1_bg_desktopA.png);
         background-size: 100%;
 
@@ -413,7 +439,6 @@ a {
           }
           .indexSearch-conveyorBox {
             width: 150%;
-            overflow: hidden;
             position: absolute;
             bottom: 4vh;
             left: 0;
@@ -440,11 +465,11 @@ a {
                   position: absolute;
                   left: -150%;
                   top: 0;
-                  cursor: pointer;
+                  cursor: url("../images/index_handCursor.png"), default;
 
                   &:hover div.indexSearch-hover {
                     opacity: 1;
-                    transition: 1s;
+                    transition: 1s ease-in;
                   }
 
                   .indexSearch-hover {
@@ -457,7 +482,7 @@ a {
                     left: 45%;
                     transform: translateX(-50%);
                     opacity: 0;
-                    transition: 1s;
+                    transition: 1s ease-in;
                     z-index: 2;
 
                     p {
@@ -534,7 +559,7 @@ a {
   padding: 30px 0 0;
   width: 100%;
   // height: 100vh;
-  background-image: url(../images/index_bgColor.png);
+  // background-image: url(../images/index_bgColor.png);
   .wrap {
     .indexJoin-wrap {
       .indexJoin-title {
@@ -555,20 +580,63 @@ a {
           background-repeat: no-repeat;
           position: relative;
 
+          @keyframes chickenMobile1 {
+            0% {
+              left: -300px;
+            }
+            100% {
+              left: -70px;
+            }
+          }
+
+          @keyframes chickenMobile2 {
+            0% {
+              right: -200px;
+            }
+            100% {
+              right: -70px;
+            }
+          }
+
+          @keyframes chickenMobileTop {
+            0% {
+              top: 190px;
+            }
+            25% {
+              top: 193px;
+            }
+            50% {
+              top: 190px;
+            }
+            75% {
+              top: 193px;
+            }
+            100% {
+              top: 190px;
+            }
+          }
           .indexJoin-bg {
             img:nth-child(1) {
               width: 100px;
               position: absolute;
               top: 190px;
-              left: -70px;
-              z-index: 2;
+              left: -300px;
+              z-index: 1;
+              animation: chickenMobile1 0.8s
+                  cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1,
+                chickenMobileTop 0.2s ease 0.5s 4;
+              animation-fill-mode: forwards;
             }
             img:nth-child(2) {
               width: 100px;
               position: absolute;
               top: 190px;
-              right: -70px;
-              z-index: 2;
+              right: -300px;
+              z-index: 1;
+              animation: chickenMobile2 0.8s
+                  cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1,
+                chickenMobileTop 0.2s ease 0.5s 4;
+              animation-fill-mode: forwards;
             }
           }
 
@@ -734,28 +802,6 @@ a {
                   position: absolute;
                   animation: stepO3-scan 0.9s 0.5s 1 ease-in-out;
                   animation-fill-mode: forwards;
-
-                  // &:before {
-                  //   content: "";
-                  //   width: 5px;
-                  //   height: 5px;
-                  //   background-color: $black;
-                  //   box-shadow: 0 130px 0 $black;
-                  //   position: absolute;
-                  //   top: -10px;
-                  //   left: -10px;
-                  // }
-
-                  // &:after {
-                  //   content: "";
-                  //   width: 5px;
-                  //   height: 5px;
-                  //   background-color: $black;
-                  //   box-shadow: 0 130px 0 $black;
-                  //   position: absolute;
-                  //   top: -10px;
-                  //   right: -10px;
-                  // }
                 }
 
                 img {
@@ -1002,6 +1048,8 @@ a {
             margin: 0 10px;
             background-image: url(../images/index_watermark.svg);
             background-size: 150%;
+            box-shadow: inset -10px -30px 0 rgba(231, 89, 7, 0.2),
+              inset 10px 30px 0 rgba(221, 109, 5, 0.25);
 
             &:disabled {
               color: $black;
@@ -1009,6 +1057,7 @@ a {
 
             &:hover {
               @extend .joinBtn;
+              box-shadow: none;
             }
 
             p {
@@ -1032,17 +1081,60 @@ a {
           .indexJoin-phone {
             .indexJoin-bg {
               z-index: 1;
+
+              @keyframes chickenPC1 {
+                0% {
+                  left: -800px;
+                }
+                100% {
+                  left: -240px;
+                }
+              }
+
+              @keyframes chickenPC2 {
+                0% {
+                  right: -1000px;
+                }
+                100% {
+                  right: -240px;
+                }
+              }
+              @keyframes chickenPCTop {
+                0% {
+                  top: 231px;
+                }
+                25% {
+                  top: 241px;
+                }
+                50% {
+                  top: 231px;
+                }
+                75% {
+                  top: 241px;
+                }
+                100% {
+                  top: 231px;
+                }
+              }
               img:nth-child(1) {
                 width: 200px;
                 position: absolute;
                 top: 231px;
                 left: -240px;
+                animation: chickenPC1 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17)
+                    0.5s 1,
+                  chickenPCTop 0.2s ease 0.5s 3;
+                animation-fill-mode: forwards;
               }
               img:nth-child(2) {
                 width: 200px;
                 position: absolute;
                 top: 231px;
                 right: -240px;
+                animation: chickenPC2 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17)
+                    0.5s 1,
+                  chickenPCTop 0.2s ease 0.5s 3;
+                animation-fill-mode: forwards;
               }
             }
             width: 281px;
@@ -1069,6 +1161,9 @@ a {
             }
 
             .indexJoin-stepOrigin {
+              // div {
+              //   display: none;
+              // }
               .indexJoin-stepO1 {
                 img:nth-child(1) {
                   width: 222px;
@@ -1200,6 +1295,10 @@ a {
             }
 
             .indexJoin-stepQrcode {
+              div {
+                display: none;
+              }
+
               .indexJoin-stepQr1 {
                 div {
                   width: 160px;
@@ -1317,21 +1416,49 @@ a {
         .indexJoin-phoneBox {
           .indexJoin-phone {
             .indexJoin-bg {
+              @keyframes chickenLGPC1 {
+                0% {
+                  left: -800px;
+                }
+                100% {
+                  left: -300px;
+                }
+              }
+
+              @keyframes chickenLGPC2 {
+                0% {
+                  right: -800px;
+                }
+                100% {
+                  right: -300px;
+                }
+              }
               img:nth-child(1) {
                 position: absolute;
                 top: 231px;
-                left: -300px;
+                left: -800px;
+                animation: chickenLGPC1 1s cubic-bezier(0.55, 0.13, 0.45, 1.17)
+                    0.5s 1,
+                  chickenPCTop 0.2s ease 0.5s 4;
+                animation-fill-mode: forwards;
               }
               img:nth-child(2) {
                 position: absolute;
                 top: 231px;
-                right: -300px;
+                right: -800px;
+                animation: chickenLGPC2 1s cubic-bezier(0.55, 0.13, 0.45, 1.17)
+                    0.8s 1,
+                  chickenPCTop 0.2s ease 0.8s 4;
+                animation-fill-mode: forwards;
               }
             }
           }
           #indexJoin-btn {
             #indexJoin-btnO {
               right: 260px;
+              animation: chickenLGPC1 1s cubic-bezier(0.55, 0.13, 0.45, 1.17)
+                  0.5s 1,
+                chickenTopLGPC1 0.2s ease 0.5s 4;
             }
             #indexJoin-btnQr {
               left: 260px;
@@ -1645,7 +1772,7 @@ a {
               box-shadow: 0px 0px 20px rgba(49, 49, 49, 0.3);
               &:hover {
                 top: -168px;
-                transition: top 1s;
+                transition: top 1s cubic-bezier(0.32, 0.95, 0.75, -1.05);
               }
             }
           }
@@ -1789,6 +1916,7 @@ a {
 @media screen and (min-width: 840px) {
   .indexMeal {
     width: 100%;
+    max-width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1813,20 +1941,68 @@ a {
         transform: translate(-50%, -50%);
         pointer-events: none;
       }
+
       .indexMeal-confetti {
+        height: 120px;
         display: block;
         position: relative;
         left: 45%;
         cursor: pointer;
 
+        @keyframes confettiAfter {
+          0% {
+            box-shadow: 0 0 40px rgba(255, 213, 0, 0.8);
+          }
+          50% {
+            box-shadow: 0 0 100px rgba(255, 230, 104, 0.76);
+          }
+          100% {
+            box-shadow: 0 0 40px rgba(255, 213, 0, 0.8);
+          }
+        }
+        .indexMeal-confetti-after {
+          width: 75px;
+          height: 75px;
+          border-radius: 50%;
+          box-shadow: 0 0 40px rgba(177, 151, 25, 0.8);
+          position: absolute;
+          top: 52px;
+          left: 17px;
+          animation: confettiAfter linear 1s infinite;
+        }
+        .indexMeal-confetti-rope {
+          position: absolute;
+          top: -27px;
+          left: 20px;
+          img {
+            width: 70px;
+          }
+        }
         .indexMeal-confetti-left {
           display: inline-block;
-          position: relative;
-          margin: 0 -4px 0 0;
+          position: absolute;
+          top: 50px;
+          left: 4px;
+          @keyframes openL {
+            0% {
+              transform: rotate(0deg);
+            }
+            20% {
+              transform: rotate(30deg);
+            }
+            70% {
+              transform: rotate(5deg);
+            }
+            90% {
+              transform: rotate(2deg);
+            }
+            100% {
+              transform: rotate(-8deg);
+            }
+          }
           .indexMeal-confetti-hoverL {
-            transform: rotate(20deg);
+            animation: openL 3s 0s linear;
             transform-origin: right top;
-            transition: transform 1s 0 0.5s ease-in;
           }
           img {
             width: 50px;
@@ -1834,16 +2010,33 @@ a {
           }
         }
         .indexMeal-confetti-right {
-          display: inline-block;
-          margin: 0 0 0 -4px;
+          position: absolute;
+          top: 50px;
+          left: 54px;
+          @keyframes openR {
+            0% {
+              transform: rotate(0deg);
+            }
+            20% {
+              transform: rotate(-30deg);
+            }
+            70% {
+              transform: rotate(-5deg);
+            }
+            90% {
+              transform: rotate(-2deg);
+            }
+            100% {
+              transform: rotate(15deg);
+            }
+          }
           .indexMeal-confetti-hoverR {
-            transform: rotate(-20deg);
+            animation: openR 3s 0s linear;
             transform-origin: left top;
-            transition: transform 1s 0 0.5s ease-in;
           }
           img {
             width: 50px;
-            transform: rotate(14deg);
+
             transform-origin: left top;
           }
         }
@@ -1891,4 +2084,98 @@ a {
       }
     }
   }
+}
+
+.indexLogin {
+  .wrap {
+    .indexLogin-wrap {
+      .indexLogin-title {
+        padding: 20px 0;
+        text-align: center;
+        img {
+          height: 48px;
+        }
+      }
+      .indexLogin-sum {
+        box-sizing: border-box;
+        .indexLogin-info {
+          order: 1;
+          text-align: center;
+          margin: -20px 0 0;
+          img {
+            width: 180px;
+            display: inline-block;
+          }
+          div {
+            width: 180px;
+            background-color: $color_main4;
+            border-radius: 90px;
+            position: relative;
+            display: inline-block;
+            bottom: 40px;
+            left: -30px;
+            box-shadow: inset -6px -4px 0 $color_main2;
+            &:before {
+              content: "";
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 10px 60px 25px 0;
+              border-color: transparent $color_main4 transparent transparent;
+              transform: rotate(-16deg);
+              position: absolute;
+              top: 28px;
+              left: -15px;
+              z-index: -1;
+            }
+            p {
+              padding: 24px 28px;
+              letter-spacing: 0.6px;
+              line-height: 1.5rem;
+              border-radius: 100px;
+              font-size: 18px;
+              text-align: center;
+              color: $white;
+            }
+          }
+        }
+      }
+      .indexLogin-btn {
+        text-align: center;
+        margin: -20px 0 0;
+        button {
+          @extend .mainBtn;
+        }
+      }
+    }
+  }
+}
+
+.indexLogin-scratch {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.indexLogin-canvas {
+  position: absolute;
+  top: 0;
+}
+
+.indexLogin-scratch-wrap {
+  width: 100%;
+  max-width: 450px;
+  height: 100%;
+  max-height: 450px;
+  background: url("../images/index_scratch_bg.svg") no-repeat center center;
+  background-size: auto 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
+  z-index: -3;
 }

@@ -46,43 +46,43 @@ function startCarousel() {
   });
 }
 
-enquire
-  .register("screen and (max-width: 840px)", {
-    match: function() {
-      // Load a mobile JS file
-      loadJS(
-        "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.js"
-      );
-    }
-  })
-  .listen();
-enquire
-  .register("screen and (max-width: 840px)", {
-    match: function() {
-      // Load a mobile JS file
-      loadJS(
-        "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js"
-      );
-    }
-  })
-  .listen();
-enquire
-  .register("screen and (max-width: 840px)", {
-    match: function() {
-      // Load a mobile JS file
-      loadJS(
-        "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.esm.js"
-      );
-    }
-  })
-  .listen();
-enquire
-  .register("screen and (max-width: 840px)", {
-    match: function() {
-      // Load a mobile JS file
-      loadJS(
-        "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.esm.bundle.js"
-      );
-    }
-  })
-  .listen();
+// enquire
+//   .register("screen and (max-width: 840px)", {
+//     match: function() {
+//       // Load a mobile JS file
+//       loadJS(
+//         "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.js"
+//       );
+//     }
+//   })
+//   .listen();
+// enquire
+//   .register("screen and (max-width: 840px)", {
+//     match: function() {
+//       // Load a mobile JS file
+//       loadJS(
+//         "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js"
+//       );
+//     }
+//   })
+//   .listen();
+// enquire
+//   .register("screen and (max-width: 840px)", {
+//     match: function() {
+//       // Load a mobile JS file
+//       loadJS(
+//         "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.esm.js"
+//       );
+//     }
+//   })
+//   .listen();
+// enquire
+//   .register("screen and (max-width: 840px)", {
+//     match: function() {
+//       // Load a mobile JS file
+//       loadJS(
+//         "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.esm.bundle.js"
+//       );
+//     }
+//   })
+//   .listen();

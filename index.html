@@ -2,16 +2,18 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>日食 Day Cook</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/index.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
         crossorigin="anonymous">
-    <link media="(max-width: 840px)" href="css/swiper.css" rel="stylesheet" />
+    <link media="(max-width: 840px)" href="css/swiper.css" rel="stylesheet">
+
+<body>
     <!-- 導覽列 -->
     <header>
         <input type="checkbox" id="navctrl">
@@ -113,10 +115,8 @@
             </ul>
         </label>
     </header>
-
     <div class="nav_height"></div>
     <!-- <script src="js/floaty.js"></script> -->
-
     <script>
 
         for (var i = 1; i <= 7; i++) {
@@ -143,7 +143,6 @@
     </script>
 
 
-
     <!-- 第一屏 搜尋/迴轉台 -->
 
     <section class="indexSearch">
@@ -160,7 +159,7 @@
                                 <option value="meal">飯團</option>
                             </select>
                         </div>
-                        <input type="text" placeholder="雞排親子丼">
+                        <input type="text" placeholder="以餐點關鍵字搜尋">
                         <button class="indexSearch-btn">
                             <i class="fas fa-search"></i>
                         </button>
@@ -175,7 +174,7 @@
                         <img src="images/index_owner.svg" alt="">
                         <img src="images/index_ownerWing.svg" alt="">
                         <div>
-                            <p>咿呀蝦伊嗎誰</p>
+                            <p>碰到餐點，迴轉台會停下來，顯示餐點資訊唷！</p>
                         </div>
                     </div>
                     <div class="indexSearch-conveyorBox">
@@ -285,6 +284,9 @@
             </div>
         </div>
     </section>
+
+
+<div class="indexScroll">
     <!-- 第二屏 參加飯團動畫 -->
     <section class="indexJoin">
         <div class="wrap">
@@ -297,7 +299,9 @@
                     <div class="indexJoin-phone">
                         <div class="indexJoin-bg">
                             <img src="images/index_joinChicken1.svg" alt="">
+                            <!-- <img src="images/index_joinChickenFeet1.svg" alt=""> -->
                             <img src="images/index_joinChicken2.svg" alt="">
+                            <!-- <img src="images/index_joinChickenFeet2.svg" alt=""> -->
                         </div>
                         <div class="indexJoin-info">
                             <img src="images/index_joinLogo.png" alt="">
@@ -378,7 +382,7 @@
     <section class="indexGroupon indexGroupon-mobile">
         <div class="wrap">
             <div class="indexGroupon-wrap">
-                <div class="indexGroupon-title">
+                <div class="indexGroupon-title indexTitle">
                     <!-- <h1>推薦官方飯團</h1> -->
                     <img src="images/index_title3.svg" alt="">
                 </div>
@@ -520,7 +524,7 @@
     <section class="indexGroupon indexGroupon-desc">
         <div class="wrap">
             <div class="indexGroupon-wrap">
-                <div class="indexGroupon-title">
+                <div class="indexGroupon-title indexTitle">
                     <!-- <h1>推薦官方飯團</h1> -->
                     <img src="images/index_title3.svg" alt="">
                 </div>
@@ -665,12 +669,16 @@
         <canvas id="indexMeal-canvas"></canvas>
         <div class="wrap">
             <div class="indexMeal-wrap">
-                <div class="indexMeal-title">
+                <div class="indexMeal-title indexTitle">
                     <!-- <h1>好評餐點</h1> -->
                     <img src="images/index_title4.svg" alt="">
                 </div>
                 <div class="mount"></div>
                 <div class="indexMeal-confetti trigger">
+                    <div class="indexMeal-confetti-after"></div>
+                    <div class="indexMeal-confetti-rope">
+                        <img src="images/index_celebrationRope.svg" alt="">
+                    </div>
                     <div class="indexMeal-confetti-left">
                         <img src="images/index_celebrationL.svg" alt="">
                     </div>
@@ -764,7 +772,33 @@
     </section>
 
 
-
+    <!-- 第五屏 現在加入日食-->
+    <section class="indexLogin">
+        <div class="wrap">
+            <div class="indexLogin-wrap">
+                <div class="indexLogin-title indexTitle">
+                    <!-- <h1>現在加入日食</h1> -->
+                    <img src="images/index_title5.svg" alt="">
+                </div>
+                <div class="indexLogin-sum">
+                    <div class="indexLogin-scratch" id="indexLoginScratch">
+                        <canvas class="indexLogin-canvas " id="indexLoginCanvas" width="300" height="300"></canvas>
+                        <div class="indexLogin-scratch-wrap"></div>
+                    </div>
+                    <div class="indexLogin-info">
+                        <img src="images/index_login.svg" alt="">
+                        <div>
+                            <p>刮開「荷包蛋」查看刮刮樂規則。註冊帳號可獲得一張刮刮樂！</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="indexLogin-btn">
+                    <button>立即註冊</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
 
 
@@ -787,12 +821,14 @@
     <script src="js/indexBtn.js"></script>
     <script src="js/indexSlider.js"></script>
     <script src="js/indexCube.js"></script>
-    <script src="js/indexConfetti.js"></script>
+
     <script src="js/indexCelebration.js"></script>
-    <script src="js/indexCanvas.js"></script>
+    <!-- <script src="js/indexCanvas.js"></script> -->
+    <script src="js/indexConfetti.js"></script>
     <script src="js/indexLift.js"></script>
+    <script src="js/indexScratch.js"></script>
 
 
-    </body>
+</body>
 
 </html>
