@@ -48,7 +48,7 @@ try{
     echo "not found".','.$memRow["member_Nick"].','.$memRow["member_Pic"].','.$memRow["member_buyCount"]; 
     // echo 'not found'; //會員大頭貼
   }else{ //註冊失敗
-    echo 'hasName';
+    echo 'hasMember';
   }
 }catch(PDOException $e){
   echo $e->getMessage();

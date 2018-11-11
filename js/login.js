@@ -213,11 +213,11 @@ document.getElementById("close-login").addEventListener("click", function() {
       this.parentNode.lastChild.src = "images/checkN.svg";
       checkAry[4] = false;
     } else {
-      this.parentNode.lastChild.src = "images/checkY.svg";
       $(this)
         .parent()
         .find($(".login-placeholder"))
         .remove();
+      this.parentNode.lastChild.src = "images/checkY.svg";
       checkAry[4] = true;
     
       }
@@ -318,9 +318,9 @@ $id("siginSubmit").addEventListener(
           var buyCount = document.querySelectorAll(".after-login span")[0];
           var memberyPic = document.querySelectorAll(".after-login img")[0];
           var nike = document.querySelectorAll(".after-login span")[1];
-          nike.innerText = aaa[1];
-          memberyPic.src = aaa[2];
-          buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${aaa[3]}`;
+          nike.innerText = aaa[0];
+          memberyPic.src = aaa[1];
+          buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${aaa[2]}`;
           document.getElementById("close-login").checked = true;
         }
       } else {
@@ -337,6 +337,7 @@ $id("siginSubmit").addEventListener(
 $id("sigupSubmit").addEventListener(
   "click",
   function() {
+    console.log(LoginAjax(1));
     if (LoginAjax(1) != false) {
       var needCheckEmail = document.getElementsByClassName(
         "need-check-email"
@@ -389,7 +390,38 @@ $id("sigupSubmit").addEventListener(
 $id("getPswSubmit").addEventListener(
   "click",
   function() {
-    LoginAjax(0);
+    console.log(LoginAjax(0));
+    if (LoginAjax(0) != false) {
+      var needCheckEmail = document.getElementsByClassName(
+        "need-check-email"
+      )[0];
+      var obj = {};
+      obj.member_Id = $id("sigup-member-Id").value;
+      obj.email = needCheckEmail.value;
+      var jsonStr = JSON.stringify(obj);
+
+      //產生XMLHttpRequest物件
+      xhr = new XMLHttpRequest();
+      //註冊callback function寫法2 -> onload=4
+      xhr.onload = function() {
+        if (xhr.status == 200) {
+          //OK
+          if (xhr.responseText.indexOf("not found") != -1) {
+            alert("查無此會員");
+          } else {
+            alert(xhr.responseText);
+          }
+        } else {
+          alert(xhr.status);
+        }
+      };
+      xhr.open("post", "getPswSubmit.php", true); //設定好所要連結的程式
+      xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded"); //setRequestHeader("head","value") 設定HTTP請求的請求標頭
+      var data_info = "jsonStr=" + jsonStr;
+      xhr.send(data_info); //送出資料
+    } else {
+      alert("填寫完整才能申請密碼唷!");
+    }
   },
   false
 );
@@ -397,11 +429,11 @@ $id("getPswSubmit").addEventListener(
 function LoginAjax(a) {
   //判斷是否填寫完整
   for (let i = a; i < 5; i++) {
-    if (checkAry[a] == false || undefined) {
+    if (checkAry[a] == false || checkAry[a] == undefined) {
       alert("內" + i + ": " + checkAry[i]);
       return false;
     }
-    if (checkAry[i] == false || undefined) {
+    if (checkAry[i] == false ||checkAry[i] == undefined) {
       alert("內" + i + ": " + checkAry[i]);
       return false;
     }

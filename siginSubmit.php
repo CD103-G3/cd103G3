@@ -35,7 +35,7 @@ try{
     setcookie("member_Bonus", $memRow["member_Bonus"], time() + 600);
     setcookie("member_buyCount", $memRow["member_buyCount"], time() + 600);
   	//送出登入者的姓名資料
-    echo "not found".','.$memRow["member_Nick"].','.$memRow["member_Pic"].','.$memRow["member_buyCount"]; 
+    echo $memRow["member_Nick"].','.$memRow["member_Pic"].','.$memRow["member_buyCount"]; 
   }
 }catch(PDOException $e){
   echo $e->getMessage();
