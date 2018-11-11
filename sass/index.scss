@@ -16,6 +16,12 @@ $borderRadius: 1000px;
 $grouponBr: 20px;
 $boxshadow: 0 4px 0 $color_main4;
 
+$color-bg: #f0ead6;
+$color-pan: #080808;
+$color-handle: #cdcdcd;
+$color-egg: #ffffff;
+$color-yolk: #f9d010;
+
 //字體:
 $fontSize_text: 16px;
 $fontSize_S: 20px;
@@ -46,7 +52,7 @@ body {
 
 .indexScroll {
   height: calc(100% + 110vh);
-  background-image: url(../素材/woodbg2.png);
+  background-image: url(../images/index_scroll_bg.png);
   background-repeat: repeat;
   position: relative;
   top: 110vh;
@@ -1321,9 +1327,9 @@ a {
             }
 
             .indexJoin-stepQrcode {
-              div {
-                display: none;
-              }
+              // div {
+              //   display: none;
+              // }
 
               .indexJoin-stepQr1 {
                 div {
@@ -1835,7 +1841,6 @@ a {
           margin: 0 auto;
           list-style: none;
           bottom: 0;
-
           .indexMeal-top {
             margin: 0 auto;
             text-align: center;
@@ -1917,6 +1922,10 @@ a {
             }
           }
         }
+        .top2,
+        .top3 {
+          top: 0;
+        }
       }
     }
   }
@@ -1967,29 +1976,48 @@ a {
         pointer-events: none;
       }
 
+      @keyframes confettiRotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(15deg);
+        }
+        75% {
+          transform: rotate(-15deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+
       .indexMeal-confetti {
+        width: 100px;
         height: 120px;
         display: block;
         position: relative;
         left: 45%;
         cursor: pointer;
+        transform: rotate(0deg);
+        transform-origin: top;
+        animation: confettiRotate linear 3s 3;
 
         @keyframes confettiAfter {
           0% {
-            box-shadow: 0 0 40px rgba(255, 213, 0, 0.8);
+            box-shadow: 0 0 40px rgba(252, 210, 0, 0.918);
           }
           50% {
-            box-shadow: 0 0 100px rgba(255, 230, 104, 0.76);
+            box-shadow: 0 0 100px rgb(253, 252, 248);
           }
           100% {
-            box-shadow: 0 0 40px rgba(255, 213, 0, 0.8);
+            box-shadow: 0 0 40px rgba(252, 210, 0, 0.918);
           }
         }
         .indexMeal-confetti-after {
           width: 75px;
           height: 75px;
           border-radius: 50%;
-          box-shadow: 0 0 40px rgba(177, 151, 25, 0.8);
+          box-shadow: 0 0 40px rgba(252, 210, 0, 0.918);
           position: absolute;
           top: 52px;
           left: 17px;
@@ -1997,7 +2025,7 @@ a {
         }
         .indexMeal-confetti-rope {
           position: absolute;
-          top: -27px;
+          top: -29px;
           left: 20px;
           img {
             width: 70px;
@@ -2244,47 +2272,47 @@ a {
           }
         }
 
-        .indexLogin-info {
-          order: 1;
-          text-align: center;
-          img {
-            width: 180px;
-            display: inline-block;
-            position: relative;
-            top: -50px;
-          }
-          div {
-            width: 180px;
-            background-color: $color_main4;
-            border-radius: 90px;
-            position: relative;
-            display: inline-block;
-            bottom: 90px;
-            left: -30px;
-            box-shadow: inset -6px -4px 0 $color_main2;
-            &:before {
-              content: "";
-              width: 0;
-              height: 0;
-              border-style: solid;
-              border-width: 10px 60px 25px 0;
-              border-color: transparent $color_main4 transparent transparent;
-              transform: rotate(-16deg);
-              position: absolute;
-              top: 24px;
-              left: -19px;
-            }
-            p {
-              padding: 24px 28px;
-              letter-spacing: 0.6px;
-              line-height: 1.5rem;
-              border-radius: 100px;
-              font-size: 18px;
-              text-align: center;
-              color: $white;
-            }
-          }
-        }
+        // .indexLogin-info {
+        //   order: 1;
+        //   text-align: center;
+        //   img {
+        //     width: 180px;
+        //     display: inline-block;
+        //     position: relative;
+        //     top: -50px;
+        //   }
+        //   div {
+        //     width: 180px;
+        //     background-color: $color_main4;
+        //     border-radius: 90px;
+        //     position: relative;
+        //     display: inline-block;
+        //     bottom: 90px;
+        //     left: -30px;
+        //     box-shadow: inset -6px -4px 0 $color_main2;
+        //     &:before {
+        //       content: "";
+        //       width: 0;
+        //       height: 0;
+        //       border-style: solid;
+        //       border-width: 10px 60px 25px 0;
+        //       border-color: transparent $color_main4 transparent transparent;
+        //       transform: rotate(-16deg);
+        //       position: absolute;
+        //       top: 24px;
+        //       left: -19px;
+        //     }
+        //     p {
+        //       padding: 24px 28px;
+        //       letter-spacing: 0.6px;
+        //       line-height: 1.5rem;
+        //       border-radius: 100px;
+        //       font-size: 18px;
+        //       text-align: center;
+        //       color: $white;
+        //     }
+        //   }
+        // }
       }
       .indexLogin-btn {
         text-align: center;
@@ -2302,10 +2330,238 @@ a {
     .wrap {
       .indexLogin-wrap {
         .indexLogin-sum {
+          height: 500px;
           display: flex;
           justify-content: space-around;
+          position: relative;
+          .indexLogin-main {
+            margin: auto;
+            position: relative;
+            top: 15px;
+            left: 9%;
+            height: 400px;
+            .indexLogin-info {
+              position: relative;
+              bottom: 85px;
+              left: -50px;
+              display: inline-block;
+              z-index: 1;
+              .indexLogin-balloon {
+                width: 250px;
+                line-height: 1.6rem;
+                letter-spacing: 0.5px;
+                position: absolute;
+                top: -120px;
+                left: -35px;
+                p {
+                  text-align: center;
+                  padding: 20px;
+                  color: $white;
+                  background-color: $color_main4;
+                  border-radius: 50px;
+                  box-shadow: inset -5px -4px 0 $color_main2;
+                  position: relative;
+                  animation: flow 1.8s ease 0s infinite normal;
+                  &:after {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 10px 12px 0 12px;
+                    border-color: $color_main2 transparent transparent
+                      transparent;
+                    position: absolute;
+                    bottom: -10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                  }
+                }
+              }
+              img {
+                width: 180px;
+              }
+            }
+            .indexLogin-pan {
+              display: inline-block;
+              position: relative;
+              width: 400px;
+              border-radius: 100%;
+              animation: shakin 6s linear infinite;
+              &:after {
+                content: "";
+                display: block;
+                padding-bottom: 100%;
+              }
+              .indexLogin-outer {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+                background-color: $color-pan;
+                border-radius: 100%;
+                z-index: 2;
+                box-shadow: inset $color-pan 2px 4px 2px 2px,
+                  inset rgba(white, 0.2) 2px 8px 5px 4px,
+                  rgba($color-bg, 0.8) 4px 4px 5px 4px,
+                  rgba(black, 0.4) 2px 4px 5px 2px;
+              }
+              .indexLogin-inner {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+                width: 80%;
+                height: 80%;
+                background-color: lighten($color-pan, 10%);
+                border-radius: 100%;
+                z-index: 3;
+                box-shadow: inset lighten($color-pan, 10%) 0 2px 4px 6px,
+                  inset rgba(white, 0.1) 4px 6px 34px 4px, $color-pan 0 0 0 10px,
+                  rgba(white, 0.14) -4px -2px 4px 8px,
+                  rgba(white, 0.14) 4px 2px 4px 8px;
+              }
+            }
+
+            .indexLogin-pan .indexLogin-handle {
+              position: absolute;
+              top: 48%;
+              left: -40%;
+              width: 15%;
+              height: 50%;
+              background-color: $color-pan;
+              transform: rotate(-100deg);
+              z-index: 1;
+              border-radius: 30%;
+              box-shadow: inset $color-pan 2px 2px 4px 2px,
+                inset rgba(white, 0.2) 3px -8px 8px 10px;
+              &:before {
+                content: "";
+                position: absolute;
+                bottom: -30%;
+                right: 0;
+                width: 100%;
+                height: 50%;
+                background-color: $color-handle;
+                box-shadow: inset $color-handle 2px 2px 2px 8px,
+                  inset rgba(white, 0.2) 4px -4px 6px 12px;
+              }
+            }
+
+            .indexLogin-pan {
+              cursor: pointer;
+              -webkit-user-select: none;
+              -webkit-touch-callout: none;
+              &:active {
+                animation: push 0.6s ease-out;
+              }
+            }
+          }
+          @keyframes flow {
+            0% {
+              bottom: 10px;
+            }
+            50% {
+              bottom: 30px;
+            }
+            100% {
+              bottom: 10px;
+            }
+          }
+          @keyframes sizzlin {
+            0% {
+              transform: rotate(0) scale(0.98);
+            }
+            10% {
+              transform: rotate(0) scale(1.01);
+            }
+            20% {
+              transform: rotate(2deg) scale(0.997);
+            }
+            25% {
+              transform: rotate(2deg) scale(0.998);
+            }
+            30% {
+              transform: rotate(2deg) scale(1.01);
+            }
+            40% {
+              transform: rotate(-2deg) scale(0.995);
+            }
+            50% {
+              transform: rotate(-2deg) scale(1);
+            }
+            60% {
+              transform: rotate(-3deg) scale(0.996);
+            }
+            80% {
+              transform: rotate(1deg) scale(1);
+            }
+            90% {
+              transform: rotate(1deg) scale(0.997);
+            }
+            100% {
+              transform: rotate(0deg) scale(1);
+            }
+          }
+          @keyframes shakin {
+            0% {
+              transform: translate(0, 0);
+            }
+            2% {
+              transform: translate(-12px, 12px);
+            }
+            4% {
+              transform: translate(0, 0);
+            }
+            6% {
+              transform: translate(-6px, 6px);
+            }
+            8% {
+              transform: translate(0, 0);
+            }
+            100% {
+              transform: translate(0, 0);
+            }
+          }
+
+          @keyframes push {
+            0% {
+              transform: scale(1) translateZ(0);
+            }
+            25% {
+              transform: scale(0.9) translateZ(0);
+            }
+            50% {
+              transform: scale(1.04) translateZ(0);
+            }
+            100% {
+              transform: scale(1) translateZ(0);
+            }
+          }
+
+          @keyframes pop {
+            0% {
+              transform: rotate(0) scale(1) translateZ(0);
+            }
+            50% {
+              transform: rotate(20deg) scale(1.4) translateZ(0);
+            }
+            80% {
+              transform: rotate(0) scale(0.8) translateZ(0);
+            }
+            100% {
+              transform: rotate(0) scale(1) translateZ(0);
+            }
+          }
           .indexLogin-scratch {
-            margin: 0 0 0 -50px;
+            position: absolute;
+            top: 0;
+            left: 40%;
+            margin: 50px 0;
+            animation: sizzlin 1.6s linear alternate infinite;
             .indexLogin-canvas {
               position: absolute;
               top: 0;
@@ -2322,50 +2578,6 @@ a {
               backface-visibility: hidden;
               overflow: hidden;
               z-index: -3;
-            }
-          }
-
-          .indexLogin-info {
-            order: -1;
-            text-align: center;
-            img {
-              width: 180px;
-              display: inline-block;
-              position: relative;
-              margin: 80px 20px 0;
-              top: -50px;
-              left: 0;
-            }
-            div {
-              width: 180px;
-              background-color: $color_main4;
-              border-radius: 90px;
-              position: relative;
-              display: inline-block;
-              bottom: 90px;
-              left: -30px;
-              box-shadow: inset -6px -4px 0 $color_main2;
-              &:before {
-                content: "";
-                width: 0;
-                height: 0;
-                border-style: solid;
-                border-width: 10px 60px 25px 0;
-                border-color: transparent $color_main4 transparent transparent;
-                transform: rotate(-16deg);
-                position: absolute;
-                top: 24px;
-                left: -19px;
-              }
-              p {
-                padding: 24px 28px;
-                letter-spacing: 0.6px;
-                line-height: 1.5rem;
-                border-radius: 100px;
-                font-size: 18px;
-                text-align: center;
-                color: $white;
-              }
             }
           }
         }

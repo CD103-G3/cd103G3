@@ -39,7 +39,7 @@ $(document).ready(function() {
       .addClass("indexJoin-stepO2")
       .delay(3700)
       .fadeIn(100)
-      .delay(2200)
+      .delay(1200)
       .fadeOut(100);
     $(".indexJoin-stepOrigin > div")
       .eq(2)

@@ -1,0 +1,141 @@
+$color-bg: #f0ead6;
+$color-pan: #080808;
+$color-handle: #cdcdcd;
+$color-egg: #ffffff;
+$color-yolk: #f9d010;
+
+.indexLogin-main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 1000px;
+
+  .indexLogin-pan {
+    position: relative;
+    width: 40%;
+    border-radius: 100%;
+    animation: shakin 6s linear infinite;
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+    .indexLogin-outer {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      background-color: $color-pan;
+      border-radius: 100%;
+      z-index: 2;
+      box-shadow: inset $color-pan 2px 4px 2px 2px,
+        inset rgba(white, 0.2) 2px 8px 12px 4px,
+        rgba($color-bg, 0.8) 4px 4px 12px 4px, rgba(black, 0.4) 2px 4px 12px 2px;
+    }
+    .indexLogin-inner {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      width: 80%;
+      height: 80%;
+      background-color: lighten($color-pan, 10%);
+      border-radius: 100%;
+      z-index: 3;
+      box-shadow: inset lighten($color-pan, 10%) 0 2px 4px 6px,
+        inset rgba(white, 0.1) 4px 6px 34px 4px, $color-pan 0 0 0 10px,
+        rgba(white, 0.14) -4px -2px 4px 8px, rgba(white, 0.14) 4px 2px 4px 8px;
+    }
+  }
+
+  .indexLogin-pan .indexLogin-handle {
+    position: absolute;
+    top: 71%;
+    right: -13%;
+    width: 13%;
+    height: 33%;
+    background-color: $color-pan;
+    transform: rotate(127deg);
+    z-index: 1;
+    border-radius: 30%;
+    box-shadow: inset $color-pan 2px 2px 4px 2px,
+      inset rgba(white, 0.2) 3px -8px 8px 10px,
+      rgba($color-bg, 0.8) 4px 32px 12px 4px,
+      rgba(black, 0.15) 6px 38px 12px 4px;
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: -30%;
+      right: 0;
+      width: 100%;
+      height: 50%;
+      background-color: $color-handle;
+      box-shadow: inset $color-handle 2px 2px 2px 8px,
+        inset rgba(white, 0.2) 4px -4px 6px 12px;
+    }
+  }
+
+  .indexLogin-pan {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    &:active {
+      animation: push 0.6s ease-out;
+    }
+  }
+}
+@keyframes shakin {
+  0% {
+    transform: translate(0, 0);
+  }
+  2% {
+    transform: translate(-12px, 12px);
+  }
+  4% {
+    transform: translate(0, 0);
+  }
+  6% {
+    transform: translate(-6px, 6px);
+  }
+  8% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes push {
+  0% {
+    transform: scale(1) translateZ(0);
+  }
+  25% {
+    transform: scale(0.9) translateZ(0);
+  }
+  50% {
+    transform: scale(1.04) translateZ(0);
+  }
+  100% {
+    transform: scale(1) translateZ(0);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: rotate(0) scale(1) translateZ(0);
+  }
+  50% {
+    transform: rotate(20deg) scale(1.4) translateZ(0);
+  }
+  80% {
+    transform: rotate(0) scale(0.8) translateZ(0);
+  }
+  100% {
+    transform: rotate(0) scale(1) translateZ(0);
+  }
+}

@@ -49,7 +49,7 @@ header {
   width: 100%;
   height: 80px;
   position: fixed;
-  z-index: 2; }
+  z-index: 10; }
   header * {
     font-size: 0;
     font-family: sans-serif, "微軟正黑體", "Microsoft JhengHei"; }
@@ -80,7 +80,7 @@ header {
     background: url(../images/nav_background_768.png) repeat-x;
     position: relative; }
     header .phone-nav:after {
-      content: '';
+      content: "";
       width: 0;
       height: 120%;
       display: inline-block;
@@ -99,13 +99,13 @@ header {
       width: 70px;
       height: 50px;
       cursor: pointer;
-      opacity: .8;
-      transition: .5s;
+      opacity: 0.8;
+      transition: 0.5s;
       position: absolute;
       top: 28%;
       z-index: 1001; }
       header .phone-nav .hb .line, header .phone-nav .hb:before, header .phone-nav .hb:after {
-        content: '';
+        content: "";
         margin: auto;
         width: 60%;
         height: 3px;
@@ -141,7 +141,7 @@ header {
     left: 350px;
     transition: transform 1s; }
     header nav:before {
-      content: '';
+      content: "";
       width: 1100px;
       height: 1100px;
       border-radius: 50%;
@@ -233,7 +233,7 @@ header {
         height: 23.33333333vmin;
         display: none; }
         header .white-Point ul li:after {
-          content: '';
+          content: "";
           width: 0;
           height: 100%;
           vertical-align: middle;
@@ -280,12 +280,14 @@ header {
           padding: 10px 40px 10px 10px;
           border-radius: 20px;
           font-size: 16px; }
-      header .phone-nav .nav-left, header .phone-nav .logo {
+      header .phone-nav .nav-left,
+      header .phone-nav .logo {
         font-size: 0;
         margin: 0;
         padding: 0;
         display: none; }
-        header .phone-nav .nav-left img, header .phone-nav .logo img {
+        header .phone-nav .nav-left img,
+        header .phone-nav .logo img {
           height: 120px; }
     header nav {
       width: 71.42857142%;
@@ -309,7 +311,7 @@ header {
           display: inline-block;
           vertical-align: top; }
           header nav ul li:after {
-            content: '';
+            content: "";
             width: 0;
             height: 120%;
             display: inline-block;
@@ -355,7 +357,7 @@ header {
       header .white-Point ul {
         height: 100%; }
         header .white-Point ul:after {
-          content: '';
+          content: "";
           width: 0;
           height: 120%;
           display: inline-block;
@@ -386,12 +388,18 @@ header {
               padding: 3px 7px 5px;
               font-size: 8px;
               color: #fff;
-              background-color: #AD6631;
+              background-color: #ad6631;
               border-radius: 50%;
               position: absolute;
               top: -8px;
               right: -4px; }
-    header #view1, header #view2, header #view3, header #view4, header #view5, header #view6, header #view7 {
+    header #view1,
+    header #view2,
+    header #view3,
+    header #view4,
+    header #view5,
+    header #view6,
+    header #view7 {
       width: 100%;
       height: 100px;
       display: block;
@@ -399,7 +407,13 @@ header {
       top: 0;
       left: 0;
       z-index: -1; }
-      header #view1 .slice, header #view2 .slice, header #view3 .slice, header #view4 .slice, header #view5 .slice, header #view6 .slice, header #view7 .slice {
+      header #view1 .slice,
+      header #view2 .slice,
+      header #view3 .slice,
+      header #view4 .slice,
+      header #view5 .slice,
+      header #view6 .slice,
+      header #view7 .slice {
         width: 100%;
         height: 10px;
         transform-style: preserve-3d;
@@ -409,7 +423,13 @@ header {
         perspective: 1000px;
         position: relative;
         top: 100%; }
-      header #view1 .s1, header #view2 .s1, header #view3 .s1, header #view4 .s1, header #view5 .s1, header #view6 .s1, header #view7 .s1 {
+      header #view1 .s1,
+      header #view2 .s1,
+      header #view3 .s1,
+      header #view4 .s1,
+      header #view5 .s1,
+      header #view6 .s1,
+      header #view7 .s1 {
         height: 80px;
         background: none;
         top: 0; }
@@ -480,7 +500,7 @@ body {
 
 .indexScroll {
   height: calc(100% + 110vh);
-  background-image: url(../素材/woodbg2.png);
+  background-image: url(../images/index_scroll_bg.png);
   background-repeat: repeat;
   position: relative;
   top: 110vh; }
@@ -1368,8 +1388,6 @@ a,
             left: 78px;
             animation: stepO4 1s 0 1 ease-in;
             animation-fill-mode: forwards; }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode div {
-        display: none; }
       .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div {
         width: 160px;
         font-size: 16px;
@@ -1737,6 +1755,9 @@ a,
             box-shadow: 0 4px 0 #bb7232; }
           .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
             border: 0; }
+      .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .top2,
+      .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .top3 {
+        top: 0; }
 
 .indexMeal-desc {
   display: none; }
@@ -1772,31 +1793,44 @@ a,
       top: 50%;
       transform: translate(-50%, -50%);
       pointer-events: none; }
+  @keyframes confettiRotate {
+    0% {
+      transform: rotate(0deg); }
+    25% {
+      transform: rotate(15deg); }
+    75% {
+      transform: rotate(-15deg); }
+    100% {
+      transform: rotate(0deg); } }
     .indexMeal-desc .wrap .indexMeal-confetti {
+      width: 100px;
       height: 120px;
       display: block;
       position: relative;
       left: 45%;
-      cursor: pointer; }
+      cursor: pointer;
+      transform: rotate(0deg);
+      transform-origin: top;
+      animation: confettiRotate linear 3s 3; }
   @keyframes confettiAfter {
     0% {
-      box-shadow: 0 0 40px rgba(255, 213, 0, 0.8); }
+      box-shadow: 0 0 40px rgba(252, 210, 0, 0.918); }
     50% {
-      box-shadow: 0 0 100px rgba(255, 230, 104, 0.76); }
+      box-shadow: 0 0 100px #fdfcf8; }
     100% {
-      box-shadow: 0 0 40px rgba(255, 213, 0, 0.8); } }
+      box-shadow: 0 0 40px rgba(252, 210, 0, 0.918); } }
       .indexMeal-desc .wrap .indexMeal-confetti .indexMeal-confetti-after {
         width: 75px;
         height: 75px;
         border-radius: 50%;
-        box-shadow: 0 0 40px rgba(177, 151, 25, 0.8);
+        box-shadow: 0 0 40px rgba(252, 210, 0, 0.918);
         position: absolute;
         top: 52px;
         left: 17px;
         animation: confettiAfter linear 1s infinite; }
       .indexMeal-desc .wrap .indexMeal-confetti .indexMeal-confetti-rope {
         position: absolute;
-        top: -27px;
+        top: -29px;
         left: 20px; }
         .indexMeal-desc .wrap .indexMeal-confetti .indexMeal-confetti-rope img {
           width: 70px; }
@@ -1968,42 +2002,6 @@ a,
       backface-visibility: hidden;
       overflow: hidden;
       z-index: -3; }
-  .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-info {
-    order: 1;
-    text-align: center; }
-    .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-info img {
-      width: 180px;
-      display: inline-block;
-      position: relative;
-      top: -50px; }
-    .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-info div {
-      width: 180px;
-      background-color: #bb7232;
-      border-radius: 90px;
-      position: relative;
-      display: inline-block;
-      bottom: 90px;
-      left: -30px;
-      box-shadow: inset -6px -4px 0 #76391b; }
-      .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-info div:before {
-        content: "";
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 10px 60px 25px 0;
-        border-color: transparent #bb7232 transparent transparent;
-        transform: rotate(-16deg);
-        position: absolute;
-        top: 24px;
-        left: -19px; }
-      .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-info div p {
-        padding: 24px 28px;
-        letter-spacing: 0.6px;
-        line-height: 1.5rem;
-        border-radius: 100px;
-        font-size: 18px;
-        text-align: center;
-        color: #fff; }
 
 .indexLogin .wrap .indexLogin-wrap .indexLogin-btn {
   text-align: center;
@@ -2011,10 +2009,178 @@ a,
 
 @media screen and (min-width: 768px) {
   .indexLogin .wrap .indexLogin-wrap .indexLogin-sum {
+    height: 500px;
     display: flex;
-    justify-content: space-around; }
+    justify-content: space-around;
+    position: relative; }
+    .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main {
+      margin: auto;
+      position: relative;
+      top: 15px;
+      left: 9%;
+      height: 400px; }
+      .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info {
+        position: relative;
+        bottom: 85px;
+        left: -50px;
+        display: inline-block;
+        z-index: 1; }
+        .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info .indexLogin-balloon {
+          width: 250px;
+          line-height: 1.6rem;
+          letter-spacing: 0.5px;
+          position: absolute;
+          top: -120px;
+          left: -35px; }
+          .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info .indexLogin-balloon p {
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+            background-color: #bb7232;
+            border-radius: 50px;
+            box-shadow: inset -5px -4px 0 #76391b;
+            position: relative;
+            animation: flow 1.8s ease 0s infinite normal; }
+            .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info .indexLogin-balloon p:after {
+              content: "";
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 10px 12px 0 12px;
+              border-color: #76391b transparent transparent transparent;
+              position: absolute;
+              bottom: -10px;
+              left: 50%;
+              transform: translateX(-50%); }
+        .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info img {
+          width: 180px; }
+      .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan {
+        display: inline-block;
+        position: relative;
+        width: 400px;
+        border-radius: 100%;
+        animation: shakin 6s linear infinite; }
+        .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan:after {
+          content: "";
+          display: block;
+          padding-bottom: 100%; }
+        .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan .indexLogin-outer {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+          background-color: #080808;
+          border-radius: 100%;
+          z-index: 2;
+          box-shadow: inset #080808 2px 4px 2px 2px, inset rgba(255, 255, 255, 0.2) 2px 8px 5px 4px, rgba(240, 234, 214, 0.8) 4px 4px 5px 4px, rgba(0, 0, 0, 0.4) 2px 4px 5px 2px; }
+        .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan .indexLogin-inner {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+          width: 80%;
+          height: 80%;
+          background-color: #222222;
+          border-radius: 100%;
+          z-index: 3;
+          box-shadow: inset #222222 0 2px 4px 6px, inset rgba(255, 255, 255, 0.1) 4px 6px 34px 4px, #080808 0 0 0 10px, rgba(255, 255, 255, 0.14) -4px -2px 4px 8px, rgba(255, 255, 255, 0.14) 4px 2px 4px 8px; }
+      .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan .indexLogin-handle {
+        position: absolute;
+        top: 48%;
+        left: -40%;
+        width: 15%;
+        height: 50%;
+        background-color: #080808;
+        transform: rotate(-100deg);
+        z-index: 1;
+        border-radius: 30%;
+        box-shadow: inset #080808 2px 2px 4px 2px, inset rgba(255, 255, 255, 0.2) 3px -8px 8px 10px; }
+        .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan .indexLogin-handle:before {
+          content: "";
+          position: absolute;
+          bottom: -30%;
+          right: 0;
+          width: 100%;
+          height: 50%;
+          background-color: #cdcdcd;
+          box-shadow: inset #cdcdcd 2px 2px 2px 8px, inset rgba(255, 255, 255, 0.2) 4px -4px 6px 12px; }
+      .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan {
+        cursor: pointer;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none; }
+        .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan:active {
+          animation: push 0.6s ease-out; }
+  @keyframes flow {
+    0% {
+      bottom: 10px; }
+    50% {
+      bottom: 30px; }
+    100% {
+      bottom: 10px; } }
+  @keyframes sizzlin {
+    0% {
+      transform: rotate(0) scale(0.98); }
+    10% {
+      transform: rotate(0) scale(1.01); }
+    20% {
+      transform: rotate(2deg) scale(0.997); }
+    25% {
+      transform: rotate(2deg) scale(0.998); }
+    30% {
+      transform: rotate(2deg) scale(1.01); }
+    40% {
+      transform: rotate(-2deg) scale(0.995); }
+    50% {
+      transform: rotate(-2deg) scale(1); }
+    60% {
+      transform: rotate(-3deg) scale(0.996); }
+    80% {
+      transform: rotate(1deg) scale(1); }
+    90% {
+      transform: rotate(1deg) scale(0.997); }
+    100% {
+      transform: rotate(0deg) scale(1); } }
+  @keyframes shakin {
+    0% {
+      transform: translate(0, 0); }
+    2% {
+      transform: translate(-12px, 12px); }
+    4% {
+      transform: translate(0, 0); }
+    6% {
+      transform: translate(-6px, 6px); }
+    8% {
+      transform: translate(0, 0); }
+    100% {
+      transform: translate(0, 0); } }
+  @keyframes push {
+    0% {
+      transform: scale(1) translateZ(0); }
+    25% {
+      transform: scale(0.9) translateZ(0); }
+    50% {
+      transform: scale(1.04) translateZ(0); }
+    100% {
+      transform: scale(1) translateZ(0); } }
+  @keyframes pop {
+    0% {
+      transform: rotate(0) scale(1) translateZ(0); }
+    50% {
+      transform: rotate(20deg) scale(1.4) translateZ(0); }
+    80% {
+      transform: rotate(0) scale(0.8) translateZ(0); }
+    100% {
+      transform: rotate(0) scale(1) translateZ(0); } }
     .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-scratch {
-      margin: 0 0 0 -50px; }
+      position: absolute;
+      top: 0;
+      left: 40%;
+      margin: 50px 0;
+      animation: sizzlin 1.6s linear alternate infinite; }
       .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-scratch .indexLogin-canvas {
         position: absolute;
         top: 0;
@@ -2029,44 +2195,6 @@ a,
         backface-visibility: hidden;
         overflow: hidden;
         z-index: -3; }
-    .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-info {
-      order: -1;
-      text-align: center; }
-      .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-info img {
-        width: 180px;
-        display: inline-block;
-        position: relative;
-        margin: 80px 20px 0;
-        top: -50px;
-        left: 0; }
-      .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-info div {
-        width: 180px;
-        background-color: #bb7232;
-        border-radius: 90px;
-        position: relative;
-        display: inline-block;
-        bottom: 90px;
-        left: -30px;
-        box-shadow: inset -6px -4px 0 #76391b; }
-        .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-info div:before {
-          content: "";
-          width: 0;
-          height: 0;
-          border-style: solid;
-          border-width: 10px 60px 25px 0;
-          border-color: transparent #bb7232 transparent transparent;
-          transform: rotate(-16deg);
-          position: absolute;
-          top: 24px;
-          left: -19px; }
-        .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-info div p {
-          padding: 24px 28px;
-          letter-spacing: 0.6px;
-          line-height: 1.5rem;
-          border-radius: 100px;
-          font-size: 18px;
-          text-align: center;
-          color: #fff; }
   .indexLogin .wrap .indexLogin-wrap .indexLogin-btn {
     text-align: center;
     margin: -20px 0 0; } }

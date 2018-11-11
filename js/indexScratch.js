@@ -75,7 +75,7 @@
   function handlePercentage(filledInPixels) {
     filledInPixels = filledInPixels || 0;
     // console.log(filledInPixels + "%");
-    if (filledInPixels > 150) {
+    if (filledInPixels > 110) {
       //範圍
       canvas.parentNode.removeChild(canvas);
     }
