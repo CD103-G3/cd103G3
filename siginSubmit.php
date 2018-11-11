@@ -25,6 +25,7 @@ try{
     $_SESSION["mobile"] = $memRow["mobile"];  //會員電話
     $_SESSION["member_Pic"] = $memRow["member_Pic"];  //會員大頭貼
     $_SESSION["member_Bonus"] = $memRow["member_Bonus"];  //會員購物金
+    $_SESSION["member_buyCount"] = $memRow["member_buyCount"];  //會員購買數量
     setcookie("member_No", $memRow["member_No"], time() + 600);
     setcookie("member_Id", $memRow["member_Id"], time() + 600);
     setcookie("member_Psw", $memRow["member_Psw"], time() + 600);
@@ -32,8 +33,9 @@ try{
     setcookie("email", $memRow["email"], time() + 600);
     setcookie("member_Pic", $memRow["member_Pic"], time() + 600);
     setcookie("member_Bonus", $memRow["member_Bonus"], time() + 600);
+    setcookie("member_buyCount", $memRow["member_buyCount"], time() + 600);
   	//送出登入者的姓名資料
-    echo $memRow["member_Nick"].','.$memRow["member_Bonus"]; //會員大頭貼
+    echo "not found".','.$memRow["member_Nick"].','.$memRow["member_Pic"].','.$memRow["member_buyCount"]; 
   }
 }catch(PDOException $e){
   echo $e->getMessage();
