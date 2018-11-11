@@ -113,6 +113,8 @@ session_start();
 <script src="js/login.js"></script>
 <script src="js/chatBot.js"></script>
 <script src="js/search.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <script>
 
 	for (var i = 1; i <= 7; i++) {

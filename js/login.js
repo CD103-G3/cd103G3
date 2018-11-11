@@ -306,9 +306,10 @@ $id("siginSubmit").addEventListener(
     xhr.onload = function() {
       if (xhr.status == 200) {
         //OK
-        if (xhr.responseText.indexOf("not found") == -1) {
+        if (xhr.responseText.indexOf("not found") != -1) {
           //回傳的資料中有not found
-          alert("帳密錯誤");
+          swal ( "嘿!" ,  "帳號或密碼錯誤!" ,  "error" );
+          // alert("帳密錯誤");
         } else {
           //登入成功
           var aaa = xhr.responseText.split(",");
@@ -322,6 +323,7 @@ $id("siginSubmit").addEventListener(
           memberyPic.src = aaa[1];
           buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${aaa[2]}`;
           document.getElementById("close-login").checked = true;
+          swal("歡迎!", "快去看看最近有甚麼飯團吧!<a herf='https://sweetalert.js.org/guides/#installation'></a>", "success");
         }
       } else {
         alert(xhr.status);
@@ -369,8 +371,8 @@ $id("sigupSubmit").addEventListener(
             document.getElementById("close-login").checked = true;
           } else {
             //註冊失敗
-            if (xhr.responseText.indexOf("hasName") != -1) {
-              alert("已有人使用");
+            if (xhr.responseText.indexOf("hasMember") != -1) {
+              swal ( "帳號已有人使用!!" ,  "再想想吧!" ,  "error" )
             }
           }
         } else {
@@ -382,7 +384,7 @@ $id("sigupSubmit").addEventListener(
       var data_info = "jsonStr=" + jsonStr;
       xhr.send(data_info); //送出資料
     } else {
-      alert("填寫完整才能註冊唷!");
+      swal ( "還有欄位沒有填寫唷!" ,  "你知道嗎? 註冊新會員就有機會獲得神秘大禮!!" ,  "error" );
     }
   },
   false
@@ -407,9 +409,9 @@ $id("getPswSubmit").addEventListener(
         if (xhr.status == 200) {
           //OK
           if (xhr.responseText.indexOf("not found") != -1) {
-            alert("查無此會員");
+            swal ( "帳號或密碼錯誤!" ,  "實在想不起來? 聯絡客服(03)4712399" ,  "error" );
           } else {
-            alert(xhr.responseText);
+            swal ( "已寄出新密碼!" ,  "您的信箱:"+xhr.responseText ,  "success" );
           }
         } else {
           alert(xhr.status);
@@ -420,7 +422,7 @@ $id("getPswSubmit").addEventListener(
       var data_info = "jsonStr=" + jsonStr;
       xhr.send(data_info); //送出資料
     } else {
-      alert("填寫完整才能申請密碼唷!");
+      swal ( "還有欄位沒有填寫唷!" ,  "填寫資料讓我們幫助你找回密碼!!" ,  "error" );
     }
   },
   false
