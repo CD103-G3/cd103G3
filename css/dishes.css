@@ -456,6 +456,9 @@ button, input[type="button"] {
   border-radius: 10px;
   border: 20px solid #FCF2CA; }
 
+.swal-footer {
+  text-align: center; }
+
 .swal-button {
   position: relative;
   display: inline-block;
@@ -480,6 +483,9 @@ button, input[type="button"] {
     transition: .2s; }
   .swal-button:active {
     top: 2px; }
+
+.swal-button-container {
+  margin: auto; }
 
 .swal-button:not([disabled]):hover {
   background-color: #FCE444; }

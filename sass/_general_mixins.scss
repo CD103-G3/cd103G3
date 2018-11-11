@@ -144,7 +144,9 @@ button,input[type="button"]{
     border-radius: 10px;
     border:20px solid $color_main3;
 }
-// .swal-button.swal-button--confirm
+.swal-footer{
+    text-align: center;
+}
 .swal-button{
     @include btn(100%, light) {
         margin: auto;
@@ -153,6 +155,9 @@ button,input[type="button"]{
         transition: .2s;
         line-height:25px;
     }
+}
+.swal-button-container{
+    margin: auto;
 }
 .swal-button:not([disabled]):hover{background-color: $color_main1;};
 .swal-button:active{background-color:$color_main1;top: 2px;
