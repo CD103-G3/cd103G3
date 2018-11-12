@@ -52,8 +52,8 @@
                     <h3>
                         請輸入飯團名稱
                     </h3>
-                    <input type="text" placeholder="請輸入飯團名稱" id="grouponTitle" value="">
-                    <div class="hint">請輸入3~12個字，<br>或是隨機產生名稱</div>
+                    <input type="text" placeholder="請輸入飯團名稱" id="grouponTitle" value="" maxlength="10">
+                    <div class="hint">請輸入3~10個字，<br>或是隨機產生名稱</div>
                     <div class="randomTitle">
                         隨機產生飯團名稱
                     </div>    

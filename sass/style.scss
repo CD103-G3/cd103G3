@@ -825,7 +825,8 @@ h2{
     border: 3px solid $color_main2;
     // max-width: 600px;
     max-width: 500px;
-    margin: 0px 30px 60px;
+    width: calc(100% - 20px);
+    margin: 10px;
     transition: .3s;
     .originalPrice {
         display: none;
@@ -833,6 +834,7 @@ h2{
     @include rwdSys(PC) {
         max-width: 90%;
         width: 100%;
+        margin: 0px 30px 60px;
         .originalPrice {
             display: block;
         }
@@ -858,9 +860,12 @@ h2{
             padding-left: 40px;
             background-color: $color_main1;
             box-shadow: 0px 6px 20px rgba(80, 80, 80, 0.123);
+            white-space: nowrap;
+            // overflow: hidden;
+            text-overflow: ellipsis;
             &:before {
                 top: 90px;
-                left: 0px;
+                left: -1px;
                 @include decoTri(12px, 0px, 0px, 23px, 
                 $color_main2, transparent, $color_main2, transparent)
             }
@@ -893,11 +898,13 @@ h2{
                 width: 120px;
                 height: 120px;
             }
-            .meal-box:nth-child(4) {
+            .meal-box:nth-child(4),
+            .meal-box:nth-child(3) {
                 display: none;
             }
             @include rwdSys(lgPC) {
                 padding: $pd * 2;
+                .meal-box:nth-child(3),
                 .meal-box:nth-child(4) {
                     display: inline-block;
                 }
@@ -1279,7 +1286,7 @@ h2{
         // overflow: hidden;
         max-width: 500px;
         // margin: 0px 30px 60px;
-        margin: 0 auto;
+        margin: 0 auto 60px;
         transition: .3s;
         @include rwdSys(PC) {
             max-width: 100%;
@@ -1340,6 +1347,7 @@ h2{
             }
         }
     }
+    
 }
 //page-2 
 .page5_1 {
@@ -1420,6 +1428,33 @@ h2{
         margin: 0px 0px 10px;
         .cancelBTN, .nextBTN {
             width: calc(50% - 20px);
+        }
+    }
+    .QRcodeAndCode {
+        display: none;
+        h3 {
+            padding: $pd;
+            font-weight: 900;
+            text-align: center;
+            font-size: $fontSize_S;
+        }
+        .pic {
+            width: 200px;
+            height: 200px;
+            margin: auto;
+        }
+        .code-container {
+            margin-top: 20px;
+        }
+        #changeMealCode {
+            display: block;
+            margin: 0 auto 30px;
+            padding: $pd;
+            font-size: $fontSize_M;
+            font-weight: 900;
+            text-align: center;
+            border: 2px solid $color_main2;
+            border-radius: 1000px;
         }
     }
 }
@@ -1629,7 +1664,7 @@ h2{
         .almostSucc-icon {
             display: none;
             @include rwdSys(pad) {
-                display: block;
+                display: none;
                 left: -40px;
             }
         }
@@ -1794,7 +1829,7 @@ h2{
             .codeHere {
                 border-color: $color_main2;
             }
-            #groupon_shareCode {
+            .groupon_shareCode {
                 color: $color_txt;
             }
         }
@@ -1918,7 +1953,7 @@ h2{
         .achievePic {
             @include round(20px);
         }
-        .hint {
+        .hint--achievement {
             @include hint(240px, auto, #333);
             opacity: 0;
             left: -10000px;
@@ -1936,7 +1971,7 @@ h2{
                 font-size: $fontSize_S;
             }         
         }
-        &:hover .hint {
+        &:hover .hint--achievement {
             transition: opacity .3s;
             opacity: 1;
             left: -30px;
@@ -2398,13 +2433,14 @@ h2{
         border-radius: 6px;
         .hint {
             display: none;
+            color: #fff;
             @include hint(200px, 60px, $color_txt) {
                 top: 70px;
             }
             animation: fadeOut 2s forwards 1;
         }
     }
-    #groupon_shareCode {
+    .groupon_shareCode {
         // width: 80%;
         // margin: 30px auto;
         padding-left: $pd;

@@ -82,6 +82,11 @@ function initDayCook() {
 
     
     // alert(mealArray.length);
+    //copy代碼
+    if($class('copyCode').length > 0) {
+        
+        copyCode();
+    }
     
     
     
@@ -155,17 +160,7 @@ function initDayCook() {
     
     //3-4
     if($all('.create3_4').length > 0) {
-        $id('copyCode').onclick = function() {
-            //複製code in input
-            var copyTxt = $id('groupon_shareCode');
-            copyTxt.select();
-            document.execCommand('copy');
-            $all('.hint')[1].style.display = 'block';
-            // 2秒後變display none
-            setTimeout(function() {
-                $all('.hint')[1].style.display = 'none';
-            }, 2000);
-        };
+        
         animate3_4();
     }
     
@@ -189,9 +184,14 @@ function initDayCook() {
         for(let i in $class('meal-box')) {
             $class('meal-box')[i].onclick = addToMenu;
         }
-        $id('checkChangBTN').onclick = displayPopUp5_1;
-        $id('cancelChangBTN').onclick = displayPopUp5_1;
-        $id('checkChange-container_bg').onclick = displayPopUp5_1;
+        $id('checkChangBTN').addEventListener('click', displayPopUp5_1);
+        $id('cancelChangBTN').addEventListener('click', displayPopUp5_1);
+        $id('checkChange-container_bg').addEventListener('click', displayPopUp5_1);
+
+        $id('checkChangBTN').addEventListener('click', genChangeList); //產生交換的清單來確認
+        $id('confirmChangBTN').addEventListener('click', genChangeList); //產生更新資料庫的URL
+        $id('cancelChangBTN').addEventListener('click', genChangeList);
+        $id('checkChange-container_bg').addEventListener('click', genChangeList);
 
         $all('.changePage').forEach(function(pageBTN,w) {
             // console.log(pageBTN);
@@ -836,14 +836,14 @@ function addToMenu(e) {
         } else {
             $class('info')[0].classList.remove('active');
         }
-    }
+    };
 
     let thisMealInfo = this.children[0].getAttribute('mealInfo');
     // alert(thisMealInfo);
     let infoArr = thisMealInfo.split('|');
     // alert(infoArr);
     var newChangeMeal = `<li class="clearfix">
-        <div class="mealName grid-9">${infoArr[2]}</div>
+        <div class="mealName grid-9">${infoArr[1]}</div>
         <div class="deleteIt grid-3">X</div>
         <input type="hidden" value="${thisMealInfo}">
     </li>`;
@@ -851,25 +851,30 @@ function addToMenu(e) {
     
     //還沒被選，增加物件和註冊事件
     if(this.classList.value.indexOf('active') == -1) {
-        this.classList.add('active');
-        $id('mealChanger').children[0].innerHTML += newChangeMeal;
-        var thisMealBox;
+        
+        if($class('deleteIt').length < 8) { //限定最多一次8筆兌換
+            this.classList.add('active');
+            $id('mealChanger').children[0].innerHTML += newChangeMeal;
+            var thisMealBox;
         // 從X把原本餐點的已選擇關掉
-        for(let x in $class('deleteIt')) {
-            $class('deleteIt')[x].onclick = function() {
-                for(let x = 0; x < $class('meal-box').length ; x++) {
-                    if($class('meal-box')[x].children[0].getAttribute('mealInfo') == this.nextElementSibling.value) {
-                        thisMealBox = $class('meal-box')[x];
-                        console.log(thisMealBox);
+            for(let x in $class('deleteIt')) {
+                $class('deleteIt')[x].onclick = function() {
+                    for(let x = 0; x < $class('meal-box').length ; x++) {
+                        if($class('meal-box')[x].children[0].getAttribute('mealInfo') == this.nextElementSibling.value) {
+                            thisMealBox = $class('meal-box')[x];
+                            console.log(thisMealBox);
+                        }
                     }
-                }
-                thisMealBox.classList.remove('active');
-                this.parentNode.parentNode.removeChild(this.parentNode);
-                
-                noMeal();
+                    thisMealBox.classList.remove('active'); //背景變回去
+                    this.parentNode.parentNode.removeChild(this.parentNode); //砍掉自己
+                    
+                    noMeal();
 
+                };
             }
-        }
+        } 
+        
+        
     }
     //從餐點直接取消選取 
     else {
@@ -905,6 +910,82 @@ function displayPopUp5_1() {
         $id('popUpChange').style.display = 'block';
         bgStyle.left = '0px';
         bgStyle.opacity = 1;
+    }
+}
+
+var mealChangeArr = []; //兌換的餐點id清單
+function genChangeList(e) {
+    //預設顯示
+    $all('.changeList-container')[0].style.display = 'block';
+    $all('.QRcodeAndCode')[0].style.display = 'none';
+    var changeMealCountainer = $id('popUpChange').getElementsByTagName('table')[0];
+    var changeMeal = $id('mealChanger').getElementsByTagName('li');
+    var changeMealCount = changeMeal.length;
+
+    if(this.id == 'checkChangBTN') { //按鈕為產生確認用的訂單
+        if(changeMealCount > 0) {  //如果有餐點
+            for(let i = 0; i < changeMealCount ; i++) {
+                var mealInfo = changeMeal[i].children[2].value.split('|');
+                var mealNo = mealInfo[0];
+                var mealName = mealInfo[1];
+                // console.log(mealName);
+                var mealTd = 
+                `<tr>
+                    <td>${mealName}</td>
+                    <td> x1 </td>
+                </tr>`;
+                changeMealCountainer.innerHTML += mealTd; //塞入餐點清單
+                mealChangeArr[i] = mealNo; //將餐點id加入array中
+
+                if(i == changeMealCount-1) {  //加入最後一行
+                    changeMealCountainer.innerHTML +=
+                    `<tr>
+                        <td colspan="2" class="method">取餐方式: 現場取餐</td>
+                    </tr>`; 
+                }
+            } 
+            // console.log(mealChangeArr);
+        } else {
+            changeMealCountainer.innerHTML +=
+            `<tr>
+                <td colspan="2" class="method">目前尚無餐點</td>
+            </tr>`; //加入最後一行
+        }
+
+    } else if(this.id == 'confirmChangBTN') { //把餐點ID加入input value以用來打包為json成為網址
+        
+        var jsonMealArr = JSON.stringify(mealChangeArr);
+        // console.log(jsonMealArr);
+        var changeMealURL = 'localhost/phpLab/CD103G3_penguin/5-1_1_myGrouponExchange.php?mealArr=' + jsonMealArr;
+        //顯示QRcode和隱藏原本的清單
+        $all('.changeList-container')[0].style.display = 'none';
+        $all('.QRcodeAndCode')[0].style.display = 'block';
+        
+        $id('changeMealQRcode').src = 'http://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=300x300&chl=' + changeMealURL;
+
+        $id('changeMealCode').value = 'localhost/phpLab/CD103G3_penguin/5-1_1_myGrouponExchange.php?mealArr=' + jsonMealArr;
+    } else { //清空確認用的訂單
+        changeMealCountainer.innerHTML = 
+        `<tr>
+            <th>餐點名稱</th>
+            <th>數量</th>
+        </tr>`;
+    }
+}
+
+function copyCode() {
+    for(let i = 0; i < $class('copyCode').length ; i++) {
+        $class('copyCode')[i].addEventListener('click', function() {
+            //複製code in input
+            var copyTxt = $class('groupon_shareCode')[i];
+            copyTxt.select();
+            document.execCommand('copy');
+            $all('.hint')[i].style.display = 'block';
+            // 2秒後變display none
+            setTimeout(function() {
+                $all('.hint')[i].style.display = 'none';
+            }, 2000);
+        });
     }
 }
 window.addEventListener('load',initDayCook);

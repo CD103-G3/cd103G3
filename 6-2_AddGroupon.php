@@ -9,7 +9,7 @@ try {
 
     //更新會員參加的飯團
     $groupon = $pdo -> prepare($sql);
-    $groupon -> bindValue('memberNo', '3');
+    $groupon -> bindValue('memberNo', '2'); //id no.為3的會員
     $groupon -> bindValue('grouponNo', $_REQUEST['no']);
     $groupon -> execute();
 

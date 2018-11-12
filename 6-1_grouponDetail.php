@@ -16,6 +16,11 @@
 
 try {
     require_once('phpDB/connectDB_CD103G3.php');
+    $sql = "select * from groupontag";
+    $tag = $pdo -> prepare($sql);
+    $tag -> execute();
+    $tagR = $tag -> fetchAll(); //標籤
+
     $sql = "select * from groupon where groupon_No = :no";
     $groupon = $pdo -> prepare($sql);
     $groupon -> bindValue('no', $_REQUEST['no']);
@@ -42,7 +47,14 @@ try {
         <div class="grouponDetail-container">
             <div class="grouponTitle-wrapper">
                 <div class="text-box">
-                    <span class="tag">#<?php echo $grouponR["groupon_No"] ?></span>
+                    <span class="tag">#
+                        <?php 
+                    
+                            echo $tagR[$grouponR["groupon_No"]-1]['groupon_TagName'] 
+                        
+                        ?>
+                    
+                    </span>
                     <h2><?php echo $grouponR["groupon_Name"] ?></h2>
                 </div>                
                 <div class="backRibbon"></div>  
@@ -75,7 +87,7 @@ try {
                                     <span>300 </span> EXP
                                 </p>
                             </div>
-                            <div class="hint">
+                            <div class="hint--achievement">
                                 <div class="pic grid-6">
                                     <img src="asset/achieve01.png" alt="">
                                 </div>
@@ -91,7 +103,11 @@ try {
                 <div class="endDate grid-12 grid-md-3">
                     <p>募集截止日</p>
                     <span>
-                        <?php echo $grouponR["endDate"] ?>
+                        <?php 
+                            $date = substr($grouponR["endDate"], 5);
+                            $endDate = str_replace('-','/' ,$date);
+                            echo $endDate;
+                        ?>
                     </span>
                 </div>
                 <div class="progress-container grid-12 grid-md-5">
@@ -107,6 +123,7 @@ try {
                     <div class="progressBar">
                         <div class="progressBar_B"></div>
                     </div>
+                    <input type="hidden" id="grouponProgressRatio" value="<?php echo ($grouponR["memberNow"] / $grouponR["groupon_MemberNeed"]) ?>">
                 </div>
                 <div class="bonus-container  grid-6 grid-md-4 clearfix">
                     <div class="bonus grid-3">
@@ -145,9 +162,8 @@ try {
                     </h3>
                 </div>
                 <div class="mealSmallPic-container grid-12">
-                    <h3>全部餐點預覽</h3>
-                    
-                    
+                    <h3>
+                        全部餐點預覽</h3>
                 </div>
                 <div class="mealPic grid-10 grid-md-4">
                     <div class="pic">
@@ -270,8 +286,8 @@ try {
                                     可點擊"參加好友飯團"的按鈕，輸入此代碼來直接查看此飯團
                                 </span>
                                 <div class="codeHere clearfix">
-                                    <input type="text" id="groupon_shareCode" class="grid-9" value="Absjj001" readonly> 
-                                    <span class="grid-3" id="copyCode">
+                                    <input type="text" class="grid-9 groupon_shareCode" value="Absjj001" readonly> 
+                                    <span class="grid-3 copyCode">
                                         複製代碼
                                     </span>
                                     <div class="hint">
@@ -705,76 +721,89 @@ try {
 </script>
 <script src="js/main.js"></script>
 <script>
-    // 取得此飯團的餐點資料
-    window.addEventListener('load',function() {
-        getMealAll();
+// 取得此飯團的餐點資料
+window.addEventListener('load',function() {
+    getMealAll();
+    getQRcode();
+    function showMealInfo(jsonStr) {
+        var mealArr = JSON.parse(jsonStr);
         
-        function showMealInfo(jsonStr) {
-            var mealArr = JSON.parse(jsonStr);
-            
-            // 數量就是餐點array的長度
-            var mealCount = mealArr.length;
-            // console.log(mealCount);
-            //餐點數量計算++
-            
-            //價格計算
-            var totalPrice = 0;
-            //熱量計算
-            var totalKcal= 0;
-            for(let i in mealArr) {
-                totalPrice += parseInt(mealArr[i].meal_Price);
-                totalKcal += parseInt(mealArr[i].meal_Cal);
-                var mealBox = `<div class="meal-box" id="meal${mealArr[i].meal_No}" score='${mealArr[i].meal_Total}'>
-                        <div class="price">
-                        ${mealArr[i].meal_Price}
-                        </div>
-                        <div class="pic">
-                            <img src="asset/meals/${mealArr[i].meal_Pic}" alt="${mealArr[i].meal_Name}"  title="${mealArr[i].meal_Name}">
-                        </div>
-                        <div class="title">
-                            ${mealArr[i].meal_Name}
-                        </div>
-                        <input type='hidden' class='mealInfo' value = '${mealArr[i].meal_Info}'>
-                        <input type='hidden' class='mealCal' value = '${mealArr[i].meal_Cal}'>
-                    </div>`;
+        // 數量就是餐點array的長度
+        var mealCount = mealArr.length;
+        // console.log(mealCount);
+        //餐點數量計算++
+        
+        //價格計算
+        var totalPrice = 0;
+        //熱量計算
+        var totalKcal= 0;
+        for(let i in mealArr) {
+            totalPrice += parseInt(mealArr[i].meal_Price);
+            totalKcal += parseInt(mealArr[i].meal_Cal);
+            var mealBox = `<div class="meal-box" id="meal${mealArr[i].meal_No}" score='${mealArr[i].meal_Total}'>
+                    <div class="price">
+                    ${mealArr[i].meal_Price}
+                    </div>
+                    <div class="pic">
+                        <img src="asset/meals/${mealArr[i].meal_Pic}" alt="${mealArr[i].meal_Name}"  title="${mealArr[i].meal_Name}">
+                    </div>
+                    <div class="title">
+                        ${mealArr[i].meal_Name}
+                    </div>
+                    <input type='hidden' class='mealInfo' value = '${mealArr[i].meal_Info}'>
+                    <input type='hidden' class='mealCal' value = '${mealArr[i].meal_Cal}'>
+                </div>`;
 
-                $class('mealSmallPic-container')[0].innerHTML += mealBox;
-            }
-            //寫入平均價格、熱量、總價
-            $all('.meal-count')[0].children[0].children[0].innerText = mealCount;
-            $all('.avgPrice')[0].children[0].innerText = 
-            Math.round(totalPrice / mealCount);
-            $all('.avgKcal')[0].children[0].innerText = 
-            Math.round(totalKcal / mealCount);
-            $all('.originalPrice')[0].children[0].innerText = totalPrice;
-            $all('.grouponPrice')[0].children[0].innerText = Math.round(totalPrice * 0.6);
-
-            //註冊每一個新生成的餐點事件
-            var smallPicChange = $all('.mealSmallPic-container .meal-box');
-            smallPicChange.forEach(function(e) { e.addEventListener('mouseover', changeMealInfo)});
-            
+            $class('mealSmallPic-container')[0].innerHTML += mealBox;
         }
-        function getMealAll() {
-            var xhr = new XMLHttpRequest();
-            xhr.onload=function (){
-                if( xhr.status == 200 ){
-                    if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found
-                        
-                    } else {
-                        showMealInfo( xhr.responseText );  //json 字串
-                    }
+        //寫入平均價格、熱量、總價
+        $all('.meal-count')[0].children[0].children[0].innerText = mealCount;
+        $all('.avgPrice')[0].children[0].innerText = 
+        Math.round(totalPrice / mealCount);
+        $all('.avgKcal')[0].children[0].innerText = 
+        Math.round(totalKcal / mealCount);
+        $all('.originalPrice')[0].children[0].innerText = totalPrice;
+        $all('.grouponPrice')[0].children[0].innerText = Math.round(totalPrice * 0.6);
+        
+
+        
+        //註冊每一個新生成的餐點事件
+        var smallPicChange = $all('.mealSmallPic-container .meal-box');
+        smallPicChange.forEach(function(e) { e.addEventListener('mouseover', changeMealInfo)});
+
+        if($id('grouponProgressRatio').value >= 0.8 && window.innerWidth >= 600) {
+            $all('.almostSucc-icon')[0].style.display = 'block';
+        } else {
+            $all('.almostSucc-icon')[0].style.display = 'none';
+        } //第i個即將達標的顯示，且手機板不顯示
+        
+    }
+    function getMealAll() {
+        var xhr = new XMLHttpRequest();
+        xhr.onload=function (){
+            if( xhr.status == 200 ){
+                if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found
                     
-                }else{
-                    alert( xhr.status );
+                } else {
+                    showMealInfo( xhr.responseText );  //json 字串
                 }
+                
+            }else{
+                alert( xhr.status );
             }
-
-            var url = "getMealInfo.php" + window.location.search;
-            xhr.open("Get", url, true);
-            xhr.send( null );
         }
-        
-    })
+
+        var url = "getMealInfo.php" + window.location.search;
+        xhr.open("Get", url, true);
+        xhr.send( null );
+    }
+    function getQRcode() {
+        copyCode(); //註冊copy事件
+        // $all('.').src = '';
+        // $all('.').innerText = '';
+
+    }
+})
 </script>
 </html>
 
