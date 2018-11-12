@@ -27,6 +27,7 @@ button, input[type="button"] {
   height: 40px;
   line-height: 40px;
   text-align: center;
+  cursor: pointer;
   font-weight: 600;
   color: #76391B;
   background-color: #FCE444;
@@ -109,6 +110,7 @@ button, input[type="button"] {
       height: 40px;
       line-height: 40px;
       text-align: center;
+      cursor: pointer;
       font-weight: 600;
       color: #76391B;
       background-color: #FCE444;

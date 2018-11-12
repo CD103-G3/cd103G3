@@ -466,6 +466,7 @@ button, input[type="button"] {
   height: 40px;
   line-height: 40px;
   text-align: center;
+  cursor: pointer;
   font-weight: 600;
   color: #76391B;
   background-color: #FCE444;
@@ -799,6 +800,7 @@ button, input[type="button"] {
     height: 40px;
     line-height: 40px;
     text-align: center;
+    cursor: pointer;
     color: #fff;
     background-color: #76391B;
     box-shadow: 0px 4px 0px #FED44F;
@@ -1000,6 +1002,7 @@ button, input[type="button"] {
     height: 40px;
     line-height: 40px;
     text-align: center;
+    cursor: pointer;
     font-weight: 600;
     color: #76391B;
     background-color: #FCE444;
@@ -1763,6 +1766,7 @@ body {
     height: 40px;
     line-height: 40px;
     text-align: center;
+    cursor: pointer;
     color: #fff;
     background-color: #76391B;
     box-shadow: 0px 4px 0px #FED44F;

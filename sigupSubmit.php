@@ -36,6 +36,7 @@ try{
     $_SESSION["member_Pic"] = $memRow["member_Pic"];  //會員大頭貼
     $_SESSION["member_Bonus"] = $memRow["member_Bonus"];  //會員購物金
     $_SESSION["member_buyCount"] = $memRow["member_buyCount"];  //會員購買數量
+    $_SESSION["where"] = "login";  //告知我是註冊登入
     setcookie("member_No", $memRow["member_No"], time() + 600);
     setcookie("member_Id", $memRow["member_Id"], time() + 600);
     setcookie("member_Psw", $memRow["member_Psw"], time() + 600);
@@ -48,7 +49,7 @@ try{
     echo "not found".','.$memRow["member_Nick"].','.$memRow["member_Pic"].','.$memRow["member_buyCount"]; 
     // echo 'not found'; //會員大頭貼
   }else{ //註冊失敗
-    echo 'hasMember';
+    echo 'hasName';
   }
 }catch(PDOException $e){
   echo $e->getMessage();

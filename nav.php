@@ -114,7 +114,6 @@ session_start();
 <script src="js/chatBot.js"></script>
 <script src="js/search.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
 <script>
 
 	for (var i = 1; i <= 7; i++) {
@@ -301,4 +300,50 @@ session_start();
     	whitePointUp();
 	});
 
+</script>
+<script>
+
+	function cookie(name){    
+	   var cookieArray=document.cookie.split("; "); //得到分割的cookie名值對    
+	   var cookie=new Object();    
+	   for (var i=0;i<cookieArray.length;i++){  
+	      // console.log(cookieArray);
+	      var arr=cookieArray[i].split("=");       //將名和值分開
+	      console.log(arr);
+	      console.log(arr[0]+'='+arr[1]);
+	      if(arr[0]==name) return unescape(arr[1]); //如果是指定的cookie，則返回它的值    
+	   } 
+	   return ""; 
+	} 
+	function checkCookie() {
+		 //獲得coolie 的值
+
+	var beforeLogin = document.getElementsByClassName("before-login")[0];
+	var afterLogin = document.getElementsByClassName("after-login")[0];
+	  member_No = cookie("member_No");
+	  member_Id = cookie("member_Id");
+	  member_Psw = cookie("member_Psw");
+	  member_Nick = cookie("member_Nick");
+	  email = cookie("email");
+	  member_Pic = cookie("member_Pic");
+	  member_Bonus = cookie("member_Bonus");
+	  member_buyCount = cookie("member_buyCount");
+	  // alert(member_buyCount);
+	  if (member_No != null && member_No != "") {
+	    beforeLogin.style.display = "none";
+	    afterLogin.style.display = "inline-block";
+		var buyCount = document.querySelectorAll(".after-login span")[0];
+		var memberyPic = document.querySelectorAll(".after-login img")[0];
+		var nike = document.querySelectorAll(".after-login span")[1];
+		nike.innerText = member_Nick;
+		memberyPic.src = member_Pic;
+		buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${member_buyCount}`;
+	  } else {
+	    beforeLogin.style.display = "inline-blocke";
+	    afterLogin.style.display = "none";
+	  }
+	}
+	window.addEventListener('load',function(){
+		checkCookie();
+	},false);
 </script>

@@ -77,7 +77,7 @@ function chatBotSubmit() {
   } else if (botSearch.indexOf("取餐") != -1) {
     if (botSearch.indexOf("無法") != -1 && botSearch.indexOf("如何") == -1) {
       botSearch = "不要問我";
-    } else if (botSearch.indexOf("如何") != -1) {
+    } else if (botSearch.indexOf("如何") != -1 || botSearch.indexOf("取餐") != -1) {
       botSearch = "如何取餐";
     }else if(botSearch != ""){
       botSearch = "啥東東啦";
@@ -90,7 +90,7 @@ function chatBotSubmit() {
         botSearch.indexOf("取") != -1 ||
         botSearch.indexOf("獲") != -1
       ) {
-        botSearch = "如何獲得購取金";
+        botSearch = "如何獲得購物金";
       }
     }else if(botSearch != ""){
       botSearch = "啥東東啦";
