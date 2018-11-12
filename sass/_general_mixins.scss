@@ -71,6 +71,7 @@ button,input[type="button"]{
     height: 40px;
     line-height: 40px;
     text-align: center;
+    cursor: pointer;
     @if $bgc == light {
         font-weight: 600;
         color: $color_main2;
