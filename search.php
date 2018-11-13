@@ -26,13 +26,21 @@
 					<input type="checkbox" name="mealGenre-No" id="mealGenre-No4">
 					<input type="checkbox" name="mealGenre-No" id="mealGenre-No5">
 					<input type="checkbox" name="mealGenre-No" id="mealGenre-No6">
+					<?php
+						if(isset($_SESSION["mealGenre_Name"]) == true){
+							$mealGenre_Name = $_SESSION["mealGenre_Name"];
+							echo $mealGenre_Name;
+							echo count($mealGenre_Name);
+							while($i <= count($mealGenre_Name)){
+								?>
+								<label for="mealGenre-No1" class="mealGenre-No"><?php echo $_SESSION["mealGenre_Name"][i] ?>丼飯</label>
+								<?php
+								$i++;
+							}
+						}
+					?>
 
-					<label for="mealGenre-No1" class="mealGenre-No">丼飯</label>
-					<label for="mealGenre-No2" class="mealGenre-No">便當</label>
-					<label for="mealGenre-No3" class="mealGenre-No">拉麵</label>
-					<label for="mealGenre-No4" class="mealGenre-No">定食</label>
-					<label for="mealGenre-No5" class="mealGenre-No">素食</label>
-					<label for="mealGenre-No6" class="mealGenre-No">鍋物</label>
+					
 				</div>
 				<!-- 顯示更多按鈕 -->
 				<input type="checkbox" id="bookmark-cetentier-more-meal">
@@ -46,10 +54,10 @@
 						<input type="checkbox" name="meal-Cal" id="meal-Cal3">
 						<input type="checkbox" name="meal-Cal" id="meal-Cal4">
 
-						<label for="meal-Cal1" class="meal-Cal">100-300</label>
+						<label for="meal-Cal1" class="meal-Cal">300以下</label>
 						<label for="meal-Cal2" class="meal-Cal">301-600</label>
 						<label for="meal-Cal3" class="meal-Cal">601-900</label>
-						<label for="meal-Cal4" class="meal-Cal">901up</label>
+						<label for="meal-Cal4" class="meal-Cal">901以上</label>
 					</div>
 				</div>
 				<!-- 金額限制 -->

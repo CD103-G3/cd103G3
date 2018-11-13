@@ -333,32 +333,8 @@ $id("siginSubmit").addEventListener(
           },false);
         } else {
           //登入成功
-          beforeLogin.style.display = "none";
-          afterLogin.style.display = "inline-block";
-          clearMemberCookie.style.display = "inline-block";
-          var aaa = xhr.responseText.split(",");
-         
-          var buyCount = document.querySelectorAll(".after-login span")[0];
-          var memberyPic = document.querySelectorAll(".after-login img")[0];
-          var nike = document.querySelectorAll(".after-login span")[1];
-          nike.innerText = aaa[0];
-          memberyPic.src = aaa[1];
-          buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${
-            aaa[2]
-          }`;
-          // nike.innerText = aaa[0];
-          // memberyPic.src = aaa[1];
-          // buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${aaa[2]}`;
-			
-        
+          checkCookie();
           document.getElementById("close-login").checked = true;
-          // swal("歡迎!", "[訊息]12/25聖誕系列丼飯新上市!", "success");
-          // swal({ 
-          //   title: '歡迎!',
-          //   text: '快去看看<a href="https://www.youtube.com/?gl=TW&hl=zh-tw">最新飯團</a>', 
-          //   html: true 
-          // });
-          
           swal({
             title: '歡迎!',
             text:'快來看看',
@@ -401,19 +377,7 @@ $id("sigupSubmit").addEventListener(
         if (xhr.status == 200) {
           //OK
           if (xhr.responseText.indexOf("not found") != -1) {
-            var aaa = xhr.responseText.split(",");
-            beforeLogin.style.display = "none";
-            afterLogin.style.display = "inline-block";
-            clearMemberCookie.style.display = "inline-block";
-            // alert(xhr.responseText);
-            var buyCount = document.querySelectorAll(".after-login span")[0];
-            var memberyPic = document.querySelectorAll(".after-login img")[0];
-            var nike = document.querySelectorAll(".after-login span")[1];
-            nike.innerText = aaa[1];
-            memberyPic.src = aaa[2];
-            buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${
-              aaa[3]
-            }`;
+            checkCookie();
             document.getElementById("close-login").checked = true;
             swal({
               title: '歡迎!',
