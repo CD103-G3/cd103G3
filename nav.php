@@ -4,6 +4,7 @@ session_start();
 	require_once("login.php");
 	require_once("search.php");
 	require_once("chatBot.php");
+	
 ?>
 <header>
 	<input type="checkbox" id="navctrl">
