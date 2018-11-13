@@ -12,7 +12,7 @@
 
 			<!-- 登入 -->
 			<div class="login-mark-cetentier to-sigin clearfix">
-				<form action="" method="POST" onsubmit="return checkSubmit()">
+				<form action="" method="POST" onsubmit="return checkSubmit()" class="login-form">
 					<div class="input-wrap longing-input">
 						<input type="text" id="sigin-member-Id" class="input-mem" required>
 						<label for="sigin-member-Id" class="input-pl">帳號</label>
@@ -25,13 +25,14 @@
 						<img src="images/eye_n.png" class="eye"></div>
 					<div class="cover-run-wrap">
 						<button type="submit" class="btn-cup nextBTN" id="siginSubmit">登入</button>
+						
 					</div>
 				</form>
 				<label for="to-get-Psw" class="cover-run to-Psw btn-cup">忘記密碼?</label>
 			</div>
 			<!-- 註冊 -->
 			<div class="login-mark-cetentier to-sigup clearfix">
-				<form action="" method="POST" id="check-form" onsubmit="return checkSubmit()">
+				<form action="" method="POST" id="check-sigup-form" onsubmit="return checkSubmit()" class="login-form">
 					<div class="input-wrap longing-input">
 						<input type="text" id="sigup-member-Id" class="input-mem need-check need-check-id"required>
 						<label for="sigup-member-Id" class="input-pl" maxlength="40">帳號</label>
@@ -53,12 +54,13 @@
 						<img src="images/checkN.svg" class="check"></div>
 					<div class="cover-run-wrap">
 						<button type="submit" class="btn-cup nextBTN" id="sigupSubmit">註冊</button>
+						
 					</div>
 				</form>
 			</div>
 			<!-- 忘記密碼 -->
 			<div class="login-mark-cetentier to-get-Psw clearfix">
-				<form action="" method="POST" onsubmit="return checkSubmit()">
+				<form action="" method="POST" onsubmit="return checkSubmit()" class="login-form" id="check-getPsw-form">
 					<div class="input-wrap longing-input">
 						<input type="text" id="get-Psw-member-Id" class="input-mem" required>
 						<label for="get-Psw-member-Id" ><img src="images/user.svg"></label>
@@ -71,6 +73,7 @@
 						<img src="images/checkN.svg" class="check"></div>
 					<div class="cover-run-wrap"> 
 						<button type="submit" class="btn-cup nextBTN" id="getPswSubmit">重設密碼</button>
+						
 					</div>
 				</form>
 			</div>

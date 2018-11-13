@@ -236,6 +236,9 @@ header {
 .nav_height {
   height: 75px; }
 
+#clearCookie {
+  display: none; }
+
 @media screen and (min-width: 1024px) {
   header {
     background-image: url(../images/nav_background.png);
@@ -451,6 +454,17 @@ button, input[type="button"] {
   -moz-appearance: none;
   /* FireFox */
   appearance: none; }
+
+.swal-content {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0; }
+  .swal-content__a {
+    color: #FF5000;
+    text-decoration: none; }
+
+.swal-text {
+  vertical-align: middle; }
 
 .swal-modal {
   border-radius: 10px;

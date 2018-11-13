@@ -6,6 +6,7 @@ session_start();
 	require_once("chatBot.php");
 	
 ?>
+<meta name="format-detection" content="telephone=no">
 <header>
 	<input type="checkbox" id="navctrl">
 	<div class="phone-nav">
@@ -66,6 +67,7 @@ session_start();
 			</li>
 			<li class="table-hidden"><a href="member.php">會員中心</a></li>
 			<li class="table-hidden"><label for="close-chatBot">客服雞器人</label></li>
+			<li class="table-hidden" id="clearMemberCookie"><a href="javascript:void(0)">登出</a></li>
 		</ul>
 	</nav>
 	<label class="white-Point" for="white-Point-control">
@@ -304,6 +306,13 @@ session_start();
 </script>
 <script>
 
+	function delCookie(name)
+	{
+		var exp = new Date();
+		exp.setTime(exp.getTime() - 1);
+		var cval=cookie(name);
+		if(cval!=null) document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+	}
 	function cookie(name){    
 	   var cookieArray=document.cookie.split("; "); //得到分割的cookie名值對    
 	   var cookie=new Object();    
@@ -319,8 +328,9 @@ session_start();
 	function checkCookie() {
 		 //獲得coolie 的值
 
-	var beforeLogin = document.getElementsByClassName("before-login")[0];
-	var afterLogin = document.getElementsByClassName("after-login")[0];
+	beforeLogin = document.getElementsByClassName("before-login")[0];
+	afterLogin = document.getElementsByClassName("after-login")[0];
+	clearMemberCookie = document.getElementById('clearMemberCookie');
 	  member_No = cookie("member_No");
 	  member_Id = cookie("member_Id");
 	  member_Psw = cookie("member_Psw");
@@ -329,21 +339,38 @@ session_start();
 	  member_Pic = cookie("member_Pic");
 	  member_Bonus = cookie("member_Bonus");
 	  member_buyCount = cookie("member_buyCount");
-	  // alert(member_buyCount);
 	  if (member_No != null && member_No != "") {
 	    beforeLogin.style.display = "none";
 	    afterLogin.style.display = "inline-block";
+	    clearMemberCookie.style.display = "inline-block";
 		var buyCount = document.querySelectorAll(".after-login span")[0];
 		var memberyPic = document.querySelectorAll(".after-login img")[0];
 		var nike = document.querySelectorAll(".after-login span")[1];
 		nike.innerText = member_Nick;
 		memberyPic.src = member_Pic;
 		buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${member_buyCount}`;
+
 	  } else {
-	    beforeLogin.style.display = "inline-blocke";
+		beforeLogin.style.display = "inline-block";
 	    afterLogin.style.display = "none";
+	    clearMemberCookie.style.display = "none";
 	  }
 	}
+
+	document.getElementById('clearMemberCookie').addEventListener('click',function(){
+		delCookie("member_No");
+		delCookie("member_Id");
+		delCookie("member_Psw");
+		delCookie("member_Nick");
+		delCookie("email");
+		delCookie("member_Pic");
+		delCookie("member_Bonus");
+		delCookie("member_buyCount");
+		checkCookie();
+	    // beforeLogin.style.display = "inline-block";
+	    // afterLogin.style.display = "none";
+	    // clearMemberCookie.style.display = "none";
+	},false);
 	window.addEventListener('load',function(){
 		checkCookie();
 	},false);

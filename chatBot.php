@@ -12,7 +12,7 @@
 			<ul class="chatBot-keyword clearfix">
 				<?php
 					require_once("connectBooks.php");
-					$sql = "select * from chatbot where is_Available = '1'"; //要換成百分比(包含)
+					$sql = "select * from chatbot where is_Available = '1'"; 
 					$chatBot = $pdo->query( $sql);
 					while ($BotRow = $chatBot->fetch(PDO::FETCH_ASSOC)) {
 						?>

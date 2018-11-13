@@ -141,6 +141,19 @@ button,input[type="button"]{
         }
     }
 }
+.swal-content{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    &__a{
+      color: $color_hot;
+      text-decoration: none;
+    }
+
+}
+.swal-text{
+    vertical-align: middle;
+}
 .swal-modal{
     border-radius: 10px;
     border:20px solid $color_main3;
