@@ -308,12 +308,34 @@ $id("siginSubmit").addEventListener(
         //OK
         if (xhr.responseText.indexOf("not found") != -1) {
           //回傳的資料中有not found
-          swal("", "帳號或密碼錯誤!", "error");
+          // swal("", "帳號或密碼錯誤!", "error");
           // alert("帳密錯誤");
+          var siginAns = false;
+          var siginTimer = 5000;
+          swal({
+            title: '帳號或密碼錯誤!',
+            icon: "error",
+            closeOnClickOutside: true,
+            // timer: 3000,
+            content: {
+              element: "a",
+              attributes: {
+                href: "javascript:",
+                text: "忘記密碼?",
+                className:"want-psw",
+              },
+            },
+
+          });
+          document.getElementsByClassName('want-psw')[0].addEventListener('click',function () {
+            $id('to-get-Psw').checked=true;
+            this.parentNode.parentNode.parentNode.className = 'swal-overlay';
+          },false);
         } else {
           //登入成功
           beforeLogin.style.display = "none";
           afterLogin.style.display = "inline-block";
+          clearMemberCookie.style.display = "inline-block";
           var aaa = xhr.responseText.split(",");
          
           var buyCount = document.querySelectorAll(".after-login span")[0];
@@ -327,8 +349,28 @@ $id("siginSubmit").addEventListener(
           // nike.innerText = aaa[0];
           // memberyPic.src = aaa[1];
           // buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${aaa[2]}`;
+			
+        
           document.getElementById("close-login").checked = true;
-          swal("歡迎!", "[訊息]12/25聖誕系列丼飯新上市!", "success");
+          // swal("歡迎!", "[訊息]12/25聖誕系列丼飯新上市!", "success");
+          // swal({ 
+          //   title: '歡迎!',
+          //   text: '快去看看<a href="https://www.youtube.com/?gl=TW&hl=zh-tw">最新飯團</a>', 
+          //   html: true 
+          // });
+          
+          swal({
+            title: '歡迎!',
+            text:'快來看看',
+            icon: "success",
+            content: {
+              element: "a",
+              attributes: {
+                href: "https://www.youtube.com/?gl=TW&hl=zh-tw",
+                text: "目前最HOT!HOT!飯團",
+              },
+            },
+          });
         }
       } else {
         alert(xhr.status);
@@ -362,6 +404,7 @@ $id("sigupSubmit").addEventListener(
             var aaa = xhr.responseText.split(",");
             beforeLogin.style.display = "none";
             afterLogin.style.display = "inline-block";
+            clearMemberCookie.style.display = "inline-block";
             // alert(xhr.responseText);
             var buyCount = document.querySelectorAll(".after-login span")[0];
             var memberyPic = document.querySelectorAll(".after-login img")[0];
@@ -372,6 +415,18 @@ $id("sigupSubmit").addEventListener(
               aaa[3]
             }`;
             document.getElementById("close-login").checked = true;
+            swal({
+              title: '歡迎!',
+              text:'日食送你一張每日刮刮樂，快去看看吧!',
+              icon: "success",
+              content: {
+                element: "a",
+                attributes: {
+                  href: "https://www.youtube.com/?gl=TW&hl=zh-tw",
+                  text: "前往刮刮樂",
+                },
+              },
+            });
           } else {
             //註冊失敗
             if (xhr.responseText.indexOf("hasMember") != -1) {
@@ -413,11 +468,23 @@ $id("getPswSubmit").addEventListener(
           //OK
           console.log(xhr.responseText);
           if (xhr.responseText.indexOf("not found") != -1) {
-            swal(
-              "帳號或密碼錯誤!",
-              "實在想不起來? 聯絡客服(03)4712399",
-              "error"
-            );
+            swal({
+              title: '帳號或信箱錯誤!',
+              text:'實在想不起來?',
+              icon: "error",
+              content: {
+                element: "a",
+                attributes: {
+                  href: "tel:+886-3-4257387",
+                  text: "聯絡客服(03)-4257387",
+                },
+              },
+            });
+            // swal(
+            //   "帳號或密碼錯誤!",
+            //   "實在想不起來? 聯絡客服(03)4712399",
+            //   "error"
+            // );
           } else {
             swal("已寄出新密碼!", "您的信箱:" + xhr.responseText, "success");
           }

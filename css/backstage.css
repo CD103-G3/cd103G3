@@ -13,6 +13,17 @@ button, input[type="button"] {
   /* FireFox */
   appearance: none; }
 
+.swal-content {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0; }
+  .swal-content__a {
+    color: #FF5000;
+    text-decoration: none; }
+
+.swal-text {
+  vertical-align: middle; }
+
 .swal-modal {
   border-radius: 10px;
   border: 20px solid #FCF2CA; }

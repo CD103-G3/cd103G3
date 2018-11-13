@@ -229,6 +229,9 @@ header {
 .nav_height {
   height: 75px; }
 
+#clearCookie {
+  display: none; }
+
 @media screen and (min-width: 1024px) {
   header {
     background-image: url(../images/nav_background.png);
