@@ -63,10 +63,6 @@
                         請選擇此飯團的標籤
                     </h3>
                     <select name="grouponTag" id="grouponTag">
-                        <!-- <option value="gt0">超滿足</option>
-                        <option value="gt1">超健康</option>
-                        <option value="gt1">超省錢</option>
-                        <option value="gt1">大家快來吃!</option> -->
                         <?php require_once("3-1grouponTag.php"); ?>
                     </select>
                 </div>
@@ -75,10 +71,10 @@
             
         </div>
         <div class="btn-container page3_1 clearfix">
-            <div class="cancelBTN">
+            <a class="cancelBTN" href="index.php">
                 回首頁
-            </div>
-            <a class="nextBTN" id="page3_1_BTN" href="3-2_createGroupon_selectMeal.html">
+            </a>
+            <a class="nextBTN" id="page3_1_Check_btn">
                 確認並繼續
             </a>
         </div>
@@ -92,4 +88,41 @@
         <!-- 放footer -->
     </footer>
 </body>
+<script>
+    window.addEventListener('load',function() {
+        $id('page3_1_Check_btn').addEventListener('click', checkGrouponNameAndTag);
+
+        // load3-1時如果storage有東西，把原本的storageInfo倒出來
+        if(storage.grouponInfo != '') {
+            var grouponInfoArr = storage.grouponInfo.split('|');
+            var TagIndex = parseInt(grouponInfoArr[3]) - 1;
+            var dateIndex = parseInt(grouponInfoArr[1]);
+            console.log(TagIndex);
+            $id('grouponTitle').value = grouponInfoArr[0]; //title
+            $id('grouponTag').selectedIndex = TagIndex; //tag
+            console.log(grouponInfoArr[1]);
+            $class('selectDate')[dateIndex].setAttribute('checked', 'checked');
+        }
+        // 再清空原本的storage
+        storage.grouponInfo = '';
+    });
+
+
+    function checkGrouponNameAndTag() {
+        if($id('grouponTitle').value == '') { //如果沒填名稱
+            // $class('hint')[0].style.opacity = '1';
+            $id('grouponTitle').style.backgroundColor = '#FCE444';
+            $id('grouponTitle').onchange = defaultBG;
+            
+            var defaultBG = function() {
+                if($id('grouponTitle').value.length > 0 ) {
+                    $id('grouponTitle').style.backgroundColor = '#FFFFFF'; //變回白色
+                }
+            }
+            alert('請輸入10個字以下的飯團名稱');
+        } else {
+            location.href = '3-2_createGroupon_selectMeal.html';
+        }
+    }
+</script>
 </html>

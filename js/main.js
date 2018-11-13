@@ -104,10 +104,12 @@ function initDayCook() {
         storage.grouponInfo = '';
     }
     // 名稱和日期和標籤寫入session storage
-    if($id('page3_1_BTN')) {
-        $id('page3_1_BTN').onclick = function() {
-            
+    if($id('page3_1_Check_btn')) {
+        $id('page3_1_Check_btn').onclick = function() {
             //if all inputed write into storage
+            
+
+            
             if(checkInput()) {
                 storage.grouponInfo += $id('grouponTitle').value  + '|';
                 // selected date
@@ -175,7 +177,7 @@ function initDayCook() {
 
     
     //add meal function
-    var addThisMeal_btn = document.getElementsByClassName('addThis');
+    var addThisMeal_btn = document.getElementsByClassName('selectMeal');
     for(var i in addThisMeal_btn) {
         addThisMeal_btn[i].onclick = addMeal;
     } 
@@ -264,7 +266,7 @@ function cal7days(e) {
         var day = dString.substr(0,3);
 
         var dayNowInput = (x == 0) ? 
-        `<input type='radio' id='${month}/${date}' name='selectDate' dateAdded=${x} checked>` : `<input type='radio' id='${month}/${date}' name='selectDate' dateAdded=${x}>`;
+        `<input type='radio' id='${month}/${date}' name='selectDate' dateAdded=${x} checked class='selectDate'>` : `<input type='radio' id='${month}/${date}' name='selectDate' dateAdded=${x} class='selectDate'>`;
          
         var dayNowLabel = `<label for ='${month}/${date}'><span>${month}/${date}</span>${day} </label>`;
         
@@ -361,10 +363,67 @@ function createMealList(e) {
     }
 }
 
+function filterGenre(e) {
+    var genreList = $class('genreList');
+    var genreList_L = $class('genreList').length;
+    for(let i = 0; i < genreList_L ;i++) {
+        $class('genreList')[i].addEventListener('click', filterMeals); 
+           
+    }
+}
+var selectedGenreArr = []; //store selected meals genre
+// var selectedGenreArr_L = selectedGenreArr.length;
+function filterMeals(e) {
+    var genreList = $class('genreList');
+    var genreList_L = genreList.length;
+    var allMeals = $all('.add-wrapper .selectMeal');
+    var allMeals_L = allMeals.length;
+    
+    var genreName = this.getAttribute('genre');
+
+    var mealDisplay = function() {
+        for(let i = 0; i < allMeals_L;i++) {
+        var mealClass = allMeals[i].className.substr(11); 
+        
+        // console.log(selectedGenreArr[j]);
+        if(selectedGenreArr.indexOf(mealClass) != -1) { //if meal genre fit one of the selected genre
+            allMeals[i].style.display = 'inline-block';
+        } else if(selectedGenreArr.length == 0) {
+            allMeals[i].style.display = 'inline-block';
+        } else {
+            allMeals[i].style.display = 'none';
+        }
+        
+    } };
+
+    if(this.className.indexOf('active') == -1) { //if has not been clicked
+        
+        selectedGenreArr.push(genreName);
+        this.className += ' active';
+        console.log(this.className);
+        console.log(selectedGenreArr);
+        mealDisplay();
+    } else {
+        var genreIndex = selectedGenreArr.indexOf(genreName);
+        selectedGenreArr.splice(genreIndex,1);
+        this.className= 'genreList';
+        for(let i = 0; i < allMeals_L;i++) {
+            allMeals[i].style.display = 'inline-block'; 
+        }
+        console.log(this.className);
+        console.log(selectedGenreArr);
+        mealDisplay();
+    }
+    
+    // console.log(this.className.indexOf('activ'));
+    
+    
+}
+// 3-1
 function genRandomTitle() {
-    var adj = [ '超棒的', '吃飽飽的', '呷尚飽'];
-    var adv = [ '前所未見', '史無前例', '驚天霹靂'];
-    var n = ['一起吃飯!','拿購物金!','揪個飯團吧~'];
+    var adj = [ '超棒的', '吃飽飽的', '呷尚飽','前所未見','史無前例','驚天霹靂'];
+    var adv = [ '天天', '開心', '爽der'];
+    var n = ['作夥吃','拿錢錢~','揪飯團~'];
  
     // alert(randomOneNum(1, 3));
     var title = adv[randomOneNum(1, adv.length-1)] 
@@ -372,7 +431,7 @@ function genRandomTitle() {
     + n[randomOneNum(1, n.length-1)];
 
     $id('grouponTitle').value = title;
-
+    $id('grouponTitle').style.backgroundColor = '#FFFFFF';
 }
 
 // 計算購物金
@@ -455,49 +514,52 @@ function removeThisMeal(e) {
 function addMeal(e) {
     //count cal
     //bonus
-    calBonus();
+    if(this.children[3].style.left != '0px') {
+        calBonus();
     
-    createMealSession(this);
-    // calMealNumber(this);
-
-    var mealList = storage.getItem('addMealList');
-    var mealArray = mealList.substr(0, mealList.length - 1).split(',');
-
+        createMealSession(this);
+        // calMealNumber(this);
     
-    // for(let j =  ; j < $id('mealArea').children.length ; j++) {
-    //     $id('mealArea').removeChild($id('mealArea').children[j]);
-    // //     // alert('/');
-    // }
-    // for(let i in mealArray) {
-    var mealId = this.id;
-    var mealInfo = storage.getItem(mealId);     
-    createMealBox(mealId, mealInfo);
-
-    mealCount ++;
-    $id('addedMealNow').innerText = mealCount;
-    $class('grouponDay')[0].innerText = mealCount;
-    storage.mealCount = mealCount;
-
-    $id('originPrice').innerText = originalPrice;
-    $id('salePrice').innerText = grouponPrice;
-       
-        // originalPrice -= mealPrice;
+        var mealList = storage.getItem('addMealList');
+        var mealArray = mealList.substr(0, mealList.length - 1).split(',');
+    
         
-    grouponPrice = Math.floor(originalPrice * 0.6);
-
+        // for(let j =  ; j < $id('mealArea').children.length ; j++) {
+        //     $id('mealArea').removeChild($id('mealArea').children[j]);
+        // //     // alert('/');
+        // }
+        // for(let i in mealArray) {
+        var mealId = this.id;
+        var mealInfo = storage.getItem(mealId);     
+        createMealBox(mealId, mealInfo);
     
-
-    //add to session storage
+        mealCount ++;
+        $id('addedMealNow').innerText = mealCount;
+        $class('grouponDay')[0].innerText = mealCount;
+        storage.mealCount = mealCount;
     
-
-    //gray bg cover
-    $id('mealAreaInfo').style.display = 'none';
-    this.parentNode.parentNode.children[3].style.left = '0px';
-    this.parentNode.parentNode.children[3].style.opacity = '.7';
-    // this.parentNode.parentNode.children[3].onclick = removeThisMeal;
-
-
-    //create the same meal in 3-2 right added list
+        $id('originPrice').innerText = originalPrice;
+        $id('salePrice').innerText = grouponPrice;
+           
+            // originalPrice -= mealPrice;
+            
+        grouponPrice = Math.floor(originalPrice * 0.6);
+    
+        
+    
+        //add to session storage
+        
+    
+        //gray bg cover
+        $id('mealAreaInfo').style.display = 'none';
+        this.children[3].style.left = '0px';
+        this.children[3].style.opacity = '.7';
+        // this.parentNode.parentNode.children[3].onclick = removeThisMeal;
+    
+    
+        //create the same meal in 3-2 right added list
+    }
+    
 }
 function createMealBox(meal, mealInfo) {
     if($id('mealArea')) {
@@ -540,11 +602,6 @@ function createMealBox(meal, mealInfo) {
         topUI.appendChild(addThis);
     }
     
-
-    var scaleUp = document.createElement('div');
-    scaleUp.className = 'scaleUp';
-    scaleUp.innerHTML = '<i class="fas fa-search"></i>';
-    topUI.appendChild(scaleUp);
 
     //second layer pic------
     var pic = document.createElement('div');

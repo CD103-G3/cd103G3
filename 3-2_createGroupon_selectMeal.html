@@ -45,13 +45,8 @@
             <div class="addMeal-container clearfix">     
                 <div class="addMealPanel grid-12 grid-md-7">
                     <h2> 選擇餐點分類</h2>
-                    <ul class="clearfix">    
-                        <li class="active">簡餐餐</li>
-                        <li>丼飯</li>
-                        <li>0001</li>
-                        <li>0001</li>
-                        <li>0001</li>
-                        <li>0001</li>
+                    <ul class="clearfix" id="mealGenre-container">   
+                        
                     </ul>
                     <div class="add-wrapper" id="addWrapper3_2">
                         
@@ -151,7 +146,7 @@
             <a class="cancelBTN" href="3-1_createGroupon.php">
                 回上一步
             </a>
-           <a class="nextBTN" href="3-3_createGroupon_createdList.html">
+           <a class="nextBTN" >
                確認並繼續
            </a>
         </div>
@@ -167,77 +162,89 @@
 <script>
     var loadComplete = false;
     function showMeal(jsonStr) {
-        console.log(jsonStr);
-            var mealInfo = JSON.parse(jsonStr);
-            // document.write(mealInfo);
-            mealInfoL = mealInfo.length;
-            var list = `<li class="active">簡餐餐</li>
-                        <li>丼飯</li>
-                        <li>0001</li>
-                        <li>0001</li>
-                        <li>0001</li>
-                        <li>0001</li>`;
-            // console.log(mealInfo[1]);
-            for(let i = 0; i < mealInfoL;i++) {
-                var meal = `<div class="selectMeal mealGenre${mealInfo[i].mealGenre_No}">
-                            <div class="topUI">
-                                <div class="addThis" id="meal${mealInfo[i].meal_No}">+
-                                    <div class="hint">加此餐點</div>
-                                </div>
-                            </div>
-                            <div class="pic">
-                                <img src="asset/meals/${mealInfo[i].meal_Pic}" alt="">
-                            </div>
-                            <div class="meal-title">
-                                <div class="meal-score">
-                                        
-                                </div>
-                                <div class="title-wrapper" >
-                                    <h3 id="${mealInfo[i].meal_No}_name">
-                                        ${mealInfo[i].meal_Name}
-                                    </h3>
-                                    <span id="${mealInfo[i].meal_No}_price">${mealInfo[i].meal_Price}元</span>
-                                </div>
-                            </div>
-                            <div class="added-bg" id="meal${mealInfo[i].meal_No}_bg">
-                                <p><i class="fas fa-check"></i>  已選擇</p>
-                            </div>
-                            <input type="hidden" id="meal${mealInfo[i].meal_No}input" value="${mealInfo[i].meal_Name}|${mealInfo[i].meal_Price}元|asset/meals/${mealInfo[i].meal_Pic}">
-                        </div>`;
-                        
-                document.getElementById('addWrapper3_2').innerHTML += meal;
-            }
-            
-            var addThisMeal_btn = document.getElementsByClassName('addThis');
-            for(var i in addThisMeal_btn) {
-                addThisMeal_btn[i].onclick = addMeal;
-            }
-            // $id('addWrapper3_2').innerHTML += 
-            loadComplete = true;
-            setMealArea();
-        };
-    function getMeal() {
-            var xhr = new XMLHttpRequest();
-            xhr.onload=function (){
-                if( xhr.status == 200 ){
-                    if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found
-                        document.getElementById("showPanel").innerHTML = "<center>查無餐點資料</center>";
-                    } else {
-                        showMeal(xhr.responseText);  //json 字串
-                    }
-                    
-                }else{
-                    alert( xhr.status );
-                }
-            }
-        var url = "3-2grouponMeal.php";
-        xhr.open("Get" ,url, true);
-        xhr.send(null);
+        var mealInfo = JSON.parse(jsonStr);
+        // document.write(mealInfo);
+        mealInfoL = mealInfo.length; 
+        var mealGenre = mealInfo[mealInfoL - 1];
+        for(let i = 0; i < mealGenre.length;i++) {
+            var list = `<li class='genreList' genre='mealGenre${mealGenre[i]['mealGenre_No']}'>${mealGenre[i]['mealGenre_Name']}</li>`;
+            $id('mealGenre-container').innerHTML += list;
         }
-window.addEventListener('load', function() {
-    // getMeal();
-    
-});
+        
+        
+        // console.log(mealInfo[1]);
+        for(let i = 0; i < mealInfoL - 1 ;i++) { //因為最後一個是餐點分類
+            var meal = `<div class="selectMeal mealGenre${mealInfo[i].mealGenre_No}"  id="meal${mealInfo[i].meal_No}">
+                        <div class="topUI">
+                            <div class="addThis">+
+                                <div class="hint">加此餐點</div>
+                            </div>
+                        </div>
+                        <div class="pic">
+                            <img src="asset/meals/${mealInfo[i].meal_Pic}" alt="">
+                        </div>
+                        <div class="meal-title">
+                            <div class="meal-score">
+                                    
+                            </div>
+                            <div class="title-wrapper" >
+                                <h3 id="${mealInfo[i].meal_No}_name">
+                                    ${mealInfo[i].meal_Name}
+                                </h3>
+                                <span id="${mealInfo[i].meal_No}_price">${mealInfo[i].meal_Price}元</span>
+                            </div>
+                        </div>
+                        <div class="added-bg" id="meal${mealInfo[i].meal_No}_bg">
+                            <p><i class="fas fa-check"></i>  已選擇</p>
+                        </div>
+                        <input type="hidden" id="meal${mealInfo[i].meal_No}input" value="${mealInfo[i].meal_Name}|${mealInfo[i].meal_Price}元|asset/meals/${mealInfo[i].meal_Pic}">
+                    </div>`;
+                    
+            document.getElementById('addWrapper3_2').innerHTML += meal;
+        }
+        
+        var addThisMeal_btn = document.getElementsByClassName('selectMeal');
+        for(var i in addThisMeal_btn) {
+            addThisMeal_btn[i].onclick = addMeal;
+        }
+        
+        loadComplete = true;
+        setMealArea(); // put meal-boxes into area
+        filterGenre(); //register click genre event
+    };
+    function getMeal() {
+        var xhr = new XMLHttpRequest();
+        xhr.onload=function (){
+            if( xhr.status == 200 ){
+                if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found
+                    document.getElementById("showPanel").innerHTML = "<center>查無餐點資料</center>";
+                } else {
+                    showMeal(xhr.responseText);  //json 字串
+                }
+                
+            }else{
+                alert( xhr.status );
+            }
+        }
+    var url = "3-2grouponMeal.php";
+    xhr.open("Get" ,url, true);
+    xhr.send(null);
+    }
+    function  checkMealCount() {
+        if($id('mealArea').children.length < 6) {
+            console.log($id('mealArea').children.length);
+            alert('請選擇至少5個餐點~');
+        } else {
+            location.href = '3-3_createGroupon_createdList.html';
+        }
+    }   
+    window.addEventListener('load', function() {
+        // getMeal();
+        $class('nextBTN')[0].addEventListener('click', checkMealCount);
+
+
+        
+    });
 
 </script>
 <script src="js/main.js"></script>

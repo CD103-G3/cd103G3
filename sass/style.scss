@@ -76,7 +76,7 @@ h2{
     color: $color_main2;
     text-align: center;
 }
-@include picSetting;
+@include picSetting2;
 
 .penguinPage { //penguinPage css wrapper start
 
@@ -470,6 +470,7 @@ h2{
     overflow: hidden;
     font-size: $fontSize_text;
     box-shadow: 6px 6px 0px $color_main1;
+    cursor: pointer;
     .pic { border-radius: 20px; }
     .topUI {
         position: absolute;
@@ -1766,7 +1767,10 @@ h2{
         border-bottom: 2px solid $color_main2;
         .mealAndKcal {
             font-size: $fontSize_S;
-            padding: $pd * 4;
+            padding: $pd * 2;
+            @include rwdSys(pad) {
+                padding: $pd * 4;
+            }
             span {
                 font-size: $fontSize_L;
                 font-weight: 800;
@@ -1849,7 +1853,7 @@ h2{
 }
 @include popUp('.share6_1-bg', '#share6_1', '.shareInfo-container', '.share-wrapper');
 
-@include popUp('.share5_1-bg', '#share5_1', '.shareInfo-container', '.share-wrapper');
+@include popUp('.share5_1-bg', '.share5_1', '.shareInfo-container', '.share-wrapper');
 
 .shareGroupon-BTN {
     margin: auto;
@@ -1892,6 +1896,7 @@ h2{
             }
             .meal-container {
                 padding-bottom: 0px;
+                
             }
         }
         .groupon_bottomUI {
@@ -1906,7 +1911,11 @@ h2{
         }
         .almostSucc-icon {
             top: 2px;
-            left: 386px;
+            left: 254px;
+            @include rwdSys(pad) {
+                left: 386px;
+            }
+            
         }
     }
     .meal-box {

@@ -367,12 +367,12 @@
                     </div>
                     <div class="groupon_bottomUI clearfix">
                         <div class="callToAction grid-12">
-                            <input type="checkbox" id="share5_1">
+                            <input type="checkbox" id="share5_1_${myGrouponSearchR[i][0]}" class="share5_1">
                             <div class="share-wrapper">
                                 <a href="6-1_grouponDetail.php?no=${myGrouponSearchR[i][0]}" class="subBTN">
                                         查看此飯團
                                 </a>
-                                <label class="shareGroupon-BTN" for="share5_1">
+                                <label class="shareGroupon-BTN" for="share5_1_${myGrouponSearchR[i][0]}">
                                     分享此飯團
                                 </label>
                                 <div class="shareInfo-container">
@@ -425,7 +425,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <label class="share5_1-bg" for="share5_1"></label>
+                            <label class="share5_1-bg" for="share5_1_${myGrouponSearchR[i][0]}"></label>
                         </div>
                     </div>
                     <div class="almostSucc-icon">

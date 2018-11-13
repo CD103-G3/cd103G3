@@ -5,24 +5,23 @@
 try {
     require_once('phpDB/connectDB_CD103G3.php');
     //使用搜尋條件
-    $order = $_REQUEST['order'];
-    $search = "%".$_REQUEST['search']."%";
-    if($search == '' && $order == '') {
-        // if()
-        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon";
-    } else if($order == '') {
-        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search'";
-    } else if($order == 'endDate'){
-        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by `groupon`.`$order` DESC";
-    } else if($order == 'success') {
-        $sql = "SELECT * ,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by success DESC";
-    }
-   
+    $tagNo = $_REQUEST['tagNo'];
+      
+    $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_TagNo = '$tagNo' LIMIT 5";
+
     $groupon = $pdo -> prepare($sql);
     $groupon -> execute();
+
 if( $groupon -> rowCount() != 0) { //如果搜尋結果有配對成功
+    $grouponR = $groupon -> fetchAll(); //1. 找到符合該標籤的飯團
+} else { //否則顯示所有的groupon
+    $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon  LIMIT 5";
+    $groupon = $pdo -> prepare($sql);
+    $groupon -> execute();
     $grouponR = $groupon -> fetchAll(); //1. 找到所有飯團
-    
+}   
+
+
     $sql_Meal = 'SELECT * from meal'; 
     $meal = $pdo -> prepare($sql_Meal);
     $meal -> execute();
@@ -52,9 +51,8 @@ if( $groupon -> rowCount() != 0) { //如果搜尋結果有配對成功
         // echo $grouponTagNo;
         $grouponR[$i][2] = $tagR[$grouponRe['groupon_TagNo']-1]['groupon_TagName']; //將標籤的編號轉為文字
         
-        // echo $grouponNo;
-        // echo "<div>飯團編號---$grouponNo","<br>";
-        // $grouponSearch .= $grouponR['groupon_No'];
+        $grouponR[$i][5] = str_replace('-','/' ,substr($grouponRe['endDate'],5)); //將截止日轉型
+
         $sql = "select * from grouponlist where groupon_No = $grouponNo";
         $grouponMeal = $pdo -> prepare($sql);
         $grouponMeal -> execute();
@@ -86,12 +84,7 @@ if( $groupon -> rowCount() != 0) { //如果搜尋結果有配對成功
     $jstr = json_encode($grouponR);
     echo $jstr;
 
-} else { //否則出現not found
-    $grouponR = 'not found';
-    echo $grouponR;
-    // $jstr = json_encode($grouponR);
-    // echo $jstr;
-}
+
     
 
 }catch(PDOException $e) {

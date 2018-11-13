@@ -136,7 +136,9 @@ try {
                     </div>
                     <div class="bonusPeople grid-9">
                         <h3>達到後 前 
-                            <span class="people">0</span>
+                            <span class="people">
+                                <?php echo$grouponR["groupon_MemberNeed"] ?>
+                            </span>
                             人每人:  
                         </h3>
                         <p>
@@ -311,371 +313,7 @@ try {
     <div class="recommendGroupon-wrapper">
         <h2>其他推薦飯團</h2>
         <div class="owl-carousel">
-            <div class="groupon-box">
-                <div class="groupon_topUI clearfix">
-                    <div class="leftUI grid-12">
-                        <div class="titleTag grid-12">
-                            <span class="tag">#超滿足</span>
-                            <h3>日式和食小資飯團</h3>
-                        </div>
-                        <div class="meal-container grid-12 clearfix">
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="豪華便當組"  title="豪華便當組">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="andMoreMeal-counter">
-                                ...總共 <span>5</span>個餐點
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="groupon_bottomUI clearfix">
-                    <div class="grid-12">
-                        <div class="mealAndKcal grid-6">
-                            <div class="avgPrice grid-12">平均
-                                <span>72</span>
-                                元 / 餐
-                            </div>
-                        </div>
-                        <div class="price grid-6">
-                            <div class="grouponPrice">
-                                飯團價(6折) <span>
-                                    640元
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="btn-container grid-12">
-                        <a href="##" class="subBTN">
-                            查看此飯團
-                        </a>
-                    </div>
-                </div>
-                <div class="almostSucc-icon">
-                    即將達標
-                </div>
-            </div>
-            <div class="groupon-box">
-                <div class="groupon_topUI clearfix">
-                    <div class="leftUI grid-12">
-                        <div class="titleTag grid-12">
-                            <span class="tag">#超滿足</span>
-                            <h3>日式和食小資飯團</h3>
-                        </div>
-                        <div class="meal-container grid-12 clearfix">
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="豪華便當組"  title="豪華便當組">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="andMoreMeal-counter">
-                                ...總共 <span>5</span>個餐點
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="groupon_bottomUI clearfix">
-                    <div class="grid-12">
-                        <div class="mealAndKcal grid-6">
-                            <div class="avgPrice grid-12">平均
-                                <span>72</span>
-                                元 / 餐
-                            </div>
-                        </div>
-                        <div class="price grid-6">
-                            <div class="grouponPrice">
-                                飯團價(6折) <span>
-                                    640元
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="btn-container grid-12">
-                        <a href="##" class="subBTN">
-                            查看此飯團
-                        </a>
-                    </div>
-                </div>
-                <div class="almostSucc-icon">
-                    即將達標
-                </div>
-            </div>
-            <div class="groupon-box">
-                <div class="groupon_topUI clearfix">
-                    <div class="leftUI grid-12">
-                        <div class="titleTag grid-12">
-                            <span class="tag">#超滿足</span>
-                            <h3>日式和食小資飯團</h3>
-                        </div>
-                        <div class="meal-container grid-12 clearfix">
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="豪華便當組"  title="豪華便當組">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="andMoreMeal-counter">
-                                ...總共 <span>5</span>個餐點
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="groupon_bottomUI clearfix">
-                    <div class="grid-12">
-                        <div class="mealAndKcal grid-6">
-                            <div class="avgPrice grid-12">平均
-                                <span>72</span>
-                                元 / 餐
-                            </div>
-                        </div>
-                        <div class="price grid-6">
-                            <div class="grouponPrice">
-                                飯團價(6折) <span>
-                                    640元
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="btn-container grid-12">
-                        <a href="##" class="subBTN">
-                            查看此飯團
-                        </a>
-                    </div>
-                </div>
-                <div class="almostSucc-icon">
-                    即將達標
-                </div>
-            </div>
-            <div class="groupon-box">
-                <div class="groupon_topUI clearfix">
-                    <div class="leftUI grid-12">
-                        <div class="titleTag grid-12">
-                            <span class="tag">#超滿足</span>
-                            <h3>日式和食小資飯團</h3>
-                        </div>
-                        <div class="meal-container grid-12 clearfix">
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="豪華便當組"  title="豪華便當組">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="andMoreMeal-counter">
-                                ...總共 <span>5</span>個餐點
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="groupon_bottomUI clearfix">
-                    <div class="grid-12">
-                        <div class="mealAndKcal grid-6">
-                            <div class="avgPrice grid-12">平均
-                                <span>72</span>
-                                元 / 餐
-                            </div>
-                        </div>
-                        <div class="price grid-6">
-                            <div class="grouponPrice">
-                                飯團價(6折) <span>
-                                    640元
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="btn-container grid-12">
-                        <a href="##" class="subBTN">
-                            查看此飯團
-                        </a>
-                    </div>
-                </div>
-                <div class="almostSucc-icon">
-                    即將達標
-                </div>
-            </div>
-            <div class="groupon-box">
-                <div class="groupon_topUI clearfix">
-                    <div class="leftUI grid-12">
-                        <div class="titleTag grid-12">
-                            <span class="tag">#超滿足</span>
-                            <h3>日式和食小資飯團</h3>
-                        </div>
-                        <div class="meal-container grid-12 clearfix">
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="豪華便當組"  title="豪華便當組">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="andMoreMeal-counter">
-                                ...總共 <span>5</span>個餐點
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="groupon_bottomUI clearfix">
-                    <div class="grid-12">
-                        <div class="mealAndKcal grid-6">
-                            <div class="avgPrice grid-12">平均
-                                <span>72</span>
-                                元 / 餐
-                            </div>
-                        </div>
-                        <div class="price grid-6">
-                            <div class="grouponPrice">
-                                飯團價(6折) <span>
-                                    640元
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="btn-container grid-12">
-                        <a href="##" class="subBTN">
-                            查看此飯團
-                        </a>
-                    </div>
-                </div>
-                <div class="almostSucc-icon">
-                    即將達標
-                </div>
-            </div>                                            
+                                                       
         </div>
     </div>
     
@@ -687,28 +325,28 @@ try {
     
 </body>
 <script>
-    $(document).ready(function(){
-        $(".owl-carousel").owlCarousel({
-            center: true,
-            items: 1,
-            loop: true,
-            margin: 60,
-            responsiveClass:true,
-            nav:true,
-            responsive:{
-                0:{
-                    items:1,
-                    autoWidth: true,
-                    nav:true
-                },
-                768:{
-                    items:3,
-                    autoWidth: true,
-                    nav:true,
-                }
+function startOwl() {
+    $(".owl-carousel").owlCarousel({
+        center: true,
+        items: 1,
+        loop: true,
+        margin: 60,
+        responsiveClass:true,
+        nav:true,
+        responsive:{
+            0:{
+                items:1,
+                autoWidth: true,
+                nav:true
+            },
+            768:{
+                items:3,
+                autoWidth: true,
+                nav:true,
             }
-        });
+        }
     });
+}
 </script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -722,87 +360,186 @@ try {
 <script src="js/main.js"></script>
 <script>
 // 取得此飯團的餐點資料
+var url = "getMealInfo.php" + window.location.search;
+function showMealInfo(jsonStr) {
+    var mealArr = JSON.parse(jsonStr);
+    
+    // 數量就是餐點array的長度
+    var mealCount = mealArr.length;
+    // console.log(mealCount);
+    //餐點數量計算++
+    
+    //價格計算
+    var totalPrice = 0;
+    //熱量計算
+    var totalKcal= 0;
+    for(let i in mealArr) {
+        totalPrice += parseInt(mealArr[i].meal_Price);
+        totalKcal += parseInt(mealArr[i].meal_Cal);
+        var mealBox = 
+        `<div class="meal-box" id="meal${mealArr[i].meal_No}" score='${mealArr[i].meal_Total}'>
+                <div class="price">
+                ${mealArr[i].meal_Price}
+                </div>
+                <div class="pic">
+                    <img src="asset/meals/${mealArr[i].meal_Pic}" alt="${mealArr[i].meal_Name}"  title="${mealArr[i].meal_Name}">
+                </div>
+                <div class="title">
+                    ${mealArr[i].meal_Name}
+                </div>
+                <input type='hidden' class='mealInfo' value = '${mealArr[i].meal_Info}'>
+                <input type='hidden' class='mealCal' value = '${mealArr[i].meal_Cal}'>
+            </div>`;
+
+        $class('mealSmallPic-container')[0].innerHTML += mealBox;
+    }
+    //寫入平均價格、熱量、總價
+    $all('.meal-count')[0].children[0].children[0].innerText = mealCount;
+    $all('.avgPrice')[0].children[0].innerText = 
+    Math.round(totalPrice / mealCount);
+    $all('.avgKcal')[0].children[0].innerText = 
+    Math.round(totalKcal / mealCount);
+    $all('.originalPrice')[0].children[0].innerText = totalPrice;
+    $all('.grouponPrice')[0].children[0].innerText = Math.round(totalPrice * 0.6);
+    
+
+    
+    //註冊每一個新生成的餐點事件
+    var smallPicChange = $all('.mealSmallPic-container .meal-box');
+    smallPicChange.forEach(function(e) { e.addEventListener('mouseover', changeMealInfo)});
+
+    if($id('grouponProgressRatio').value >= 0.8 && window.innerWidth >= 600) {
+        $all('.almostSucc-icon')[0].style.display = 'block';
+    } else {
+        $all('.almostSucc-icon')[0].style.display = 'none';
+    } //第i個即將達標的顯示，且手機板不顯示
+    
+}
+function getMealAll(what) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload=function (){
+        if( xhr.status == 200 ){
+            if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found
+                
+            } else if(what == 'recomm') {
+                showRecomm(xhr.responseText); 
+            } else {
+                showMealInfo( xhr.responseText );
+            }   
+        }else{
+            alert( xhr.status );
+        }
+    }
+
+    
+    xhr.open("Get", url, true);
+    xhr.send( null );
+}
+function getQRcode() {
+    copyCode(); //註冊copy事件
+    // $all('.').src = ''; //QRcode function
+    // $all('.').innerText = '';
+
+}
+
+function getRecommendURL() {
+    var tagNo = $all('.tag')[0].innerText;
+    url = '6-1_recommendGrouponList.php?tagNo=' + tagNo;
+    getMealAll('recomm');
+}
+
+function showRecomm(jsonStr) {
+    var recommGroupon = JSON.parse(jsonStr);
+    console.log(recommGroupon);
+    var recommGrouponCount = recommGroupon.length;
+    for(let i = 0;i < recommGrouponCount; i++) {
+        var recommTemp = 
+        `<div class="groupon-box">
+            <div class="groupon_topUI clearfix">
+                <div class="leftUI grid-12">
+                    <div class="titleTag grid-12">
+                        <span class="tag">#${recommGroupon[i][2]}</span>
+                        <h3>${recommGroupon[i][1]}</h3>
+                    </div>
+                    <div class="meal-container grid-12 clearfix">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="groupon_bottomUI clearfix">
+                <div class="grid-12">
+                    <div class="mealAndKcal grid-6">
+                        <div class="avgPrice grid-12">平均
+                            <span>72</span>
+                            元 / 餐
+                        </div>
+                    </div>
+                    <div class="price grid-6">
+                        <div class="grouponPrice">
+                            飯團價 &nbsp<span>
+                                640元
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-container grid-12">
+                    <a href="6-1_grouponDetail.php?no=${recommGroupon[i][0]}" class="subBTN">
+                        查看此飯團
+                    </a>
+                </div>
+            </div>
+            <div class="almostSucc-icon">
+                即將達標
+            </div>
+        </div>`;
+        $class('owl-carousel')[0].innerHTML += recommTemp; //加到recomm區
+        
+        
+        if(recommGroupon[i][10] >= 0.8 && window.innerWidth >= 600) {
+            $all('.almostSucc-icon')[i+1].style.display = 'block';
+        } //第i+1(去掉第一個)個即將達標的顯示，且手機板不顯示
+
+        //填入餐點
+        var toPrice = 0; //總價
+        var toScore = 0; //總分
+        var toCount = recommGroupon[i][11].length;
+        for(let j = 0; j < toCount;j++) {
+            toPrice += parseInt(recommGroupon[i][11][j][2]);
+            toScore += parseInt(recommGroupon[i][11][j][3]);
+            var mealBox = 
+            `<div class="meal-box">
+                <div class="price">
+                    ${recommGroupon[i][11][j][2]}元
+                </div>
+                <div class="pic">
+                    <img src="asset/meals/${recommGroupon[i][11][j][1]}" alt="豪華便當組"  title="${recommGroupon[i][11][j][0]}">
+                </div>
+                <div class="title">
+                    ${recommGroupon[i][11][j][0]}
+                </div>
+            </div>`;
+            if(j < 3) { //只加3餐
+                $all('.meal-container')[i].innerHTML += mealBox;
+                if(j == 2) {
+                    $all('.meal-container')[i].innerHTML += 
+                    `<div class="andMoreMeal-counter">
+                        ...總共 <span>${toCount}</span>個餐點
+                    </div>`;
+                }
+            }
+            
+        }
+        $all('.avgPrice')[i+1].getElementsByTagName('span')[0].innerHTML = Math.round(toPrice * 0.6 / toCount);
+        $all('.grouponPrice')[i+1].getElementsByTagName('span')[0].innerHTML = Math.round(toPrice * 0.6) +'元';
+    }
+    startOwl(); //全部加載後再load套件
+
+
+}
 window.addEventListener('load',function() {
     getMealAll();
     getQRcode();
-    function showMealInfo(jsonStr) {
-        var mealArr = JSON.parse(jsonStr);
-        
-        // 數量就是餐點array的長度
-        var mealCount = mealArr.length;
-        // console.log(mealCount);
-        //餐點數量計算++
-        
-        //價格計算
-        var totalPrice = 0;
-        //熱量計算
-        var totalKcal= 0;
-        for(let i in mealArr) {
-            totalPrice += parseInt(mealArr[i].meal_Price);
-            totalKcal += parseInt(mealArr[i].meal_Cal);
-            var mealBox = `<div class="meal-box" id="meal${mealArr[i].meal_No}" score='${mealArr[i].meal_Total}'>
-                    <div class="price">
-                    ${mealArr[i].meal_Price}
-                    </div>
-                    <div class="pic">
-                        <img src="asset/meals/${mealArr[i].meal_Pic}" alt="${mealArr[i].meal_Name}"  title="${mealArr[i].meal_Name}">
-                    </div>
-                    <div class="title">
-                        ${mealArr[i].meal_Name}
-                    </div>
-                    <input type='hidden' class='mealInfo' value = '${mealArr[i].meal_Info}'>
-                    <input type='hidden' class='mealCal' value = '${mealArr[i].meal_Cal}'>
-                </div>`;
-
-            $class('mealSmallPic-container')[0].innerHTML += mealBox;
-        }
-        //寫入平均價格、熱量、總價
-        $all('.meal-count')[0].children[0].children[0].innerText = mealCount;
-        $all('.avgPrice')[0].children[0].innerText = 
-        Math.round(totalPrice / mealCount);
-        $all('.avgKcal')[0].children[0].innerText = 
-        Math.round(totalKcal / mealCount);
-        $all('.originalPrice')[0].children[0].innerText = totalPrice;
-        $all('.grouponPrice')[0].children[0].innerText = Math.round(totalPrice * 0.6);
-        
-
-        
-        //註冊每一個新生成的餐點事件
-        var smallPicChange = $all('.mealSmallPic-container .meal-box');
-        smallPicChange.forEach(function(e) { e.addEventListener('mouseover', changeMealInfo)});
-
-        if($id('grouponProgressRatio').value >= 0.8 && window.innerWidth >= 600) {
-            $all('.almostSucc-icon')[0].style.display = 'block';
-        } else {
-            $all('.almostSucc-icon')[0].style.display = 'none';
-        } //第i個即將達標的顯示，且手機板不顯示
-        
-    }
-    function getMealAll() {
-        var xhr = new XMLHttpRequest();
-        xhr.onload=function (){
-            if( xhr.status == 200 ){
-                if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found
-                    
-                } else {
-                    showMealInfo( xhr.responseText );  //json 字串
-                }
-                
-            }else{
-                alert( xhr.status );
-            }
-        }
-
-        var url = "getMealInfo.php" + window.location.search;
-        xhr.open("Get", url, true);
-        xhr.send( null );
-    }
-    function getQRcode() {
-        copyCode(); //註冊copy事件
-        // $all('.').src = '';
-        // $all('.').innerText = '';
-
-    }
+    getRecommendURL();
 })
 </script>
 </html>

@@ -168,7 +168,7 @@ h2 {
   .pic img {
     width: 100%;
     display: inline-block;
-    vertical-align: middle; }
+    vertical-align: top; }
   .pic:after {
     content: '';
     width: 0;
@@ -635,7 +635,8 @@ h2 {
   border-radius: 10px;
   overflow: hidden;
   font-size: 16px;
-  box-shadow: 6px 6px 0px #FCE444; }
+  box-shadow: 6px 6px 0px #FCE444;
+  cursor: pointer; }
   .penguinPage .selectMeal .pic {
     border-radius: 20px; }
   .penguinPage .selectMeal .topUI {
@@ -1969,7 +1970,10 @@ h2 {
     border-bottom: 2px solid #76391B; }
     .penguinPage .grouponDetail-container .mealInfo-wrapper .mealAndKcal {
       font-size: 20px;
-      padding: 40px; }
+      padding: 20px; }
+      @media screen and (min-width: 768px) {
+        .penguinPage .grouponDetail-container .mealInfo-wrapper .mealAndKcal {
+          padding: 40px; } }
       .penguinPage .grouponDetail-container .mealInfo-wrapper .mealAndKcal span {
         font-size: 30px;
         font-weight: 800;
@@ -2083,13 +2087,13 @@ h2 {
   background-color: rgba(70, 70, 70, 0.281);
   transition: opacity 0.3s; }
 
-.penguinPage #share5_1 {
+.penguinPage .share5_1 {
   display: none; }
-  .penguinPage #share5_1:checked + .share-wrapper .shareInfo-container {
+  .penguinPage .share5_1:checked + .share-wrapper .shareInfo-container {
     opacity: 1;
     left: 0;
     transition: opacity 0.3s; }
-  .penguinPage #share5_1:checked + .share-wrapper + .share5_1-bg {
+  .penguinPage .share5_1:checked + .share-wrapper + .share5_1-bg {
     opacity: 1;
     left: 0;
     transition: opacity 0.3s; }
@@ -2152,7 +2156,10 @@ h2 {
         text-align: center; }
     .penguinPage .recommendGroupon-wrapper .groupon-box .almostSucc-icon {
       top: 2px;
-      left: 386px; }
+      left: 254px; }
+      @media screen and (min-width: 768px) {
+        .penguinPage .recommendGroupon-wrapper .groupon-box .almostSucc-icon {
+          left: 386px; } }
   .penguinPage .recommendGroupon-wrapper .meal-box {
     width: 120px;
     height: 120px; }
