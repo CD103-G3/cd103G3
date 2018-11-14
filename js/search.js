@@ -1,28 +1,33 @@
 function $id(id) {
   return document.getElementById(id);
 }
-// document.getElementById("close-search").addEventListener("click", function() {
-//   searchAjax();
-// });
+document.getElementById("close-search").addEventListener("click", function() {
+  searchImg();
+  //   searchAjax();
+});
 
-var grouponTagName = document.getElementsByName("groupon-TagName");
-
-for (let i = 0; i < grouponTagName.length; i++) {
-  grouponTagName[i].addEventListener("input", function() {
-    var N = "images/tag_N.svg";
-    var Y = "images/tag_Y.svg";
-    var b = $(this)
-      .parent()
-      .find($(".groupon-TagName")[i])
-      .find($("img"));
-    if ((grouponTagName[i].checked = true)) {
-      $(".groupon-TagName")
-        .find($("img"))
-        .attr("src", N);
-      b.attr("src", Y);
-    }
-  });
+function searchImg() {
+  var grouponTagName = document.getElementsByName("groupon-TagName");
+  var N = "images/tag_N.svg";
+  var Y = "images/tag_Y.svg";
+  grouponTagName[0].checked = true;
+  document.querySelectorAll('.groupon-TagName img')[0].src=Y;
+  for (let i = 0; i < grouponTagName.length; i++) {
+    grouponTagName[i].addEventListener("input", function() {
+      var b = $(this)
+        .parent()
+        .find($(".groupon-TagName")[i])
+        .find($("img"));
+      if ((grouponTagName[i].checked = true)) {
+        $(".groupon-TagName")
+          .find($("img"))
+          .attr("src", N);
+        b.attr("src", Y);
+      }
+    });
+  }
 }
+
 var markGroupon = document.getElementById("bookmark-animation-groupon");
 var markMeal = document.getElementById("bookmark-animation-meal");
 var markGrouponText = $("#bookmark-animation-groupon").text();
@@ -35,7 +40,7 @@ markMeal.addEventListener("click", function() {
   $("#input-search").attr("placeholder", "請輸入" + markMealText + "關鍵字");
 });
 // $id('start-search').addEventListener('click',function () {
-  
+
 // },false);
 
 // function searchAjax() {
