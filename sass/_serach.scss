@@ -32,6 +32,7 @@
   * {
     box-sizing: border-box;
     font-family: $fmy;
+    outline: 1px solid #f00;
   }
   input[type="checkbox"],
   input[type="radio"] {
@@ -82,7 +83,7 @@
   @include rwd(sm) {
     margin: auto;
     overflow-y: hidden;
-    max-height: 462px;
+    max-height: 555px;
     padding: 25px 16px 0;
   }
   &:after{
@@ -231,16 +232,12 @@
     text-align: center;
   }
   span:nth-of-type(1) {
-    width: 100px;
-    margin-bottom: 10px;
+    width: 70px;
+    margin-bottom: 20px;
     @include rwd(sm) {
       display: inline-block;
-      margin-bottom: 0;
     }
   }
-}
-.bookmark-meal-item:nth-child(1){
-  text-align: left;
 }
 .bookmark-meal-item {
   //餐點條件類別的item
@@ -253,6 +250,8 @@
     width: 150px;
     border: 2px solid $color-main4;
     padding: 5px 15px;
+    margin-left: 20px; 
+    margin-right:20px;
     outline: 0 solid;
     text-align: center;
     background-color: transparent;
@@ -271,11 +270,12 @@
   @include searchChecked(label) {
     display: inline-block;
     padding: 8px 12px 8px 24px;
-    margin-right: 10px;
+    margin-left: 20px;
     margin-bottom: 10px;
     @include rwd(sm) {
       padding: 8px 24px 8px 36px;
-      margin-bottom: 0;
+      margin-bottom: 10px;
+      // margin-top:10px;
     }
     @include searchCheckedTani($color-main4, #fff) {
       left: 10px;
@@ -283,6 +283,13 @@
         left: 15px;
       }
     }
+  }
+}
+.bookmark-meal-item:nth-child(1){
+  text-align: left;
+  label{
+    margin-left:0px;
+    margin-right: 10px;
   }
 }
 .bookmark-groupon-item {
@@ -329,7 +336,9 @@
   background-color: $color-main4;
   color: #fff;
   &::before {
+    content: '';
     height: 12px;
+    width: 12px;
     transform: rotate(225deg);
     background-color: #fff;
     border-radius: 50%;
@@ -337,6 +346,7 @@
     transition: transform 0.2s, height 0.2s 0.1s;
   }
   &::after {
+    content: '';
     height: 9px;
     width: 9px;
     background-color: $color-main4;
@@ -347,21 +357,20 @@
     z-index: 1;
   }
 }
-@for $i from 1 through 6 {
+@for $i from 1 through 15 {
   input[name="mealGenre-No"]:nth-of-type(#{$i}):checked
     ~ .mealGenre-No:nth-of-type(#{$i}) {
-    background-color: $color-main4;
-    color: #fff;
     @extend %forChecked;
   }
 }
-@for $i from 1 through 4 {
+
+@for $i from 1 through 15 {
   input[name="meal-Cal"]:nth-of-type(#{$i}):checked
     ~ .meal-Cal:nth-of-type(#{$i}) {
     @extend %forChecked;
   }
 }
-@for $i from 1 through 3 {
+@for $i from 1 through 15 {
   input[name="grouponList-No"]:nth-of-type(#{$i}):checked
     ~ .grouponList-No:nth-of-type(#{$i}) {
     @extend %forChecked;

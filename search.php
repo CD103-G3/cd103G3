@@ -1,4 +1,3 @@
-
 	<input type="checkbox" id="close-search" checked>
 	<div class="wrap search-wrap">
 		<label for="close-search" class="close-search"></label>
@@ -20,27 +19,7 @@
 			<div class="bookmark-cetentier bookmark-meal">
 				<!-- 餐點類別 -->
 				<div class="bookmark-cetentier-item bookmark-meal-item clearfix">
-					<input type="checkbox" name="mealGenre-No" id="mealGenre-No1">
-					<input type="checkbox" name="mealGenre-No" id="mealGenre-No2">
-					<input type="checkbox" name="mealGenre-No" id="mealGenre-No3">
-					<input type="checkbox" name="mealGenre-No" id="mealGenre-No4">
-					<input type="checkbox" name="mealGenre-No" id="mealGenre-No5">
-					<input type="checkbox" name="mealGenre-No" id="mealGenre-No6">
-					<?php
-						if(isset($_SESSION["mealGenre_Name"]) == true){
-							$mealGenre_Name = $_SESSION["mealGenre_Name"];
-							echo $mealGenre_Name;
-							echo count($mealGenre_Name);
-							while($i <= count($mealGenre_Name)){
-								?>
-								<label for="mealGenre-No1" class="mealGenre-No"><?php echo $_SESSION["mealGenre_Name"][i] ?>丼飯</label>
-								<?php
-								$i++;
-							}
-						}
-					?>
-
-					
+					<?php require_once("searchMealGenre.php"); ?>
 				</div>
 				<!-- 顯示更多按鈕 -->
 				<input type="checkbox" id="bookmark-cetentier-more-meal">

@@ -1,9 +1,9 @@
 function $id(id) {
   return document.getElementById(id);
 }
-document.getElementById("close-search").addEventListener("click", function() {
-  searchAjax();
-});
+// document.getElementById("close-search").addEventListener("click", function() {
+//   searchAjax();
+// });
 
 var grouponTagName = document.getElementsByName("groupon-TagName");
 
@@ -38,31 +38,31 @@ markMeal.addEventListener("click", function() {
   
 // },false);
 
-function searchAjax() {
-  //傳PHP端
-  var obj = {};
-  obj.meal_Genre = "meal_Genre";
-  obj.grouponTag = "grouponTag";
-  var jsonStr = JSON.stringify(obj);
+// function searchAjax() {
+//   //傳PHP端
+//   var obj = {};
+//   obj.meal_Genre = "meal_Genre";
+//   obj.grouponTag = "grouponTag";
+//   var jsonStr = JSON.stringify(obj);
 
-  //=====使用Ajax 回server端,取回關鍵字內容, 放到頁面上
-  var xhr = new XMLHttpRequest();
-  xhr.onload = function() {
-    if (xhr.status == 200) {
-      if (xhr.responseText.indexOf("not found") != -1) {
-        //回傳的資料中有not found
-        // return "";
-        alert("not found");
-      } else {
-        //查有此keyword
-        alert("OK");
-      }
-    } else {
-      alert(xhr.status);
-    }
-  };
-  xhr.open("post", "searchAjax.php", true);
-  xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-  var data_info = "jsonStr=" + jsonStr;
-  xhr.send(data_info);
-}
+//   //=====使用Ajax 回server端,取回關鍵字內容, 放到頁面上
+//   var xhr = new XMLHttpRequest();
+//   xhr.onload = function() {
+//     if (xhr.status == 200) {
+//       if (xhr.responseText.indexOf("not found") != -1) {
+//         //回傳的資料中有not found
+//         // return "";
+//         alert("not found");
+//       } else {
+//         //查有此keyword
+//         alert("OK");
+//       }
+//     } else {
+//       alert(xhr.status);
+//     }
+//   };
+//   xhr.open("post", "searchAjax.php", true);
+//   xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+//   var data_info = "jsonStr=" + jsonStr;
+//   xhr.send(data_info);
+// }
