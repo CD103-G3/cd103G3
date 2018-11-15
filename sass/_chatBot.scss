@@ -1,0 +1,226 @@
+#chatBot {
+  //客服機器人最外層
+  width: 100%;
+  height: calc(100% - 75px);
+  position: absolute;
+  left: 0;
+  z-index: 10;
+  * {
+    box-sizing: border-box;
+    // outline: 1px solid #f00;
+  }
+}
+.chatBot_contenier_wrap {
+  //客服雞以上的物件的wrap
+  display: none;
+  height: 100%;
+  background-color: $color_chatBot;
+  padding: 0 16px;
+  text-align: center;
+  letter-spacing: 1px;
+  h3 {
+    padding: 15px 0;
+    display: inline-block;
+    font-weight: bold;
+    color: $color_main2;
+  }
+}
+#chatBot_content {
+  //機器人回覆內容
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: left;
+  height: calc(100% - 185px);
+  overflow: hidden;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0px 16px 0;
+  @include chatBot_scrollbar;
+  p {
+    border-radius: 10px;
+    background-color: $color_chatBot_text;
+    padding: 10px;
+    line-height: 1.6em;
+    margin: 10px 0;
+    position: relative;
+  }
+  .chatBot_content_A {
+    float: left;
+    margin-right: 14%;
+    &:after {
+      content: '';
+      width: 100%;
+      height: 0;
+      display: block;
+      clear: both;
+    }
+    &:before{
+      content: '';
+      border-top: 15px solid transparent;
+      border-bottom:15px solid transparent;
+      border-right: 15px solid $color_main1;
+      border-left:15px solid transparent;
+      position: absolute;
+      top: 5px;
+      left: -25px;
+    }
+  }
+  .chatBot_content_Q {
+    float: right;
+    &:after {
+      content: '';
+      height: 0;
+      display: block;
+      clear: both;
+    }
+    &:before{
+      content: '';
+      border-top: 15px solid transparent;
+      border-bottom:15px solid transparent;
+      border-right: 15px solid transparent;
+      border-left:15px solid $color_main1;
+      position: absolute;
+      top: 5px;
+      right: -25px;
+    }
+  }
+}
+
+.chatBot_keyword {
+  padding: 10px 0;
+  overflow: scroll;
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  @include chatBot_scrollbar;
+  li {
+    display: inline-block;
+    margin-left: 5px;
+    background-color: $color_hot;
+    color: #fff;
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+  }
+}
+.chatBot_text_Wrap {
+  padding: 16px 0;
+  position: relative;
+  @include nextAndCancel-BTN(100px);
+
+}
+#chatBot_search {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-80%);
+}
+
+
+.chatBot_text {
+  font-size: $fontSize_S;
+  width: 100%;
+  height: 50px;
+  padding-left: 15px;
+  border-radius: 10px;
+  border: 0;
+}
+#close_chatBot {
+  //checkbox
+  display: none;
+}
+.close_chatBot_pic img {
+  //客服雞的圖
+  width: $white_point;
+  vertical-align: middle;
+}
+.close_chatBot {
+  //機器人開關按鈕
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+  @include close(100%, 50%) {
+    &::before{
+      top: calc( 100% - 20px );
+      left: calc( 50% - 20px );
+    }
+    &::after{
+      top: calc( 100% - 20px );
+      left: calc( 50% - 20px );
+    }    
+  }
+}
+
+#close_chatBot:checked ~ #chatBot{
+  top: 75px;
+}
+#chatBot .close_chatBot_pic img {
+  display: none;
+}
+#close_chatBot:checked ~ #chatBot .chatBot_contenier_wrap {
+  display: block;
+  width: auto;
+  transition: height 0.4s;
+}
+@include rwd(sm) {
+  #chatBot {
+    width: auto;
+    max-width: 380px;
+    top: auto;
+    left: auto;
+    right: 30px;
+    bottom: 30px;
+    height: auto;
+    z-index: 99;
+  }
+  .close_chatBot_pic {
+    float: right;
+    cursor: pointer;
+  }
+  .chatBot_contenier_wrap {
+    width: 0;
+    height: 0;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    .close_chatBot {
+      width: 30px;
+      height: 40px;
+      position: absolute;
+      right: 15px;
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+  .chatBot_keyword {
+    padding: 10px 0;
+    overflow: scroll;
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .chatBot_text {
+    width: 100%;
+    padding-left: 15px;
+    border-radius: 10px;
+    border: 0;
+  }
+  #close_chatBot:checked ~ #chatBot{
+    top: auto;
+  }
+  #close_chatBot:checked ~ #chatBot .close_chatBot {
+    opacity: 1;
+    transition: 0.8s;
+  }
+#chatBot .close_chatBot_pic img {
+  display: block;
+}
+  #close_chatBot:checked ~ #chatBot .chatBot_contenier_wrap {
+    display: block;
+    height: 470px;
+  }
+
+}
