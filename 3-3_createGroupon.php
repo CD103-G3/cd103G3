@@ -9,8 +9,13 @@ try {
     // echo  $jsonStr;
     $createG = json_decode($jsonStr);
     $memId = $_SESSION['memId'];
+    if( strrpos($memId,'ayCook') ) {
+        $discount = 0.4;
+    } else {
+        $discount = 0.6;
+    }
     $sql = "INSERT INTO `groupon` (`groupon_No`, `groupon_Name`,  `groupon_TagNo`, `groupon_FounderId`, `startDate`, `endDate`, `groupon_Bonus`,`groupon_MemberNeed`, `memberNow`, `discount`) VALUES
-    (NULL, '$createG->groupon_Name', '$createG->groupon_TagNo', '$memId', CURDATE() + $createG->startDate, CURDATE() + $createG->endDate, '$createG->groupon_Bonus', '$createG->groupon_MemberNeed', '0', '0')";
+    (NULL, '$createG->groupon_Name', '$createG->groupon_TagNo', '$memId', CURDATE() + $createG->startDate, CURDATE() + $createG->endDate, '$createG->groupon_Bonus', '$createG->groupon_MemberNeed', '0', '$discount')";
     
 
     // 抓系統日期 + N天

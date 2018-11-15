@@ -18,7 +18,7 @@ $lgPC: 1200px;
 // @include rwdSys() {
 // };
 $pd: 10px;
-@include scrollBar(8px, $color_main2, $color_main3);
+@include scrollBar(14px, $color_main2, $color_main3);
 
 
 * {
@@ -807,7 +807,20 @@ h2{
         transition: background-color .3s;
     }
 }
-
+.page-container4_1 {
+    ul {
+        li {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #aaa;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+}
 
 //分頁頁籤
 @include pageBTN($color_main2) {
@@ -820,6 +833,25 @@ h2{
     text-align: center;
 }
 .groupon-wrapper {
+    &.g_8 { //官方飯團
+        // background-color: $color_main;
+        border-width: 6px;
+        border-color: $color_main2;
+        .groupon_topUI .leftUI {
+            .titleTag {
+                background-color: $color_main2;
+                h3, .tag {
+                    // color: $color_main1;
+                    color: #fff;
+                }
+                 
+                &:after {
+                    border-color: $color_main2 transparent $color_main2 transparent;
+                }
+            }
+        }
+        
+    }
     position: relative;
     display: inline-block;
     border-radius: 30px;
@@ -1689,14 +1721,14 @@ h2{
             height: 6px;
             margin: 10px auto;
             border-radius: 100px; 
-            background-color: $color_main1;
+            background-color: $color_main2;
             .progressBar_B {
                 @include BfAf;
                 position: absolute;
                 // width: 90%;
                 height: 6px;
                 border-radius: 100px; 
-                background-color: $color_main2;
+                background-color: $color_main1 ;
             }
         }
     }

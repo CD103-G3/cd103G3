@@ -222,8 +222,8 @@ function initDayCook() {
     if($class('scoreEgg-container').length > 0) {
         eggScore.egg({
             container: $all('.score-wrapper'),
-            whiteEgg: 'asset/scoreEgg_w.svg',
-            blackEgg: 'asset/scoreEgg_y.svg',
+            whiteEgg: 'images/scoreEgg_w.svg',
+            blackEgg: 'images/scoreEgg_y.svg',
         });
     }
 
@@ -636,15 +636,15 @@ function changeMealInfo(e) {
      $id('grouponDetail_score').innerHTML = thisScore;
     //  console.log($all('.scoreEgg-container ul li'));
     for(let x = 0 ; x < $all('.scoreEgg-container ul li').length; x++) {
-    $all('.scoreEgg-container ul li img')[x].src = 'asset/scoreEgg_w.svg';
+    $all('.scoreEgg-container ul li img')[x].src = 'images/scoreEgg_w.svg';
     }
 
     //蛋蛋分數
     $class('scoreEgg-container')[0].setAttribute('score', thisScore);
     eggScore.egg({
         container: $all('.score-wrapper'),
-        whiteEgg: 'asset/scoreEgg_w.svg',
-        blackEgg: 'asset/scoreEgg_y.svg',
+        whiteEgg: 'images/scoreEgg_w.svg',
+        blackEgg: 'images/scoreEgg_y.svg',
     });
     // $id('grouponDetail_score').innerHTML = ;
     // $id('grouponDetail_kcal').innerHTML = ;
@@ -677,7 +677,7 @@ function getScoreEgg(e) {
         let j = 0;
         do{
             scoreEgg[i].children[0].children[j].children[0].children[0].src = 
-            'asset/scoreEgg_y.svg';
+            'images/scoreEgg_y.svg';
             j++;
         } while(j < score);
     }
@@ -1156,7 +1156,7 @@ function achievementShowOff(getUrl) {
             </div>
             <div class="userPic">
                 <div class="pic">
-                    <img src="asset/${founderAchie[1]}" alt="user">
+                    <img src="images/${founderAchie[1]}" alt="user">
                 </div>
             </div>
             <div class="user grid-9">
@@ -1166,7 +1166,7 @@ function achievementShowOff(getUrl) {
                 <div class="userExp clearfix">
                     <div class="achievePic grid-2">
                         <div class="pic">
-                            <img src="asset/achieve/${founderAchie[5]}" alt="">
+                            <img src="images/achieve/${founderAchie[5]}" alt="">
                         </div>
                     </div>
                     <div class="achStatus grid-10 clearfix">
@@ -1179,7 +1179,7 @@ function achievementShowOff(getUrl) {
                     </div>
                     <div class="hint--achievement">
                         <div class="pic grid-6">
-                            <img src="asset/achieve/${founderAchie[5]}" alt="">
+                            <img src="images/achieve/${founderAchie[5]}" alt="">
                         </div>
                         <p>
                             <span class="achName">${founderAchie[4]}成就</span> <br> 吃完${founderAchie[3]}餐後可獲得，可拿到<span>${founderAchie[3]}</span>元折價券

@@ -13,6 +13,11 @@ ob_start();
 session_start();
 try {
     require_once('phpDB/connectDB_CD103G3.php');
+    $sql = "SELECT * from `groupontag` order by `groupon_TagNo` ASC";
+    $tag = $pdo -> prepare($sql);
+    $tag -> execute();
+    $tagR = $tag -> fetchAll();
+
     $sql = "select * from groupon where groupon_No = :no";
     $groupon = $pdo -> prepare($sql);
     $groupon -> bindValue('no', $_REQUEST['no']);
@@ -48,7 +53,12 @@ try {
                         <h2 id="3_3_grouponTitle">
                             <?php echo $grouponR["groupon_Name"] ?>
                             <span class="grouponTag">
-                                #<?php echo $grouponR["groupon_No"] ?>
+                                #
+                                <?php 
+                            
+                                    echo $tagR[$grouponR["groupon_TagNo"] - 1]['groupon_TagName'] 
+                                
+                                ?>
                             </span>
                         </h2>
                     </div>
@@ -118,7 +128,13 @@ try {
                         <div class="salePrice grid-7">
                             <span>飯團價: </span>
                             <span id="salePrice">0</span>
-                             元( <span id="saleCount">6</span>折)
+                             元( <span id="saleCount">
+                                 <?php if($grouponR["groupon_TagNo"] == 8) {
+                                     echo '4';
+                                 } else {
+                                     echo '6';
+                                 } ?>
+                             </span>折)
                         </div>
                     </div>
                 </div>
@@ -275,7 +291,17 @@ try {
             $all('.grouponDay')[0].innerText = mealCount;
             $id('addedMealNow').innerText = mealCount;
             
-            
+            var discount; //判斷是否官方
+            if(<?php if($grouponR["groupon_TagNo"] == 8) {
+                echo '0.4';
+            } else {
+                echo '0.6';
+            } ?> == 0.4) {
+                discount = 0.4;
+                $all('.salePrice')[0].getElementsByTagName('span')[0].innerText = '官方價';
+            } else {
+                discount = 0.6;
+            }
             $id('originPrice').innerText = totalPrice;
             $id('salePrice').innerText = Math.round(totalPrice * 0.6);
 

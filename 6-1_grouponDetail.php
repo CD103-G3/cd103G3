@@ -208,7 +208,15 @@ try {
                         </span>
                     </div>
                     <div class="grouponPrice grid-12">
-                        飯團價(6折) <span>
+                        <?php if($grouponR["groupon_TagNo"] == 8) {
+                            echo '官方價';
+                        } else {
+                            echo '飯團價';
+                        } ?>
+                        <span>
+                            (6折)
+                        </span>
+                         <span>
                             640
                         </span>元
                     </div>
@@ -360,18 +368,23 @@ function showMealInfo(jsonStr) {
 
         $class('mealSmallPic-container')[0].innerHTML += mealBox;
     }
-
+    var discount = 0.6;
+    // console.log();
+    if(<?php echo $grouponR["groupon_TagNo"] ?> == 8) { //官方價
+        discount = 0.4;
+        $all('.grouponPrice')[0].children[0].innerText = '(4折)';
+    }
     $id('grouponDetail_title').innerText = mealArr[0].meal_Name;
     $id('grouponDetail_info').innerText = mealArr[0].meal_Info;
     $id('grouponDetail_pic').src = `images/meals/${mealArr[0].meal_Pic}`;
     //寫入平均價格、熱量、總價
     $all('.meal-count')[0].children[0].children[0].innerText = mealCount;
     $all('.avgPrice')[0].children[0].innerText = 
-    Math.round(totalPrice / mealCount);
+    Math.round(totalPrice  * discount / mealCount);
     $all('.avgKcal')[0].children[0].innerText = 
     Math.round(totalKcal / mealCount);
     $all('.originalPrice')[0].children[0].innerText = totalPrice;
-    $all('.grouponPrice')[0].children[0].innerText = Math.round(totalPrice * 0.6);
+    $all('.grouponPrice')[0].children[1].innerText = Math.round(totalPrice * discount);
     
 
     
@@ -493,7 +506,8 @@ function showRecomm(jsonStr) {
                     </div>
                     <div class="price grid-6">
                         <div class="grouponPrice">
-                            飯團價 &nbsp<span>
+                        特價
+                             &nbsp<span>
                                 640元
                             </span>
                         </div>
@@ -512,8 +526,12 @@ function showRecomm(jsonStr) {
         $class('owl-carousel')[0].innerHTML += recommTemp; //加到recomm區
         
         
-        if(recommGroupon[i][10] >= 0.8 && window.innerWidth >= 600) {
+        if(recommGroupon[i][10] >= 0.8 && window.innerWidth >= 600 && recommGroupon[i][10] < 1) {
             $all('.almostSucc-icon')[i+1].style.display = 'block';
+        } else if(recommGroupon[i][10] >= 1) {
+            $all('.almostSucc-icon')[i+1].style.display = 'block';
+            $all('.almostSucc-icon')[i+1].innerText = '已經達標';
+            $all('.almostSucc-icon')[i+1].style.opacity = '0.5';
         } //第i+1(去掉第一個)個即將達標的顯示，且手機板不顯示
 
         //填入餐點
@@ -546,8 +564,12 @@ function showRecomm(jsonStr) {
             }
             
         }
-        $all('.avgPrice')[i+1].getElementsByTagName('span')[0].innerHTML = Math.round(toPrice * 0.6 / toCount);
-        $all('.grouponPrice')[i+1].getElementsByTagName('span')[0].innerHTML = Math.round(toPrice * 0.6) +'元';
+        var discountR = 0.6;
+        if(recommGroupon[i].groupon_TagNo == 8) {
+            discountR = 0.4;
+        }
+        $all('.avgPrice')[i+1].getElementsByTagName('span')[0].innerHTML = Math.round(toPrice * discountR / toCount);
+        $all('.grouponPrice')[i+1].getElementsByTagName('span')[0].innerHTML = Math.round(toPrice * discountR) +'元';
     }
     startOwl(); //全部加載後再load套件
 

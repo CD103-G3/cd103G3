@@ -76,11 +76,37 @@
                     <!-- <span class="filter-condition">由低到高</span> -->
                 </label>
             </div>
-            
+            <div class="filter-wrapper">
+                <input type="radio" name="groupon_filter" class="groupon_filter" id="groupon_filter_latest">
+                <label for="groupon_filter_latest" class="filter success">最新飯團
+                    <span class="filter-condition">由新到舊</span>
+                    <input type="hidden" name="order" value="success">
+                    <!-- <span class="filter-condition">由低到高</span> -->
+                </label>
+            </div>
+            <div class="filter-wrapper">
+                <input type="radio" name="groupon_filter" class="groupon_filter" id="groupon_filter_official">
+                <label for="groupon_filter_official" class="filter success">官方飯團
+                    <span class="filter-condition">特價四折!</span>
+                    <input type="hidden" name="order" value="success">
+                    <!-- <span class="filter-condition">由低到高</span> -->
+                </label>
+            </div>
         </div>
         <div class="groupon-container">
 
         </div>
+        <!-- 動態產生頁籤 -->
+        <!-- <div class="page-container4_1">
+            <ul>
+                <li>
+                    1
+                </li>
+                <li>
+                    2
+                </li>
+            </ul>
+        </div> -->
     </div>
 
 </div>
@@ -93,8 +119,8 @@
     </footer>
 </body>
 <script>
-    var url = '4-1_searchGrouponList.php?search=&order=';
-    function showGroupon(jsonStr) {
+    var url = '4-1_searchGrouponList.php?search=&order=&p=1';
+    function showGroupon(jsonStr,url) {
             var grouponSearchR = JSON.parse(jsonStr);   
             grouponSearchR_length = grouponSearchR.length;
             console.log(grouponSearchR);
@@ -102,7 +128,7 @@
                 var toCount = grouponSearchR[i][11].length;
                 var endDate = grouponSearchR[i][5].substr(5).replace('-','/');
                 var grouponTemp = 
-                `<div class="groupon-wrapper">
+                `<div class="groupon-wrapper g_${grouponSearchR[i].groupon_TagNo}">
                     <div class="user-info"></div>
                     <div class="groupon_topUI clearfix">
                         <div class="leftUI grid-12 grid-lg-8">
@@ -241,15 +267,28 @@
                     }
                     
                 }
-                $all('.avgPrice')[i].getElementsByTagName('span')[0].innerHTML = Math.round(toPrice * 0.6 / toCount);
+                //官方的飯團
+                var discount; //原價是6折
+                if(grouponSearchR[i].groupon_TagNo == 8) {
+                    discount = 0.4;
+                    $all('.grouponPrice')[i].innerHTML = 
+                    `飯團價(4折) <span>
+                            0元
+                        </span>`;
+                } else {
+                    discount = 0.6;
+                }
                 $all('.avgKcal')[i].getElementsByTagName('span')[0].innerHTML = Math.round(toKcal / toCount);
                 $all('.scoreHere')[i].innerHTML = Math.round(toScore / toCount);
                 $all('.originalPrice')[i].getElementsByTagName('span')[0].innerHTML = toPrice +'元';
-                $all('.grouponPrice')[i].getElementsByTagName('span')[0].innerHTML = Math.round(toPrice * 0.6) +'元';
+                $all('.avgPrice')[i].getElementsByTagName('span')[0].innerHTML = Math.round(toPrice * discount / toCount);
+                $all('.grouponPrice')[i].getElementsByTagName('span')[0].innerHTML = Math.round(toPrice * discount) +'元';
+                
             }
             //全部加載之後，再加載動畫
             circleChart();
             checkSuccess(); //判斷是否即將達標
+            // genPage();// 分頁註冊及產生
         };
     
     function getGroupon(code) {
@@ -274,6 +313,7 @@
                             location.href = '6-1_grouponDetail.php?no=' + grouponId;
                         } 
                     }
+                    // var url = url;
                     showGroupon(xhr.responseText); 
                      //json 字串
                 }
@@ -316,11 +356,11 @@
             var searchKW = $id('searchInput').value;
             if(this.className == 'filter time') {
                 $all('.groupon-container')[0].innerHTML = ''; //清空容器
-                url = "4-1_searchGrouponList.php?search=" + searchKW + '&order=endDate';
+                url = "4-1_searchGrouponList.php?search=" + searchKW + '&order=endDate&p=1';
                 getGroupon(); //跳轉
             } else {
                 $all('.groupon-container')[0].innerHTML = ''; //清空容器
-                url = "4-1_searchGrouponList.php?search=" + searchKW + '&order=success';
+                url = "4-1_searchGrouponList.php?search=" + searchKW + '&order=success&p=1';
                 getGroupon();
             }
             // location.href = '4-1_grouponList.php?search=' + searchKW + '&order=' + ;
@@ -329,13 +369,13 @@
             var searchKW = $id('searchInput').value;
             if(e.keyCode == 13) {
                 $all('.groupon-container')[0].innerHTML = ''; //清空容器
-                url = "4-1_searchGrouponList.php?search=" + searchKW + '&order=';
-                getGroupon('0');
+                url = "4-1_searchGrouponList.php?search=" + searchKW + '&order=&p=1';
+                getGroupon();
                 // location.href = '4-1_grouponList.php?search=' + searchKW + '&order='; //跳轉
             } else if(e.button == 0) {
                 $all('.groupon-container')[0].innerHTML = ''; //清空容器
-                url = "4-1_searchGrouponList.php?search=" + searchKW + '&order=';
-                getGroupon('0'); //跳轉
+                url = "4-1_searchGrouponList.php?search=" + searchKW + '&order=&p=1';
+                // getGroupon(); //跳轉
             }
             
         }
@@ -348,4 +388,21 @@
 
 </script>
 </html>
+<script>
 
+// <?php //產生飯團總筆數
+//             try {
+//                 require_once('phpDB/connectDB_CD103G3.php');
+//                 $sql = 'SELECT COUNT(*) FROM groupon';
+//                 $groupon = $pdo -> prepare($sql);
+//                 $groupon -> execute();
+//                 $grouponCount = $groupon -> fetch();
+//                 echo $grouponCount[0];
+//             }catch(PDOException $e) {
+//                 echo $e->getMessage();
+//             }
+                
+              
+//             ?>
+
+</script>

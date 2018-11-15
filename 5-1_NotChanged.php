@@ -63,7 +63,7 @@ session_start();
             <!-- page-3 -->
             <div class="changePage_container">
                 <h2>目前你還沒有發起飯團</h2>
-                <a class="clickToGroupon mainBTN" href="3-1_createGroupon.html">
+                <a class="clickToGroupon mainBTN" href="3-1_createGroupon.php">
                     <i class="fas fa-plus-circle"></i>
                     試試立刻發起飯團!
                 </a>
@@ -182,7 +182,7 @@ session_start();
                 var endDate = myGrouponSearchR[i][5].substr(5).replace('-','/');
                 // page1
                 var changeMyGroupon = 
-                `<div class="groupon-wrapper">
+                `<div class="groupon-wrapper g_${myGrouponSearchR[i].groupon_TagNo}">
                         <div class="user-info"></div>
                         <div class="groupon_topUI clearfix">
                             <div class="leftUI grid-12">
@@ -354,7 +354,7 @@ session_start();
                 // $all('.groupon_shareCode')[i].value = gCode;
                 // console.log($all('.groupon_shareCode')[i].value);
                 var grouponTemp = 
-                `<div class="groupon-wrapper">
+                `<div class="groupon-wrapper g_${myGrouponSearchR[i].groupon_TagNo}">
                     <div class="user-info"></div>
                     <div class="groupon_topUI clearfix">
                         <div class="leftUI grid-12 grid-lg-8">

@@ -7,15 +7,16 @@ try {
     //使用搜尋條件
     $order = $_REQUEST['order'];
     $search = "%".$_REQUEST['search']."%";
+    $page = (($_REQUEST['p']-1) * 10);
     if($search == '' && $order == '') {
         // if()
-        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon";
+        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon limit $page,10000";
     } else if($order == '') {
-        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search'";
+        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' limit $page,10000";
     } else if($order == 'endDate'){
-        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by `groupon`.`$order` ASC";
+        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by `groupon`.`$order` ASC limit $page,10000";
     } else if($order == 'success') {
-        $sql = "SELECT * ,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by success DESC";
+        $sql = "SELECT * ,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by success DESC limit $page,10000";
     }
    
     $groupon = $pdo -> prepare($sql);
