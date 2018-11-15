@@ -178,7 +178,7 @@ h2 {
 
 .penguinPage .woodTemp {
   position: relative;
-  background-image: url("../asset/woodTemplate-01.png");
+  background-image: url("../images/woodTemplate-01.png");
   background-position: center;
   background-size: auto 160%;
   padding: 10px;
@@ -197,7 +197,7 @@ h2 {
   max-width: 800px;
   text-align: center;
   margin: auto;
-  background-image: url("../asset/woodTemplate-02.png");
+  background-image: url("../images/woodTemplate-02.png");
   background-size: auto 132%;
   background-position: center;
   color: #fff; }
@@ -476,7 +476,7 @@ h2 {
       text-align: center; }
   .penguinPage .settingThreshold-container .bonus {
     padding: 20px;
-    background: url("asset/bonusIcon-05.png");
+    background: url("images/bonusIcon-05.png");
     color: #FF5000;
     text-align: center; }
     .penguinPage .settingThreshold-container .bonus p span {
@@ -1523,7 +1523,7 @@ h2 {
       bottom: -6px;
       width: 76px;
       height: 76px;
-      background: url("../asset/folded-03.png");
+      background: url("../images/folded-03.png");
       background-size: cover;
       background-position: right bottom; }
     .penguinPage .changeMeal-container .groupon-wrapper .meal-counter i {
@@ -1683,6 +1683,59 @@ h2 {
       text-align: center;
       border: 2px solid #76391B;
       border-radius: 1000px; }
+  .penguinPage .checkChange-container .btn-container_changeItByYourself {
+    display: none;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #aaa; }
+    .penguinPage .checkChange-container .btn-container_changeItByYourself #finishChangBTN {
+      width: 300px; }
+  .penguinPage .checkChange-container .exchangeSuccess {
+    display: none;
+    border: 10px solid #76391B;
+    text-align: center; }
+    .penguinPage .checkChange-container .exchangeSuccess .chickShishou {
+      position: absolute;
+      top: 170px;
+      left: 290px;
+      width: 160px; }
+    .penguinPage .checkChange-container .exchangeSuccess .success-icon {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      margin: auto;
+      border-radius: 1000px;
+      border: 10px solid #76391B; }
+      .penguinPage .checkChange-container .exchangeSuccess .success-icon:before {
+        position: absolute;
+        top: 75px;
+        left: 46px;
+        content: '';
+        display: block;
+        width: 100px;
+        height: 10px;
+        border-radius: 1000px;
+        background-color: #FCE444;
+        transform: rotate(126deg);
+        toFull: .4s; }
+      .penguinPage .checkChange-container .exchangeSuccess .success-icon:after {
+        position: absolute;
+        top: 90px;
+        left: 11px;
+        content: '';
+        display: block;
+        width: 70px;
+        height: 10px;
+        border-radius: 1000px;
+        background-color: #FCE444;
+        transform: rotate(45deg);
+        toFull: .4s; }
+
+@keyframes toFull {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 .penguinPage #checkChange-container_bg {
   content: '';
@@ -2453,7 +2506,7 @@ h2 {
   background-repeat: no-repeat; }
   @media screen and (min-width: 768px) {
     .penguinPage .maxWidthWrapper.success {
-      background-image: url("../asset/tableCloth_and_curryRice_01.png"); } }
+      background-image: url("../images/tableCloth_and_curryRice_01.png"); } }
 
 .penguinPage .success-wrapper {
   display: flex;
@@ -2468,7 +2521,7 @@ h2 {
     padding-bottom: 100px;
     overflow: unset;
     position: relative;
-    background-image: url(../asset/tableCloth_and_curryRice_03.png);
+    background-image: url(../images/tableCloth_and_curryRice_03.png);
     background-position: center 100px;
     background-repeat: no-repeat; }
     @media screen and (min-width: 768px) {
@@ -2607,7 +2660,7 @@ h2 {
           padding-right: 60px;
           background-color: transparent;
           border: none;
-          background-image: url("../asset/tableCloth_and_curryRice-02.png"); } }
+          background-image: url("../images/tableCloth_and_curryRice-02.png"); } }
       @media screen and (min-width: 1024px) {
         .penguinPage .success-wrapper .grouponSimpleInfo-wrapper .bonus-wrapper {
           margin: -60px 0px auto 0; } }

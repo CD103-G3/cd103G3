@@ -55,10 +55,6 @@ try {
         $mealCount ++;
     }
 
-    $sql_addPeople = "UPDATE `groupon` set `memberNow` = `memberNow` + 1 where `groupon_No` = :grouponNo";
-    $groupon = $pdo -> prepare($sql_addPeople);
-    $groupon -> bindValue('grouponNo', $_REQUEST['no']);
-    $groupon -> execute();
 
     //更新該會員的餐點數量
     $sql_addMeal = "UPDATE `member` set `member_buyCount` = `member_buyCount` + '$mealCount' where `member_Id` = '$memId'";

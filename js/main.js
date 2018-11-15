@@ -799,20 +799,20 @@ function circleChart(e) {
 }
 //用code搜尋飯團
 var codeSearch = '';
-function searchGrouponById(e) {
-    var originId = $id('searchId').value.replace('g','');
-    var grouponId = (parseInt(originId) - 1234 ) / 2 - 10;
+// function searchGrouponById(e) {
+//     var originId = $id('searchId').value.replace('g','');
+//     var grouponId = (parseInt(originId) - 1234 ) / 2 - 10;
 
-    if(codeSearch == '') {
+//     if(codeSearch == '') {
         
-    } else {
-        if(e.keyCode == 13) {
-            // location.href = '6-1_grouponDetail.php?no=' + grouponId;
-        } else if(e.button == 0) {
-            // location.href = '6-1_grouponDetail.php?no=' + grouponId;
-        }
-    } 
-}
+//     } else {
+//         if(e.keyCode == 13) {
+//             // location.href = '6-1_grouponDetail.php?no=' + grouponId;
+//         } else if(e.button == 0) {
+//             // location.href = '6-1_grouponDetail.php?no=' + grouponId;
+//         }
+//     } 
+// }
 function searchGrouponById(e) {
     var originId = $id('searchId').value.replace('g','');
     var grouponId = (parseInt(originId) - 1234 ) / 2 - 10;
@@ -986,11 +986,20 @@ function genChangeList(e) {
     //預設顯示
     $all('.changeList-container')[0].style.display = 'block';
     $all('.QRcodeAndCode')[0].style.display = 'none';
+    $all('.btn-container')[0].style.display = 'block';
+    $all('.btn-container_changeItByYourself')[0].style.display = 'none';
     var changeMealCountainer = $id('popUpChange').getElementsByTagName('table')[0];
+    var changeMealCountainer_Count = changeMealCountainer.getElementsByTagName('tr').length;
     var changeMeal = $id('mealChanger').getElementsByTagName('li');
     var changeMealCount = changeMeal.length;
-
-    if(this.id == 'checkChangBTN') { //按鈕為產生確認用的訂單
+    
+    if(this.id == 'checkChangBTN') { //
+        changeMealCountainer.innerHTML = 
+        `<tr>
+            <th>餐點名稱</th>
+            <th>數量</th>
+        </tr>
+        `;
         if(changeMealCount > 0) {  //如果有餐點
             for(let i = 0; i < changeMealCount ; i++) {
                 var mealInfo = changeMeal[i].children[2].value.split('|');
@@ -1020,24 +1029,32 @@ function genChangeList(e) {
             </tr>`; //加入最後一行
         }
 
-    } else if(this.id == 'confirmChangBTN') { //把餐點ID加入input value以用來打包為json成為網址
+    } else if(this.id == 'confirmChangBTN' && changeMealCountainer_Count > 2) { //把餐點ID加入input value以用來打包為json成為網址
         
         var jsonMealArr = JSON.stringify(mealChangeArr);
         // console.log(jsonMealArr);
-        var changeMealURL = 'localhost/phpLab/CD103G3_penguin/5-1_1_myGrouponExchange.php?mealArr=' + jsonMealArr;
+        var changeMealURL = '5-1_1_myGrouponExchange.php?mealArr=' + jsonMealArr;
         //顯示QRcode和隱藏原本的清單
         $all('.changeList-container')[0].style.display = 'none';
         $all('.QRcodeAndCode')[0].style.display = 'block';
+        $all('.btn-container_changeItByYourself')[0].style.display = 'block';
+        $all('.btn-container')[0].style.display = 'none';
         
-        $id('changeMealQRcode').src = 'http://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=300x300&chl=' + changeMealURL;
+        $id('changeMealQRcode').src = 'http://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=300x300&chl=localhost/phpLab/CD103G3_penguin/' + changeMealURL;
 
-        $id('changeMealCode').value = 'localhost/phpLab/CD103G3_penguin/5-1_1_myGrouponExchange.php?mealArr=' + jsonMealArr; //待修改
+        $id('changeMealCode').value = changeMealURL;
+        
+        $id('finishChangBTN').onclick =  function() {
+            url = changeMealURL;
+            getMyGroupon('change');
+        }
     } else { //清空確認用的訂單
         changeMealCountainer.innerHTML = 
         `<tr>
             <th>餐點名稱</th>
             <th>數量</th>
-        </tr>`;
+        </tr>
+        `;
     }
 }
 
@@ -1091,9 +1108,9 @@ function checkSuccess() {
         var peopleNowC = parseInt(peopleNow[i].innerText);
         var peopleNeededC = parseInt(peopleNeeded[i].innerText);
         var ratio = peopleNowC / peopleNeededC;
-        if(ratio >= 0.8 && ratio < 1) {
+        if(ratio >= 0.8 && ratio < 1 && window.innerWidth >= 600) {
             almostSuccIcon[i].style.display = 'block';
-        } else if(ratio >= 1) {
+        } else if(ratio >= 1 && window.innerWidth >= 600) {
             almostSuccIcon[i].style.display = 'block';
             almostSuccIcon[i].style.opacity = '0.7';
             almostSuccIcon[i].innerText = '已經達標!';

@@ -42,7 +42,7 @@ try {
         <div class="success-wrapper">
             <div class="fork">
                 <div class="pic">
-                    <img src="asset/longFork.png" alt="longFork">
+                    <img src="images/longFork.png" alt="longFork">
                 </div>
             </div>
             <div class="dish-container">
@@ -55,7 +55,7 @@ try {
                 </h2>
                 <div class="chickPic">
                     <div class="pic">
-                        <img src="asset/dayCookIndex_181005-02.png" alt="">
+                        <img src="images/dayCookIndex_181005-02.png" alt="">
                     </div>
                 </div>
                 <div class="grouponSimpleInfo-wrapper">
@@ -80,7 +80,7 @@ try {
                             </div>
                             <div class="userPic">
                                 <div class="pic">
-                                    <img src="asset/user01.png" alt="user">
+                                    <img src="images/user01.png" alt="user">
                                 </div>
                             </div>
                             <div class="user grid-9">
@@ -90,7 +90,7 @@ try {
                                 <div class="userExp clearfix">
                                     <div class="achievePic grid-4">
                                         <div class="pic">
-                                            <img src="asset/achieve01.png" alt="">
+                                            <img src="images/achieve01.png" alt="">
                                         </div>
                                     </div>
                                     <div class="achStatus grid-8 clearfix">
@@ -103,7 +103,7 @@ try {
                                     </div>
                                     <div class="hint--achievement">
                                         <div class="pic grid-6">
-                                            <img src="asset/achieve01.png" alt="">
+                                            <img src="images/achieve01.png" alt="">
                                         </div>
                                         <p>
                                             <span class="achName">小菜蟲成就</span> <br> 吃完10餐後可獲得，可拿到<span>10</span>元折價券
@@ -143,7 +143,7 @@ try {
                         <div class="bonus-container  grid-6 grid-md-4 clearfix">
                             <div class="bonus grid-3">
                                 <div class="pic">
-                                    <img src="asset/bonusIcon-05.svg" alt="bonus">
+                                    <img src="images/bonusIcon-05.svg" alt="bonus">
                                     <span class="bonus-coin">
                                         <?php echo $grouponR["groupon_Bonus"] ?>
                                     </span>
@@ -195,7 +195,7 @@ try {
             </div>
             <div class="spoon">
                 <div class="pic">
-                    <img src="asset/longSpoon.png" alt="longSpoon">
+                    <img src="images/longSpoon.png" alt="longSpoon">
                 </div>
             </div>
         </div>
@@ -222,7 +222,7 @@ try {
                 <div class="grouponSuccess-container">
                     <div class="chickShishou">
                         <div class="pic">
-                            <img src="asset/index_181018-03.png" alt="">
+                            <img src="images/index_181018-03.png" alt="">
                         </div>
                     </div>
                     <h2>

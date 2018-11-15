@@ -48,12 +48,12 @@ try {
             <div class="forkSpoonSucc-container">
                 <div class="fork">
                     <div class="pic">
-                        <img src="asset/longFork.png" alt="fork">
+                        <img src="images/longFork.png" alt="fork">
                     </div>
                 </div>
                 <div class="spoon">
                     <div class="pic">
-                        <img src="asset/longSpoon.png" alt="spoon">
+                        <img src="images/longSpoon.png" alt="spoon">
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@ try {
                     </div>
                     <div class="userPic">
                         <div class="pic">
-                            <img src="asset/user01.png" alt="user">
+                            <img src="images/user01.png" alt="user">
                         </div>
                     </div>
                     <div class="user grid-9">
@@ -92,7 +92,7 @@ try {
                         <div class="userExp clearfix">
                             <div class="achievePic grid-4">
                                 <div class="pic">
-                                    <img src="asset/achieve01.png" alt="">
+                                    <img src="images/achieve01.png" alt="">
                                 </div>
                             </div>
                             <div class="achStatus grid-8 clearfix">
@@ -105,7 +105,7 @@ try {
                             </div>
                             <div class="hint--achievement">
                                 <div class="pic grid-6">
-                                    <img src="asset/achieve01.png" alt="">
+                                    <img src="images/achieve01.png" alt="">
                                 </div>
                                 <p>
                                     <span class="achName">小菜蟲成就</span> <br> 吃完10餐後可獲得，可拿到<span>10</span>元折價券
@@ -160,7 +160,7 @@ try {
         </div>
         <div class="btn-container clearfix">
             <a class="cancelBTN" href="5-1_NotChanged.php">
-                查看我發起的飯團
+                查看我的飯團
             </a>
             <a class="nextBTN" href="6-2_grouponPayment.php?no=<?php echo $grouponNo; ?>" id="">
                 馬上付款此飯團

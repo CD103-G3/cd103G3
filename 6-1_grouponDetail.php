@@ -95,7 +95,7 @@ try {
                 <div class="bonus-container  grid-6 grid-md-4 clearfix">
                     <div class="bonus grid-3">
                         <div class="pic">
-                            <img src="asset/bonusIcon-05.svg" alt="bonus">
+                            <img src="images/bonusIcon-05.svg" alt="bonus">
                             <span class="bonus-coin">
                                 <?php echo $grouponR["groupon_Bonus"] ?>
                             </span>
@@ -136,7 +136,7 @@ try {
                 </div>
                 <div class="mealPic grid-10 grid-md-4">
                     <div class="pic">
-                        <img src="asset/bentou04.jpg" alt="meal" id="grouponDetail_pic">
+                        <img src="images/bentou04.jpg" alt="meal" id="grouponDetail_pic">
                     </div>
                 </div>
                 <div class="mealInfo-container grid-12 grid-md-8">
@@ -153,27 +153,27 @@ try {
                             <ul>
                                 <li>
                                     <div class="pic">
-                                        <img src="asset/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
                                     </div>
                                 </li>
                                 <li>
                                     <div class="pic">
-                                        <img src="asset/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
                                     </div>
                                 </li>
                                 <li>
                                     <div class="pic">
-                                        <img src="asset/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
                                     </div>
                                 </li>
                                 <li>
                                     <div class="pic">
-                                        <img src="asset/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
                                     </div>
                                 </li>
                                 <li>
                                     <div class="pic">
-                                        <img src="asset/scoreEgg_w.svg" alt="scoreYes" class="scoreW">
+                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="scoreW">
                                     </div>
                                 </li>
                             </ul>
@@ -209,8 +209,8 @@ try {
                     </div>
                     <div class="grouponPrice grid-12">
                         飯團價(6折) <span>
-                            640元
-                        </span>
+                            640
+                        </span>元
                     </div>
                 </div>
                 <div class="callToAction grid-12 grid-md-4">
@@ -243,7 +243,7 @@ try {
                                 </p>
                                 <div class="QR-container">
                                     <div class="pic">
-                                        <img src="asset/QR.png" alt="" id="QR-picContainer">
+                                        <img src="images/QR.png" alt="" id="QR-picContainer">
                                     </div>
                                 </div>
                             </div>
@@ -349,7 +349,7 @@ function showMealInfo(jsonStr) {
                 ${mealArr[i].meal_Price}
                 </div>
                 <div class="pic">
-                    <img src="asset/meals/${mealArr[i].meal_Pic}" alt="${mealArr[i].meal_Name}"  title="${mealArr[i].meal_Name}">
+                    <img src="images/meals/${mealArr[i].meal_Pic}" alt="${mealArr[i].meal_Name}"  title="${mealArr[i].meal_Name}">
                 </div>
                 <div class="title">
                     ${mealArr[i].meal_Name}
@@ -360,6 +360,10 @@ function showMealInfo(jsonStr) {
 
         $class('mealSmallPic-container')[0].innerHTML += mealBox;
     }
+
+    $id('grouponDetail_title').innerText = mealArr[0].meal_Name;
+    $id('grouponDetail_info').innerText = mealArr[0].meal_Info;
+    $id('grouponDetail_pic').src = `images/meals/${mealArr[0].meal_Pic}`;
     //寫入平均價格、熱量、總價
     $all('.meal-count')[0].children[0].children[0].innerText = mealCount;
     $all('.avgPrice')[0].children[0].innerText = 
@@ -420,7 +424,7 @@ function showAchie(jsonStr) {
         </div>
         <div class="userPic">
             <div class="pic">
-                <img src="asset/${founderAchie[1]}" alt="user">
+                <img src="images/${founderAchie[1]}" alt="user">
             </div>
         </div>
         <div class="user grid-9">
@@ -430,7 +434,7 @@ function showAchie(jsonStr) {
             <div class="userExp clearfix">
                 <div class="achievePic grid-2">
                     <div class="pic">
-                        <img src="asset/achieve/${founderAchie[5]}" alt="">
+                        <img src="images/achieve/${founderAchie[5]}" alt="">
                     </div>
                 </div>
                 <div class="achStatus grid-10 clearfix">
@@ -443,7 +447,7 @@ function showAchie(jsonStr) {
                 </div>
                 <div class="hint--achievement">
                     <div class="pic grid-6">
-                        <img src="asset/achieve/${founderAchie[5]}" alt="">
+                        <img src="images/achieve/${founderAchie[5]}" alt="">
                     </div>
                     <p>
                         <span class="achName">${founderAchie[4]}成就</span> <br> 吃完${founderAchie[3]}餐後可獲得，可拿到<span>${founderAchie[3]}</span>元折價券
@@ -525,7 +529,7 @@ function showRecomm(jsonStr) {
                     ${recommGroupon[i][11][j][2]}元
                 </div>
                 <div class="pic">
-                    <img src="asset/meals/${recommGroupon[i][11][j][1]}" alt="豪華便當組"  title="${recommGroupon[i][11][j][0]}">
+                    <img src="images/meals/${recommGroupon[i][11][j][1]}" alt="豪華便當組"  title="${recommGroupon[i][11][j][0]}">
                 </div>
                 <div class="title">
                     ${recommGroupon[i][11][j][0]}
@@ -556,6 +560,7 @@ window.addEventListener('load',function() {
     // getQRcode();
     getRecommendURL();
     QRcodeAndCopyIt(<?php echo  $grouponR["groupon_No"] ?>);
+    checkSuccess();//檢查是否達標
 })
 </script>
 </html>

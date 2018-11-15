@@ -83,7 +83,7 @@ h2{
 
 .woodTemp {
     position: relative;
-    background-image: url('../asset/woodTemplate-01.png');
+    background-image: url('../images/woodTemplate-01.png');
     // background-color: #aaa;
     background-position: center;
     // background-size: cover;
@@ -105,7 +105,7 @@ h2{
     max-width: 800px;
     text-align: center;
     margin: auto;
-    background-image: url('../asset/woodTemplate-02.png');
+    background-image: url('../images/woodTemplate-02.png');
     background-size: auto 132%;
     background-position: center;
     color: #fff;
@@ -310,7 +310,7 @@ h2{
     }
     .bonus {
         padding: 20px;
-        background: url('asset/bonusIcon-05.png');
+        background: url('images/bonusIcon-05.png');
         color: $color_hot;
         text-align: center;
         p {
@@ -354,7 +354,7 @@ h2{
     
     border-radius: 30px;
     // background-color: $color_main4;
-    // background-image: url("../asset/natural-wooden-paneling-texture.jpg");
+    // background-image: url("../images/natural-wooden-paneling-texture.jpg");
     background-size: cover;
     background-position: center;
     // background-color: #ddd;
@@ -1303,7 +1303,7 @@ h2{
             bottom: -6px;
             width: 76px;
             height: 76px;
-            background: url('../asset/folded-03.png');
+            background: url('../images/folded-03.png');
             background-size: cover;
             background-position: right bottom;
         }
@@ -1458,11 +1458,73 @@ h2{
             border-radius: 1000px;
         }
     }
+    .btn-container_changeItByYourself {
+        display: none;
+        padding: $pd * 2;
+        text-align: center;
+        border-top: 1px solid #aaa;
+        #finishChangBTN {
+            width: 300px;
+        }
+    }
+    .exchangeSuccess {
+        display: none;
+        border: 10px solid $color_main2;
+        .chickShishou {
+            position: absolute;
+            top: 170px;
+            left: 290px;
+            width: 160px;
+
+        }
+        .success-icon {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: auto;
+            border-radius: 1000px;
+            border: 10px solid  $color_main2;
+            &:before {
+                position: absolute;
+                top: 75px;
+                left: 46px;
+                @include BfAf;
+                width: 100px;
+                height: 10px;
+                 border-radius: 1000px;
+                background-color: $color_main1;
+                transform: rotate(126deg);
+                toFull: .4s;
+            }
+            &:after {
+                position: absolute;
+                top: 90px;
+                left: 11px;
+                @include BfAf;
+                width: 70px;
+                height: 10px;
+                border-radius: 1000px;
+                background-color: $color_main1;
+                transform: rotate(45deg);
+                toFull: .4s;
+            }
+        }
+        text-align: center;
+        @keyframes toFull {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    }
 }
 
 #checkChange-container_bg {
     @include centerABS(100%, 100vh) {
         position: fixed;
+        // z-index: 4;
         top: 0;
         bottom: 0;
         left: -10000px;
@@ -2204,7 +2266,7 @@ h2{
     max-width: 100%;
     
     @include rwdSys(pad) {
-        background-image: url("../asset/tableCloth_and_curryRice_01.png");
+        background-image: url("../images/tableCloth_and_curryRice_01.png");
     }
     background-size: contain;
     background-repeat: no-repeat;
@@ -2225,7 +2287,7 @@ h2{
         overflow: unset;
         position: relative;
         
-        background-image: url(../asset/tableCloth_and_curryRice_03.png);
+        background-image: url(../images/tableCloth_and_curryRice_03.png);
         background-position: center 100px;
         background-repeat: no-repeat;
         // background-color: #fff;
@@ -2339,7 +2401,7 @@ h2{
                 padding-right: 60px;
                 background-color: transparent;
                 border: none;
-                background-image: url("../asset/tableCloth_and_curryRice-02.png");
+                background-image: url("../images/tableCloth_and_curryRice-02.png");
             }
             @include rwdSys(PC) {
                 margin: -60px 0px auto 0;

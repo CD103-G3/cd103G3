@@ -1,14 +1,16 @@
 
 <?php
-
+    ob_start();
+    session_start();
 try {
     require_once('phpDB/connectDB_CD103G3.php');
     $jsonStr = $_REQUEST['jsonStr'];
 
     // echo  $jsonStr;
     $createG = json_decode($jsonStr);
-    $sql = "INSERT INTO `groupon` (`groupon_No`, `groupon_Name`,  `groupon_TagNo`, `groupon_Founder`, `startDate`, `endDate`, `groupon_Bonus`,`groupon_MemberNeed`, `memberNow`, `discount`) VALUES
-    (NULL, '$createG->groupon_Name', '$createG->groupon_TagNo', '$createG->groupon_Founder', CURDATE() + $createG->startDate, CURDATE() + $createG->endDate, '$createG->groupon_Bonus', '$createG->groupon_MemberNeed', '0', '0')";
+    $memId = $_SESSION['memId'];
+    $sql = "INSERT INTO `groupon` (`groupon_No`, `groupon_Name`,  `groupon_TagNo`, `groupon_FounderId`, `startDate`, `endDate`, `groupon_Bonus`,`groupon_MemberNeed`, `memberNow`, `discount`) VALUES
+    (NULL, '$createG->groupon_Name', '$createG->groupon_TagNo', '$memId', CURDATE() + $createG->startDate, CURDATE() + $createG->endDate, '$createG->groupon_Bonus', '$createG->groupon_MemberNeed', '0', '0')";
     
 
     // 抓系統日期 + N天
@@ -46,7 +48,7 @@ try {
     
 </script>
 <?php
-    header("Location: 3-4_createGroupon_successful.php");
+    header("Location: 3-4_createGroupon_successful.php?no=$id");
 }catch(PDOException $e) {
     echo $e->getMessage();
 }

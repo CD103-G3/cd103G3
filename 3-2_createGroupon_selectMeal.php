@@ -59,7 +59,7 @@
                 <div class="mealPointer">
                     <!-- <h3>從左側的餐點，<br>拖拉至右邊以新增餐點~</h3> -->
                     <div class="pic">
-                        <img src="asset/spoonFork-01.svg" alt="">
+                        <img src="images/spoonFork-01.svg" alt="">
                     </div>
                 </div>
                 <div class="addedList grid-12 grid-md-5 clearfix">
@@ -131,7 +131,7 @@
                 <div class="bonus-container grid-12 clearfix">
                     <div class="grid-4">
                         <div class="pic">
-                            <img src="asset/bonusIcon-05.svg" alt="bonus">
+                            <img src="images/bonusIcon-05.svg" alt="bonus">
                             <span class="bonus-coin">99</span>
                         </div>
                     </div>
@@ -181,7 +181,7 @@
                             </div>
                         </div>
                         <div class="pic">
-                            <img src="asset/meals/${mealInfo[i].meal_Pic}" alt="">
+                            <img src="images/meals/${mealInfo[i].meal_Pic}" alt="">
                         </div>
                         <div class="meal-title">
                             <div class="meal-score">
@@ -197,7 +197,7 @@
                         <div class="added-bg" id="meal${mealInfo[i].meal_No}_bg">
                             <p><i class="fas fa-check"></i>  已選擇</p>
                         </div>
-                        <input type="hidden" id="meal${mealInfo[i].meal_No}input" value="${mealInfo[i].meal_Name}|${mealInfo[i].meal_Price}元|asset/meals/${mealInfo[i].meal_Pic}">
+                        <input type="hidden" id="meal${mealInfo[i].meal_No}input" value="${mealInfo[i].meal_Name}|${mealInfo[i].meal_Price}元|images/meals/${mealInfo[i].meal_Pic}">
                     </div>`;
                     
             document.getElementById('addWrapper3_2').innerHTML += meal;
@@ -235,7 +235,7 @@
             console.log($id('mealArea').children.length);
             alert('請選擇至少5個餐點~');
         } else {
-            location.href = '3-3_createGroupon_createdList.html';
+            location.href = '3-3_createGroupon_createdList.php';
         }
     }   
     window.addEventListener('load', function() {

@@ -100,7 +100,18 @@ session_start();
                 </div>
             </div>
             <div class="exchangeSuccess">
+                <h1>
+                    您已成功兌換餐點!!
+                </h1>
+                <div class="success-icon">
 
+                </div>
+                <div class="pic chickShishou">
+                    <img src="images/index_181018-03.png" alt="">
+                </div>
+                <a class="nextBTN closeFinnish">
+                    確認
+                </a>
             </div>
             <div class="btn-container_changeItByYourself">
                 <h3>
@@ -149,7 +160,7 @@ session_start();
                 <p class="info active">尚無餐點</p>
                 <div class="btn-container clearfix">
                     <a class="subBTN" href="##" id="checkChangBTN">
-                        確認兌換
+                        兌換餐點
                     </a>
                 </div>
         </div>
@@ -212,7 +223,7 @@ session_start();
                                 ${myGrouponSearchR[i][10][j][3]}元
                             </div>
                             <div class="pic">
-                                <img src="asset/meals/${myGrouponSearchR[i][10][j][2]}" alt="${myGrouponSearchR[i][10][j][1]}"  title="${myGrouponSearchR[i][10][j][1]}">
+                                <img src="images/meals/${myGrouponSearchR[i][10][j][2]}" alt="${myGrouponSearchR[i][10][j][1]}"  title="${myGrouponSearchR[i][10][j][1]}">
                             </div>
                             <div class="title">
                                 ${myGrouponSearchR[i][10][j][1]}
@@ -244,10 +255,11 @@ session_start();
 
     };
     function getMyGroupon(page) {
+        console.log(url);
         var xhr = new XMLHttpRequest();
         xhr.onload=function (){
             if( xhr.status == 200 ){
-                console.log(xhr.responseText);
+                // console.log(xhr.responseText);
                 if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found
                     $all('.groupon-container')[0].innerHTML = 
                     `<h1>目前還沒加入任何飯團，來去看看!</h1>
@@ -264,6 +276,8 @@ session_start();
                 } else {
                     if(page == 'all') {
                         showMyAllGroupon(xhr.responseText);
+                    } else if(page == 'change') {
+                        showSuccess(); //兌換成功
                     } else {
                         showMyGroupon(xhr.responseText); //兌換清單
                     }
@@ -284,6 +298,15 @@ session_start();
         url = '5-1_myGrouponListSearch.php?id=<?php echo $_SESSION['memNo']; ?>&order=all';
         getMyGroupon('all');
     }
+    function showSuccess() {
+        // alert('//');
+        // 先將跳窗的清空
+        var popUpChangeCount = $id('popUpChange').children.length;
+        for(let i = 0; i < popUpChangeCount;i++) {
+            $id('popUpChange').children[i].style.display = 'none';
+        }
+        $class('exchangeSuccess')[0].style.display = 'block';
+    }
     window.addEventListener('load', function() {
         
         getMyGroupon(); //load 資料庫中的我的尚未兌換飯團
@@ -291,7 +314,6 @@ session_start();
         // $all('.filter')[0].addEventListener('click', filter);
         // $all('.filter')[1].addEventListener('click', filter); //篩選飯團
         //點擊頁籤後再顯示我的飯團
-
         function filter(e) {
             var searchKW = $id('searchInput').value;
             if(this.className == 'filter time') {
@@ -306,6 +328,11 @@ session_start();
             // location.href = '4-1_grouponList.php?search=' + searchKW + '&order=' + ;
         }
         $all('.changePage')[1].addEventListener('click', getAllMyGroupon);
+        $class('closeFinnish')[0].onclick = function() {
+            $id('popUpChange').style.display = 'none';
+            $id('checkChange-container_bg').style.display = 'none';
+            location.reload();
+        }
         
     });
 
@@ -375,7 +402,7 @@ session_start();
                             <div class="bonus-container clearfix">
                                     <div class="bonus grid-3">
                                         <div class="pic">
-                                            <img src="asset/bonusIcon-05.svg" alt="bonus">
+                                            <img src="images/bonusIcon-05.svg" alt="bonus">
                                             <span class="bonus-coin">${myGrouponSearchR[i][6]}</span>
                                         </div>
                                     </div>
@@ -486,7 +513,7 @@ session_start();
                             ${myGrouponSearchR[i][10][j][3]}元
                         </div>
                         <div class="pic">
-                            <img src="asset/meals/${myGrouponSearchR[i][10][j][2]}" alt="豪華便當組"  title="${myGrouponSearchR[i][10][j][1]}">
+                            <img src="images/meals/${myGrouponSearchR[i][10][j][2]}" alt="豪華便當組"  title="${myGrouponSearchR[i][10][j][1]}">
                         </div>
                         <div class="title">
                             ${myGrouponSearchR[i][10][j][1]}
@@ -519,7 +546,7 @@ session_start();
             console.log($all('.groupon_shareCode')[i].value);
         }
 
-        checkSuccess();
+        checkSuccess(); //確認達標
         
     }
         

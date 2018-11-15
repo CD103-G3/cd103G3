@@ -121,7 +121,7 @@
             }
             alert('請輸入10個字以下的飯團名稱');
         } else {
-            location.href = '3-2_createGroupon_selectMeal.html';
+            location.href = '3-2_createGroupon_selectMeal.php';
         }
     }
 </script>

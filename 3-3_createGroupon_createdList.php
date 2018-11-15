@@ -1,3 +1,8 @@
+<?php
+    ob_start();
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +57,7 @@
                                     </div>
                                 </div>
                                 <div class="pic">
-                                    <img src="asset/teishoku01.gif" alt="meal-001">
+                                    <img src="images/teishoku01.gif" alt="meal-001">
                                 </div>
                                 <div class="meal-title">
                                     <div class="meal-score">
@@ -107,7 +112,7 @@
                             <div class="bonus-container grid-8 clearfix">
                                     <div class="grid-3">
                                         <div class="pic">
-                                            <img src="asset/bonusIcon-05.svg" alt="bonus">
+                                            <img src="images/bonusIcon-05.svg" alt="bonus">
                                             <span class="bonus-coin">99</span>
                                         </div>
                                     </div>
@@ -161,7 +166,9 @@
 </body>
 <script>
     window.addEventListener('load', function() {
-        console.log(<?php echo $_SESSION['memId']; ?>);
+        //檢查是否登入，尚未登入為空字串
+        console.log('<?php echo $_SESSION['memId']; ?>');
+
         $id('3_3_confirmCreate_BTN').onclick = function() {
             var info = storage.grouponInfo;
             // console.log(storage.grouponInfo);
@@ -173,7 +180,7 @@
             var grouponList = {
                 groupon_Name: infoArr[0],
                 groupon_TagNo: infoArr[3],
-                groupon_Founder: '日食小編',
+                groupon_Founder: '',
                 startDate: infoArr[1],
                 endDate: endDateNum,
                 groupon_Bonus: bonus,
@@ -187,7 +194,19 @@
             var mealList = JSON.stringify(mealArr);
 
             var str = JSON.stringify(grouponList);
-            location.href = '3-3_createGroupon.php?jsonStr=' + str + '&mealList=' + mealList;
+            if( <?php if($_SESSION['memId'] == '') { echo 'true';} else {
+                echo 'false';
+            } ?> ) { //如果未登入  
+                <?php
+                    // $URL = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+                    $URL = $_SERVER['PHP_SELF'];
+                    $_SESSION['where'] = $URL; ?>;
+                var memId = prompt('enter your id');
+                location.href = '0-0_testForLogin.php?id=' + memId;
+            } else {
+                location.href = '3-3_createGroupon.php?jsonStr=' + str + '&mealList=' + mealList;
+            }
+            
             
         }
     });

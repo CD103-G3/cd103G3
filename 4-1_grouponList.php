@@ -151,7 +151,7 @@
                             <div class="bonus-container clearfix">
                                     <div class="bonus grid-3">
                                         <div class="pic">
-                                            <img src="asset/bonusIcon-05.svg" alt="bonus">
+                                            <img src="images/bonusIcon-05.svg" alt="bonus">
                                             <span class="bonus-coin">${grouponSearchR[i][6]}</span>
                                         </div>
                                     </div>
@@ -224,7 +224,7 @@
                             ${grouponSearchR[i][11][j][2]}元
                         </div>
                         <div class="pic">
-                            <img src="asset/meals/${grouponSearchR[i][11][j][1]}" alt="豪華便當組"  title="${grouponSearchR[i][11][j][0]}">
+                            <img src="images/meals/${grouponSearchR[i][11][j][1]}" alt="豪華便當組"  title="${grouponSearchR[i][11][j][0]}">
                         </div>
                         <div class="title">
                             ${grouponSearchR[i][11][j][0]}

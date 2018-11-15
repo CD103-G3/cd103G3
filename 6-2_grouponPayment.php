@@ -9,7 +9,8 @@
     <script src="js/main.js"></script>
 <!--  phpStartHere -->
 <?php
-
+ob_start();
+session_start();
 try {
     require_once('phpDB/connectDB_CD103G3.php');
     $sql = "select * from groupon where groupon_No = :no";
@@ -83,7 +84,7 @@ try {
                         <div class="bonus-container grid-8 clearfix">
                                 <div class="grid-3">
                                     <div class="pic">
-                                        <img src="asset/bonusIcon-05.svg" alt="bonus">
+                                        <img src="images/bonusIcon-05.svg" alt="bonus">
                                         <span class="bonus-coin">
                                             <?php echo $grouponR["groupon_Bonus"] ?>
                                         </span>
@@ -140,7 +141,7 @@ try {
                                     <label for="visaCard" class="card">
                                         <h3 class="">VISA信用卡</h3>
                                         <div class="pic">
-                                            <img src="asset/creditCard-02.png" alt="">
+                                            <img src="images/creditCard-02.png" alt="">
                                         </div>
                                         <span class="radioCircle"></span>
                                     </label>
@@ -150,7 +151,7 @@ try {
                                     <label for="masterCard" class="card">
                                         <h3>master信用卡</h3>
                                         <div class="pic">
-                                            <img src="asset/creditCard-02.png" alt="">
+                                            <img src="images/creditCard-02.png" alt="">
                                         </div>
                                         <span class="radioCircle"></span>
                                     </label>
@@ -160,7 +161,7 @@ try {
                                     <label for="payPal" class="card">
                                         <h3>JCB信用卡</h3>
                                         <div class="pic">
-                                            <img src="asset/creditCard-02.png" alt="">
+                                            <img src="images/creditCard-02.png" alt="">
                                         </div>
                                         <span class="radioCircle"></span>
                                     </label>
@@ -221,6 +222,7 @@ try {
 <script>
     // 取得此飯團的餐點資料
     window.addEventListener('load',function() {
+        console.log('<?php echo $_SESSION['memId']; ?>');
         getMealAll();
         $id('finnishPayment').onclick = alertPayment;
         function showMealInfo(jsonStr) {
@@ -243,7 +245,7 @@ try {
                         ${mealArr[i].meal_Price}
                         </div>
                         <div class="pic">
-                            <img src="asset/meals/${mealArr[i].meal_Pic}" alt="${mealArr[i].meal_Name}"  title="${mealArr[i].meal_Info}">
+                            <img src="images/meals/${mealArr[i].meal_Pic}" alt="${mealArr[i].meal_Name}"  title="${mealArr[i].meal_Info}">
                         </div>
                         <div class="title">
                             ${mealArr[i].meal_Name}
@@ -302,10 +304,23 @@ try {
         function alertPayment() {
             if($id('selectedResult').innerText == '') {
                 alert('請選擇一個付款方式');
-            } else {
-                location.href = "6-2_AddGroupon.php?no=<?php echo $_REQUEST['no'] ?>"; 
+            } else { //判斷是否登入
+                if( <?php if($_SESSION['memId'] == '') { echo 'true';} else {
+                echo 'false';
+                } ?> ) { //如果未登入  
+                    <?php
+                        $URL = '6-2_AddGroupon.php?no='.$_REQUEST['no']; //儲存網址
+                        $_SESSION['where'] = $URL; ?>;
+                    var memId = prompt('enter your id');
+                    location.href = '0-0_testForLogin.php?id=' + memId; //跳轉或跳窗登入
+                } else {
+                    location.href = '6-2_AddGroupon.php' + location.search; //有的話則直接跳轉
+                }
+               
             }
         }
+
+       
     })
 </script>
 
