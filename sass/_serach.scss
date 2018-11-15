@@ -74,7 +74,7 @@
   padding: 0px 16px;
   overflow-x: hidden;
   overflow-y: auto;
-  min-height: 327px;
+  min-height: 350px;
   max-height: 33vh;
   &::-webkit-scrollbar {
     width: 0px;
@@ -83,7 +83,8 @@
   @include rwd(sm) {
     margin: auto;
     overflow-y: hidden;
-    max-height: 555px;
+    min-height: 400px;
+    max-height: 500px;
     padding: 25px 16px 0;
   }
   &:after{
@@ -268,13 +269,14 @@
     min-width: 128px;
   }
   @include searchChecked(label) {
-    display: inline-block;
+    display: block;
     padding: 8px 12px 8px 24px;
-    margin-left: 20px;
     margin-bottom: 10px;
     @include rwd(sm) {
+      display: inline-block;
       padding: 8px 24px 8px 36px;
       margin-bottom: 10px;
+      margin-left: 20px;
       // margin-top:10px;
     }
     @include searchCheckedTani($color-main4, #fff) {
@@ -288,6 +290,7 @@
 .bookmark-meal-item:nth-child(1){
   text-align: left;
   label{
+    display: inline-block;
     margin-left:0px;
     margin-right: 10px;
   }
@@ -302,11 +305,10 @@
     vertical-align: middle;
     font-size: $fontSize-text;
     @include rwd(sm) {
-      font-size: $fontSize-S;
-      padding-top: 7px;
-      padding-bottom: 7px;
+      padding-top: 10px;
+      padding-bottom: 10px;
       margin-right: 10px;
-      margin-bottom: 0px;
+      margin-bottom: 7px;
       &:hover {
         color: $color-main4;
         transition: 0.4s;

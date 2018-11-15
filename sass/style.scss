@@ -3,11 +3,15 @@
 @import "daycookVar";
 @import "daycookMixin";
 @import "general_mixins";
+@import "layout/grid";
 @import "Team-mixins/ke_mixin";
+@import "Team-mixins/mixins";
 @import "login";//註冊登入
 @import "serach"; //搜尋
-@import "eatDetail"; //餐點詳細
 @import "chatBot";//客服機器人
+@import "animation/anime";
+@import "gup";
+
 .space{
 	height: 75px;
 }
