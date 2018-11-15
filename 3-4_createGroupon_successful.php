@@ -18,7 +18,25 @@
     <nav>
         <!-- 這裡放導覽列 -->
     </nav>
+<!--  phpStartHere -->
+<?php
 
+try {
+    require_once('phpDB/connectDB_CD103G3.php');
+    $sql = "SELECT * from `groupontag` order by `groupon_TagNo` ASC";
+    $tag = $pdo -> prepare($sql);
+    $tag -> execute();
+    $tagR = $tag -> fetchAll(); //標籤
+
+    $grouponNo = $_REQUEST['no'];
+    $sql = "select * from groupon where groupon_No = :no";
+    $groupon = $pdo -> prepare($sql);
+    $groupon -> bindValue('no', $grouponNo);
+    $groupon -> execute();
+    if( $groupon -> rowCount() != 0) {
+        $grouponR = $groupon -> fetchAll();
+        foreach($grouponR as $i => $grouponR) {
+?>
 <div class="penguinPage">    
 
     <div class="maxWidthWrapper ">
@@ -43,8 +61,16 @@
         <div class="woodTemp create3_4">
             <div class="grouponTitle-wrapper">
                 <div class="text-box">
-                    <span class="tag">#超滿足</span>
-                    <h2 id="createGrouponTitle">日式和食小資飯團</h2>
+                    <span class="tag">
+                        #<?php 
+                            
+                            echo $tagR[$grouponR["groupon_TagNo"] - 1]['groupon_TagName'] 
+                        
+                        ?>
+                    </span>
+                    <h2 id="createGrouponTitle">
+                        <?php echo $grouponR["groupon_Name"] ?>
+                    </h2>
                 </div>                
                 <div class="backRibbon"></div>  
                 <div class="leftRibbon"></div>
@@ -77,7 +103,7 @@
                                     <span>300 </span> EXP
                                 </p>
                             </div>
-                            <div class="hint">
+                            <div class="hint--achievement">
                                 <div class="pic grid-6">
                                     <img src="asset/achieve01.png" alt="">
                                 </div>
@@ -133,10 +159,10 @@
             </div>
         </div>
         <div class="btn-container clearfix">
-            <a class="cancelBTN" href="5-1_NotChanged.html">
+            <a class="cancelBTN" href="5-1_NotChanged.php">
                 查看我發起的飯團
             </a>
-            <a class="nextBTN" href="6-2_grouponPayment.html" id="">
+            <a class="nextBTN" href="6-2_grouponPayment.php?no=<?php echo $grouponNo; ?>" id="">
                 馬上付款此飯團
             </a>
         </div>
@@ -151,20 +177,36 @@
 <script>
     window.addEventListener('load', function() {
         //先顯示
-        var thisGrouponNo = storage.createGrouponId;
+        var thisGrouponNo = location.search.replace('?no=','');
         QRcodeAndCopyIt(thisGrouponNo); //寫入QRcode
         
         //顯示title, tag
-        var createGrouponInfo = storage.grouponInfo.split('|');
-        $class('tag').innerText = '#' + createGrouponInfo[2];
-        $id('createGrouponTitle').innerText = createGrouponInfo[0];
-        
-        
-        
+        // var createGrouponInfo = storage.grouponInfo.split('|');
+        // $class('tag').innerText = '#' + createGrouponInfo[2];
+        // $id('createGrouponTitle').innerText = createGrouponInfo[0];
+        // console.log(location.search);
+        achievementShowOff('6-3_getAchievement.php' + location.search);
 
+        
+        
         // 最後再清空暫存資料
         // storage.clear();
         // 等6-1作好後，抓QRcode資料 和產生代碼，測試網頁連結
     });
 </script>
 </html>
+<?php
+}
+    }else {
+}
+
+
+
+
+}catch(PDOException $e) {
+    echo $e->getMessage();
+}
+    
+  
+?>
+<!-- phpEndHere -->

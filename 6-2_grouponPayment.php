@@ -207,7 +207,7 @@ try {
         <a class="cancelBTN" href="6-1_grouponDetail.php?no=<?php echo $_REQUEST['no'] ?>">
             返回飯團詳細
         </a>
-        <a class="nextBTN" href="6-2_AddGroupon.php?no=<?php echo $_REQUEST['no'] ?>">
+        <a class="nextBTN" id="finnishPayment">
             確認付款
         </a>
     </div>
@@ -222,7 +222,7 @@ try {
     // 取得此飯團的餐點資料
     window.addEventListener('load',function() {
         getMealAll();
-        
+        $id('finnishPayment').onclick = alertPayment;
         function showMealInfo(jsonStr) {
             var mealArr = JSON.parse(jsonStr);
             
@@ -299,7 +299,13 @@ try {
             xhr.open("Get", url, true);
             xhr.send( null );
         }
-        
+        function alertPayment() {
+            if($id('selectedResult').innerText == '') {
+                alert('請選擇一個付款方式');
+            } else {
+                location.href = "6-2_AddGroupon.php?no=<?php echo $_REQUEST['no'] ?>"; 
+            }
+        }
     })
 </script>
 

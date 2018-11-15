@@ -836,7 +836,7 @@ h2 {
         padding: 10px;
         color: #fff; }
       .penguinPage .createdList-wrapper .selectedMealList-container .mealList .addedMeal-wrapper {
-        height: 536px;
+        height: 560px;
         overflow-y: scroll;
         text-align: center; }
         @media screen and (min-width: 768px) {
@@ -915,7 +915,6 @@ h2 {
       .penguinPage .selectedDetail-container .bonusArea-wrapper .bonus-container .pic {
         position: relative; }
       .penguinPage .selectedDetail-container .bonusArea-wrapper .bonus-container .bonus-coin {
-        font-size: 30px;
         display: block;
         display: flex;
         align-items: center;
@@ -929,6 +928,7 @@ h2 {
         text-align: center;
         font-size: 16px;
         opacity: 1;
+        font-size: 30px;
         font-weight: 900; }
         .penguinPage .selectedDetail-container .bonusArea-wrapper .bonus-container .bonus-coin i {
           font-size: 19.2px; }
@@ -1367,11 +1367,13 @@ h2 {
       left: -50px; } }
 
 .penguinPage .searchGroupon-wrapper .search-container {
+  display: none;
   opacity: 0;
   left: -10000px;
   transition: opacity 0.3s; }
 
 .penguinPage .search-BTN-bg {
+  display: none;
   opacity: 0;
   position: fixed;
   z-index: 2;
@@ -1385,10 +1387,12 @@ h2 {
 .penguinPage #search-BTN4_1 {
   display: none; }
   .penguinPage #search-BTN4_1:checked + .searchGroupon-wrapper .search-container {
+    display: block;
     opacity: 1;
     left: 0;
     transition: opacity 0.3s; }
   .penguinPage #search-BTN4_1:checked + .searchGroupon-wrapper + .search-BTN-bg {
+    display: block;
     opacity: 1;
     left: 0;
     transition: opacity 0.3s; }
@@ -2045,11 +2049,13 @@ h2 {
     padding: 0px 10px; }
 
 .penguinPage .share-wrapper .shareInfo-container {
+  display: none;
   opacity: 0;
   left: -10000px;
   transition: opacity 0.3s; }
 
 .penguinPage .share6_1-bg {
+  display: none;
   opacity: 0;
   position: fixed;
   z-index: 2;
@@ -2063,20 +2069,24 @@ h2 {
 .penguinPage #share6_1 {
   display: none; }
   .penguinPage #share6_1:checked + .share-wrapper .shareInfo-container {
+    display: block;
     opacity: 1;
     left: 0;
     transition: opacity 0.3s; }
   .penguinPage #share6_1:checked + .share-wrapper + .share6_1-bg {
+    display: block;
     opacity: 1;
     left: 0;
     transition: opacity 0.3s; }
 
 .penguinPage .share-wrapper .shareInfo-container {
+  display: none;
   opacity: 0;
   left: -10000px;
   transition: opacity 0.3s; }
 
 .penguinPage .share5_1-bg {
+  display: none;
   opacity: 0;
   position: fixed;
   z-index: 2;
@@ -2090,13 +2100,97 @@ h2 {
 .penguinPage .share5_1 {
   display: none; }
   .penguinPage .share5_1:checked + .share-wrapper .shareInfo-container {
+    display: block;
     opacity: 1;
     left: 0;
     transition: opacity 0.3s; }
   .penguinPage .share5_1:checked + .share-wrapper + .share5_1-bg {
+    display: block;
     opacity: 1;
     left: 0;
     transition: opacity 0.3s; }
+
+.penguinPage .grouponSuccessInfo-wrapper .grouponSuccess-container {
+  display: none;
+  opacity: 0;
+  left: -10000px;
+  transition: opacity 0.3s; }
+
+.penguinPage .success6_3-bg {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: -10000px;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(70, 70, 70, 0.281);
+  transition: opacity 0.3s; }
+
+.penguinPage #success6_3 {
+  display: none; }
+  .penguinPage #success6_3:checked + .grouponSuccessInfo-wrapper .grouponSuccess-container {
+    display: block;
+    opacity: 1;
+    left: 0;
+    transition: opacity 0.3s; }
+  .penguinPage #success6_3:checked + .grouponSuccessInfo-wrapper + .success6_3-bg {
+    display: block;
+    opacity: 1;
+    left: 0;
+    transition: opacity 0.3s; }
+
+.penguinPage .success6_3-bg {
+  height: 100%;
+  background-color: rgba(17, 17, 17, 0.658); }
+
+.penguinPage .grouponSuccessInfo-wrapper .chickShishou {
+  position: absolute;
+  z-index: 4;
+  top: -134px;
+  left: 0;
+  right: 0;
+  width: 200px;
+  margin: auto; }
+
+.penguinPage .grouponSuccessInfo-wrapper .grouponSuccess-container {
+  position: relative;
+  z-index: 4;
+  top: 0;
+  margin-top: -1000px;
+  max-width: 400px;
+  width: 100vw;
+  height: 300px;
+  background-color: #fff;
+  border-radius: 20px;
+  text-align: center; }
+  @media screen and (min-width: 768px) {
+    .penguinPage .grouponSuccessInfo-wrapper .grouponSuccess-container {
+      position: fixed;
+      z-index: 4;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto; } }
+  .penguinPage .grouponSuccessInfo-wrapper .grouponSuccess-container h2 {
+    padding: 10px 0px 20px;
+    background-color: #76391B;
+    color: #fff;
+    border-radius: 20px 20px 0px 0px; }
+  .penguinPage .grouponSuccessInfo-wrapper .grouponSuccess-container p {
+    padding: 20px;
+    font-size: 20px; }
+    .penguinPage .grouponSuccessInfo-wrapper .grouponSuccess-container p:nth-child(5) {
+      font-size: 16px; }
+
+.penguinPage .grouponSuccessInfo-wrapper #sucessMember {
+  font-weight: 900; }
+
+.penguinPage .grouponSuccessInfo-wrapper #successBonus {
+  font-weight: 900;
+  font-size: 24px;
+  color: #FF5000; }
 
 .penguinPage .shareGroupon-BTN {
   margin: auto;
@@ -2214,9 +2308,10 @@ h2 {
       background-color: #333;
       border-radius: 10px;
       transition: .3s;
+      left: -40px;
       opacity: 0;
       left: -10000px;
-      top: 30px;
+      top: 24px;
       padding: 10px;
       color: #fff;
       transition: opacity .3s; }
@@ -2233,8 +2328,8 @@ h2 {
         border-style: solid;
         border-color: transparent transparent #333; }
       .penguinPage .userInfo-wrapper .userExp .hint--achievement .pic {
-        width: 48px;
-        height: 48px;
+        width: 70px;
+        height: 70px;
         border-radius: 300000px;
         overflow: hidden; }
       .penguinPage .userInfo-wrapper .userExp .hint--achievement span {

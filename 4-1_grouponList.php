@@ -249,27 +249,56 @@
             }
             //全部加載之後，再加載動畫
             circleChart();
-
+            checkSuccess(); //判斷是否即將達標
         };
-    function getGroupon() {
+    
+    function getGroupon(code) {
+        var originId = $id('searchId').value.replace('g','');
+        var grouponId = (parseInt(originId) - 1234 ) / 2 - 10;
         var xhr = new XMLHttpRequest();
-        xhr.onload=function (){
+        
+        
+        xhr.onload = function (){
             if( xhr.status == 200 ){
-                if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found
-                    $all('.groupon-container')[0].innerHTML = "<h1>查無飯團資料</h1>";
+                if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found  
+                    if(code.indexOf("search") != -1 ) { //從代碼而來
+                        alert('查無該代碼的飯團資料'); 
+                    } else {
+                        $all('.groupon-container')[0].innerHTML = "<h1>查無飯團資料，以下為所有飯團</h1>";
+                        url = '4-1_searchGrouponList.php?search=&order=';
+                        getGroupon();
+                    }
                 } else {
-                    showGroupon(xhr.responseText);  //json 字串
+                    if(code) {
+                        if(code.indexOf("search") != -1 ) {
+                            location.href = '6-1_grouponDetail.php?no=' + grouponId;
+                        } 
+                    }
+                    showGroupon(xhr.responseText); 
+                     //json 字串
                 }
-                
             }else{
-                alert( xhr.status );
+                alert( xhr.status )
             }
         }
-    
-        //搜尋用php
-        console.log(url);
+        
         xhr.open("Get" ,url, true);
         xhr.send(null);
+
+
+        function checkIt() {
+            console.log(grouponSearchIdResult);
+            if(grouponSearchIdResult == 0) { //不存在
+                alert('查無該代碼的飯團資料');
+            } else { //存在則跳轉
+                if(e.keyCode == 13) {
+                    // location.href = '6-1_grouponDetail.php?no=' + grouponId;
+                } else if(e.button == 0) {
+                    // location.href = '6-1_grouponDetail.php?no=' + grouponId;
+                }
+            }
+        }
+        
     }
     
     window.addEventListener('load', function() {
@@ -280,7 +309,9 @@
         $all('.filter')[1].addEventListener('click', filter); //篩選飯團
         $id('kwBTN').addEventListener('click', searchGroupon); //搜尋飯團
         $id('searchInput').addEventListener('keyup', searchGroupon); //搜尋飯團
+        //輸入代碼的飯團先檢查是否存在
 
+        
         function filter(e) {
             var searchKW = $id('searchInput').value;
             if(this.className == 'filter time') {
@@ -299,20 +330,21 @@
             if(e.keyCode == 13) {
                 $all('.groupon-container')[0].innerHTML = ''; //清空容器
                 url = "4-1_searchGrouponList.php?search=" + searchKW + '&order=';
-                getGroupon();
+                getGroupon('0');
                 // location.href = '4-1_grouponList.php?search=' + searchKW + '&order='; //跳轉
             } else if(e.button == 0) {
                 $all('.groupon-container')[0].innerHTML = ''; //清空容器
                 url = "4-1_searchGrouponList.php?search=" + searchKW + '&order=';
-                getGroupon(); //跳轉
+                getGroupon('0'); //跳轉
             }
+            
         }
-        //把剛剛輸入的結果顯示在搜尋欄裡
-        //先把字切開
-        // searchStrC = decodeURIComponent(location.search); //將網址中的中文decode
-        // console.log(searchStrC);
-        // $id('searchInput').value = searchStrC.substr(8,location.search.length-1);
+        
     });
+    
+   
+    //groupon代碼編碼為 ((no+10)*2)+1234
+    //groupon代碼解碼
 
 </script>
 </html>

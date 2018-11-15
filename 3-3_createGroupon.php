@@ -34,13 +34,25 @@ try {
         $addMeal = $pdo -> prepare($sqlAddMeal);
         $addMeal -> execute();
     };
-
-    header("Location: 3-4_createGroupon_successful.html");
+?>
+<script src="js/main.js"></script>
+<script>
+    window.onload = function() {
+        if(storage.createGrouponId == null) {
+            storage.createGrouponId = <?php echo $id ?>;
+        }
+        
+    }
+    
+</script>
+<?php
+    header("Location: 3-4_createGroupon_successful.php");
 }catch(PDOException $e) {
     echo $e->getMessage();
 }
     
   
 ?>
+
 
 <!-- INSERT INTO `groupon` (`groupon_No`, `groupon_Name`, `groupon_TagNo`, `groupon_Founder`, `startDate`, `endDate`, `groupon_Bonus`, `memberNow`, `discount`) VALUES (NULL, '驚天霹靂吃飽飽的拿購物金!', '', '2', 'AAA', '2018-11-11', '2018-11-15', '22', '0', '0'); -->

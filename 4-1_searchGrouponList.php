@@ -13,7 +13,7 @@ try {
     } else if($order == '') {
         $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search'";
     } else if($order == 'endDate'){
-        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by `groupon`.`$order` DESC";
+        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by `groupon`.`$order` ASC";
     } else if($order == 'success') {
         $sql = "SELECT * ,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by success DESC";
     }

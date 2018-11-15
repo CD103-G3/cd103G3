@@ -13,6 +13,12 @@
     <script src="js/main.js"></script>
     <title>5-1</title>
 </head>
+<?php 
+ob_start();
+session_start();
+
+
+?>
 <body>
     <nav>
             <!-- 這裡放導覽列 -->
@@ -93,6 +99,17 @@
                     
                 </div>
             </div>
+            <div class="exchangeSuccess">
+
+            </div>
+            <div class="btn-container_changeItByYourself">
+                <h3>
+                    如與店員確認兌換清單無誤後，<br>可以直接點選以下按鈕來進行餐點的兌換
+                </h3>
+                <a class="nextBTN" href="##" id="finishChangBTN">
+                    進行兌換並取餐
+                </a>
+            </div>
             <div class="btn-container clearfix">
                 <a class="cancelBTN" href="##" id="cancelChangBTN">
                     取消
@@ -100,7 +117,6 @@
                 <a class="nextBTN" href="##" id="confirmChangBTN">
                     確認兌換
                 </a>
-                
             </div>
         </div>
         
@@ -144,7 +160,7 @@
     </footer>
 </body>
 <script>
-    var url = '5-1_myGrouponListSearch.php?id=3&order=';
+    var url = '5-1_myGrouponListSearch.php?id=<?php echo $_SESSION['memNo']; ?>&order=';
     function showMyGroupon(jsonStr) {
         var myGrouponSearchR = JSON.parse(jsonStr);   
         myGrouponSearchR_length = myGrouponSearchR.length;
@@ -231,9 +247,20 @@
         var xhr = new XMLHttpRequest();
         xhr.onload=function (){
             if( xhr.status == 200 ){
+                console.log(xhr.responseText);
                 if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found
-                    $all('.groupon-container')[0].innerHTML = "<h1>目前還沒加入任何飯團，來去看看吧!</h1>";
-                    $all('.changeMeal-container').innerHTML = "<h1>目前還沒加入任何飯團，來去看看吧!</h1>";
+                    $all('.groupon-container')[0].innerHTML = 
+                    `<h1>目前還沒加入任何飯團，來去看看!</h1>
+                    <a class="clickToGroupon mainBTN"       href="4-1_grouponList.php">
+                        <i class="fas fa-plus-circle"></i>
+                        看看所有飯團!
+                    </a>`;
+                    $all('.changeMeal-container')[0].innerHTML = 
+                    `<h1>目前還沒加入任何飯團，來去看看!</h1>
+                    <a class="clickToGroupon mainBTN"       href="4-1_grouponList.php">
+                        <i class="fas fa-plus-circle"></i>
+                        看看所有飯團!
+                    </a>`;
                 } else {
                     if(page == 'all') {
                         showMyAllGroupon(xhr.responseText);
@@ -254,7 +281,7 @@
         xhr.send(null);
     }
     function getAllMyGroupon() {
-        url = '5-1_myGrouponListSearch.php?id=3&order=all';
+        url = '5-1_myGrouponListSearch.php?id=<?php echo $_SESSION['memNo']; ?>&order=all';
         getMyGroupon('all');
     }
     window.addEventListener('load', function() {
@@ -491,6 +518,8 @@
         for(let i = 0;i < $all('.groupon_shareCode').length;i++) {
             console.log($all('.groupon_shareCode')[i].value);
         }
+
+        checkSuccess();
         
     }
         

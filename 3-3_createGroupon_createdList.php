@@ -161,7 +161,7 @@
 </body>
 <script>
     window.addEventListener('load', function() {
-        
+        console.log(<?php echo $_SESSION['memId']; ?>);
         $id('3_3_confirmCreate_BTN').onclick = function() {
             var info = storage.grouponInfo;
             // console.log(storage.grouponInfo);

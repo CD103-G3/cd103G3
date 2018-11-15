@@ -16,7 +16,7 @@
 
 try {
     require_once('phpDB/connectDB_CD103G3.php');
-    $sql = "select * from groupontag";
+    $sql = "SELECT * from `groupontag` order by `groupon_TagNo` ASC";
     $tag = $pdo -> prepare($sql);
     $tag -> execute();
     $tagR = $tag -> fetchAll(); //標籤
@@ -50,7 +50,7 @@ try {
                     <span class="tag">#
                         <?php 
                     
-                            echo $tagR[$grouponR["groupon_No"]-1]['groupon_TagName'] 
+                            echo $tagR[$grouponR["groupon_TagNo"] - 1]['groupon_TagName'] 
                         
                         ?>
                     
@@ -61,43 +61,10 @@ try {
                 <div class="leftRibbon"></div>
                 <div class="rightRibbon"></div>
                 <div class="userInfo-wrapper clearfix">
-                    <div class="grouponUser">
-                        <span>發起人: </span>
-                    </div>
-                    <div class="userPic">
-                        <div class="pic">
-                            <img src="asset/user01.png" alt="user">
-                        </div>
-                    </div>
-                    <div class="user grid-9">
-                        <h3 class="userId">
-                        <?php echo $grouponR["groupon_Founder"] ?>
-                        </h3>
-                        <div class="userExp clearfix">
-                            <div class="achievePic grid-4">
-                                <div class="pic">
-                                    <img src="asset/achieve01.png" alt="">
-                                </div>
-                            </div>
-                            <div class="achStatus grid-8 clearfix">
-                                <h3>
-                                    小菜蟲
-                                </h3>
-                                <p>
-                                    <span>300 </span> EXP
-                                </p>
-                            </div>
-                            <div class="hint--achievement">
-                                <div class="pic grid-6">
-                                    <img src="asset/achieve01.png" alt="">
-                                </div>
-                                <p>
-                                    <span class="achName">小菜蟲成就</span> <br> 吃完10餐後可獲得，可拿到<span>10</span>元折價券
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                   
+                    
                 </div>
+                
             </div>
             <div class="bonus-wrapper clearfix">
                 <div class="endDate grid-12 grid-md-3">
@@ -276,7 +243,7 @@ try {
                                 </p>
                                 <div class="QR-container">
                                     <div class="pic">
-                                        <img src="asset/QR.png" alt="">
+                                        <img src="asset/QR.png" alt="" id="QR-picContainer">
                                     </div>
                                 </div>
                             </div>
@@ -288,7 +255,7 @@ try {
                                     可點擊"參加好友飯團"的按鈕，輸入此代碼來直接查看此飯團
                                 </span>
                                 <div class="codeHere clearfix">
-                                    <input type="text" class="grid-9 groupon_shareCode" value="Absjj001" readonly> 
+                                    <input type="text" class="grid-9 groupon_shareCode" value="" readonly> 
                                     <span class="grid-3 copyCode">
                                         複製代碼
                                     </span>
@@ -423,9 +390,11 @@ function getMealAll(what) {
                 
             } else if(what == 'recomm') {
                 showRecomm(xhr.responseText); 
+            } else if(what == 'achie') {
+                showAchie(xhr.responseText);
             } else {
                 showMealInfo( xhr.responseText );
-            }   
+            }
         }else{
             alert( xhr.status );
         }
@@ -435,13 +404,57 @@ function getMealAll(what) {
     xhr.open("Get", url, true);
     xhr.send( null );
 }
-function getQRcode() {
-    copyCode(); //註冊copy事件
-    // $all('.').src = ''; //QRcode function
-    // $all('.').innerText = '';
 
+//顯示成就
+function getAchiement() {
+    url = '6-3_getAchievement.php' + location.search;
+    getMealAll('achie');
+}
+function showAchie(jsonStr) {
+    var founderAchie = JSON.parse(jsonStr);
+    console.log(founderAchie);
+
+    var thisFounderAchie = 
+    `<div class="grouponUser">
+            <span>發起人: </span>
+        </div>
+        <div class="userPic">
+            <div class="pic">
+                <img src="asset/${founderAchie[1]}" alt="user">
+            </div>
+        </div>
+        <div class="user grid-9">
+            <h3 class="userId">
+                ${founderAchie[0]}
+            </h3>
+            <div class="userExp clearfix">
+                <div class="achievePic grid-2">
+                    <div class="pic">
+                        <img src="asset/achieve/${founderAchie[5]}" alt="">
+                    </div>
+                </div>
+                <div class="achStatus grid-10 clearfix">
+                    <h3>
+                        ${founderAchie[4]}
+                    </h3>
+                    <p>
+                        <span>${founderAchie[2]}</span> EXP
+                    </p>
+                </div>
+                <div class="hint--achievement">
+                    <div class="pic grid-6">
+                        <img src="asset/achieve/${founderAchie[5]}" alt="">
+                    </div>
+                    <p>
+                        <span class="achName">${founderAchie[4]}成就</span> <br> 吃完${founderAchie[3]}餐後可獲得，可拿到<span>${founderAchie[3]}</span>元折價券
+                    </p>
+                </div>
+            </div>
+        </div>`;
+    $class('userInfo-wrapper')[0].innerHTML = thisFounderAchie;
 }
 
+//顯示推薦部分
 function getRecommendURL() {
     var tagNo = $all('.tag')[0].innerText;
     url = '6-1_recommendGrouponList.php?tagNo=' + tagNo;
@@ -536,10 +549,13 @@ function showRecomm(jsonStr) {
 
 
 }
+
 window.addEventListener('load',function() {
     getMealAll();
-    getQRcode();
+    getAchiement();
+    // getQRcode();
     getRecommendURL();
+    QRcodeAndCopyIt(<?php echo  $grouponR["groupon_No"] ?>);
 })
 </script>
 </html>
