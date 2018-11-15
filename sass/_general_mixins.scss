@@ -154,9 +154,10 @@ button,input[type="button"]{
 .swal-text{
     vertical-align: middle;
 }
-.swal-modal{
+.swal-modal{ //最外層
     border-radius: 10px;
     border:20px solid $color_main3;
+    position: fixed;
 }
 .swal-footer{
     text-align: center;

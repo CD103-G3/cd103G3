@@ -70,11 +70,15 @@ h2{
     color: $color_main2;
     text-align: center;
 }
-@include picSetting2;
 
 .penguinPage { //penguinPage css wrapper start
 
-
+    @include picSetting2;
+    @include nextAndCancel-BTN(120px);
+    @include main-BTN(200px);
+    @include sub-BTN(200px);
+    @include plusAndMinus-BTN;
+    
 .woodTemp {
     position: relative;
     background-image: url('../asset/woodTemplate-01.png');
@@ -980,6 +984,7 @@ h2{
         
     } 
 }
+
 .meal-box {
     position: relative;
     display: inline-block;
@@ -2479,9 +2484,5 @@ h2{
 } //penguinPage css wrapper end
 
 //通用按鈕設定
-@include nextAndCancel-BTN(120px);
-@include main-BTN(200px);
-@include sub-BTN(200px);
-@include plusAndMinus-BTN;
 
 

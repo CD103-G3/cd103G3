@@ -6,6 +6,7 @@ session_start();
 	require_once("chatBot.php");
 	
 ?>
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <meta name="format-detection" content="telephone=no">
 <header>
 	<input type="checkbox" id="navctrl">
@@ -113,10 +114,16 @@ session_start();
 <div class="nav_height"></div>
 <!-- <script src="js/floaty.js"></script>S -->
 <!-- <script src="js/svgColor.js"></script> -->
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<script src="node_modules\sweetalert\dist\sweetalert.min.js"></script>
+
 <script src="js/login.js"></script>
 <script src="js/chatBot.js"></script>
 <script src="js/search.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <script>
 
 	for (var i = 1; i <= 7; i++) {

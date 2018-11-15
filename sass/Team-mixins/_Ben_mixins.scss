@@ -138,6 +138,7 @@
     border: $l solid $borderColor;
 }
 
-@mixin stepanime(){
-    
-}
+%outline-false{
+    border: 0;
+    outline: 0 solid;
+  }
