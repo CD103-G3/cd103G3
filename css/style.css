@@ -145,6 +145,23 @@ body {
   margin: auto;
   width: 100%; }
 
+.toTop {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 200px;
+  text-align: center;
+  font-size: 24px;
+  background-color: #BB7232;
+  color: #FCE444;
+  transition: .3s; }
+  .toTop:hover {
+    background-color: #76391B;
+    transition: .3s; }
+
 a {
   text-decoration: none; }
 
@@ -990,6 +1007,24 @@ h2 {
   text-align: center;
   cursor: pointer; }
 
+.penguinPage .forBackgroundImage {
+  position: relative;
+  width: 100%; }
+  .penguinPage .forBackgroundImage:after {
+    position: absolute;
+    content: '';
+    display: block;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-image: url("../images/11-EAT–Branding-Illustration-Fable-Singapore-BPO.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: .1; }
+
 .penguinPage .page-BTN {
   margin-top: 60px;
   border-bottom: 3px solid #76391B; }
@@ -1065,6 +1100,7 @@ h2 {
   max-width: 500px;
   width: calc(100% - 20px);
   margin: 10px;
+  background-color: #fff;
   transition: .3s; }
   .penguinPage .groupon-wrapper.g_8 {
     border-width: 6px;
@@ -1376,14 +1412,17 @@ h2 {
   background-color: #76391B;
   transform: rotate(-15deg); }
 
-.penguinPage .pade4_1 .almostSucc-icon {
+.penguinPage .page4_1 .almostSucc-icon {
   top: 9px;
   right: -30px;
   left: auto; }
   @media screen and (min-width: 768px) {
-    .penguinPage .pade4_1 .almostSucc-icon {
+    .penguinPage .page4_1 .almostSucc-icon {
       top: 140px;
       left: -50px; } }
+
+.penguinPage .page4_1 .groupon-container h2 {
+  padding: 20px; }
 
 .penguinPage .searchGroupon-wrapper .search-container {
   display: none;
@@ -1883,7 +1922,7 @@ h2 {
     color: #333333; }
     @media screen and (min-width: 768px) {
       .penguinPage .grouponTitle-wrapper .userInfo-wrapper {
-        top: 3px;
+        top: 5px;
         right: 10px; } }
 
 .penguinPage .bonus-wrapper {
@@ -1951,6 +1990,16 @@ h2 {
 .penguinPage .grouponDetail-container {
   margin-top: 200px;
   padding: 10px; }
+  .penguinPage .grouponDetail-container.g_8 .text-box {
+    background-color: #FCE444;
+    color: #76391B; }
+    .penguinPage .grouponDetail-container.g_8 .text-box h2 {
+      color: #76391B; }
+  .penguinPage .grouponDetail-container.g_8 .userInfo-wrapper {
+    background-color: #76391B;
+    color: #fff; }
+    .penguinPage .grouponDetail-container.g_8 .userInfo-wrapper .userExp, .penguinPage .grouponDetail-container.g_8 .userInfo-wrapper .userId {
+      color: #fff; }
   .penguinPage .grouponDetail-container .bonus-wrapper {
     padding-left: 0px; }
     @media screen and (min-width: 768px) {

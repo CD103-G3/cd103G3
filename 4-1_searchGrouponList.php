@@ -10,13 +10,15 @@ try {
     $page = (($_REQUEST['p']-1) * 10);
     if($search == '' && $order == '') {
         // if()
-        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon limit $page,10000";
+        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from grouponorder by `groupon`.`groupon_No` DESC limit $page,10000";
     } else if($order == '') {
-        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' limit $page,10000";
+        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by `groupon`.`groupon_No` DESC limit $page,10000";
     } else if($order == 'endDate'){
         $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by `groupon`.`$order` ASC limit $page,10000";
     } else if($order == 'success') {
         $sql = "SELECT * ,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by success DESC limit $page,10000";
+    } else if($order == 'official') {
+        $sql = "SELECT * ,(memberNow / groupon_MemberNeed) as success from groupon where groupon_TagNo = 8 order by success DESC limit $page,10000";
     }
    
     $groupon = $pdo -> prepare($sql);

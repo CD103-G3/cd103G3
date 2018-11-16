@@ -44,7 +44,7 @@ try {
 <div class="penguinPage"> 
 
     <div class="maxWidthWrapper" >
-        <div class="grouponDetail-container">
+        <div class="grouponDetail-container g_<?php echo $grouponR["groupon_TagNo"] ?>">
             <div class="grouponTitle-wrapper">
                 <div class="text-box">
                     <span class="tag">#

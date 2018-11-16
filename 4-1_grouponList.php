@@ -26,10 +26,10 @@
 
 <div class="penguinPage"> 
     
-    <div class="searchBar">
+    <div class="searchBar" name="top">
         <!-- <form action="4-1_grouponList.php"> -->
             <div class="searchBar-container">
-                <input type="text" placeholder="搜尋你想參加的飯團" name="grouponKW" id="searchInput">
+                <input type="text" placeholder="搜尋飯團，直接按搜尋可以查看全部飯團" name="grouponKW" id="searchInput">
                 <button id="kwBTN">
                     <i class="fas fa-search"></i>
                 </button>
@@ -58,56 +58,58 @@
         </div>
     </div>
     <label class="search-BTN-bg" for="search-BTN4_1"></label>
-    <div class="maxWidthWrapper pade4_1">
-        <div class="filter-container clearfix">
-            <span class="filter-span">排序</span>
-            <div class="filter-wrapper">
-                <input type="radio" name="groupon_filter" class="groupon_filter" id="groupon_filter_price">
-                <label for="groupon_filter_price" class="filter time">飯團截止日
-                    <span class="filter-condition">由近到遠</span>
-                    <!-- <span class="filter-condition">由低到高</span> -->
-                </label>
+    <div class="forBackgroundImage page4_1">
+        <div class="maxWidthWrapper page4_1">
+            <div class="filter-container clearfix">
+                <span class="filter-span">排序</span>
+                <div class="filter-wrapper">
+                    <input type="radio" name="groupon_filter" class="groupon_filter" id="groupon_filter_price">
+                    <label for="groupon_filter_price" class="filter time">飯團截止日
+                        <span class="filter-condition">由近到遠</span>
+                        <!-- <span class="filter-condition">由低到高</span> -->
+                    </label>
+                </div>
+                <div class="filter-wrapper">
+                    <input type="radio" name="groupon_filter" class="groupon_filter" id="groupon_filter_time">
+                    <label for="groupon_filter_time" class="filter success">門檻達標
+                        <span class="filter-condition">即將達標</span>
+                        <input type="hidden" name="order" value="success">
+                        <!-- <span class="filter-condition">由低到高</span> -->
+                    </label>
+                </div>
+                <!-- <div class="filter-wrapper">
+                    <input type="radio" name="groupon_filter" class="groupon_filter" id="groupon_filter_latest">
+                    <label for="groupon_filter_latest" class="filter success">最新飯團
+                        <span class="filter-condition">由新到舊</span>
+                        <input type="hidden" name="order" value="success">
+                    </label>
+                </div> -->
+                <div class="filter-wrapper">
+                    <input type="radio" name="groupon_filter" class="groupon_filter" id="groupon_filter_official">
+                    <label for="groupon_filter_official" class="filter official">官方飯團
+                        <span class="filter-condition">特價四折!</span>
+                        <input type="hidden" name="order" value="success">
+                        <!-- <span class="filter-condition">由低到高</span> -->
+                    </label>
+                </div>
             </div>
-            <div class="filter-wrapper">
-                <input type="radio" name="groupon_filter" class="groupon_filter" id="groupon_filter_time">
-                <label for="groupon_filter_time" class="filter success">門檻達標
-                    <span class="filter-condition">即將達標</span>
-                    <input type="hidden" name="order" value="success">
-                    <!-- <span class="filter-condition">由低到高</span> -->
-                </label>
-            </div>
-            <div class="filter-wrapper">
-                <input type="radio" name="groupon_filter" class="groupon_filter" id="groupon_filter_latest">
-                <label for="groupon_filter_latest" class="filter success">最新飯團
-                    <span class="filter-condition">由新到舊</span>
-                    <input type="hidden" name="order" value="success">
-                    <!-- <span class="filter-condition">由低到高</span> -->
-                </label>
-            </div>
-            <div class="filter-wrapper">
-                <input type="radio" name="groupon_filter" class="groupon_filter" id="groupon_filter_official">
-                <label for="groupon_filter_official" class="filter success">官方飯團
-                    <span class="filter-condition">特價四折!</span>
-                    <input type="hidden" name="order" value="success">
-                    <!-- <span class="filter-condition">由低到高</span> -->
-                </label>
-            </div>
-        </div>
-        <div class="groupon-container">
+            <div class="groupon-container">
 
+            </div>
+            <!-- 動態產生頁籤 -->
+            <!-- <div class="page-container4_1">
+                <ul>
+                    <li>
+                        1
+                    </li>
+                    <li>
+                        2
+                    </li>
+                </ul>
+            </div> -->
         </div>
-        <!-- 動態產生頁籤 -->
-        <!-- <div class="page-container4_1">
-            <ul>
-                <li>
-                    1
-                </li>
-                <li>
-                    2
-                </li>
-            </ul>
-        </div> -->
     </div>
+    
 
 </div>
     
@@ -117,9 +119,14 @@
 
         </div>
     </footer>
+    <a class="toTop" href="#top">
+        <i class="fas fa-arrow-up"></i>
+        <!-- <br>Top -->
+    </a>
 </body>
 <script>
-    var url = '4-1_searchGrouponList.php?search=&order=&p=1';
+    var url = '4-1_searchGrouponList.php' + location.search;
+    // + location.search
     function showGroupon(jsonStr,url) {
             var grouponSearchR = JSON.parse(jsonStr);   
             grouponSearchR_length = grouponSearchR.length;
@@ -272,7 +279,7 @@
                 if(grouponSearchR[i].groupon_TagNo == 8) {
                     discount = 0.4;
                     $all('.grouponPrice')[i].innerHTML = 
-                    `飯團價(4折) <span>
+                    `官方價(4折) <span>
                             0元
                         </span>`;
                 } else {
@@ -296,15 +303,18 @@
         var grouponId = (parseInt(originId) - 1234 ) / 2 - 10;
         var xhr = new XMLHttpRequest();
         
-        
+        console.log(xhr.responseText);
         xhr.onload = function (){
             if( xhr.status == 200 ){
                 if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found  
-                    if(code.indexOf("search") != -1 ) { //從代碼而來
-                        alert('查無該代碼的飯團資料'); 
+                    if(code) {
+                        if(code.indexOf("search") != -1 ) {
+                            alert('查無該代碼的飯團資料'); 
+                        } //從代碼而來
+                        
                     } else {
                         $all('.groupon-container')[0].innerHTML = "<h1>查無飯團資料，以下為所有飯團</h1>";
-                        url = '4-1_searchGrouponList.php?search=&order=';
+                        url = '4-1_searchGrouponList.php?search=&order=&p=1';
                         getGroupon();
                     }
                 } else {
@@ -326,42 +336,63 @@
         xhr.send(null);
 
 
-        function checkIt() {
-            console.log(grouponSearchIdResult);
-            if(grouponSearchIdResult == 0) { //不存在
-                alert('查無該代碼的飯團資料');
-            } else { //存在則跳轉
-                if(e.keyCode == 13) {
-                    // location.href = '6-1_grouponDetail.php?no=' + grouponId;
-                } else if(e.button == 0) {
-                    // location.href = '6-1_grouponDetail.php?no=' + grouponId;
-                }
-            }
-        }
+        
         
     }
     
     window.addEventListener('load', function() {
         // 先轉網址
+        // console.log(location.href);
+        var searchCondition = decodeURI(location.search); //搜尋條件
+        searchArr = searchCondition.substr(1).split('&');
         
+        var searchKeyword = searchArr[0].substr(7);
+        if(searchKeyword == '') {
+            searchKeyword = '所有';
+        }
+        $all('.groupon-container')[0].innerHTML = "<h2>以下是 " + searchKeyword + " 的飯團搜尋結果</h2>";
+        
+
+        if(searchArr[1] == 'order=endDate') { //把搜尋的結果顯示在網頁
+            $id('groupon_filter_price').checked = true;
+        } else if(searchArr[1] == 'order=success') {
+            $id('groupon_filter_time').checked = true;
+        } else {
+            $id('groupon_filter_official').checked = true;
+        }
         getGroupon(); //load 資料庫中的飯團
-        $all('.filter')[0].addEventListener('click', filter);
-        $all('.filter')[1].addEventListener('click', filter); //篩選飯團
+        for(let i = 0;i< $all('.filter').length;i++) {
+            $all('.filter')[i].addEventListener('click', filter);
+        }
+       
+         //篩選飯團
         $id('kwBTN').addEventListener('click', searchGroupon); //搜尋飯團
         $id('searchInput').addEventListener('keyup', searchGroupon); //搜尋飯團
         //輸入代碼的飯團先檢查是否存在
 
         
+        
         function filter(e) {
             var searchKW = $id('searchInput').value;
+            
             if(this.className == 'filter time') {
                 $all('.groupon-container')[0].innerHTML = ''; //清空容器
-                url = "4-1_searchGrouponList.php?search=" + searchKW + '&order=endDate&p=1';
-                getGroupon(); //跳轉
-            } else {
+                // url = "4-1_searchGrouponList.php?search=" + searchKW + '&order=endDate&p=1';
+                searchArr[1] = 'order=endDate';
+                searchCondition = '?' + searchArr.join('&');
+                location.href = '4-1_grouponList.php' + searchCondition;
+                // console.log(searchCondition);
+                // getGroupon(); //跳轉
+            } else if(this.className == 'filter success') {
                 $all('.groupon-container')[0].innerHTML = ''; //清空容器
-                url = "4-1_searchGrouponList.php?search=" + searchKW + '&order=success&p=1';
-                getGroupon();
+                searchArr[1] = 'order=success';
+                searchCondition = '?' + searchArr.join('&');
+                location.href = '4-1_grouponList.php' + searchCondition;
+            } else if(this.className == 'filter official') {
+                $all('.groupon-container')[0].innerHTML = ''; //清空容器
+                searchArr[1] = 'order=official';
+                searchCondition = '?' + searchArr.join('&');
+                location.href = '4-1_grouponList.php' + searchCondition;
             }
             // location.href = '4-1_grouponList.php?search=' + searchKW + '&order=' + ;
         }
@@ -369,12 +400,17 @@
             var searchKW = $id('searchInput').value;
             if(e.keyCode == 13) {
                 $all('.groupon-container')[0].innerHTML = ''; //清空容器
-                url = "4-1_searchGrouponList.php?search=" + searchKW + '&order=&p=1';
-                getGroupon();
-                // location.href = '4-1_grouponList.php?search=' + searchKW + '&order='; //跳轉
+                // searchCondition =  searchCondition.replace('search=&','search=' + searchKW + '&');
+                searchArr[0] = 'search=' + searchKW;
+                searchCondition = '?' + searchArr.join('&');
+                // console.log(searchCondition);
+                location.href = '4-1_grouponList.php' + searchCondition;
+                // getGroupon();
             } else if(e.button == 0) {
                 $all('.groupon-container')[0].innerHTML = ''; //清空容器
-                url = "4-1_searchGrouponList.php?search=" + searchKW + '&order=&p=1';
+                searchArr[0] = 'search=' + searchKW;
+                searchCondition = '?' + searchArr.join('&');
+                location.href = '4-1_grouponList.php' + searchCondition;
                 // getGroupon(); //跳轉
             }
             

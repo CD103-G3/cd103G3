@@ -60,6 +60,24 @@ body {
     @include maxWidthWrapper(1200px);
     width: 100%;
 }
+.toTop {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 200px;
+    text-align: center;
+    font-size: $fontSize_M;
+    background-color: $color_main4;
+    color: $color_main1;
+    transition: .3s;
+    &:hover {
+        background-color: $color_main2;
+        transition: .3s;
+    }
+}
 a {
     text-decoration: none;
 }
@@ -821,7 +839,26 @@ h2{
         }
     }
 }
-
+.forBackgroundImage {
+    position: relative;
+    width: 100%;
+    // height: 100vh;
+    &:after {
+        position: absolute;
+        @include BfAf;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-image: url('../images/11-EAT–Branding-Illustration-Fable-Singapore-BPO.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        opacity: .1;
+    }
+    
+}
 //分頁頁籤
 @include pageBTN($color_main2) {
     // margin-top: 60px;
@@ -860,6 +897,7 @@ h2{
     max-width: 500px;
     width: calc(100% - 20px);
     margin: 10px;
+    background-color: #fff;
     transition: .3s;
     .originalPrice {
         display: none;
@@ -1154,7 +1192,7 @@ h2{
     transform: rotate(-15deg);
 
 }
-.pade4_1 {
+.page4_1 {
     .almostSucc-icon {
         top: 9px;
         right: -30px;
@@ -1162,6 +1200,11 @@ h2{
         @include rwdSys(pad) {
             top: 140px;
             left: -50px;
+        }
+    }
+    .groupon-container {
+        h2 {
+            padding: $pd * 2;
         }
     }
 }
@@ -1672,7 +1715,7 @@ h2{
     .userInfo-wrapper {
         color: $color_txt;
         @include rwdSys(pad) {
-            top: 3px;
+            top: 5px;
             right: 10px;
         }
     }
@@ -1748,6 +1791,22 @@ h2{
     }
 }
 .grouponDetail-container {
+    &.g_8 {
+        .text-box {
+            background-color: $color_main1;
+            color: $color_main2;
+            h2 {
+                color: $color_main2;
+            }
+        }
+        .userInfo-wrapper {
+            background-color: $color_main2;
+            color: #fff;
+            .userExp,.userId {
+                color: #fff;
+            }
+        }
+    }
     // overflow: hidden;
     margin-top: 200px;
     padding: $pd;
