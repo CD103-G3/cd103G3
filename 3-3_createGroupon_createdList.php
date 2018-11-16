@@ -149,7 +149,7 @@
             </div>
         </div>
         <div class="btn-container clearfix">
-            <a class="cancelBTN" href="3-2_createGroupon_selectMeal.html">
+            <a class="cancelBTN" href="3-2_createGroupon_selectMeal.php">
                 回上一步
             </a>
             <a class="nextBTN"  id="3_3_confirmCreate_BTN">

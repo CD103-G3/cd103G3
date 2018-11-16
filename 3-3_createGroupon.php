@@ -15,7 +15,7 @@ try {
         $discount = 0.6;
     }
     $sql = "INSERT INTO `groupon` (`groupon_No`, `groupon_Name`,  `groupon_TagNo`, `groupon_FounderId`, `startDate`, `endDate`, `groupon_Bonus`,`groupon_MemberNeed`, `memberNow`, `discount`) VALUES
-    (NULL, '$createG->groupon_Name', '$createG->groupon_TagNo', '$memId', CURDATE() + $createG->startDate, CURDATE() + $createG->endDate, '$createG->groupon_Bonus', '$createG->groupon_MemberNeed', '0', '$discount')";
+    (NULL, '$createG->groupon_Name', '$createG->groupon_TagNo', '$memId', DATE_ADD(NOW(),INTERVAL '$createG->startDate' DAY) ,DATE_ADD(NOW(),INTERVAL '$createG->endDate' DAY), '$createG->groupon_Bonus', '$createG->groupon_MemberNeed', '0', '$discount')";
     
 
     // 抓系統日期 + N天
