@@ -1,21 +1,19 @@
-@import "daycookVar";
-@import "reset";
-@import "general_mixins";
-@import "nav";
-
 //變數
 $color_main1: #fce444; //小雞黃 / yellow / #FCE444 ;
 $color_main2: #76391b; //褐色 / brown / 7#6391B ;
 $color_main3: #fcf2ca; //淡黃色 / lightYellow / #FCF2CA;
 $color_main4: #bb7232; //淡褐色 / lightBrown / #BB7232;
 $white: #fff;
-$black: #000;
+$black: #333;
 $searchHeight: 40px;
 $fz18: 18px;
 $borderRadius: 1000px;
 $grouponBr: 20px;
 $boxshadow: 0 4px 0 $color_main4;
 
+$color_txt: #333333;
+$color_hot: #ff5000;
+$color_hot2: #425075;
 $color-bg: #f0ead6;
 $color-pan: #080808;
 $color-handle: #cdcdcd;
@@ -37,17 +35,10 @@ $lineHeight: 1.6;
   text-decoration: none;
 }
 
-// html,
-// body {
-//   width: 100%;
-//   height: 100%;
-//   overflow-x: hidden;
-//   position: relative;
-// }
-
-// html,
 body {
   overflow-x: hidden;
+  background-color: rgb(255, 226, 191);
+  background-image: url(../images/index_scroll_bg.png);
 }
 
 .indexScroll {
@@ -61,26 +52,64 @@ body {
     top: 0vw;
     .indexScroll-hand {
       position: absolute;
-      top: -6.1vw;
-      left: 46.7vw;
+      top: -14.1vw;
+      left: 42.7vw;
       z-index: 2;
       img {
-        width: 1.2vw;
+        width: 3.2vw;
       }
     }
     .indexScroll-chicken {
       position: absolute;
-      top: -12.9vw;
-      left: 46.6vw;
+      top: -30vw;
+      left: 43.4vw;
       img {
-        width: 16vw;
+        width: 39vw;
       }
     }
     .indexScroll-top {
       position: absolute;
-      top: -9vw;
-      img {
+      top: -21vw;
+      img:nth-child(1) {
         width: 100vw;
+      }
+      img:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .indexScroll {
+    .indexScroll-wrap {
+      .indexScroll-hand {
+        position: absolute;
+        top: -6.1vw;
+        left: 46.7vw;
+        z-index: 2;
+        img {
+          width: 1.2vw;
+        }
+      }
+      .indexScroll-chicken {
+        position: absolute;
+        top: -12.9vw;
+        left: 46.6vw;
+        img {
+          width: 16vw;
+        }
+      }
+      .indexScroll-top {
+        position: absolute;
+        top: -9vw;
+        img:nth-child(1) {
+          display: none;
+        }
+        img:nth-child(2) {
+          display: block;
+          width: 100vw;
+        }
       }
     }
   }
@@ -177,7 +206,7 @@ a {
               color: $white;
               letter-spacing: 1px;
               position: relative;
-              top: -10px;
+              top: -13px;
               left: -14px;
             }
           }
@@ -188,8 +217,9 @@ a {
             border: none;
             font-size: 18px;
             position: absolute;
-            top: 15px;
-            left: 100px;
+            top: 0px;
+            left: 90px;
+            line-height: 45px;
           }
 
           .indexSearch-btn {
@@ -236,7 +266,7 @@ a {
           max-width: 300px;
           max-height: 200px;
           position: absolute;
-          bottom: 20vh;
+          bottom: 19.5vh;
           left: 50%;
           transform: translateX(-50%);
           @keyframes typing {
@@ -265,37 +295,7 @@ a {
             animation: owner 3s 1s infinite alternate;
           }
           div {
-            width: 120px;
-            height: 60px;
-            background-color: $color_main3;
-            display: inline-block;
-            border-radius: 100px;
-            position: absolute;
-            bottom: 19vh;
-            left: 20px;
-            &::after {
-              content: "";
-              width: 0;
-              height: 0;
-              position: absolute;
-              bottom: -4px;
-              right: 0;
-              transform: rotate(-45deg);
-              border-style: solid;
-              border-width: 20px 7.5px 0 7.5px;
-              border-color: $color_main3 transparent transparent transparent;
-            }
-            p {
-              width: 120px;
-              font-size: $fontSize_text;
-              color: $color_main2;
-              line-height: 60px;
-              text-align: left;
-              padding: 0 0 0 12px;
-              overflow: hidden;
-              white-space: nowrap;
-              animation: typing 1s steps(8) 1;
-            }
+            display: none;
           }
         }
         .indexSearch-conveyorBox {
@@ -343,30 +343,61 @@ a {
 
                 .indexSearch-hover {
                   width: 200px;
-                  height: 70px;
+                  height: 85px;
                   background-color: $color_main3;
                   position: absolute;
-                  border-radius: 30px;
-                  top: 80%;
+                  border-radius: 40px;
+                  top: 70%;
                   left: 45%;
                   transform: translateX(-50%);
                   opacity: 0;
                   transition: 1s ease-in;
                   z-index: 2;
-
-                  p {
-                    text-align: center;
-                    padding: 5px 20px;
+                  text-align: center;
+                  p:nth-child(1) {
+                    padding: 8px 5px 5px;
                     font-size: $fontSize_S;
+                  }
+                  p:nth-child(2) {
+                    font-size: $fontSize_text;
 
                     span {
+                      display: none;
+                    }
+                  }
+                  div.scoreEgg-container {
+                    display: inline-block;
+                    &:before {
+                      content: "評分";
                       font-size: $fontSize_text;
-                      img {
-                        width: 15px;
-                        height: 20px;
-                        min-height: 20px;
+                      color: $black;
+                      position: relative;
+                      bottom: 6px;
+                      left: 25px;
+                    }
+                    ul {
+                      position: initial;
+                      width: 150px;
+                      display: inline-block;
+                      li {
+                        position: relative;
+                        width: 18px;
+                        margin: 0 -2px;
+                        left: 0;
+                        top: 0;
+                        display: inline-block;
+                        img {
+                          width: 18px;
+                        }
                       }
                     }
+                  }
+                  p:nth-child(5) {
+                    display: inline-block;
+                    font-size: 18px;
+                    padding: 3px 0;
+                    color: $color_main2;
+                    letter-spacing: 1px;
                   }
                 }
 
@@ -392,6 +423,7 @@ a {
                 }
               }
               li.indexSearch-meal-1 {
+                left: 10%;
                 animation: moving 15s linear 0s infinite;
               }
 
@@ -430,6 +462,46 @@ a {
       .indexSearch-wrap {
         background-image: url(../images/index_1_bg_desktopA.png);
         background-size: cover;
+        .indexSearch-conveyor {
+          .indexSearch-owner {
+            max-width: 430px;
+            bottom: 16vh;
+            div {
+              width: 200px;
+              height: 70px;
+              background-color: $color_main3;
+              display: inline-block;
+              border-radius: 100px;
+              position: absolute;
+              bottom: 200px;
+              left: 10px;
+
+              &::after {
+                content: "";
+                width: 0;
+                height: 0;
+                position: absolute;
+                bottom: -11px;
+                right: 3px;
+                transform: rotate(-40deg);
+                border-style: solid;
+                border-width: 20px 7.5px 0 7.5px;
+                border-color: $color_main3 transparent transparent transparent;
+              }
+              p {
+                width: 180px;
+                font-size: $fontSize_S;
+                color: $color_main2;
+                line-height: 70px;
+                text-align: left;
+                padding: 0 0 0 12px;
+                overflow: hidden;
+                white-space: nowrap;
+                animation: typing 1.5s steps(9) 1;
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -475,6 +547,10 @@ a {
               top: 35px;
               left: 138px;
             }
+            div {
+              bottom: 200px;
+              left: -5px;
+            }
           }
           .indexSearch-conveyorBox {
             width: 150%;
@@ -513,30 +589,61 @@ a {
 
                   .indexSearch-hover {
                     width: 200px;
-                    height: 70px;
+                    height: 85px;
                     background-color: $color_main3;
                     position: absolute;
-                    border-radius: 30px;
-                    top: 80%;
+                    border-radius: 40px;
+                    top: 70%;
                     left: 45%;
                     transform: translateX(-50%);
                     opacity: 0;
                     transition: 1s ease-in;
                     z-index: 2;
-
-                    p {
-                      text-align: center;
-                      padding: 5px 20px;
+                    text-align: center;
+                    p:nth-child(1) {
+                      padding: 8px 5px 5px;
                       font-size: $fontSize_S;
+                    }
+                    p:nth-child(2) {
+                      font-size: $fontSize_text;
 
                       span {
+                        display: none;
+                      }
+                    }
+                    div.scoreEgg-container {
+                      display: inline-block;
+                      &:before {
+                        content: "評分";
                         font-size: $fontSize_text;
-                        img {
-                          width: 15px;
-                          height: 20px;
-                          min-height: 20px;
+                        color: $black;
+                        position: relative;
+                        bottom: 6px;
+                        left: 25px;
+                      }
+                      ul {
+                        position: initial;
+                        width: 150px;
+                        display: inline-block;
+                        li {
+                          position: relative;
+                          width: 18px;
+                          margin: 0 -2px;
+                          left: 0;
+                          top: 0;
+                          display: inline-block;
+                          img {
+                            width: 18px;
+                          }
                         }
                       }
+                    }
+                    p:nth-child(5) {
+                      display: inline-block;
+                      font-size: 18px;
+                      padding: 3px 0;
+                      color: $color_main2;
+                      letter-spacing: 1px;
                     }
                   }
 
@@ -595,12 +702,12 @@ a {
 
 // 第二屏 參加飯團動畫
 .indexJoin {
-  padding: 30px 0 0;
+  padding: 50px 0 0;
   width: 100%;
   .wrap {
     .indexJoin-wrap {
       .indexJoin-title {
-        padding: 20px 0;
+        padding: 0 0 20px;
         text-align: center;
         img {
           height: 48px;
@@ -663,6 +770,7 @@ a {
                   cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1,
                 chickenMobileTop 0.2s ease 0.5s 4;
               animation-fill-mode: forwards;
+              cursor: pointer;
             }
             img:nth-child(2) {
               width: 100px;
@@ -674,6 +782,7 @@ a {
                   cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1,
                 chickenMobileTop 0.2s ease 0.5s 4;
               animation-fill-mode: forwards;
+              cursor: pointer;
             }
           }
 
@@ -1061,7 +1170,7 @@ a {
           left: 50%;
           transform: translateX(-50%);
           font-size: 0;
-          margin: 30px 0;
+          margin: 20px 0 0;
 
           button {
             --x: 84;
@@ -1109,6 +1218,7 @@ a {
 }
 @media screen and (min-width: 768px) {
   .indexJoin {
+    padding: 50px 0 0;
     .wrap {
       position: relative;
       .indexJoin-wrap {
@@ -1128,7 +1238,7 @@ a {
 
               @keyframes chickenPC2 {
                 0% {
-                  right: -1000px;
+                  right: -800px;
                 }
                 100% {
                   right: -240px;
@@ -1155,7 +1265,7 @@ a {
                 width: 200px;
                 position: absolute;
                 top: 231px;
-                left: -240px;
+                left: -800px;
                 animation: chickenPC1 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17)
                     0.5s 1,
                   chickenPCTop 0.2s ease 0.5s 3;
@@ -1165,7 +1275,7 @@ a {
                 width: 200px;
                 position: absolute;
                 top: 231px;
-                right: -240px;
+                right: -800px;
                 animation: chickenPC2 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17)
                     0.5s 1,
                   chickenPCTop 0.2s ease 0.5s 3;
@@ -1429,11 +1539,35 @@ a {
               }
             }
 
+            @keyframes btnPC1 {
+              0% {
+                right: 800px;
+              }
+              100% {
+                right: 200px;
+              }
+            }
+
+            @keyframes btnPC2 {
+              0% {
+                left: 800px;
+              }
+              100% {
+                left: 200px;
+              }
+            }
+
             #indexJoin-btnO {
               right: 200px;
+              // animation: btnPC1 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1,
+              //   chickenPCTop 0.2s ease 0.5s 3;
+              // animation-fill-mode: forwards;
             }
             #indexJoin-btnQr {
               left: 200px;
+              // animation: btnPC2 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1,
+              //   chickenPCTop 0.2s ease 0.5s 3;
+              // animation-fill-mode: forwards;
             }
           }
         }
@@ -1471,7 +1605,7 @@ a {
                 left: -800px;
                 animation: chickenLGPC1 1s cubic-bezier(0.55, 0.13, 0.45, 1.17)
                     0.5s 1,
-                  chickenPCTop 0.2s ease 0.5s 4;
+                  chickenPCTop 0.2s ease 0.8s 4;
                 animation-fill-mode: forwards;
               }
               img:nth-child(2) {
@@ -1488,9 +1622,6 @@ a {
           #indexJoin-btn {
             #indexJoin-btnO {
               right: 260px;
-              animation: chickenLGPC1 1s cubic-bezier(0.55, 0.13, 0.45, 1.17)
-                  0.5s 1,
-                chickenTopLGPC1 0.2s ease 0.5s 4;
             }
             #indexJoin-btnQr {
               left: 260px;
@@ -1504,7 +1635,7 @@ a {
 // 第三屏 官方飯團推薦
 .indexGroupon {
   width: 100%;
-  padding: 30px 0;
+  padding: 80px 0 0;
 
   &::after {
     display: none;
@@ -1513,7 +1644,7 @@ a {
   .wrap {
     .indexGroupon-wrap {
       .indexGroupon-title {
-        padding: 20px 0;
+        padding: 0 0 20px;
         text-align: center;
         img {
           height: 48px;
@@ -1667,49 +1798,49 @@ a {
           }
         }
 
-        @keyframes countBar1 {
-          0% {
-            width: 0;
-          }
-          100% {
-            width: 87px;
-          }
-        }
+        // @keyframes countBar1 {
+        //   0% {
+        //     width: 0;
+        //   }
+        //   100% {
+        //     width: 87px;
+        //   }
+        // }
 
-        @keyframes countBar2 {
-          0% {
-            width: 0;
-          }
-          100% {
-            width: 50px;
-          }
-        }
+        // @keyframes countBar2 {
+        //   0% {
+        //     width: 0;
+        //   }
+        //   100% {
+        //     width: 50px;
+        //   }
+        // }
 
-        @keyframes countBar3 {
-          0% {
-            width: 0;
-          }
-          100% {
-            width: 35px;
-          }
-        }
+        // @keyframes countBar3 {
+        //   0% {
+        //     width: 0;
+        //   }
+        //   100% {
+        //     width: 35px;
+        //   }
+        // }
 
-        @keyframes countBar4 {
-          0% {
-            width: 0;
-          }
-          100% {
-            width: 95px;
-          }
-        }
+        // @keyframes countBar4 {
+        //   0% {
+        //     width: 0;
+        //   }
+        //   100% {
+        //     width: 95px;
+        //   }
+        // }
 
         .indexGroupon-part1 {
           .indexGroupon-sum {
             .indexGroupon-count {
               p {
-                width: 0;
-                animation: countBar1 1s linear 5s 1;
-                animation-fill-mode: forwards;
+                width: 87px;
+                // animation: countBar1 1s linear 5s 1;
+                // animation-fill-mode: forwards;
               }
             }
           }
@@ -1719,9 +1850,9 @@ a {
           .indexGroupon-sum {
             .indexGroupon-count {
               p {
-                width: 0;
-                animation: countBar2 1s linear 5.2s 1;
-                animation-fill-mode: forwards;
+                width: 50px;
+                // animation: countBar2 1s linear 5.2s 1;
+                // animation-fill-mode: forwards;
               }
             }
           }
@@ -1731,9 +1862,9 @@ a {
           .indexGroupon-sum {
             .indexGroupon-count {
               p {
-                width: 0;
-                animation: countBar3 1s linear 5.4s 1;
-                animation-fill-mode: forwards;
+                width: 35px;
+                // animation: countBar3 1s linear 5.4s 1;
+                // animation-fill-mode: forwards;
               }
             }
           }
@@ -1742,9 +1873,9 @@ a {
           .indexGroupon-sum {
             .indexGroupon-count {
               p {
-                width: 0;
-                animation: countBar4 1s linear 5.6s 1;
-                animation-fill-mode: forwards;
+                width: 95px;
+                // animation: countBar4 1s linear 5.6s 1;
+                // animation-fill-mode: forwards;
               }
             }
           }
@@ -1763,12 +1894,13 @@ a {
     display: none;
   }
   .indexGroupon-desc {
+    padding: 100px 0 0;
     display: grid;
     place-content: center;
     .wrap {
       .indexGroupon-wrap {
         .indexGroupon-stage {
-          padding: 150px 0 0;
+          padding: 50px 0 0;
           background-image: url(../images/index_grouponBento.svg);
           background-repeat: no-repeat;
           background-position: bottom;
@@ -1790,7 +1922,7 @@ a {
             position: relative;
             .indexGroupon-part {
               margin: 0px 20px;
-              top: -47px;
+              top: -45px;
               box-shadow: 0px 0px 20px rgba(49, 49, 49, 0.3);
               &:hover {
                 top: -168px;
@@ -1808,12 +1940,12 @@ a {
 
 .indexMeal-mobile {
   width: 100%;
-  padding: 0px 0 30px;
+  padding: 80px 0 0;
   position: relative;
 
   .wrap {
     .indexMeal-title {
-      padding: 20px 0;
+      padding: 0 0 20px;
       text-align: center;
       img {
         height: 48px;
@@ -1907,7 +2039,7 @@ a {
             .indexMeal-btn {
               a {
                 display: inline-block;
-                padding: 5px 10px;
+                padding: 7px 10px;
                 background-color: $color_main1;
                 border-radius: $borderRadius;
                 color: $black;
@@ -1917,14 +2049,17 @@ a {
 
               button {
                 @extend a;
+                padding: 4.5px 10px;
                 border: 0;
               }
             }
           }
         }
-        .top2,
-        .top3 {
+        .top2 {
           top: 0;
+        }
+        .top3 {
+          top: -2.8px;
         }
       }
     }
@@ -1940,6 +2075,7 @@ a {
     display: none;
   }
   .indexMeal-desc {
+    padding: 100px 0 0;
     width: 100%;
     max-width: 100%;
     display: flex;
@@ -1961,7 +2097,7 @@ a {
 
     .wrap {
       .indexMeal-title {
-        padding: 20px 0;
+        padding: 0 0 20px;
         text-align: center;
         img {
           height: 48px;
@@ -2000,7 +2136,7 @@ a {
         cursor: pointer;
         transform: rotate(0deg);
         transform-origin: top;
-        animation: confettiRotate linear 3s 3;
+        animation: confettiRotate linear 3s infinite;
 
         @keyframes confettiAfter {
           0% {
@@ -2229,94 +2365,289 @@ a {
 }
 
 .indexLogin {
+  padding: 80px 0;
   .wrap {
     .indexLogin-wrap {
       .indexLogin-title {
-        padding: 20px 0;
+        padding: 0 0 20px;
         text-align: center;
         img {
           height: 48px;
         }
       }
       .indexLogin-sum {
-        box-sizing: border-box;
+        height: 500px;
+        display: flex;
+        justify-content: space-around;
+        position: relative;
 
-        .indexLogin-scratch {
+        .indexLogin-main {
+          margin: auto;
           position: relative;
-          width: 300px;
-          height: 300px;
-          margin: 0 auto;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          -o-user-select: none;
-          user-select: none;
-          cursor: url("../images/index_coinCursor.png"), default;
-
-          .indexLogin-canvas {
+          top: 0;
+          left: 0%;
+          height: 350px;
+          .indexLogin-info {
             position: absolute;
-            top: 0;
-            cursor: url("../images/index_coinCursor.png"), default;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: inline-block;
+            z-index: 1;
+            .indexLogin-balloon {
+              width: 250px;
+              line-height: 1.6rem;
+              letter-spacing: 0.5px;
+              position: absolute;
+              top: -110px;
+              left: -35px;
+              p {
+                text-align: center;
+                padding: 20px;
+                color: $white;
+                background-color: $color_main4;
+                border-radius: 50px;
+                box-shadow: inset -5px -4px 0 $color_main2;
+                position: relative;
+                animation: flow 1.8s ease 0s infinite normal;
+                &:after {
+                  content: "";
+                  width: 0;
+                  height: 0;
+                  border-style: solid;
+                  border-width: 10px 12px 0 12px;
+                  border-color: $color_main2 transparent transparent transparent;
+                  position: absolute;
+                  bottom: -10px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                }
+              }
+            }
+            img {
+              width: 180px;
+            }
           }
-          .indexLogin-scratch-wrap {
-            width: 100%;
-            max-width: 450px;
-            height: 100%;
-            max-height: 450px;
-            background: url("../images/index_scratch_bg.svg") no-repeat center
-              center;
-            background-size: auto 100%;
-            backface-visibility: hidden;
-            overflow: hidden;
-            z-index: -3;
+          .indexLogin-pan {
+            display: inline-block;
+            position: relative;
+            width: 350px;
+            border-radius: 100%;
+            animation: shakin 6s linear infinite;
+            top: 220px;
+            left: 2%;
+            transform: translateX(-50%);
+            &:after {
+              content: "";
+              display: block;
+              padding-bottom: 100%;
+            }
+            .indexLogin-outer {
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              margin: auto;
+              background-color: $color-pan;
+              border-radius: 100%;
+              z-index: 2;
+              box-shadow: inset $color-pan 2px 4px 2px 2px,
+                inset rgba(white, 0.2) 2px 8px 5px 4px,
+                rgba($color-bg, 0.8) 4px 4px 5px 4px,
+                rgba(black, 0.4) 2px 4px 5px 2px;
+            }
+            .indexLogin-inner {
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              margin: auto;
+              width: 80%;
+              height: 80%;
+              background-color: lighten($color-pan, 10%);
+              border-radius: 100%;
+              z-index: 3;
+              box-shadow: inset lighten($color-pan, 10%) 0 2px 4px 6px,
+                inset rgba(white, 0.1) 4px 6px 34px 4px, $color-pan 0 0 0 10px,
+                rgba(white, 0.14) -4px -2px 4px 8px,
+                rgba(white, 0.14) 4px 2px 4px 8px;
+            }
+          }
+
+          .indexLogin-scratch {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            top: 250px;
+            left: 34px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+            cursor: url("../images/index_coinCursor.png"), default;
+            animation: sizzlin 1.6s linear alternate infinite;
+            .indexLogin-canvas {
+              width: 300px;
+              height: 300px;
+              position: absolute;
+              top: 0;
+              left: 0;
+              cursor: url("../images/index_coinCursor.png"), default;
+            }
+            .indexLogin-scratch-wrap {
+              width: 100%;
+              max-width: 450px;
+              height: 100%;
+              max-height: 450px;
+              background: url("../images/index_scratch_bg.svg") no-repeat center
+                center;
+              background-size: auto 100%;
+              backface-visibility: hidden;
+              overflow: hidden;
+              z-index: -3;
+            }
+          }
+
+          .indexLogin-pan .indexLogin-handle {
+            position: absolute;
+            top: -25%;
+            left: 7%;
+            width: 15%;
+            height: 28%;
+            background-color: $color-pan;
+            transform: rotate(-32deg);
+            z-index: 1;
+            border-radius: 30%;
+            box-shadow: inset $color-pan 2px 2px 4px 2px,
+              inset rgba(white, 0.2) 3px -8px 8px 10px;
+            &:before {
+              content: "";
+              position: absolute;
+              bottom: -30%;
+              right: 0;
+              width: 100%;
+              height: 50%;
+              background-color: $color-handle;
+              box-shadow: inset $color-handle 2px 2px 2px 8px,
+                inset rgba(white, 0.2) 4px -4px 6px 12px;
+            }
+          }
+
+          .indexLogin-pan {
+            cursor: pointer;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            &:active {
+              animation: push 0.6s ease-out;
+            }
+          }
+        }
+        @keyframes flow {
+          0% {
+            bottom: 10px;
+          }
+          50% {
+            bottom: 30px;
+          }
+          100% {
+            bottom: 10px;
+          }
+        }
+        @keyframes sizzlin {
+          0% {
+            transform: rotate(0) scale(0.98);
+          }
+          10% {
+            transform: rotate(0) scale(1.01);
+          }
+          20% {
+            transform: rotate(2deg) scale(0.997);
+          }
+          25% {
+            transform: rotate(2deg) scale(0.998);
+          }
+          30% {
+            transform: rotate(2deg) scale(1.01);
+          }
+          40% {
+            transform: rotate(-2deg) scale(0.995);
+          }
+          50% {
+            transform: rotate(-2deg) scale(1);
+          }
+          60% {
+            transform: rotate(-3deg) scale(0.996);
+          }
+          80% {
+            transform: rotate(1deg) scale(1);
+          }
+          90% {
+            transform: rotate(1deg) scale(0.997);
+          }
+          100% {
+            transform: rotate(0deg) scale(1);
+          }
+        }
+        @keyframes shakin {
+          0% {
+            transform: translate(0, 0);
+          }
+          2% {
+            transform: translate(-12px, 12px);
+          }
+          4% {
+            transform: translate(0, 0);
+          }
+          6% {
+            transform: translate(-6px, 6px);
+          }
+          8% {
+            transform: translate(0, 0);
+          }
+          100% {
+            transform: translate(0, 0);
           }
         }
 
-        // .indexLogin-info {
-        //   order: 1;
-        //   text-align: center;
-        //   img {
-        //     width: 180px;
-        //     display: inline-block;
-        //     position: relative;
-        //     top: -50px;
-        //   }
-        //   div {
-        //     width: 180px;
-        //     background-color: $color_main4;
-        //     border-radius: 90px;
-        //     position: relative;
-        //     display: inline-block;
-        //     bottom: 90px;
-        //     left: -30px;
-        //     box-shadow: inset -6px -4px 0 $color_main2;
-        //     &:before {
-        //       content: "";
-        //       width: 0;
-        //       height: 0;
-        //       border-style: solid;
-        //       border-width: 10px 60px 25px 0;
-        //       border-color: transparent $color_main4 transparent transparent;
-        //       transform: rotate(-16deg);
-        //       position: absolute;
-        //       top: 24px;
-        //       left: -19px;
-        //     }
-        //     p {
-        //       padding: 24px 28px;
-        //       letter-spacing: 0.6px;
-        //       line-height: 1.5rem;
-        //       border-radius: 100px;
-        //       font-size: 18px;
-        //       text-align: center;
-        //       color: $white;
-        //     }
-        //   }
-        // }
+        @keyframes push {
+          0% {
+            transform: scale(1) translateZ(0);
+          }
+          25% {
+            transform: scale(0.9) translateZ(0);
+          }
+          50% {
+            transform: scale(1.04) translateZ(0);
+          }
+          100% {
+            transform: scale(1) translateZ(0);
+          }
+        }
+
+        @keyframes pop {
+          0% {
+            transform: rotate(0) scale(1) translateZ(0);
+          }
+          50% {
+            transform: rotate(20deg) scale(1.4) translateZ(0);
+          }
+          80% {
+            transform: rotate(0) scale(0.8) translateZ(0);
+          }
+          100% {
+            transform: rotate(0) scale(1) translateZ(0);
+          }
+        }
       }
       .indexLogin-btn {
+        width: 110px;
+        height: 47px;
+        margin: 180px auto 0px;
+        cursor: pointer;
         text-align: center;
-        margin: -20px 0 0;
         button {
           @extend .mainBtn;
         }
@@ -2327,6 +2658,7 @@ a {
 
 @media screen and (min-width: 768px) {
   .indexLogin {
+    padding: 100px 0;
     .wrap {
       .indexLogin-wrap {
         .indexLogin-sum {
@@ -2334,6 +2666,7 @@ a {
           display: flex;
           justify-content: space-around;
           position: relative;
+
           .indexLogin-main {
             margin: auto;
             position: relative;
@@ -2341,11 +2674,12 @@ a {
             left: 9%;
             height: 400px;
             .indexLogin-info {
-              position: relative;
-              bottom: 85px;
-              left: -50px;
+              position: absolute;
+              top: 98px;
+              left: -200px;
               display: inline-block;
               z-index: 1;
+              transform: translateX(0%);
               .indexLogin-balloon {
                 width: 250px;
                 line-height: 1.6rem;
@@ -2387,6 +2721,8 @@ a {
               width: 400px;
               border-radius: 100%;
               animation: shakin 6s linear infinite;
+              top: 0;
+              left: 0;
               &:after {
                 content: "";
                 display: block;
@@ -2423,6 +2759,29 @@ a {
                   inset rgba(white, 0.1) 4px 6px 34px 4px, $color-pan 0 0 0 10px,
                   rgba(white, 0.14) -4px -2px 4px 8px,
                   rgba(white, 0.14) 4px 2px 4px 8px;
+              }
+            }
+
+            .indexLogin-scratch {
+              position: absolute;
+              top: 50px;
+              left: 40px;
+              animation: sizzlin 1.6s linear alternate infinite;
+              .indexLogin-canvas {
+                position: absolute;
+                top: 0;
+                cursor: url("../images/index_coinCursor.png"), default;
+              }
+              .indexLogin-scratch-wrap {
+                width: 100%;
+                max-width: 450px;
+                height: 100%;
+                max-height: 450px;
+                background: url("../images/index_scratch_bg.svg") no-repeat
+                  center center;
+                background-size: auto 100%;
+                backface-visibility: hidden;
+                overflow: hidden;
               }
             }
 
@@ -2556,34 +2915,10 @@ a {
               transform: rotate(0) scale(1) translateZ(0);
             }
           }
-          .indexLogin-scratch {
-            position: absolute;
-            top: 0;
-            left: 40%;
-            margin: 50px 0;
-            animation: sizzlin 1.6s linear alternate infinite;
-            .indexLogin-canvas {
-              position: absolute;
-              top: 0;
-              cursor: url("../images/index_coinCursor.png"), default;
-            }
-            .indexLogin-scratch-wrap {
-              width: 100%;
-              max-width: 450px;
-              height: 100%;
-              max-height: 450px;
-              background: url("../images/index_scratch_bg.svg") no-repeat center
-                center;
-              background-size: auto 100%;
-              backface-visibility: hidden;
-              overflow: hidden;
-              z-index: -3;
-            }
-          }
         }
         .indexLogin-btn {
           text-align: center;
-          margin: -20px 0 0;
+          margin: -20px auto 0px;
         }
       }
     }

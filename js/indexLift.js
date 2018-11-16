@@ -20,27 +20,3 @@ $(document).ready(function() {
     });
   }
 });
-
-$(document).ready(function() {
-  function wheel() {
-    var $windowTop = $(window).scrollTop();
-
-    if ($windowTop > $(".indexLogin").offset().top - 500) {
-      $(".indexLogin-info > img").animate(
-        { top: "0px" },
-        1000,
-        "easeOutBounce"
-      );
-      $(".indexLogin-info > div").animate(
-        { bottom: "40px" },
-        1000,
-        "easeOutBounce"
-      );
-    }
-  }
-
-  wheel();
-  $(window).scroll(function() {
-    wheel();
-  });
-});

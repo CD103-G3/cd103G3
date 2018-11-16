@@ -1,0 +1,28 @@
+@import "layout/reset";
+@import "daycookVar";
+@import "daycookMixin";
+@import "layout/nav"; //nav
+@import "general_mixins";
+@import "layout/grid";
+@import "Team-mixins/ke_mixin";
+@import "Team-mixins/Ben_mixins";
+@import "Team-mixins/mixins";
+
+@import "login"; //註冊登入
+@import "serach"; //搜尋
+@import "chatBot"; //客服機器人
+@import "animation/anime";
+@import "index"; //首頁
+@import "groupon"; //飯團
+@import "dishes"; //餐點一覽
+@import "gameCapusle"; //想吃甚麼遊戲
+@import "scratch"; //刮刮樂遊戲
+
+.space {
+  height: 75px;
+}
+@media screen and (min-width: 768px) {
+  .space {
+    height: 100px;
+  }
+}

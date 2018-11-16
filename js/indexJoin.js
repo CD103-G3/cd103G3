@@ -6,7 +6,7 @@ $(document).ready(function() {
     .removeClass()
     .hide();
 
-  $("#indexJoin-btnO").click(function() {
+  $("#indexJoin-btnO , #indexJoin-ckO").click(function() {
     $("#indexJoin-btnO").attr("disabled", "disabled");
     $("#indexJoin-btnQr").attr("disabled", "disabled");
 
@@ -56,7 +56,7 @@ $(document).ready(function() {
       .delay(1000);
   });
 
-  $("#indexJoin-btnQr").click(function() {
+  $("#indexJoin-btnQr , #indexJoin-ckQr").click(function() {
     $("#indexJoin-btnO").attr("disabled", "disabled");
     $("#indexJoin-btnQr").attr("disabled", "disabled");
 

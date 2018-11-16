@@ -49,7 +49,7 @@ header {
   width: 100%;
   height: 80px;
   position: fixed;
-  z-index: 10; }
+  z-index: 2; }
   header * {
     font-size: 0;
     font-family: sans-serif, "微軟正黑體", "Microsoft JhengHei"; }
@@ -60,20 +60,38 @@ header {
   header #navctrl {
     display: none; }
     header #navctrl:checked ~ .phone-nav .hb .line {
+      -webkit-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
       transform: rotate(360deg);
       opacity: 0;
+      -webkit-transition: 0.3s;
+      -o-transition: 0.3s;
       transition: 0.3s; }
     header #navctrl:checked ~ .phone-nav .hb:before {
+      -webkit-transform: translateY(13.5px) rotate(225deg);
+      -ms-transform: translateY(13.5px) rotate(225deg);
       transform: translateY(13.5px) rotate(225deg);
+      -webkit-transition: 0.3s;
+      -o-transition: 0.3s;
       transition: 0.3s; }
     header #navctrl:checked ~ .phone-nav .hb:after {
+      -webkit-transform: translateY(-13px) rotate(-225deg);
+      -ms-transform: translateY(-13px) rotate(-225deg);
       transform: translateY(-13px) rotate(-225deg);
+      -webkit-transition: 0.3s;
+      -o-transition: 0.3s;
       transition: 0.3s; }
     header #navctrl:checked ~ nav {
+      -webkit-transform: translate(-350px, 1000px) rotate(0deg);
+      -ms-transform: translate(-350px, 1000px) rotate(0deg);
       transform: translate(-350px, 1000px) rotate(0deg);
       top: -1000px;
       left: 350px;
-      transition: transform 1s; }
+      -webkit-transition: -webkit-transform 1s;
+      transition: -webkit-transform 1s;
+      -o-transition: transform 1s;
+      transition: transform 1s;
+      transition: transform 1s, -webkit-transform 1s; }
   header .phone-nav {
     padding: 0 40px 0 10px;
     height: 75px;
@@ -100,6 +118,8 @@ header {
       height: 50px;
       cursor: pointer;
       opacity: 0.8;
+      -webkit-transition: 0.5s;
+      -o-transition: 0.5s;
       transition: 0.5s;
       position: absolute;
       top: 28%;
@@ -116,6 +136,8 @@ header {
         right: 0;
         bottom: 21%;
         left: 0;
+        -webkit-transition: 0.3s;
+        -o-transition: 0.3s;
         transition: 0.3s; }
       header .phone-nav .hb:before {
         bottom: auto; }
@@ -128,25 +150,38 @@ header {
       color: #76391b;
       border-radius: 50%;
       background-color: #fcf2ca;
+      -webkit-box-shadow: 1px 3px 1px #ad6631;
       box-shadow: 1px 3px 1px #ad6631;
       cursor: pointer; }
       header .phone-nav .seach-button img {
         margin-top: -6px;
         vertical-align: middle; }
   header nav {
+    -webkit-transition: 1s;
+    -o-transition: 1s;
     transition: 1s;
     position: absolute;
+    -webkit-transform: translate(0, 0) rotate(-90deg);
+    -ms-transform: translate(0, 0) rotate(-90deg);
     transform: translate(0, 0) rotate(-90deg);
     top: -1000px;
     left: 350px;
-    transition: transform 1s; }
+    -webkit-transition: -webkit-transform 1s;
+    transition: -webkit-transform 1s;
+    -o-transition: transform 1s;
+    transition: transform 1s;
+    transition: transform 1s, -webkit-transform 1s; }
     header nav:before {
       content: "";
       width: 1100px;
       height: 1100px;
       border-radius: 50%;
       background-color: #425075;
+      -webkit-transform-origin: left top;
+      -ms-transform-origin: left top;
       transform-origin: left top;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
       position: absolute;
       top: 0;
@@ -175,7 +210,10 @@ header {
             header nav ul .index-member .after-login div .member-Pic {
               width: 35px;
               height: 35px;
-              border-radius: 50%; }
+              border-radius: 50%;
+              background-color: #d4eefb;
+              -o-object-fit: cover;
+              object-fit: cover; }
             header nav ul .index-member .after-login div img {
               cursor: pointer; }
             header nav ul .index-member .after-login div span {
@@ -186,17 +224,6 @@ header {
               header nav ul .index-member .after-login div span .achievement-Pic {
                 margin: -5px 8px 0 2px;
                 vertical-align: middle; }
-  header #white-Point-control {
-    display: none; }
-    header #white-Point-control:checked ~ .white-Point {
-      width: 70vmin;
-      height: 70vmin;
-      transform: translate(-50%, -50%);
-      transition: 1s;
-      top: 50%;
-      left: 50%; }
-      header #white-Point-control:checked ~ .white-Point li {
-        display: inline-block; }
   header .white-Point {
     margin: auto;
     width: 50px;
@@ -204,29 +231,11 @@ header {
     border-radius: 15px;
     background-color: #425075;
     position: fixed;
-    transition: 1s;
-    top: 80px;
-    right: 0%;
     z-index: 101; }
-    header .white-Point.floaty.active {
-      z-index: 10001; }
-    header .white-Point.floaty:before {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      margin-left: 0;
-      margin-top: 0; }
-    header .white-Point.floaty.active:before {
-      content: "";
-      display: block;
-      top: -500%;
-      left: -500%;
-      width: 1100%;
-      height: 1100%; }
     header .white-Point ul {
       text-align: center; }
+      header .white-Point ul .phone-hidden {
+        display: none; }
       header .white-Point ul li {
         margin: 0 auto;
         width: 50%;
@@ -244,7 +253,7 @@ header {
           display: inline-block; }
           header .white-Point ul li a img, header .white-Point ul li .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button img, .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white-Point ul li button img {
             margin-bottom: 5px;
-            width: 40%; }
+            width: 30%; }
         header .white-Point ul li:nth-of-type(1) {
           width: 100%; }
         header .white-Point ul li:nth-of-type(4), header .white-Point ul li:nth-of-type(5) {
@@ -261,9 +270,13 @@ header {
     font-size: 0;
     text-align: center; }
     header #navctrl:checked ~ nav {
+      -webkit-transform: translate(0, 0) rotate(0deg);
+      -ms-transform: translate(0, 0) rotate(0deg);
       transform: translate(0, 0) rotate(0deg);
       top: 0px;
       left: 0px;
+      -webkit-transition: 0s;
+      -o-transition: 0s;
       transition: 0s; }
     header .phone-nav {
       padding: 0;
@@ -293,7 +306,11 @@ header {
       width: 71.42857142%;
       position: relative;
       display: inline-block;
+      -webkit-transform: translate(0, 0) rotate(0deg);
+      -ms-transform: translate(0, 0) rotate(0deg);
       transform: translate(0, 0) rotate(0deg);
+      -webkit-transition: 0s;
+      -o-transition: 0s;
       transition: 0s;
       top: 0px;
       left: 0px;
@@ -319,25 +336,25 @@ header {
           header nav ul li.table-hidden {
             display: none; }
           header nav ul li.logo {
+            -webkit-transform: translateX(200%);
+            -ms-transform: translateX(200%);
             transform: translateX(200%); }
           header nav ul li.index-member {
+            -webkit-transform: translateX(300%);
+            -ms-transform: translateX(300%);
             transform: translateX(300%); }
           header nav ul li.meals {
+            -webkit-transform: translateX(100%);
+            -ms-transform: translateX(100%);
             transform: translateX(100%); }
           header nav ul li.initiate {
+            -webkit-transform: translateX(-300%);
+            -ms-transform: translateX(-300%);
             transform: translateX(-300%); }
           header nav ul li.participate {
+            -webkit-transform: translateX(-300%);
+            -ms-transform: translateX(-300%);
             transform: translateX(-300%); }
-    header #white-Point-control {
-      display: none; }
-      header #white-Point-control:checked ~ .white-Point {
-        width: 14.28571428%;
-        height: 100px;
-        transform: translate(0, 0);
-        transition: 0s;
-        position: static; }
-        header #white-Point-control:checked ~ .white-Point li.table-hidden {
-          display: none; }
     header .white-Point {
       margin: auto;
       width: 14.28571428%;
@@ -346,12 +363,18 @@ header {
       background: none;
       vertical-align: top;
       display: inline-block;
+      -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
       transform: translate(0, 0);
+      -webkit-transition: 0s;
+      -o-transition: 0s;
       transition: 0s;
       position: static; }
       header .white-Point:checked ~ .white-Point {
         width: 50px;
         height: 50px;
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
         transform: translate(0, 0);
         position: static; }
       header .white-Point ul {
@@ -362,12 +385,14 @@ header {
           height: 120%;
           display: inline-block;
           vertical-align: middle; }
+        header .white-Point ul .phone-hidden {
+          display: inline-block; }
+        header .white-Point ul .table-hidden {
+          display: none; }
         header .white-Point ul li {
           width: auto;
           height: auto;
           display: inline-block; }
-          header .white-Point ul li.table-hidden {
-            display: none; }
           header .white-Point ul li:nth-of-type(1) {
             width: auto; }
           header .white-Point ul li a, header .white-Point ul li .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn header .white-Point ul li button {
@@ -378,6 +403,7 @@ header {
             color: #76391b;
             border-radius: 20px;
             background-color: #fcf2ca;
+            -webkit-box-shadow: 1px 3px 1px #ad6631;
             box-shadow: 1px 3px 1px #ad6631;
             display: inline-block;
             position: relative; }
@@ -416,10 +442,16 @@ header {
       header #view7 .slice {
         width: 100%;
         height: 10px;
+        -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
+        -webkit-transform-origin: center top;
+        -ms-transform-origin: center top;
         transform-origin: center top;
+        -webkit-transition: 150ms ease-in-out;
+        -o-transition: 150ms ease-in-out;
         transition: 150ms ease-in-out;
         background-image: url(../images/nav_background.png);
+        -webkit-perspective: 1000px;
         perspective: 1000px;
         position: relative;
         top: 100%; }
@@ -437,14 +469,20 @@ header {
       border: 2px solid #2d3e51;
       border-bottom: none;
       border-radius: 5px 5px 5px 5px;
+      -webkit-transition-delay: 150ms;
+      -o-transition-delay: 150ms;
       transition-delay: 150ms;
+      -webkit-transform: translate3d(-4px, 0, 0) rotate3d(1, 0, 0, -180deg);
       transform: translate3d(-4px, 0, 0) rotate3d(1, 0, 0, -180deg);
       background-color: #425075; }
     header li:not(.logo):not(.index-member):hover .s3 {
       border: 2px solid #2d3e51;
       border-bottom: none;
       border-radius: 5px 5px 5px 5px;
+      -webkit-transition-delay: 100ms;
+      -o-transition-delay: 100ms;
       transition-delay: 100ms;
+      -webkit-transform: translate3d(-6px, 0, 0) rotate3d(1, 0, 0, -180deg);
       transform: translate3d(-6px, 0, 0) rotate3d(1, 0, 0, -180deg);
       background-color: #425075; }
     header #view1 .s1 {
@@ -496,7 +534,9 @@ header {
   text-decoration: none; }
 
 body {
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  background-color: #ffe2bf;
+  background-image: url(../images/index_scroll_bg.png); }
 
 .indexScroll {
   height: calc(100% + 110vh);
@@ -509,22 +549,47 @@ body {
     top: 0vw; }
     .indexScroll .indexScroll-wrap .indexScroll-hand {
       position: absolute;
-      top: -6.1vw;
-      left: 46.7vw;
+      top: -14.1vw;
+      left: 42.7vw;
       z-index: 2; }
       .indexScroll .indexScroll-wrap .indexScroll-hand img {
-        width: 1.2vw; }
+        width: 3.2vw; }
     .indexScroll .indexScroll-wrap .indexScroll-chicken {
       position: absolute;
-      top: -12.9vw;
-      left: 46.6vw; }
+      top: -30vw;
+      left: 43.4vw; }
       .indexScroll .indexScroll-wrap .indexScroll-chicken img {
-        width: 16vw; }
+        width: 39vw; }
     .indexScroll .indexScroll-wrap .indexScroll-top {
       position: absolute;
-      top: -9vw; }
-      .indexScroll .indexScroll-wrap .indexScroll-top img {
+      top: -21vw; }
+      .indexScroll .indexScroll-wrap .indexScroll-top img:nth-child(1) {
         width: 100vw; }
+      .indexScroll .indexScroll-wrap .indexScroll-top img:nth-child(2) {
+        display: none; }
+
+@media screen and (min-width: 768px) {
+  .indexScroll .indexScroll-wrap .indexScroll-hand {
+    position: absolute;
+    top: -6.1vw;
+    left: 46.7vw;
+    z-index: 2; }
+    .indexScroll .indexScroll-wrap .indexScroll-hand img {
+      width: 1.2vw; }
+  .indexScroll .indexScroll-wrap .indexScroll-chicken {
+    position: absolute;
+    top: -12.9vw;
+    left: 46.6vw; }
+    .indexScroll .indexScroll-wrap .indexScroll-chicken img {
+      width: 16vw; }
+  .indexScroll .indexScroll-wrap .indexScroll-top {
+    position: absolute;
+    top: -9vw; }
+    .indexScroll .indexScroll-wrap .indexScroll-top img:nth-child(1) {
+      display: none; }
+    .indexScroll .indexScroll-wrap .indexScroll-top img:nth-child(2) {
+      display: block;
+      width: 100vw; } }
 
 
 a,
@@ -537,12 +602,15 @@ a,
   border: 0;
   border-radius: 1000px;
   background-color: #fce444;
+  -webkit-box-shadow: 0 4px 0 #bb7232;
   box-shadow: 0 4px 0 #bb7232; }
 
 .joinBtn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button:hover {
   opacity: 1;
   cursor: pointer;
   border: 10px solid rgba(255, 255, 255, 0.5);
+  -webkit-transition: 0.5s background-color ease, 0.2s border ease;
+  -o-transition: 0.5s background-color ease, 0.2s border ease;
   transition: 0.5s background-color ease, 0.2s border ease;
   border-radius: calc(var(--x) / var(--size) * 100%) calc(var(--dx) / var(--size) * 100%) calc(var(--dx) / var(--size) * 100%) calc(var(--x) / var(--size) * 100%)/calc(var(--y) / var(--size) * 100%) calc(var(--y) / var(--size) * 100%) calc(var(--dy) / var(--size) * 100%) calc(var(--dy) / var(--size) * 100%); }
 
@@ -570,6 +638,7 @@ a,
         border-radius: 1000px;
         border: 6px solid #bb7232;
         background-color: #fcf2ca;
+        -webkit-box-shadow: 0 6px #76391b;
         box-shadow: 0 6px #76391b;
         position: relative; }
         .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form div {
@@ -597,7 +666,7 @@ a,
             color: #fff;
             letter-spacing: 1px;
             position: relative;
-            top: -10px;
+            top: -13px;
             left: -14px; }
         .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form input[type="text"] {
           width: 50%;
@@ -605,8 +674,9 @@ a,
           border: none;
           font-size: 18px;
           position: absolute;
-          top: 15px;
-          left: 100px; }
+          top: 0px;
+          left: 90px;
+          line-height: 45px; }
         .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form .indexSearch-btn {
           font-size: 20px;
           padding: 16px 10px 16px;
@@ -626,13 +696,18 @@ a,
           position: absolute;
           bottom: 45px;
           left: 10%;
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
           transform: translateX(-50%); }
         .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form .indexSearch-rope img:nth-child(2) {
           width: 15px;
           position: absolute;
           bottom: 45px;
           right: 10%;
+          -webkit-transform: translateX(50%);
+          -ms-transform: translateX(50%);
           transform: translateX(50%);
+          -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg); }
     .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor {
       cursor: url("../images/index_handCursor.png"), default; }
@@ -641,20 +716,36 @@ a,
         max-width: 300px;
         max-height: 200px;
         position: absolute;
-        bottom: 20vh;
+        bottom: 19.5vh;
         left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
         transform: translateX(-50%); }
+
+@-webkit-keyframes typing {
+  from {
+    width: 0; } }
 
 @keyframes typing {
   from {
     width: 0; } }
 
+@-webkit-keyframes caret {
+  50% {
+    border-color: transparent; } }
+
 @keyframes caret {
   50% {
     border-color: transparent; } }
 
+@-webkit-keyframes owner {
+  50% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); } }
+
 @keyframes owner {
   50% {
+    -webkit-transform: rotate(0deg);
     transform: rotate(0deg); } }
         .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner img:nth-child(2) {
           width: 100%;
@@ -662,39 +753,14 @@ a,
           position: absolute;
           top: 32px;
           left: 30%;
+          -webkit-transform: rotate(-15deg);
+          -ms-transform: rotate(-15deg);
           transform: rotate(-15deg);
           z-index: -1;
+          -webkit-animation: owner 3s 1s infinite alternate;
           animation: owner 3s 1s infinite alternate; }
         .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner div {
-          width: 120px;
-          height: 60px;
-          background-color: #fcf2ca;
-          display: inline-block;
-          border-radius: 100px;
-          position: absolute;
-          bottom: 19vh;
-          left: 20px; }
-          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner div::after {
-            content: "";
-            width: 0;
-            height: 0;
-            position: absolute;
-            bottom: -4px;
-            right: 0;
-            transform: rotate(-45deg);
-            border-style: solid;
-            border-width: 20px 7.5px 0 7.5px;
-            border-color: #fcf2ca transparent transparent transparent; }
-          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner div p {
-            width: 120px;
-            font-size: 16px;
-            color: #76391b;
-            line-height: 60px;
-            text-align: left;
-            padding: 0 0 0 12px;
-            overflow: hidden;
-            white-space: nowrap;
-            animation: typing 1s steps(8) 1; }
+          display: none; }
       .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox {
         width: 300%;
         position: absolute;
@@ -727,29 +793,61 @@ a,
               cursor: url("../images/index_handCursor.png"), default; }
               .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li:hover div.indexSearch-hover {
                 opacity: 1;
+                -webkit-transition: 1s ease-in;
+                -o-transition: 1s ease-in;
                 transition: 1s ease-in; }
               .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover {
                 width: 200px;
-                height: 70px;
+                height: 85px;
                 background-color: #fcf2ca;
                 position: absolute;
-                border-radius: 30px;
-                top: 80%;
+                border-radius: 40px;
+                top: 70%;
                 left: 45%;
+                -webkit-transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
                 transform: translateX(-50%);
                 opacity: 0;
+                -webkit-transition: 1s ease-in;
+                -o-transition: 1s ease-in;
                 transition: 1s ease-in;
-                z-index: 2; }
-                .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p {
-                  text-align: center;
-                  padding: 5px 20px;
+                z-index: 2;
+                text-align: center; }
+                .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p:nth-child(1) {
+                  padding: 8px 5px 5px;
                   font-size: 20px; }
-                  .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p span {
-                    font-size: 16px; }
-                    .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p span img {
-                      width: 15px;
-                      height: 20px;
-                      min-height: 20px; }
+                .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p:nth-child(2) {
+                  font-size: 16px; }
+                  .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p:nth-child(2) span {
+                    display: none; }
+                .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover div.scoreEgg-container {
+                  display: inline-block; }
+                  .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover div.scoreEgg-container:before {
+                    content: "評分";
+                    font-size: 16px;
+                    color: #333;
+                    position: relative;
+                    bottom: 6px;
+                    left: 25px; }
+                  .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover div.scoreEgg-container ul {
+                    position: initial;
+                    width: 150px;
+                    display: inline-block; }
+                    .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover div.scoreEgg-container ul li {
+                      position: relative;
+                      width: 18px;
+                      margin: 0 -2px;
+                      left: 0;
+                      top: 0;
+                      display: inline-block; }
+                      .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover div.scoreEgg-container ul li img {
+                        width: 18px; }
+                .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p:nth-child(5) {
+                  display: inline-block;
+                  font-size: 18px;
+                  padding: 3px 0;
+                  color: #76391b;
+                  letter-spacing: 1px; }
               .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li img.indexSearch-mealImg {
                 display: inline-block;
                 width: 100%;
@@ -760,22 +858,35 @@ a,
                 position: relative;
                 left: -10%; }
 
+@-webkit-keyframes moving {
+  0% {
+    left: -10%; }
+  100% {
+    left: 100%; } }
+
 @keyframes moving {
   0% {
     left: -10%; }
   100% {
     left: 100%; } }
             .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-1 {
+              left: 10%;
+              -webkit-animation: moving 15s linear 0s infinite;
               animation: moving 15s linear 0s infinite; }
             .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-2 {
+              -webkit-animation: moving 15s linear 3s infinite;
               animation: moving 15s linear 3s infinite; }
             .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-3 {
+              -webkit-animation: moving 15s linear 6s infinite;
               animation: moving 15s linear 6s infinite; }
             .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-4 {
+              -webkit-animation: moving 15s linear 9s infinite;
               animation: moving 15s linear 9s infinite; }
             .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-5 {
+              -webkit-animation: moving 15s linear 12s infinite;
               animation: moving 15s linear 12s infinite; }
             .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol:hover li {
+              -webkit-animation-play-state: paused;
               animation-play-state: paused; }
 
 @media screen and (min-width: 768px) {
@@ -785,7 +896,43 @@ a,
       height: calc(100vh - 75px); }
       .indexSearch .wrap .indexSearch-wrap {
         background-image: url(../images/index_1_bg_desktopA.png);
-        background-size: cover; } }
+        background-size: cover; }
+        .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner {
+          max-width: 430px;
+          bottom: 16vh; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner div {
+            width: 200px;
+            height: 70px;
+            background-color: #fcf2ca;
+            display: inline-block;
+            border-radius: 100px;
+            position: absolute;
+            bottom: 200px;
+            left: 10px; }
+            .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner div::after {
+              content: "";
+              width: 0;
+              height: 0;
+              position: absolute;
+              bottom: -11px;
+              right: 3px;
+              -webkit-transform: rotate(-40deg);
+              -ms-transform: rotate(-40deg);
+              transform: rotate(-40deg);
+              border-style: solid;
+              border-width: 20px 7.5px 0 7.5px;
+              border-color: #fcf2ca transparent transparent transparent; }
+            .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner div p {
+              width: 180px;
+              font-size: 20px;
+              color: #76391b;
+              line-height: 70px;
+              text-align: left;
+              padding: 0 0 0 12px;
+              overflow: hidden;
+              white-space: nowrap;
+              -webkit-animation: typing 1.5s steps(9) 1;
+              animation: typing 1.5s steps(9) 1; } }
 
 @media screen and (min-width: 1200px) {
   .indexSearch {
@@ -807,6 +954,8 @@ a,
         position: absolute;
         bottom: calc(21vh - 3px);
         left: 90%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
         transform: translateX(-50%); }
         .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner img:nth-child(2) {
           width: 100%;
@@ -814,6 +963,9 @@ a,
           position: absolute;
           top: 35px;
           left: 138px; }
+        .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner div {
+          bottom: 200px;
+          left: -5px; }
       .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox {
         width: 150%;
         position: absolute;
@@ -839,29 +991,61 @@ a,
             cursor: url("../images/index_handCursor.png"), default; }
             .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li:hover div.indexSearch-hover {
               opacity: 1;
+              -webkit-transition: 1s ease-in;
+              -o-transition: 1s ease-in;
               transition: 1s ease-in; }
             .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover {
               width: 200px;
-              height: 70px;
+              height: 85px;
               background-color: #fcf2ca;
               position: absolute;
-              border-radius: 30px;
-              top: 80%;
+              border-radius: 40px;
+              top: 70%;
               left: 45%;
+              -webkit-transform: translateX(-50%);
+              -ms-transform: translateX(-50%);
               transform: translateX(-50%);
               opacity: 0;
+              -webkit-transition: 1s ease-in;
+              -o-transition: 1s ease-in;
               transition: 1s ease-in;
-              z-index: 2; }
-              .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p {
-                text-align: center;
-                padding: 5px 20px;
+              z-index: 2;
+              text-align: center; }
+              .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p:nth-child(1) {
+                padding: 8px 5px 5px;
                 font-size: 20px; }
-                .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p span {
-                  font-size: 16px; }
-                  .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p span img {
-                    width: 15px;
-                    height: 20px;
-                    min-height: 20px; }
+              .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p:nth-child(2) {
+                font-size: 16px; }
+                .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p:nth-child(2) span {
+                  display: none; }
+              .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover div.scoreEgg-container {
+                display: inline-block; }
+                .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover div.scoreEgg-container:before {
+                  content: "評分";
+                  font-size: 16px;
+                  color: #333;
+                  position: relative;
+                  bottom: 6px;
+                  left: 25px; }
+                .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover div.scoreEgg-container ul {
+                  position: initial;
+                  width: 150px;
+                  display: inline-block; }
+                  .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover div.scoreEgg-container ul li {
+                    position: relative;
+                    width: 18px;
+                    margin: 0 -2px;
+                    left: 0;
+                    top: 0;
+                    display: inline-block; }
+                    .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover div.scoreEgg-container ul li img {
+                      width: 18px; }
+              .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover p:nth-child(5) {
+                display: inline-block;
+                font-size: 18px;
+                padding: 3px 0;
+                color: #76391b;
+                letter-spacing: 1px; }
             .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li img.indexSearch-mealImg {
               display: inline-block;
               width: 100%;
@@ -871,29 +1055,40 @@ a,
               margin: auto 1vw;
               position: relative;
               left: -10%; }
+  @-webkit-keyframes moving {
+    0% {
+      left: -10%; }
+    100% {
+      left: 100%; } }
   @keyframes moving {
     0% {
       left: -10%; }
     100% {
       left: 100%; } }
           .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-1 {
+            -webkit-animation: moving 15s linear 0s infinite;
             animation: moving 15s linear 0s infinite; }
           .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-2 {
+            -webkit-animation: moving 15s linear 3s infinite;
             animation: moving 15s linear 3s infinite; }
           .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-3 {
+            -webkit-animation: moving 15s linear 6s infinite;
             animation: moving 15s linear 6s infinite; }
           .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-4 {
+            -webkit-animation: moving 15s linear 9s infinite;
             animation: moving 15s linear 9s infinite; }
           .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li.indexSearch-meal-5 {
+            -webkit-animation: moving 15s linear 12s infinite;
             animation: moving 15s linear 12s infinite; }
           .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol:hover li {
+            -webkit-animation-play-state: paused;
             animation-play-state: paused; } }
 
 .indexJoin {
-  padding: 30px 0 0;
+  padding: 50px 0 0;
   width: 100%; }
   .indexJoin .wrap .indexJoin-wrap .indexJoin-title {
-    padding: 20px 0;
+    padding: 0 0 20px;
     text-align: center; }
     .indexJoin .wrap .indexJoin-wrap .indexJoin-title img {
       height: 48px; }
@@ -907,17 +1102,41 @@ a,
     background-repeat: no-repeat;
     position: relative; }
 
+@-webkit-keyframes chickenMobile1 {
+  0% {
+    left: -300px; }
+  100% {
+    left: -70px; } }
+
 @keyframes chickenMobile1 {
   0% {
     left: -300px; }
   100% {
     left: -70px; } }
 
+@-webkit-keyframes chickenMobile2 {
+  0% {
+    right: -200px; }
+  100% {
+    right: -70px; } }
+
 @keyframes chickenMobile2 {
   0% {
     right: -200px; }
   100% {
     right: -70px; } }
+
+@-webkit-keyframes chickenMobileTop {
+  0% {
+    top: 190px; }
+  25% {
+    top: 193px; }
+  50% {
+    top: 190px; }
+  75% {
+    top: 193px; }
+  100% {
+    top: 190px; } }
 
 @keyframes chickenMobileTop {
   0% {
@@ -936,16 +1155,22 @@ a,
       top: 190px;
       left: -300px;
       z-index: 1;
+      -webkit-animation: chickenMobile1 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenMobileTop 0.2s ease 0.5s 4;
       animation: chickenMobile1 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenMobileTop 0.2s ease 0.5s 4;
-      animation-fill-mode: forwards; }
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+      cursor: pointer; }
     .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(2) {
       width: 100px;
       position: absolute;
       top: 190px;
       right: -300px;
       z-index: 1;
+      -webkit-animation: chickenMobile2 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenMobileTop 0.2s ease 0.5s 4;
       animation: chickenMobile2 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenMobileTop 0.2s ease 0.5s 4;
-      animation-fill-mode: forwards; }
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+      cursor: pointer; }
     .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info {
       padding: 100px 28px 0;
       text-align: center; }
@@ -971,7 +1196,14 @@ a,
       position: absolute;
       right: -40px;
       bottom: 0;
+      -webkit-animation: stepO1 1s 0.5s infinite alternate;
       animation: stepO1 1s 0.5s infinite alternate; }
+
+@-webkit-keyframes stepO1 {
+  0% {
+    bottom: 0px; }
+  100% {
+    bottom: 125px; } }
 
 @keyframes stepO1 {
   0% {
@@ -979,12 +1211,25 @@ a,
   100% {
     bottom: 125px; } }
 
-@keyframes stepO2-btn {
+@-webkit-keyframes stepO2-btn {
   0% {
     background-color: #fce444;
+    -webkit-box-shadow: 0 4px 0 #bb7232;
     box-shadow: 0 4px 0 #bb7232; }
   100% {
     background-color: #bb7232;
+    -webkit-box-shadow: 0 4px 0 #fce444;
+    box-shadow: 0 4px 0 #fce444;
+    color: #fff; } }
+
+@keyframes stepO2-btn {
+  0% {
+    background-color: #fce444;
+    -webkit-box-shadow: 0 4px 0 #bb7232;
+    box-shadow: 0 4px 0 #bb7232; }
+  100% {
+    background-color: #bb7232;
+    -webkit-box-shadow: 0 4px 0 #fce444;
     box-shadow: 0 4px 0 #fce444;
     color: #fff; } }
     .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQr3-btn {
@@ -992,8 +1237,18 @@ a,
       position: absolute;
       left: 37px;
       bottom: 60px;
+      -webkit-animation: stepO2-btn 1s 1.2s 1 normal;
       animation: stepO2-btn 1s 1.2s 1 normal;
+      -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards; }
+
+@-webkit-keyframes stepO2-finger {
+  0% {
+    right: -60px;
+    bottom: 60px; }
+  100% {
+    right: 16px;
+    bottom: -32px; } }
 
 @keyframes stepO2-finger {
   0% {
@@ -1012,7 +1267,9 @@ a,
       position: absolute;
       right: -40px;
       bottom: 25px;
+      -webkit-animation: stepO2-finger 0.8s 0.5s 1 normal;
       animation: stepO2-finger 0.8s 0.5s 1 normal;
+      -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards;
       z-index: 1; }
     .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) {
@@ -1026,6 +1283,28 @@ a,
         font-size: 16px;
         font-weight: bolder;
         color: #76391b; }
+
+@-webkit-keyframes stepO3-scan {
+  0% {
+    width: 120px;
+    height: 120px;
+    margin: -10px 0 0 -10px;
+    background-color: transparent; }
+  33% {
+    width: 120px;
+    height: 120px;
+    margin: -10px 0 0 -10px;
+    background-color: rgba(233, 79, 79, 0.6); }
+  66% {
+    width: 130px;
+    height: 130px;
+    margin: -15px 0 0 -15px;
+    background-color: rgba(250, 236, 34, 0.6); }
+  100% {
+    width: 120px;
+    height: 120px;
+    margin: -10px 0 0 -10px;
+    background-color: rgba(77, 235, 156, 0.6); } }
 
 @keyframes stepO3-scan {
   0% {
@@ -1060,7 +1339,9 @@ a,
         text-align: center;
         margin: -10px 0 0 -10px;
         position: absolute;
+        -webkit-animation: stepO3-scan 0.9s 0.5s 1 ease-in-out;
         animation: stepO3-scan 0.9s 0.5s 1 ease-in-out;
+        -webkit-animation-fill-mode: forwards;
         animation-fill-mode: forwards; }
       .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img img {
         display: inline-block;
@@ -1085,6 +1366,12 @@ a,
           color: #76391b;
           line-height: 1.2rem; }
 
+@-webkit-keyframes stepO4 {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
 @keyframes stepO4 {
   0% {
     opacity: 0; }
@@ -1099,16 +1386,20 @@ a,
           position: absolute;
           top: 145px;
           left: 70px;
+          -webkit-animation: stepO4 1s 0 1 ease-in;
           animation: stepO4 1s 0 1 ease-in;
+          -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards; }
         .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) span {
           display: inline-block;
           position: absolute;
           top: 220px;
           left: 50px;
+          -webkit-animation: stepO4 1s 0 1 ease-in;
           animation: stepO4 1s 0 1 ease-in;
+          -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-          color: #FF5000;
+          color: #ff5000;
           font-weight: bolder;
           font-size: 16px; }
     .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div {
@@ -1135,6 +1426,7 @@ a,
       height: 50px;
       margin: 10px auto;
       background-color: #fff;
+      -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
       box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); }
     .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr2 div {
       width: 95px;
@@ -1189,12 +1481,21 @@ a,
             color: #bb7232;
             overflow: hidden;
             white-space: nowrap;
+            -webkit-animation: typing 1.2s steps(4), caret 0.3s steps(1) infinite;
             animation: typing 1.2s steps(4), caret 0.3s steps(1) infinite; }
         .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
           text-align: center;
           width: 70px;
           margin: 18px auto 0;
           padding: 6px 10px; }
+
+@-webkit-keyframes stepQr3 {
+  0% {
+    right: -50px;
+    bottom: -30px; }
+  100% {
+    right: -25px;
+    bottom: -77px; } }
 
 @keyframes stepQr3 {
   0% {
@@ -1208,18 +1509,24 @@ a,
           position: absolute;
           right: -50px;
           bottom: -22px;
+          -webkit-animation: stepQr3 0.6s 1.4s alternate;
           animation: stepQr3 0.6s 1.4s alternate;
+          -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards; }
         .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
+          -webkit-animation: stepO2-btn 0.7s 2s 1 normal;
           animation: stepO2-btn 0.7s 2s 1 normal;
+          -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards; }
   .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn {
     display: inline-block;
     position: relative;
     left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     font-size: 0;
-    margin: 30px 0; }
+    margin: 20px 0 0; }
     .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button {
       --x: 84;
       --y: 75;
@@ -1228,9 +1535,12 @@ a,
       height: 30vw;
       max-width: 130px;
       max-height: 130px;
+      -webkit-transition: 0.5s all ease;
+      -o-transition: 0.5s all ease;
       transition: 0.5s all ease;
       background: var(--color);
       border: 0 solid transparent;
+      -webkit-box-sizing: border-box;
       box-sizing: border-box;
       border-radius: 50%;
       display: inline-block;
@@ -1242,8 +1552,9 @@ a,
       background-image: url(../images/index_watermark.svg);
       background-size: 150%; }
       .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button:disabled {
-        color: #000; }
+        color: #333; }
       .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button:hover {
+        -webkit-box-shadow: none;
         box-shadow: none; }
       .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button p {
         font-size: 18px;
@@ -1252,28 +1563,51 @@ a,
         top: 50%; }
 
 @media screen and (min-width: 768px) {
-  .indexJoin .wrap {
-    position: relative; }
-    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone {
-      width: 281px;
-      height: 500px;
-      margin: 0 auto;
-      background-size: 100%;
-      background-position: center;
-      background-repeat: no-repeat;
+  .indexJoin {
+    padding: 50px 0 0; }
+    .indexJoin .wrap {
       position: relative; }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg {
-        z-index: 1; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone {
+        width: 281px;
+        height: 500px;
+        margin: 0 auto;
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg {
+          z-index: 1; }
+  @-webkit-keyframes chickenPC1 {
+    0% {
+      left: -800px; }
+    100% {
+      left: -240px; } }
   @keyframes chickenPC1 {
     0% {
       left: -800px; }
     100% {
       left: -240px; } }
-  @keyframes chickenPC2 {
+  @-webkit-keyframes chickenPC2 {
     0% {
-      right: -1000px; }
+      right: -800px; }
     100% {
       right: -240px; } }
+  @keyframes chickenPC2 {
+    0% {
+      right: -800px; }
+    100% {
+      right: -240px; } }
+  @-webkit-keyframes chickenPCTop {
+    0% {
+      top: 231px; }
+    25% {
+      top: 241px; }
+    50% {
+      top: 231px; }
+    75% {
+      top: 241px; }
+    100% {
+      top: 231px; } }
   @keyframes chickenPCTop {
     0% {
       top: 231px; }
@@ -1285,48 +1619,65 @@ a,
       top: 241px; }
     100% {
       top: 231px; } }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(1) {
-          width: 200px;
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(1) {
+            width: 200px;
+            position: absolute;
+            top: 231px;
+            left: -800px;
+            -webkit-animation: chickenPC1 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenPCTop 0.2s ease 0.5s 3;
+            animation: chickenPC1 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenPCTop 0.2s ease 0.5s 3;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(2) {
+            width: 200px;
+            position: absolute;
+            top: 231px;
+            right: -800px;
+            -webkit-animation: chickenPC2 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenPCTop 0.2s ease 0.5s 3;
+            animation: chickenPC2 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenPCTop 0.2s ease 0.5s 3;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info {
+          padding: 125px 28px 0;
+          text-align: center; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info img {
+            width: 150px;
+            margin: -10px 20px 24px; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info p {
+            font-size: 24px;
+            line-height: 2rem; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(1) {
+          width: 222px;
           position: absolute;
-          top: 231px;
-          left: -240px;
-          animation: chickenPC1 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenPCTop 0.2s ease 0.5s 3;
-          animation-fill-mode: forwards; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(2) {
-          width: 200px;
-          position: absolute;
-          top: 231px;
-          right: -240px;
-          animation: chickenPC2 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenPCTop 0.2s ease 0.5s 3;
-          animation-fill-mode: forwards; }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info {
-        padding: 125px 28px 0;
-        text-align: center; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info img {
-          width: 150px;
-          margin: -10px 20px 24px; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info p {
-          font-size: 24px;
-          line-height: 2rem; }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(1) {
-        width: 222px;
-        position: absolute;
-        left: 28px;
-        top: 87px; }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(2) {
-        width: 100px;
-        right: -20px;
-        bottom: 60px;
-        animation: stepO1-sm 1s 0.5s infinite alternate;
-        z-index: 1; }
+          left: 28px;
+          top: 87px; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(2) {
+          width: 100px;
+          right: -20px;
+          bottom: 60px;
+          -webkit-animation: stepO1-sm 1s 0.5s infinite alternate;
+          animation: stepO1-sm 1s 0.5s infinite alternate;
+          z-index: 1; }
+  @-webkit-keyframes stepO1-sm {
+    0% {
+      bottom: 60px; }
+    100% {
+      bottom: 260px; } }
   @keyframes stepO1-sm {
     0% {
       bottom: 60px; }
     100% {
       bottom: 260px; } }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQr3-btn {
-        left: 75px;
-        bottom: 108px; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQr3-btn {
+          left: 75px;
+          bottom: 108px; }
+  @-webkit-keyframes stepO2-finger-sm {
+    0% {
+      right: -14px;
+      bottom: 100px; }
+    100% {
+      right: 60px;
+      bottom: 13px; } }
   @keyframes stepO2-finger-sm {
     0% {
       right: -14px;
@@ -1334,137 +1685,178 @@ a,
     100% {
       right: 60px;
       bottom: 13px; } }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img:nth-child(1) {
-        width: 190px;
-        position: absolute;
-        left: 45px;
-        top: 100px; }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img.finger2 {
-        width: 100px;
-        position: absolute;
-        right: -14px;
-        bottom: 105px;
-        animation: stepO2-finger-sm 0.8s 0.5s 1 normal;
-        animation-fill-mode: forwards;
-        z-index: 1; }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) {
-        text-align: center; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(1) {
-          padding: 130px 0 20px;
-          font-size: 28px; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(2) {
-          font-size: 22px; }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img {
-        margin: 50px auto; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img div {
-          animation: stepO3-scan 0.9s 0.5s 1 ease-in-out;
-          animation-fill-mode: forwards; }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 {
-        overflow: hidden; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) {
-          position: relative;
-          top: 0;
-          text-align: center;
-          width: 225px;
-          margin: 0 0 0 26px; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(1) {
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img:nth-child(1) {
+          width: 190px;
+          position: absolute;
+          left: 45px;
+          top: 100px; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img.finger2 {
+          width: 100px;
+          position: absolute;
+          right: -14px;
+          bottom: 105px;
+          -webkit-animation: stepO2-finger-sm 0.8s 0.5s 1 normal;
+          animation: stepO2-finger-sm 0.8s 0.5s 1 normal;
+          -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+          z-index: 1; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) {
+          text-align: center; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(1) {
             padding: 130px 0 20px;
             font-size: 28px; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(2) {
-            font-size: 22px;
-            padding: 0 20px;
-            line-height: 1.8rem; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) {
-          height: 150px; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) i.fa-check {
-            font-size: 80px;
-            top: 245px;
-            left: 100px;
-            animation: stepO4 1s 0 1 ease-in;
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(2) {
+            font-size: 22px; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img {
+          margin: 50px auto; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img div {
+            -webkit-animation: stepO3-scan 0.9s 0.5s 1 ease-in-out;
+            animation: stepO3-scan 0.9s 0.5s 1 ease-in-out;
+            -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) span {
-            font-size: 20px;
-            top: 342px;
-            left: 78px;
-            animation: stepO4 1s 0 1 ease-in;
-            animation-fill-mode: forwards; }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div {
-        width: 160px;
-        font-size: 16px;
-        top: 120px;
-        left: 50px;
-        text-align: left; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div img {
-          width: 80px;
-          height: 80px;
-          margin: 10px auto; }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr2 div {
-        width: 120px;
-        font-size: 16px;
-        bottom: 120px;
-        right: 50px; }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 {
-        position: relative; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box {
-          width: 170px;
-          height: 230px;
-          top: 120px;
-          left: 45px; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(1) {
-            font-size: 18px;
-            text-align: center; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(2) {
-            padding: 30px 25px 20px;
-            font-size: 20px; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input {
-            width: 100px;
-            border: 2px solid #76391b;
-            padding: 5px 8px;
-            border-radius: 10px;
-            margin: 0 24px; }
-            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input p {
-              width: 40px;
-              font-size: 16px;
-              animation: typing 1.2s steps(4), caret 0.3s steps(1) infinite; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 {
+          overflow: hidden; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) {
+            position: relative;
+            top: 0;
             text-align: center;
-            width: 100px;
-            margin: 32px auto 0;
-            padding: 6px 10px; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box img {
-            right: -34px;
-            bottom: -10px; }
-    .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn {
-      display: inline-block;
-      position: relative;
-      top: -50%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0; }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button {
-        max-width: 200px;
-        max-height: 200px;
-        width: 150px;
-        height: 150px;
-        margin: 0 auto;
-        position: absolute;
-        bottom: 320px; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button p {
-          font-size: 26px;
-          text-align: center;
-          position: relative;
-          top: 50%; }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnO {
-        right: 200px; }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnQr {
-        left: 200px; } }
+            width: 225px;
+            margin: 0 0 0 26px; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(1) {
+              padding: 130px 0 20px;
+              font-size: 28px; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(2) {
+              font-size: 22px;
+              padding: 0 20px;
+              line-height: 1.8rem; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) {
+            height: 150px; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) i.fa-check {
+              font-size: 80px;
+              top: 245px;
+              left: 100px;
+              -webkit-animation: stepO4 1s 0 1 ease-in;
+              animation: stepO4 1s 0 1 ease-in;
+              -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) span {
+              font-size: 20px;
+              top: 342px;
+              left: 78px;
+              -webkit-animation: stepO4 1s 0 1 ease-in;
+              animation: stepO4 1s 0 1 ease-in;
+              -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div {
+          width: 160px;
+          font-size: 16px;
+          top: 120px;
+          left: 50px;
+          text-align: left; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div img {
+            width: 80px;
+            height: 80px;
+            margin: 10px auto; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr2 div {
+          width: 120px;
+          font-size: 16px;
+          bottom: 120px;
+          right: 50px; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 {
+          position: relative; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box {
+            width: 170px;
+            height: 230px;
+            top: 120px;
+            left: 45px; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(1) {
+              font-size: 18px;
+              text-align: center; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(2) {
+              padding: 30px 25px 20px;
+              font-size: 20px; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input {
+              width: 100px;
+              border: 2px solid #76391b;
+              padding: 5px 8px;
+              border-radius: 10px;
+              margin: 0 24px; }
+              .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input p {
+                width: 40px;
+                font-size: 16px;
+                -webkit-animation: typing 1.2s steps(4), caret 0.3s steps(1) infinite;
+                animation: typing 1.2s steps(4), caret 0.3s steps(1) infinite; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
+              text-align: center;
+              width: 100px;
+              margin: 32px auto 0;
+              padding: 6px 10px; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box img {
+              right: -34px;
+              bottom: -10px; }
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn {
+        display: inline-block;
+        position: relative;
+        top: -50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        font-size: 0; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button {
+          max-width: 200px;
+          max-height: 200px;
+          width: 150px;
+          height: 150px;
+          margin: 0 auto;
+          position: absolute;
+          bottom: 320px; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button p {
+            font-size: 26px;
+            text-align: center;
+            position: relative;
+            top: 50%; }
+  @-webkit-keyframes btnPC1 {
+    0% {
+      right: 800px; }
+    100% {
+      right: 200px; } }
+  @keyframes btnPC1 {
+    0% {
+      right: 800px; }
+    100% {
+      right: 200px; } }
+  @-webkit-keyframes btnPC2 {
+    0% {
+      left: 800px; }
+    100% {
+      left: 200px; } }
+  @keyframes btnPC2 {
+    0% {
+      left: 800px; }
+    100% {
+      left: 200px; } }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnO {
+          right: 200px; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnQr {
+          left: 200px; } }
 
 @media screen and (min-width: 1200px) {
+  @-webkit-keyframes chickenLGPC1 {
+    0% {
+      left: -800px; }
+    100% {
+      left: -300px; } }
   @keyframes chickenLGPC1 {
     0% {
       left: -800px; }
     100% {
       left: -300px; } }
+  @-webkit-keyframes chickenLGPC2 {
+    0% {
+      right: -800px; }
+    100% {
+      right: -300px; } }
   @keyframes chickenLGPC2 {
     0% {
       right: -800px; }
@@ -1474,27 +1866,30 @@ a,
     position: absolute;
     top: 231px;
     left: -800px;
-    animation: chickenLGPC1 1s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenPCTop 0.2s ease 0.5s 4;
+    -webkit-animation: chickenLGPC1 1s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenPCTop 0.2s ease 0.8s 4;
+    animation: chickenLGPC1 1s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenPCTop 0.2s ease 0.8s 4;
+    -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards; }
   .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(2) {
     position: absolute;
     top: 231px;
     right: -800px;
+    -webkit-animation: chickenLGPC2 1s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.8s 1, chickenPCTop 0.2s ease 0.8s 4;
     animation: chickenLGPC2 1s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.8s 1, chickenPCTop 0.2s ease 0.8s 4;
+    -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards; }
   .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnO {
-    right: 260px;
-    animation: chickenLGPC1 1s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenTopLGPC1 0.2s ease 0.5s 4; }
+    right: 260px; }
   .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnQr {
     left: 260px; } }
 
 .indexGroupon {
   width: 100%;
-  padding: 30px 0; }
+  padding: 80px 0 0; }
   .indexGroupon::after {
     display: none; }
   .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-title {
-    padding: 20px 0;
+    padding: 0 0 20px;
     text-align: center; }
     .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-title img {
       height: 48px; }
@@ -1518,6 +1913,7 @@ a,
     margin: 20px auto;
     background-color: #f7f4e7;
     border-radius: 20px;
+    -webkit-box-shadow: 5px 3px 10px rgba(49, 49, 49, 0.3);
     box-shadow: 5px 3px 10px rgba(49, 49, 49, 0.3);
     position: relative; }
     .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle {
@@ -1561,6 +1957,8 @@ a,
       width: 80%;
       margin: 25px 50% 10px;
       padding: 10px 0px;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
       transform: translateX(-50%);
       text-align: center;
       background-color: #fcf2ca;
@@ -1601,47 +1999,15 @@ a,
         position: absolute;
         bottom: 0;
         right: 0;
-        color: #000; }
-
-@keyframes countBar1 {
-  0% {
-    width: 0; }
-  100% {
-    width: 87px; } }
-
-@keyframes countBar2 {
-  0% {
-    width: 0; }
-  100% {
-    width: 50px; } }
-
-@keyframes countBar3 {
-  0% {
-    width: 0; }
-  100% {
-    width: 35px; } }
-
-@keyframes countBar4 {
-  0% {
-    width: 0; }
-  100% {
-    width: 95px; } }
+        color: #333; }
   .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part1 .indexGroupon-sum .indexGroupon-count p {
-    width: 0;
-    animation: countBar1 1s linear 5s 1;
-    animation-fill-mode: forwards; }
+    width: 87px; }
   .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part2 .indexGroupon-sum .indexGroupon-count p {
-    width: 0;
-    animation: countBar2 1s linear 5.2s 1;
-    animation-fill-mode: forwards; }
+    width: 50px; }
   .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part3 .indexGroupon-sum .indexGroupon-count p {
-    width: 0;
-    animation: countBar3 1s linear 5.4s 1;
-    animation-fill-mode: forwards; }
+    width: 35px; }
   .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part4 .indexGroupon-sum .indexGroupon-count p {
-    width: 0;
-    animation: countBar4 1s linear 5.6s 1;
-    animation-fill-mode: forwards; }
+    width: 95px; }
 
 .indexGroupon-desc {
   display: none; }
@@ -1650,10 +2016,11 @@ a,
   .indexGroupon-mobile {
     display: none; }
   .indexGroupon-desc {
+    padding: 100px 0 0;
     display: grid;
     place-content: center; }
     .indexGroupon-desc .wrap .indexGroupon-wrap .indexGroupon-stage {
-      padding: 150px 0 0;
+      padding: 50px 0 0;
       background-image: url(../images/index_grouponBento.svg);
       background-repeat: no-repeat;
       background-position: bottom;
@@ -1665,6 +2032,8 @@ a,
         left: 0;
         z-index: 1; }
       .indexGroupon-desc .wrap .indexGroupon-wrap .indexGroupon-stage .indexGroupon-box {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         position: relative;
         top: 0;
@@ -1674,18 +2043,21 @@ a,
         position: relative; }
         .indexGroupon-desc .wrap .indexGroupon-wrap .indexGroupon-stage .indexGroupon-box .indexGroupon-part {
           margin: 0px 20px;
-          top: -47px;
+          top: -45px;
+          -webkit-box-shadow: 0px 0px 20px rgba(49, 49, 49, 0.3);
           box-shadow: 0px 0px 20px rgba(49, 49, 49, 0.3); }
           .indexGroupon-desc .wrap .indexGroupon-wrap .indexGroupon-stage .indexGroupon-box .indexGroupon-part:hover {
             top: -168px;
+            -webkit-transition: top 1s cubic-bezier(0.32, 0.95, 0.75, -1.05);
+            -o-transition: top 1s cubic-bezier(0.32, 0.95, 0.75, -1.05);
             transition: top 1s cubic-bezier(0.32, 0.95, 0.75, -1.05); } }
 
 .indexMeal-mobile {
   width: 100%;
-  padding: 0px 0 30px;
+  padding: 80px 0 0;
   position: relative; }
   .indexMeal-mobile .wrap .indexMeal-title {
-    padding: 20px 0;
+    padding: 0 0 20px;
     text-align: center; }
     .indexMeal-mobile .wrap .indexMeal-title img {
       height: 48px; }
@@ -1716,12 +2088,16 @@ a,
             position: absolute;
             top: 120px;
             left: 50%;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
             transform: translateX(-50%); }
           .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top .indexMeal-meal {
             width: 185px;
             position: absolute;
             top: 120px;
             left: 50%;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
             transform: translateX(-50%); }
         .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum {
           width: 280px;
@@ -1747,17 +2123,20 @@ a,
               width: 15px; }
           .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn a, .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
             display: inline-block;
-            padding: 5px 10px;
+            padding: 7px 10px;
             background-color: #fce444;
             border-radius: 1000px;
-            color: #000;
+            color: #333;
             font-size: 16px;
+            -webkit-box-shadow: 0 4px 0 #bb7232;
             box-shadow: 0 4px 0 #bb7232; }
           .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
+            padding: 4.5px 10px;
             border: 0; }
-      .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .top2,
-      .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .top3 {
+      .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .top2 {
         top: 0; }
+      .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .top3 {
+        top: -2.8px; }
 
 .indexMeal-desc {
   display: none; }
@@ -1766,10 +2145,17 @@ a,
   .indexMeal-mobile {
     display: none; }
   .indexMeal-desc {
+    padding: 100px 0 0;
     width: 100%;
     max-width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     position: relative; }
     .indexMeal-desc::after {
@@ -1782,7 +2168,7 @@ a,
       left: 0;
       width: 100%; }
     .indexMeal-desc .wrap .indexMeal-title {
-      padding: 20px 0;
+      padding: 0 0 20px;
       text-align: center; }
       .indexMeal-desc .wrap .indexMeal-title img {
         height: 48px; }
@@ -1791,16 +2177,35 @@ a,
       position: absolute;
       left: 50%;
       top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
       pointer-events: none; }
-  @keyframes confettiRotate {
+  @-webkit-keyframes confettiRotate {
     0% {
+      -webkit-transform: rotate(0deg);
       transform: rotate(0deg); }
     25% {
+      -webkit-transform: rotate(15deg);
       transform: rotate(15deg); }
     75% {
+      -webkit-transform: rotate(-15deg);
       transform: rotate(-15deg); }
     100% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg); } }
+  @keyframes confettiRotate {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg); }
+    25% {
+      -webkit-transform: rotate(15deg);
+      transform: rotate(15deg); }
+    75% {
+      -webkit-transform: rotate(-15deg);
+      transform: rotate(-15deg); }
+    100% {
+      -webkit-transform: rotate(0deg);
       transform: rotate(0deg); } }
     .indexMeal-desc .wrap .indexMeal-confetti {
       width: 100px;
@@ -1809,24 +2214,44 @@ a,
       position: relative;
       left: 45%;
       cursor: pointer;
+      -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
       transform: rotate(0deg);
+      -webkit-transform-origin: top;
+      -ms-transform-origin: top;
       transform-origin: top;
-      animation: confettiRotate linear 3s 3; }
-  @keyframes confettiAfter {
+      -webkit-animation: confettiRotate linear 3s infinite;
+      animation: confettiRotate linear 3s infinite; }
+  @-webkit-keyframes confettiAfter {
     0% {
+      -webkit-box-shadow: 0 0 40px rgba(252, 210, 0, 0.918);
       box-shadow: 0 0 40px rgba(252, 210, 0, 0.918); }
     50% {
+      -webkit-box-shadow: 0 0 100px #fdfcf8;
       box-shadow: 0 0 100px #fdfcf8; }
     100% {
+      -webkit-box-shadow: 0 0 40px rgba(252, 210, 0, 0.918);
+      box-shadow: 0 0 40px rgba(252, 210, 0, 0.918); } }
+  @keyframes confettiAfter {
+    0% {
+      -webkit-box-shadow: 0 0 40px rgba(252, 210, 0, 0.918);
+      box-shadow: 0 0 40px rgba(252, 210, 0, 0.918); }
+    50% {
+      -webkit-box-shadow: 0 0 100px #fdfcf8;
+      box-shadow: 0 0 100px #fdfcf8; }
+    100% {
+      -webkit-box-shadow: 0 0 40px rgba(252, 210, 0, 0.918);
       box-shadow: 0 0 40px rgba(252, 210, 0, 0.918); } }
       .indexMeal-desc .wrap .indexMeal-confetti .indexMeal-confetti-after {
         width: 75px;
         height: 75px;
         border-radius: 50%;
+        -webkit-box-shadow: 0 0 40px rgba(252, 210, 0, 0.918);
         box-shadow: 0 0 40px rgba(252, 210, 0, 0.918);
         position: absolute;
         top: 52px;
         left: 17px;
+        -webkit-animation: confettiAfter linear 1s infinite;
         animation: confettiAfter linear 1s infinite; }
       .indexMeal-desc .wrap .indexMeal-confetti .indexMeal-confetti-rope {
         position: absolute;
@@ -1839,43 +2264,95 @@ a,
         position: absolute;
         top: 50px;
         left: 4px; }
-  @keyframes openL {
+  @-webkit-keyframes openL {
     0% {
+      -webkit-transform: rotate(0deg);
       transform: rotate(0deg); }
     20% {
+      -webkit-transform: rotate(30deg);
       transform: rotate(30deg); }
     70% {
+      -webkit-transform: rotate(5deg);
       transform: rotate(5deg); }
     90% {
+      -webkit-transform: rotate(2deg);
       transform: rotate(2deg); }
     100% {
+      -webkit-transform: rotate(-8deg);
+      transform: rotate(-8deg); } }
+  @keyframes openL {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg); }
+    20% {
+      -webkit-transform: rotate(30deg);
+      transform: rotate(30deg); }
+    70% {
+      -webkit-transform: rotate(5deg);
+      transform: rotate(5deg); }
+    90% {
+      -webkit-transform: rotate(2deg);
+      transform: rotate(2deg); }
+    100% {
+      -webkit-transform: rotate(-8deg);
       transform: rotate(-8deg); } }
         .indexMeal-desc .wrap .indexMeal-confetti .indexMeal-confetti-left .indexMeal-confetti-hoverL {
+          -webkit-animation: openL 3s 0s linear;
           animation: openL 3s 0s linear;
+          -webkit-transform-origin: right top;
+          -ms-transform-origin: right top;
           transform-origin: right top; }
         .indexMeal-desc .wrap .indexMeal-confetti .indexMeal-confetti-left img {
           width: 50px;
+          -webkit-transform-origin: right top;
+          -ms-transform-origin: right top;
           transform-origin: right top; }
       .indexMeal-desc .wrap .indexMeal-confetti .indexMeal-confetti-right {
         position: absolute;
         top: 50px;
         left: 54px; }
-  @keyframes openR {
+  @-webkit-keyframes openR {
     0% {
+      -webkit-transform: rotate(0deg);
       transform: rotate(0deg); }
     20% {
+      -webkit-transform: rotate(-30deg);
       transform: rotate(-30deg); }
     70% {
+      -webkit-transform: rotate(-5deg);
       transform: rotate(-5deg); }
     90% {
+      -webkit-transform: rotate(-2deg);
       transform: rotate(-2deg); }
     100% {
+      -webkit-transform: rotate(15deg);
+      transform: rotate(15deg); } }
+  @keyframes openR {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg); }
+    20% {
+      -webkit-transform: rotate(-30deg);
+      transform: rotate(-30deg); }
+    70% {
+      -webkit-transform: rotate(-5deg);
+      transform: rotate(-5deg); }
+    90% {
+      -webkit-transform: rotate(-2deg);
+      transform: rotate(-2deg); }
+    100% {
+      -webkit-transform: rotate(15deg);
       transform: rotate(15deg); } }
         .indexMeal-desc .wrap .indexMeal-confetti .indexMeal-confetti-right .indexMeal-confetti-hoverR {
+          -webkit-animation: openR 3s 0s linear;
           animation: openR 3s 0s linear;
+          -webkit-transform-origin: left top;
+          -ms-transform-origin: left top;
           transform-origin: left top; }
         .indexMeal-desc .wrap .indexMeal-confetti .indexMeal-confetti-right img {
           width: 50px;
+          -webkit-transform-origin: left top;
+          -ms-transform-origin: left top;
           transform-origin: left top; }
     .indexMeal-desc .wrap .indexMeal-slider {
       width: 100%;
@@ -1883,6 +2360,8 @@ a,
       margin: auto; }
       .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box {
         position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         overflow: hidden; }
         .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part {
@@ -1903,12 +2382,16 @@ a,
               position: absolute;
               top: 120px;
               left: 50%;
+              -webkit-transform: translateX(-50%);
+              -ms-transform: translateX(-50%);
               transform: translateX(-50%); }
             .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-top .indexMeal-meal {
               width: 185px;
               position: absolute;
               top: 120px;
               left: 50%;
+              -webkit-transform: translateX(-50%);
+              -ms-transform: translateX(-50%);
               transform: translateX(-50%); }
           .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum {
             width: 280px;
@@ -1937,16 +2420,18 @@ a,
               padding: 5px 10px;
               background-color: #fce444;
               border-radius: 1000px;
-              color: #000;
+              color: #333;
               font-size: 16px;
+              -webkit-box-shadow: 0 4px 0 #bb7232;
               box-shadow: 0 4px 0 #bb7232; }
             .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
               display: inline-block;
               padding: 5px 10px;
               background-color: #fce444;
               border-radius: 1000px;
-              color: #000;
+              color: #333;
               font-size: 16px;
+              -webkit-box-shadow: 0 4px 0 #bb7232;
               box-shadow: 0 4px 0 #bb7232;
               border: 0; }
         .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 {
@@ -1964,65 +2449,41 @@ a,
         .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top2 {
           position: relative;
           top: 163px;
+          -webkit-box-ordinal-group: 0;
+          -ms-flex-order: -1;
           order: -1; }
         .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top3 {
           position: relative;
           top: 163px; } }
 
-.indexLogin .wrap .indexLogin-wrap .indexLogin-title {
-  padding: 20px 0;
-  text-align: center; }
-  .indexLogin .wrap .indexLogin-wrap .indexLogin-title img {
-    height: 48px; }
-
-.indexLogin .wrap .indexLogin-wrap .indexLogin-sum {
-  box-sizing: border-box; }
-  .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-scratch {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-    cursor: url("../images/index_coinCursor.png"), default; }
-    .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-scratch .indexLogin-canvas {
-      position: absolute;
-      top: 0;
-      cursor: url("../images/index_coinCursor.png"), default; }
-    .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-scratch .indexLogin-scratch-wrap {
-      width: 100%;
-      max-width: 450px;
-      height: 100%;
-      max-height: 450px;
-      background: url("../images/index_scratch_bg.svg") no-repeat center center;
-      background-size: auto 100%;
-      backface-visibility: hidden;
-      overflow: hidden;
-      z-index: -3; }
-
-.indexLogin .wrap .indexLogin-wrap .indexLogin-btn {
-  text-align: center;
-  margin: -20px 0 0; }
-
-@media screen and (min-width: 768px) {
+.indexLogin {
+  padding: 80px 0; }
+  .indexLogin .wrap .indexLogin-wrap .indexLogin-title {
+    padding: 0 0 20px;
+    text-align: center; }
+    .indexLogin .wrap .indexLogin-wrap .indexLogin-title img {
+      height: 48px; }
   .indexLogin .wrap .indexLogin-wrap .indexLogin-sum {
     height: 500px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-pack: distribute;
     justify-content: space-around;
     position: relative; }
     .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main {
       margin: auto;
       position: relative;
-      top: 15px;
-      left: 9%;
-      height: 400px; }
+      top: 0;
+      left: 0%;
+      height: 350px; }
       .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info {
-        position: relative;
-        bottom: 85px;
-        left: -50px;
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
         display: inline-block;
         z-index: 1; }
         .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info .indexLogin-balloon {
@@ -2030,7 +2491,7 @@ a,
           line-height: 1.6rem;
           letter-spacing: 0.5px;
           position: absolute;
-          top: -120px;
+          top: -110px;
           left: -35px; }
           .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info .indexLogin-balloon p {
             text-align: center;
@@ -2038,8 +2499,10 @@ a,
             color: #fff;
             background-color: #bb7232;
             border-radius: 50px;
+            -webkit-box-shadow: inset -5px -4px 0 #76391b;
             box-shadow: inset -5px -4px 0 #76391b;
             position: relative;
+            -webkit-animation: flow 1.8s ease 0s infinite normal;
             animation: flow 1.8s ease 0s infinite normal; }
             .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info .indexLogin-balloon p:after {
               content: "";
@@ -2051,15 +2514,23 @@ a,
               position: absolute;
               bottom: -10px;
               left: 50%;
+              -webkit-transform: translateX(-50%);
+              -ms-transform: translateX(-50%);
               transform: translateX(-50%); }
         .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info img {
           width: 180px; }
       .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan {
         display: inline-block;
         position: relative;
-        width: 400px;
+        width: 350px;
         border-radius: 100%;
-        animation: shakin 6s linear infinite; }
+        -webkit-animation: shakin 6s linear infinite;
+        animation: shakin 6s linear infinite;
+        top: 220px;
+        left: 2%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%); }
         .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan:after {
           content: "";
           display: block;
@@ -2074,6 +2545,7 @@ a,
           background-color: #080808;
           border-radius: 100%;
           z-index: 2;
+          -webkit-box-shadow: inset #080808 2px 4px 2px 2px, inset rgba(255, 255, 255, 0.2) 2px 8px 5px 4px, rgba(240, 234, 214, 0.8) 4px 4px 5px 4px, rgba(0, 0, 0, 0.4) 2px 4px 5px 2px;
           box-shadow: inset #080808 2px 4px 2px 2px, inset rgba(255, 255, 255, 0.2) 2px 8px 5px 4px, rgba(240, 234, 214, 0.8) 4px 4px 5px 4px, rgba(0, 0, 0, 0.4) 2px 4px 5px 2px; }
         .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan .indexLogin-inner {
           position: absolute;
@@ -2087,17 +2559,53 @@ a,
           background-color: #222222;
           border-radius: 100%;
           z-index: 3;
+          -webkit-box-shadow: inset #222222 0 2px 4px 6px, inset rgba(255, 255, 255, 0.1) 4px 6px 34px 4px, #080808 0 0 0 10px, rgba(255, 255, 255, 0.14) -4px -2px 4px 8px, rgba(255, 255, 255, 0.14) 4px 2px 4px 8px;
           box-shadow: inset #222222 0 2px 4px 6px, inset rgba(255, 255, 255, 0.1) 4px 6px 34px 4px, #080808 0 0 0 10px, rgba(255, 255, 255, 0.14) -4px -2px 4px 8px, rgba(255, 255, 255, 0.14) 4px 2px 4px 8px; }
+      .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-scratch {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        top: 250px;
+        left: 34px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+        cursor: url("../images/index_coinCursor.png"), default;
+        -webkit-animation: sizzlin 1.6s linear alternate infinite;
+        animation: sizzlin 1.6s linear alternate infinite; }
+        .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-scratch .indexLogin-canvas {
+          width: 300px;
+          height: 300px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          cursor: url("../images/index_coinCursor.png"), default; }
+        .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-scratch .indexLogin-scratch-wrap {
+          width: 100%;
+          max-width: 450px;
+          height: 100%;
+          max-height: 450px;
+          background: url("../images/index_scratch_bg.svg") no-repeat center center;
+          background-size: auto 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          overflow: hidden;
+          z-index: -3; }
       .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan .indexLogin-handle {
         position: absolute;
-        top: 48%;
-        left: -40%;
+        top: -25%;
+        left: 7%;
         width: 15%;
-        height: 50%;
+        height: 28%;
         background-color: #080808;
-        transform: rotate(-100deg);
+        -webkit-transform: rotate(-32deg);
+        -ms-transform: rotate(-32deg);
+        transform: rotate(-32deg);
         z-index: 1;
         border-radius: 30%;
+        -webkit-box-shadow: inset #080808 2px 2px 4px 2px, inset rgba(255, 255, 255, 0.2) 3px -8px 8px 10px;
         box-shadow: inset #080808 2px 2px 4px 2px, inset rgba(255, 255, 255, 0.2) 3px -8px 8px 10px; }
         .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan .indexLogin-handle:before {
           content: "";
@@ -2107,13 +2615,360 @@ a,
           width: 100%;
           height: 50%;
           background-color: #cdcdcd;
+          -webkit-box-shadow: inset #cdcdcd 2px 2px 2px 8px, inset rgba(255, 255, 255, 0.2) 4px -4px 6px 12px;
           box-shadow: inset #cdcdcd 2px 2px 2px 8px, inset rgba(255, 255, 255, 0.2) 4px -4px 6px 12px; }
       .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan {
         cursor: pointer;
         -webkit-user-select: none;
         -webkit-touch-callout: none; }
         .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan:active {
+          -webkit-animation: push 0.6s ease-out;
           animation: push 0.6s ease-out; }
+
+@-webkit-keyframes flow {
+  0% {
+    bottom: 10px; }
+  50% {
+    bottom: 30px; }
+  100% {
+    bottom: 10px; } }
+
+@keyframes flow {
+  0% {
+    bottom: 10px; }
+  50% {
+    bottom: 30px; }
+  100% {
+    bottom: 10px; } }
+
+@-webkit-keyframes sizzlin {
+  0% {
+    -webkit-transform: rotate(0) scale(0.98);
+    transform: rotate(0) scale(0.98); }
+  10% {
+    -webkit-transform: rotate(0) scale(1.01);
+    transform: rotate(0) scale(1.01); }
+  20% {
+    -webkit-transform: rotate(2deg) scale(0.997);
+    transform: rotate(2deg) scale(0.997); }
+  25% {
+    -webkit-transform: rotate(2deg) scale(0.998);
+    transform: rotate(2deg) scale(0.998); }
+  30% {
+    -webkit-transform: rotate(2deg) scale(1.01);
+    transform: rotate(2deg) scale(1.01); }
+  40% {
+    -webkit-transform: rotate(-2deg) scale(0.995);
+    transform: rotate(-2deg) scale(0.995); }
+  50% {
+    -webkit-transform: rotate(-2deg) scale(1);
+    transform: rotate(-2deg) scale(1); }
+  60% {
+    -webkit-transform: rotate(-3deg) scale(0.996);
+    transform: rotate(-3deg) scale(0.996); }
+  80% {
+    -webkit-transform: rotate(1deg) scale(1);
+    transform: rotate(1deg) scale(1); }
+  90% {
+    -webkit-transform: rotate(1deg) scale(0.997);
+    transform: rotate(1deg) scale(0.997); }
+  100% {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1); } }
+
+@keyframes sizzlin {
+  0% {
+    -webkit-transform: rotate(0) scale(0.98);
+    transform: rotate(0) scale(0.98); }
+  10% {
+    -webkit-transform: rotate(0) scale(1.01);
+    transform: rotate(0) scale(1.01); }
+  20% {
+    -webkit-transform: rotate(2deg) scale(0.997);
+    transform: rotate(2deg) scale(0.997); }
+  25% {
+    -webkit-transform: rotate(2deg) scale(0.998);
+    transform: rotate(2deg) scale(0.998); }
+  30% {
+    -webkit-transform: rotate(2deg) scale(1.01);
+    transform: rotate(2deg) scale(1.01); }
+  40% {
+    -webkit-transform: rotate(-2deg) scale(0.995);
+    transform: rotate(-2deg) scale(0.995); }
+  50% {
+    -webkit-transform: rotate(-2deg) scale(1);
+    transform: rotate(-2deg) scale(1); }
+  60% {
+    -webkit-transform: rotate(-3deg) scale(0.996);
+    transform: rotate(-3deg) scale(0.996); }
+  80% {
+    -webkit-transform: rotate(1deg) scale(1);
+    transform: rotate(1deg) scale(1); }
+  90% {
+    -webkit-transform: rotate(1deg) scale(0.997);
+    transform: rotate(1deg) scale(0.997); }
+  100% {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1); } }
+
+@-webkit-keyframes shakin {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); }
+  2% {
+    -webkit-transform: translate(-12px, 12px);
+    transform: translate(-12px, 12px); }
+  4% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); }
+  6% {
+    -webkit-transform: translate(-6px, 6px);
+    transform: translate(-6px, 6px); }
+  8% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); } }
+
+@keyframes shakin {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); }
+  2% {
+    -webkit-transform: translate(-12px, 12px);
+    transform: translate(-12px, 12px); }
+  4% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); }
+  6% {
+    -webkit-transform: translate(-6px, 6px);
+    transform: translate(-6px, 6px); }
+  8% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); } }
+
+@-webkit-keyframes push {
+  0% {
+    -webkit-transform: scale(1) translateZ(0);
+    transform: scale(1) translateZ(0); }
+  25% {
+    -webkit-transform: scale(0.9) translateZ(0);
+    transform: scale(0.9) translateZ(0); }
+  50% {
+    -webkit-transform: scale(1.04) translateZ(0);
+    transform: scale(1.04) translateZ(0); }
+  100% {
+    -webkit-transform: scale(1) translateZ(0);
+    transform: scale(1) translateZ(0); } }
+
+@keyframes push {
+  0% {
+    -webkit-transform: scale(1) translateZ(0);
+    transform: scale(1) translateZ(0); }
+  25% {
+    -webkit-transform: scale(0.9) translateZ(0);
+    transform: scale(0.9) translateZ(0); }
+  50% {
+    -webkit-transform: scale(1.04) translateZ(0);
+    transform: scale(1.04) translateZ(0); }
+  100% {
+    -webkit-transform: scale(1) translateZ(0);
+    transform: scale(1) translateZ(0); } }
+
+@-webkit-keyframes pop {
+  0% {
+    -webkit-transform: rotate(0) scale(1) translateZ(0);
+    transform: rotate(0) scale(1) translateZ(0); }
+  50% {
+    -webkit-transform: rotate(20deg) scale(1.4) translateZ(0);
+    transform: rotate(20deg) scale(1.4) translateZ(0); }
+  80% {
+    -webkit-transform: rotate(0) scale(0.8) translateZ(0);
+    transform: rotate(0) scale(0.8) translateZ(0); }
+  100% {
+    -webkit-transform: rotate(0) scale(1) translateZ(0);
+    transform: rotate(0) scale(1) translateZ(0); } }
+
+@keyframes pop {
+  0% {
+    -webkit-transform: rotate(0) scale(1) translateZ(0);
+    transform: rotate(0) scale(1) translateZ(0); }
+  50% {
+    -webkit-transform: rotate(20deg) scale(1.4) translateZ(0);
+    transform: rotate(20deg) scale(1.4) translateZ(0); }
+  80% {
+    -webkit-transform: rotate(0) scale(0.8) translateZ(0);
+    transform: rotate(0) scale(0.8) translateZ(0); }
+  100% {
+    -webkit-transform: rotate(0) scale(1) translateZ(0);
+    transform: rotate(0) scale(1) translateZ(0); } }
+  .indexLogin .wrap .indexLogin-wrap .indexLogin-btn {
+    width: 110px;
+    height: 47px;
+    margin: 180px auto 0px;
+    cursor: pointer;
+    text-align: center; }
+
+@media screen and (min-width: 768px) {
+  .indexLogin {
+    padding: 100px 0; }
+    .indexLogin .wrap .indexLogin-wrap .indexLogin-sum {
+      height: 500px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      position: relative; }
+      .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main {
+        margin: auto;
+        position: relative;
+        top: 15px;
+        left: 9%;
+        height: 400px; }
+        .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info {
+          position: absolute;
+          top: 98px;
+          left: -200px;
+          display: inline-block;
+          z-index: 1;
+          -webkit-transform: translateX(0%);
+          -ms-transform: translateX(0%);
+          transform: translateX(0%); }
+          .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info .indexLogin-balloon {
+            width: 250px;
+            line-height: 1.6rem;
+            letter-spacing: 0.5px;
+            position: absolute;
+            top: -120px;
+            left: -35px; }
+            .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info .indexLogin-balloon p {
+              text-align: center;
+              padding: 20px;
+              color: #fff;
+              background-color: #bb7232;
+              border-radius: 50px;
+              -webkit-box-shadow: inset -5px -4px 0 #76391b;
+              box-shadow: inset -5px -4px 0 #76391b;
+              position: relative;
+              -webkit-animation: flow 1.8s ease 0s infinite normal;
+              animation: flow 1.8s ease 0s infinite normal; }
+              .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info .indexLogin-balloon p:after {
+                content: "";
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 10px 12px 0 12px;
+                border-color: #76391b transparent transparent transparent;
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                -webkit-transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+                transform: translateX(-50%); }
+          .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info img {
+            width: 180px; }
+        .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan {
+          display: inline-block;
+          position: relative;
+          width: 400px;
+          border-radius: 100%;
+          -webkit-animation: shakin 6s linear infinite;
+          animation: shakin 6s linear infinite;
+          top: 0;
+          left: 0; }
+          .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan:after {
+            content: "";
+            display: block;
+            padding-bottom: 100%; }
+          .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan .indexLogin-outer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            background-color: #080808;
+            border-radius: 100%;
+            z-index: 2;
+            -webkit-box-shadow: inset #080808 2px 4px 2px 2px, inset rgba(255, 255, 255, 0.2) 2px 8px 5px 4px, rgba(240, 234, 214, 0.8) 4px 4px 5px 4px, rgba(0, 0, 0, 0.4) 2px 4px 5px 2px;
+            box-shadow: inset #080808 2px 4px 2px 2px, inset rgba(255, 255, 255, 0.2) 2px 8px 5px 4px, rgba(240, 234, 214, 0.8) 4px 4px 5px 4px, rgba(0, 0, 0, 0.4) 2px 4px 5px 2px; }
+          .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan .indexLogin-inner {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            width: 80%;
+            height: 80%;
+            background-color: #222222;
+            border-radius: 100%;
+            z-index: 3;
+            -webkit-box-shadow: inset #222222 0 2px 4px 6px, inset rgba(255, 255, 255, 0.1) 4px 6px 34px 4px, #080808 0 0 0 10px, rgba(255, 255, 255, 0.14) -4px -2px 4px 8px, rgba(255, 255, 255, 0.14) 4px 2px 4px 8px;
+            box-shadow: inset #222222 0 2px 4px 6px, inset rgba(255, 255, 255, 0.1) 4px 6px 34px 4px, #080808 0 0 0 10px, rgba(255, 255, 255, 0.14) -4px -2px 4px 8px, rgba(255, 255, 255, 0.14) 4px 2px 4px 8px; }
+        .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-scratch {
+          position: absolute;
+          top: 50px;
+          left: 40px;
+          -webkit-animation: sizzlin 1.6s linear alternate infinite;
+          animation: sizzlin 1.6s linear alternate infinite; }
+          .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-scratch .indexLogin-canvas {
+            position: absolute;
+            top: 0;
+            cursor: url("../images/index_coinCursor.png"), default; }
+          .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-scratch .indexLogin-scratch-wrap {
+            width: 100%;
+            max-width: 450px;
+            height: 100%;
+            max-height: 450px;
+            background: url("../images/index_scratch_bg.svg") no-repeat center center;
+            background-size: auto 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            overflow: hidden; }
+        .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan .indexLogin-handle {
+          position: absolute;
+          top: 48%;
+          left: -40%;
+          width: 15%;
+          height: 50%;
+          background-color: #080808;
+          -webkit-transform: rotate(-100deg);
+          -ms-transform: rotate(-100deg);
+          transform: rotate(-100deg);
+          z-index: 1;
+          border-radius: 30%;
+          -webkit-box-shadow: inset #080808 2px 2px 4px 2px, inset rgba(255, 255, 255, 0.2) 3px -8px 8px 10px;
+          box-shadow: inset #080808 2px 2px 4px 2px, inset rgba(255, 255, 255, 0.2) 3px -8px 8px 10px; }
+          .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan .indexLogin-handle:before {
+            content: "";
+            position: absolute;
+            bottom: -30%;
+            right: 0;
+            width: 100%;
+            height: 50%;
+            background-color: #cdcdcd;
+            -webkit-box-shadow: inset #cdcdcd 2px 2px 2px 8px, inset rgba(255, 255, 255, 0.2) 4px -4px 6px 12px;
+            box-shadow: inset #cdcdcd 2px 2px 2px 8px, inset rgba(255, 255, 255, 0.2) 4px -4px 6px 12px; }
+        .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan {
+          cursor: pointer;
+          -webkit-user-select: none;
+          -webkit-touch-callout: none; }
+          .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan:active {
+            -webkit-animation: push 0.6s ease-out;
+            animation: push 0.6s ease-out; }
+  @-webkit-keyframes flow {
+    0% {
+      bottom: 10px; }
+    50% {
+      bottom: 30px; }
+    100% {
+      bottom: 10px; } }
   @keyframes flow {
     0% {
       bottom: 10px; }
@@ -2121,80 +2976,164 @@ a,
       bottom: 30px; }
     100% {
       bottom: 10px; } }
-  @keyframes sizzlin {
+  @-webkit-keyframes sizzlin {
     0% {
+      -webkit-transform: rotate(0) scale(0.98);
       transform: rotate(0) scale(0.98); }
     10% {
+      -webkit-transform: rotate(0) scale(1.01);
       transform: rotate(0) scale(1.01); }
     20% {
+      -webkit-transform: rotate(2deg) scale(0.997);
       transform: rotate(2deg) scale(0.997); }
     25% {
+      -webkit-transform: rotate(2deg) scale(0.998);
       transform: rotate(2deg) scale(0.998); }
     30% {
+      -webkit-transform: rotate(2deg) scale(1.01);
       transform: rotate(2deg) scale(1.01); }
     40% {
+      -webkit-transform: rotate(-2deg) scale(0.995);
       transform: rotate(-2deg) scale(0.995); }
     50% {
+      -webkit-transform: rotate(-2deg) scale(1);
       transform: rotate(-2deg) scale(1); }
     60% {
+      -webkit-transform: rotate(-3deg) scale(0.996);
       transform: rotate(-3deg) scale(0.996); }
     80% {
+      -webkit-transform: rotate(1deg) scale(1);
       transform: rotate(1deg) scale(1); }
     90% {
+      -webkit-transform: rotate(1deg) scale(0.997);
       transform: rotate(1deg) scale(0.997); }
     100% {
+      -webkit-transform: rotate(0deg) scale(1);
       transform: rotate(0deg) scale(1); } }
-  @keyframes shakin {
+  @keyframes sizzlin {
     0% {
+      -webkit-transform: rotate(0) scale(0.98);
+      transform: rotate(0) scale(0.98); }
+    10% {
+      -webkit-transform: rotate(0) scale(1.01);
+      transform: rotate(0) scale(1.01); }
+    20% {
+      -webkit-transform: rotate(2deg) scale(0.997);
+      transform: rotate(2deg) scale(0.997); }
+    25% {
+      -webkit-transform: rotate(2deg) scale(0.998);
+      transform: rotate(2deg) scale(0.998); }
+    30% {
+      -webkit-transform: rotate(2deg) scale(1.01);
+      transform: rotate(2deg) scale(1.01); }
+    40% {
+      -webkit-transform: rotate(-2deg) scale(0.995);
+      transform: rotate(-2deg) scale(0.995); }
+    50% {
+      -webkit-transform: rotate(-2deg) scale(1);
+      transform: rotate(-2deg) scale(1); }
+    60% {
+      -webkit-transform: rotate(-3deg) scale(0.996);
+      transform: rotate(-3deg) scale(0.996); }
+    80% {
+      -webkit-transform: rotate(1deg) scale(1);
+      transform: rotate(1deg) scale(1); }
+    90% {
+      -webkit-transform: rotate(1deg) scale(0.997);
+      transform: rotate(1deg) scale(0.997); }
+    100% {
+      -webkit-transform: rotate(0deg) scale(1);
+      transform: rotate(0deg) scale(1); } }
+  @-webkit-keyframes shakin {
+    0% {
+      -webkit-transform: translate(0, 0);
       transform: translate(0, 0); }
     2% {
+      -webkit-transform: translate(-12px, 12px);
       transform: translate(-12px, 12px); }
     4% {
+      -webkit-transform: translate(0, 0);
       transform: translate(0, 0); }
     6% {
+      -webkit-transform: translate(-6px, 6px);
       transform: translate(-6px, 6px); }
     8% {
+      -webkit-transform: translate(0, 0);
       transform: translate(0, 0); }
     100% {
+      -webkit-transform: translate(0, 0);
       transform: translate(0, 0); } }
-  @keyframes push {
+  @keyframes shakin {
     0% {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0); }
+    2% {
+      -webkit-transform: translate(-12px, 12px);
+      transform: translate(-12px, 12px); }
+    4% {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0); }
+    6% {
+      -webkit-transform: translate(-6px, 6px);
+      transform: translate(-6px, 6px); }
+    8% {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0); }
+    100% {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0); } }
+  @-webkit-keyframes push {
+    0% {
+      -webkit-transform: scale(1) translateZ(0);
       transform: scale(1) translateZ(0); }
     25% {
+      -webkit-transform: scale(0.9) translateZ(0);
       transform: scale(0.9) translateZ(0); }
     50% {
+      -webkit-transform: scale(1.04) translateZ(0);
       transform: scale(1.04) translateZ(0); }
     100% {
+      -webkit-transform: scale(1) translateZ(0);
       transform: scale(1) translateZ(0); } }
-  @keyframes pop {
+  @keyframes push {
     0% {
+      -webkit-transform: scale(1) translateZ(0);
+      transform: scale(1) translateZ(0); }
+    25% {
+      -webkit-transform: scale(0.9) translateZ(0);
+      transform: scale(0.9) translateZ(0); }
+    50% {
+      -webkit-transform: scale(1.04) translateZ(0);
+      transform: scale(1.04) translateZ(0); }
+    100% {
+      -webkit-transform: scale(1) translateZ(0);
+      transform: scale(1) translateZ(0); } }
+  @-webkit-keyframes pop {
+    0% {
+      -webkit-transform: rotate(0) scale(1) translateZ(0);
       transform: rotate(0) scale(1) translateZ(0); }
     50% {
+      -webkit-transform: rotate(20deg) scale(1.4) translateZ(0);
       transform: rotate(20deg) scale(1.4) translateZ(0); }
     80% {
+      -webkit-transform: rotate(0) scale(0.8) translateZ(0);
       transform: rotate(0) scale(0.8) translateZ(0); }
     100% {
+      -webkit-transform: rotate(0) scale(1) translateZ(0);
       transform: rotate(0) scale(1) translateZ(0); } }
-    .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-scratch {
-      position: absolute;
-      top: 0;
-      left: 40%;
-      margin: 50px 0;
-      animation: sizzlin 1.6s linear alternate infinite; }
-      .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-scratch .indexLogin-canvas {
-        position: absolute;
-        top: 0;
-        cursor: url("../images/index_coinCursor.png"), default; }
-      .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-scratch .indexLogin-scratch-wrap {
-        width: 100%;
-        max-width: 450px;
-        height: 100%;
-        max-height: 450px;
-        background: url("../images/index_scratch_bg.svg") no-repeat center center;
-        background-size: auto 100%;
-        backface-visibility: hidden;
-        overflow: hidden;
-        z-index: -3; }
-  .indexLogin .wrap .indexLogin-wrap .indexLogin-btn {
-    text-align: center;
-    margin: -20px 0 0; } }
+  @keyframes pop {
+    0% {
+      -webkit-transform: rotate(0) scale(1) translateZ(0);
+      transform: rotate(0) scale(1) translateZ(0); }
+    50% {
+      -webkit-transform: rotate(20deg) scale(1.4) translateZ(0);
+      transform: rotate(20deg) scale(1.4) translateZ(0); }
+    80% {
+      -webkit-transform: rotate(0) scale(0.8) translateZ(0);
+      transform: rotate(0) scale(0.8) translateZ(0); }
+    100% {
+      -webkit-transform: rotate(0) scale(1) translateZ(0);
+      transform: rotate(0) scale(1) translateZ(0); } }
+    .indexLogin .wrap .indexLogin-wrap .indexLogin-btn {
+      text-align: center;
+      margin: -20px auto 0px; } }
