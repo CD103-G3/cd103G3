@@ -146,7 +146,7 @@
             <a class="cancelBTN" href="3-1_createGroupon.php">
                 回上一步
             </a>
-           <a class="nextBTN" >
+           <a class="nextBTN" id="next3_2">
                確認並繼續
            </a>
         </div>
@@ -240,7 +240,7 @@
     }   
     window.addEventListener('load', function() {
         // getMeal();
-        $class('nextBTN')[0].addEventListener('click', checkMealCount);
+        $id('next3_2').addEventListener('click', checkMealCount);
 
 
         
