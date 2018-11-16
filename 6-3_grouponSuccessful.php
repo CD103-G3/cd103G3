@@ -200,7 +200,7 @@ try {
             </div>
         </div>
         <div class="btn-container clearfix">
-            <a class="cancelBTN" href="4-1_grouponList.php?search=&order=">
+            <a class="cancelBTN" href="4-1_grouponList.php?search=&order=latest&p=1">
                 查看更多飯團
             </a>
             <a class="nextBTN" href="5-1_NotChanged.php">

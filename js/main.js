@@ -747,14 +747,17 @@ function animate3_4() {
 function circleChart(e) {
     $all('.circleChart').forEach(function(e, w) {
         var pNow = parseInt($all('.peopleNow')[w].innerText);
+        // console.log(pNow);
         var pNeed = parseInt($all('.peopleNeeded')[w].innerText);
+        // console.log(pNeed);
         var degree = Math.round(pNow / pNeed * 360 * 10) / 10;
+        console.log(w,degree ,'//');
         // alert(degree);
         // console.log(e);
         // console.log(degree);
         // var rotation = window.getComputedStyle($class('circleDisplay')[0], 'before').getPropertyValue('transform');
         
-        $all('.circleDisplayB')[w].style.transform = 'rotate(' + degree + 'deg)';
+        // $all('.circleDisplayB')[w].style.transform = 'rotate(' + degree + 'deg)';
 
         // console.log(rotation);
         if(degree > 180) {
@@ -767,7 +770,7 @@ function circleChart(e) {
             var tl = new TimelineMax();
             // console.log(w);
             $all('.circleDisplayB')[w].style.backgroundColor = '#76391B';
-            tl.fromTo('.groupon-wrapper:nth-child('+ (w+1) + ') .circleDisplayB',1.5,
+            tl.fromTo('.groupon-wrapper:nth-child('+ (w+2) + ') .circleDisplayB',1.5,
             {
                 rotation: 0,
                 backgroundColor: '#76391B',
@@ -777,7 +780,7 @@ function circleChart(e) {
                 ease: Power0.easeNone,
             });
             // $all('.circleDisplayB')[w].style.backgroundColor = '#FCE444';
-            tl.fromTo('.groupon-wrapper:nth-child('+ (w+1) + ') .circleDisplayB',1,{
+            tl.fromTo('.groupon-wrapper:nth-child('+ (w+2) + ') .circleDisplayB',1,{
                 rotation: 0,
                 backgroundColor: '#FCE444',
             },{
@@ -787,7 +790,7 @@ function circleChart(e) {
         } else {
             var tl = new TimelineMax();
             // console.log(w);
-            tl.fromTo('.groupon-wrapper:nth-child('+ (w+1) + ') .circleDisplayB',3,
+            tl.fromTo('.groupon-wrapper:nth-child('+ (w+2) + ') .circleDisplayB',3,
             {
                 rotation: 0,
             },{
@@ -1042,7 +1045,7 @@ function genChangeList(e) {
         
         $id('changeMealQRcode').src = 'http://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=300x300&chl=localhost/phpLab/CD103G3_penguin/' + changeMealURL;
 
-        $id('changeMealCode').value = changeMealURL;
+        // $id('changeMealCode').value = changeMealURL;
         
         $id('finishChangBTN').onclick =  function() {
             url = changeMealURL;

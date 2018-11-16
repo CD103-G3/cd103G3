@@ -63,6 +63,13 @@
             <div class="filter-container clearfix">
                 <span class="filter-span">排序</span>
                 <div class="filter-wrapper">
+                    <input type="radio" name="groupon_filter" class="groupon_filter" id="groupon_filter_latest">
+                    <label for="groupon_filter_latest" class="filter latest">最新飯團
+                        <span class="filter-condition">由新到舊</span>
+                        <input type="hidden" name="order" value="success">
+                    </label>
+                </div>
+                <div class="filter-wrapper">
                     <input type="radio" name="groupon_filter" class="groupon_filter" id="groupon_filter_price">
                     <label for="groupon_filter_price" class="filter time">飯團截止日
                         <span class="filter-condition">由近到遠</span>
@@ -77,13 +84,7 @@
                         <!-- <span class="filter-condition">由低到高</span> -->
                     </label>
                 </div>
-                <!-- <div class="filter-wrapper">
-                    <input type="radio" name="groupon_filter" class="groupon_filter" id="groupon_filter_latest">
-                    <label for="groupon_filter_latest" class="filter success">最新飯團
-                        <span class="filter-condition">由新到舊</span>
-                        <input type="hidden" name="order" value="success">
-                    </label>
-                </div> -->
+                
                 <div class="filter-wrapper">
                     <input type="radio" name="groupon_filter" class="groupon_filter" id="groupon_filter_official">
                     <label for="groupon_filter_official" class="filter official">官方飯團
@@ -297,13 +298,13 @@
             checkSuccess(); //判斷是否即將達標
             // genPage();// 分頁註冊及產生
         };
-    
+        
     function getGroupon(code) {
         var originId = $id('searchId').value.replace('g','');
         var grouponId = (parseInt(originId) - 1234 ) / 2 - 10;
         var xhr = new XMLHttpRequest();
         
-        console.log(xhr.responseText);
+        // console.log(xhr.responseText);
         xhr.onload = function (){
             if( xhr.status == 200 ){
                 if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found  
@@ -357,8 +358,10 @@
             $id('groupon_filter_price').checked = true;
         } else if(searchArr[1] == 'order=success') {
             $id('groupon_filter_time').checked = true;
-        } else {
+        } else if(searchArr[1] == 'order=official') {
             $id('groupon_filter_official').checked = true;
+        } else if(searchArr[1] == 'order=latest') {
+            $id('groupon_filter_latest').checked = true;
         }
         getGroupon(); //load 資料庫中的飯團
         for(let i = 0;i< $all('.filter').length;i++) {
@@ -391,6 +394,11 @@
             } else if(this.className == 'filter official') {
                 $all('.groupon-container')[0].innerHTML = ''; //清空容器
                 searchArr[1] = 'order=official';
+                searchCondition = '?' + searchArr.join('&');
+                location.href = '4-1_grouponList.php' + searchCondition;
+            } else {
+                $all('.groupon-container')[0].innerHTML = ''; //清空容器
+                searchArr[1] = 'order=latest';
                 searchCondition = '?' + searchArr.join('&');
                 location.href = '4-1_grouponList.php' + searchCondition;
             }

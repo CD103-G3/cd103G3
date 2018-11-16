@@ -6,7 +6,7 @@ try {
     require_once('phpDB/connectDB_CD103G3.php');
     //使用搜尋條件
     $order = $_REQUEST['order']; //用未兌換的餐點排序
-    $idNo = $_REQUEST['id']; //用會員id no.測試，到時要使用SESSION
+    $idNo = $_REQUEST['id']; //用SESSION
     $memberGrouponArr = []; //儲存該會員的飯團array
     
     $sql = "SELECT * from groupon";

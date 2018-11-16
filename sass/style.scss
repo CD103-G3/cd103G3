@@ -842,6 +842,8 @@ h2{
 .forBackgroundImage {
     position: relative;
     width: 100%;
+    min-height: 100vh;
+    height: auto;
     // height: 100vh;
     &:after {
         position: absolute;
@@ -852,7 +854,7 @@ h2{
         left: 0;
         right: 0;
         margin: auto;
-        background-image: url('../images/11-EAT–Branding-Illustration-Fable-Singapore-BPO.jpg');
+        background-image: url('../images/BG001_01.png');
         background-attachment: fixed;
         background-size: cover;
         opacity: .1;
@@ -1132,7 +1134,7 @@ h2{
    
     border-top: 1px solid $color_main2;
     border-bottom: 16px solid $color_main2;
-    border-radius: 0 0 26px 26px ;
+    border-radius: 0 0 20px 20px ;
     padding: $pd *1;
     line-height: 1.6;
     @include rwdSys(pad) {
@@ -1443,7 +1445,7 @@ h2{
 }
 //page-3
 .changePage_container {
-    margin-top: 60px;
+    padding-top: 60px;
     text-align: center;
    .clickToGroupon {
        max-width: 300px;

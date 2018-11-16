@@ -1009,7 +1009,9 @@ h2 {
 
 .penguinPage .forBackgroundImage {
   position: relative;
-  width: 100%; }
+  width: 100%;
+  min-height: 100vh;
+  height: auto; }
   .penguinPage .forBackgroundImage:after {
     position: absolute;
     content: '';
@@ -1020,7 +1022,7 @@ h2 {
     left: 0;
     right: 0;
     margin: auto;
-    background-image: url("../images/11-EAT–Branding-Illustration-Fable-Singapore-BPO.jpg");
+    background-image: url("../images/BG001_01.png");
     background-attachment: fixed;
     background-size: cover;
     opacity: .1; }
@@ -1342,7 +1344,7 @@ h2 {
 .penguinPage .groupon_bottomUI {
   border-top: 1px solid #76391B;
   border-bottom: 16px solid #76391B;
-  border-radius: 0 0 26px 26px;
+  border-radius: 0 0 20px 20px;
   padding: 10px;
   line-height: 1.6; }
   @media screen and (min-width: 768px) {
@@ -1663,7 +1665,7 @@ h2 {
         transition: .3s; }
 
 .penguinPage .changePage_container {
-  margin-top: 60px;
+  padding-top: 60px;
   text-align: center; }
   .penguinPage .changePage_container .clickToGroupon {
     max-width: 300px;

@@ -8,10 +8,10 @@ try {
     $order = $_REQUEST['order'];
     $search = "%".$_REQUEST['search']."%";
     $page = (($_REQUEST['p']-1) * 10);
-    if($search == '' && $order == '') {
+    if($search == '' && $order == 'latest') {
         // if()
         $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from grouponorder by `groupon`.`groupon_No` DESC limit $page,10000";
-    } else if($order == '') {
+    } else if($order == 'latest') {
         $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by `groupon`.`groupon_No` DESC limit $page,10000";
     } else if($order == 'endDate'){
         $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by `groupon`.`$order` ASC limit $page,10000";
