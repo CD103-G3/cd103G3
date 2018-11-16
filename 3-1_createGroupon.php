@@ -11,7 +11,10 @@
 </head>
 <body>
     <nav>
-        <!-- 這裡放導覽列   --> 
+        <?php 
+            require_once('nav.php');
+        
+        ?>
     </nav>
 <div class="penguinPage">
         
