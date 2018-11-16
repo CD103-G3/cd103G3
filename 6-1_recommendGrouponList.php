@@ -7,7 +7,7 @@ try {
     //使用搜尋條件
     $tagNo = $_REQUEST['tagNo'];
       
-    $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_TagNo = '$tagNo' LIMIT 5";
+    $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon ORDER BY success DESC  LIMIT 5";
 
     $groupon = $pdo -> prepare($sql);
     $groupon -> execute();

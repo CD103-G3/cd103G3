@@ -5,9 +5,13 @@ session_start();
 
 try {
     require_once('phpDB/connectDB_CD103G3.php');
+
+    if(isset($_SESSION['memId'])) {
+        $memId = $_SESSION['memId']; //會員id
+        $memNo = $_SESSION['memNo']; //會員編號
+    }
     
-    $memId = $_SESSION['memId']; //會員id
-    $memNo = $_SESSION['memNo']; //會員編號
+    
     $grouponNo = $_REQUEST['no'];
     $sql = "INSERT INTO `membergroupon` (`memberGrouponList_No`, `member_No`, `groupon_No`) VALUES (NULL, :memberNo, :grouponNo)";
     

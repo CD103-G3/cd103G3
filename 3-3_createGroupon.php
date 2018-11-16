@@ -7,13 +7,18 @@ try {
     $jsonStr = $_REQUEST['jsonStr'];
 
     // echo  $jsonStr;
-    $createG = json_decode($jsonStr);
-    $memId = $_SESSION['memId'];
-    if( strrpos($memId,'ayCook') ) {
-        $discount = 0.4;
-    } else {
-        $discount = 0.6;
+    if(isset($_SESSION['memId'])) {
+        $memId = $_SESSION['memId'];
+        if( strrpos($memId,'ayCook') ) {
+            $discount = 0.4;
+        } else {
+            $discount = 0.6;
+        }
     }
+
+    $createG = json_decode($jsonStr);
+    
+    
     $sql = "INSERT INTO `groupon` (`groupon_No`, `groupon_Name`,  `groupon_TagNo`, `groupon_FounderId`, `startDate`, `endDate`, `groupon_Bonus`,`groupon_MemberNeed`, `memberNow`, `discount`) VALUES
     (NULL, '$createG->groupon_Name', '$createG->groupon_TagNo', '$memId', DATE_ADD(NOW(),INTERVAL '$createG->startDate' DAY) ,DATE_ADD(NOW(),INTERVAL '$createG->endDate' DAY), '$createG->groupon_Bonus', '$createG->groupon_MemberNeed', '0', '$discount')";
     

@@ -238,7 +238,7 @@ try {
 <script>
     // 取得此飯團的餐點資料
     window.addEventListener('load',function() {
-        console.log('<?php echo $_SESSION['memId']; ?>');
+        
         getMealAll();
         $id('finnishPayment').onclick = alertPayment;
         function showMealInfo(jsonStr) {
@@ -331,7 +331,7 @@ try {
             if($id('selectedResult').innerText == '') {
                 alert('請選擇一個付款方式');
             } else { //判斷是否登入
-                if( <?php if($_SESSION['memId'] == '') { echo 'true';} else {
+                if( <?php if(isset($_SESSION['memId']) == false) { echo 'true';} else {
                 echo 'false';
                 } ?> ) { //如果未登入  
                     <?php

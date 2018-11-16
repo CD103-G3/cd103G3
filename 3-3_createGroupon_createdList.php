@@ -167,7 +167,7 @@
 <script>
     window.addEventListener('load', function() {
         //檢查是否登入，尚未登入為空字串
-        console.log('<?php echo $_SESSION['memId']; ?>');
+       
 
         $id('3_3_confirmCreate_BTN').onclick = function() {
             var info = storage.grouponInfo;
@@ -194,7 +194,7 @@
             var mealList = JSON.stringify(mealArr);
 
             var str = JSON.stringify(grouponList);
-            if( <?php if($_SESSION['memId'] == '') { echo 'true';} else {
+            if( <?php if(isset($_SESSION['memId']) == false ) { echo 'true';} else {
                 echo 'false';
             } ?> ) { //如果未登入  
                 <?php
