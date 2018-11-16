@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- 主機: localhost
--- 產生時間： 2018 年 11 月 15 日 19:54
+-- 產生時間： 2018 年 11 月 16 日 17:45
 -- 伺服器版本: 8.0.12
 -- PHP 版本： 7.2.7
 
@@ -74,7 +74,7 @@ CREATE TABLE `groupon` (
 INSERT INTO `groupon` (`groupon_No`, `groupon_Name`, `groupon_TagNo`, `groupon_FounderId`, `startDate`, `endDate`, `groupon_Bonus`, `memberNow`, `discount`, `groupon_MemberNeed`) VALUES
 (1, '尚飽揪個飯團吧~', 6, 'ms0223944', '2018-11-16', '2018-11-24', 36, 53, 0.6, 45),
 (2, '驚天霹靂拿購物金!', 7, 'ms0223933', '2018-11-11', '2018-11-19', 36, 46, 0.6, 45),
-(3, '有錢就是任性', 7, 'dayCook01', '2018-11-13', '2018-11-21', 64, 20, 0.6, 80),
+(3, '有錢就是任性', 7, 'dayCook01', '2018-11-13', '2018-11-21', 64, 22, 0.6, 80),
 (4, '史無前例吃飽飽的拿購物金!', 6, 'ms0223922', '2018-11-13', '2018-11-24', 66, 5, 0.6, 60),
 (9, '爽der吃飽飽的拿錢錢~', 3, 'ms0223900', '2018-11-17', '2018-11-24', 25, 0, 0.6, 35),
 (5, '驚天霹靂吃飽飽的揪', 6, 'ms0223933', '2018-11-15', '2018-11-28', 130, 0, 0.6, 100),
@@ -86,7 +86,10 @@ INSERT INTO `groupon` (`groupon_No`, `groupon_Name`, `groupon_TagNo`, `groupon_F
 (12, '開心史無前例拿錢錢~', 5, 'ms0223944', '2018-11-17', '2018-11-23', 60, 0, 0.6, 100),
 (13, '爽der前所未見揪飯團~', 3, 'dayCook02', '2018-11-18', '2018-11-24', 24, 1, 0.4, 40),
 (14, '官方吃爽爽', 8, 'dayCook01', '2018-11-20', '2018-11-29', 50, 1, 0.4, 55),
-(15, '開心呷尚飽拿錢錢~', 8, 'dayCook01', '2018-11-17', '2018-11-23', 15, 1, 0.4, 25);
+(15, '開心呷尚飽拿錢錢~', 8, 'dayCook01', '2018-11-17', '2018-11-23', 15, 25, 0.4, 25),
+(16, '爽der前所未見揪飯團~', 4, 'ke', '2018-11-18', '2018-11-24', 12, 0, 0.6, 20),
+(17, '爽der前所未見揪飯團~', 4, 'ke', '2018-11-22', '2018-12-13', 74, 0, 0.6, 35),
+(18, '開心呷尚飽拿錢錢~', 5, 'ke', '2018-11-21', '2018-11-28', 25, 0, 0.6, 35);
 
 -- --------------------------------------------------------
 
@@ -229,7 +232,41 @@ INSERT INTO `grouponlist` (`grouponList_No`, `meal_No`, `groupon_No`) VALUES
 (122, 11, 15),
 (123, 10, 15),
 (124, 35, 15),
-(125, 13, 15);
+(125, 13, 15),
+(126, 11, 16),
+(127, 20, 16),
+(128, 14, 16),
+(129, 15, 16),
+(130, 65, 16),
+(131, 63, 16),
+(132, 20, 17),
+(133, 11, 17),
+(134, 10, 17),
+(135, 13, 17),
+(136, 15, 17),
+(137, 14, 17),
+(138, 18, 17),
+(139, 17, 17),
+(140, 16, 17),
+(141, 19, 17),
+(142, 12, 17),
+(143, 21, 17),
+(144, 29, 17),
+(145, 23, 17),
+(146, 22, 17),
+(147, 35, 17),
+(148, 34, 17),
+(149, 33, 17),
+(150, 30, 17),
+(151, 31, 17),
+(152, 32, 17),
+(153, 10, 18),
+(154, 20, 18),
+(155, 1, 18),
+(156, 2, 18),
+(157, 3, 18),
+(158, 4, 18),
+(159, 5, 18);
 
 -- --------------------------------------------------------
 
@@ -280,12 +317,12 @@ CREATE TABLE `member` (
 
 INSERT INTO `member` (`member_No`, `member_Id`, `member_Psw`, `member_Nick`, `email`, `mobile`, `member_Pic`, `member_Bonus`, `member_buyCount`) VALUES
 (1, 'ke', 'ke', 'ke', 'a@a.com', NULL, NULL, 999999, 40),
-(3, 'ms0223900', '1234', 'Penguin', NULL, NULL, NULL, 72, 30),
+(3, 'ms0223900', '1234', 'Penguin', NULL, NULL, NULL, 87, 30),
 (4, 'ms0223911', '1234', 'Penguin2', NULL, NULL, NULL, 20, 0),
 (5, 'ms0223922', '1234', 'Penguin3', NULL, NULL, NULL, 20, 12),
 (6, 'ms0223933', '1234', '企鵝君4號', NULL, NULL, NULL, 20, 22),
 (7, 'ms0223944', '1234', 'Penguin5', NULL, NULL, NULL, 245, 111),
-(8, 'dayCook01', '1234', '日食小編', NULL, NULL, NULL, 20, 999),
+(8, 'dayCook01', '1234', '日食小編', NULL, NULL, NULL, 35, 1021),
 (9, 'dayCook02', '1234', '日食腦闆', NULL, NULL, NULL, 1064, 10018);
 
 -- --------------------------------------------------------
@@ -304,24 +341,6 @@ CREATE TABLE `memberachievement` (
 --
 
 INSERT INTO `memberachievement` (`member_No`, `achievement_No`) VALUES
-(1, 1);
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `membercoll`
---
-
-CREATE TABLE `membercoll` (
-  `member_No` int(11) DEFAULT NULL,
-  `meal_No` int(11) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- 資料表的匯出資料 `membercoll`
---
-
-INSERT INTO `membercoll` (`member_No`, `meal_No`) VALUES
 (1, 1);
 
 -- --------------------------------------------------------
@@ -374,7 +393,10 @@ INSERT INTO `membergroupon` (`memberGrouponList_No`, `member_No`, `groupon_No`) 
 (31, 9, 11),
 (32, 9, 13),
 (33, 3, 14),
-(34, 3, 15);
+(34, 3, 15),
+(35, 8, 3),
+(36, 8, 3),
+(37, 8, 15);
 
 -- --------------------------------------------------------
 
@@ -588,14 +610,14 @@ INSERT INTO `membergrouponmeallist` (`memberGrouponMealList_No`, `memberGrouponL
 (192, 23, 38, 0),
 (193, 23, 37, 0),
 (194, 23, 33, 0),
-(195, 24, 3, 0),
-(196, 24, 1, 0),
+(195, 24, 3, 1),
+(196, 24, 1, 1),
 (197, 24, 4, 1),
 (198, 24, 5, 1),
-(199, 24, 6, 0),
+(199, 24, 6, 1),
 (200, 24, 56, 0),
-(201, 24, 52, 0),
-(202, 24, 45, 0),
+(201, 24, 52, 1),
+(202, 24, 45, 1),
 (203, 25, 3, 1),
 (204, 25, 1, 1),
 (205, 25, 4, 1),
@@ -612,13 +634,13 @@ INSERT INTO `membergrouponmeallist` (`memberGrouponMealList_No`, `memberGrouponL
 (216, 26, 56, 0),
 (217, 26, 52, 0),
 (218, 26, 45, 0),
-(219, 27, 3, 0),
+(219, 27, 3, 1),
 (220, 27, 1, 0),
 (221, 27, 4, 0),
 (222, 27, 5, 0),
-(223, 27, 6, 0),
+(223, 27, 6, 1),
 (224, 27, 56, 0),
-(225, 27, 52, 0),
+(225, 27, 52, 1),
 (226, 27, 45, 0),
 (227, 28, 3, 0),
 (228, 28, 1, 0),
@@ -627,7 +649,7 @@ INSERT INTO `membergrouponmeallist` (`memberGrouponMealList_No`, `memberGrouponL
 (231, 28, 6, 0),
 (232, 28, 56, 0),
 (233, 28, 52, 0),
-(234, 28, 45, 0),
+(234, 28, 45, 1),
 (235, 29, 3, 0),
 (236, 29, 1, 0),
 (237, 29, 4, 0),
@@ -682,7 +704,29 @@ INSERT INTO `membergrouponmeallist` (`memberGrouponMealList_No`, `memberGrouponL
 (286, 34, 11, 0),
 (287, 34, 10, 0),
 (288, 34, 35, 0),
-(289, 34, 13, 0);
+(289, 34, 13, 0),
+(290, 35, 3, 0),
+(291, 35, 1, 0),
+(292, 35, 4, 1),
+(293, 35, 5, 1),
+(294, 35, 6, 1),
+(295, 35, 56, 1),
+(296, 35, 52, 1),
+(297, 35, 45, 1),
+(298, 36, 3, 0),
+(299, 36, 1, 1),
+(300, 36, 4, 1),
+(301, 36, 5, 0),
+(302, 36, 6, 0),
+(303, 36, 56, 0),
+(304, 36, 52, 0),
+(305, 36, 45, 0),
+(306, 37, 14, 1),
+(307, 37, 15, 1),
+(308, 37, 11, 0),
+(309, 37, 10, 0),
+(310, 37, 35, 0),
+(311, 37, 13, 0);
 
 --
 -- 已匯出資料表的索引
@@ -729,13 +773,6 @@ ALTER TABLE `memberachievement`
   ADD KEY `achievement_No` (`achievement_No`);
 
 --
--- 資料表索引 `membercoll`
---
-ALTER TABLE `membercoll`
-  ADD KEY `member_No` (`member_No`),
-  ADD KEY `meal_No` (`meal_No`);
-
---
 -- 資料表索引 `membergroupon`
 --
 ALTER TABLE `membergroupon`
@@ -765,13 +802,13 @@ ALTER TABLE `achievement`
 -- 使用資料表 AUTO_INCREMENT `groupon`
 --
 ALTER TABLE `groupon`
-  MODIFY `groupon_No` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `groupon_No` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- 使用資料表 AUTO_INCREMENT `grouponlist`
 --
 ALTER TABLE `grouponlist`
-  MODIFY `grouponList_No` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `grouponList_No` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
 
 --
 -- 使用資料表 AUTO_INCREMENT `groupontag`
@@ -789,13 +826,13 @@ ALTER TABLE `member`
 -- 使用資料表 AUTO_INCREMENT `membergroupon`
 --
 ALTER TABLE `membergroupon`
-  MODIFY `memberGrouponList_No` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `memberGrouponList_No` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- 使用資料表 AUTO_INCREMENT `membergrouponmeallist`
 --
 ALTER TABLE `membergrouponmeallist`
-  MODIFY `memberGrouponMealList_No` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=290;
+  MODIFY `memberGrouponMealList_No` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=312;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
