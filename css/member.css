@@ -44,14 +44,15 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.img {
-  fill: #FF0000; }
+@font-face {
+  font-family: 'Mamelon';
+  src: url(../font/Mamelon.otf) format("opentype"); }
 
 header {
   width: 100%;
   height: 80px;
   position: fixed;
-  z-index: 2; }
+  z-index: 100; }
   header * {
     font-size: 0;
     font-family: sans-serif, "微軟正黑體", "Microsoft JhengHei"; }
@@ -59,6 +60,9 @@ header {
     font-size: 24px;
     color: #fff;
     text-decoration: none; }
+  header label {
+    font-size: 24px;
+    color: #fff; }
   header #navctrl {
     display: none; }
     header #navctrl:checked ~ .phone-nav .hb .line {
@@ -126,6 +130,7 @@ header {
     header .phone-nav .logo img {
       height: 90px; }
     header .phone-nav .seach-button {
+      font-size: 0;
       padding: 23px 9px 18px;
       color: #76391b;
       border-radius: 50%;
@@ -166,11 +171,11 @@ header {
       header nav ul .index-member {
         margin-bottom: 35px; }
         header nav ul .index-member .before-login {
-          display: none; }
-          header nav ul .index-member .before-login a {
-            margin-right: 20px; }
-        header nav ul .index-member .after-login {
+          font-size: 24px;
+          color: #fff;
           display: inline-block; }
+        header nav ul .index-member .after-login {
+          display: none; }
           header nav ul .index-member .after-login div {
             display: inline-block;
             vertical-align: middle; }
@@ -196,25 +201,10 @@ header {
     background-color: #425075;
     position: fixed;
     z-index: 101; }
-    header .white-Point.floaty.active {
-      z-index: 10001; }
-    header .white-Point.floaty:before {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      margin-left: 0;
-      margin-top: 0; }
-    header .white-Point.floaty.active:before {
-      content: "";
-      display: block;
-      top: -500%;
-      left: -500%;
-      width: 1100%;
-      height: 1100%; }
     header .white-Point ul {
       text-align: center; }
+      header .white-Point ul .phone-hidden {
+        display: none; }
       header .white-Point ul li {
         margin: 0 auto;
         width: 50%;
@@ -232,7 +222,7 @@ header {
           display: inline-block; }
           header .white-Point ul li a img {
             margin-bottom: 5px;
-            width: 40%; }
+            width: 30%; }
         header .white-Point ul li:nth-of-type(1) {
           width: 100%; }
         header .white-Point ul li:nth-of-type(4), header .white-Point ul li:nth-of-type(5) {
@@ -242,6 +232,9 @@ header {
 
 .nav_height {
   height: 75px; }
+
+#clearCookie {
+  display: none; }
 
 @media screen and (min-width: 1024px) {
   header {
@@ -338,12 +331,14 @@ header {
           height: 120%;
           display: inline-block;
           vertical-align: middle; }
+        header .white-Point ul .phone-hidden {
+          display: inline-block; }
+        header .white-Point ul .table-hidden {
+          display: none; }
         header .white-Point ul li {
           width: auto;
           height: auto;
           display: inline-block; }
-          header .white-Point ul li.table-hidden {
-            display: none; }
           header .white-Point ul li:nth-of-type(1) {
             width: auto; }
           header .white-Point ul li a {
@@ -450,28 +445,104 @@ header {
   .nav_height {
     height: 100px; } }
 
+.image-cutting-contain {
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; }
+  .image-cutting-contain p {
+    font-size: 0; }
+  .image-cutting-contain button {
+    padding: 0 2%;
+    width: 50%;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    background-color: transparent;
+    text-align: right;
+    position: absolute;
+    right: 0;
+    bottom: 15px; }
+    .image-cutting-contain button#image-cutting-cancel {
+      right: auto;
+      left: 0;
+      text-align: left; }
+  .image-cutting-contain .container {
+    width: 100%;
+    height: 100vh;
+    position: absolute; }
+  .image-cutting-contain .cropper-view-box {
+    border-radius: 50%; }
+  .image-cutting-contain .cropper-modal {
+    background-color: #fff; }
+
 .member {
-  margin: 0 auto;
+  margin: 70px auto;
+  width: 98%;
   max-width: 1200px;
   font-size: 0; }
   .member * {
     font-size: 0;
     font-family: sans-serif, "微軟正黑體", "Microsoft JhengHei"; }
+  .member .subBTN {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    background-color: #76391B;
+    box-shadow: 0px 4px 0px #FED44F;
+    border-radius: 100px;
+    transition: .2s;
+    cursor: pointer;
+    margin: auto;
+    font-size: 20px;
+    max-width: auto;
+    transition: .2; }
+    .member .subBTN:hover {
+      opacity: .7;
+      transition: .2s; }
+    .member .subBTN:active {
+      top: 2px; }
+  .member button.subBTN {
+    margin-top: 40px;
+    padding: 5px 15px;
+    width: auto;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer; }
   .member button {
     margin-top: 40px;
     padding: 5px 15px;
+    width: auto;
     border: none;
     border-radius: 20px;
     font-size: 16px;
     color: #76391b;
     background-color: #fcf2ca;
     box-shadow: 1px 2px 1px #ad6631;
+    line-height: 1;
     cursor: pointer; }
   .member-list {
-    margin-top: 70px;
-    padding-bottom: 20px;
+    margin-top: 20px;
+    padding-bottom: 25px;
     width: 100%;
-    text-align: center; }
+    border: 1px solid #76391B;
+    border-radius: 10px;
+    background-color: #FCF2CA;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative; }
     .member-list-item {
       margin: 0 auto;
       padding: 35px 0 30px 0;
@@ -487,16 +558,15 @@ header {
         .member-list-item .member-Pic-box .member-Pic {
           width: 150px;
           height: 150px;
-          background-color: #ddd;
+          background-color: #d4eefb;
           object-fit: cover;
           border-radius: 50%;
           cursor: pointer; }
         .member-list-item .member-Pic-box .member-camera {
           width: 35px;
           height: 35px;
-          border: 1px solid #000;
           border-radius: 50%;
-          background-color: #fcf2ca;
+          background-color: #ddd;
           cursor: pointer;
           display: inline-block;
           position: absolute;
@@ -507,7 +577,7 @@ header {
             margin: 4px 0 0 1.5px;
             width: 70%;
             height: 70%;
-            background-image: url(../images/icon/photo.svg);
+            background-image: url(../images/icon/photo_black.svg);
             background-size: cover;
             display: inline-block; }
       .member-list-item-contain {
@@ -533,16 +603,22 @@ header {
       .member-list .member-panel label {
         width: 25%;
         padding: 15px 0;
+        color: #76391B;
         font-size: 16px;
+        border-radius: 10px;
         display: inline-block;
         cursor: pointer; }
         .member-list .member-panel label a {
+          color: #76391B;
           font-size: 16px;
-          color: #000;
           text-decoration: none; }
   .member .member-contain {
-    margin-top: 70px;
+    margin-top: 20px;
     width: 100%;
+    border: 1px solid #76391B;
+    background-color: #fffd;
+    border-radius: 10px;
+    box-sizing: border-box;
     vertical-align: top; }
     .member .member-contain input[type="radio"] {
       display: none; }
@@ -719,6 +795,45 @@ header {
     height: 80px; }
 
 @media screen and (min-width: 768px) {
+  .image-cutting-contain {
+    margin: 15vh 25%;
+    width: 50%;
+    height: 70vh;
+    border: 1px solid #000;
+    background: #000;
+    border-radius: 10px; }
+    .image-cutting-contain p {
+      width: 100%;
+      height: 60px;
+      font-size: 24px;
+      color: #fff;
+      text-align: center;
+      background-color: #3e4861;
+      line-height: 60px;
+      position: absolute;
+      top: 0; }
+    .image-cutting-contain button {
+      height: 60px;
+      font-size: 28px;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      background: #1d2434;
+      text-align: center;
+      position: absolute;
+      bottom: 0; }
+      .image-cutting-contain button#image-cutting-cancel {
+        text-align: center; }
+    .image-cutting-contain .container {
+      width: 100%;
+      max-height: 60vh;
+      position: absolute;
+      top: 60px; }
+    .image-cutting-contain .cropper-view-box {
+      border-radius: 50%; }
+    .image-cutting-contain .cropper-modal {
+      border-radius: 20px;
+      background: #000; }
   .member-list {
     width: 30%;
     display: inline-block; }
@@ -733,8 +848,17 @@ header {
         display: block; }
         .member-list .member-panel label a {
           font-size: 20px; }
+    .member-list .notebook {
+      width: 70px;
+      background: url(../images/notebookS.svg);
+      transform: translateX(-34%);
+      position: absolute;
+      top: 0;
+      left: 100%;
+      bottom: 0; }
   .member .member-contain {
-    width: 70%;
+    margin: 20px 0 0 2%;
+    width: 68%;
     display: inline-block; }
     .member .member-contain .member-Information {
       max-width: 700px; }

@@ -63,6 +63,6 @@ setTimeout(function() {
   $("."+selectedClass).fadeIn().addClass('scale-anm');
   $(".food-content").fadeTo(300, 1);
 }, 300); 
-    
+  });
 });
-});
+

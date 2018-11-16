@@ -1,9 +1,8 @@
-<<<<<<< HEAD
-//@import "daycookVar";
-=======
->>>>>>> 60051486d667d09f2c9272a4cab33a190d76e1bf
 
-
+@font-face {
+    font-family: 'Mamelon';
+    src: url(../font/Mamelon.otf) format("opentype");
+}
 //字體:
 $fontSize_text: 16px;
 $fontSize_S: 20px;
@@ -12,6 +11,7 @@ $fontSize_L: 30px;
 $fontSize_XL: 36px;
 $fontSize_XXL: 48px;
 $fmy: 微軟正黑體, arial, "sans serif";
+$fm-title: 'Mamelon';
 $lineHeight: 1.6;
 
 // 顏色: 
@@ -41,3 +41,9 @@ desktop: 1200px
 
 //小白點裡的圖示大小
 $white_point: 100px;
+//圓角
+$BR: 50%; 
+
+//padidng
+$pd: 10px;
+

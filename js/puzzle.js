@@ -1,5 +1,5 @@
 const rows = 2; 
-const cols = 4;
+const cols = 7;
 const lineWidth = 2;
 
 function generatePatterns(rows, cols) {

@@ -2,9 +2,79 @@
 .clearfix:after {
   content: '';
   display: block;
-  width: 100%;
   height: 0;
   clear: both; }
+
+@font-face {
+  font-family: 'Mamelon';
+  src: url(../font/Mamelon.otf) format("opentype"); }
+
+button, input[type="button"] {
+  -webkit-appearance: none;
+  /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
+  -moz-appearance: none;
+  /* FireFox */
+  appearance: none; }
+
+.swal-content {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0; }
+  .swal-content__a {
+    color: #FF5000;
+    text-decoration: none; }
+
+.swal-text {
+  vertical-align: middle; }
+
+.swal-modal {
+  border-radius: 10px;
+  border: 20px solid #FCF2CA;
+  position: fixed; }
+
+.swal-footer {
+  text-align: center; }
+
+.swal-button {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: #76391B;
+  background-color: #FCE444;
+  box-shadow: 0px 4px 0px #76391B;
+  border-radius: 100px;
+  transition: .2s;
+  cursor: pointer;
+  margin: auto;
+  font-size: 20px;
+  max-width: 150px;
+  transition: .2s;
+  line-height: 25px; }
+  .swal-button:hover {
+    opacity: .7;
+    transition: .2s; }
+  .swal-button:active {
+    top: 2px; }
+
+.swal-button-container {
+  margin: auto; }
+
+.swal-button:not([disabled]):hover {
+  background-color: #FCE444; }
+
+.swal-button:active {
+  background-color: #FCE444;
+  top: 2px;
+  box-shadow: 0px 2px 0px #76391B; }
+
+.swal-button:focus {
+  outline: none;
+  box-shadow: 0px 4px 0px #76391B; }
 
 * {
   font-size: 16px;
@@ -55,6 +125,7 @@
       height: 40px;
       line-height: 40px;
       text-align: center;
+      cursor: pointer;
       font-weight: 600;
       color: #76391B;
       background-color: #FCE444;
@@ -65,7 +136,7 @@
       margin: auto;
       font-size: 20px;
       max-width: 80px;
-      transition: .2; }
+      transition: .2s; }
       .out .back-text .mainBTN:hover {
         opacity: .7;
         transition: .2s; }
