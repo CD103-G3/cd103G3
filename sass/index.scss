@@ -1,3 +1,9 @@
+@import "reset";
+@import "daycookVar";
+@import "daycookMixin";
+@import "nav"; //nav
+@import "general_mixins";
+
 //變數
 $color_main1: #fce444; //小雞黃 / yellow / #FCE444 ;
 $color_main2: #76391b; //褐色 / brown / 7#6391B ;
@@ -11,15 +17,6 @@ $borderRadius: 1000px;
 $grouponBr: 20px;
 $boxshadow: 0 4px 0 $color_main4;
 
-$color_txt: #333333;
-$color_hot: #ff5000;
-$color_hot2: #425075;
-$color-bg: #f0ead6;
-$color-pan: #080808;
-$color-handle: #cdcdcd;
-$color-egg: #ffffff;
-$color-yolk: #f9d010;
-
 //字體:
 $fontSize_text: 16px;
 $fontSize_S: 20px;
@@ -29,6 +26,13 @@ $fontSize_XL: 36px;
 $fontSize_XXL: 48px;
 $fmy: 微軟正黑體, arial, "sans serif";
 $lineHeight: 1.6;
+
+//平底鍋變數
+$color-bg: #f0ead6;
+$color-pan: #080808;
+$color-handle: #cdcdcd;
+$color-egg: #ffffff;
+$color-yolk: #f9d010;
 
 * {
   // outline: 1px solid red;
@@ -894,7 +898,7 @@ a {
                   padding: 70px 0 8px;
                   font-size: $fontSize_S;
                   font-weight: bolder;
-                  color: $color_txt;
+                  color: $color-txt;
                 }
                 p:nth-child(2) {
                   font-size: $fontSize_text;
@@ -1195,6 +1199,9 @@ a {
             background-image: url(../images/index_watermark.svg);
             background-size: 150%;
 
+            &:after {
+              content: "";
+            }
             &:disabled {
               color: $black;
             }
@@ -1584,7 +1591,7 @@ a {
             .indexJoin-bg {
               @keyframes chickenLGPC1 {
                 0% {
-                  left: -800px;
+                  left: -1100px;
                 }
                 100% {
                   left: -300px;
@@ -1593,7 +1600,7 @@ a {
 
               @keyframes chickenLGPC2 {
                 0% {
-                  right: -800px;
+                  right: -1100px;
                 }
                 100% {
                   right: -300px;
@@ -1613,7 +1620,7 @@ a {
                 top: 231px;
                 right: -800px;
                 animation: chickenLGPC2 1s cubic-bezier(0.55, 0.13, 0.45, 1.17)
-                    0.8s 1,
+                    0.6s 1,
                   chickenPCTop 0.2s ease 0.8s 4;
                 animation-fill-mode: forwards;
               }
@@ -1632,6 +1639,7 @@ a {
     }
   }
 }
+
 // 第三屏 官方飯團推薦
 .indexGroupon {
   width: 100%;
@@ -1987,17 +1995,16 @@ a {
               width: 200px;
               margin: 0 auto;
               position: absolute;
-              top: 120px;
+              top: 146px;
               left: 50%;
               transform: translateX(-50%);
             }
 
             .indexMeal-meal {
-              width: 185px;
+              width: 170px;
               position: absolute;
-              top: 120px;
+              top: 110px;
               left: 50%;
-
               transform: translateX(-50%);
             }
           }
@@ -2244,7 +2251,6 @@ a {
             margin: 0 auto;
             list-style: none;
             bottom: 0;
-            cursor: pointer;
 
             .indexMeal-top {
               margin: 0 auto;
@@ -2260,15 +2266,15 @@ a {
                 width: 200px;
                 margin: 0 auto;
                 position: absolute;
-                top: 120px;
+                top: 146px;
                 left: 50%;
                 transform: translateX(-50%);
               }
 
               .indexMeal-meal {
-                width: 185px;
+                width: 170px;
                 position: absolute;
-                top: 120px;
+                top: 110px;
                 left: 50%;
 
                 transform: translateX(-50%);
@@ -2366,6 +2372,7 @@ a {
 
 .indexLogin {
   padding: 80px 0;
+  position: relative;
   .wrap {
     .indexLogin-wrap {
       .indexLogin-title {
@@ -2389,7 +2396,7 @@ a {
           height: 350px;
           .indexLogin-info {
             position: absolute;
-            top: 60px;
+            top: 51px;
             left: 50%;
             transform: translateX(-50%);
             display: inline-block;
@@ -2400,7 +2407,7 @@ a {
               letter-spacing: 0.5px;
               position: absolute;
               top: -110px;
-              left: -35px;
+              left: -33px;
               p {
                 text-align: center;
                 padding: 20px;
@@ -2659,6 +2666,27 @@ a {
 @media screen and (min-width: 768px) {
   .indexLogin {
     padding: 100px 0;
+
+    @keyframes loginBG {
+      0% {
+        left: 0;
+      }
+      100% {
+        left: 100px;
+      }
+    }
+
+    // .indexLogin-BG {
+    //   width: 100%;
+    //   height: 65vh;
+    //   background-image: url(../images/loginBg.svg);
+    //   background-size: 60%;
+    //   background-repeat: repeat;
+    //   position: absolute;
+    //   top: 120px;
+    //   left: 0;
+    //   animation: loginBG 3s infinite alternate;
+    // }
     .wrap {
       .indexLogin-wrap {
         .indexLogin-sum {
@@ -2675,7 +2703,7 @@ a {
             height: 400px;
             .indexLogin-info {
               position: absolute;
-              top: 98px;
+              top: 103px;
               left: -200px;
               display: inline-block;
               z-index: 1;
@@ -2802,8 +2830,8 @@ a {
                 position: absolute;
                 bottom: -30%;
                 right: 0;
-                width: 100%;
-                height: 50%;
+                width: 101%;
+                height: 91%;
                 background-color: $color-handle;
                 box-shadow: inset $color-handle 2px 2px 2px 8px,
                   inset rgba(white, 0.2) 4px -4px 6px 12px;

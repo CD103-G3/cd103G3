@@ -1,8 +1,9 @@
 $(document).ready(function() {
+  $(".indexJoin-bg > img").hide();
   function wheel() {
     var $windowTop = $(window).scrollTop();
-    $(".indexJoin-bg > img").hide();
-    if ($windowTop > $(".indexJoin").offset().top - 200) {
+
+    if ($windowTop > $(".indexJoin").offset().top - 300) {
       $("#indexJoin-btnO , #indexJoin-ckO")
         .removeClass()
         .show()

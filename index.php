@@ -7,7 +7,6 @@
     <title>日食 Day Cook</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/index.css">
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="css/style.css"> -->
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
@@ -16,9 +15,12 @@
 </head>
 <body>
     <!-- 導覽列 -->
+
     <?php
     require_once('nav.php');
     ?>
+
+
     <!-- 第一屏 搜尋/迴轉台 -->
 
     <section class="indexSearch">
@@ -536,9 +538,9 @@
                     <div class="indexMeal-box swiper-wrapper">
                         <div class="indexMeal-part top1 swiper-slide">
                             <div class="indexMeal-top">
-                                <img class="indexMeal-topCk indexMeal-top1Ck" src="images/index_top1.svg" alt="">
-                                <img class="indexMeal-meal" src="images/index_meal1.png" alt="">
-                                <img class="indexMeal-topW" src="images/index_topWings2.svg" alt="">
+                                <img class="indexMeal-topCk indexMeal-top1Ck" src="images/index_top01.svg" alt="">
+                                <img class="indexMeal-meal" src="images/index_don2.png" alt="">
+                                <img class="indexMeal-topW" src="images/index_topWings01.svg" alt="">
                             </div>
                             <div class="indexMeal-topSum indexMeal-top1Sum">
                                 <h3><a href="../eatDetail/eatDetail.html">海鮮親子丼</a>
@@ -561,9 +563,9 @@
                         </div>
                         <div class="indexMeal-part top2 swiper-slide">
                             <div class="indexMeal-top">
-                                <img class="indexMeal-topCk" src="images/index_top2.svg" alt="">
-                                <img class="indexMeal-meal" src="images/index_meal4.png" alt="">
-                                <img class="indexMeal-topW" src="images/index_topWings1.svg" alt="">
+                                <img class="indexMeal-topCk" src="images/index_top02.svg" alt="">
+                                <img class="indexMeal-meal" src="images/index_nabe_05.png" alt="">
+                                <img class="indexMeal-topW" src="images/index_topWings02.svg" alt="">
                             </div>
                             <div class="indexMeal-topSum">
                                 <h3><a href="../eatDetail/eatDetail.html">雞肉親子丼</a>
@@ -586,9 +588,9 @@
                         </div>
                         <div class="indexMeal-part top3 swiper-slide">
                             <div class="indexMeal-top">
-                                <img class="indexMeal-topCk" src="images/index_top3.svg" alt="">
-                                <img class="indexMeal-meal" src="images/index_meal3.png" alt="">
-                                <img class="indexMeal-topW" src="images/index_topWings3.svg" alt="">
+                                <img class="indexMeal-topCk" src="images/index_top03.svg" alt="">
+                                <img class="indexMeal-meal" src="images/index_ben_04.png" alt="">
+                                <img class="indexMeal-topW" src="images/index_topWings03.svg" alt="">
                             </div>
                             <div class="indexMeal-topSum">
                                 <h3><a href="../eatDetail/eatDetail.html">牛肉親子丼</a>
@@ -642,9 +644,9 @@
                     <div class="indexMeal-box">
                         <div class="indexMeal-part top1">
                             <div class="indexMeal-top">
-                                <img class="indexMeal-topCk indexMeal-top1Ck" src="images/index_top1.svg" alt="">
-                                <img class="indexMeal-meal" src="images/index_meal1.png" alt="">
-                                <img class="indexMeal-topW" src="images/index_topWings2.svg" alt="">
+                                <img class="indexMeal-topCk indexMeal-top1Ck" src="images/index_top01.svg" alt="">
+                                <img class="indexMeal-meal" src="images/index_don2.png" alt="">
+                                <img class="indexMeal-topW" src="images/index_topWings01.svg" alt="">
                             </div>
                             <div class="indexMeal-topSum indexMeal-top1Sum">
                                 <h3><a href="../eatDetail/eatDetail.html">海鮮親子丼</a>
@@ -667,9 +669,9 @@
                         </div>
                         <div class="indexMeal-part top2 swiper-slide">
                             <div class="indexMeal-top">
-                                <img class="indexMeal-topCk" src="images/index_top2.svg" alt="">
-                                <img class="indexMeal-meal" src="images/index_meal4.png" alt="">
-                                <img class="indexMeal-topW" src="images/index_topWings1.svg" alt="">
+                                <img class="indexMeal-topCk" src="images/index_top02.svg" alt="">
+                                <img class="indexMeal-meal" src="images/index_nabe_05.png" alt="">
+                                <img class="indexMeal-topW" src="images/index_topWings02.svg" alt="">
                             </div>
                             <div class="indexMeal-topSum">
                                 <h3><a href="../eatDetail/eatDetail.html">雞肉親子丼</a>
@@ -692,9 +694,9 @@
                         </div>
                         <div class="indexMeal-part top3 swiper-slide">
                             <div class="indexMeal-top">
-                                <img class="indexMeal-topCk" src="images/index_top3.svg" alt="">
-                                <img class="indexMeal-meal" src="images/index_meal3.png" alt="">
-                                <img class="indexMeal-topW" src="images/index_topWings3.svg" alt="">
+                                <img class="indexMeal-topCk" src="images/index_top03.svg" alt="">
+                                <img class="indexMeal-meal" src="images/index_ben_04.png" alt="">
+                                <img class="indexMeal-topW" src="images/index_topWings03.svg" alt="">
                             </div>
                             <div class="indexMeal-topSum">
                                 <h3><a href="../eatDetail/eatDetail.html">牛肉親子丼</a>
@@ -721,10 +723,10 @@
         </div>
     </section>
 
-
-
     <!-- 第五屏 現在加入日食-->
-    <section class="indexLogin" >
+    <section class="indexLogin">
+        <div class="indexLogin-BG">
+        </div>
         <div class="wrap">
             <div class="indexLogin-wrap">
                 <div class="indexLogin-title indexTitle">
@@ -784,6 +786,11 @@
     <script src="js/indexLift.js"></script>
     <script src="js/indexScratch.js"></script>
     <script src="js/indexRun.js"></script>
+
+
+    <script>
+       $('html,body').scrollTop(0);
+    </script>
 
 
     <script>
