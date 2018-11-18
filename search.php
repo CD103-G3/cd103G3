@@ -1,6 +1,5 @@
-
 	<input type="checkbox" id="close-search" checked>
-	<div class="wrap search-wrap">
+	<div class="search-wrap">
 		<label for="close-search" class="close-search"></label>
 		<form action="" class="search-bg">
 			<!-- 頁籤類別 -->
@@ -14,33 +13,13 @@
 			<!-- 輸入關鍵字區 -->
 			<div class="input-wrap">
 				<input type="text" id="input-search" class="input-search" maxlength="30" placeholder="請輸入餐點關鍵字">
-				<button type="submit" id="start-search" class="mainBTN">搜尋<span class="search-img"><img src="images/search.svg" alt="搜尋" class="img-search"></span></button>
+				<button type="submit" id="start-search" class="mainBTN">搜尋<span class="search-img"><img src="images/icon/search.svg" alt="搜尋" class="img-search"></span></button>
 			</div>
 			<!-- 頁籤類別內容-餐點 -->
 			<div class="bookmark-cetentier bookmark-meal">
 				<!-- 餐點類別 -->
 				<div class="bookmark-cetentier-item bookmark-meal-item clearfix">
-					<input type="checkbox" name="mealGenre-No" id="mealGenre-No1">
-					<input type="checkbox" name="mealGenre-No" id="mealGenre-No2">
-					<input type="checkbox" name="mealGenre-No" id="mealGenre-No3">
-					<input type="checkbox" name="mealGenre-No" id="mealGenre-No4">
-					<input type="checkbox" name="mealGenre-No" id="mealGenre-No5">
-					<input type="checkbox" name="mealGenre-No" id="mealGenre-No6">
-					<?php
-						if(isset($_SESSION["mealGenre_Name"]) == true){
-							$mealGenre_Name = $_SESSION["mealGenre_Name"];
-							echo $mealGenre_Name;
-							echo count($mealGenre_Name);
-							while($i <= count($mealGenre_Name)){
-								?>
-								<label for="mealGenre-No1" class="mealGenre-No"><?php echo $_SESSION["mealGenre_Name"][i] ?>丼飯</label>
-								<?php
-								$i++;
-							}
-						}
-					?>
-
-					
+					<?php require_once("searchMealGenre.php"); ?>
 				</div>
 				<!-- 顯示更多按鈕 -->
 				<input type="checkbox" id="bookmark-cetentier-more-meal">
@@ -73,25 +52,7 @@
 				<!-- TAG標籤 -->
 				<div class="bookmark-cetentier-item bookmark-groupon-item clearfix">
 					<div class="tagname-wrap clearfix">
-						<input type="radio" name="groupon-TagName" id="groupon-TagNo1" checked>
-						<input type="radio" name="groupon-TagName" id="groupon-TagNo2">
-						<input type="radio" name="groupon-TagName" id="groupon-TagNo3">
-						<input type="radio" name="groupon-TagName" id="groupon-TagNo4">
-						<input type="radio" name="groupon-TagName" id="groupon-TagNo5">
-						<input type="radio" name="groupon-TagName" id="groupon-TagNo6">
-						<input type="radio" name="groupon-TagName" id="groupon-TagNo7">
-						<input type="radio" name="groupon-TagName" id="groupon-TagNo8">
-						<input type="radio" name="groupon-TagName" id="groupon-TagNo9">
-
-						<label for="groupon-TagNo1" class="groupon-TagName"><img src="images/tag_Y.svg" id="a1" alt="全部">全部</label>
-						<label for="groupon-TagNo2" class="groupon-TagName"><img src="images/tag_N.svg" id="a1" alt="健康">健康</label>
-						<label for="groupon-TagNo3" class="groupon-TagName"><img src="images/tag_N.svg" id="a2" alt="素食">素食</label>
-						<label for="groupon-TagNo4" class="groupon-TagName"><img src="images/tag_N.svg" alt="肥">肥</label>
-						<label for="groupon-TagNo5" class="groupon-TagName"><img src="images/tag_N.svg" alt="痛風">痛風</label>
-						<label for="groupon-TagNo6" class="groupon-TagName"><img src="images/tag_N.svg" alt="挑戰">挑戰</label>
-						<label for="groupon-TagNo7" class="groupon-TagName"><img src="images/tag_N.svg" alt="豪華">豪華</label>
-						<label for="groupon-TagNo8" class="groupon-TagName"><img src="images/tag_N.svg" alt="湯麵">湯麵</label>
-						<label for="groupon-TagNo9" class="groupon-TagName"><img src="images/tag_N.svg" alt="飯">飯</label>
+						<?php require_once("searchTag.php"); ?>
 					</div>
 				</div>
 				<!-- 顯示更多按鈕 -->

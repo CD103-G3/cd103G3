@@ -16,13 +16,13 @@
 					<div class="input-wrap longing-input">
 						<input type="text" id="sigin-member-Id" class="input-mem" required>
 						<label for="sigin-member-Id" class="input-pl">帳號</label>
-						<label for="sigin-member-Id"><img src="images/user.svg"></label>
+						<label for="sigin-member-Id"><img src="images/icon/user.svg"></label>
 					</div>
 					<div class="input-wrap longing-input">
 						<input type="password" id="sigin-member-Psw" class="input-mem" required>
 						<label for="sigin-member-Psw" class="input-pl">密碼</label>
-						<label for="sigin-member-Psw"><img src="images/lock.svg"></label>
-						<img src="images/eye_n.png" class="eye"></div>
+						<label for="sigin-member-Psw"><img src="images/icon/lock.svg"></label>
+						<img src="images/icon/eye_n.png" class="eye"></div>
 					<div class="cover-run-wrap">
 						<button type="submit" class="btn-cup nextBTN" id="siginSubmit">登入</button>
 						
@@ -36,22 +36,22 @@
 					<div class="input-wrap longing-input">
 						<input type="text" id="sigup-member-Id" class="input-mem need-check need-check-id"required>
 						<label for="sigup-member-Id" class="input-pl" maxlength="40">帳號</label>
-						<label for="sigup-member-Id"><img src="images/user.svg"></label>
-						<img src="images/checkN.svg" class="check"></div>
+						<label for="sigup-member-Id"><img src="images/icon/user.svg"></label>
+						<img src="images/icon/checkN.svg" class="check"></div>
 					<div class="input-wrap longing-input">
 						<input type="password" id="sigup-member-Psw" class="input-mem need-check need-check-psw" maxlength="6" required>
 						<label for="sigup-member-Psw" class="input-pl">密碼</label>
-						<label for="sigup-member-Psw"><img src="images/lock.svg"></label>
-						<img src="images/eye_n.png" class="eye"><img src="images/checkN.svg" class="check"></div>
+						<label for="sigup-member-Psw"><img src="images/icon/lock.svg"></label>
+						<img src="images/icon/eye_n.png" class="eye"><img src="images/icon/checkN.svg" class="check"></div>
 					<div class="input-wrap longing-input">
 						<input type="text" id="sigup-member-Nick" class="input-mem need-check need-check-nick" maxlength="10" required>
 						<label for="sigup-member-Nick" class="input-pl">暱稱</label>
-						<label for="sigup-member-Nick"><img src="images/lock.svg"></label><img src="images/checkN.svg" class="check"></div>
+						<label for="sigup-member-Nick"><img src="images/icon/lock.svg"></label><img src="images/icon/checkN.svg" class="check"></div>
 					<div class="input-wrap longing-input">
 						<input type="text" id="sigup-email" class="input-mem need-check need-check-email" required>
 						<label for="sigup-email" class="input-pl">email</label>
-						<label for="sigup-email" ><img src="images/email.svg"></label>
-						<img src="images/checkN.svg" class="check"></div>
+						<label for="sigup-email" ><img src="images/icon/email.svg"></label>
+						<img src="images/icon/checkN.svg" class="check"></div>
 					<div class="cover-run-wrap">
 						<button type="submit" class="btn-cup nextBTN" id="sigupSubmit">註冊</button>
 						
@@ -63,14 +63,14 @@
 				<form action="" method="POST" onsubmit="return checkSubmit()" class="login-form" id="check-getPsw-form">
 					<div class="input-wrap longing-input">
 						<input type="text" id="get-Psw-member-Id" class="input-mem" required>
-						<label for="get-Psw-member-Id" ><img src="images/user.svg"></label>
+						<label for="get-Psw-member-Id" ><img src="images/icon/user.svg"></label>
 						<label for="get-Psw-member-Id" class="input-pl">帳號</label>
 					</div>
 					<div class="input-wrap longing-input">
 						<input type="text" id="get-Psw-member-Psw" class="input-mem need-check need-check-email" required>
 						<label for="get-Psw-emailmember-Psw" class="input-pl">email</label>
-						<label for="get-Psw-emailmember-Psw"><img src="images/lock.svg"></label>
-						<img src="images/checkN.svg" class="check"></div>
+						<label for="get-Psw-emailmember-Psw"><img src="images/icon/lock.svg"></label>
+						<img src="images/icon/checkN.svg" class="check"></div>
 					<div class="cover-run-wrap"> 
 						<button type="submit" class="btn-cup nextBTN" id="getPswSubmit">重設密碼</button>
 						

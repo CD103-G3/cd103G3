@@ -5,10 +5,7 @@
 	<title>會員中心</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" >
 	<link href="https://cdn.bootcss.com/cropper/3.1.3/cropper.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" href="css/member.css">
-	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://cdn.bootcss.com/cropper/3.1.3/cropper.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/member.css">
 	<!-- <script src="js/jquery-3.3.1.min.js"></script> -->
 </head>
 <body onresize="myFunction()">
@@ -16,6 +13,7 @@
 	<?php
 		require_once("nav.php");
 	?>
+	<script src="https://cdn.bootcss.com/cropper/3.1.3/cropper.min.js"></script>
 
 	<div class="image-cutting-contain">
 		<div class="container">
@@ -156,23 +154,23 @@
 						<div class="ordering-contain">
 							<ul>
 								<li>
-									<img src="images/定7.png" alt="meal">
+									<img src="images/meals/ben_01.png" alt="meal">
 									<p>天婦羅定食＊1</p>
 								</li>
 								<li>
-									<img src="images/定7.png" alt="meal">
+									<img src="images/meals/ben_01.png" alt="meal">
 									<p>天婦羅定食＊1</p>
 								</li>
 								<li>
-									<img src="images/定7.png" alt="meal">
+									<img src="images/meals/ben_01.png" alt="meal">
 									<p>天婦羅定食＊1</p>
 								</li>
 								<li>
-									<img src="images/定7.png" alt="meal">
+									<img src="images/meals/ben_01.png" alt="meal">
 									<p>天婦羅定食＊1</p>
 								</li>
 								<li>
-									<img src="images/定7.png" alt="meal">
+									<img src="images/meals/ben_01.png" alt="meal">
 									<p>天婦羅定食＊1</p>
 								</li>
 							</ul>
@@ -192,23 +190,23 @@
 						<div class="ordering-contain">
 							<ul>
 								<li>
-									<img src="images/定7.png" alt="meal">
+									<img src="images/meals/ben_01.png" alt="meal">
 									<p>天婦羅定食＊1</p>
 								</li>
 								<li>
-									<img src="images/定7.png" alt="meal">
+									<img src="images/meals/ben_01.png" alt="meal">
 									<p>天婦羅定食＊1</p>
 								</li>
 								<li>
-									<img src="images/定7.png" alt="meal">
+									<img src="images/meals/ben_01.png" alt="meal">
 									<p>天婦羅定食＊1</p>
 								</li>
 								<li>
-									<img src="images/定7.png" alt="meal">
+									<img src="images/meals/ben_01.png" alt="meal">
 									<p>天婦羅定食＊1</p>
 								</li>
 								<li>
-									<img src="images/定7.png" alt="meal">
+									<img src="images/meals/ben_01.png" alt="meal">
 									<p>天婦羅定食＊1</p>
 								</li>
 							</ul>

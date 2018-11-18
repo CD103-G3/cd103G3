@@ -6,6 +6,8 @@ session_start();
 	require_once("chatBot.php");
 	
 ?>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <meta name="format-detection" content="telephone=no">
 <header>
 	<input type="checkbox" id="navctrl">
@@ -59,11 +61,11 @@ session_start();
 			</li>
 			<li class="initiate">			
 				<div id="view2"></div>
-				<a href="javascript:void(0)">發起飯團</a>
+				<a href="3-3_createGroupon.php">發起飯團</a>
 			</li>
 			<li class="participate">
 				<div id="view3"></div>
-				<a href="javascript:void(0)">參加飯團</a>
+				<a href="4-1_grouponList.php">參加飯團</a>
 			</li>
 			<li class="table-hidden"><a href="member.php">會員中心</a></li>
 			<li class="table-hidden"><label for="close-chatBot">客服雞器人</label></li>
@@ -113,10 +115,11 @@ session_start();
 <div class="nav_height"></div>
 <!-- <script src="js/floaty.js"></script>S -->
 <!-- <script src="js/svgColor.js"></script> -->
+<script src="node_modules\sweetalert\dist\sweetalert.min.js"></script>
 <script src="js/login.js"></script>
 <script src="js/chatBot.js"></script>
 <script src="js/search.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <script>
 
 	for (var i = 1; i <= 7; i++) {
@@ -325,9 +328,9 @@ session_start();
 	   } 
 	   return ""; 
 	} 
+	
 	function checkCookie() {
 		 //獲得coolie 的值
-
 	beforeLogin = document.getElementsByClassName("before-login")[0];
 	afterLogin = document.getElementsByClassName("after-login")[0];
 	clearMemberCookie = document.getElementById('clearMemberCookie');
@@ -350,14 +353,15 @@ session_start();
 		memberyPic.src = member_Pic;
 		buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${member_buyCount}`;
 
-	  } else {
+	  } else {//沒有會員資料cookie
 		beforeLogin.style.display = "inline-block";
 	    afterLogin.style.display = "none";
-	    clearMemberCookie.style.display = "none";
+		clearMemberCookie.style.display = "none";
 	  }
 	}
 
-	document.getElementById('clearMemberCookie').addEventListener('click',function(){
+	document.getElementById('clearMemberCookie').addEventListener('click',function(){ //點擊登出
+		//清除cookie
 		delCookie("member_No");
 		delCookie("member_Id");
 		delCookie("member_Psw");
@@ -366,10 +370,21 @@ session_start();
 		delCookie("member_Pic");
 		delCookie("member_Bonus");
 		delCookie("member_buyCount");
+		//清除SEEION
+		var xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+			var memerIdLive = 0;
+        }
+        xhr.open("get","Logout.php", true);
+        xhr.send( null);
+		//檢查cookie
 		checkCookie();
-	    // beforeLogin.style.display = "inline-block";
-	    // afterLogin.style.display = "none";
-	    // clearMemberCookie.style.display = "none";
+		if( memerIdLive=0 ){
+			swal("已登出", {
+				button: false,
+				});
+		};
+		
 	},false);
 	window.addEventListener('load',function(){
 		checkCookie();
