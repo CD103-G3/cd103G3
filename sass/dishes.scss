@@ -1,8 +1,5 @@
-@import "daycookVar";
-@import "layout/reset";
 @import "layout/nav";
 @import "Team-mixins/Ben_mixins";
-@import "general_mixins";
 
 *{
     box-sizing: border-box;
@@ -26,6 +23,49 @@ body{
     // background-size: 100% 100%;
 }
 
+.searchBar {
+    margin-top: 60px;
+    text-align: center;
+    // background-color: #ddd;
+    // padding: $pd;
+    .searchBar-container {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        max-width: 400px;
+    }
+    input[name="MealKW"], #MealBTN{
+        display: inline-block;
+        width: 100%;
+        // max-width: 400px;
+        padding: $pd + 6;
+        border-radius: 2000px;
+        border: 2px solid $color_main2;
+        transition: width .3s;
+    };
+    input[name="MealKW"]:focus{
+        // width: 500px;
+        // box-shadow: 0px 0px 20px $color_main1;
+        transition: width .3s;
+        + #kwBTN {
+            background-color: $color_main1;
+            color: $color_main2;
+            transition: background-color .3s;
+        }
+    }
+    #MealBTN{
+        position: absolute;
+        top: 1px;
+		right: 2px;
+        width: 50px;
+        height: 50px;
+        border: none;
+        background-color: $color_main4;
+        color: #fff;
+        transition: background-color .3s;
+    }
+   
+}
 @include respond(desktop){
     
     .wrap-2{
@@ -189,9 +229,7 @@ body{
     .swiper-slide:nth-child(3){
         background:url(../images/banner03.jpg) no-repeat 50% 50%;
         background-size: cover;
-        .food-main{
-            color:#000;
-        }
+        
     }
     #elcanvas{
         width: 100%;
@@ -544,38 +582,41 @@ body{
         transition: .2s;
         cursor: pointer;
         margin: auto;
-        
         padding: 0 10px;
         p{
             display: inline-block;
         }
-        &.v2{
-            position: relative;
-            display: block;
-            overflow: hidden;
-            z-index: 1;
-            .subBall{
-                position: absolute;
-                top: auto;
-                left: auto;
-                display: block;
-                width: 0;
-                height: 0;
-                border-radius: 50%;
-                background-color: $color_main2;
-                transition: width 0.8s ease-in-out, height 0.8s ease-in-out;
-                transform: translate(-50%, -50%);
-                z-index: -1;
-            }
-            &:hover {
-                color: tint($color_main2, 75%);
-                opacity: 1;
-                .subBall {
-                    height: 500px;
-                    width: 500px;
-                }
-            }
-            }
+        &:hover{
+            opacity: 0.7;
+            transition: .3s;
+        }
+//        &.v2{
+//            position: relative;
+//            display: block;
+//            overflow: hidden;
+//            z-index: 1;
+//            .subBall{
+//                position: absolute;
+//                top: auto;
+//                left: auto;
+//                display: block;
+//                width: 0;
+//                height: 0;
+//                border-radius: 50%;
+//                background-color: $color_main2;
+//                transition: width 0.8s ease-in-out, height 0.8s ease-in-out;
+//                transform: translate(-50%, -50%);
+//                z-index: -1;
+//            }
+////            &:hover {
+////                color: tint($color_main2, 75%);
+////                opacity: 1;
+////                .subBall {
+////                    height: 500px;
+////                    width: 500px;
+////                }
+////            }
+//            }
              
               img{
                 margin-right: 8px;
@@ -600,7 +641,7 @@ body{
               }
 
               p.heart_icon path{
-                  fill:#f35186;
+                  fill:#bbb;
               } 
               
               p.trash_icon path{
@@ -666,20 +707,12 @@ body{
                 transition: 1.5s;
             }	
         }
-        &.v2{
-            z-index: 1;
-            transition: 1s;
-            // box-shadow: 0 0 0 0;
-            height: 40px;
+       
 	        &:hover{
-                opacity: 1;
-                transition: 1s;
-                color:#fff;
-                .wrap .mainBall{
-                    top: -40%;
-                }
+               opacity: 0.7;
+                transition: .3s;
 	        }
-        }
+        
     }
     
 }
@@ -966,3 +999,6 @@ body{
         left: 50%;;
     }
 };
+#close-chatBot:checked ~ #chatBot{
+    z-index: 0;
+}

@@ -5,7 +5,8 @@ function doFirst(){
     if(storage['addItemList']==null){
         storage['addItemList']= '';
     }
-    var list = document.querySelectorAll('.food-button-buy');
+    var list = document.querySelectorAll('.food-button-buy'); 
+    console.log(list);
     for(var i=0;i<list.length;i++){
         list[i].addEventListener('click',function(){
             var dishes = document.querySelector('#'+this.id+' input').value;

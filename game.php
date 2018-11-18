@@ -41,11 +41,7 @@
 	<!-- ---------------------------吃甚麼小遊戲------------------------ -->
 	<?php 
 		try{
-			$dsn = "mysql:host=localhost;port=3306;dbname=cd103g3;charset=utf8";
-			$user = "Ben";
-			$password = "nagi60303";
-			$options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-			$pdo = new PDO($dsn, $user, $password, $options);
+			require_once('phpDB/connectDB_CD103G3.php');
 			$sql = "select * from meal ORDER BY RAND() LIMIT 10";
 			$dishes = $pdo -> query($sql);
 			$dishesRows = $dishes->fetchAll(PDO::FETCH_ASSOC);

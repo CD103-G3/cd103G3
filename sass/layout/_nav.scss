@@ -1,8 +1,18 @@
+@import "reset";
+@import "../daycookVar";
+@import "../daycookMixin";
+@import "../mixins/general_mixins";
+@import "../Team-mixins/ke_mixin";
+@import "../login";//註冊登入
+@import "../serach"; //搜尋
+@import "../chatBot";//客服機器
+
 header{
     width: 100%;
     height: 80px;
-    z-index: 100;
     position: fixed;
+    z-index: 100;
+    
     *{
         font-size: 0;
         font-family: sans-serif, "微軟正黑體", "Microsoft JhengHei";
@@ -304,6 +314,9 @@ header{
 
 .nav_height{
     height: 75px;
+}
+#clearCookie{
+    display: none;
 }
 
 @media screen and (min-width: 1024px){

@@ -1,8 +1,4 @@
-<?php
-	require_once('nav.php');
-	ob_start();
-	session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +10,20 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.css">
+
+	<!-- -------------------公用導覽列----------------- -->
+	<link rel="stylesheet" type="text/css" href="css/nav.css">
+
+	<!-- -----------------日食餐點--------------- -->
 	<link rel="stylesheet" href="css/dishes.css">
 	
 </head>
 <body>
+
+	<?php
+		require_once('nav.php');
+	?>
+	
 	<!-- -----banner--- -->
 	<div class="food-banner swiper-container">
 		<div id="elimg" class="swiper-wrapper">
@@ -31,11 +37,11 @@
 					店長推薦新品
 				</div>
 			</div>
-			<div class="swiper-slide">
+			<!-- <div class="swiper-slide">
 				<div class="food-main">
 					館長強烈推薦
 				</div>
-			</div>
+			</div> -->
 		</div>
 		<canvas id="elcanvas"></canvas>
 	</div>
@@ -44,12 +50,16 @@
 	<!-- -----搜尋--- -->
 	<div class="bg-images">
 		<div class="wrap">
-		<div class="food-search">
-				<input class="" type="text" id="input_search" name="keyword" maxlength="30" required>
-				<label for="input_search" class="input_pl">請輸入餐點關鍵字</label>
-				<button type="submit" id="start_search" onclick="getDishes()">搜尋<span class="search_img"></span></button>
-				<div id="showPanel"></div>
-        </div>
+		<div class="searchBar">
+        <!-- <form action="4-1_grouponList.php"> -->
+            <div class="searchBar-container">
+                <input type="text" placeholder="搜尋你的美食餐點" name="MealKW" id="searchInputMeal">
+                <button id="MealBTN" type="submit" onclick="getDishes()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        <!-- </form> -->
+    </div>
 
         <div class="food-choose sliderSlick clearfix">
             <div class="part--4 part-md-2">
@@ -100,11 +110,7 @@
         <div class="food-content search-content clearfix">
 		<?php
 			try{
-				$dsn = "mysql:host=localhost;port=3306;dbname=cd103g3;charset=utf8";
-				$user = "Ben";
-				$password = "nagi60303";
-				$options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-				$pdo = new PDO($dsn, $user, $password, $options);
+				require_once('phpDB/connectDB_CD103G3.php');
 				// -------------------------------------------------------------------
 				//下sql查詢抓表格
 				$sql = "select * from meal";
@@ -115,7 +121,7 @@
 						<div class="food-item-box">
 							<a href="eatDetail.php?meal_No=<?php echo $dishesRow->meal_No;?>">
 								<div class="food-pic">
-									<img class="food-pic-intro" src="images/<?php echo substr_replace($dishesRow->meal_Pic,'',-7);?>/<?php echo $dishesRow->meal_Pic;?>" alt="">
+									<img class="food-pic-intro" src="images/meals/<?php echo $dishesRow->meal_Pic;?>" alt="">
 									<!-- <div id="circle">
 										<img src="images/icon/chili.svg" alt="">
 									</div> -->
@@ -162,6 +168,8 @@
 									</div>
 								</div>
 							</div>
+
+							<!-- 收藏寫入/加入購物車session -->
 							<div class="food-button clearfix">
 								<a class="food-button-save mainBTN v2" href="javascript::">
 									<p class="heart_icon">
@@ -184,14 +192,14 @@
 								        <span>收藏</span>
 								    </p>
 								
-									    <input type="hidden" name="mealstate" value="false">
-									    <input type="hidden"  name="mealNo" value="A0<?php echo $dishesRow->meal_No;?>">
+									    <input class="mealState" type="hidden" name="mealstate" value="false">
+									    <input class="mealNo" type="hidden"  name="mealNo" value="A0<?php echo $dishesRow->meal_No;?>">
 									<div class="subBall b1"></div>
 								</a>
 								<a class="food-button-buy v2" id="A0<?php echo $dishesRow->meal_No;?>">
 									<span class="fas fa-cart-plus"></span>
 									<p>加入購物車</p>
-									<input type="hidden" value="<?php echo $dishesRow->meal_Name;?>|<?php echo $dishesRow->meal_Pic; ?>|<?php echo $dishesRow->meal_Price;?>|1">
+									<input type="hidden" value="<?php echo $dishesRow->meal_Name;?>|<?php echo $dishesRow->meal_Pic; ?>|<?php echo $dishesRow->meal_Price;?>|1|false">
 									<div class="wrap">
 										<div class="mainBall b1"></div>
 										<div class="mainBall b2"></div>	
@@ -220,7 +228,7 @@
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.js"></script>
-	<script src="js/sweetalert2.all.js" type="text/javascript"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.0/dist/sweetalert2.all.min.js"></script>
 	<script src="js/alertCustom.js"></script>
 	<script src="js/Swiper.js"></script>
 	<script src="js/puzzle.js"></script>
@@ -228,8 +236,6 @@
 	<script src="js/dishes-icon.js"></script>
 	<script src="js/eggView.js"></script>
 	<script src="js/dishesSessiom.js"></script>
-
-
 	<script src='https://cdn.jsdelivr.net/mojs/0.265.6/mo.min.js'></script>
 	<script src="js/iconClick.js"></script>
 	<!-- <script>
@@ -287,6 +293,44 @@
 			xhr.open("Get", url, true);
   			xhr.send( null );
 		}
+
+
+		var coll = document.querySelectorAll('.food-button-save'); 
+	    for(var i=0;i<coll.length;i++){
+	        coll[i].addEventListener('click',function(){
+	          // alert('hi');
+	          var mealState = this.getElementsByClassName('mealState')[0];
+	          var mealNo = this.getElementsByClassName('mealNo')[0];
+
+	          if(mealState.value == 'false') {
+	          	mealState.value = 'true';
+	          } else {
+	          	mealState.value = 'false';
+	          } //切換該筆餐點的收藏狀態
+ 
+
+	          // console.log(mealState.value);
+	          // if(this.value == '')
+	          // console.log(this);
+	             var xhr = new XMLHttpRequest();
+	                    
+	                    xhr.onload = function (){
+	                        if( xhr.status == 200){
+	                            alert("收藏資料修改成功");
+	                        }else{
+	                            alert(xhr.status);
+	                        }
+	                    }
+	                    xhr.open("post", "heartDataUpdate.php", true);
+	                    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+	                    //餐點收藏狀態
+	                    var data_info = "mealState=" + mealState.value + "&mealNo=" + mealNo.value;
+	                    console.log(data_info);
+	                                     //餐點編號
+	                    xhr.send(data_info);
+	        });
+	    }
 	</script>
+
 </body>
 </html>

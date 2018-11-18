@@ -1,4 +1,8 @@
-
+button,input[type="button"]{
+    -webkit-appearance: none;  /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
+    -moz-appearance: none;     /* FireFox */
+    appearance: none; 
+}
 //$w 為maxWidth設定
 
 // 1. 主要按鈕
@@ -6,11 +10,10 @@
     .mainBTN {
         @include btn(100%, light) {
             margin: auto;
-			font-size: $fontSize_S;
+   font-size: $fontSize_S;
             max-width: $w;
             transition: .2s;
-            cursor: pointer;
-		}
+  }
     }
 }
 
@@ -21,7 +24,7 @@
             margin: auto;
             font-size: $fontSize_S;
             max-width: $w;
-            cursor: pointer;
+            transition: .2s;
         }
     }
 }
@@ -33,7 +36,6 @@
             font-size: 40px;
             font-weight: 900;
             color: $color_main3;
-            cursor: pointer;
         };
     }
     
@@ -47,10 +49,9 @@
         margin: 10px;
         font-size: $fontSize_S;
         background-color: $color_main4;
-		color: #fff;
-		font-family: $fmy;
-        border: 0;
-        cursor: pointer;
+  color: #fff;
+  font-family: $fmy;
+  border: 0;
     }
     .cancelBTN {
         background-color: $color_main3;
@@ -139,7 +140,43 @@
         }
     }
 }
+.swal-content{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    &__a{
+      color: $color_hot;
+      text-decoration: none;
+    }
 
+}
+.swal-text{
+    vertical-align: middle;
+}
+.swal-modal{ //最外層
+    border-radius: 10px;
+    border:20px solid $color_main3;
+    position: fixed;
+}
+.swal-footer{
+    text-align: center;
+}
+.swal-button{
+    @include btn(100%, light) {
+        margin: auto;
+        font-size: $fontSize_S;
+        max-width: 150px;
+        transition: .2s;
+        line-height:25px;
+    }
+}
+.swal-button-container{
+    margin: auto;
+}
+.swal-button:not([disabled]):hover{background-color: $color_main1;};
+.swal-button:active{background-color:$color_main1;top: 2px;
+    box-shadow: 0px 2px 0px $color_main2};
+.swal-button:focus{outline:none;box-shadow: 0px 4px 0px $color_main2;}
 //通用before after
 @mixin BfAf {
     content: '';

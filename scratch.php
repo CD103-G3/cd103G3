@@ -26,7 +26,6 @@
   </div>
 </div>
 
-<button class="modal-close-btn" id="close-btn"><i class="fas fa-times" title=""></i></button>
 
 </div>
 

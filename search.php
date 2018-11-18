@@ -1,96 +1,93 @@
-<?php
-try{
-    $dsn = "mysql:host=localhost;port=3306;dbname=cd103g3;charset=utf8";
-    $user = "Ben";
-    $password = "nagi60303";
-    $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-    $pdo = new PDO($dsn, $user, $password, $options);
-    $name = isset($_REQUEST["search"]) ? trim($_REQUEST["search"]) : '';
-    $sql = "select * from meal where meal_Name like :keyword";
-    $name = "%$name%"; 
-    $dishes = $pdo->prepare( $sql );
-    $dishes->bindValue(":keyword", $name);
-    $dishes->execute();
-  //如果找得資料,將會員資料送出
-  if( $dishes->rowCount() == 0 ){
-    echo "not found~";
-  }else{
-    while($dishesRow = $dishes->fetch( PDO::FETCH_NAMED)){
-?>
-     <div class="food-item part--12 part-md-6 part-lg-4 part-xl-3 scale-anm <?php echo substr_replace($dishesRow["meal_Pic"],'',-7); ?>">
-						<div class="food-item-box">
-							<a href="eatDetail.php?meal_No=<?php echo $dishesRow["meal_No"];?>">
-								<div class="food-pic">
-									<img class="food-pic-intro" src="images/<?php echo $dishesRow["meal_Pic"];?>" alt="">
-									<!-- <div id="circle">
-										<img src="images/icon/chili.svg" alt="">
-									</div> -->
-								</div>
-							</a>
-							<div class="food-title">
-								<h2><?php echo $dishesRow["meal_Name"];?></h2>
-							</div>
-							<div class="food-price">
-								<span>NT$ <?php echo $dishesRow["meal_Price"];?></span>
-							</div>
-							<div class="food-score clearfix">
-								<span class="calc-score">評分</span>
-								<div class="score-container clearfix">
-									<span class="scoreNum"><?php echo $dishesRow["meal_Total"];?></span>
-									<div class="scoreEgg-container" score="2.7" >
-										<ul>
-											<li>
-												<div class="pic">
-													<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
-												</div>
-											</li>
-											<li>
-												<div class="pic">
-													<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
-												</div>
-											</li>
-											<li>
-												<div class="pic">
-													<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
-												</div>
-											</li>
-											<li>
-												<div class="pic">
-													<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
-												</div>
-											</li>
-											<li>
-												<div class="pic">
-													<img src="images/eggEmpty.svg" alt="scoreYes" class="scoreW">
-												</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="food-button clearfix">
-								<a class="food-button-save mainBTN v2">
-									<span class="fas fa-heart"></span>
-									<p>收藏</p>  
-									<div class="subBall b1"></div>
-								</a>
-								<a class="food-button-buy v2" id="A0<?php echo $dishesRow["meal_No"];?>">
-									<span class="fas fa-cart-plus"></span>
-									<p>加入購物車</p>
-									<input type="hidden" value="<?php echo $dishesRow["meal_Name"];?>|<?php echo $dishesRow["meal_Pic"]; ?>|<?php echo $dishesRow["meal_Price"];?>">
-									<div class="wrap">
-										<div class="mainBall b1"></div>
-										<div class="mainBall b2"></div>	
-										<div class="mainBall b3"></div>	
-									</div>
-								</a>
-							</div>
-						</div>
-					</div>   
-<?php	       
-    }
-  }	
-}catch(PDOException $e){
-  echo $e->getMessage();
-}
-?>
+	<input type="checkbox" id="close-search" checked>
+	<div class="search-wrap">
+		<label for="close-search" class="close-search"></label>
+		<form action="" class="search-bg">
+			<!-- 頁籤類別 -->
+			<input type="radio" name="bookmark" id="bookmark-meal" checked>
+			<input type="radio" name="bookmark" id="bookmark-groupon">
+			<div class="bookmark">
+				<label for="bookmark-meal" id="bookmark-animation-meal">餐點</label>
+				<label for="bookmark-groupon" id="bookmark-animation-groupon">飯團</label>
+			</div>
+
+			<!-- 輸入關鍵字區 -->
+			<div class="input-wrap">
+				<input type="text" id="input-search" class="input-search" maxlength="30" placeholder="請輸入餐點關鍵字">
+				<button type="submit" id="start-search" class="mainBTN">搜尋<span class="search-img"><img src="images/search.svg" alt="搜尋" class="img-search"></span></button>
+			</div>
+			<!-- 頁籤類別內容-餐點 -->
+			<div class="bookmark-cetentier bookmark-meal">
+				<!-- 餐點類別 -->
+				<div class="bookmark-cetentier-item bookmark-meal-item clearfix">
+					<?php require_once("searchMealGenre.php"); ?>
+				</div>
+				<!-- 顯示更多按鈕 -->
+				<input type="checkbox" id="bookmark-cetentier-more-meal">
+				<label for="bookmark-cetentier-more-meal" class="bookmark-cetentier-more meal">顯示更多 +</label>
+				<!-- 卡路里 -->
+				<div class="bookmark-cetentier-item bookmark-meal-item clearfix">
+					<span>卡路里</span>
+					<div>
+						<input type="checkbox" name="meal-Cal" id="meal-Cal1">
+						<input type="checkbox" name="meal-Cal" id="meal-Cal2">
+						<input type="checkbox" name="meal-Cal" id="meal-Cal3">
+						<input type="checkbox" name="meal-Cal" id="meal-Cal4">
+
+						<label for="meal-Cal1" class="meal-Cal">300以下</label>
+						<label for="meal-Cal2" class="meal-Cal">301-600</label>
+						<label for="meal-Cal3" class="meal-Cal">601-900</label>
+						<label for="meal-Cal4" class="meal-Cal">901以上</label>
+					</div>
+				</div>
+				<!-- 金額限制 -->
+				<div class="bookmark-cetentier-item bookmark-meal-item clearfix">
+					<span>價格</span>
+					<input type="text" name="meal-Price" class="meal-Price" id="meal-Price1" placeholder="最低金額">
+					<span>~</span>
+					<input type="text" name="meal-Price" id="meal-Price2" placeholder="最高金額">
+				</div>
+			</div>
+			<!-- 頁籤類別內容-飯團 -->
+			<div class="bookmark-cetentier bookmark-groupon">
+				<!-- TAG標籤 -->
+				<div class="bookmark-cetentier-item bookmark-groupon-item clearfix">
+					<div class="tagname-wrap clearfix">
+						<?php require_once("searchTag.php"); ?>
+					</div>
+				</div>
+				<!-- 顯示更多按鈕 -->
+				<input type="checkbox" id="bookmark-cetentier-more-groupon">
+				<label for="bookmark-cetentier-more-groupon" class="bookmark-cetentier-more groupon">顯示更多 +</label>
+				<!-- 餐數篩選 -->
+				<div class="bookmark-cetentier-item bookmark-groupon-item clearfix">
+					<span>飯團餐數</span>
+					<div>
+						<input type="checkbox" name="grouponList-No" class="grouponList" id="grouponList-No1">
+						<input type="checkbox" name="grouponList-No" class="grouponList" id="grouponList-No2">
+						<input type="checkbox" name="grouponList-No" class="grouponList" id="grouponList-No3">
+
+						<label for="grouponList-No1" class="grouponList-No">1~3餐</label>
+						<label for="grouponList-No2" class="grouponList-No">4~7餐</label>
+						<label for="grouponList-No3" class="grouponList-No">7餐以上</label>
+					</div>
+				</div>
+				<!-- 價格篩選 -->
+				<div class="bookmark-cetentier-item bookmark-groupon-item clearfix">
+					<span>平均價格</span>
+					<div>
+						<input type="checkbox" name="groupon-avg" id="groupon-avg1">
+						<input type="checkbox" name="groupon-avg" id="groupon-avg2">
+						<input type="checkbox" name="groupon-avg" id="groupon-avg3">
+						<input type="checkbox" name="groupon-avg" id="groupon-avg4">
+						<input type="checkbox" name="groupon-avg" id="groupon-avg5">
+
+						<label for="groupon-avg1" class="groupon-avg">1~70元</label>
+						<label for="groupon-avg2" class="groupon-avg">71~100元</label>
+						<label for="groupon-avg3" class="groupon-avg">101~200元</label>
+						<label for="groupon-avg4" class="groupon-avg">201~300元</label>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+

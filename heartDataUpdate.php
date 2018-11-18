@@ -1,10 +1,14 @@
 <?php
+
 ob_start();
 session_start();
+
 try{
-  require_once("connectMember.php");
-  $_SESSION["member_No"] = 1; 
-  if($_POST["mealstate"]=="false"){ //會員是否收藏過此餐點
+  require_once('phpDB/connectDB_CD103G3.php');
+
+  
+
+  if($_POST["mealState"]=="false"){ //會員是否收藏過此餐點
 
       //新增
       $sql = "INSERT INTO membercoll (member_No, meal_No) 
@@ -34,3 +38,4 @@ try{
   echo $e->getMessage();
 }
 ?>
+

@@ -1,11 +1,11 @@
 const circle1 = new mojs.Shape({
-  className: 'a',
-  type: 'circle',
-  left: '0',
-  top: '-45',
-  stroke: '#0766ff',
+  className: "a",
+  type: "circle",
+  left: "0",
+  top: "-45",
+  stroke: "#0766ff",
   strokeWidth: { 35: 0 },
-  fill: 'transparent',
+  fill: "transparent",
   radius: { 0: 40 },
   opacity: 0.2,
   duration: 750,
@@ -13,13 +13,13 @@ const circle1 = new mojs.Shape({
 });
 
 const circle2 = new mojs.Shape({
-  className: 'a',
-  type: 'circle',
-  left: '40',
-  top: '-60',
-  stroke: '#0766ff',
+  className: "a",
+  type: "circle",
+  left: "40",
+  top: "-60",
+  stroke: "#0766ff",
   strokeWidth: { 5: 0 },
-  fill: 'transparent',
+  fill: "transparent",
   radius: { 0: 20 },
   opacity: 0.2,
   duration: 500,
@@ -28,13 +28,13 @@ const circle2 = new mojs.Shape({
 });
 
 const circle3 = new mojs.Shape({
-  className: 'a',
-  type: 'circle',
-  left: '-10',
-  top: '-80',
-  stroke: '#0766ff',
+  className: "a",
+  type: "circle",
+  left: "-10",
+  top: "-80",
+  stroke: "#0766ff",
   strokeWidth: { 5: 0 },
-  fill: 'transparent',
+  fill: "transparent",
   radius: { 0: 10 },
   opacity: 0.5,
   duration: 500,
@@ -44,13 +44,13 @@ const circle3 = new mojs.Shape({
 });
 
 const circle4 = new mojs.Shape({
-  className: 'a',
-  type: 'circle',
-  left: '-70',
-  top: '-10',
-  stroke: '#0766ff',
+  className: "a",
+  type: "circle",
+  left: "-70",
+  top: "-10",
+  stroke: "#0766ff",
   strokeWidth: { 5: 0 },
-  fill: 'transparent',
+  fill: "transparent",
   radius: { 0: 20 },
   opacity: 0.3,
   duration: 800,
@@ -59,13 +59,13 @@ const circle4 = new mojs.Shape({
 });
 
 const circle5 = new mojs.Shape({
-  className: 'a',
-  type: 'circle',
-  left: '80',
-  top: '-50',
-  stroke: '#0766ff',
+  className: "a",
+  type: "circle",
+  left: "80",
+  top: "-50",
+  stroke: "#0766ff",
   strokeWidth: { 5: 0 },
-  fill: 'transparent',
+  fill: "transparent",
   radius: { 0: 20 },
   opacity: 0.4,
   duration: 800,
@@ -74,13 +74,13 @@ const circle5 = new mojs.Shape({
 });
 
 const circle6 = new mojs.Shape({
-  className: 'a',
-  type: 'circle',
-  left: '20',
-  top: '-100',
-  stroke: '#0766ff',
+  className: "a",
+  type: "circle",
+  left: "20",
+  top: "-100",
+  stroke: "#0766ff",
   strokeWidth: { 5: 0 },
-  fill: 'transparent',
+  fill: "transparent",
   radius: { 0: 15 },
   opacity: 0.2,
   duration: 1000,
@@ -89,13 +89,13 @@ const circle6 = new mojs.Shape({
 });
 
 const circle7 = new mojs.Shape({
-  className: 'a',
-  type: 'circle',
-  left: '-40',
-  top: '-90',
-  stroke: '#0766ff',
+  className: "a",
+  type: "circle",
+  left: "-40",
+  top: "-90",
+  stroke: "#0766ff",
   strokeWidth: { 5: 0 },
-  fill: 'transparent',
+  fill: "transparent",
   radius: { 0: 25 },
   opacity: 0.4,
   duration: 600,
@@ -105,19 +105,26 @@ const circle7 = new mojs.Shape({
 
 const trash_timeline = new mojs.Timeline({ speed: 0.5 });
 
-trash_timeline.add(circle1, circle2, circle3, circle4, circle5, circle6, circle7);
+trash_timeline.add(
+  circle1,
+  circle2,
+  circle3,
+  circle4,
+  circle5,
+  circle6,
+  circle7
+);
 
-var trash_icon = document.querySelectorAll('.trash_icon');
-var a = document.querySelectorAll('.a');
+var trash_icon = document.querySelectorAll(".trash_icon");
+var a = document.querySelectorAll(".a");
 
 for (i = 0; i < trash_icon.length; i++) {
-  trash_icon[i].addEventListener('click', function (e) {
+  trash_icon[i].addEventListener("click", function(e) {
     trashClick(e);
   });
 }
 
-function trashClick(e){
-  
+function trashClick(e) {
   for (j = 0; j < a.length; j++) {
     // alert(a[j]);
     a[j].style.display = "block";
@@ -133,13 +140,11 @@ function trashClick(e){
   circle7.tune(coords);
   trash_timeline.replay();
 
-  setTimeout(function () {
-
+  setTimeout(function() {
     for (j = 0; j < a.length; j++) {
       // alert(a[j]);
       a[j].style.display = "none";
     }
-
   }, 1000);
 }
 // --------------------heart_icon-------------------- //
@@ -159,17 +164,17 @@ class Heart extends mojs.CustomShape {
     return 200;
   }
 }
-mojs.addShape('heart', Heart);
+mojs.addShape("heart", Heart);
 
 const heart1 = new mojs.Shape({
-  shape: 'heart',
-  className: 'b',
-  type: 'circle',
-  left: '0',
-  top: '-45',
-  stroke: '#f35186',
+  shape: "heart",
+  className: "b",
+  type: "circle",
+  left: "0",
+  top: "-45",
+  stroke: "#f35186",
   strokeWidth: { 5: 0 },
-  fill: '#f35186',
+  fill: "#f35186",
   radius: { 0: 40 },
   opacity: 0.2,
   duration: 750,
@@ -177,14 +182,14 @@ const heart1 = new mojs.Shape({
 });
 
 const heart2 = new mojs.Shape({
-  shape: 'heart',
-  className: 'b',
-  type: 'circle',
-  left: '40',
-  top: '-60',
-  stroke: '#f35186',
+  shape: "heart",
+  className: "b",
+  type: "circle",
+  left: "40",
+  top: "-60",
+  stroke: "#f35186",
   strokeWidth: { 5: 0 },
-  fill: '#f35186',
+  fill: "#f35186",
   radius: { 0: 20 },
   opacity: 0.2,
   duration: 500,
@@ -193,14 +198,14 @@ const heart2 = new mojs.Shape({
 });
 
 const heart3 = new mojs.Shape({
-  shape: 'heart',
-  className: 'b',
-  type: 'circle',
-  left: '-10',
-  top: '-80',
-  stroke: '#f35186',
+  shape: "heart",
+  className: "b",
+  type: "circle",
+  left: "-10",
+  top: "-80",
+  stroke: "#f35186",
   strokeWidth: { 5: 0 },
-  fill: '#f35186',
+  fill: "#f35186",
   radius: { 0: 10 },
   opacity: 0.5,
   duration: 500,
@@ -210,14 +215,14 @@ const heart3 = new mojs.Shape({
 });
 
 const heart4 = new mojs.Shape({
-  shape: 'heart',
-  className: 'b',
-  type: 'circle',
-  left: '-70',
-  top: '-10',
-  stroke: '#f35186',
+  shape: "heart",
+  className: "b",
+  type: "circle",
+  left: "-70",
+  top: "-10",
+  stroke: "#f35186",
   strokeWidth: { 5: 0 },
-  fill: '#f35186',
+  fill: "#f35186",
   radius: { 0: 20 },
   opacity: 0.3,
   duration: 800,
@@ -226,14 +231,14 @@ const heart4 = new mojs.Shape({
 });
 
 const heart5 = new mojs.Shape({
-  shape: 'heart',
-  className: 'b',
-  type: 'circle',
-  left: '80',
-  top: '-50',
-  stroke: '#f35186',
+  shape: "heart",
+  className: "b",
+  type: "circle",
+  left: "80",
+  top: "-50",
+  stroke: "#f35186",
   strokeWidth: { 5: 0 },
-  fill: '#f35186',
+  fill: "#f35186",
   radius: { 0: 20 },
   opacity: 0.4,
   duration: 800,
@@ -242,14 +247,14 @@ const heart5 = new mojs.Shape({
 });
 
 const heart6 = new mojs.Shape({
-  shape: 'heart',
-  className: 'b',
-  type: 'circle',
-  left: '20',
-  top: '-100',
-  stroke: '#f35186',
+  shape: "heart",
+  className: "b",
+  type: "circle",
+  left: "20",
+  top: "-100",
+  stroke: "#f35186",
   strokeWidth: { 5: 0 },
-  fill: '#f35186',
+  fill: "#f35186",
   radius: { 0: 15 },
   opacity: 0.2,
   duration: 1000,
@@ -258,14 +263,14 @@ const heart6 = new mojs.Shape({
 });
 
 const heart7 = new mojs.Shape({
-  shape: 'heart',
-  className: 'b',
-  type: 'circle',
-  left: '-40',
-  top: '-90',
-  stroke: '#f35186',
+  shape: "heart",
+  className: "b",
+  type: "circle",
+  left: "-40",
+  top: "-90",
+  stroke: "#f35186",
   strokeWidth: { 5: 0 },
-  fill: '#f35186',
+  fill: "#f35186",
   radius: { 0: 25 },
   opacity: 0.4,
   duration: 600,
@@ -277,17 +282,16 @@ const heart_timeline = new mojs.Timeline({ speed: 0.5 });
 
 heart_timeline.add(heart1, heart2, heart3, heart4, heart5, heart6, heart7);
 
-var heart_icon = document.querySelectorAll('.heart_icon');
-var b = document.querySelectorAll('.b');
+var heart_icon = document.querySelectorAll(".heart_icon");
+var b = document.querySelectorAll(".b");
 
 for (i = 0; i < heart_icon.length; i++) {
-  heart_icon[i].addEventListener('click', function (e) {
+  heart_icon[i].addEventListener("click", function(e) {
     heartClick(e);
   });
 }
 
-function heartClick(e){
-  
+function heartClick(e) {
   for (j = 0; j < b.length; j++) {
     // alert(a[j]);
     b[j].style.display = "block";
@@ -303,13 +307,11 @@ function heartClick(e){
   heart7.tune(coords);
   heart_timeline.replay();
 
-  setTimeout(function () {
-
+  setTimeout(function() {
     for (j = 0; j < b.length; j++) {
       // alert(a[j]);
       b[j].style.display = "none";
     }
-
   }, 1000);
 }
 // --------------------cart_icon-------------------- //
@@ -322,16 +324,16 @@ class Start extends mojs.CustomShape {
     return 200;
   }
 }
-mojs.addShape('start', Start);
+mojs.addShape("start", Start);
 
 const start1 = new mojs.Shape({
-  shape: 'start',
-  className: 'c',
-  type: 'circle',
-  left: '0',
-  top: '-45',
-  stroke: '#FD7932',
-  fill: '#FD7932',
+  shape: "start",
+  className: "c",
+  type: "circle",
+  left: "0",
+  top: "-45",
+  stroke: "#FD7932",
+  fill: "#FD7932",
   strokeWidth: { 5: 0 },
   radius: { 0: 40 },
   opacity: 0.2,
@@ -340,13 +342,13 @@ const start1 = new mojs.Shape({
 });
 
 const start2 = new mojs.Shape({
-  shape: 'start',
-  className: 'c',
-  type: 'circle',
-  left: '40',
-  top: '-60',
-  stroke: '#FD7932',
-  fill: '#FD7932',
+  shape: "start",
+  className: "c",
+  type: "circle",
+  left: "40",
+  top: "-60",
+  stroke: "#FD7932",
+  fill: "#FD7932",
   strokeWidth: { 5: 0 },
   radius: { 0: 20 },
   opacity: 0.2,
@@ -356,13 +358,13 @@ const start2 = new mojs.Shape({
 });
 
 const start3 = new mojs.Shape({
-  shape: 'start',
-  className: 'c',
-  type: 'circle',
-  left: '-10',
-  top: '-80',
-  stroke: '#FD7932',
-  fill: '#FD7932',
+  shape: "start",
+  className: "c",
+  type: "circle",
+  left: "-10",
+  top: "-80",
+  stroke: "#FD7932",
+  fill: "#FD7932",
   strokeWidth: { 5: 0 },
   radius: { 0: 10 },
   opacity: 0.5,
@@ -373,13 +375,13 @@ const start3 = new mojs.Shape({
 });
 
 const start4 = new mojs.Shape({
-  shape: 'start',
-  className: 'c',
-  type: 'circle',
-  left: '-70',
-  top: '-10',
-  stroke: '#FD7932',
-  fill: '#FD7932',
+  shape: "start",
+  className: "c",
+  type: "circle",
+  left: "-70",
+  top: "-10",
+  stroke: "#FD7932",
+  fill: "#FD7932",
   strokeWidth: { 5: 0 },
   radius: { 0: 20 },
   opacity: 0.3,
@@ -389,13 +391,13 @@ const start4 = new mojs.Shape({
 });
 
 const start5 = new mojs.Shape({
-  shape: 'start',
-  className: 'c',
-  type: 'circle',
-  left: '80',
-  top: '-50',
-  stroke: '#FD7932',
-  fill: '#FD7932',
+  shape: "start",
+  className: "c",
+  type: "circle",
+  left: "80",
+  top: "-50",
+  stroke: "#FD7932",
+  fill: "#FD7932",
   strokeWidth: { 5: 0 },
   radius: { 0: 20 },
   opacity: 0.4,
@@ -405,13 +407,13 @@ const start5 = new mojs.Shape({
 });
 
 const start6 = new mojs.Shape({
-  shape: 'start',
-  className: 'c',
-  type: 'circle',
-  left: '20',
-  top: '-100',
-  stroke: '#FD7932',
-  fill: '#FD7932',
+  shape: "start",
+  className: "c",
+  type: "circle",
+  left: "20",
+  top: "-100",
+  stroke: "#FD7932",
+  fill: "#FD7932",
   strokeWidth: { 5: 0 },
   radius: { 0: 15 },
   opacity: 0.2,
@@ -421,13 +423,13 @@ const start6 = new mojs.Shape({
 });
 
 const start7 = new mojs.Shape({
-  shape: 'start',
-  className: 'c',
-  type: 'circle',
-  left: '-40',
-  top: '-90',
-  stroke: '#FD7932',
-  fill: '#FD7932',
+  shape: "start",
+  className: "c",
+  type: "circle",
+  left: "-40",
+  top: "-90",
+  stroke: "#FD7932",
+  fill: "#FD7932",
   strokeWidth: { 5: 0 },
   radius: { 0: 25 },
   opacity: 0.4,
@@ -440,17 +442,16 @@ const cart_timeline = new mojs.Timeline({ speed: 0.5 });
 
 cart_timeline.add(start1, start2, start3, start4, start5, start6, start7);
 
-var cart_icon = document.querySelectorAll('.cart_icon');
-var c = document.querySelectorAll('.c');
+var cart_icon = document.querySelectorAll(".cart_icon");
+var c = document.querySelectorAll(".c");
 
 for (i = 0; i < cart_icon.length; i++) {
-  cart_icon[i].addEventListener('click', function (e) {
+  cart_icon[i].addEventListener("click", function(e) {
     cartClick(e);
   });
 }
 
-function cartClick(e){
-  
+function cartClick(e) {
   for (j = 0; j < c.length; j++) {
     // alert(a[j]);
     c[j].style.display = "block";
@@ -466,47 +467,45 @@ function cartClick(e){
   start7.tune(coords);
   cart_timeline.replay();
 
-  setTimeout(function () {
-
+  setTimeout(function() {
     for (j = 0; j < c.length; j++) {
       // alert(a[j]);
       c[j].style.display = "none";
     }
-
   }, 1000);
 }
 //icon點擊事件
 
-var trashIconList = document.querySelectorAll('.trash_icon');
-var heartIconList = document.querySelectorAll('.heart_icon');
-var cartIconList = document.querySelectorAll('.cart_icon');
+var trashIconList = document.querySelectorAll(".trash_icon");
+var heartIconList = document.querySelectorAll(".heart_icon");
+var cartIconList = document.querySelectorAll(".cart_icon");
 var isSwitch = false;
 
 for (i = 0; i < trashIconList.length; i++) {
-  trashIconList[i].addEventListener('click', function () {
+  trashIconList[i].addEventListener("click", function() {
     isSwitch = iconSwitch(this, "a", "0766ff", isSwitch);
   });
 }
 
 for (i = 0; i < heartIconList.length; i++) {
-  heartIconList[i].addEventListener('click', function () {
+  heartIconList[i].addEventListener("click", function() {
     isSwitch = iconSwitch(this, "b", "f35186", isSwitch);
   });
 }
 
 for (i = 0; i < cartIconList.length; i++) {
-  cartIconList[i].addEventListener('click', function () {
+  cartIconList[i].addEventListener("click", function() {
     isSwitch = iconSwitch(this, "c", "FD7932", isSwitch);
   });
 }
 
 function iconSwitch(obj, animationClass, color, isSwitch) {
-  var anClass = document.querySelectorAll('.' + animationClass),
+  var anClass = document.querySelectorAll("." + animationClass),
     svg = obj.children[0],
     pathList = obj.children[0].children[0].children;
 
-  svg.style.transition = '0s';
-  svg.style.transform = 'scale(0)';
+  svg.style.transition = "0s";
+  svg.style.transform = "scale(0)";
 
   isSwitch = !isSwitch;
 
@@ -517,27 +516,26 @@ function iconSwitch(obj, animationClass, color, isSwitch) {
     }
 
     for (i = 0; i < pathList.length; i++) {
-      svg.style.transition = '0.1s';
-      svg.style.transform = 'scale(1)';
+      svg.style.transition = "0.1s";
+      svg.style.transform = "scale(1)";
       pathList[i].style.fill = "#ddd";
     }
   } else {
     // alert("else:"+isSwitch);
     for (i = 0; i < pathList.length; i++) {
-
       setTimeout(() => {
-        svg.style.transition = '0.3s';
-        svg.style.transform = 'scale(1.15)';
+        svg.style.transition = "0.3s";
+        svg.style.transform = "scale(1.15)";
       }, 10);
 
       setTimeout(() => {
-        svg.style.transition = '0.1s';
-        svg.style.transform = 'scale(0.9)';
+        svg.style.transition = "0.1s";
+        svg.style.transform = "scale(0.9)";
       }, 300);
 
       setTimeout(() => {
-        svg.style.transition = '0.1s';
-        svg.style.transform = 'scale(1)';
+        svg.style.transition = "0.1s";
+        svg.style.transform = "scale(1)";
       }, 400);
 
       pathList[i].style.fill = "#" + color;
@@ -549,34 +547,4 @@ function iconSwitch(obj, animationClass, color, isSwitch) {
   }
 
   return isSwitch;
-
 }
-
-//ajax icon
-var coll = document.querySelectorAll('.food-button-save');
-
-var isSwitch = document.querySelectorAll('.food-button-save input["mealstate"]').value;
-var itemId = document.querySelectorAll('.food-button-save input["mealNo"]').value;
-
-for(var a=0;a<coll.length;a++){
-
-  coll[a].addEventListener('click', function(){
-          var xhr = new XMLHttpRequest();
-          xhr.onload = function (){
-          if( xhr.status == 200){
-              // alert("收藏資料修改成功");
-          }else{
-              alert(xhr.status);
-          }
-      }
-
-      xhr.open("post", "heartDataUpdate.php", true);
-      xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-      var data_info = "mealstate=" + isSwitch + //餐點收藏狀態
-                      "&mealNo=" + itemId; //餐點編號
-      xhr.send(data_info);
-  });
-}
-
-
-  
