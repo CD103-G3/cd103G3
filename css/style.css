@@ -2198,33 +2198,32 @@ a,
         background-color: #fcf2ca;
         box-shadow: 0 6px #76391b;
         position: relative; }
-        .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form div {
-          display: inline-block; }
-          .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form div::after {
+        .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form div:nth-child(1) {
+          display: inline-block;
+          position: relative;
+          top: -9px;
+          left: -14px; }
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form div:nth-child(1)::after {
             content: "▾";
-            font-family: FontAwesome;
             position: absolute;
             width: 20px;
             height: 20px;
-            top: 16px;
-            left: 58px;
+            top: 19px;
+            left: 65px;
             font-size: 18px;
             color: #fff; }
-          .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form div #indexSearch-select {
+          .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form div:nth-child(1) #indexSearch-select {
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
             border: none;
             font-size: 20px;
-            padding: 16px 34px 16px 16px;
+            padding: 14px 34px 14px 16px;
             border-radius: 1000px;
             border: none;
             background-color: #bb7232;
             color: #fff;
-            letter-spacing: 1px;
-            position: relative;
-            top: -13px;
-            left: -14px; }
+            letter-spacing: 1px; }
         .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form input[type="text"] {
           width: 50%;
           background-color: transparent;
@@ -2233,7 +2232,7 @@ a,
           position: absolute;
           top: 0px;
           left: 90px;
-          line-height: 45px; }
+          line-height: 46px; }
         .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form .indexSearch-btn {
           font-size: 20px;
           padding: 16px 10px 16px;
@@ -2444,7 +2443,7 @@ a,
               padding: 0 0 0 12px;
               overflow: hidden;
               white-space: nowrap;
-              animation: typing 1.5s steps(9) 1; } }
+              animation: typing 2s steps(9) 1; } }
 
 @media screen and (min-width: 1200px) {
   .indexSearch {
@@ -3425,9 +3424,26 @@ a,
             color: #333;
             font-size: 16px;
             box-shadow: 0 4px 0 #bb7232; }
+          .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn svg {
+            margin-right: 8px;
+            width: 20px;
+            vertical-align: middle;
+            transition-timing-function: cubic-bezier(0.1, 2, 1, 0.1); }
+          .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn svg path {
+            fill: #fff; }
+          .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn p.heart_icon path {
+            fill: #f37751; }
           .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
-            padding: 4.5px 10px;
+            padding: 0px 10px;
             border: 0; }
+            .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button p {
+              font-size: 16px;
+              padding: 5px 2px;
+              line-height: 1rem; }
+              .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button p svg {
+                margin-right: 0; }
+              .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button p span {
+                font-size: 16px; }
       .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .top2 {
         top: 0; }
       .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .top3 {
@@ -3608,21 +3624,39 @@ a,
                 width: 15px; }
             .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn a, .indexMeal-desc .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal-mobile .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
               display: inline-block;
-              padding: 5px 10px;
+              padding: 7px 10px;
               background-color: #fce444;
               border-radius: 1000px;
               color: #333;
               font-size: 16px;
               box-shadow: 0 4px 0 #bb7232; }
+            .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn svg {
+              margin-right: 8px;
+              width: 20px;
+              vertical-align: middle;
+              transition-timing-function: cubic-bezier(0.1, 2, 1, 0.1); }
+            .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn svg path {
+              fill: #fff; }
+            .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn p.heart_icon path {
+              fill: #f37751; }
             .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
               display: inline-block;
-              padding: 5px 10px;
+              padding: 7px 10px;
               background-color: #fce444;
               border-radius: 1000px;
               color: #333;
               font-size: 16px;
               box-shadow: 0 4px 0 #bb7232;
+              padding: 0px 10px;
               border: 0; }
+              .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button p {
+                font-size: 16px;
+                padding: 5px 2px;
+                line-height: 1rem; }
+                .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button p svg {
+                  margin-right: 0; }
+                .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button p span {
+                  font-size: 16px; }
         .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 {
           position: relative;
           top: 163px; }
@@ -3635,6 +3669,11 @@ a,
             .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum .indexMeal-btn {
               position: relative;
               top: 31px; }
+              .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum h3 button p,
+              .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum h4 button p,
+              .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum p button p,
+              .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum .indexMeal-btn button p {
+                top: 0px; }
         .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top2 {
           position: relative;
           top: 163px;
@@ -3881,12 +3920,12 @@ a,
         margin: auto;
         position: relative;
         top: 15px;
-        left: 9%;
+        left: 0;
         height: 400px; }
         .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info {
           position: absolute;
-          top: 103px;
-          left: -200px;
+          top: 160px;
+          left: -300px;
           display: inline-block;
           z-index: 1;
           transform: translateX(0%); }
@@ -3921,12 +3960,12 @@ a,
             width: 180px; }
         .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan {
           display: inline-block;
-          position: relative;
+          position: absolute;
           width: 400px;
           border-radius: 100%;
           animation: shakin 6s linear infinite;
-          top: 0;
-          left: 0; }
+          top: -30px;
+          left: -60px; }
           .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan:after {
             content: "";
             display: block;
@@ -3957,8 +3996,8 @@ a,
             box-shadow: inset #222222 0 2px 4px 6px, inset rgba(255, 255, 255, 0.1) 4px 6px 34px 4px, #080808 0 0 0 10px, rgba(255, 255, 255, 0.14) -4px -2px 4px 8px, rgba(255, 255, 255, 0.14) 4px 2px 4px 8px; }
         .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-scratch {
           position: absolute;
-          top: 50px;
-          left: 40px;
+          top: 20px;
+          left: -10px;
           animation: sizzlin 1.6s linear alternate infinite; }
           .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-scratch .indexLogin-canvas {
             position: absolute;
@@ -3975,12 +4014,12 @@ a,
             overflow: hidden; }
         .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan .indexLogin-handle {
           position: absolute;
-          top: 48%;
-          left: -40%;
+          top: 55%;
+          left: 107%;
           width: 15%;
           height: 50%;
           background-color: #080808;
-          transform: rotate(-100deg);
+          transform: rotate(120deg);
           z-index: 1;
           border-radius: 30%;
           box-shadow: inset #080808 2px 2px 4px 2px, inset rgba(255, 255, 255, 0.2) 3px -8px 8px 10px; }

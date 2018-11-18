@@ -182,17 +182,19 @@ a {
           box-shadow: 0 6px $color_main2;
           position: relative;
 
-          div {
+          div:nth-child(1) {
             display: inline-block;
+            position: relative;
+            top: -9px;
+            left: -14px;
 
             &::after {
               content: "▾";
-              font-family: FontAwesome;
               position: absolute;
               width: 20px;
               height: 20px;
-              top: 16px;
-              left: 58px;
+              top: 19px;
+              left: 65px;
               font-size: 18px;
               color: $white;
             }
@@ -203,15 +205,12 @@ a {
               appearance: none;
               border: none;
               font-size: $fontSize_S;
-              padding: 16px 34px 16px 16px;
+              padding: 14px 34px 14px 16px;
               border-radius: $borderRadius;
               border: none;
               background-color: $color_main4;
               color: $white;
               letter-spacing: 1px;
-              position: relative;
-              top: -13px;
-              left: -14px;
             }
           }
 
@@ -223,7 +222,7 @@ a {
             position: absolute;
             top: 0px;
             left: 90px;
-            line-height: 45px;
+            line-height: 46px;
           }
 
           .indexSearch-btn {
@@ -501,7 +500,7 @@ a {
                 padding: 0 0 0 12px;
                 overflow: hidden;
                 white-space: nowrap;
-                animation: typing 1.5s steps(9) 1;
+                animation: typing 2s steps(9) 1;
               }
             }
           }
@@ -2054,10 +2053,36 @@ a {
                 box-shadow: $boxshadow;
               }
 
+              svg {
+                margin-right: 8px;
+                width: 20px;
+                vertical-align: middle;
+                transition-timing-function: cubic-bezier(0.1, 2, 1, 0.1);
+              }
+
+              svg path {
+                fill: #fff;
+              }
+
+              p.heart_icon path {
+                fill: #f37751;
+              }
+
               button {
                 @extend a;
-                padding: 4.5px 10px;
+                padding: 0px 10px;
                 border: 0;
+                p {
+                  font-size: 16px;
+                  padding: 5px 2px;
+                  line-height: 1rem;
+                  svg {
+                    margin-right: 0;
+                  }
+                  span {
+                    font-size: $fontSize_text;
+                  }
+                }
               }
             }
           }
@@ -2318,7 +2343,7 @@ a {
               .indexMeal-btn {
                 a {
                   display: inline-block;
-                  padding: 5px 10px;
+                  padding: 7px 10px;
                   background-color: $color_main1;
                   border-radius: $borderRadius;
                   color: $black;
@@ -2326,15 +2351,42 @@ a {
                   box-shadow: $boxshadow;
                 }
 
+                svg {
+                  margin-right: 8px;
+                  width: 20px;
+                  vertical-align: middle;
+                  transition-timing-function: cubic-bezier(0.1, 2, 1, 0.1);
+                }
+
+                svg path {
+                  fill: #fff;
+                }
+
+                p.heart_icon path {
+                  fill: #f37751;
+                }
+
                 button {
                   display: inline-block;
-                  padding: 5px 10px;
+                  padding: 7px 10px;
                   background-color: $color_main1;
                   border-radius: $borderRadius;
                   color: $black;
                   font-size: $fontSize_text;
                   box-shadow: $boxshadow;
+                  padding: 0px 10px;
                   border: 0;
+                  p {
+                    font-size: 16px;
+                    padding: 5px 2px;
+                    line-height: 1rem;
+                    svg {
+                      margin-right: 0;
+                    }
+                    span {
+                      font-size: $fontSize_text;
+                    }
+                  }
                 }
               }
             }
@@ -2352,6 +2404,11 @@ a {
               .indexMeal-btn {
                 position: relative;
                 top: 31px;
+                button {
+                  p {
+                    top: 0px;
+                  }
+                }
               }
             }
           }
@@ -2675,18 +2732,6 @@ a {
         left: 100px;
       }
     }
-
-    // .indexLogin-BG {
-    //   width: 100%;
-    //   height: 65vh;
-    //   background-image: url(../images/loginBg.svg);
-    //   background-size: 60%;
-    //   background-repeat: repeat;
-    //   position: absolute;
-    //   top: 120px;
-    //   left: 0;
-    //   animation: loginBG 3s infinite alternate;
-    // }
     .wrap {
       .indexLogin-wrap {
         .indexLogin-sum {
@@ -2699,12 +2744,12 @@ a {
             margin: auto;
             position: relative;
             top: 15px;
-            left: 9%;
+            left: 0;
             height: 400px;
             .indexLogin-info {
               position: absolute;
-              top: 103px;
-              left: -200px;
+              top: 160px;
+              left: -300px;
               display: inline-block;
               z-index: 1;
               transform: translateX(0%);
@@ -2745,12 +2790,12 @@ a {
             }
             .indexLogin-pan {
               display: inline-block;
-              position: relative;
+              position: absolute;
               width: 400px;
               border-radius: 100%;
               animation: shakin 6s linear infinite;
-              top: 0;
-              left: 0;
+              top: -30px;
+              left: -60px;
               &:after {
                 content: "";
                 display: block;
@@ -2792,8 +2837,8 @@ a {
 
             .indexLogin-scratch {
               position: absolute;
-              top: 50px;
-              left: 40px;
+              top: 20px;
+              left: -10px;
               animation: sizzlin 1.6s linear alternate infinite;
               .indexLogin-canvas {
                 position: absolute;
@@ -2815,12 +2860,12 @@ a {
 
             .indexLogin-pan .indexLogin-handle {
               position: absolute;
-              top: 48%;
-              left: -40%;
+              top: 55%;
+              left: 107%;
               width: 15%;
               height: 50%;
               background-color: $color-pan;
-              transform: rotate(-100deg);
+              transform: rotate(120deg);
               z-index: 1;
               border-radius: 30%;
               box-shadow: inset $color-pan 2px 2px 4px 2px,
