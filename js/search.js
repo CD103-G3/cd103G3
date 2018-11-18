@@ -8,8 +8,8 @@ document.getElementById("close-search").addEventListener("click", function() {
 
 function searchImg() {
   var grouponTagName = document.getElementsByName("groupon-TagName");
-  var N = "images/tag_N.svg";
-  var Y = "images/tag_Y.svg";
+  var N = "images/icon/tag_N.svg";
+  var Y = "images/icon/tag_Y.svg";
   grouponTagName[0].checked = true;
   document.querySelectorAll('.groupon-TagName img')[0].src=Y;
   for (let i = 0; i < grouponTagName.length; i++) {
@@ -39,10 +39,16 @@ markGroupon.addEventListener("click", function() {
 markMeal.addEventListener("click", function() {
   $("#input-search").attr("placeholder", "請輸入" + markMealText + "關鍵字");
 });
-// $id('start-search').addEventListener('click',function () {
+$id('start-search').addEventListener('click',function () {
+  var searchText = [];
+  inputText = $id('input-search').innerText;
+  searchText =  inputText.split(" ");
+  startSearch(searchText); 
+},false);
 
-// },false);
-
+function startSearch() {
+  
+}
 // function searchAjax() {
 //   //傳PHP端
 //   var obj = {};

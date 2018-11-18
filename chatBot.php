@@ -3,7 +3,7 @@
 	<input type="checkbox" name="close-chatBot" id="close-chatBot" checked>
 	<div id="chatBot" class="clearfix">
 		<div class="chatBot-contenier-wrap">
-			<h3>日食客服機器人</h3>
+			<h3>日食客服雞</h3>
 			<label for="close-chatBot" class="close-chatBot"></label>
 			<div id="chatBot-content" class="clearfix">
 				<div id="chatBot-container">

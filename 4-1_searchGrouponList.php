@@ -7,15 +7,18 @@ try {
     //使用搜尋條件
     $order = $_REQUEST['order'];
     $search = "%".$_REQUEST['search']."%";
-    if($search == '' && $order == '') {
+    $page = (($_REQUEST['p']-1) * 10);
+    if($search == '' && $order == 'latest') {
         // if()
-        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon";
-    } else if($order == '') {
-        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search'";
+        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from grouponorder by `groupon`.`groupon_No` DESC limit $page,10000";
+    } else if($order == 'latest') {
+        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by `groupon`.`groupon_No` DESC limit $page,10000";
     } else if($order == 'endDate'){
-        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by `groupon`.`$order` DESC";
+        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by `groupon`.`$order` ASC limit $page,10000";
     } else if($order == 'success') {
-        $sql = "SELECT * ,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by success DESC";
+        $sql = "SELECT * ,(memberNow / groupon_MemberNeed) as success from groupon where groupon_Name LIKE '$search' order by success DESC limit $page,10000";
+    } else if($order == 'official') {
+        $sql = "SELECT * ,(memberNow / groupon_MemberNeed) as success from groupon where groupon_TagNo = 8 order by success DESC limit $page,10000";
     }
    
     $groupon = $pdo -> prepare($sql);
