@@ -49,57 +49,6 @@ function addChatText(text) {
   //捲軸更新
   chatBotScrollTo(container, content);
 }
-function chatBotSubmit() {
-  if (botSearch.indexOf("飯團") != -1 || botSearch.indexOf("折扣") != -1) {
-    if (
-      botSearch.indexOf("參加") != -1 &&
-      botSearch.indexOf("發起") == -1
-    ) {
-      botSearch = "參加飯團";
-    } else if (
-      botSearch.indexOf("發起") != -1 &&
-      botSearch.indexOf("參加") == -1
-    ) {
-      botSearch = "如何發起飯團";
-    } else if (botSearch.indexOf("折扣") != -1) {
-      botSearch = "飯團折扣";
-    }else if(botSearch != ""){
-      botSearch = "啥東東啦";
-    }
-  } else if (
-    botSearch.indexOf("時間") != -1 ||
-    botSearch.indexOf("營業") != -1 ||
-    botSearch.indexOf("優惠") != -1
-  ) {
-    if (botSearch.indexOf("營業") != -1 && botSearch.indexOf("優惠") == -1) {
-      botSearch = "營業時間";
-    }
-  } else if (botSearch.indexOf("取餐") != -1) {
-    if (botSearch.indexOf("無法") != -1 && botSearch.indexOf("如何") == -1) {
-      botSearch = "不要問我";
-    } else if (botSearch.indexOf("如何") != -1 || botSearch.indexOf("取餐") != -1) {
-      botSearch = "如何取餐";
-    }else if(botSearch != ""){
-      botSearch = "啥東東啦";
-    }
-  } else if (botSearch.indexOf("購物金") != -1) {
-    if (botSearch.indexOf("如何") != -1) {
-      if (botSearch.indexOf("使用") != -1) {
-        botSearch = "如何使用購物金";
-      } else if (
-        botSearch.indexOf("取") != -1 ||
-        botSearch.indexOf("獲") != -1
-      ) {
-        botSearch = "如何獲得購物金";
-      }
-    }else if(botSearch != ""){
-      botSearch = "啥東東啦";
-    }
-  } else if (botSearch != "") {
-    botSearch = "安安";
-  }
-  CallAjax(botSearch);
-}
 function CallAjax(text) {
   var BotText ="";
   //傳PHP端
@@ -155,7 +104,7 @@ chatUserText.addEventListener("keyup", function() {
       //判斷鍵盤有按下Enter,就送出內容
       delQpoint();
       addChatText(chatUserText.value);
-      chatBotSubmit();
+      CallAjax(botSearch);
     }
   }else{
     if (Qpoint.length >= 1) {
@@ -172,7 +121,7 @@ $id("chatBot-search").addEventListener("click", function() {
     //再新增文字
     addChatText(chatUserText.value);
     //判斷關鍵字同時CallAjax()
-    chatBotSubmit();
+    CallAjax(botSearch);
   }
 });
 //使用關鍵字

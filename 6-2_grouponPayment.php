@@ -8,8 +8,7 @@
     <script src="js/main.js"></script>
 <!--  phpStartHere -->
 <?php
-ob_start();
-session_start();
+    require_once('nav.php');
 try {
     require_once('phpDB/connectDB_CD103G3.php');
     $sql = "SELECT * from `groupontag` order by `groupon_TagNo` ASC";

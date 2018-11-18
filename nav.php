@@ -61,7 +61,7 @@ session_start();
 			</li>
 			<li class="initiate">			
 				<div id="view2"></div>
-				<a href="3-3_createGroupon.php">發起飯團</a>
+				<a href="3-1_createGroupon.php">發起飯團</a>
 			</li>
 			<li class="participate">
 				<div id="view3"></div>

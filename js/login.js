@@ -341,56 +341,59 @@ $id("siginSubmit").addEventListener(
     obj.member_Id = $id("sigin-member-Id").value;
     obj.member_Psw = $id("sigin-member-Psw").value;
     var jsonStr = JSON.stringify(obj);
-
-    xhr = new XMLHttpRequest();
-    xhr.onload = function() {
-      if (xhr.status == 200) {
-        if (xhr.responseText.indexOf("not found") != -1) {
-          swal({
-            title: "帳號或密碼錯誤!",
-            icon: "error",
-            closeOnClickOutside: true,
-            content: {
-              element: "a",
-              attributes: {
-                href: "javascript:",
-                text: "忘記密碼?",
-                className: "want-psw"
+    if($id("sigin-member-Id").value=='' || $id("sigin-member-Psw").value==''){
+    }else{
+  xhr = new XMLHttpRequest();
+      xhr.onload = function() {
+        if (xhr.status == 200) {
+          if (xhr.responseText.indexOf("not found") != -1) {
+            swal({
+              title: "帳號或密碼錯誤!",
+              icon: "error",
+              closeOnClickOutside: true,
+              content: {
+                element: "a",
+                attributes: {
+                  href: "javascript:",
+                  text: "忘記密碼?",
+                  className: "want-psw"
+                }
               }
-            }
-          });
-          //登入的忘記密碼按鈕
-          document.getElementsByClassName("want-psw")[0].addEventListener(
-            "click",
-            function() {
-              $id("to-get-Psw").checked = true; //忘記密碼打開
-              this.parentNode.parentNode.parentNode.className = "swal-overlay"; //關閉swal跳窗
-            },
-            false
-          );
+            });
+            //登入的忘記密碼按鈕
+            document.getElementsByClassName("want-psw")[0].addEventListener(
+              "click",
+              function() {
+                $id("to-get-Psw").checked = true; //忘記密碼打開
+                this.parentNode.parentNode.parentNode.className = "swal-overlay"; //關閉swal跳窗
+              },
+              false
+            );
+          } else {
+            //登入成功
+            checkCookie();
+            document.getElementById("close-login").checked = true;
+            swal({
+              title: "歡迎!",
+              text: "快來看看",
+              icon: "success",
+              content: {
+                element: "a",
+                attributes: {
+                  href: "https://www.youtube.com/?gl=TW&hl=zh-tw",
+                  text: "目前最HOT!HOT!飯團"
+                }
+              }
+            })
+            // .then(function() {
+            //   location.reload();
+            // });
+          }
         } else {
-          //登入成功
-          checkCookie();
-          document.getElementById("close-login").checked = true;
-          swal({
-            title: "歡迎!",
-            text: "快來看看",
-            icon: "success",
-            content: {
-              element: "a",
-              attributes: {
-                href: "https://www.youtube.com/?gl=TW&hl=zh-tw",
-                text: "目前最HOT!HOT!飯團"
-              }
-            }
-          })
-          // .then(function() {
-          //   location.reload();
-          // });
+          alert(xhr.status);
         }
-      } else {
-        alert(xhr.status);
-      }
+    }
+   
     };
     xhr.open("post", "siginSubmit.php", true); //設定好所要連結的程式
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
