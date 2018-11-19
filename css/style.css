@@ -2925,6 +2925,127 @@ h2 {
     opacity: 0;
     display: none; } }
 
+.frontPage {
+  width: 100%;
+  height: 100%;
+  padding-top: 250px;
+  background-image: url(../images/guidePage-05.png);
+  background-size: cover;
+  background-position: center; }
+  .frontPage .logo {
+    position: absolute;
+    top: -5%;
+    left: 0;
+    right: 0;
+    width: 300px;
+    margin: auto; }
+  @media screen and (min-width: 768px) {
+    .frontPage {
+      background-image: url(../images/guidePage-02.png); } }
+  .frontPage .choice {
+    position: relative;
+    margin-top: 100px;
+    cursor: pointer; }
+    .frontPage .choice.choice1:hover .menuBoard .menu1 {
+      background-position: 31% 56%; }
+    .frontPage .choice.choice1:hover .chickFront.chick1 {
+      animation: upDown .3s infinite alternate; }
+    .frontPage .choice.choice1:hover .chickFront.chick2 {
+      animation: upDown .3s .2s infinite alternate; }
+    .frontPage .choice.choice1:hover .chickFront.chick3 {
+      animation: upDown .3s .4s infinite alternate; }
+    .frontPage .choice.choice2:hover .menuBoard .menu2 {
+      background-position: 98% 56%; }
+    .frontPage .choice.choice2:hover .chickBack.chick1 {
+      animation: upDown .3s infinite alternate; }
+    .frontPage .choice.choice2:hover .chickBack.chick2 {
+      animation: upDown .3s .2s infinite alternate; }
+    .frontPage .choice.choice2:hover .chickBack.chick3 {
+      animation: upDown .3s .4s infinite alternate; }
+    .frontPage .choice .chickG {
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 0;
+      padding-top: 40%; }
+      .frontPage .choice .chickG.chick1 {
+        top: -11%;
+        left: -4%; }
+      .frontPage .choice .chickG.chick2 {
+        z-index: 4;
+        top: -10%;
+        left: 21%; }
+      .frontPage .choice .chickG.chick3 {
+        top: -18%;
+        left: 50%; }
+      .frontPage .choice .chickG .chickPic {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("../images/guidePage-03.png") 0 0;
+        background-size: auto 100%; }
+        .frontPage .choice .chickG .chickPic.chick1 {
+          background-position: -66% 0; }
+        .frontPage .choice .chickG .chickPic.chick2 {
+          background-position: -54% 0; }
+        .frontPage .choice .chickG .chickPic.chick3 {
+          background-position: -41% 0; }
+      .frontPage .choice .chickG.chickBack {
+        width: 30%; }
+        .frontPage .choice .chickG.chickBack.chick1 {
+          top: -26%;
+          left: 19%; }
+        .frontPage .choice .chickG.chickBack.chick2 {
+          top: -10%;
+          left: 34%; }
+        .frontPage .choice .chickG.chickBack.chick3 {
+          top: -21%;
+          left: 55%; }
+        .frontPage .choice .chickG.chickBack .chickPic.chick1 {
+          background-position: -27% 0; }
+        .frontPage .choice .chickG.chickBack .chickPic.chick2 {
+          background-position: -12% 0; }
+        .frontPage .choice .chickG.chickBack .chickPic.chick3 {
+          background-position: -20% 0; }
+    .frontPage .choice .menuBoard {
+      position: relative;
+      z-index: 3;
+      top: 0;
+      left: 0;
+      width: 67%;
+      height: 0;
+      margin: auto;
+      padding-top: 20%; }
+      .frontPage .choice .menuBoard .menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("../images/guidePage-04.png") -2% 56%;
+        background-size: auto 220%; }
+      .frontPage .choice .menuBoard .menu2 {
+        background-position: 65% 56%; }
+    .frontPage .choice .pic {
+      overflow: hidden; }
+      .frontPage .choice .pic.plate2 img {
+        transform: translate(-21%); }
+      .frontPage .choice .pic img {
+        width: auto;
+        width: 450%;
+        transform: translate(1%); }
+
+@keyframes upDown {
+  0% {
+    transform: translateY(0px); }
+  100% {
+    transform: translateY(-10px); } }
+
 .nextBTN,
 .cancelBTN {
   position: relative;

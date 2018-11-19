@@ -2713,6 +2713,200 @@ h2{
 
 
 } //penguinPage css wrapper end
+.frontPage {
+    .logo {
+        position: absolute;
+        top: -5%;
+        left: 0;
+        right: 0;
+        width: 300px;
+        margin: auto;
+    }
+    width: 100%;
+    height: 100%;
+    padding-top: 250px;
+    // background-image: none;
+    background-image: url(../images/guidePage-05.png);
+    background-size: cover;
+    background-position: center;
+    @include rwdSys(pad) {
+        // height: 100vh;
+        background-image: url(../images/guidePage-02.png);
+    }
+    .choice {
+        position: relative;
+        margin-top: 100px;
+        cursor: pointer;
+        &.choice1 {
+            &:hover {
+                .menuBoard {
+                    .menu1 {
+                        background-position: 31% 56%;
+                    }
+                }
+                .chickFront.chick1 {
+                    animation: upDown .3s infinite alternate;
+                }
+                .chickFront.chick2 {
+                    animation: upDown .3s .2s infinite alternate;
+                }
+                .chickFront.chick3 {
+                    animation: upDown .3s .4s infinite alternate;
+                }
+            }
+        }
+        &.choice2 {
+            &:hover {
+                .menuBoard {
+                    .menu2 {
+                        background-position: 98% 56%;
+                    }
+                }
+                .chickBack.chick1 {
+                    animation: upDown .3s infinite alternate;
+                }
+                .chickBack.chick2 {
+                    animation: upDown .3s .2s infinite alternate;
+                }
+                .chickBack.chick3 {
+                    animation: upDown .3s .4s infinite alternate;
+                }
+
+            }
+        }
+        .chickG {
+            position: absolute;
+            z-index: 3;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 0;
+            padding-top: 40%;
+            // height: 100%;
+            &.chick1 {
+                top: -11%;
+                left: -4%;
+            }
+            &.chick2 {
+                z-index: 4;
+                top: -10%;
+                left: 21%;
+            }
+            &.chick3 {
+                top: -18%;
+                left: 50%;
+            }
+            .chickPic {
+                position: absolute;
+                z-index: 2;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url('../images/guidePage-03.png') 0 0;
+                background-size: auto 100%;
+                &.chick1 {
+                    background-position: -66% 0;
+                }
+                &.chick2 {
+                    background-position: -54% 0;
+                }
+                &.chick3 {
+                    background-position: -41% 0;
+                }
+            }
+
+            &.chickBack {
+                width: 30%;
+                &.chick1 {
+                    top: -26%;
+                    left: 19%;
+                }
+                &.chick2 {
+                    top: -10%;
+                    left: 34%;
+                }
+                &.chick3 {
+                    top: -21%;
+                    left: 55%;
+                }
+                .chickPic {
+                    &.chick1 {
+                        background-position: -27% 0;
+                    }
+                    &.chick2 {
+                        background-position: -12% 0;
+                    }
+                    &.chick3 {
+                        background-position: -20% 0;
+                    }
+                }
+                
+            }
+        }
+        
+        .menuBoard {
+            position: relative;
+            z-index: 3;
+            top: 0;
+            left: 0;
+            width: 67%;
+            height: 0;
+            margin: auto;
+            padding-top: 20%;
+            .menu {
+                position: absolute;
+                // z-index: 2;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url('../images/guidePage-04.png') -2% 56%;
+                background-size: auto 220%;
+            }
+            .menu2 {
+                background-position: 65% 56%;
+            }
+        }    
+        .pic {
+            // border: 3px solid #aaa;
+            overflow: hidden;
+            &.plate2 {
+                img {
+                    transform: translate(-21%);
+                }
+                
+            }
+            img {
+                width: auto;
+                // width: 300px;
+                width: 450%;
+                // height: 100%;
+                transform: translate(1%);
+                
+            }
+        }
+    }
+    @keyframes upDown {
+        0% {
+            transform: translateY(0px);
+        }
+        100% {
+            transform: translateY(-10px);
+        }
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
 
 //通用按鈕設定
 @include nextAndCancel-BTN(120px);
