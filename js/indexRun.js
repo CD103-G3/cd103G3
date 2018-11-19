@@ -1,5 +1,6 @@
 $(document).ready(function() {
   $(".indexJoin-bg > img").hide();
+  $("#indexJoin-btn > button").hide();
   function wheel() {
     var $windowTop = $(window).scrollTop();
 

@@ -1650,7 +1650,7 @@ a,
         .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form div:nth-child(1) {
           display: inline-block;
           position: relative;
-          top: -9px;
+          top: -6px;
           left: -14px; }
           .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form div:nth-child(1)::after {
             content: "▾";
@@ -2435,8 +2435,8 @@ a,
               width: 0;
               border: 3px solid;
               border-width: 610px 140px;
-              border-color: transparent transparent #fffcf6;
-              opacity: 0.5;
+              border-color: transparent transparent #f7f7f7;
+              opacity: 0.3;
               filter: blur(10px);
               transform: rotate(-3deg);
               animation: spotlightMoveB 3s infinite alternate; }
@@ -2444,13 +2444,13 @@ a,
               bottom: 33px;
               width: 283px;
               height: 40px;
-              background: #828080;
+              background: #c1c1c1;
               border-radius: 200%;
               position: relative;
               display: block;
               margin: 0 auto;
               opacity: 0.3;
-              box-shadow: 0px 2px 0px #959594;
+              box-shadow: 0px 2px 0px #e7e7e7;
               filter: blur(3px);
               left: -30px;
               animation: spotlightMoveA 3s infinite alternate; }
@@ -2468,8 +2468,8 @@ a,
               width: 0;
               border: 3px solid;
               border-width: 610px 140px;
-              border-color: transparent transparent #fffcf6;
-              opacity: 0.5;
+              border-color: transparent transparent #f7f7f7;
+              opacity: 0.3;
               filter: blur(10px);
               transform: rotate(-3deg);
               animation: spotlightMoveB 3s infinite alternate; }
@@ -2477,13 +2477,13 @@ a,
               bottom: 33px;
               width: 283px;
               height: 40px;
-              background: #828080;
+              background: #c1c1c1;
               border-radius: 200%;
               position: relative;
               display: block;
               margin: 0 auto;
               opacity: 0.3;
-              box-shadow: 0px 2px 0px #959594;
+              box-shadow: 0px 2px 0px #e7e7e7;
               filter: blur(3px);
               left: -30px;
               animation: spotlightMoveA 3s infinite alternate; }
@@ -2984,6 +2984,8 @@ a,
             .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum h4::after {
               content: " 元";
               font-size: 16px; }
+          .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .scoreNum {
+            display: none; }
           .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum div.scoreEgg-container {
             display: inline-block;
             margin: 10px 0 0 0; }
@@ -3194,6 +3196,8 @@ a,
               top: 110px;
               left: 50%;
               transform: translateX(-50%); }
+          .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .scoreNum {
+            display: none; }
           .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum {
             width: 280px;
             margin: -32px auto 0;

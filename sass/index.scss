@@ -189,7 +189,7 @@ a {
           div:nth-child(1) {
             display: inline-block;
             position: relative;
-            top: -9px;
+            top: -6px;
             left: -14px;
 
             &::after {
@@ -1276,8 +1276,8 @@ a {
                 width: 0;
                 border: 3px solid;
                 border-width: 610px 140px;
-                border-color: transparent transparent #fffcf6;
-                opacity: 0.5;
+                border-color: transparent transparent #f7f7f7;
+                opacity: 0.3;
                 filter: blur(10px);
                 transform: rotate(-3deg);
                 animation: spotlightMoveB 3s infinite alternate;
@@ -1286,13 +1286,13 @@ a {
                 bottom: 33px;
                 width: 283px;
                 height: 40px;
-                background: lighten(#686767, 10%);
+                background: lighten(#a7a7a7, 10%);
                 border-radius: 200%;
                 position: relative;
                 display: block;
                 margin: 0 auto;
                 opacity: 0.3;
-                box-shadow: 0px 2px 0px lighten(#555554, 25%);
+                box-shadow: 0px 2px 0px lighten(#a7a7a7, 25%);
                 filter: blur(3px);
                 left: -30px;
                 animation: spotlightMoveA 3s infinite alternate;
@@ -1316,8 +1316,8 @@ a {
                 width: 0;
                 border: 3px solid;
                 border-width: 610px 140px;
-                border-color: transparent transparent #fffcf6;
-                opacity: 0.5;
+                border-color: transparent transparent #f7f7f7;
+                opacity: 0.3;
                 filter: blur(10px);
                 transform: rotate(-3deg);
                 animation: spotlightMoveB 3s infinite alternate;
@@ -1326,13 +1326,13 @@ a {
                 bottom: 33px;
                 width: 283px;
                 height: 40px;
-                background: lighten(#686767, 10%);
+                background: lighten(#a7a7a7, 10%);
                 border-radius: 200%;
                 position: relative;
                 display: block;
                 margin: 0 auto;
                 opacity: 0.3;
-                box-shadow: 0px 2px 0px lighten(#555554, 25%);
+                box-shadow: 0px 2px 0px lighten(#a7a7a7, 25%);
                 filter: blur(3px);
                 left: -30px;
                 animation: spotlightMoveA 3s infinite alternate;
@@ -2199,7 +2199,9 @@ a {
                 font-size: 16px;
               }
             }
-
+            .scoreNum {
+              display: none;
+            }
             div.scoreEgg-container {
               display: inline-block;
               margin: 10px 0 0 0;
@@ -2494,7 +2496,9 @@ a {
                 transform: translateX(-50%);
               }
             }
-
+            .scoreNum {
+              display: none;
+            }
             .indexMeal-topSum {
               width: 280px;
               margin: -32px auto 0;
