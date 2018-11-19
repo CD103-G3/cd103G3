@@ -371,26 +371,26 @@ body{
     }
 }
 .food-choose .food-icon-den{
-    width: 100px;
+    width: 64px;
     position: absolute;
-    top: -32px;
-    left: 50%;
+    top: -25px;
+    left: 41px;
     transform: translateX(-50%);
     z-index: 1;
 }
 .food-choose .food-icon-ban{
-    width: 100px;
+    width: 64px;
     position: absolute;
-    top: -32px;
-    left: 50%;
+    top: -25px;
+    left: 41px;
     transform: translateX(-50%);
     z-index: 1;
 }
 .food-choose .food-icon-veb{
-    width: 100px;
+    width: 64px;
     position: absolute;
-    top: -60px;
-    left: 50%;
+    top: -25px;
+    left: 41px;
     transform: translateX(-50%);
     z-index: 1;
 }
@@ -787,6 +787,9 @@ body{
 };
 
 @include respond(moblie){
+    .fdnot{
+        display: none;
+    }
     @include grid(md,12,16px){
         display:inline-block;
     }
@@ -894,6 +897,9 @@ body{
     .food-banner .food-main{
         width: 20%;
     }
+    .fdnot{
+        display: none;
+    }
 };
 
 @media screen and (min-width:1024px){
@@ -904,6 +910,7 @@ body{
     }
 }
 @include respond(desktop){
+
     @include grid(xl,12,16px);
     .food-Banner img {
         height: 78vh;
@@ -998,7 +1005,7 @@ body{
         top: -35px;
         left: 50%;;
     }
+    .fdnot{
+        display: none;
+    }
 };
-#close-chatBot:checked ~ #chatBot{
-    z-index: 0;
-}

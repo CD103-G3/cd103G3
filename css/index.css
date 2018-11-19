@@ -832,7 +832,7 @@ input[name="mealGenre-No"]:nth-of-type(1):checked ~ .mealGenre-No:nth-of-type(1)
       height: auto; } }
 
 #close-chatBot:checked ~ #chatBot {
-  z-index: 15; }
+  z-index: 0; }
 
 #close-chatBot:checked ~ #chatBot .chatBot-contenier-wrap {
   width: 0;

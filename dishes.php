@@ -101,7 +101,27 @@
                 </div>
             </div>
         </div>
-		
+		<div class="food-choose fdnot clearfix">
+            
+			<div class="part--4 part-md-2">
+				<img class="food-icon-den" src="images/icon/denshyoku.png" alt="">
+                <div class="food-choose_item">
+                    <p data-rel="tei">定食</p>
+                </div>
+            </div>
+            <div class="part--4 part-md-2">
+				<img class="food-icon-ban" src="images/icon/bandon.png" alt="">
+                <div class="food-choose_item">
+                    <p data-rel="ben">便當</p>
+                </div>
+            </div>
+            <div class="part--4 part-md-2">
+				<img class="food-icon-veb" src="images/icon/veget.png" alt="">
+                <div class="food-choose_item">
+                    <p data-rel="vg">素食</p>
+                </div>
+            </div>
+        </div>
     </div>
 
 	<!-- 菜單一覽 -->
@@ -238,45 +258,6 @@
 	<script src="js/dishesSessiom.js"></script>
 	<script src='https://cdn.jsdelivr.net/mojs/0.265.6/mo.min.js'></script>
 	<script src="js/iconClick.js"></script>
-	<!-- <script>
-		$('.sliderSlick').slick({
-				dots: false,
-					prevArrow: $('.prev'),
-					nextArrow: $('.next'),
-				infinite: false,
-				speed: 300,
-				slidesToShow: 4,
-				slidesToScroll: 4,
-				responsive: [
-					{
-					breakpoint: 1024,
-					settings: {
-						slidesToShow: 3,
-						slidesToScroll: 3,
-						infinite: true,
-						dots: true
-					}
-					},
-					{
-					breakpoint: 600,
-					settings: {
-						slidesToShow: 2,
-						slidesToScroll: 2
-					}
-					},
-					{
-					breakpoint: 480,
-					settings: {
-						slidesToShow: 3,
-						slidesToScroll: 1
-					}
-					}
-					// You can unslick at a given breakpoint now by adding:
-					// settings: "unslick"
-					// instead of a settings object
-				]
-				});
-	</script> -->
 	<script>
 		function getDishes(){
 			var xhr = new XMLHttpRequest();
