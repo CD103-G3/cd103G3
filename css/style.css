@@ -45,9 +45,12 @@ table {
   border-spacing: 0; }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .img {
   fill: #FF0000; }
 
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
 header {
   width: 100%;
   height: 80px;
@@ -178,7 +181,13 @@ header {
             header nav ul .index-member .after-login div .member-Pic {
               width: 35px;
               height: 35px;
+<<<<<<< HEAD
               border-radius: 50%; }
+=======
+              border-radius: 50%;
+              background-color: #d4eefb;
+              object-fit: cover; }
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
             header nav ul .index-member .after-login div img {
               cursor: pointer; }
             header nav ul .index-member .after-login div span {
@@ -197,6 +206,7 @@ header {
     background-color: #425075;
     position: fixed;
     z-index: 101; }
+<<<<<<< HEAD
     header .white-Point.floaty.active {
       z-index: 10001; }
     header .white-Point.floaty:before {
@@ -216,6 +226,12 @@ header {
       height: 1100%; }
     header .white-Point ul {
       text-align: center; }
+=======
+    header .white-Point ul {
+      text-align: center; }
+      header .white-Point ul .phone-hidden {
+        display: none; }
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
       header .white-Point ul li {
         margin: 0 auto;
         width: 50%;
@@ -233,7 +249,11 @@ header {
           display: inline-block; }
           header .white-Point ul li a img {
             margin-bottom: 5px;
+<<<<<<< HEAD
             width: 40%; }
+=======
+            width: 30%; }
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
         header .white-Point ul li:nth-of-type(1) {
           width: 100%; }
         header .white-Point ul li:nth-of-type(4), header .white-Point ul li:nth-of-type(5) {
@@ -339,12 +359,22 @@ header {
           height: 120%;
           display: inline-block;
           vertical-align: middle; }
+<<<<<<< HEAD
+=======
+        header .white-Point ul .phone-hidden {
+          display: inline-block; }
+        header .white-Point ul .table-hidden {
+          display: none; }
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
         header .white-Point ul li {
           width: auto;
           height: auto;
           display: inline-block; }
+<<<<<<< HEAD
           header .white-Point ul li.table-hidden {
             display: none; }
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
           header .white-Point ul li:nth-of-type(1) {
             width: auto; }
           header .white-Point ul li a {
@@ -451,6 +481,13 @@ header {
   .nav_height {
     height: 100px; } }
 
+<<<<<<< HEAD
+=======
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -467,7 +504,10 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
+<<<<<<< HEAD
   font-family: 微軟正黑體, arial, "sans serif";
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
   vertical-align: baseline; }
 
 /* HTML5 display-role reset for older browsers */
@@ -500,6 +540,75 @@ table {
   height: 0;
   clear: both; }
 
+<<<<<<< HEAD
+=======
+button, input[type="button"] {
+  -webkit-appearance: none;
+  /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
+  -moz-appearance: none;
+  /* FireFox */
+  appearance: none; }
+
+.swal-content {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0; }
+  .swal-content__a {
+    color: #FF5000;
+    text-decoration: none; }
+
+.swal-text {
+  vertical-align: middle; }
+
+.swal-modal {
+  border-radius: 10px;
+  border: 20px solid #FCF2CA; }
+
+.swal-footer {
+  text-align: center; }
+
+.swal-button {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: #76391B;
+  background-color: #FCE444;
+  box-shadow: 0px 4px 0px #76391B;
+  border-radius: 100px;
+  transition: .2s;
+  cursor: pointer;
+  margin: auto;
+  font-size: 20px;
+  max-width: 150px;
+  transition: .2s;
+  line-height: 25px; }
+  .swal-button:hover {
+    opacity: .7;
+    transition: .2s; }
+  .swal-button:active {
+    top: 2px; }
+
+.swal-button-container {
+  margin: auto; }
+
+.swal-button:not([disabled]):hover {
+  background-color: #FCE444; }
+
+.swal-button:active {
+  background-color: #FCE444;
+  top: 2px;
+  box-shadow: 0px 2px 0px #76391B; }
+
+.swal-button:focus {
+  outline: none;
+  box-shadow: 0px 4px 0px #76391B; }
+
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
 .close_login::before, .close_login::after, .close_chatBot::before, .close_chatBot::after {
   display: block;
   background-color: #76391B;
@@ -728,6 +837,10 @@ table {
     height: 40px;
     line-height: 40px;
     text-align: center;
+<<<<<<< HEAD
+=======
+    cursor: pointer;
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
     color: #fff;
     background-color: #76391B;
     box-shadow: 0px 4px 0px #FED44F;
@@ -936,6 +1049,10 @@ table {
     height: 40px;
     line-height: 40px;
     text-align: center;
+<<<<<<< HEAD
+=======
+    cursor: pointer;
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
     color: #fff;
     background-color: #76391B;
     box-shadow: 0px 4px 0px #FED44F;
@@ -1136,6 +1253,10 @@ table {
     height: 40px;
     line-height: 40px;
     text-align: center;
+<<<<<<< HEAD
+=======
+    cursor: pointer;
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
     font-weight: 600;
     color: #76391B;
     background-color: #FCE444;
@@ -1175,11 +1296,16 @@ header {
   height: 80px;
   width: 100%;
   position: fixed;
+<<<<<<< HEAD
   z-index: 100; }
 =======
 header {
   height: 80px; }
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+  z-index: 100;
+  margin-bottom: 20px; }
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
   header * {
     font-size: 0;
     font-family: sans-serif, "微軟正黑體", "Microsoft JhengHei"; }
@@ -1190,6 +1316,9 @@ header {
   header #navctrl {
     display: none; }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
     header #navctrl:checked ~ .phone-nav .hb .line {
       transform: rotate(360deg);
       opacity: 0;
@@ -1198,6 +1327,7 @@ header {
       transform: translateY(13.5px) rotate(225deg);
       transition: 0.3s; }
     header #navctrl:checked ~ .phone-nav .hb:after {
+<<<<<<< HEAD
 =======
     header #navctrl:checked ~ .phone_nav .hb .line {
       transform: rotate(360deg);
@@ -1208,6 +1338,8 @@ header {
       transition: 0.3s; }
     header #navctrl:checked ~ .phone_nav .hb:after {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
       transform: translateY(-13px) rotate(-225deg);
       transition: 0.3s; }
     header #navctrl:checked ~ nav {
@@ -1215,6 +1347,7 @@ header {
       top: -1000px;
       left: 350px;
       transition: transform 1s; }
+<<<<<<< HEAD
 <<<<<<< HEAD
   header .phone-nav {
 =======
@@ -1229,26 +1362,42 @@ header {
 =======
     header .phone_nav:after {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+  header .phone-nav {
+    padding: 0 40px 0 10px;
+    height: 75px;
+    background: url(../images/nav_background_768.png) repeat-x;
+    position: relative; }
+    header .phone-nav:after {
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
       content: '';
       width: 0;
       height: 120%;
       display: inline-block;
       vertical-align: middle; }
 <<<<<<< HEAD
+<<<<<<< HEAD
     header .phone-nav div {
 =======
     header .phone_nav div {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+    header .phone-nav div {
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
       width: 33.33333333%;
       text-align: center;
       vertical-align: middle;
       display: inline-block; }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
       header .phone-nav div.nav-left {
         text-align: left; }
       header .phone-nav div.nav-right {
         text-align: right; }
     header .phone-nav .hb {
+<<<<<<< HEAD
 =======
       header .phone_nav div.nav_left {
         text-align: left; }
@@ -1256,6 +1405,8 @@ header {
         text-align: right; }
     header .phone_nav .hb {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
       margin: auto;
       width: 70px;
       height: 50px;
@@ -1266,10 +1417,14 @@ header {
       top: 28%;
       z-index: 1001; }
 <<<<<<< HEAD
+<<<<<<< HEAD
       header .phone-nav .hb .line, header .phone-nav .hb:before, header .phone-nav .hb:after {
 =======
       header .phone_nav .hb .line, header .phone_nav .hb:before, header .phone_nav .hb:after {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+      header .phone-nav .hb .line, header .phone-nav .hb:before, header .phone-nav .hb:after {
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
         content: '';
         margin: auto;
         width: 60%;
@@ -1283,6 +1438,9 @@ header {
         left: 0;
         transition: 0.3s; }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
       header .phone-nav .hb:before {
         bottom: auto; }
       header .phone-nav .hb:after {
@@ -1290,6 +1448,7 @@ header {
     header .phone-nav .logo img {
       height: 90px; }
     header .phone-nav .seach-button {
+<<<<<<< HEAD
 =======
       header .phone_nav .hb:before {
         bottom: auto; }
@@ -1299,6 +1458,8 @@ header {
       height: 90px; }
     header .phone_nav .seach_button {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
       padding: 23px 9px 18px;
       color: #76391b;
       border-radius: 50%;
@@ -1306,10 +1467,14 @@ header {
       box-shadow: 1px 3px 1px #ad6631;
       cursor: pointer; }
 <<<<<<< HEAD
+<<<<<<< HEAD
       header .phone-nav .seach-button img {
 =======
       header .phone_nav .seach_button img {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+      header .phone-nav .seach-button img {
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
         margin-top: -6px;
         vertical-align: middle; }
   header nav {
@@ -1343,6 +1508,9 @@ header {
       header nav ul .member {
         margin-bottom: 35px; }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
         header nav ul .member .before-login {
           display: none; }
           header nav ul .member .before-login a {
@@ -1359,6 +1527,7 @@ header {
             header nav ul .member .after-login div img {
               cursor: pointer; }
             header nav ul .member .after-login div span {
+<<<<<<< HEAD
 =======
         header nav ul .member .before_login {
           display: none; }
@@ -1377,17 +1546,23 @@ header {
               cursor: pointer; }
             header nav ul .member .after_login div span {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
               padding: 5px 10px;
               font-size: 12px;
               color: #fff;
               display: inline-block; }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
               header nav ul .member .after-login div span .achievement-Pic {
                 margin: -5px 8px 0 2px;
                 vertical-align: middle; }
   header #white-Point-control {
     display: none; }
     header #white-Point-control:checked ~ .white-Point {
+<<<<<<< HEAD
 =======
               header nav ul .member .after_login div span .achievement_Pic {
                 margin: -5px 8px 0 2px;
@@ -1396,12 +1571,15 @@ header {
     display: none; }
     header #white_Point_control:checked ~ .white_Point {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
       width: 70vmin;
       height: 70vmin;
       transform: translate(-50%, -50%);
       transition: 1s;
       top: 50%;
       left: 50%; }
+<<<<<<< HEAD
 <<<<<<< HEAD
       header #white-Point-control:checked ~ .white-Point li {
         display: inline-block; }
@@ -1411,6 +1589,11 @@ header {
         display: inline-block; }
   header .white_Point {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+      header #white-Point-control:checked ~ .white-Point li {
+        display: inline-block; }
+  header .white-Point {
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
     margin: auto;
     width: 50px;
     height: 50px;
@@ -1422,6 +1605,7 @@ header {
     right: 0%;
     z-index: 101; }
 <<<<<<< HEAD
+<<<<<<< HEAD
     header .white-Point.floaty.active {
       z-index: 10001; }
     header .white-Point.floaty:before {
@@ -1430,6 +1614,11 @@ header {
       z-index: 10001; }
     header .white_Point.floaty:before {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+    header .white-Point.floaty.active {
+      z-index: 10001; }
+    header .white-Point.floaty:before {
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
       content: "";
       display: block;
       position: absolute;
@@ -1438,16 +1627,21 @@ header {
       margin-left: 0;
       margin-top: 0; }
 <<<<<<< HEAD
+<<<<<<< HEAD
     header .white-Point.floaty.active:before {
 =======
     header .white_Point.floaty.active:before {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+    header .white-Point.floaty.active:before {
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
       content: "";
       display: block;
       top: -500%;
       left: -500%;
       width: 1100%;
       height: 1100%; }
+<<<<<<< HEAD
 <<<<<<< HEAD
     header .white-Point ul {
       text-align: center; }
@@ -1457,21 +1651,33 @@ header {
       text-align: center; }
       header .white_Point ul li {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+    header .white-Point ul {
+      text-align: center; }
+      header .white-Point ul li {
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
         margin: 0 auto;
         width: 50%;
         height: 23.33333333vmin;
         display: none; }
 <<<<<<< HEAD
+<<<<<<< HEAD
         header .white-Point ul li:after {
 =======
         header .white_Point ul li:after {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+        header .white-Point ul li:after {
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
           content: '';
           width: 0;
           height: 100%;
           vertical-align: middle;
           display: inline-block; }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
         header .white-Point ul li a {
           font-size: 16px;
           vertical-align: middle;
@@ -1482,6 +1688,7 @@ header {
         header .white-Point ul li:nth-of-type(1) {
           width: 100%; }
         header .white-Point ul li:nth-of-type(4), header .white-Point ul li:nth-of-type(5) {
+<<<<<<< HEAD
 =======
         header .white_Point ul li a {
           font-size: 16px;
@@ -1494,13 +1701,24 @@ header {
           width: 100%; }
         header .white_Point ul li:nth-of-type(4), header .white_Point ul li:nth-of-type(5) {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
           max-width: 120px; }
   header #view1 {
     display: none; }
 
+<<<<<<< HEAD
 @media screen and (min-width: 1024px) {
   header {
     background-image: url(../image/nav_background.png);
+=======
+.nav_height {
+  height: 75px; }
+
+@media screen and (min-width: 1024px) {
+  header {
+    background-image: url(../images/nav_background.png);
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
     font-size: 0;
     text-align: center; }
     header #navctrl:checked ~ nav {
@@ -1509,10 +1727,14 @@ header {
       left: 0px;
       transition: 0s; }
 <<<<<<< HEAD
+<<<<<<< HEAD
     header .phone-nav {
 =======
     header .phone_nav {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+    header .phone-nav {
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
       padding: 0;
       width: 14.28571428%;
       height: 100px;
@@ -1521,6 +1743,9 @@ header {
       vertical-align: top;
       position: relative; }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
       header .phone-nav div.nav-right {
         width: 100%;
         text-align: center; }
@@ -1529,6 +1754,7 @@ header {
           border-radius: 20px;
           font-size: 16px; }
       header .phone-nav .nav-left, header .phone-nav .logo {
+<<<<<<< HEAD
 =======
       header .phone_nav div.nav_right {
         width: 100%;
@@ -1539,15 +1765,21 @@ header {
           font-size: 16px; }
       header .phone_nav .nav_left, header .phone_nav .logo {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
         font-size: 0;
         margin: 0;
         padding: 0;
         display: none; }
 <<<<<<< HEAD
+<<<<<<< HEAD
         header .phone-nav .nav-left img, header .phone-nav .logo img {
 =======
         header .phone_nav .nav_left img, header .phone_nav .logo img {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+        header .phone-nav .nav-left img, header .phone-nav .logo img {
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
           height: 120px; }
     header nav {
       width: 71.42857142%;
@@ -1577,10 +1809,14 @@ header {
             display: inline-block;
             vertical-align: middle; }
 <<<<<<< HEAD
+<<<<<<< HEAD
           header nav ul li.table-hidden {
 =======
           header nav ul li.table_hidden {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+          header nav ul li.table-hidden {
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
             display: none; }
           header nav ul li.logo {
             transform: translateX(200%); }
@@ -1593,6 +1829,7 @@ header {
           header nav ul li.participate {
             transform: translateX(-300%); }
 <<<<<<< HEAD
+<<<<<<< HEAD
     header #white-Point-control {
       display: none; }
       header #white-Point-control:checked ~ .white-Point {
@@ -1601,11 +1838,17 @@ header {
       display: none; }
       header #white_Point_control:checked ~ .white_Point {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+    header #white-Point-control {
+      display: none; }
+      header #white-Point-control:checked ~ .white-Point {
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
         width: 14.28571428%;
         height: 100px;
         transform: translate(0, 0);
         transition: 0s;
         position: static; }
+<<<<<<< HEAD
 <<<<<<< HEAD
         header #white-Point-control:checked ~ .white-Point li.table-hidden {
           display: none; }
@@ -1615,6 +1858,11 @@ header {
           display: none; }
     header .white_Point {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+        header #white-Point-control:checked ~ .white-Point li.table-hidden {
+          display: none; }
+    header .white-Point {
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
       margin: auto;
       width: 14.28571428%;
       height: 100px;
@@ -1626,14 +1874,19 @@ header {
       transition: 0s;
       position: static; }
 <<<<<<< HEAD
+<<<<<<< HEAD
       header .white-Point:checked ~ .white-Point {
 =======
       header .white_Point:checked ~ .white_Point {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+      header .white-Point:checked ~ .white-Point {
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
         width: 50px;
         height: 50px;
         transform: translate(0, 0);
         position: static; }
+<<<<<<< HEAD
 <<<<<<< HEAD
       header .white-Point ul {
         height: 100%; }
@@ -1643,12 +1896,20 @@ header {
         height: 100%; }
         header .white_Point ul:after {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+      header .white-Point ul {
+        height: 100%; }
+        header .white-Point ul:after {
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
           content: '';
           width: 0;
           height: 120%;
           display: inline-block;
           vertical-align: middle; }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
         header .white-Point ul li {
           width: auto;
           height: auto;
@@ -1658,6 +1919,7 @@ header {
           header .white-Point ul li:nth-of-type(1) {
             width: auto; }
           header .white-Point ul li a {
+<<<<<<< HEAD
 =======
         header .white_Point ul li {
           width: auto;
@@ -1671,6 +1933,11 @@ header {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
             margin: 0 8px;
             padding: 6px;
+=======
+            margin: 0 8px;
+            width: 40px;
+            height: 40px;
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
             font-size: 0;
             color: #76391b;
             border-radius: 20px;
@@ -1678,6 +1945,7 @@ header {
             box-shadow: 1px 3px 1px #ad6631;
             display: inline-block;
             position: relative; }
+<<<<<<< HEAD
 <<<<<<< HEAD
             header .white-Point ul li a img {
               width: 25px;
@@ -1689,6 +1957,12 @@ header {
               height: 25px; }
             header .white_Point ul li a span {
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+            header .white-Point ul li a img {
+              margin: 7.5px;
+              width: 25px; }
+            header .white-Point ul li a span {
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
               padding: 3px 7px 5px;
               font-size: 8px;
               color: #fff;
@@ -1711,7 +1985,11 @@ header {
         transform-style: preserve-3d;
         transform-origin: center top;
         transition: 150ms ease-in-out;
+<<<<<<< HEAD
         background-image: url(../image/nav_background.png);
+=======
+        background-image: url(../images/nav_background.png);
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
         perspective: 1000px;
         position: relative;
         top: 100%; }
@@ -1774,8 +2052,14 @@ header {
     header #view7 .s2 {
       background-position: -600% -80px; }
     header #view7 .s3 {
+<<<<<<< HEAD
       background-position: -600% -90px; } }
 <<<<<<< HEAD
+=======
+      background-position: -600% -90px; }
+  .nav_height {
+    height: 100px; } }
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5
 
 .space {
   height: 75px; }
@@ -1783,5 +2067,8 @@ header {
 @media screen and (min-width: 768px) {
   .space {
     height: 100px; } }
+<<<<<<< HEAD
 =======
 >>>>>>> 5d20b87865c695ab9181765b2e37b429015c18fe
+=======
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5

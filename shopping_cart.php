@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>日食購物車</title>
     <link rel="stylesheet" href="css/shopping_cart.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 
@@ -46,36 +47,23 @@
                             <th>單價</th>
                             <th>功能</th>
                         </tr>
-                        <tr>
-                            <td><img src="images/logo.png" alt="product_img" class="product_img"></td>
-                            <td>綠咖哩海鮮麵</td>
-                            <td>
-                                <div class="number_box">
-                                    <span id="number_cut">－</span>
-                                    <span class="number_value">1</span> 
-                                    <span id="number_add">＋</span> 
-                                </div>
-                            </td>
-                            <td>NT$200</td>
-                            <td>
-                                <p><img src="images/icon/if_General_-_Office_54_1471106.svg" alt="collection" id="collection"><span>收藏</span></span></p>
-                                <p><img src="images/icon/trash.svg" alt="delete" id="delete"><span>刪除</span></p>
-                            </td>
-                        </tr>
+                    </table>
+                    <table class="shopping_list">
                     </table>
                     <div class="shopping_message">
-                        <span class="taketime">預計等待時間：15分</span>
+                        <span class="taketime">預計等待時間：<strong class="taketime_t">15</strong>分</span>
                         <div class="shopping_message_box">
-                            <span class="shopping_number">共 1 件</span>
-                            <span class="shopping_sum">總計 NT$200</span>
+                            <span class="shopping_number">共 <strong class="shopping_number_t">1</strong> 件</span>
+                            <span class="shopping_sum">總計 <strong class="shopping_sum_t">NT$200</strong></span>
                             <span>使用購物金</span>
-                            <span class="groupon_bonus">NT$　10</span>
+                            <span class="groupon_bonus"><strong class="groupon_bonus_t">NT$10</strong></span>
+                            <input type="hidden" value="<?php echo $memRow->member_Bonus ?>" id="groupon_bonus_hidden">
                         </div>
-                        <span class="memOrder_amount">結帳金額 NT$200</span>
+                        <span class="memOrder_amount">結帳金額 <strong class="memOrder_amount_t">NT$200</strong></span>
                     </div>
                     <div class="shopping_choose">
-                        <button class="continue_shopping_button">繼續購物</button>
-                        <button id="shopping_Next_button">下一步</button>
+                        <button class="continue_shopping_button mainBTN">繼續購物</button>
+                        <button class="subBTN" id="shopping_Next_button">下一步</button>
                     </div>                   
                 </div>
                 
@@ -87,41 +75,33 @@
                             <th>數量</th>
                             <th>單價</th>
                         </tr>
-                        <tr>
-                            <td><img src="images/logo.png" alt="product_img" class="product_img"></td>
-                            <td>綠咖哩海鮮麵</td>
-                            <td>
-                                <div class="number_box">
-                                    <span class="number_value">1</span> 
-                                </div>
-                            </td>
-                            <td>NT$200</td>
-                        </tr>
+                    </table>
+                    <table class="shopping_list">
                     </table>
                     <div class="shopping_message">
-                        <span class="taketime">預計等待時間：15分</span>
+                        <span class="taketime">預計等待時間：<strong class="taketime_t">15</strong>分</span>
                         <div class="shopping_message_box">
-                            <span class="shopping_number">共 1 件</span>
-                            <span class="shopping_sum">總計 NT$200</span>
+                            <span class="shopping_number">共 <strong class="shopping_number_t">1</strong> 件</span>
+                            <span class="shopping_sum">總計 <strong class="shopping_sum_t">NT$200</strong></span>
                             <span>使用購物金</span>
-                            <span class="groupon_bonus">NT$　10</span>
+                            <span class="groupon_bonus"><strong class="groupon_bonus_t">NT$10</strong></span>
                         </div>
-                        <span class="memOrder_amount">結帳金額 NT$200</span>
+                        <span class="memOrder_amount">結帳金額 <strong class="memOrder_amount_t">NT$200</strong></span>
                     </div>
                     <div class="shopping_choose">
-                        <button class="continue_shopping_button" id="shopping_pre_button">上一步</button>
-                        <button id="checkout_immediately_button">立即結帳</button>
+                        <button class="continue_shopping_button mainBTN" id="shopping_pre_button">上一步</button>
+                        <button class="subBTN" id="checkout_immediately_button">立即結帳</button>
                     </div>  
                 </div>
                 
                 <div class="shopping_completed">
                     <div>
                         <p class="p1">謝謝您的訂購<br class="table_hide">請於現場付款(自取)</p>
-                        <p class="p2">訂單編號：25<br>下單日期：2018/09/27</p>
+                        <p class="p2" id="order-data" ><span>訂單編號：</span>25<br><span>下單日期：</span>2018/09/27</p>
                         <div class="take_meal_way">
                             <div class="take_meal_qr">
                                 <p>手機上顯示此QRcode來取餐</p>
-                                <img src="images/QR_code.png" alt="QRcode" id="take_meal_qr">
+                                <img src="" alt="QRcode" id="take_meal_qr">
                                 <p>(此QRcode會暫存於快速取餐中)</p>
                             </div>
                             <p>或是</p>
@@ -130,101 +110,117 @@
                                 <p id="take_meal_code">Meal0020239</p>
                             </div>
                         </div>
-                        <button id="order_record_button">查看訂購記錄</button>
+                        <button id="order_record_button" class="subBTN">查看訂購記錄</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src='https://cdn.jsdelivr.net/mojs/0.265.6/mo.min.js'></script>
+    <script src="js/iconCliCK.js"></script>	
+    <script src="js/cart_new.js"></script>
     <script>
-     
-        var shoppingNextButton = document.querySelector('#shopping_Next_button');
-        var shoppingPreButton = document.querySelector('#shopping_pre_button');
-        var checkoutImmediatelyButton = document.querySelector('#checkout_immediately_button');
-
-        shoppingPreButton.addEventListener('click', windowMove);
-        shoppingNextButton.addEventListener('click', windowMove1);
-        checkoutImmediatelyButton.addEventListener('click', windowMove2);
-
-        var stepBox = document.querySelectorAll('.step_box');
-        var stepContainMask = document.querySelector('.step_contain_mask');
-
-        stepBox[0].addEventListener('click', windowMove);
-
-        var stepPosition = 1;
-          
-        function windowMove(){
-            stepContainMask.style.transform = "translateX(0%)";
-            stepContainMask.style.height = "50vh";
+        //下單
+        document.getElementById("checkout_immediately_button").addEventListener("click", function(){
             
-            stepPosition = 1;
-            stepBoxAnimation();
-        }
+            //取得目前時間
+            // var t = new Date();
+            // var current = t.getFullYear() + "/" + (t.getMonth()+1) + "/" + t.getDate();
+            // var memOrderTime = t.getFullYear() + "-" + (t.getMonth()+1) + "-" + t.getDate() + " " + t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds();   
+            // // var memOrderTakeTime = t.getFullYear() + "-" + (t.getMonth()+1) + "-" + t.getDate() + " " + t.getHours() + ":" + t.getMinutes() + ":" + (t.getSeconds() + itemTime);   
+            // // 2018-11-17 22:52:04
+            // //=====使用Ajax,新增購物車訂單 
+            // var xhr = new XMLHttpRequest();
+            // xhr.onload = function (){
+            //     if( xhr.status == 200){
+            //         // alert("下單成功");
+            //         swal("下單成功", "", "success");
+            //     }else{
+            //         alert(xhr.status);
+            //     }
+            // }
+            // xhr.open("post", "cartDataUpdate.php", true);
+            // xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 
-        function windowMove1(){
-            stepContainMask.style.transform = "translateX(-33.33333333%)";
-            stepContainMask.style.height = "50vh";
+            // var data_info = "memOrderAmount=" + (total - Bonus) + //訂單金額
+            //                 "&memOrderTime=" + memOrderTime + //下單時間
+            //                 "&memOrderTakeTime=" + itemTime + //取餐等待時間                    
+            //                 "&mealNo=" + storage.getItem('addItemList') + //餐點編號
+            //                 "&mealQuantity=" + mealQuantity_list + //餐點數量
+            //                 "&memberbuyCount=" + itemSum + //餐點購買總數
+            //                 "&memberBonus=" + Bonus; //會員所消耗購物金
+            // console.log(data_info);
+            // xhr.send(data_info);
             
-            stepBox[1].addEventListener('click', windowMove1);
-            stepPosition = 2;
-            stepBoxAnimation();
-        }
-        
-        function windowMove2(){
-            stepContainMask.style.transform = "translateX(-66.66666666%)";
-            stepContainMask.style.height = "100vh";
+            // 從資料庫取得目前最後的訂單編號
+            <?php 
+                $errMsg = "";
+                try {
+                    // require_once("connectBooks.php");
+                    $sqlMemberOrder = "select * from memberOrder 
+                                       where member_No = " . $_SESSION["member_No"] .
+                                      " order by memOrder_No DESC";
+                    $productsMemberOrder = $pdo -> query( $sqlMemberOrder );
+                } catch (PDOException $e) {
+                    $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
+                    $errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";
+                }
+            ?>
+            <?php	
+                if( $errMsg !=""){
+                    echo "<tr><td colspan='6' align='center'>$errMsg</td></tr>";
+                }else{
+                    $prodRowMemberOrder = $productsMemberOrder->fetchObject();
+                }
+            ?>
 
-            stepBox[2].addEventListener('click', windowMove2);
-            stepPosition = 3;
-            stepBoxAnimation();
-        }
+             //取得目前時間
+            var t = new Date();
+            var current = t.getFullYear() + "/" + (t.getMonth()+1) + "/" + t.getDate();   
+            
+             //顯示訂單資訊
+            orderData = document.getElementById("order-data");
+            orderData.innerHTML = "<span>訂單編號：</span><?php echo $prodRowMemberOrder->memOrder_No+1 ?><br><span>下單日期：</span>" + current; 
+            
+             //顯示訂單代碼
+            takeMealCode = document.getElementById("take_meal_code");
+            var Mealc = "Meal" + t.getFullYear() + <?php echo $prodRowMemberOrder->memOrder_No+1 ?> + t.getDate();         
+            takeMealCode.innerText = Mealc;
 
-        stepBoxAnimation();
-   
-        function stepBoxAnimation(){
-
-            for(i=0;i<3;i++){
-                stepBox[i].children[0].children[0].style.color = "#76391B";
-                stepBox[i].children[0].style.background = "#fcf2ca";
+            //製作qrcode
+            function QRCode(content, width, height){
+                // 編碼
+                content = encodeURIComponent(content);
+                return 'http://chart.apis.google.com/chart?cht=qr&chl=' + content + '&chs=' + width + 'x' + height;
             }
-            
-            switch(stepPosition){
-                case 3:
-                    stepBox[2].children[0].children[0].style.color = "#fcf2ca";
-                    stepBox[2].children[0].style.background = "#76391B";
-                    stepBox[2].children[0].style.cursor = "pointer";
-                
-                case 2:
-                    stepBox[1].children[0].children[0].style.color = "#fcf2ca";
-                    stepBox[1].children[0].style.background = "#76391B";
-                    stepBox[1].children[0].style.cursor = "pointer";
-                
-                case 1:
-                    stepBox[0].children[0].children[0].style.color = "#fcf2ca";
-                    stepBox[0].children[0].style.background = "#76391B";
-                    stepBox[0].children[0].style.cursor = "pointer";
-                
-                break;
-            }                
-        }
 
-        var numberCut = document.querySelector('#number_cut');
-        var numberAdd = document.querySelector('#number_add');
-        var numberValue = document.querySelectorAll('.number_value');     
+            imgName = <?php echo $prodRowMemberOrder->memOrder_No+1 ?>; //檔名為訂單編號
+
+            var msg = "http://140.115.236.72/demo-projects/CD103/CD103G3/takeMeal.php?memOrderNo=" + Mealc, //放入qrcode的內容
+            imgSrc = QRCode(msg, 150, 150), //設定qrcode內容和寬高
+            qrcodeimg = document.getElementById('take_meal_qr');  //取得要放入qrcode的標籤    
+
+            qrcodeimg.src = imgSrc; //顯示qrcode
         
-        numberCut.addEventListener('click', function(){
-            
-        });
+            //下載儲存QRcode圖片
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function (){
+                if( xhr.status == 200){
+                    // alert("儲存成功");
+                    swal("儲存成功", "", "success");
+                }else{
+                    alert(xhr.status);
+                }
+            }
+            xhr.open("post", "imgDownload.php", true);
+            xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 
-        numberAdd.addEventListener('click', function(){
-            
+            var data_info = "imgName=" + imgName + //檔案名稱 
+                            "&imgSrc=" + msg; //檔案位置
+            console.log(data_info);
+            xhr.send(data_info);      
         });
-
-        numberAdd.addEventListener('mousedown', function(){
-            
-        });
-
     </script>
 </body>
 </html>

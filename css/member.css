@@ -1222,7 +1222,7 @@ header {
     background: url(../images/nav_background_768.png) repeat-x;
     position: relative; }
     header .phone-nav:after {
-      content: '';
+      content: "";
       width: 0;
       height: 120%;
       display: inline-block;
@@ -1241,13 +1241,13 @@ header {
       width: 70px;
       height: 50px;
       cursor: pointer;
-      opacity: .8;
-      transition: .5s;
+      opacity: 0.8;
+      transition: 0.5s;
       position: absolute;
       top: 28%;
       z-index: 1001; }
       header .phone-nav .hb .line, header .phone-nav .hb:before, header .phone-nav .hb:after {
-        content: '';
+        content: "";
         margin: auto;
         width: 60%;
         height: 3px;
@@ -1284,7 +1284,7 @@ header {
     left: 350px;
     transition: transform 1s; }
     header nav:before {
-      content: '';
+      content: "";
       width: 1100px;
       height: 1100px;
       border-radius: 50%;
@@ -1347,7 +1347,7 @@ header {
         height: 23.33333333vmin;
         display: none; }
         header .white-Point ul li:after {
-          content: '';
+          content: "";
           width: 0;
           height: 100%;
           vertical-align: middle;
@@ -1397,12 +1397,14 @@ header {
           padding: 10px 40px 10px 10px;
           border-radius: 20px;
           font-size: 16px; }
-      header .phone-nav .nav-left, header .phone-nav .logo {
+      header .phone-nav .nav-left,
+      header .phone-nav .logo {
         font-size: 0;
         margin: 0;
         padding: 0;
         display: none; }
-        header .phone-nav .nav-left img, header .phone-nav .logo img {
+        header .phone-nav .nav-left img,
+        header .phone-nav .logo img {
           height: 120px; }
     header #clearMemberCookie {
       position: fixed;
@@ -1429,7 +1431,7 @@ header {
           display: inline-block;
           vertical-align: top; }
           header nav ul li:after {
-            content: '';
+            content: "";
             width: 0;
             height: 120%;
             display: inline-block;
@@ -1465,7 +1467,7 @@ header {
       header .white-Point ul {
         height: 100%; }
         header .white-Point ul:after {
-          content: '';
+          content: "";
           width: 0;
           height: 120%;
           display: inline-block;
@@ -1478,6 +1480,8 @@ header {
           width: auto;
           height: auto;
           display: inline-block; }
+          header .white-Point ul li.table-hidden {
+            display: none; }
           header .white-Point ul li:nth-of-type(1) {
             width: auto; }
           header .white-Point ul li a {
@@ -1498,12 +1502,18 @@ header {
               padding: 3px 7px 5px;
               font-size: 8px;
               color: #fff;
-              background-color: #AD6631;
+              background-color: #ad6631;
               border-radius: 50%;
               position: absolute;
               top: -8px;
               right: -4px; }
-    header #view1, header #view2, header #view3, header #view4, header #view5, header #view6, header #view7 {
+    header #view1,
+    header #view2,
+    header #view3,
+    header #view4,
+    header #view5,
+    header #view6,
+    header #view7 {
       width: 100%;
       height: 100px;
       display: block;
@@ -1511,7 +1521,13 @@ header {
       top: 0;
       left: 0;
       z-index: -1; }
-      header #view1 .slice, header #view2 .slice, header #view3 .slice, header #view4 .slice, header #view5 .slice, header #view6 .slice, header #view7 .slice {
+      header #view1 .slice,
+      header #view2 .slice,
+      header #view3 .slice,
+      header #view4 .slice,
+      header #view5 .slice,
+      header #view6 .slice,
+      header #view7 .slice {
         width: 100%;
         height: 10px;
         transform-style: preserve-3d;
@@ -1521,7 +1537,13 @@ header {
         perspective: 1000px;
         position: relative;
         top: 100%; }
-      header #view1 .s1, header #view2 .s1, header #view3 .s1, header #view4 .s1, header #view5 .s1, header #view6 .s1, header #view7 .s1 {
+      header #view1 .s1,
+      header #view2 .s1,
+      header #view3 .s1,
+      header #view4 .s1,
+      header #view5 .s1,
+      header #view6 .s1,
+      header #view7 .s1 {
         height: 80px;
         background: none;
         top: 0; }
@@ -1634,10 +1656,13 @@ header {
     background-color: #fff; }
 
 .member {
-  margin: 70px auto;
+  margin: 30px auto;
   width: 98%;
   max-width: 1200px;
   font-size: 0; }
+  .member mark {
+    background: linear-gradient(transparent 40%, rgba(255, 255, 255, 0) 40%, #FFF176 70%, transparent 95%);
+    padding: 2px 1px; }
   .member * {
     font-size: 0;
     font-family: sans-serif, "微軟正黑體", "Microsoft JhengHei"; }
@@ -1645,25 +1670,25 @@ header {
     position: relative;
     display: inline-block;
     width: 100%;
-    height: 48px;
-    line-height: 48px;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
-    background-color: #76391B;
+    font-family: 微軟正黑體, arial, "LiHei-Pro", "sans serif";
+    cursor: pointer;
     color: #fff;
+    background-color: #76391B;
+    box-shadow: 0px 4px 0px #FED44F;
     border-radius: 100px;
     transition: .2s;
-    cursor: pointer;
     margin: auto;
     font-size: 20px;
     max-width: auto;
     transition: .2s; }
     .member .subBTN:hover {
-      background-color: #FCE444; }
-    .member .subBTN:hover {
       opacity: .7;
       transition: .2s; }
     .member .subBTN:active {
-      top: 3px; }
+      top: 2px; }
   .member button.subBTN {
     margin-top: 20px;
     padding: 5px 15px;
@@ -1924,8 +1949,7 @@ header {
               box-shadow: 0px 0px 10px #aaa;
               display: inline-block;
               position: relative;
-              overflow: hidden;
-              cursor: pointer; }
+              overflow: hidden; }
               .member .member-contain .member-order .member-order-list > li .ordering-contain ul li img {
                 margin: 0 5%;
                 width: 90%; }
@@ -1947,14 +1971,22 @@ header {
                 position: absolute;
                 top: 0;
                 right: 0; }
+    .member .member-contain .member-achievement .current-achievement {
+      font-size: 24px;
+      color: #76391B;
+      text-align: center;
+      font-weight: 700; }
+      .member .member-contain .member-achievement .current-achievement span {
+        font-size: 24px;
+        color: #FF5000; }
     .member .member-contain .member-achievement .member-achievement-list {
       margin-top: 50px; }
       .member .member-contain .member-achievement .member-achievement-list li {
-        margin: 10px 2%;
-        padding: 2%;
+        margin: 10px 1% 20px;
+        padding: 1%;
         width: 92%;
+        border: 3px solid #76391B;
         border-radius: 10px;
-        outline: 3px solid #76391B;
         display: inline-block; }
         .member .member-contain .member-achievement .member-achievement-list li .achievement-pic {
           margin-right: 5%;
@@ -1976,23 +2008,14 @@ header {
             font-size: 20px;
             font-weight: 700;
             color: #FF5000; }
-          .member .member-contain .member-achievement .member-achievement-list li .achievement-contain .meal-count {
-            margin: 5px 0;
-            padding: 5px 0 15px;
-            width: 90%;
-            height: 5px;
-            border: 1px solid #000;
-            border-radius: 15px;
-            font-size: 16px;
-            background: linear-gradient(90deg, #FCE444 0%, #fff 0%);
-            text-align: center;
-            transition: 1s; }
           .member .member-contain .member-achievement .member-achievement-list li .achievement-contain .achievement-info,
           .member .member-contain .member-achievement .member-achievement-list li .achievement-contain .achievement-bonus {
-            padding-top: 5px;
+            padding: 2px 1px;
             font-size: 16px;
-            line-height: 1.6;
+            line-height: 2;
             font-weight: 700; }
+          .member .member-contain .member-achievement .member-achievement-list li .achievement-contain .achievement-bonus {
+            border-radius: 10px; }
   .member .table-hide {
     height: 80px; }
 
@@ -2043,7 +2066,7 @@ header {
       margin-left: 0;
       background-color: transparent;
       position: static;
-      padding-top: 80px; }
+      padding-top: 30px; }
       .member-list .member-panel label {
         width: 100%;
         font-size: 20px;
@@ -2061,6 +2084,7 @@ header {
   .member .member-contain {
     margin: 20px 0 0 2%;
     width: 68%;
+    min-height: 716px;
     display: inline-block; }
     .member .member-contain .member-Information {
       max-width: 700px; }
@@ -2099,4 +2123,4 @@ header {
 
 @media screen and (min-width: 1200px) {
   .member .member-contain .member-achievement .member-achievement-list li {
-    width: 42%; } }
+    width: 45%; } }

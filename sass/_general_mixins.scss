@@ -10,10 +10,10 @@ button,input[type="button"]{
     .mainBTN {
         @include btn(100%, light) {
             margin: auto;
-   font-size: $fontSize_S;
+			font-size: $fontSize_S;
             max-width: $w;
             transition: .2s;
-  }
+		}
     }
 }
 
@@ -49,9 +49,9 @@ button,input[type="button"]{
         margin: 10px;
         font-size: $fontSize_S;
         background-color: $color_main4;
-  color: #fff;
-  font-family: $fmy;
-  border: 0;
+		color: #fff;
+		font-family: $fmy;
+		border: 0;
     }
     .cancelBTN {
         background-color: $color_main3;
@@ -153,10 +153,9 @@ button,input[type="button"]{
 .swal-text{
     vertical-align: middle;
 }
-.swal-modal{ //最外層
+.swal-modal{
     border-radius: 10px;
     border:20px solid $color_main3;
-    position: fixed;
 }
 .swal-footer{
     text-align: center;

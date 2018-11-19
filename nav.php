@@ -145,96 +145,137 @@ session_start();
 
 	//-----------------------whitePoint--------------------------//
 
-	var isMousemove = false;
+	var isMousemove = false,
+		mouseX,
+		mouseY;
 
-	document.body.addEventListener('mousemove', function(event){
-		mouseX = event.clientX;//滑鼠x位置
-		mouseY = event.clientY;//滑鼠y位置
+	document.body.addEventListener('mousemove', function(e){
+		mouseX = e.clientX;//滑鼠x位置
+		mouseY = e.clientY;//滑鼠y位置
+
+		// console.log(mouseX);
+		// console.log(mouseY);
+		// console.log(" ");
 
 		if(isMousemove){
 			whitePointDown();
 		}
 	});  
 
+	document.body.addEventListener('touchmove', function(e){
+		var touch = e.touches[0]; //獲取第一個觸點  
+		var x = Number(touch.clientX); //頁面觸點X座標  
+		var y = Number(touch.clientY); //頁面觸點Y座標  
+		//記錄觸點初始位置  
+		mouseX = x;//滑鼠x位置
+		mouseY = y;//滑鼠y位置
+
+		// console.log(touch);
+		// console.log(mouseX);
+		// console.log(mouseY);
+		// console.log(" ");
+
+		if(isMousemove){
+			whitePointDown();
+		}
+	}, true);  
+
 	var whitePoint = document.querySelector('.white-Point'),
 		childList = whitePoint.children[0].children,
 		whitePointLock = true;
 
 	whitePoint.addEventListener('mousedown', function(){ // 按下鼠標左鍵時
-	
 		whitePointDown();
 	}); 
 	
-	whitePoint.addEventListener('touchstart', whitePointDown, false); //觸摸元素時
+	whitePoint.addEventListener('touchstart', function(){ //觸摸元素時
+		whitePointDown();
+	});
 	
 
 	function whitePointDown(){
 
-		whitePoint.style.transition = "0.05s";
-		// whitePoint.style.top = mouseY - 25 + 'px';
-		// whitePoint.style.left = mouseX - 25 + 'px';
-		// whitePoint.style.top = mouseY;
-		// whitePoint.style.left = mouseX;
-		isMousemove = true; //處於按壓拖移小白點狀態
-	}
+		if(!isOpen){
 
-	document.body.addEventListener('mouseup', whitePointClose, true); //在body釋放鼠標左鍵時
-	document.body.addEventListener('touchend', whitePointClose, true); //從body元素移除手指時
-
-	function whitePointClose(){
-
-		var w = window.innerWidth,
-			h = window.innerHeight;
-
-		if(w<1024){
-			whitePoint.style.width = "50px";
-			whitePoint.style.height = "50px";
-			
-			whitePointBeforeY = mouseY - 25;
-
-			whitePoint.style.left = w-50 + "px";
-			whitePointBeforeX = w-50;
-
-			for(i=0;i<childList.length;i++){
-				childList[i].style.display = 'none';
-			}
-		}else{
-
-			whitePoint.style.transition = "0s";
-			whitePoint.style.width = '14.28571428%';
-			whitePoint.style.height = "100px";
-			whitePoint.style.display = 'static';
-
-			for(i=0;i<childList.length;i++){
-				childList[i].style.display = 'none';
-			}
-
-			for(i=0;i<3;i++){
-				childList[i].style.display = 'inline-block';
-			}
+			whitePoint.style.transition = "0.05s";
+			whitePoint.style.top = mouseY - 25 + 'px';
+			whitePoint.style.left = mouseX - 25 + 'px';
+			isMousemove = true; //處於按壓拖移小白點狀態
 		}
 	}
 
-	whitePoint.addEventListener('mouseup', function(){
+
+	// function whitePointDown(){
+
+	// 	if(!isOpen){
+
+	// 		whitePoint.style.transition = "0.05s";
+	// 		whitePoint.style.top = mouseY - 25 + 'px';
+	// 		whitePoint.style.left = mouseX - 25 + 'px';
+	// 		isMousemove = true; //處於按壓拖移小白點狀態
+	// 	}
+	// }
+	// document.body.addEventListener('mouseup', whitePointClose, false); //在body釋放鼠標左鍵時
+	// document.body.addEventListener('touchend', whitePointClose, false); //從body元素移除手指時
+
+	// function whitePointClose(e){
+
+ 	// 	// e.preventDefault();
+
+	// 	var w = window.innerWidth,
+	// 		h = window.innerHeight;
+
+	// 	if(w<1024){
+	// 		whitePoint.style.width = "50px";
+	// 		whitePoint.style.height = "50px";
+			
+	// 		whitePointBeforeY = mouseY - 25;
+
+	// 		whitePoint.style.left = w-50 + "px";
+	// 		whitePointBeforeX = w-50;
+
+	// 		for(i=0;i<childList.length;i++){
+	// 			childList[i].style.display = 'none';
+	// 		}
+	// 	}else{
+
+	// 		whitePoint.style.transition = "0s";
+	// 		whitePoint.style.width = '14.28571428%';
+	// 		whitePoint.style.height = "100px";
+	// 		whitePoint.style.display = 'static';
+
+	// 		for(i=0;i<childList.length;i++){
+	// 			childList[i].style.display = 'none';
+	// 		}
+
+	// 		for(i=0;i<3;i++){
+	// 			childList[i].style.display = 'inline-block';
+	// 		}
+	// 	}
+	// }
+
+	whitePoint.addEventListener('mouseup', function(){//釋放鼠標左鍵時
 
 		isOpen = !isOpen; //現在是否打開小白點
 		whitePointUp();
 
-	}, true); //釋放鼠標左鍵時
+	}, false); 
 	
-	whitePoint.addEventListener('touchend', function(){
+	whitePoint.addEventListener('touchend', function(){//從元素移除手指時
 
 		isOpen = !isOpen; //現在是否打開小白點
 		whitePointUp();
 
-	}, true); //從元素移除手指時
+	}, false); 
 
 	var isOpen = false,
 		whitePointBeforeX = 0;
 		whitePointBeforeY = 75;
 
 	function whitePointUp(){
-	
+
+		// e.preventDefault();
+
 		var w = window.innerWidth,
 			h = window.innerHeight,
 			minwh = w > h ? h : w;
@@ -296,7 +337,7 @@ session_start();
 		}
 	}
 
-	whitePoint.addEventListener('mousemove', whitePointMove); //在元素內移動時
+	whitePoint.addEventListener('mousemove', whitePointMove, false); //在元素內移動時
 	whitePoint.addEventListener('Touchmove', whitePointMove, false); //移動手指時
 
 	function whitePointMove(){

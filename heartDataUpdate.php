@@ -1,12 +1,11 @@
 <?php
-
 ob_start();
 session_start();
-
 try{
-  require_once('phpDB/connectDB_CD103G3.php');
+  require_once("connectMember.php");
 
-  if($_POST["mealState"]=="false"){ //會員是否收藏過此餐點
+
+  if($_POST["mealstate"]=="false"){ //會員是否收藏過此餐點
 
       //新增
       $sql = "INSERT INTO membercoll (member_No, meal_No) 
@@ -35,5 +34,9 @@ try{
 }catch(PDOException $e){
   echo $e->getMessage();
 }
+<<<<<<< HEAD
 ?>
 
+=======
+?>
+>>>>>>> 2955e4e9aafa8d88cad735c0310d86e9e71f7ce5

@@ -44,8 +44,75 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.img {
-  fill: #FF0000; }
+@font-face {
+  font-family: 'Mamelon';
+  src: url(../font/Mamelon.otf) format("opentype"); }
+
+button, input[type="button"] {
+  -webkit-appearance: none;
+  /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
+  -moz-appearance: none;
+  /* FireFox */
+  appearance: none; }
+
+.swal-content {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0; }
+  .swal-content__a {
+    color: #FF5000;
+    text-decoration: none; }
+
+.swal-text {
+  vertical-align: middle; }
+
+.swal-modal {
+  border-radius: 10px;
+  border: 20px solid #FCF2CA; }
+
+.swal-footer {
+  text-align: center; }
+
+.swal-button {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: #76391B;
+  background-color: #FCE444;
+  box-shadow: 0px 4px 0px #76391B;
+  border-radius: 100px;
+  transition: .2s;
+  cursor: pointer;
+  margin: auto;
+  font-size: 20px;
+  max-width: 150px;
+  transition: .2s;
+  line-height: 25px; }
+  .swal-button:hover {
+    opacity: .7;
+    transition: .2s; }
+  .swal-button:active {
+    top: 2px; }
+
+.swal-button-container {
+  margin: auto; }
+
+.swal-button:not([disabled]):hover {
+  background-color: #FCE444; }
+
+.swal-button:active {
+  background-color: #FCE444;
+  top: 2px;
+  box-shadow: 0px 2px 0px #76391B; }
+
+.swal-button:focus {
+  outline: none;
+  box-shadow: 0px 4px 0px #76391B; }
 
 header {
   width: 100%;
@@ -177,7 +244,9 @@ header {
             header nav ul .index-member .after-login div .member-Pic {
               width: 35px;
               height: 35px;
-              border-radius: 50%; }
+              border-radius: 50%;
+              background-color: #d4eefb;
+              object-fit: cover; }
             header nav ul .index-member .after-login div img {
               cursor: pointer; }
             header nav ul .index-member .after-login div span {
@@ -196,25 +265,10 @@ header {
     background-color: #425075;
     position: fixed;
     z-index: 101; }
-    header .white-Point.floaty.active {
-      z-index: 10001; }
-    header .white-Point.floaty:before {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      margin-left: 0;
-      margin-top: 0; }
-    header .white-Point.floaty.active:before {
-      content: "";
-      display: block;
-      top: -500%;
-      left: -500%;
-      width: 1100%;
-      height: 1100%; }
     header .white-Point ul {
       text-align: center; }
+      header .white-Point ul .phone-hidden {
+        display: none; }
       header .white-Point ul li {
         margin: 0 auto;
         width: 50%;
@@ -232,7 +286,7 @@ header {
           display: inline-block; }
           header .white-Point ul li a img {
             margin-bottom: 5px;
-            width: 40%; }
+            width: 30%; }
         header .white-Point ul li:nth-of-type(1) {
           width: 100%; }
         header .white-Point ul li:nth-of-type(4), header .white-Point ul li:nth-of-type(5) {
@@ -338,12 +392,14 @@ header {
           height: 120%;
           display: inline-block;
           vertical-align: middle; }
+        header .white-Point ul .phone-hidden {
+          display: inline-block; }
+        header .white-Point ul .table-hidden {
+          display: none; }
         header .white-Point ul li {
           width: auto;
           height: auto;
           display: inline-block; }
-          header .white-Point ul li.table-hidden {
-            display: none; }
           header .white-Point ul li:nth-of-type(1) {
             width: auto; }
           header .white-Point ul li a {
@@ -470,26 +526,25 @@ header {
         margin-bottom: 20px;
         padding: 25px 0;
         border-radius: 50%;
-        border: 1px solid #000;
         background-color: #fcf2ca;
         box-shadow: 1px 3px 1px #ad6631; }
         .shopping_step .step_list .step_box div span {
           color: #76391b;
           font-weight: 1000; }
       .shopping_step .step_list .step_box span {
-        font-size: 16px; }
+        font-size: 16px;
+        color: #000;
+        font-weight: 1000; }
   .shopping_step .step_contain {
     margin: 0 auto;
     padding: 70px 0;
     width: 100%;
     max-width: 1500px;
-    overflow: hidden; }
+    overflow-x: hidden; }
     .shopping_step .step_contain .step_contain_mask {
       width: 300%;
-      height: 50vh;
       transition: 1s; }
       .shopping_step .step_contain .step_contain_mask > div {
-        height: 200px;
         width: 33.33333333%;
         display: inline-block; }
         .shopping_step .step_contain .step_contain_mask > div > div {
@@ -507,24 +562,28 @@ header {
           max-width: 1200px;
           text-align: center; }
           .shopping_step .step_contain .step_contain_mask .shopping_details table tr, .shopping_step .step_contain .step_contain_mask .confirm_order table tr {
-            border-bottom: 1px solid #000; }
+            border-bottom: 3px solid #76391B; }
             .shopping_step .step_contain .step_contain_mask .shopping_details table tr th, .shopping_step .step_contain .step_contain_mask .shopping_details table tr td, .shopping_step .step_contain .step_contain_mask .confirm_order table tr th, .shopping_step .step_contain .step_contain_mask .confirm_order table tr td {
               padding: 25px 0;
               width: 25%;
               font-size: 16px;
               vertical-align: middle; }
               .shopping_step .step_contain .step_contain_mask .shopping_details table tr th p, .shopping_step .step_contain .step_contain_mask .shopping_details table tr td p, .shopping_step .step_contain .step_contain_mask .confirm_order table tr th p, .shopping_step .step_contain .step_contain_mask .confirm_order table tr td p {
-                margin: 10px 0; }
+                margin: 20px 0; }
                 .shopping_step .step_contain .step_contain_mask .shopping_details table tr th p span, .shopping_step .step_contain .step_contain_mask .shopping_details table tr td p span, .shopping_step .step_contain .step_contain_mask .confirm_order table tr th p span, .shopping_step .step_contain .step_contain_mask .confirm_order table tr td p span {
                   font-size: 16px;
                   vertical-align: middle; }
-                .shopping_step .step_contain .step_contain_mask .shopping_details table tr th p img, .shopping_step .step_contain .step_contain_mask .shopping_details table tr td p img, .shopping_step .step_contain .step_contain_mask .confirm_order table tr th p img, .shopping_step .step_contain .step_contain_mask .confirm_order table tr td p img {
-                  margin-right: 7px;
-                  width: 25px;
-                  vertical-align: middle; }
+                .shopping_step .step_contain .step_contain_mask .shopping_details table tr th p svg, .shopping_step .step_contain .step_contain_mask .shopping_details table tr td p svg, .shopping_step .step_contain .step_contain_mask .confirm_order table tr th p svg, .shopping_step .step_contain .step_contain_mask .confirm_order table tr td p svg {
+                  margin-right: 8px;
+                  width: 20px;
+                  vertical-align: middle;
+                  transition-timing-function: cubic-bezier(0.1, 2, 1, 0.1); }
+                  .shopping_step .step_contain .step_contain_mask .shopping_details table tr th p svg path, .shopping_step .step_contain .step_contain_mask .shopping_details table tr td p svg path, .shopping_step .step_contain .step_contain_mask .confirm_order table tr th p svg path, .shopping_step .step_contain .step_contain_mask .confirm_order table tr td p svg path {
+                    fill: #bbb; }
             .shopping_step .step_contain .step_contain_mask .shopping_details table tr th, .shopping_step .step_contain .step_contain_mask .confirm_order table tr th {
               padding: 15px 0;
               color: #fff;
+              font-weight: 1000;
               background-color: #76391B;
               border-bottom: 1px solid #000; }
             .shopping_step .step_contain .step_contain_mask .shopping_details table tr .product_img, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .product_img {
@@ -534,32 +593,55 @@ header {
             .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box {
               margin: 0 auto;
               width: 100%;
-              max-width: 100px; }
-              .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box #number_add, .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box #number_cut, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box #number_add, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box #number_cut {
-                padding: 2px;
-                font-size: 16px;
-                border: 1px solid #76391B;
+              max-width: 110px; }
+              .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box .number_value, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box .number_value {
+                line-height: 1.6; }
+              .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box .plusAndMinus, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box .plusAndMinus {
+                position: relative;
+                width: 40px;
+                height: 40px;
+                line-height: 35px;
+                text-align: center;
                 border-radius: 50%;
-                background-color: #fcf2ca;
+                background-color: #BB7232;
+                box-shadow: 0px 4px 0px #76391B;
                 cursor: pointer;
-                display: inline-block; }
-              .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box #number_cut, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box #number_cut {
+                font-size: 40px;
+                font-weight: 900;
+                color: #FCF2CA; }
+                .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box .plusAndMinus:hover, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box .plusAndMinus:hover {
+                  opacity: .6;
+                  transition: .3s; }
+                .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box .plusAndMinus:active, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box .plusAndMinus:active {
+                  top: 2px;
+                  box-shadow: 0px 2px 0px #76391B; }
+              .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box .number_add, .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box .number_cut, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box .number_add, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box .number_cut {
+                width: 25px;
+                height: 25px;
+                font-size: 20px;
+                line-height: 23px; }
+              .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box .number_cut, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box .number_cut {
                 float: left; }
-              .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box #number_add, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box #number_add {
+              .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box .number_add, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box .number_add {
                 float: right; }
               .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box .number_value, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box .number_value {
                 font-size: 16px; }
         .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_message, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_message {
           position: relative; }
           .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_message span, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_message span {
-            font-size: 16px; }
+            font-size: 16px;
+            color: #76391B;
+            font-weight: 1000; }
+            .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_message span strong, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_message span strong {
+              font-size: 16px;
+              color: #ff5000; }
           .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_message .taketime, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_message .taketime {
             margin: 0 0 40px 5%;
             float: left; }
           .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_message .shopping_message_box, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_message .shopping_message_box {
             width: 70%;
             max-width: 300px;
-            border-bottom: 1px solid #000;
+            border-bottom: 3px solid #76391B;
             display: inline-block;
             float: right; }
             .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_message .shopping_message_box span, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_message .shopping_message_box span {
@@ -581,41 +663,97 @@ header {
           padding: 50px 10px 0;
           max-width: 500px;
           text-align: right; }
-          .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_choose button, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_choose button {
-            padding: 8px 25px 10px;
-            border: 1px solid #76391B;
-            border-radius: 20px;
-            font-size: 16px;
+          .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_choose .mainBTN, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_choose .mainBTN {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
             color: #76391B;
-            background-color: #fcf2ca;
-            box-shadow: 1px 3px 1px #ad6631;
-            cursor: pointer; }
-            .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_choose button:first-child, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_choose button:first-child {
+            background-color: #FCE444;
+            box-shadow: 0px 4px 0px #76391B;
+            border-radius: 100px;
+            transition: .2s;
+            cursor: pointer;
+            margin: auto;
+            font-size: 20px;
+            max-width: auto;
+            transition: .2s; }
+            .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_choose .mainBTN:hover, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_choose .mainBTN:hover {
+              opacity: .7;
+              transition: .2s; }
+            .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_choose .mainBTN:active, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_choose .mainBTN:active {
+              top: 2px; }
+          .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_choose .subBTN, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_choose .subBTN {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+            color: #fff;
+            background-color: #76391B;
+            box-shadow: 0px 4px 0px #FED44F;
+            border-radius: 100px;
+            transition: .2s;
+            cursor: pointer;
+            margin: auto;
+            font-size: 20px;
+            max-width: auto;
+            transition: .2s; }
+            .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_choose .subBTN:hover, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_choose .subBTN:hover {
+              opacity: .7;
+              transition: .2s; }
+            .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_choose .subBTN:active, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_choose .subBTN:active {
+              top: 2px; }
+          .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_choose .mainBTN, .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_choose .subBTN, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_choose .mainBTN, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_choose .subBTN {
+            width: auto;
+            padding: 0px 25px;
+            font-size: 16px; }
+            .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_choose .mainBTN:first-child, .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_choose .subBTN:first-child, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_choose .mainBTN:first-child, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_choose .subBTN:first-child {
               float: left; }
-      .shopping_step .step_contain .step_contain_mask .shopping_details table tr th:nth-child(2) {
-        width: 100%;
-        display: none; }
-      .shopping_step .step_contain .step_contain_mask .shopping_details table tr td:nth-child(1) {
-        width: 100%;
-        display: block; }
-      .shopping_step .step_contain .step_contain_mask .shopping_details table tr td:nth-child(2) {
-        width: 100%;
-        display: block; }
+      .shopping_step .step_contain .step_contain_mask .shopping_details table tr {
+        transition: 1s; }
+        .shopping_step .step_contain .step_contain_mask .shopping_details table tr th:nth-child(2) {
+          width: 100%;
+          display: none; }
+        .shopping_step .step_contain .step_contain_mask .shopping_details table tr td:nth-child(1) {
+          padding-bottom: 0;
+          width: 100%;
+          display: block; }
+        .shopping_step .step_contain .step_contain_mask .shopping_details table tr td:nth-child(2) {
+          width: 100%;
+          font-weight: normal;
+          display: block;
+          font-weight: 1000; }
+      .shopping_step .step_contain .step_contain_mask .confirm_order table tr td:nth-child(2) {
+        font-weight: 1000; }
     .shopping_step .step_contain .shopping_completed {
       vertical-align: top; }
       .shopping_step .step_contain .shopping_completed > div {
-        border: 1px solid #000; }
+        border: 3px solid #76391B;
+        box-shadow: 0px 0px 10px #aaa; }
         .shopping_step .step_contain .shopping_completed > div p {
           margin: 20px 0;
           font-size: 16px;
           line-height: 1.6; }
           .shopping_step .step_contain .shopping_completed > div p.p1 {
             font-size: 24px;
-            font-weight: 500; }
+            font-weight: 500;
+            color: #76391B;
+            font-weight: 1000; }
           .shopping_step .step_contain .shopping_completed > div p.p2 {
             margin: 0 auto;
-            max-width: 168px;
+            max-width: 230px;
             text-align: left; }
+          .shopping_step .step_contain .shopping_completed > div p span {
+            font-size: 16px;
+            font-weight: 1000;
+            line-height: 1.6; }
         .shopping_step .step_contain .shopping_completed > div .take_meal_way {
           padding: 50px 0;
           position: relative; }
@@ -628,59 +766,109 @@ header {
             .shopping_step .step_contain .shopping_completed > div .take_meal_way div.take_meal_qr {
               margin: 0 auto;
               padding: 0 0 50px 0;
-              border-bottom: 1px solid #000; }
-            .shopping_step .step_contain .shopping_completed > div .take_meal_way div #take_meal_qr {
-              margin: 10px 0;
-              width: 100px;
-              height: 100px; }
-            .shopping_step .step_contain .shopping_completed > div .take_meal_way div #take_meal_code {
+              border-bottom: 3px solid #76391B; }
+              .shopping_step .step_contain .shopping_completed > div .take_meal_way div.take_meal_qr p {
+                color: #76391B;
+                font-weight: 600; }
+              .shopping_step .step_contain .shopping_completed > div .take_meal_way div.take_meal_qr #take_meal_qr {
+                margin: 10px 0;
+                width: 150px;
+                height: 150px; }
+            .shopping_step .step_contain .shopping_completed > div .take_meal_way div.take_meal_code p:first-child {
+              color: #76391B;
+              font-weight: 600; }
+            .shopping_step .step_contain .shopping_completed > div .take_meal_way div.take_meal_code #take_meal_code {
               margin: 85px auto 0;
+              padding-bottom: 10px;
               max-width: 200px;
-              border: 1px solid #000; }
+              color: #f50000;
+              border-bottom: 3px solid #76391B; }
           .shopping_step .step_contain .shopping_completed > div .take_meal_way > p {
             padding: 0 5px;
             background-color: #fff;
             transform: translate(0%, -135%);
             display: inline-block; }
-        .shopping_step .step_contain .shopping_completed > div #order_record_button {
+        .shopping_step .step_contain .shopping_completed > div .subBTN {
+          position: relative;
+          display: inline-block;
+          width: 100%;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          cursor: pointer;
+          color: #fff;
+          background-color: #76391B;
+          box-shadow: 0px 4px 0px #FED44F;
+          border-radius: 100px;
+          transition: .2s;
+          cursor: pointer;
+          margin: auto;
+          font-size: 20px;
+          max-width: auto;
+          transition: .2s; }
+          .shopping_step .step_contain .shopping_completed > div .subBTN:hover {
+            opacity: .7;
+            transition: .2s; }
+          .shopping_step .step_contain .shopping_completed > div .subBTN:active {
+            top: 2px; }
+        .shopping_step .step_contain .shopping_completed > div .mainBTN, .shopping_step .step_contain .shopping_completed > div .subBTN {
           margin-bottom: 30px;
-          padding: 8px 25px 10px;
-          border: 1px solid #76391B;
-          border-radius: 20px;
-          font-size: 16px;
-          color: #76391B;
-          background-color: #fcf2ca;
-          box-shadow: 1px 3px 1px #ad6631;
-          cursor: pointer; }
+          padding: 0px 25px 2px;
+          width: auto;
+          font-size: 16px; }
 
 @media screen and (min-width: 768px) {
   .shopping_step .step_list .step_box {
     width: 110px; }
+    .shopping_step .step_list .step_box span {
+      font-size: 20px; }
     .shopping_step .step_list .step_box div {
       padding: 42px 0; }
       .shopping_step .step_list .step_box div span {
         font-size: 20px; }
+  .shopping_step .step_contain .step_contain_mask .shopping_details table tr th, .shopping_step .step_contain .step_contain_mask .shopping_details table tr td, .shopping_step .step_contain .step_contain_mask .confirm_order table tr th, .shopping_step .step_contain .step_contain_mask .confirm_order table tr td {
+    font-size: 20px; }
+    .shopping_step .step_contain .step_contain_mask .shopping_details table tr th p span, .shopping_step .step_contain .step_contain_mask .shopping_details table tr td p span, .shopping_step .step_contain .step_contain_mask .confirm_order table tr th p span, .shopping_step .step_contain .step_contain_mask .confirm_order table tr td p span {
+      font-size: 20px; }
+  .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box .number_add, .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box .number_cut, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box .number_add, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box .number_cut {
+    font-size: 24px; }
+  .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box .number_value, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box .number_value {
+    font-size: 20px; }
+  .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_message span, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_message span {
+    font-size: 20px; }
+    .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_message span strong, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_message span strong {
+      font-size: 20px; }
+  .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_choose .mainBTN, .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_choose .subBTN, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_choose .mainBTN, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_choose .subBTN {
+    padding: 0px 30px;
+    font-size: 20px; }
   .shopping_step .step_contain .step_contain_mask .shopping_details table tr th {
     width: 20%; }
     .shopping_step .step_contain .step_contain_mask .shopping_details table tr th:nth-child(2) {
       width: 20%;
       display: table-cell; }
-  .shopping_step .step_contain .step_contain_mask .shopping_details table tr td {
-    width: 20%; }
-    .shopping_step .step_contain .step_contain_mask .shopping_details table tr td:nth-child(1) {
-      width: 20%;
-      display: table-cell; }
-    .shopping_step .step_contain .step_contain_mask .shopping_details table tr td:nth-child(2) {
-      width: 20%;
-      display: table-cell; }
-  .shopping_step .step_contain .step_contain_mask .shopping_completed > div .take_meal_way div {
+  .shopping_step .step_contain .step_contain_mask .shopping_details table tr td:nth-child(1) {
+    padding: 25px 0;
+    width: 20%;
+    display: table-cell; }
+  .shopping_step .step_contain .step_contain_mask .shopping_details table tr td:nth-child(2) {
+    width: 20%;
+    display: table-cell; }
+  .shopping_step .step_contain .step_contain_mask .shopping_completed > div p {
+    font-size: 20px; }
+    .shopping_step .step_contain .step_contain_mask .shopping_completed > div p.p1 {
+      font-size: 28px; }
+    .shopping_step .step_contain .step_contain_mask .shopping_completed > div p span {
+      font-size: 20px; }
+  .shopping_step .step_contain .step_contain_mask .shopping_completed > div .mainBTN, .shopping_step .step_contain .step_contain_mask .shopping_completed > div .subBTN {
+    font-size: 20px; }
+  .shopping_step .step_contain .step_contain_mask .shopping_completed .take_meal_way div {
     display: inline-block; }
-    .shopping_step .step_contain .step_contain_mask .shopping_completed > div .take_meal_way div.take_meal_qr {
+    .shopping_step .step_contain .step_contain_mask .shopping_completed .take_meal_way div.take_meal_qr {
       margin: 0 auto;
       padding: 0;
-      border-right: 1px solid #000;
+      border-right: 3px solid #76391B;
       border-bottom: none; }
-  .shopping_step .step_contain .step_contain_mask .shopping_completed > div .take_meal_way > p {
+  .shopping_step .step_contain .step_contain_mask .shopping_completed .take_meal_way > p {
     padding: 5px 0;
     transform: translate(-50%, -50%);
     position: absolute;
