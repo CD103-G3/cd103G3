@@ -1,6 +1,5 @@
 @import "layout/nav";
 
-
 //變數
 $color_main1: #fce444; //小雞黃 / yellow / #FCE444 ;
 $color_main2: #76391b; //褐色 / brown / 7#6391B ;
@@ -12,7 +11,7 @@ $searchHeight: 40px;
 $fz18: 18px;
 $borderRadius: 1000px;
 $grouponBr: 20px;
-$boxshadow: 0 4px 0 $color_main4;
+$boxshadow: 0 3px 0 $color_main2;
 
 //字體:
 $fontSize_text: 16px;
@@ -34,13 +33,19 @@ $color-yolk: #f9d010;
 * {
   // outline: 1px solid red;
   text-decoration: none;
-
 }
 
 body {
+  font-family: $fmy;
+  color: $black;
   overflow-x: hidden;
   background-color: rgb(255, 226, 191);
   background-image: url(../images/index_scroll_bg.png);
+}
+
+button,
+input {
+  outline: none;
   font-family: $fmy;
 }
 
@@ -499,6 +504,7 @@ a {
                 padding: 0 0 0 12px;
                 overflow: hidden;
                 white-space: nowrap;
+                font-weight: bold;
                 animation: typing 2s steps(9) 1;
               }
             }
@@ -801,6 +807,7 @@ a {
             }
             p {
               color: $color_main2;
+              text-shadow: 2px 2px 0 $color_main3;
               font-size: 18px;
               font-weight: bolder;
               letter-spacing: 0.5px;
@@ -1189,13 +1196,15 @@ a {
             border-radius: 50%;
             display: inline-block;
             font-size: 0;
-            opacity: 0.8;
+            opacity: 1;
             --dx: calc(var(--size) - var(--x));
             --dy: calc(var(--size) - var(--y));
             @extend .joinBtn;
             margin: 0 10px;
             background-image: url(../images/index_watermark.svg);
             background-size: 150%;
+            color: $color_main2;
+            text-shadow: 1px 1px 0px $color_main3;
 
             &:after {
               content: "";
@@ -1214,7 +1223,10 @@ a {
               text-align: center;
               position: relative;
               top: 50%;
+              font-weight: bolder;
             }
+          }
+          #indexJoin-btnO {
           }
         }
       }
@@ -1228,7 +1240,104 @@ a {
       position: relative;
       .indexJoin-wrap {
         .indexJoin-phoneBox {
+          position: relative;
           .indexJoin-phone {
+            @keyframes spotlightMoveB {
+              0% {
+                transform: rotate(3deg);
+              }
+              100% {
+                transform: rotate(-3deg);
+              }
+            }
+            @keyframes spotlightMoveA {
+              0% {
+                left: -30px;
+              }
+              100% {
+                left: 30px;
+              }
+            }
+            .indexJoin-spotlightL {
+              position: absolute;
+              bottom: -20px;
+              left: -330px;
+              transform-origin: top;
+
+              &::before,
+              &::after {
+                content: "";
+              }
+
+              &::before {
+                display: inline-block;
+                margin: -100vh 0 0 0;
+                height: 0;
+                width: 0;
+                border: 3px solid;
+                border-width: 610px 140px;
+                border-color: transparent transparent #fffcf6;
+                opacity: 0.5;
+                filter: blur(10px);
+                transform: rotate(-3deg);
+                animation: spotlightMoveB 3s infinite alternate;
+              }
+              &::after {
+                bottom: 33px;
+                width: 283px;
+                height: 40px;
+                background: lighten(#686767, 10%);
+                border-radius: 200%;
+                position: relative;
+                display: block;
+                margin: 0 auto;
+                opacity: 0.3;
+                box-shadow: 0px 2px 0px lighten(#555554, 25%);
+                filter: blur(3px);
+                left: -30px;
+                animation: spotlightMoveA 3s infinite alternate;
+              }
+            }
+            .indexJoin-spotlightR {
+              position: absolute;
+              bottom: -20px;
+              right: -330px;
+              transform-origin: top;
+
+              &::before,
+              &::after {
+                content: "";
+              }
+
+              &::before {
+                display: inline-block;
+                margin: -100vh 0 0 0;
+                height: 0;
+                width: 0;
+                border: 3px solid;
+                border-width: 610px 140px;
+                border-color: transparent transparent #fffcf6;
+                opacity: 0.5;
+                filter: blur(10px);
+                transform: rotate(-3deg);
+                animation: spotlightMoveB 3s infinite alternate;
+              }
+              &::after {
+                bottom: 33px;
+                width: 283px;
+                height: 40px;
+                background: lighten(#686767, 10%);
+                border-radius: 200%;
+                position: relative;
+                display: block;
+                margin: 0 auto;
+                opacity: 0.3;
+                box-shadow: 0px 2px 0px lighten(#555554, 25%);
+                filter: blur(3px);
+                left: -30px;
+                animation: spotlightMoveA 3s infinite alternate;
+              }
+            }
             .indexJoin-bg {
               z-index: 1;
 
@@ -1282,8 +1391,8 @@ a {
                 top: 231px;
                 right: -800px;
                 animation: chickenPC2 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17)
-                    0.5s 1,
-                  chickenPCTop 0.2s ease 0.5s 3;
+                    0.9s 1,
+                  chickenPCTop 0.2s ease 0.5s 5;
                 animation-fill-mode: forwards;
               }
             }
@@ -1546,33 +1655,50 @@ a {
 
             @keyframes btnPC1 {
               0% {
-                right: 800px;
+                left: -850px;
               }
               100% {
-                right: 200px;
+                left: -350px;
               }
             }
 
             @keyframes btnPC2 {
               0% {
-                left: 800px;
+                right: -850px;
               }
               100% {
-                left: 200px;
+                right: -350px;
+              }
+            }
+            @keyframes btnPCTop {
+              0% {
+                bottom: 320px;
+              }
+              25% {
+                bottom: 324px;
+              }
+              50% {
+                bottom: 320px;
+              }
+              75% {
+                bottom: 324px;
+              }
+              100% {
+                bottom: 320px;
               }
             }
 
             #indexJoin-btnO {
-              right: 200px;
-              // animation: btnPC1 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1,
-              //   chickenPCTop 0.2s ease 0.5s 3;
-              // animation-fill-mode: forwards;
+              left: -850px;
+              animation: btnPC1 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1,
+                btnPCTop 0.3s ease 0.5s 3;
+              animation-fill-mode: forwards;
             }
             #indexJoin-btnQr {
-              left: 200px;
-              // animation: btnPC2 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1,
-              //   chickenPCTop 0.2s ease 0.5s 3;
-              // animation-fill-mode: forwards;
+              right: -850px;
+              animation: btnPC2 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.9s 1,
+                btnPCTop 0.3s ease 0.5s 4;
+              animation-fill-mode: forwards;
             }
           }
         }
@@ -1607,29 +1733,54 @@ a {
               img:nth-child(1) {
                 position: absolute;
                 top: 231px;
-                left: -800px;
-                animation: chickenLGPC1 1s cubic-bezier(0.55, 0.13, 0.45, 1.17)
-                    0.5s 1,
+                left: -1000px;
+                animation: chickenLGPC1 1.5s
+                    cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1,
                   chickenPCTop 0.2s ease 0.8s 4;
                 animation-fill-mode: forwards;
               }
               img:nth-child(2) {
                 position: absolute;
                 top: 231px;
-                right: -800px;
-                animation: chickenLGPC2 1s cubic-bezier(0.55, 0.13, 0.45, 1.17)
-                    0.6s 1,
-                  chickenPCTop 0.2s ease 0.8s 4;
+                right: -1000px;
+                animation: chickenLGPC2 1.5s
+                    cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.9s 1,
+                  chickenPCTop 0.2s ease 0.8s 6;
                 animation-fill-mode: forwards;
               }
             }
           }
+          @keyframes btnLGPC1 {
+            0% {
+              left: -1000px;
+            }
+            100% {
+              left: -400px;
+            }
+          }
+
+          @keyframes btnLGPC2 {
+            0% {
+              right: -1000px;
+            }
+            100% {
+              right: -400px;
+            }
+          }
           #indexJoin-btn {
             #indexJoin-btnO {
-              right: 260px;
+              left: -1000px;
+              animation: btnLGPC1 1.6s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s
+                  1,
+                btnPCTop 0.3s ease 0.5s 5;
+              animation-fill-mode: forwards;
             }
             #indexJoin-btnQr {
-              left: 260px;
+              right: -1000px;
+              animation: btnLGPC2 1.6s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.9s
+                  1,
+                btnPCTop 0.3s ease 0.5s 6;
+              animation-fill-mode: forwards;
             }
           }
         }
@@ -1721,13 +1872,15 @@ a {
               background-position: center;
               background-repeat: no-repeat;
               position: absolute;
-              top: -25px;
+              top: -26px;
               right: -16px;
 
               p:nth-child(1) {
-                padding: 16px 0 0;
+                padding: 20px 0 2px;
                 font-size: 24px;
+                font-weight: bolder;
                 text-align: center;
+                color: $color_main4;
 
                 &::after {
                   content: "元";
@@ -1738,6 +1891,8 @@ a {
               p:nth-child(2) {
                 text-align: center;
                 font-size: 13px;
+                font-weight: bolder;
+                color: $color_main2;
               }
             }
           }
@@ -1757,19 +1912,33 @@ a {
             margin: 0 auto 15px;
             text-align: center;
             line-height: 1.6rem;
+            mark {
+              background: linear-gradient(
+                transparent 40%,
+                rgba(255, 255, 255, 0) 40%,
+                rgba(250, 236, 39, 0.8) 50%,
+                transparent 70%
+              );
+              padding: 2px 1px;
+              color: $color_main2;
+              font-weight: bolder;
+            }
           }
 
           .indexGroupon-sum {
             width: 190px;
             margin: 0px auto;
             line-height: 2rem;
-
+            .indexGroupon-subtitle {
+              color: $color_main2;
+              font-weight: bold;
+            }
             .indexGroupon-countBar {
               display: inline-block;
               width: 100px;
               height: 16px;
               border-radius: $borderRadius;
-              background-color: $color_main2;
+              background-color: $color_main4;
               line-height: 16px;
 
               p {
@@ -1799,7 +1968,7 @@ a {
               position: absolute;
               bottom: 0;
               right: 0;
-              color: $black;
+              color: $color_main2;
             }
           }
         }
@@ -2031,25 +2200,45 @@ a {
               }
             }
 
-            p {
-              font-size: 18px;
-              line-height: 2.5rem;
-              span {
-                img {
-                  width: 15px;
+            div.scoreEgg-container {
+              display: inline-block;
+              margin: 10px 0 0 0;
+              &:before {
+                content: "評分";
+                font-size: 18px;
+                font-weight: bold;
+                color: $color_main2;
+                position: relative;
+                bottom: 6px;
+                left: 25px;
+              }
+              ul {
+                position: initial;
+                width: 150px;
+                display: inline-block;
+                li {
+                  position: relative;
+                  width: 20px;
+                  margin: 0 -2px;
+                  left: 0;
+                  top: 0;
+                  display: inline-block;
+                  img {
+                    width: 20px;
+                  }
                 }
               }
             }
-
             .indexMeal-btn {
               a {
                 display: inline-block;
-                padding: 7px 10px;
+                padding: 10px;
                 background-color: $color_main1;
                 border-radius: $borderRadius;
                 color: $black;
                 font-size: $fontSize_text;
                 box-shadow: $boxshadow;
+                margin-right: 5px;
               }
 
               svg {
@@ -2071,9 +2260,10 @@ a {
                 @extend a;
                 padding: 0px 10px;
                 border: 0;
+                margin-left: 5px;
                 p {
                   font-size: 16px;
-                  padding: 5px 2px;
+                  padding: 8px 2px;
                   line-height: 1rem;
                   svg {
                     margin-right: 0;
@@ -2314,6 +2504,36 @@ a {
               background-repeat: no-repeat;
               text-align: center;
 
+              div.scoreEgg-container {
+                display: inline-block;
+                margin: 10px 0 0 0;
+                &:before {
+                  content: "評分";
+                  font-size: 18px;
+                  font-weight: bold;
+                  color: $color_main2;
+                  position: relative;
+                  bottom: 6px;
+                  left: 25px;
+                }
+                ul {
+                  position: initial;
+                  width: 150px;
+                  display: inline-block;
+                  li {
+                    position: relative;
+                    width: 20px;
+                    margin: 0 -2px;
+                    left: 0;
+                    top: 0;
+                    display: inline-block;
+                    img {
+                      width: 20px;
+                    }
+                  }
+                }
+              }
+
               h3 {
                 display: inline;
                 font-size: 26px;
@@ -2348,6 +2568,7 @@ a {
                   color: $black;
                   font-size: $fontSize_text;
                   box-shadow: $boxshadow;
+                  margin-right: 5px;
                 }
 
                 svg {
@@ -2375,6 +2596,7 @@ a {
                   box-shadow: $boxshadow;
                   padding: 0px 10px;
                   border: 0;
+                  margin-left: 5px;
                   p {
                     font-size: 16px;
                     padding: 5px 2px;
@@ -2399,12 +2621,12 @@ a {
 
               h3,
               h4,
-              p,
+              div.scoreEgg-container,
               .indexMeal-btn {
                 position: relative;
                 top: 31px;
                 button {
-                  p {
+                  div {
                     top: 0px;
                   }
                 }
@@ -2484,6 +2706,10 @@ a {
                   bottom: -10px;
                   left: 50%;
                   transform: translateX(-50%);
+                }
+                mark {
+                  background-color: transparent;
+                  color: $color_main3;
                 }
               }
             }

@@ -1537,9 +1537,15 @@ header {
   text-decoration: none; }
 
 body {
+  font-family: 微軟正黑體, arial, "sans serif";
+  color: #333;
   overflow-x: hidden;
   background-color: #ffe2bf;
-  background-image: url(../images/index_scroll_bg.png);
+  background-image: url(../images/index_scroll_bg.png); }
+
+button,
+input {
+  outline: none;
   font-family: 微軟正黑體, arial, "sans serif"; }
 
 .indexScroll {
@@ -1606,7 +1612,7 @@ a,
   border: 0;
   border-radius: 1000px;
   background-color: #fce444;
-  box-shadow: 0 4px 0 #bb7232; }
+  box-shadow: 0 3px 0 #76391b; }
 
 .joinBtn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button:hover {
   opacity: 1;
@@ -1886,6 +1892,7 @@ a,
               padding: 0 0 0 12px;
               overflow: hidden;
               white-space: nowrap;
+              font-weight: bold;
               animation: typing 2s steps(9) 1; } }
 
 @media screen and (min-width: 1200px) {
@@ -2089,6 +2096,7 @@ a,
         padding: 10px; }
       .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info p {
         color: #76391b;
+        text-shadow: 2px 2px 0 #fcf2ca;
         font-size: 18px;
         font-weight: bolder;
         letter-spacing: 0.5px;
@@ -2114,7 +2122,7 @@ a,
 @keyframes stepO2-btn {
   0% {
     background-color: #fce444;
-    box-shadow: 0 4px 0 #bb7232; }
+    box-shadow: 0 3px 0 #76391b; }
   100% {
     background-color: #bb7232;
     box-shadow: 0 4px 0 #fce444;
@@ -2367,12 +2375,14 @@ a,
       border-radius: 50%;
       display: inline-block;
       font-size: 0;
-      opacity: 0.8;
+      opacity: 1;
       --dx: calc(var(--size) - var(--x));
       --dy: calc(var(--size) - var(--y));
       margin: 0 10px;
       background-image: url(../images/index_watermark.svg);
-      background-size: 150%; }
+      background-size: 150%;
+      color: #76391b;
+      text-shadow: 1px 1px 0px #fcf2ca; }
       .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button:after {
         content: ""; }
       .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button:disabled {
@@ -2383,23 +2393,102 @@ a,
         font-size: 18px;
         text-align: center;
         position: relative;
-        top: 50%; }
+        top: 50%;
+        font-weight: bolder; }
 
 @media screen and (min-width: 768px) {
   .indexJoin {
     padding: 50px 0 0; }
     .indexJoin .wrap {
       position: relative; }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone {
-        width: 281px;
-        height: 500px;
-        margin: 0 auto;
-        background-size: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
+      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox {
         position: relative; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg {
-          z-index: 1; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone {
+          width: 281px;
+          height: 500px;
+          margin: 0 auto;
+          background-size: 100%;
+          background-position: center;
+          background-repeat: no-repeat;
+          position: relative; }
+  @keyframes spotlightMoveB {
+    0% {
+      transform: rotate(3deg); }
+    100% {
+      transform: rotate(-3deg); } }
+  @keyframes spotlightMoveA {
+    0% {
+      left: -30px; }
+    100% {
+      left: 30px; } }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-spotlightL {
+            position: absolute;
+            bottom: -20px;
+            left: -330px;
+            transform-origin: top; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-spotlightL::before, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-spotlightL::after {
+              content: ""; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-spotlightL::before {
+              display: inline-block;
+              margin: -100vh 0 0 0;
+              height: 0;
+              width: 0;
+              border: 3px solid;
+              border-width: 610px 140px;
+              border-color: transparent transparent #fffcf6;
+              opacity: 0.5;
+              filter: blur(10px);
+              transform: rotate(-3deg);
+              animation: spotlightMoveB 3s infinite alternate; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-spotlightL::after {
+              bottom: 33px;
+              width: 283px;
+              height: 40px;
+              background: #828080;
+              border-radius: 200%;
+              position: relative;
+              display: block;
+              margin: 0 auto;
+              opacity: 0.3;
+              box-shadow: 0px 2px 0px #959594;
+              filter: blur(3px);
+              left: -30px;
+              animation: spotlightMoveA 3s infinite alternate; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-spotlightR {
+            position: absolute;
+            bottom: -20px;
+            right: -330px;
+            transform-origin: top; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-spotlightR::before, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-spotlightR::after {
+              content: ""; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-spotlightR::before {
+              display: inline-block;
+              margin: -100vh 0 0 0;
+              height: 0;
+              width: 0;
+              border: 3px solid;
+              border-width: 610px 140px;
+              border-color: transparent transparent #fffcf6;
+              opacity: 0.5;
+              filter: blur(10px);
+              transform: rotate(-3deg);
+              animation: spotlightMoveB 3s infinite alternate; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-spotlightR::after {
+              bottom: 33px;
+              width: 283px;
+              height: 40px;
+              background: #828080;
+              border-radius: 200%;
+              position: relative;
+              display: block;
+              margin: 0 auto;
+              opacity: 0.3;
+              box-shadow: 0px 2px 0px #959594;
+              filter: blur(3px);
+              left: -30px;
+              animation: spotlightMoveA 3s infinite alternate; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg {
+            z-index: 1; }
   @keyframes chickenPC1 {
     0% {
       left: -800px; }
@@ -2421,48 +2510,48 @@ a,
       top: 241px; }
     100% {
       top: 231px; } }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(1) {
-            width: 200px;
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(1) {
+              width: 200px;
+              position: absolute;
+              top: 231px;
+              left: -800px;
+              animation: chickenPC1 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenPCTop 0.2s ease 0.5s 3;
+              animation-fill-mode: forwards; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(2) {
+              width: 200px;
+              position: absolute;
+              top: 231px;
+              right: -800px;
+              animation: chickenPC2 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.9s 1, chickenPCTop 0.2s ease 0.5s 5;
+              animation-fill-mode: forwards; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info {
+            padding: 125px 28px 0;
+            text-align: center; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info img {
+              width: 150px;
+              margin: -10px 20px 24px; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info p {
+              font-size: 24px;
+              line-height: 2rem; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(1) {
+            width: 222px;
             position: absolute;
-            top: 231px;
-            left: -800px;
-            animation: chickenPC1 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenPCTop 0.2s ease 0.5s 3;
-            animation-fill-mode: forwards; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(2) {
-            width: 200px;
-            position: absolute;
-            top: 231px;
-            right: -800px;
-            animation: chickenPC2 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenPCTop 0.2s ease 0.5s 3;
-            animation-fill-mode: forwards; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info {
-          padding: 125px 28px 0;
-          text-align: center; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info img {
-            width: 150px;
-            margin: -10px 20px 24px; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info p {
-            font-size: 24px;
-            line-height: 2rem; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(1) {
-          width: 222px;
-          position: absolute;
-          left: 28px;
-          top: 87px; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(2) {
-          width: 100px;
-          right: -20px;
-          bottom: 60px;
-          animation: stepO1-sm 1s 0.5s infinite alternate;
-          z-index: 1; }
+            left: 28px;
+            top: 87px; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO1 img:nth-child(2) {
+            width: 100px;
+            right: -20px;
+            bottom: 60px;
+            animation: stepO1-sm 1s 0.5s infinite alternate;
+            z-index: 1; }
   @keyframes stepO1-sm {
     0% {
       bottom: 60px; }
     100% {
       bottom: 260px; } }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQr3-btn {
-          left: 75px;
-          bottom: 108px; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQr3-btn {
+            left: 75px;
+            bottom: 108px; }
   @keyframes stepO2-finger-sm {
     0% {
       right: -14px;
@@ -2470,140 +2559,155 @@ a,
     100% {
       right: 60px;
       bottom: 13px; } }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img:nth-child(1) {
-          width: 190px;
-          position: absolute;
-          left: 45px;
-          top: 100px; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img.finger2 {
-          width: 100px;
-          position: absolute;
-          right: -14px;
-          bottom: 105px;
-          animation: stepO2-finger-sm 0.8s 0.5s 1 normal;
-          animation-fill-mode: forwards;
-          z-index: 1; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) {
-          text-align: center; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(1) {
-            padding: 130px 0 20px;
-            font-size: 28px; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(2) {
-            font-size: 22px; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img {
-          margin: 50px auto; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img div {
-            animation: stepO3-scan 0.9s 0.5s 1 ease-in-out;
-            animation-fill-mode: forwards; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 {
-          overflow: hidden; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) {
-            position: relative;
-            top: 0;
-            text-align: center;
-            width: 225px;
-            margin: 0 0 0 26px; }
-            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(1) {
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img:nth-child(1) {
+            width: 190px;
+            position: absolute;
+            left: 45px;
+            top: 100px; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 img.finger2 {
+            width: 100px;
+            position: absolute;
+            right: -14px;
+            bottom: 105px;
+            animation: stepO2-finger-sm 0.8s 0.5s 1 normal;
+            animation-fill-mode: forwards;
+            z-index: 1; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) {
+            text-align: center; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(1) {
               padding: 130px 0 20px;
               font-size: 28px; }
-            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(2) {
-              font-size: 22px;
-              padding: 0 20px;
-              line-height: 1.8rem; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) {
-            height: 150px; }
-            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) i.fa-check {
-              font-size: 80px;
-              top: 245px;
-              left: 100px;
-              animation: stepO4 1s 0 1 ease-in;
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(2) {
+              font-size: 22px; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img {
+            margin: 50px auto; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 .indexJoin-stepO3-img div {
+              animation: stepO3-scan 0.9s 0.5s 1 ease-in-out;
               animation-fill-mode: forwards; }
-            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) span {
-              font-size: 20px;
-              top: 342px;
-              left: 78px;
-              animation: stepO4 1s 0 1 ease-in;
-              animation-fill-mode: forwards; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div {
-          width: 160px;
-          font-size: 16px;
-          top: 120px;
-          left: 50px;
-          text-align: left; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div img {
-            width: 80px;
-            height: 80px;
-            margin: 10px auto; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr2 div {
-          width: 120px;
-          font-size: 16px;
-          bottom: 120px;
-          right: 50px; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 {
-          position: relative; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box {
-            width: 170px;
-            height: 230px;
-            top: 120px;
-            left: 45px; }
-            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(1) {
-              font-size: 18px;
-              text-align: center; }
-            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(2) {
-              padding: 30px 25px 20px;
-              font-size: 20px; }
-            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input {
-              width: 100px;
-              border: 2px solid #76391b;
-              padding: 5px 8px;
-              border-radius: 10px;
-              margin: 0 24px; }
-              .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input p {
-                width: 40px;
-                font-size: 16px;
-                animation: typing 1.2s steps(4), caret 0.3s steps(1) infinite; }
-            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 {
+            overflow: hidden; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) {
+              position: relative;
+              top: 0;
               text-align: center;
-              width: 100px;
-              margin: 32px auto 0;
-              padding: 6px 10px; }
-            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box img {
-              right: -34px;
-              bottom: -10px; }
-      .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn {
-        display: inline-block;
-        position: relative;
-        top: -50%;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 0; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button {
-          max-width: 200px;
-          max-height: 200px;
-          width: 150px;
-          height: 150px;
-          margin: 0 auto;
-          position: absolute;
-          bottom: 320px; }
-          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button p {
-            font-size: 26px;
-            text-align: center;
-            position: relative;
-            top: 50%; }
+              width: 225px;
+              margin: 0 0 0 26px; }
+              .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(1) {
+                padding: 130px 0 20px;
+                font-size: 28px; }
+              .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(2) {
+                font-size: 22px;
+                padding: 0 20px;
+                line-height: 1.8rem; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) {
+              height: 150px; }
+              .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) i.fa-check {
+                font-size: 80px;
+                top: 245px;
+                left: 100px;
+                animation: stepO4 1s 0 1 ease-in;
+                animation-fill-mode: forwards; }
+              .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) span {
+                font-size: 20px;
+                top: 342px;
+                left: 78px;
+                animation: stepO4 1s 0 1 ease-in;
+                animation-fill-mode: forwards; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div {
+            width: 160px;
+            font-size: 16px;
+            top: 120px;
+            left: 50px;
+            text-align: left; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr1 div img {
+              width: 80px;
+              height: 80px;
+              margin: 10px auto; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr2 div {
+            width: 120px;
+            font-size: 16px;
+            bottom: 120px;
+            right: 50px; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 {
+            position: relative; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box {
+              width: 170px;
+              height: 230px;
+              top: 120px;
+              left: 45px; }
+              .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(1) {
+                font-size: 18px;
+                text-align: center; }
+              .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(2) {
+                padding: 30px 25px 20px;
+                font-size: 20px; }
+              .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input {
+                width: 100px;
+                border: 2px solid #76391b;
+                padding: 5px 8px;
+                border-radius: 10px;
+                margin: 0 24px; }
+                .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input p {
+                  width: 40px;
+                  font-size: 16px;
+                  animation: typing 1.2s steps(4), caret 0.3s steps(1) infinite; }
+              .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn {
+                text-align: center;
+                width: 100px;
+                margin: 32px auto 0;
+                padding: 6px 10px; }
+              .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box img {
+                right: -34px;
+                bottom: -10px; }
+        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn {
+          display: inline-block;
+          position: relative;
+          top: -50%;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: 0; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button {
+            max-width: 200px;
+            max-height: 200px;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            position: absolute;
+            bottom: 320px; }
+            .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button p {
+              font-size: 26px;
+              text-align: center;
+              position: relative;
+              top: 50%; }
   @keyframes btnPC1 {
     0% {
-      right: 800px; }
+      left: -850px; }
     100% {
-      right: 200px; } }
+      left: -350px; } }
   @keyframes btnPC2 {
     0% {
-      left: 800px; }
+      right: -850px; }
     100% {
-      left: 200px; } }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnO {
-          right: 200px; }
-        .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnQr {
-          left: 200px; } }
+      right: -350px; } }
+  @keyframes btnPCTop {
+    0% {
+      bottom: 320px; }
+    25% {
+      bottom: 324px; }
+    50% {
+      bottom: 320px; }
+    75% {
+      bottom: 324px; }
+    100% {
+      bottom: 320px; } }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnO {
+            left: -850px;
+            animation: btnPC1 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, btnPCTop 0.3s ease 0.5s 3;
+            animation-fill-mode: forwards; }
+          .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnQr {
+            right: -850px;
+            animation: btnPC2 0.8s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.9s 1, btnPCTop 0.3s ease 0.5s 4;
+            animation-fill-mode: forwards; } }
 
 @media screen and (min-width: 1200px) {
   @keyframes chickenLGPC1 {
@@ -2619,19 +2723,33 @@ a,
   .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(1) {
     position: absolute;
     top: 231px;
-    left: -800px;
-    animation: chickenLGPC1 1s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenPCTop 0.2s ease 0.8s 4;
+    left: -1000px;
+    animation: chickenLGPC1 1.5s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, chickenPCTop 0.2s ease 0.8s 4;
     animation-fill-mode: forwards; }
   .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-bg img:nth-child(2) {
     position: absolute;
     top: 231px;
-    right: -800px;
-    animation: chickenLGPC2 1s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.6s 1, chickenPCTop 0.2s ease 0.8s 4;
+    right: -1000px;
+    animation: chickenLGPC2 1.5s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.9s 1, chickenPCTop 0.2s ease 0.8s 6;
     animation-fill-mode: forwards; }
+  @keyframes btnLGPC1 {
+    0% {
+      left: -1000px; }
+    100% {
+      left: -400px; } }
+  @keyframes btnLGPC2 {
+    0% {
+      right: -1000px; }
+    100% {
+      right: -400px; } }
   .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnO {
-    right: 260px; }
+    left: -1000px;
+    animation: btnLGPC1 1.6s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.5s 1, btnPCTop 0.3s ease 0.5s 5;
+    animation-fill-mode: forwards; }
   .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn #indexJoin-btnQr {
-    left: 260px; } }
+    right: -1000px;
+    animation: btnLGPC2 1.6s cubic-bezier(0.55, 0.13, 0.45, 1.17) 0.9s 1, btnPCTop 0.3s ease 0.5s 6;
+    animation-fill-mode: forwards; } }
 
 .indexGroupon {
   width: 100%;
@@ -2690,18 +2808,22 @@ a,
         background-position: center;
         background-repeat: no-repeat;
         position: absolute;
-        top: -25px;
+        top: -26px;
         right: -16px; }
         .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average p:nth-child(1) {
-          padding: 16px 0 0;
+          padding: 20px 0 2px;
           font-size: 24px;
-          text-align: center; }
+          font-weight: bolder;
+          text-align: center;
+          color: #bb7232; }
           .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average p:nth-child(1)::after {
             content: "元";
             font-size: 14px; }
         .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average p:nth-child(2) {
           text-align: center;
-          font-size: 13px; }
+          font-size: 13px;
+          font-weight: bolder;
+          color: #76391b; }
     .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part img {
       width: 80%;
       margin: 25px 50% 10px;
@@ -2715,16 +2837,24 @@ a,
       margin: 0 auto 15px;
       text-align: center;
       line-height: 1.6rem; }
+      .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-info mark {
+        background: linear-gradient(transparent 40%, rgba(255, 255, 255, 0) 40%, rgba(250, 236, 39, 0.8) 50%, transparent 70%);
+        padding: 2px 1px;
+        color: #76391b;
+        font-weight: bolder; }
     .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sum {
       width: 190px;
       margin: 0px auto;
       line-height: 2rem; }
+      .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sum .indexGroupon-subtitle {
+        color: #76391b;
+        font-weight: bold; }
       .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sum .indexGroupon-countBar {
         display: inline-block;
         width: 100px;
         height: 16px;
         border-radius: 1000px;
-        background-color: #76391b;
+        background-color: #bb7232;
         line-height: 16px; }
         .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sum .indexGroupon-countBar p {
           width: 0;
@@ -2746,7 +2876,7 @@ a,
         position: absolute;
         bottom: 0;
         right: 0;
-        color: #333; }
+        color: #76391b; }
   .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part1 .indexGroupon-sum .indexGroupon-count p {
     width: 87px; }
   .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part2 .indexGroupon-sum .indexGroupon-count p {
@@ -2854,19 +2984,39 @@ a,
             .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum h4::after {
               content: " 元";
               font-size: 16px; }
-          .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum p {
-            font-size: 18px;
-            line-height: 2.5rem; }
-            .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum p span img {
-              width: 15px; }
+          .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum div.scoreEgg-container {
+            display: inline-block;
+            margin: 10px 0 0 0; }
+            .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum div.scoreEgg-container:before {
+              content: "評分";
+              font-size: 18px;
+              font-weight: bold;
+              color: #76391b;
+              position: relative;
+              bottom: 6px;
+              left: 25px; }
+            .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum div.scoreEgg-container ul {
+              position: initial;
+              width: 150px;
+              display: inline-block; }
+              .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum div.scoreEgg-container ul li {
+                position: relative;
+                width: 20px;
+                margin: 0 -2px;
+                left: 0;
+                top: 0;
+                display: inline-block; }
+                .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum div.scoreEgg-container ul li img {
+                  width: 20px; }
           .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn a, .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
             display: inline-block;
-            padding: 7px 10px;
+            padding: 10px;
             background-color: #fce444;
             border-radius: 1000px;
             color: #333;
             font-size: 16px;
-            box-shadow: 0 4px 0 #bb7232; }
+            box-shadow: 0 3px 0 #76391b;
+            margin-right: 5px; }
           .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn svg {
             margin-right: 8px;
             width: 20px;
@@ -2878,10 +3028,11 @@ a,
             fill: #f37751; }
           .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
             padding: 0px 10px;
-            border: 0; }
+            border: 0;
+            margin-left: 5px; }
             .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button p {
               font-size: 16px;
-              padding: 5px 2px;
+              padding: 8px 2px;
               line-height: 1rem; }
               .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button p svg {
                 margin-right: 0; }
@@ -3051,6 +3202,30 @@ a,
             background-size: 100%;
             background-repeat: no-repeat;
             text-align: center; }
+            .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum div.scoreEgg-container {
+              display: inline-block;
+              margin: 10px 0 0 0; }
+              .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum div.scoreEgg-container:before {
+                content: "評分";
+                font-size: 18px;
+                font-weight: bold;
+                color: #76391b;
+                position: relative;
+                bottom: 6px;
+                left: 25px; }
+              .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum div.scoreEgg-container ul {
+                position: initial;
+                width: 150px;
+                display: inline-block; }
+                .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum div.scoreEgg-container ul li {
+                  position: relative;
+                  width: 20px;
+                  margin: 0 -2px;
+                  left: 0;
+                  top: 0;
+                  display: inline-block; }
+                  .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum div.scoreEgg-container ul li img {
+                    width: 20px; }
             .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum h3 {
               display: inline;
               font-size: 26px; }
@@ -3072,7 +3247,8 @@ a,
               border-radius: 1000px;
               color: #333;
               font-size: 16px;
-              box-shadow: 0 4px 0 #bb7232; }
+              box-shadow: 0 3px 0 #76391b;
+              margin-right: 5px; }
             .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn svg {
               margin-right: 8px;
               width: 20px;
@@ -3089,9 +3265,10 @@ a,
               border-radius: 1000px;
               color: #333;
               font-size: 16px;
-              box-shadow: 0 4px 0 #bb7232;
+              box-shadow: 0 3px 0 #76391b;
               padding: 0px 10px;
-              border: 0; }
+              border: 0;
+              margin-left: 5px; }
               .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button p {
                 font-size: 16px;
                 padding: 5px 2px;
@@ -3108,14 +3285,14 @@ a,
             background-image: url(../images/index_stage1.png); }
             .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum h3,
             .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum h4,
-            .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum p,
+            .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum div.scoreEgg-container,
             .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum .indexMeal-btn {
               position: relative;
               top: 31px; }
-              .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum h3 button p,
-              .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum h4 button p,
-              .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum p button p,
-              .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum .indexMeal-btn button p {
+              .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum h3 button div,
+              .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum h4 button div,
+              .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum div.scoreEgg-container button div,
+              .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top1 .indexMeal-topSum .indexMeal-btn button div {
                 top: 0px; }
         .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .top2 {
           position: relative;
@@ -3178,6 +3355,9 @@ a,
               bottom: -10px;
               left: 50%;
               transform: translateX(-50%); }
+            .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info .indexLogin-balloon p mark {
+              background-color: transparent;
+              color: #fcf2ca; }
         .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info img {
           width: 180px; }
       .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan {

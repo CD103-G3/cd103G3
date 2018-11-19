@@ -299,11 +299,11 @@ function messagereport(){
         });
     };
     function sendMsgReport(){
-        alert('123');
+        // alert('123');
         var xhr = new XMLHttpRequest();
         xhr.onload=function (){
             if( xhr.status == 200 ){
-                alert('OK');
+                // alert('OK');
             }else{
                 alert( xhr.status );
             }
@@ -312,7 +312,7 @@ function messagereport(){
         xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
         var reportData = 
          "&message_No=" + document.getElementById(msgnum).value;
-        alert(reportData);
+        alert('已檢舉該留言');
         xhr.send(reportData);
     };
 };  

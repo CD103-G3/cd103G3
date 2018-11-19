@@ -270,11 +270,22 @@
 					}
 				}
 			}
-			var url = "search.php?search="+ document.getElementById("input_search").value;
+			var url = "searchDish.php?search="+ document.getElementById("searchInputMeal").value;
 			xhr.open("Get", url, true);
   			xhr.send( null );
 		}
+        
 
+        window.addEventListener("load", function(){
+        	document.getElementById("searchInputMeal").addEventListener("keypress",function(e){
+         		// window.alert(2);
+        		console.log("eeeeeeeeee");
+        		console.log(e);
+        		if(e.keyCode == 13){
+        			getDishes();
+        		}       		
+        	});
+        });
 
 		var coll = document.querySelectorAll('.food-button-save'); 
 	    for(var i=0;i<coll.length;i++){

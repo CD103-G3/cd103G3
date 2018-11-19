@@ -23,7 +23,7 @@
 
     <!-- 第一屏 搜尋/迴轉台 -->
 
-    <section class="indexSearch">
+    <section class="indexSearch" id="toptop">
         <div class="wrap">
             <div class="indexSearch-wrap">
                 <div class="indexSearch-bg">
@@ -157,6 +157,8 @@
                 </div>
                 <div class="indexJoin-phoneBox">
                     <div class="indexJoin-phone">
+                        <div class="indexJoin-spotlightL"></div>
+                        <div class="indexJoin-spotlightR"></div>
                         <div class="indexJoin-bg">
                             <img id="indexJoin-ckO" src="images/index_joinChicken1.svg" alt="">
                             <!-- <img src="images/index_joinChickenFeet1.svg" alt=""> -->
@@ -259,20 +261,20 @@
                                 </div>
                             </div>
                             <img src="images/index_meal1.png" alt="">
-                            <p class="indexGroupon-info">每日搭配不同菜色，省錢之餘也能兼具美味。</p>
+                            <p class="indexGroupon-info"><mark>每日搭配不同菜色，省錢之餘也能兼具美味。</mark></p>
                             <div class="indexGroupon-sum">
                                 <div class="indexGroupon-days">
-                                    <span>飯團天數｜</span>
+                                    <span class="indexGroupon-subtitle">飯團天數｜</span>
                                     <span>7天</span>
                                 </div>
                                 <div class="indexGroupon-count">
-                                    <span>參加人數｜</span>
+                                    <span class="indexGroupon-subtitle">參加人數｜</span>
                                     <div class="indexGroupon-countBar">
                                         <p>87/100</p>
                                     </div>
                                 </div>
                                 <div class="indexGroupon-deadline">
-                                    <span>門檻截止｜</span>
+                                    <span class="indexGroupon-subtitle">門檻截止｜</span>
                                     <span>11/30前</span>
                                 </div>
                             </div>
@@ -291,20 +293,20 @@
                                 </div>
                             </div>
                             <img src="images/index_meal2.png" alt="">
-                            <p class="indexGroupon-info">每日搭配不同菜色，省錢之餘也能兼具美味。</p>
+                            <p class="indexGroupon-info"><mark>每日搭配不同菜色，省錢之餘也能兼具美味。</mark></p>
                             <div class="indexGroupon-sum">
                                 <div class="indexGroupon-days">
-                                    <span>飯團天數｜</span>
+                                    <span class="indexGroupon-subtitle">飯團天數｜</span>
                                     <span>10天</span>
                                 </div>
                                 <div class="indexGroupon-count">
-                                    <span>參加人數｜</span>
+                                    <span class="indexGroupon-subtitle">參加人數｜</span>
                                     <div class="indexGroupon-countBar">
                                         <p>10/50</p>
                                     </div>
                                 </div>
                                 <div class="indexGroupon-deadline">
-                                    <span>門檻截止｜</span>
+                                    <span class="indexGroupon-subtitle">門檻截止｜</span>
                                     <span>10/30前</span>
                                 </div>
                             </div>
@@ -323,20 +325,20 @@
                                 </div>
                             </div>
                             <img src="images/index_meal3.png" alt="">
-                            <p class="indexGroupon-info">每日搭配不同菜色，省錢之餘也能兼具美味。</p>
+                            <p class="indexGroupon-info"><mark>每日搭配不同菜色，省錢之餘也能兼具美味。</mark></p>
                             <div class="indexGroupon-sum">
                                 <div class="indexGroupon-days">
-                                    <span>飯團天數｜</span>
+                                    <span class="indexGroupon-subtitle">飯團天數｜</span>
                                     <span>14天</span>
                                 </div>
                                 <div class="indexGroupon-count">
-                                    <span>參加人數｜</span>
+                                    <span class="indexGroupon-subtitle">參加人數｜</span>
                                     <div class="indexGroupon-countBar">
                                         <p>10/30</p>
                                     </div>
                                 </div>
                                 <div class="indexGroupon-deadline">
-                                    <span>門檻截止｜</span>
+                                    <span class="indexGroupon-subtitle">門檻截止｜</span>
                                     <span>11/30前</span>
                                 </div>
                             </div>
@@ -355,20 +357,20 @@
                                 </div>
                             </div>
                             <img src="images/index_meal4.png" alt="">
-                            <p class="indexGroupon-info">每日搭配不同菜色，省錢之餘也能兼具美味。</p>
+                            <p class="indexGroupon-info"><mark>每日搭配不同菜色，省錢之餘也能兼具美味。</mark></p>
                             <div class="indexGroupon-sum">
                                 <div class="indexGroupon-days">
-                                    <span>飯團天數｜</span>
+                                    <span class="indexGroupon-subtitle">飯團天數｜</span>
                                     <span>7天</span>
                                 </div>
                                 <div class="indexGroupon-count">
-                                    <span>參加人數｜</span>
+                                    <span class="indexGroupon-subtitle">參加人數｜</span>
                                     <div class="indexGroupon-countBar">
                                         <p>95/100</p>
                                     </div>
                                 </div>
                                 <div class="indexGroupon-deadline">
-                                    <span>門檻截止｜</span>
+                                    <span class="indexGroupon-subtitle">門檻截止｜</span>
                                     <span>12/30前</span>
                                 </div>
                             </div>
@@ -402,20 +404,20 @@
                                 </div>
                             </div>
                             <img src="images/index_meal1.png" alt="">
-                            <p class="indexGroupon-info">每日搭配不同菜色，省錢之餘也能兼具美味。</p>
+                            <p class="indexGroupon-info"><mark>每日搭配不同菜色，省錢之餘也能兼具美味。</mark></p>
                             <div class="indexGroupon-sum">
                                 <div class="indexGroupon-days">
-                                    <span>飯團天數｜</span>
+                                    <span class="indexGroupon-subtitle">飯團天數｜</span>
                                     <span>7天</span>
                                 </div>
                                 <div class="indexGroupon-count">
-                                    <span>參加人數｜</span>
+                                    <span class="indexGroupon-subtitle">參加人數｜</span>
                                     <div class="indexGroupon-countBar">
                                         <p>87/100</p>
                                     </div>
                                 </div>
                                 <div class="indexGroupon-deadline">
-                                    <span>門檻截止｜</span>
+                                    <span class="indexGroupon-subtitle">門檻截止｜</span>
                                     <span>11/30前</span>
                                 </div>
                             </div>
@@ -434,20 +436,20 @@
                                 </div>
                             </div>
                             <img src="images/index_meal2.png" alt="">
-                            <p class="indexGroupon-info">每日搭配不同菜色，省錢之餘也能兼具美味。</p>
+                            <p class="indexGroupon-info"><mark>每日搭配不同菜色，省錢之餘也能兼具美味。</mark></p>
                             <div class="indexGroupon-sum">
                                 <div class="indexGroupon-days">
-                                    <span>飯團天數｜</span>
+                                    <span class="indexGroupon-subtitle">飯團天數｜</span>
                                     <span>10天</span>
                                 </div>
                                 <div class="indexGroupon-count">
-                                    <span>參加人數｜</span>
+                                    <span class="indexGroupon-subtitle">參加人數｜</span>
                                     <div class="indexGroupon-countBar">
                                         <p>10/50</p>
                                     </div>
                                 </div>
                                 <div class="indexGroupon-deadline">
-                                    <span>門檻截止｜</span>
+                                    <span class="indexGroupon-subtitle">門檻截止｜</span>
                                     <span>10/30前</span>
                                 </div>
                             </div>
@@ -466,20 +468,20 @@
                                 </div>
                             </div>
                             <img src="images/index_meal3.png" alt="">
-                            <p class="indexGroupon-info">每日搭配不同菜色，省錢之餘也能兼具美味。</p>
+                            <p class="indexGroupon-info"><mark>每日搭配不同菜色，省錢之餘也能兼具美味。</mark></p>
                             <div class="indexGroupon-sum">
                                 <div class="indexGroupon-days">
-                                    <span>飯團天數｜</span>
+                                    <span class="indexGroupon-subtitle">飯團天數｜</span>
                                     <span>14天</span>
                                 </div>
                                 <div class="indexGroupon-count">
-                                    <span>參加人數｜</span>
+                                    <span class="indexGroupon-subtitle">參加人數｜</span>
                                     <div class="indexGroupon-countBar">
                                         <p>10/30</p>
                                     </div>
                                 </div>
                                 <div class="indexGroupon-deadline">
-                                    <span>門檻截止｜</span>
+                                    <span class="indexGroupon-subtitle">門檻截止｜</span>
                                     <span>11/30前</span>
                                 </div>
                             </div>
@@ -498,20 +500,20 @@
                                 </div>
                             </div>
                             <img src="images/index_meal4.png" alt="">
-                            <p class="indexGroupon-info">每日搭配不同菜色，省錢之餘也能兼具美味。</p>
+                            <p class="indexGroupon-info"><mark>每日搭配不同菜色，省錢之餘也能兼具美味。</mark></p>
                             <div class="indexGroupon-sum">
                                 <div class="indexGroupon-days">
-                                    <span>飯團天數｜</span>
+                                    <span class="indexGroupon-subtitle">飯團天數｜</span>
                                     <span>7天</span>
                                 </div>
                                 <div class="indexGroupon-count">
-                                    <span>參加人數｜</span>
+                                    <span class="indexGroupon-subtitle">參加人數｜</span>
                                     <div class="indexGroupon-countBar">
                                         <p>95/100</p>
                                     </div>
                                 </div>
                                 <div class="indexGroupon-deadline">
-                                    <span>門檻截止｜</span>
+                                    <span class="indexGroupon-subtitle">門檻截止｜</span>
                                     <span>12/30前</span>
                                 </div>
                             </div>
@@ -546,15 +548,39 @@
                                 <h3><a href="../eatDetail/eatDetail.html">海鮮親子丼</a>
                                     <h4>75</h4>
                                 </h3>
-                                <p>評分
-                                    <span>
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggFull.png" alt="">
-                                    </span>
-                                </p>
+                                    <a href="eatDetail.php?meal_No=<?php echo $mealRow->meal_No;?>"><?php echo $mealRow->meal_Name;?></a>
+                                    <p>
+                                        <span class="scoreNum"><?php echo $mealRow->meal_Total;?></span>
+                                        <div class="scoreEgg-container">
+                                            <ul>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="scoreW">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </p>
                                 <div class="indexMeal-btn">
                                     <a href="../eatDetail/eatDetail.html">查看餐點</a>
                                     <button>
@@ -591,15 +617,39 @@
                                 <h3><a href="../eatDetail/eatDetail.html">雞肉親子丼</a>
                                     <h4>75</h4>
                                 </h3>
-                                <p>評分
-                                    <span>
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggEmpty.png" alt="">
-                                        <img src="images/eggEmpty.png" alt="">
-                                    </span>
-                                </p>
+                                    <a href="eatDetail.php?meal_No=<?php echo $mealRow->meal_No;?>"><?php echo $mealRow->meal_Name;?></a>
+                                    <p>
+                                        <span class="scoreNum"><?php echo $mealRow->meal_Total;?></span>
+                                        <div class="scoreEgg-container">
+                                            <ul>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="scoreW">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </p>
                                 <div class="indexMeal-btn">
                                     <a href="../eatDetail/eatDetail.html">查看餐點</a>
                                     <button>
@@ -636,15 +686,39 @@
                                 <h3><a href="../eatDetail/eatDetail.html">牛肉親子丼</a>
                                     <h4>80</h4>
                                 </h3>
-                                <p>評分
-                                    <span>
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggEmpty.png" alt="">
-                                        <img src="images/eggEmpty.png" alt="">
-                                        <img src="images/eggEmpty.png" alt="">
-                                    </span>
-                                </p>
+                                    <a href="eatDetail.php?meal_No=<?php echo $mealRow->meal_No;?>"><?php echo $mealRow->meal_Name;?></a>
+                                    <p>
+                                        <span class="scoreNum"><?php echo $mealRow->meal_Total;?></span>
+                                        <div class="scoreEgg-container">
+                                            <ul>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="scoreW">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </p>
                                 <div class="indexMeal-btn">
                                     <a href="../eatDetail/eatDetail.html">查看餐點</a>
                                     <button>
@@ -712,15 +786,39 @@
                                 <h3><a href="../eatDetail/eatDetail.html">海鮮親子丼</a>
                                     <h4>75</h4>
                                 </h3>
-                                <p>評分
-                                    <span>
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggFull.png" alt="">
-                                    </span>
-                                </p>
+                                     <a href="eatDetail.php?meal_No=<?php echo $mealRow->meal_No;?>"><?php echo $mealRow->meal_Name;?></a>
+                                    <p>
+                                        <span class="scoreNum"><?php echo $mealRow->meal_Total;?></span>
+                                        <div class="scoreEgg-container">
+                                            <ul>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="scoreW">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </p>
                                 <div class="indexMeal-btn">
                                     <a href="../eatDetail/eatDetail.html">查看餐點</a>
                                     <button>
@@ -757,15 +855,39 @@
                                 <h3><a href="../eatDetail/eatDetail.html">雞肉親子丼</a>
                                     <h4>75</h4>
                                 </h3>
-                                <p>評分
-                                    <span>
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggEmpty.png" alt="">
-                                        <img src="images/eggEmpty.png" alt="">
-                                    </span>
-                                </p>
+                                    <a href="eatDetail.php?meal_No=<?php echo $mealRow->meal_No;?>"><?php echo $mealRow->meal_Name;?></a>
+                                    <p>
+                                        <span class="scoreNum"><?php echo $mealRow->meal_Total;?></span>
+                                        <div class="scoreEgg-container">
+                                            <ul>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="scoreW">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </p>
                                 <div class="indexMeal-btn">
                                     <a href="../eatDetail/eatDetail.html">查看餐點</a>
                                     <button>
@@ -802,15 +924,39 @@
                                 <h3><a href="../eatDetail/eatDetail.html">牛肉親子丼</a>
                                     <h4>80</h4>
                                 </h3>
-                                <p>評分
-                                    <span>
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggFull.png" alt="">
-                                        <img src="images/eggEmpty.png" alt="">
-                                        <img src="images/eggEmpty.png" alt="">
-                                        <img src="images/eggEmpty.png" alt="">
-                                    </span>
-                                </p>
+                                    <a href="eatDetail.php?meal_No=<?php echo $mealRow->meal_No;?>"><?php echo $mealRow->meal_Name;?></a>
+                                    <p>
+                                        <span class="scoreNum"><?php echo $mealRow->meal_Total;?></span>
+                                        <div class="scoreEgg-container">
+                                            <ul>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pic">
+                                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="scoreW">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </p>
                                 <div class="indexMeal-btn">
                                     <a href="../eatDetail/eatDetail.html">查看餐點</a>
                                     <button>
@@ -857,7 +1003,7 @@
                     <div class="indexLogin-main">
                         <div class="indexLogin-info">
                             <div class="indexLogin-balloon">
-                                <p>註冊帳號，獲得你的第一張刮刮樂！刮開「荷包蛋」，查看日食購物金使用規則。</p>
+                                <p>註冊帳號，獲得你的第一張刮刮樂！<mark>刮開「荷包蛋」，查看日食購物金使用規則。</mark></p>
                             </div>
                             <img src="images/index_login.svg" alt="">
                         </div>
@@ -879,6 +1025,7 @@
         </div>
     </section>
 </div>
+
 
 
 
@@ -910,137 +1057,13 @@
 
 
     <script>
-       $('html,body').scrollTop(0);
-    
-  logo   seach 搜尋  
- logo
-註冊／登入
-日食餐點
-發起飯團
-參加飯團
-會員中心
-客服雞器人
- 
-以餐點關鍵字搜尋
-
-
- 
-
-雜菌意大利燴飯
-
- 
-scoreYes
- 
-scoreYes
- 
-scoreYes
- 
-scoreYes
- 
-scoreYes
-230元 
-炭烤青醬雞排便當
-
- 
-scoreYes
- 
-scoreYes
- 
-scoreYes
- 
-scoreYes
- 
-scoreYes
-260元 
-北海道火焰干貝丼
-
- 
-scoreYes
- 
-scoreYes
- 
-scoreYes
- 
-scoreYes
- 
-scoreYes
-420元 
-隱藏鮭魚親子丼
-
- 
-scoreYes
- 
-scoreYes
- 
-scoreYes
- 
-scoreYes
- 
-scoreYes
-320元 
-  
-
-
-
-點選按鈕
-觀看飯團教學
-
-
-自行挑選
-
-  
-邀請碼
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-海鮮親子丼 75
-評分          
-
-查看餐點  
- 收藏
-
-  
-雞肉親子丼 75
-評分          
-
-查看餐點  
- 收藏
-
-  
-</script>
+       // $(document).ready(function(){
+       //  $(this).scrollTop(0);
+       //  });
+      window.addEventListener('load', function(){
+         window.location = window.location.href + "#toptop"; 
+      });
+    </script>
 
 
     <script>
@@ -1083,14 +1106,15 @@ scoreYes
         }
     </script>
     <script>
-        window.onload = function() {
+        window.addEventListener('load',function() {
+            
             score.get(
             '.scoreNum', //抓取分數的容器，自訂class名稱
             'images/scoreEgg_w.svg' ,  //預設的白色評分
             'images/scoreEgg_y.svg');  //顯示的有顏色評分
             // 'https://freeiconshop.com/wp-content/uploads/edd/star-outline.png' ,  //預設的白色評分
             // 'http://simpleicon.com/wp-content/uploads/star.png');  //顯示的有顏色評分
-        }
+        });
     </script>
 </body>
 
