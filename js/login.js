@@ -371,7 +371,7 @@ $id("siginSubmit").addEventListener(
             );
           } else {
             //登入成功
-            checkCookie();
+            checkMemberId();
             document.getElementById("close-login").checked = true;
             swal({
               title: "歡迎!",
@@ -419,7 +419,7 @@ $id("sigupSubmit").addEventListener(
       xhr.onload = function() {
         if (xhr.status == 200) {
           if (xhr.responseText.indexOf("not found") != -1) {
-            checkCookie();
+            checkMemberId();
             document.getElementById("close-login").checked = true;
             swal({
               title: "歡迎!",

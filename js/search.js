@@ -1,6 +1,12 @@
 function $id(id) {
   return document.getElementById(id);
 }
+function $class(className) {
+  return document.getElementsByClassName(className);
+}
+function $all(all) {
+  return document.querySelectorAll(all);
+}
 document.getElementById("close-search").addEventListener("click", function() {
   searchImg();
   //   searchAjax();
@@ -46,8 +52,37 @@ $id('start-search').addEventListener('click',function () {
   startSearch(searchText); 
 },false);
 
-function startSearch() {
-  
+function startSearch(searchGO) {
+
+  if($id('bookmark-meal').checked==true){
+
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+      if( xhr.status == 200){
+        window.alert(xhr.responseText);
+        location.href = 'searchToMealUpshot.php';
+      }else{
+        alert(xhr.status);
+      }
+    }
+    xhr.open("post","searchToMeal.php",true);
+    var GOsearch = new FormData(document.getElementById("GOsearch"))
+    xhr.send(GOsearch);
+
+  }else if($id('bookmark-groupon').checked==true){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+      if( xhr.status == 200){
+        window.alert(xhr.responseText);
+        location.href = 'searchToGrouponUpshot.php';
+      }else{
+        alert(xhr.status);
+      }
+    }
+    xhr.open("post","searchToGroupon.php",true);
+    var GOsearch = new FormData(document.getElementById("GOsearch"))
+    xhr.send(GOsearch);
+  }
 }
 // function searchAjax() {
 //   //傳PHP端

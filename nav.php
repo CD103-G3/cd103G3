@@ -65,11 +65,11 @@ session_start();
 			</li>
 			<li class="participate">
 				<div id="view3"></div>
-				<a href="4-1_grouponList.php">參加飯團</a>
+				<a href="4-1_grouponList.php?search=&order=latest&p=1">參加飯團</a>
 			</li>
 			<li class="table-hidden"><a href="member.php">會員中心</a></li>
 			<li class="table-hidden"><label for="close-chatBot">客服雞器人</label></li>
-			<li class="table-hidden" id="clearMemberCookie"><a href="javascript:void(0)">登出</a></li>
+			<li class="table-hidden" id="clearMemberSeeion"><a href="javascript:void(0)">登出</a></li>
 		</ul>
 	</nav>
 	<label class="white-Point" for="white-Point-control">
@@ -308,85 +308,60 @@ session_start();
 
 </script>
 <script>
+	var beforeLogin = document.getElementsByClassName("before-login")[0];
+	var afterLogin = document.getElementsByClassName("after-login")[0];
+	var clearMemberSeeion = document.getElementById('clearMemberSeeion');
+	var buyCount = document.querySelectorAll(".after-login span")[0];
+	var memberyPic = document.querySelectorAll(".after-login img")[0];
+	var nike = document.querySelectorAll(".after-login span")[1];
+	function checkMemberId() {
+		xhr = new XMLHttpRequest();
+		xhr.onload = function() {
+			if (xhr.status == 200) {
+				if (xhr.responseText.indexOf("not found") != -1) {
+					beforeLogin.style.display = "inline-block";
+					afterLogin.style.display = "none";
+					clearMemberSeeion.style.display = "none";
+				} else {
+					beforeLogin.style.display = "none";
+					afterLogin.style.display = "inline-block";
+					clearMemberSeeion.style.display = "inline-block";
+					
+					var jsonStr = JSON.parse(xhr.responseText);
+					nike.innerText = jsonStr[0].member_Nick ; 
+					memberyPic.src = `images/${jsonStr[0].member_Pic}` ;
+					buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${jsonStr[0].member_buyCount}`;
+				
+				}
+			} else {
+				alert("3:"+xhr.status);
+				return "s";
+			};
+		}
+		xhr.open("post", "checkSeeion.php", true); //設定好所要連結的程式
+		xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded"); 
+		xhr.send(null); //送出資料
+	};
 
-	function delCookie(name)
-	{
-		var exp = new Date();
-		exp.setTime(exp.getTime() - 1);
-		var cval=cookie(name);
-		if(cval!=null) document.cookie= name + "="+cval+";expires="+exp.toGMTString();
-	}
-	function cookie(name){    
-	   var cookieArray=document.cookie.split("; "); //得到分割的cookie名值對    
-	   var cookie=new Object();    
-	   for (var i=0;i<cookieArray.length;i++){  
-	      // console.log(cookieArray);
-	      var arr=cookieArray[i].split("=");       //將名和值分開
-	      console.log(arr);
-	      console.log(arr[0]+'='+arr[1]);
-	      if(arr[0]==name) return unescape(arr[1]); //如果是指定的cookie，則返回它的值    
-	   } 
-	   return ""; 
-	} 
-	
-	function checkCookie() {
-		 //獲得coolie 的值
-	beforeLogin = document.getElementsByClassName("before-login")[0];
-	afterLogin = document.getElementsByClassName("after-login")[0];
-	clearMemberCookie = document.getElementById('clearMemberCookie');
-	  member_No = cookie("member_No");
-	  member_Id = cookie("member_Id");
-	  member_Psw = cookie("member_Psw");
-	  member_Nick = cookie("member_Nick");
-	  email = cookie("email");
-	  member_Pic = cookie("member_Pic");
-	  member_Bonus = cookie("member_Bonus");
-	  member_buyCount = cookie("member_buyCount");
-	  if (member_No != null && member_No != "") {
-	    beforeLogin.style.display = "none";
-	    afterLogin.style.display = "inline-block";
-	    clearMemberCookie.style.display = "inline-block";
-		var buyCount = document.querySelectorAll(".after-login span")[0];
-		var memberyPic = document.querySelectorAll(".after-login img")[0];
-		var nike = document.querySelectorAll(".after-login span")[1];
-		nike.innerText = member_Nick;
-		memberyPic.src = member_Pic;
-		buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${member_buyCount}`;
-
-	  } else {//沒有會員資料cookie
-		beforeLogin.style.display = "inline-block";
-	    afterLogin.style.display = "none";
-		clearMemberCookie.style.display = "none";
-	  }
-	}
-
-	document.getElementById('clearMemberCookie').addEventListener('click',function(){ //點擊登出
-		//清除cookie
-		delCookie("member_No");
-		delCookie("member_Id");
-		delCookie("member_Psw");
-		delCookie("member_Nick");
-		delCookie("email");
-		delCookie("member_Pic");
-		delCookie("member_Bonus");
-		delCookie("member_buyCount");
+	document.getElementById('clearMemberSeeion').addEventListener('click',function(){ //點擊登出
 		//清除SEEION
 		var xhr = new XMLHttpRequest();
         xhr.onload = function(){
 			var memerIdLive = 0;
+			beforeLogin.style.display = "inline-block";
+			afterLogin.style.display = "none";
+			clearMemberSeeion.style.display = "none";
+			nike.innerText = "" ; 
+			memberyPic.src = "" ;
+			buyCount.innerHTML = "";
+			swal("已登出", {
+				button: false,
+			});
         }
         xhr.open("get","Logout.php", true);
         xhr.send( null);
-		//檢查cookie
-		checkCookie();
-		if( memerIdLive=0 ){
-			swal("已登出", {
-				button: false,
-				});
-		};
-		
 	},false);
 	window.addEventListener('load',function(){
-		checkCookie();
+		checkMemberId();
 	},false);
 </script>

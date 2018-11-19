@@ -358,7 +358,7 @@
             $id('groupon_filter_price').checked = true;
         } else if(searchArr[1] == 'order=success') {
             $id('groupon_filter_time').checked = true;
-        } else if(searchArr[1] == 'order=official') {
+        } else if(searchArr[1] == 'order=official') {   
             $id('groupon_filter_official').checked = true;
         } else if(searchArr[1] == 'order=latest') {
             $id('groupon_filter_latest').checked = true;
