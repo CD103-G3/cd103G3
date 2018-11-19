@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/Reset.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/groupon.css">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/gsap/src/minified/TweenMax.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
@@ -16,7 +15,7 @@
 
 try {
     require_once('phpDB/connectDB_CD103G3.php');
-    $sql = "select * from groupontag";
+    $sql = "SELECT * from `groupontag` order by `groupon_TagNo` ASC";
     $tag = $pdo -> prepare($sql);
     $tag -> execute();
     $tagR = $tag -> fetchAll(); //標籤
@@ -38,19 +37,21 @@ try {
 </head>
 <body>
     <nav>
-            <!-- 這裡放導覽列 -->
+        <?php 
+            require_once('nav.php');
+        ?>
     </nav>
 
 <div class="penguinPage"> 
 
     <div class="maxWidthWrapper" >
-        <div class="grouponDetail-container">
+        <div class="grouponDetail-container g_<?php echo $grouponR["groupon_TagNo"] ?>">
             <div class="grouponTitle-wrapper">
                 <div class="text-box">
                     <span class="tag">#
                         <?php 
                     
-                            echo $tagR[$grouponR["groupon_No"]-1]['groupon_TagName'] 
+                            echo $tagR[$grouponR["groupon_TagNo"] - 1]['groupon_TagName'] 
                         
                         ?>
                     
@@ -61,43 +62,10 @@ try {
                 <div class="leftRibbon"></div>
                 <div class="rightRibbon"></div>
                 <div class="userInfo-wrapper clearfix">
-                    <div class="grouponUser">
-                        <span>發起人: </span>
-                    </div>
-                    <div class="userPic">
-                        <div class="pic">
-                            <img src="asset/user01.png" alt="user">
-                        </div>
-                    </div>
-                    <div class="user grid-9">
-                        <h3 class="userId">
-                        <?php echo $grouponR["groupon_Founder"] ?>
-                        </h3>
-                        <div class="userExp clearfix">
-                            <div class="achievePic grid-4">
-                                <div class="pic">
-                                    <img src="asset/achieve01.png" alt="">
-                                </div>
-                            </div>
-                            <div class="achStatus grid-8 clearfix">
-                                <h3>
-                                    小菜蟲
-                                </h3>
-                                <p>
-                                    <span>300 </span> EXP
-                                </p>
-                            </div>
-                            <div class="hint--achievement">
-                                <div class="pic grid-6">
-                                    <img src="asset/achieve01.png" alt="">
-                                </div>
-                                <p>
-                                    <span class="achName">小菜蟲成就</span> <br> 吃完10餐後可獲得，可拿到<span>10</span>元折價券
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                   
+                    
                 </div>
+                
             </div>
             <div class="bonus-wrapper clearfix">
                 <div class="endDate grid-12 grid-md-3">
@@ -128,7 +96,7 @@ try {
                 <div class="bonus-container  grid-6 grid-md-4 clearfix">
                     <div class="bonus grid-3">
                         <div class="pic">
-                            <img src="asset/bonusIcon-05.svg" alt="bonus">
+                            <img src="images/bonusIcon-05.svg" alt="bonus">
                             <span class="bonus-coin">
                                 <?php echo $grouponR["groupon_Bonus"] ?>
                             </span>
@@ -169,7 +137,7 @@ try {
                 </div>
                 <div class="mealPic grid-10 grid-md-4">
                     <div class="pic">
-                        <img src="asset/bentou04.jpg" alt="meal" id="grouponDetail_pic">
+                        <img src="images/bentou04.jpg" alt="meal" id="grouponDetail_pic">
                     </div>
                 </div>
                 <div class="mealInfo-container grid-12 grid-md-8">
@@ -186,27 +154,27 @@ try {
                             <ul>
                                 <li>
                                     <div class="pic">
-                                        <img src="asset/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
                                     </div>
                                 </li>
                                 <li>
                                     <div class="pic">
-                                        <img src="asset/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
                                     </div>
                                 </li>
                                 <li>
                                     <div class="pic">
-                                        <img src="asset/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
                                     </div>
                                 </li>
                                 <li>
                                     <div class="pic">
-                                        <img src="asset/scoreEgg_w.svg" alt="scoreYes" class="score">
+                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="score">
                                     </div>
                                 </li>
                                 <li>
                                     <div class="pic">
-                                        <img src="asset/scoreEgg_w.svg" alt="scoreYes" class="scoreW">
+                                        <img src="images/scoreEgg_w.svg" alt="scoreYes" class="scoreW">
                                     </div>
                                 </li>
                             </ul>
@@ -241,9 +209,17 @@ try {
                         </span>
                     </div>
                     <div class="grouponPrice grid-12">
-                        飯團價(6折) <span>
-                            640元
+                        <?php if($grouponR["groupon_TagNo"] == 8) {
+                            echo '官方價';
+                        } else {
+                            echo '飯團價';
+                        } ?>
+                        <span>
+                            (6折)
                         </span>
+                         <span>
+                            640
+                        </span>元
                     </div>
                 </div>
                 <div class="callToAction grid-12 grid-md-4">
@@ -276,7 +252,7 @@ try {
                                 </p>
                                 <div class="QR-container">
                                     <div class="pic">
-                                        <img src="asset/QR.png" alt="">
+                                        <img src="images/QR.png" alt="" id="QR-picContainer">
                                     </div>
                                 </div>
                             </div>
@@ -288,7 +264,7 @@ try {
                                     可點擊"參加好友飯團"的按鈕，輸入此代碼來直接查看此飯團
                                 </span>
                                 <div class="codeHere clearfix">
-                                    <input type="text" class="grid-9 groupon_shareCode" value="Absjj001" readonly> 
+                                    <input type="text" class="grid-9 groupon_shareCode" value="" readonly> 
                                     <span class="grid-3 copyCode">
                                         複製代碼
                                     </span>
@@ -382,7 +358,7 @@ function showMealInfo(jsonStr) {
                 ${mealArr[i].meal_Price}
                 </div>
                 <div class="pic">
-                    <img src="asset/meals/${mealArr[i].meal_Pic}" alt="${mealArr[i].meal_Name}"  title="${mealArr[i].meal_Name}">
+                    <img src="images/meals/${mealArr[i].meal_Pic}" alt="${mealArr[i].meal_Name}"  title="${mealArr[i].meal_Name}">
                 </div>
                 <div class="title">
                     ${mealArr[i].meal_Name}
@@ -393,14 +369,23 @@ function showMealInfo(jsonStr) {
 
         $class('mealSmallPic-container')[0].innerHTML += mealBox;
     }
+    var discount = 0.6;
+    // console.log();
+    if(<?php echo $grouponR["groupon_TagNo"] ?> == 8) { //官方價
+        discount = 0.4;
+        $all('.grouponPrice')[0].children[0].innerText = '(4折)';
+    }
+    $id('grouponDetail_title').innerText = mealArr[0].meal_Name;
+    $id('grouponDetail_info').innerText = mealArr[0].meal_Info;
+    $id('grouponDetail_pic').src = `images/meals/${mealArr[0].meal_Pic}`;
     //寫入平均價格、熱量、總價
     $all('.meal-count')[0].children[0].children[0].innerText = mealCount;
     $all('.avgPrice')[0].children[0].innerText = 
-    Math.round(totalPrice / mealCount);
+    Math.round(totalPrice  * discount / mealCount);
     $all('.avgKcal')[0].children[0].innerText = 
     Math.round(totalKcal / mealCount);
     $all('.originalPrice')[0].children[0].innerText = totalPrice;
-    $all('.grouponPrice')[0].children[0].innerText = Math.round(totalPrice * 0.6);
+    $all('.grouponPrice')[0].children[1].innerText = Math.round(totalPrice * discount);
     
 
     
@@ -423,9 +408,11 @@ function getMealAll(what) {
                 
             } else if(what == 'recomm') {
                 showRecomm(xhr.responseText); 
+            } else if(what == 'achie') {
+                showAchie(xhr.responseText);
             } else {
                 showMealInfo( xhr.responseText );
-            }   
+            }
         }else{
             alert( xhr.status );
         }
@@ -435,13 +422,57 @@ function getMealAll(what) {
     xhr.open("Get", url, true);
     xhr.send( null );
 }
-function getQRcode() {
-    copyCode(); //註冊copy事件
-    // $all('.').src = ''; //QRcode function
-    // $all('.').innerText = '';
 
+//顯示成就
+function getAchiement() {
+    url = '6-3_getAchievement.php' + location.search;
+    getMealAll('achie');
+}
+function showAchie(jsonStr) {
+    var founderAchie = JSON.parse(jsonStr);
+    console.log(founderAchie);
+
+    var thisFounderAchie = 
+    `<div class="grouponUser">
+            <span>發起人: </span>
+        </div>
+        <div class="userPic">
+            <div class="pic">
+                <img src="images/${founderAchie[1]}" alt="user">
+            </div>
+        </div>
+        <div class="user grid-9">
+            <h3 class="userId">
+                ${founderAchie[0]}
+            </h3>
+            <div class="userExp clearfix">
+                <div class="achievePic grid-2">
+                    <div class="pic">
+                        <img src="images/achieve/${founderAchie[5]}" alt="">
+                    </div>
+                </div>
+                <div class="achStatus grid-10 clearfix">
+                    <h3>
+                        ${founderAchie[4]}
+                    </h3>
+                    <p>
+                        <span>${founderAchie[2]}</span> EXP
+                    </p>
+                </div>
+                <div class="hint--achievement">
+                    <div class="pic grid-6">
+                        <img src="images/achieve/${founderAchie[5]}" alt="">
+                    </div>
+                    <p>
+                        <span class="achName">${founderAchie[4]}成就</span> <br> 吃完${founderAchie[3]}餐後可獲得，可拿到<span>${founderAchie[3]}</span>元折價券
+                    </p>
+                </div>
+            </div>
+        </div>`;
+    $class('userInfo-wrapper')[0].innerHTML = thisFounderAchie;
 }
 
+//顯示推薦部分
 function getRecommendURL() {
     var tagNo = $all('.tag')[0].innerText;
     url = '6-1_recommendGrouponList.php?tagNo=' + tagNo;
@@ -476,7 +507,8 @@ function showRecomm(jsonStr) {
                     </div>
                     <div class="price grid-6">
                         <div class="grouponPrice">
-                            飯團價 &nbsp<span>
+                        特價
+                             &nbsp<span>
                                 640元
                             </span>
                         </div>
@@ -495,8 +527,12 @@ function showRecomm(jsonStr) {
         $class('owl-carousel')[0].innerHTML += recommTemp; //加到recomm區
         
         
-        if(recommGroupon[i][10] >= 0.8 && window.innerWidth >= 600) {
+        if(recommGroupon[i][10] >= 0.8 && window.innerWidth >= 600 && recommGroupon[i][10] < 1) {
             $all('.almostSucc-icon')[i+1].style.display = 'block';
+        } else if(recommGroupon[i][10] >= 1) {
+            $all('.almostSucc-icon')[i+1].style.display = 'block';
+            $all('.almostSucc-icon')[i+1].innerText = '已經達標';
+            $all('.almostSucc-icon')[i+1].style.opacity = '0.5';
         } //第i+1(去掉第一個)個即將達標的顯示，且手機板不顯示
 
         //填入餐點
@@ -512,7 +548,7 @@ function showRecomm(jsonStr) {
                     ${recommGroupon[i][11][j][2]}元
                 </div>
                 <div class="pic">
-                    <img src="asset/meals/${recommGroupon[i][11][j][1]}" alt="豪華便當組"  title="${recommGroupon[i][11][j][0]}">
+                    <img src="images/meals/${recommGroupon[i][11][j][1]}" alt="豪華便當組"  title="${recommGroupon[i][11][j][0]}">
                 </div>
                 <div class="title">
                     ${recommGroupon[i][11][j][0]}
@@ -529,17 +565,25 @@ function showRecomm(jsonStr) {
             }
             
         }
-        $all('.avgPrice')[i+1].getElementsByTagName('span')[0].innerHTML = Math.round(toPrice * 0.6 / toCount);
-        $all('.grouponPrice')[i+1].getElementsByTagName('span')[0].innerHTML = Math.round(toPrice * 0.6) +'元';
+        var discountR = 0.6;
+        if(recommGroupon[i].groupon_TagNo == 8) {
+            discountR = 0.4;
+        }
+        $all('.avgPrice')[i+1].getElementsByTagName('span')[0].innerHTML = Math.round(toPrice * discountR / toCount);
+        $all('.grouponPrice')[i+1].getElementsByTagName('span')[0].innerHTML = Math.round(toPrice * discountR) +'元';
     }
     startOwl(); //全部加載後再load套件
 
 
 }
+
 window.addEventListener('load',function() {
     getMealAll();
-    getQRcode();
+    getAchiement();
+    // getQRcode();
     getRecommendURL();
+    QRcodeAndCopyIt(<?php echo  $grouponR["groupon_No"] ?>);
+    checkSuccess();//檢查是否達標
 })
 </script>
 </html>

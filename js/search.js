@@ -1,6 +1,12 @@
 function $id(id) {
   return document.getElementById(id);
 }
+function $class(className) {
+  return document.getElementsByClassName(className);
+}
+function $all(all) {
+  return document.querySelectorAll(all);
+}
 document.getElementById("close-search").addEventListener("click", function() {
   searchImg();
   //   searchAjax();
@@ -8,8 +14,8 @@ document.getElementById("close-search").addEventListener("click", function() {
 
 function searchImg() {
   var grouponTagName = document.getElementsByName("groupon-TagName");
-  var N = "images/tag_N.svg";
-  var Y = "images/tag_Y.svg";
+  var N = "images/icon/tag_N.svg";
+  var Y = "images/icon/tag_Y.svg";
   grouponTagName[0].checked = true;
   document.querySelectorAll('.groupon-TagName img')[0].src=Y;
   for (let i = 0; i < grouponTagName.length; i++) {
@@ -39,10 +45,45 @@ markGroupon.addEventListener("click", function() {
 markMeal.addEventListener("click", function() {
   $("#input-search").attr("placeholder", "請輸入" + markMealText + "關鍵字");
 });
-// $id('start-search').addEventListener('click',function () {
+$id('start-search').addEventListener('click',function () {
+  var searchText = [];
+  inputText = $id('input-search').innerText;
+  searchText =  inputText.split(" ");
+  startSearch(searchText); 
+},false);
 
-// },false);
+function startSearch(searchGO) {
 
+  if($id('bookmark-meal').checked==true){
+
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+      if( xhr.status == 200){
+        window.alert(xhr.responseText);
+        location.href = 'searchToMealUpshot.php';
+      }else{
+        alert(xhr.status);
+      }
+    }
+    xhr.open("post","searchToMeal.php",true);
+    var GOsearch = new FormData(document.getElementById("GOsearch"))
+    xhr.send(GOsearch);
+
+  }else if($id('bookmark-groupon').checked==true){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+      if( xhr.status == 200){
+        window.alert(xhr.responseText);
+        location.href = 'searchToGrouponUpshot.php';
+      }else{
+        alert(xhr.status);
+      }
+    }
+    xhr.open("post","searchToGroupon.php",true);
+    var GOsearch = new FormData(document.getElementById("GOsearch"))
+    xhr.send(GOsearch);
+  }
+}
 // function searchAjax() {
 //   //傳PHP端
 //   var obj = {};

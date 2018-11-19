@@ -1,3 +1,11 @@
+@import "reset";
+@import "../daycookVar";
+@import "../daycookMixin";
+@import "../mixins/general_mixins";
+@import "../Team-mixins/ke_mixin";
+@import "../login";//註冊登入
+@import "../serach"; //搜尋
+@import "../chatBot";//客服機器人   
 header{
     width: 100%;
     height: 80px;
@@ -18,7 +26,9 @@ header{
     label{
         font-size: 24px;
         color: #fff;
+        cursor: pointer;
     }
+
     #navctrl{
         display: none;
 
@@ -358,7 +368,10 @@ header{
             }
   
         }
-    
+#clearMemberCookie{
+    position: fixed;
+    left: 100%;
+}
         nav{            
             width: 71.42857142%;
             position: relative;
@@ -384,7 +397,6 @@ header{
                     height: 100px;
                     display: inline-block;
                     vertical-align: top;
-
                     &:after{
                         content: '';
                         width: 0;
@@ -392,28 +404,21 @@ header{
                         display: inline-block;
                         vertical-align: middle;
                     }
-
                     &.table-hidden{
                         display: none;
-                 
                     }
-
                     &.logo{
                         transform: translateX(200%);
                     }   
-
                     &.index-member{
                         transform: translateX(300%);
                     }
-                    
                     &.meals{
                         transform: translateX(100%);
                     }
-
                     &.initiate{
                         transform: translateX(-300%);
                     }    
-                    
                     &.participate{
                         transform: translateX(-300%);
                     }

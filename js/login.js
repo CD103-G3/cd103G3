@@ -1,12 +1,18 @@
 function $id(id) {
   return document.getElementById(id);
 }
-
+function $class(className) {
+  return document.getElementsByClassName(className);
+}
+function $all(all) {
+  return document.querySelectorAll(all);
+}
 var resetInput = document.querySelectorAll(".login-form");
 var btnCup = document.getElementsByClassName("btn-cup");
 var lgImg = document.querySelectorAll(".longing-input>img");
 var lgPlace = document.getElementsByClassName("login-placeholder");
 function resetSig() {
+  //清空表單
   for (let j = 0; j < resetInput.length; j++) {
     resetInput[j].reset();
   }
@@ -16,13 +22,11 @@ function resetSig() {
   for (let k = 0; k < lgPlace.length; k++) {
     lgPlace[k].remove();
   }
-  // $(".login-placeholder").remove();
 }
-
 $id("close-login").addEventListener("click", function() {
   $id("navctrl").checked = false;
 });
-
+//切換頁籤時，執行清空表單
 var siginTime = 0;
 var sigupTime = 0;
 var getpswTime = 0;
@@ -62,16 +66,14 @@ var emailCheckReg = new RegExp(
 //   /([\w\-]+@[\w\.]+[(\.)]+[$c][$o][$m])/g
 // );
 var checkAry = [];
-
 var eye = document.getElementsByClassName("eye");
 var needCheckId = document.getElementById("sigup-member-Id");
 var needCheckPsw = document.getElementById("sigup-member-Psw");
 var needCheckNick = document.getElementById("sigup-member-Nick");
 var needCheckEmail = document.getElementsByClassName("need-check-email");
 var newPlace = "<div class='login-placeholder'></div>";
-
+//帳號
 needCheckId.addEventListener("input", function() {
-  //帳號
   this.parentNode.lastChild.style.display = "block";
   var VL = this.value.length;
   var hasNumABC = false;
@@ -92,7 +94,6 @@ needCheckId.addEventListener("input", function() {
     }
   }
   if (hasNumABC === false) {
-    // 1111111
     this.parentNode.lastChild.src = "images/checkN.svg";
     $(this)
       .parent()
@@ -104,7 +105,7 @@ needCheckId.addEventListener("input", function() {
     checkAry[1] = false;
   } else if (VL < 3 || VL > 40 || this.value == "") {
     var PlaceholderLenght = 3 - needCheckId.value.length;
-    this.parentNode.lastChild.src = "images/checkN.svg";
+    this.parentNode.lastChild.src = "images/icon/checkN.svg";
     $(this)
       .parent()
       .append(newPlace);
@@ -119,14 +120,13 @@ needCheckId.addEventListener("input", function() {
       .parent()
       .find($(".login-placeholder"))
       .remove();
-    this.parentNode.lastChild.src = "images/checkY.svg";
+    this.parentNode.lastChild.src = "images/icon/checkY.svg";
 
     checkAry[1] = true;
   }
 });
-
+//密碼
 needCheckPsw.addEventListener("input", function() {
-  //密碼
   this.parentNode.lastChild.style.display = "block";
   var VL = this.value.length;
   var hasNumABC = false;
@@ -147,8 +147,7 @@ needCheckPsw.addEventListener("input", function() {
     }
   }
   if (hasNumABC === false) {
-    // 1111111
-    this.parentNode.lastChild.src = "images/checkN.svg";
+    this.parentNode.lastChild.src = "images/icon/checkN.svg";
     $(this)
       .parent()
       .append(newPlace);
@@ -160,7 +159,7 @@ needCheckPsw.addEventListener("input", function() {
     checkAry[2] = false;
   } else if (VL < 3 || VL > 40 || this.value == "") {
     var PlaceholderLenght = 3 - needCheckPsw.value.length;
-    this.parentNode.lastChild.src = "images/checkN.svg";
+    this.parentNode.lastChild.src = "images/icon/checkN.svg";
     $(this)
       .parent()
       .append(newPlace);
@@ -175,14 +174,13 @@ needCheckPsw.addEventListener("input", function() {
       .parent()
       .find($(".login-placeholder"))
       .remove();
-    this.parentNode.lastChild.src = "images/checkY.svg";
+    this.parentNode.lastChild.src = "images/icon/checkY.svg";
 
     checkAry[2] = true;
   }
 });
-
+//暱稱
 needCheckNick.addEventListener("input", function() {
-  //暱稱
   this.parentNode.lastChild.style.display = "block";
   var VL = this.value.length;
   var hasNumABC = true;
@@ -195,7 +193,7 @@ needCheckNick.addEventListener("input", function() {
   }
   if (hasNumABC === false) {
     // 1111111
-    this.parentNode.lastChild.src = "images/checkN.svg";
+    this.parentNode.lastChild.src = "images/icon/checkN.svg";
     $(this)
       .parent()
       .append(newPlace);
@@ -205,7 +203,7 @@ needCheckNick.addEventListener("input", function() {
       .text("請用英文或數字");
     checkAry[3] = false;
   } else if (VL < 1 || VL > 10) {
-    this.parentNode.lastChild.src = "images/checkN.svg";
+    this.parentNode.lastChild.src = "images/icon/checkN.svg";
     $(this)
       .parent()
       .append(newPlace);
@@ -222,7 +220,7 @@ needCheckNick.addEventListener("input", function() {
       .parent()
       .find($(".login-placeholder"))
       .remove();
-    this.parentNode.lastChild.src = "images/checkY.svg";
+    this.parentNode.lastChild.src = "images/icon/checkY.svg";
     checkAry[3] = true;
   }
 });
@@ -240,7 +238,7 @@ needCheckEmail[0].addEventListener("input", function() {
   }
   if (hasNumABC === false) {
     // 1111111
-    this.parentNode.lastChild.src = "images/checkN.svg";
+    this.parentNode.lastChild.src = "images/icon/checkN.svg";
     $(this)
       .parent()
       .append(newPlace);
@@ -250,7 +248,7 @@ needCheckEmail[0].addEventListener("input", function() {
       .text("email格式有誤");
     checkAry[4] = false;
   } else if (this.value.indexOf("@") < 1 || this.value.indexOf(".com") < 1) {
-    this.parentNode.lastChild.src = "images/checkN.svg";
+    this.parentNode.lastChild.src = "images/icon/checkN.svg";
     $(this)
       .parent()
       .append(newPlace);
@@ -258,14 +256,14 @@ needCheckEmail[0].addEventListener("input", function() {
       .parent()
       .find($(".login-placeholder"))
       .text("請輸入email格式");
-    this.parentNode.lastChild.src = "images/checkN.svg";
+    this.parentNode.lastChild.src = "images/icon/checkN.svg";
     checkAry[4] = false;
   } else {
     $(this)
       .parent()
       .find($(".login-placeholder"))
       .remove();
-    this.parentNode.lastChild.src = "images/checkY.svg";
+    this.parentNode.lastChild.src = "images/icon/checkY.svg";
     checkAry[4] = true;
   }
   // if(this.value.match(emailCheckReg)==null){
@@ -303,8 +301,7 @@ needCheckEmail[1].addEventListener("input", function() {
     }
   }
   if (hasNumABC === false) {
-    // 1111111
-    this.parentNode.lastChild.src = "images/checkN.svg";
+    this.parentNode.lastChild.src = "images/icon/checkN.svg";
     $(this)
       .parent()
       .append(newPlace);
@@ -314,7 +311,7 @@ needCheckEmail[1].addEventListener("input", function() {
       .text("email格式有誤");
     checkAry[0] = false;
   } else if (this.value.indexOf("@") < 1 || this.value.indexOf(".com") < 1) {
-    this.parentNode.lastChild.src = "images/checkN.svg";
+    this.parentNode.lastChild.src = "images/icon/checkN.svg";
     $(this)
       .parent()
       .append(newPlace);
@@ -322,21 +319,21 @@ needCheckEmail[1].addEventListener("input", function() {
       .parent()
       .find($(".login-placeholder"))
       .text("請輸入email格式");
-    this.parentNode.lastChild.src = "images/checkN.svg";
+    this.parentNode.lastChild.src = "images/icon/checkN.svg";
     checkAry[0] = false;
   } else {
     $(this)
       .parent()
       .find($(".login-placeholder"))
       .remove();
-    this.parentNode.lastChild.src = "images/checkY.svg";
+    this.parentNode.lastChild.src = "images/icon/checkY.svg";
     checkAry[0] = true;
   }
 });
 var beforeLogin = document.getElementsByClassName("before-login")[0];
 var afterLogin = document.getElementsByClassName("after-login")[0];
 var memberPic = document.getElementsByClassName("member-Pic")[0];
-
+//登入
 $id("siginSubmit").addEventListener(
   "click",
   function() {
@@ -344,69 +341,69 @@ $id("siginSubmit").addEventListener(
     obj.member_Id = $id("sigin-member-Id").value;
     obj.member_Psw = $id("sigin-member-Psw").value;
     var jsonStr = JSON.stringify(obj);
-
-    //產生XMLHttpRequest物件
-    xhr = new XMLHttpRequest();
-    //註冊callback function寫法2 -> onload=4
-    xhr.onload = function() {
-      if (xhr.status == 200) {
-        //OK
-        if (xhr.responseText.indexOf("not found") != -1) {
-          //回傳的資料中有not found
-          // swal("", "帳號或密碼錯誤!", "error");
-          // alert("帳密錯誤");
-          var siginAns = false;
-          var siginTimer = 5000;
-          swal({
-            title: "帳號或密碼錯誤!",
-            icon: "error",
-            closeOnClickOutside: true,
-            // timer: 3000,
-            content: {
-              element: "a",
-              attributes: {
-                href: "javascript:",
-                text: "忘記密碼?",
-                className: "want-psw"
+    if($id("sigin-member-Id").value=='' || $id("sigin-member-Psw").value==''){
+    }else{
+  xhr = new XMLHttpRequest();
+      xhr.onload = function() {
+        if (xhr.status == 200) {
+          if (xhr.responseText.indexOf("not found") != -1) {
+            swal({
+              title: "帳號或密碼錯誤!",
+              icon: "error",
+              closeOnClickOutside: true,
+              content: {
+                element: "a",
+                attributes: {
+                  href: "javascript:",
+                  text: "忘記密碼?",
+                  className: "want-psw"
+                }
               }
-            }
-          });
-          document.getElementsByClassName("want-psw")[0].addEventListener(
-            "click",
-            function() {
-              $id("to-get-Psw").checked = true;
-              this.parentNode.parentNode.parentNode.className = "swal-overlay";
-            },
-            false
-          );
+            });
+            //登入的忘記密碼按鈕
+            document.getElementsByClassName("want-psw")[0].addEventListener(
+              "click",
+              function() {
+                $id("to-get-Psw").checked = true; //忘記密碼打開
+                this.parentNode.parentNode.parentNode.className = "swal-overlay"; //關閉swal跳窗
+              },
+              false
+            );
+          } else {
+            //登入成功
+            checkMemberId();
+            document.getElementById("close-login").checked = true;
+            swal({
+              title: "歡迎!",
+              text: "快來看看",
+              icon: "success",
+              content: {
+                element: "a",
+                attributes: {
+                  href: "https://www.youtube.com/?gl=TW&hl=zh-tw",
+                  text: "目前最HOT!HOT!飯團"
+                }
+              }
+            })
+            // .then(function() {
+            //   location.reload();
+            // });
+          }
         } else {
-          //登入成功
-          checkCookie();
-          document.getElementById("close-login").checked = true;
-          swal({
-            title: "歡迎!",
-            text: "快來看看",
-            icon: "success",
-            content: {
-              element: "a",
-              attributes: {
-                href: "https://www.youtube.com/?gl=TW&hl=zh-tw",
-                text: "目前最HOT!HOT!飯團"
-              }
-            }
-          });
+          alert(xhr.status);
         }
-      } else {
-        alert(xhr.status);
-      }
+    }
+   
     };
     xhr.open("post", "siginSubmit.php", true); //設定好所要連結的程式
-    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded"); //setRequestHeader("head","value") 設定HTTP請求的請求標頭
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     var data_info = "jsonStr=" + jsonStr;
     xhr.send(data_info); //送出資料
   },
   false
 );
+
+//註冊
 $id("sigupSubmit").addEventListener(
   "click",
   function() {
@@ -418,14 +415,11 @@ $id("sigupSubmit").addEventListener(
       obj.email = needCheckEmail[0].value;
       var jsonStr = JSON.stringify(obj);
 
-      //產生XMLHttpRequest物件
       xhr = new XMLHttpRequest();
-      //註冊callback function寫法2 -> onload=4
       xhr.onload = function() {
         if (xhr.status == 200) {
-          //OK
           if (xhr.responseText.indexOf("not found") != -1) {
-            checkCookie();
+            checkMemberId();
             document.getElementById("close-login").checked = true;
             swal({
               title: "歡迎!",
@@ -450,7 +444,7 @@ $id("sigupSubmit").addEventListener(
         }
       };
       xhr.open("post", "sigupSubmit.php", true); //設定好所要連結的程式
-      xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded"); //setRequestHeader("head","value") 設定HTTP請求的請求標頭
+      xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
       var data_info = "jsonStr=" + jsonStr;
       xhr.send(data_info); //送出資料
     } else {
@@ -463,6 +457,7 @@ $id("sigupSubmit").addEventListener(
   },
   false
 );
+//忘記密碼
 $id("getPswSubmit").addEventListener(
   "click",
   function() {
@@ -478,7 +473,6 @@ $id("getPswSubmit").addEventListener(
       xhr.onload = function() {
         if (xhr.status == 200) {
           //OK
-          console.log(xhr.responseText);
           if (xhr.responseText.indexOf("not found") != -1) {
             swal({
               title: "帳號或信箱錯誤!",
@@ -492,11 +486,6 @@ $id("getPswSubmit").addEventListener(
                 }
               }
             });
-            // swal(
-            //   "帳號或密碼錯誤!",
-            //   "實在想不起來? 聯絡客服(03)4712399",
-            //   "error"
-            // );
           } else {
             swal("已寄出新密碼!", "您的信箱:" + xhr.responseText, "success");
           }
@@ -524,21 +513,17 @@ function LoginAjax(a) {
       $id("get-Psw-member-Id").value == undefined ||
       $id("get-Psw-member-Id").value == ""
     ) {
-      console.log("false");
       return false;
     } else {
-      console.log("true");
       return true;
     }
   } else
     for (let i = a; i < 5; i++) {
-      alert("外" + i + ": " + checkAry[i]);
       if (
         checkAry[i] == false ||
         checkAry[i] == undefined ||
         checkAry[i] == ""
       ) {
-        alert("內i" + i + ": " + checkAry[i]);
         return false;
       }
     }

@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/Reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/groupon.css">
     <script src="js/main.js"></script>
     <title>3-1</title>
 </head>
 <body>
     <nav>
-        <?php
-            require_once("nav.php");
+        <?php 
+            require_once('nav.php');
         ?>
     </nav>
 <div class="penguinPage">
@@ -123,7 +122,7 @@
             }
             alert('請輸入10個字以下的飯團名稱');
         } else {
-            location.href = '3-2_createGroupon_selectMeal.html';
+            location.href = '3-2_createGroupon_selectMeal.php';
         }
     }
 </script>

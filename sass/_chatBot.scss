@@ -21,6 +21,9 @@
 }
 #close-chatBot:checked ~ #chatBot{ //true
   z-index: 0;
+  @include rwd(sm){
+    z-index: 99;
+  }
 }
 #close-chatBot:checked ~ #chatBot .chatBot-contenier-wrap {//true
   width: 0;
@@ -179,8 +182,6 @@
   top: 50%;
   transform: translateY(-80%);
 }
-
-
 .chatBot-text {
   font-size: $fontSize-S;
   width: 100%;
@@ -229,7 +230,6 @@
       display: block;
   }
 }
-
 @include rwd(sm) {
   #chatBot:hover .chatBot-shonw{
     // animation: chatBotShonw .7s infinite cubic-bezier(.78,-1.09,.14,.91) alternate;
@@ -285,7 +285,6 @@
 @keyframes chatBotPic{
   0%{
     top: 10px;
-     
   }
   10%{
     top: 11px;

@@ -7,7 +7,7 @@ try{
   while ($Row = $groupontag->fetch(PDO::FETCH_ASSOC)) {
     ?>
     <input type="radio" name="groupon-TagName" id="groupon-TagNo<?php echo $Row["groupon_TagNo"]?>">
-    <label for="groupon-TagNo<?php echo $Row["groupon_TagNo"]?>" class="groupon-TagName"><img src="images/tag_N.svg" alt="<?php echo  $Row["groupon_TagName"]?>"><?php echo  $Row["groupon_TagName"]?></label>
+    <label for="groupon-TagNo<?php echo $Row["groupon_TagNo"]?>" class="groupon-TagName"><img src="images/icon/tag_N.svg" alt="<?php echo  $Row["groupon_TagName"]?>"><?php echo  $Row["groupon_TagName"]?></label>
     <?php
   }
 }catch(PDOException $e){

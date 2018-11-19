@@ -222,8 +222,8 @@ function initDayCook() {
     if($class('scoreEgg-container').length > 0) {
         eggScore.egg({
             container: $all('.score-wrapper'),
-            whiteEgg: 'asset/scoreEgg_w.svg',
-            blackEgg: 'asset/scoreEgg_y.svg',
+            whiteEgg: 'images/scoreEgg_w.svg',
+            blackEgg: 'images/scoreEgg_y.svg',
         });
     }
 
@@ -242,6 +242,7 @@ function initDayCook() {
     if($all('.dish-container').length > 0) {
         anime6_3(); 
     }
+
 }
 //-------------------------------
 
@@ -449,19 +450,6 @@ function calMealNumber(e) {
     //get mealList from session storage
     var mealList = storage.getItem('addMealList');
     var mealArray = mealList.substr(0, mealList.length - 1).split(',');
-
-    // originalPrice = 0;
-    // if(mealArray) {
-    //     for(let i in mealArray) {
-    //         var mealInfo = storage.getItem(mealArray[i]);
-    //         var mealPrice = parseInt(mealInfo.split('|')[1]);
-            
-    //         originalPrice += mealPrice;
-    //         grouponPrice = Math.floor(originalPrice * 0.6);
-    //     }
-    // }
-    
-    // console.log(mealArray);
     $id('originPrice').innerText = originalPrice;
     $id('salePrice').innerText = grouponPrice;
 }
@@ -648,15 +636,15 @@ function changeMealInfo(e) {
      $id('grouponDetail_score').innerHTML = thisScore;
     //  console.log($all('.scoreEgg-container ul li'));
     for(let x = 0 ; x < $all('.scoreEgg-container ul li').length; x++) {
-    $all('.scoreEgg-container ul li img')[x].src = 'asset/scoreEgg_w.svg';
+    $all('.scoreEgg-container ul li img')[x].src = 'images/scoreEgg_w.svg';
     }
 
     //蛋蛋分數
     $class('scoreEgg-container')[0].setAttribute('score', thisScore);
     eggScore.egg({
         container: $all('.score-wrapper'),
-        whiteEgg: 'asset/scoreEgg_w.svg',
-        blackEgg: 'asset/scoreEgg_y.svg',
+        whiteEgg: 'images/scoreEgg_w.svg',
+        blackEgg: 'images/scoreEgg_y.svg',
     });
     // $id('grouponDetail_score').innerHTML = ;
     // $id('grouponDetail_kcal').innerHTML = ;
@@ -689,7 +677,7 @@ function getScoreEgg(e) {
         let j = 0;
         do{
             scoreEgg[i].children[0].children[j].children[0].children[0].src = 
-            'asset/scoreEgg_y.svg';
+            'images/scoreEgg_y.svg';
             j++;
         } while(j < score);
     }
@@ -700,12 +688,18 @@ function getScoreEgg(e) {
 function progressBar() {
     var pNow = parseInt($all('.peopleNow')[0].innerText);
     var pNeed = parseInt($all('.peopleNeeded')[0].innerText);
+    var progress = (pNow / pNeed);
+    if(progress >= 1) {
+        progress = 1;
+    } else {
+        progress = (pNow / pNeed);
+    }
     // console.log(pNeed);
     tl = new TimelineMax();
     tl.fromTo('.progressBar_B', 2.5 ,{
         width: '0px',
     },{
-        width: (pNow / pNeed)*100 + '%',
+        width: progress * 100 + '%',
     });
     // $all('.progressBar_B')[0].style.width = (pNow / pNeed)*100 + '%';
 }
@@ -753,23 +747,30 @@ function animate3_4() {
 function circleChart(e) {
     $all('.circleChart').forEach(function(e, w) {
         var pNow = parseInt($all('.peopleNow')[w].innerText);
+        // console.log(pNow);
         var pNeed = parseInt($all('.peopleNeeded')[w].innerText);
+        // console.log(pNeed);
         var degree = Math.round(pNow / pNeed * 360 * 10) / 10;
+        console.log(w,degree ,'//');
         // alert(degree);
-        console.log(e);
-        console.log(degree);
+        // console.log(e);
+        // console.log(degree);
         // var rotation = window.getComputedStyle($class('circleDisplay')[0], 'before').getPropertyValue('transform');
         
-        $all('.circleDisplayB')[w].style.transform = 'rotate(' + degree + 'deg)';
+        // $all('.circleDisplayB')[w].style.transform = 'rotate(' + degree + 'deg)';
 
         // console.log(rotation);
         if(degree > 180) {
-            
-            var deg180 = degree - 180;
+            var deg180;
+            if(degree >= 360) {
+                deg180 = 180;
+            } else {
+                deg180 = degree - 180;
+            }
             var tl = new TimelineMax();
-            console.log(w);
+            // console.log(w);
             $all('.circleDisplayB')[w].style.backgroundColor = '#76391B';
-            tl.fromTo('.groupon-wrapper:nth-child('+ (w+1) + ') .circleDisplayB',1.5,
+            tl.fromTo('.groupon-wrapper:nth-child('+ (w+2) + ') .circleDisplayB',1.5,
             {
                 rotation: 0,
                 backgroundColor: '#76391B',
@@ -779,7 +780,7 @@ function circleChart(e) {
                 ease: Power0.easeNone,
             });
             // $all('.circleDisplayB')[w].style.backgroundColor = '#FCE444';
-            tl.fromTo('.groupon-wrapper:nth-child('+ (w+1) + ') .circleDisplayB',1,{
+            tl.fromTo('.groupon-wrapper:nth-child('+ (w+2) + ') .circleDisplayB',1,{
                 rotation: 0,
                 backgroundColor: '#FCE444',
             },{
@@ -788,8 +789,8 @@ function circleChart(e) {
             });
         } else {
             var tl = new TimelineMax();
-            console.log(w);
-            tl.fromTo('.groupon-wrapper:nth-child('+ (w+1) + ') .circleDisplayB',3,
+            // console.log(w);
+            tl.fromTo('.groupon-wrapper:nth-child('+ (w+2) + ') .circleDisplayB',3,
             {
                 rotation: 0,
             },{
@@ -800,18 +801,31 @@ function circleChart(e) {
     });
 }
 //用code搜尋飯團
+var codeSearch = '';
+// function searchGrouponById(e) {
+//     var originId = $id('searchId').value.replace('g','');
+//     var grouponId = (parseInt(originId) - 1234 ) / 2 - 10;
+
+//     if(codeSearch == '') {
+        
+//     } else {
+//         if(e.keyCode == 13) {
+//             // location.href = '6-1_grouponDetail.php?no=' + grouponId;
+//         } else if(e.button == 0) {
+//             // location.href = '6-1_grouponDetail.php?no=' + grouponId;
+//         }
+//     } 
+// }
 function searchGrouponById(e) {
     var originId = $id('searchId').value.replace('g','');
     var grouponId = (parseInt(originId) - 1234 ) / 2 - 10;
-    if(e.keyCode == 13) {
-        location.href = '6-1_grouponDetail.php?no=' + grouponId;
-    } else if(e.button == 0) {
-        location.href = '6-1_grouponDetail.php?no=' + grouponId;
-    }
-    //groupon代碼編碼為 ((no+10)*2)+1234
-    //groupon代碼解碼
-}
 
+    url = "4-1_checkGroupon.php?no=" + grouponId;
+    // getGroupon('search');
+    if(e.keyCode == 13 | e.button == 0) {
+        getGroupon('search');
+    } 
+}
 // 6-3 tweenMax
 function anime6_3() {
     var tl = new TimelineMax();
@@ -882,7 +896,7 @@ function anime6_3() {
     // tl.add([ani01, ani02]);
 }
 
-// 5-1
+// 5-1-------------------------
 function addToMenu(e) {
     // this.classList.toggle('active');
     // alert(this.classList);
@@ -975,11 +989,20 @@ function genChangeList(e) {
     //預設顯示
     $all('.changeList-container')[0].style.display = 'block';
     $all('.QRcodeAndCode')[0].style.display = 'none';
+    $all('.btn-container')[0].style.display = 'block';
+    $all('.btn-container_changeItByYourself')[0].style.display = 'none';
     var changeMealCountainer = $id('popUpChange').getElementsByTagName('table')[0];
+    var changeMealCountainer_Count = changeMealCountainer.getElementsByTagName('tr').length;
     var changeMeal = $id('mealChanger').getElementsByTagName('li');
     var changeMealCount = changeMeal.length;
-
-    if(this.id == 'checkChangBTN') { //按鈕為產生確認用的訂單
+    
+    if(this.id == 'checkChangBTN') { //
+        changeMealCountainer.innerHTML = 
+        `<tr>
+            <th>餐點名稱</th>
+            <th>數量</th>
+        </tr>
+        `;
         if(changeMealCount > 0) {  //如果有餐點
             for(let i = 0; i < changeMealCount ; i++) {
                 var mealInfo = changeMeal[i].children[2].value.split('|');
@@ -1009,40 +1032,165 @@ function genChangeList(e) {
             </tr>`; //加入最後一行
         }
 
-    } else if(this.id == 'confirmChangBTN') { //把餐點ID加入input value以用來打包為json成為網址
+    } else if(this.id == 'confirmChangBTN' && changeMealCountainer_Count > 2) { //把餐點ID加入input value以用來打包為json成為網址
         
         var jsonMealArr = JSON.stringify(mealChangeArr);
         // console.log(jsonMealArr);
-        var changeMealURL = 'localhost/phpLab/CD103G3_penguin/5-1_1_myGrouponExchange.php?mealArr=' + jsonMealArr;
+        var changeMealURL = '5-1_1_myGrouponExchange.php?mealArr=' + jsonMealArr;
         //顯示QRcode和隱藏原本的清單
         $all('.changeList-container')[0].style.display = 'none';
         $all('.QRcodeAndCode')[0].style.display = 'block';
+        $all('.btn-container_changeItByYourself')[0].style.display = 'block';
+        $all('.btn-container')[0].style.display = 'none';
         
-        $id('changeMealQRcode').src = 'http://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=300x300&chl=' + changeMealURL;
+        $id('changeMealQRcode').src = 'http://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=300x300&chl=localhost/phpLab/CD103G3_penguin/' + changeMealURL;
 
-        $id('changeMealCode').value = 'localhost/phpLab/CD103G3_penguin/5-1_1_myGrouponExchange.php?mealArr=' + jsonMealArr;
+        // $id('changeMealCode').value = changeMealURL;
+        
+        $id('finishChangBTN').onclick =  function() {
+            url = changeMealURL;
+            getMyGroupon('change');
+        }
     } else { //清空確認用的訂單
         changeMealCountainer.innerHTML = 
         `<tr>
             <th>餐點名稱</th>
             <th>數量</th>
-        </tr>`;
+        </tr>
+        `;
     }
 }
 
-function copyCode() {
+function QRcodeAndCopyIt(thisGrouponNo) { //單一飯團用
+    var grouponNo = parseInt(thisGrouponNo);
+    var grouponCode = 'g' + (((grouponNo + 10) * 2) + 1234);
+    var shareURL = '6-1_grouponDetail.php?no=' + grouponNo;
+    // QR
+    $id('QR-picContainer').src = 'http://chart.apis.google.com/chart?cht=qr&choe=UTF-8&chs=300x300&chl=' + shareURL;
+
+    // code
+    $class('groupon_shareCode')[0].value = grouponCode;
+
+    //產生之後再進行copy
     for(let i = 0; i < $class('copyCode').length ; i++) {
         $class('copyCode')[i].addEventListener('click', function() {
             //複製code in input
             var copyTxt = $class('groupon_shareCode')[i];
             copyTxt.select();
             document.execCommand('copy');
-            $all('.hint')[i].style.display = 'block';
+            $all('.codeHere .hint')[i].style.display = 'block';
             // 2秒後變display none
             setTimeout(function() {
-                $all('.hint')[i].style.display = 'none';
+                $all('.codeHere .hint')[i].style.display = 'none';
             }, 2000);
         });
+    }
+}
+
+function copyCode() { //多飯團用
+    for(let i = 0; i < $class('copyCode').length ; i++) {
+        $class('copyCode')[i].addEventListener('click', function() {
+            //複製code in input
+            var copyTxt = $class('groupon_shareCode')[i];
+            copyTxt.select();
+            document.execCommand('copy');
+            $all('.codeHere .hint')[i].style.display = 'block';
+            // 2秒後變display none
+            setTimeout(function() {
+                $all('.codeHere .hint')[i].style.display = 'none';
+            }, 2000);
+        });
+    }
+}
+
+function checkSuccess() {
+    var peopleNow = $class('peopleNow');
+    var peopleNeeded = $class('peopleNeeded');
+    var almostSuccIcon = $class('almostSucc-icon');
+    for(let i = 0 ; i < peopleNow.length;i++) {
+        var peopleNowC = parseInt(peopleNow[i].innerText);
+        var peopleNeededC = parseInt(peopleNeeded[i].innerText);
+        var ratio = peopleNowC / peopleNeededC;
+        if(ratio >= 0.8 && ratio < 1 && window.innerWidth >= 600) {
+            almostSuccIcon[i].style.display = 'block';
+        } else if(ratio >= 1 && window.innerWidth >= 600) {
+            almostSuccIcon[i].style.display = 'block';
+            almostSuccIcon[i].style.opacity = '0.7';
+            almostSuccIcon[i].innerText = '已經達標!';
+
+        }
+    }
+}
+
+function achievementShowOff(getUrl) {
+    var url;
+    getAchiement();
+    function getMealAll(what) {
+        var xhr = new XMLHttpRequest();
+        xhr.onload=function (){
+            if( xhr.status == 200 ){
+                if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found
+                    
+                } else if(what == 'recomm') {
+                    showRecomm(xhr.responseText); 
+                } else if(what == 'achie') {
+                    showAchie(xhr.responseText);
+                } else {
+                    showMealInfo( xhr.responseText );
+                }
+            }else{
+                alert( xhr.status );
+            }
+        }
+        xhr.open("Get", url, true);
+        xhr.send( null );
+    }
+    function getAchiement() {
+        url = getUrl;
+        getMealAll('achie');
+    }
+    function showAchie(jsonStr) {
+        var founderAchie = JSON.parse(jsonStr);
+        console.log(founderAchie);
+
+        var thisFounderAchie = 
+        `<div class="grouponUser">
+                <span>發起人: </span>
+            </div>
+            <div class="userPic">
+                <div class="pic">
+                    <img src="images/${founderAchie[1]}" alt="user">
+                </div>
+            </div>
+            <div class="user grid-9">
+                <h3 class="userId">
+                    ${founderAchie[0]}
+                </h3>
+                <div class="userExp clearfix">
+                    <div class="achievePic grid-2">
+                        <div class="pic">
+                            <img src="images/achieve/${founderAchie[5]}" alt="">
+                        </div>
+                    </div>
+                    <div class="achStatus grid-10 clearfix">
+                        <h3>
+                            ${founderAchie[4]}
+                        </h3>
+                        <p>
+                            <span>${founderAchie[2]}</span> EXP
+                        </p>
+                    </div>
+                    <div class="hint--achievement">
+                        <div class="pic grid-6">
+                            <img src="images/achieve/${founderAchie[5]}" alt="">
+                        </div>
+                        <p>
+                            <span class="achName">${founderAchie[4]}成就</span> <br> 吃完${founderAchie[3]}餐後可獲得，可拿到<span>${founderAchie[3]}</span>元折價券
+                        </p>
+                    </div>
+                </div>
+            </div>`;
+        $class('userInfo-wrapper')[0].innerHTML = thisFounderAchie;
     }
 }
 window.addEventListener('load',initDayCook);

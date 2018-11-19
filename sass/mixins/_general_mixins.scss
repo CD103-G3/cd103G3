@@ -1,4 +1,17 @@
-
+html, body, div, span,h1, h2, h3, h4, h5, h6, p,label,table,tr, th, td,footer, header,section,ol, ul,textarea{
+    font-family: $fmy;
+}
+input[type="text"]{
+    &::-webkit-input-placeholder{
+        font-family: $fmy;
+    }
+}
+button,input[type="button"]{
+    -webkit-appearance: none;  /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
+    -moz-appearance: none;     /* FireFox */
+    appearance: none; 
+    font-family: $fmy;
+}
 //$w 為maxWidth設定
 
 // 1. 主要按鈕
@@ -6,10 +19,10 @@
     .mainBTN {
         @include btn(100%, light) {
             margin: auto;
-            font-size: $fontSize_S;
+			font-size: $fontSize_S;
             max-width: $w;
-            transition: .2;
-        }
+            transition: .2s;
+		}
     }
 }
 
@@ -20,7 +33,7 @@
             margin: auto;
             font-size: $fontSize_S;
             max-width: $w;
-            transition: .2;
+            transition: .2s;
         }
     }
 }
@@ -45,14 +58,16 @@
         margin: 10px;
         font-size: $fontSize_S;
         background-color: $color_main4;
-        color: #fff;
+		color: #fff;
+		font-family: $fmy;
+		border: 0;
     }
     .cancelBTN {
-        @include btn($w);
         background-color: $color_main3;
         color: $color_main2;
     }
 }
+
 
 // 通用按鈕設定
 @mixin btn($w, $bgc:null) {
@@ -64,6 +79,8 @@
     height: 40px;
     line-height: 40px;
     text-align: center;
+    font-family: $fmy;
+    cursor: pointer;
     @if $bgc == light {
         font-weight: 600;
         color: $color_main2;
@@ -98,6 +115,7 @@
     border-radius: 50%;
     background-color: $bgc;
     box-shadow: 0px 4px 0px $color_main2;
+    font-family: $fmy;
     cursor: pointer;
     // transition: .3s;
     &:hover {
@@ -133,7 +151,42 @@
         }
     }
 }
+.swal-content{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    &__a{
+      color: $color_hot;
+      text-decoration: none;
+    }
 
+}
+.swal-text{
+    vertical-align: middle;
+}
+.swal-modal{ //最外層
+    border-radius: 10px;
+    border:20px solid $color_main3;
+}
+.swal-footer{
+    text-align: center;
+}
+.swal-button{
+    @include btn(100%, light) {
+        margin: auto;
+        font-size: $fontSize_S;
+        max-width: 150px;
+        transition: .2s;
+        line-height:25px;
+    }
+}
+.swal-button-container{
+    margin: auto;
+}
+.swal-button:not([disabled]):hover{background-color: $color_main1;};
+.swal-button:active{background-color:$color_main1;top: 2px;
+    box-shadow: 0px 2px 0px $color_main2};
+.swal-button:focus{outline:none;box-shadow: 0px 4px 0px $color_main2;}
 //通用before after
 @mixin BfAf {
     content: '';

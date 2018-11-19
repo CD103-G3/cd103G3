@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/Reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/groupon.css">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/gsap/src/minified/TweenMax.min.js"></script>
     <script src="js/gsap/src/minified/easing/CustomEase.min.js"></script>
     <script src="js/main.js"></script>
     <title>5-1</title>
 </head>
+
 <body>
     <nav>
-        <?php
-            require_once("nav.php");
+        <?php 
+            require_once('nav.php');
         ?>
     </nav>
+
 <div class="penguinPage">
     
 
@@ -27,87 +28,110 @@
             <ul>
                 <li class="active changePage">尚未兌換完的飯團</li>
                 <li class="changePage">已參加的飯團</li>
-                <li class="changePage">我發起的飯團</li>
+                <!-- <li class="changePage">我發起的飯團</li> -->
             </ul>
         </div>
     </div>
-    
-    <div class="maxWidthWrapper page5_1">
-        <!-- <div class="filter-container clearfix">
-            <span class="filter-span">排序</span>
-            <div class="filter-wrapper">
-                <input type="checkbox" name="groupon_filter" class="groupon_filter" id="groupon_filter_time" checked>
-                <label for="groupon_filter_time" class="filter">餐點剩餘數量
-                    <span class="filter-condition">由少至多</span>
-                </label>
+    <div class="forBackgroundImage">
+        <div class="maxWidthWrapper page5_1">
+            <!-- <div class="filter-container clearfix">
+                <span class="filter-span">排序</span>
+                <div class="filter-wrapper">
+                    <input type="checkbox" name="groupon_filter" class="groupon_filter" id="groupon_filter_time" checked>
+                    <label for="groupon_filter_time" class="filter">餐點剩餘數量
+                        <span class="filter-condition">由少至多</span>
+                    </label>
+                </div>
+                
+            </div> -->
+
+            <!-- page -->
+            <div class="page-wrapper">
+                <!-- page-1 -->
+                <div class="changeMeal-container changePage_container">
+                        <h1><i class="fas fa-utensils"></i>&nbsp;&nbsp;&nbsp;點選各餐點即可選擇兌換&nbsp;&nbsp;&nbsp;<i class="fas fa-utensils"></i></h1>
+                        
+                                    
+                </div>
+                <!-- page-2 -->
+                <div class="groupon-container changePage_container">
+                    
+                </div>
+                <!-- page-3 -->
+                <div class="changePage_container">
+                    <h2>目前你還沒有發起飯團</h2>
+                    <a class="clickToGroupon mainBTN" href="3-1_createGroupon.php">
+                        <i class="fas fa-plus-circle"></i>
+                        試試立刻發起飯團!
+                    </a>
+                </div>
             </div>
             
-        </div> -->
-
-        <!-- page -->
-        <div class="page-wrapper">
-            <!-- page-1 -->
-            <div class="changeMeal-container changePage_container">
-                    <h1><i class="fas fa-utensils"></i>&nbsp;&nbsp;&nbsp;點選各餐點即可選擇兌換&nbsp;&nbsp;&nbsp;<i class="fas fa-utensils"></i></h1>
-                    
-                                
-            </div>
-            <!-- page-2 -->
-            <div class="groupon-container changePage_container">
-                
-            </div>
-            <!-- page-3 -->
-            <div class="changePage_container">
-                <h2>目前你還沒有發起飯團</h2>
-                <a class="clickToGroupon mainBTN" href="3-1_createGroupon.html">
-                    <i class="fas fa-plus-circle"></i>
-                    試試立刻發起飯團!
-                </a>
-            </div>
-        </div>
-        
-        <!-- popUpWindow -->
-        <div class="checkChange-container" id="popUpChange">
-            <div class="changeList-container">
-                <h2>
-                    餐點兌換清單
-                </h2>
-                <table>
-                    <tr>
-                        <th>餐點名稱</th>
-                        <th>數量</th>
-                    </tr>
-                    
-                    
-                </table>
-            </div>
-            <div class="QRcodeAndCode">
-                <h2>您可以使用此QRcode出示給店員<br>或是記下以下代碼來兌換餐點</h2>
-                <div class="QR-container">
-                    <h3>QRcode</h3>
-                    <div class="pic">
-                        <img src="" alt="" id="changeMealQRcode">
+            <!-- popUpWindow -->
+            <div class="checkChange-container" id="popUpChange">
+                <div class="changeList-container">
+                    <h2>
+                        餐點兌換清單
+                    </h2>
+                    <table>
+                        <tr>
+                            <th>餐點名稱</th>
+                            <th>數量</th>
+                        </tr>
+                        
+                        
+                    </table>
+                </div>
+                <div class="QRcodeAndCode">
+                    <h2>您可以使用此QRcode出示給店員<br>或是記下以下代碼來兌換餐點</h2>
+                    <div class="QR-container">
+                        <h3>QRcode</h3>
+                        <div class="pic">
+                            <img src="" alt="" id="changeMealQRcode">
+                        </div>
                     </div>
+                    <!-- <div class="code-container">
+                        <h3>取餐代碼</h3>
+                        <input type="text" id="changeMealCode" value="Absjj001" readonly> 
+                        
+                    </div> -->
                 </div>
-                <div class="code-container">
-                    <h3>取餐代碼</h3>
-                    <input type="text" id="changeMealCode" value="Absjj001" readonly> 
-                    
+                <div class="exchangeSuccess">
+                    <h1>
+                        您已成功兌換餐點!!
+                    </h1>
+                    <div class="success-icon">
+
+                    </div>
+                    <div class="pic chickShishou">
+                        <img src="images/index_181018-03.png" alt="">
+                    </div>
+                    <a class="nextBTN closeFinnish">
+                        確認
+                    </a>
+                </div>
+                <div class="btn-container_changeItByYourself">
+                    <h3>
+                        如與店員確認兌換清單無誤後，<br>可以直接點選以下按鈕來進行餐點的兌換
+                    </h3>
+                    <a class="nextBTN" href="##" id="finishChangBTN">
+                        進行兌換並取餐
+                    </a>
+                </div>
+                <div class="btn-container clearfix">
+                    <a class="cancelBTN" href="##" id="cancelChangBTN">
+                        取消
+                    </a>
+                    <a class="nextBTN" href="##" id="confirmChangBTN">
+                        確認兌換
+                    </a>
                 </div>
             </div>
-            <div class="btn-container clearfix">
-                <a class="cancelBTN" href="##" id="cancelChangBTN">
-                    取消
-                </a>
-                <a class="nextBTN" href="##" id="confirmChangBTN">
-                    確認兌換
-                </a>
-                
-            </div>
+            
+            <div id="checkChange-container_bg"></div>
         </div>
-        
-        <div id="checkChange-container_bg"></div>
     </div>
+    
 
 
 
@@ -135,7 +159,7 @@
                 <p class="info active">尚無餐點</p>
                 <div class="btn-container clearfix">
                     <a class="subBTN" href="##" id="checkChangBTN">
-                        確認兌換
+                        兌換餐點
                     </a>
                 </div>
         </div>
@@ -146,7 +170,7 @@
     </footer>
 </body>
 <script>
-    var url = '5-1_myGrouponListSearch.php?id=3&order=';
+    var url = '5-1_myGrouponListSearch.php?id=<?php echo $_SESSION['member_No']; ?>&order=';
     function showMyGroupon(jsonStr) {
         var myGrouponSearchR = JSON.parse(jsonStr);   
         myGrouponSearchR_length = myGrouponSearchR.length;
@@ -157,7 +181,7 @@
                 var endDate = myGrouponSearchR[i][5].substr(5).replace('-','/');
                 // page1
                 var changeMyGroupon = 
-                `<div class="groupon-wrapper">
+                `<div class="groupon-wrapper g_${myGrouponSearchR[i].groupon_TagNo}">
                         <div class="user-info"></div>
                         <div class="groupon_topUI clearfix">
                             <div class="leftUI grid-12">
@@ -198,7 +222,7 @@
                                 ${myGrouponSearchR[i][10][j][3]}元
                             </div>
                             <div class="pic">
-                                <img src="asset/meals/${myGrouponSearchR[i][10][j][2]}" alt="${myGrouponSearchR[i][10][j][1]}"  title="${myGrouponSearchR[i][10][j][1]}">
+                                <img src="images/meals/${myGrouponSearchR[i][10][j][2]}" alt="${myGrouponSearchR[i][10][j][1]}"  title="${myGrouponSearchR[i][10][j][1]}">
                             </div>
                             <div class="title">
                                 ${myGrouponSearchR[i][10][j][1]}
@@ -230,15 +254,29 @@
 
     };
     function getMyGroupon(page) {
+        console.log(url);
         var xhr = new XMLHttpRequest();
         xhr.onload=function (){
             if( xhr.status == 200 ){
+                // console.log(xhr.responseText);
                 if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found
-                    $all('.groupon-container')[0].innerHTML = "<h1>目前還沒加入任何飯團，來去看看吧!</h1>";
-                    $all('.changeMeal-container').innerHTML = "<h1>目前還沒加入任何飯團，來去看看吧!</h1>";
+                    $all('.groupon-container')[0].innerHTML = 
+                    `<h1>目前還沒加入任何飯團，來去看看!</h1>
+                    <a class="clickToGroupon mainBTN"       href="4-1_grouponList.php?search=&order=latest&p=1">
+                        <i class="fas fa-plus-circle"></i>
+                        看看所有飯團!
+                    </a>`;
+                    $all('.changeMeal-container')[0].innerHTML = 
+                    `<h1>目前還沒加入任何飯團，來去看看!</h1>
+                    <a class="clickToGroupon mainBTN"       href="4-1_grouponList.php?search=&order=latest&p=1">
+                        <i class="fas fa-plus-circle"></i>
+                        看看所有飯團!
+                    </a>`;
                 } else {
                     if(page == 'all') {
                         showMyAllGroupon(xhr.responseText);
+                    } else if(page == 'change') {
+                        showSuccess(); //兌換成功
                     } else {
                         showMyGroupon(xhr.responseText); //兌換清單
                     }
@@ -256,8 +294,17 @@
         xhr.send(null);
     }
     function getAllMyGroupon() {
-        url = '5-1_myGrouponListSearch.php?id=3&order=all';
+        url = '5-1_myGrouponListSearch.php?id=<?php echo $_SESSION['member_No']; ?>&order=all';
         getMyGroupon('all');
+    }
+    function showSuccess() {
+        // alert('//');
+        // 先將跳窗的清空
+        var popUpChangeCount = $id('popUpChange').children.length;
+        for(let i = 0; i < popUpChangeCount;i++) {
+            $id('popUpChange').children[i].style.display = 'none';
+        }
+        $class('exchangeSuccess')[0].style.display = 'block';
     }
     window.addEventListener('load', function() {
         
@@ -266,21 +313,13 @@
         // $all('.filter')[0].addEventListener('click', filter);
         // $all('.filter')[1].addEventListener('click', filter); //篩選飯團
         //點擊頁籤後再顯示我的飯團
-
-        function filter(e) {
-            var searchKW = $id('searchInput').value;
-            if(this.className == 'filter time') {
-                $all('.groupon-container')[0].innerHTML = ''; //清空容器
-                url = "4-1_searchGrouponList.php?search=" + searchKW + '&order=endDate';
-                getGroupon(); //跳轉
-            } else {
-                $all('.groupon-container')[0].innerHTML = ''; //清空容器
-                url = "4-1_searchGrouponList.php?search=" + searchKW + '&order=success';
-                getGroupon();
-            }
-            // location.href = '4-1_grouponList.php?search=' + searchKW + '&order=' + ;
-        }
+        
         $all('.changePage')[1].addEventListener('click', getAllMyGroupon);
+        $class('closeFinnish')[0].onclick = function() {
+            $id('popUpChange').style.display = 'none';
+            $id('checkChange-container_bg').style.display = 'none';
+            location.reload();
+        }
         
     });
 
@@ -302,7 +341,7 @@
                 // $all('.groupon_shareCode')[i].value = gCode;
                 // console.log($all('.groupon_shareCode')[i].value);
                 var grouponTemp = 
-                `<div class="groupon-wrapper">
+                `<div class="groupon-wrapper g_${myGrouponSearchR[i].groupon_TagNo}">
                     <div class="user-info"></div>
                     <div class="groupon_topUI clearfix">
                         <div class="leftUI grid-12 grid-lg-8">
@@ -350,7 +389,7 @@
                             <div class="bonus-container clearfix">
                                     <div class="bonus grid-3">
                                         <div class="pic">
-                                            <img src="asset/bonusIcon-05.svg" alt="bonus">
+                                            <img src="images/bonusIcon-05.svg" alt="bonus">
                                             <span class="bonus-coin">${myGrouponSearchR[i][6]}</span>
                                         </div>
                                     </div>
@@ -461,7 +500,7 @@
                             ${myGrouponSearchR[i][10][j][3]}元
                         </div>
                         <div class="pic">
-                            <img src="asset/meals/${myGrouponSearchR[i][10][j][2]}" alt="豪華便當組"  title="${myGrouponSearchR[i][10][j][1]}">
+                            <img src="images/meals/${myGrouponSearchR[i][10][j][2]}" alt="豪華便當組"  title="${myGrouponSearchR[i][10][j][1]}">
                         </div>
                         <div class="title">
                             ${myGrouponSearchR[i][10][j][1]}
@@ -493,6 +532,8 @@
         for(let i = 0;i < $all('.groupon_shareCode').length;i++) {
             console.log($all('.groupon_shareCode')[i].value);
         }
+
+        checkSuccess(); //確認達標
         
     }
         
