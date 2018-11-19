@@ -276,7 +276,8 @@
 			var url = "searchDish.php?search="+ document.getElementById("searchInputMeal").value;
 			xhr.open("Get", url, true);
   			xhr.send( null );
-		};
+		}
+        
 
         window.addEventListener("load", function(){
         	document.getElementById("searchInputMeal").addEventListener("keypress",function(e){
@@ -318,7 +319,6 @@
 	                    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 	                    //餐點收藏狀態
 	                    var data_info = "mealState=" + mealState.value + "&mealNo=" + mealNo.value;
-	                    // console.log(data_info);
 	                                     //餐點編號
 	                    xhr.send(data_info);
 	        });

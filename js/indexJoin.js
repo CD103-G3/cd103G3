@@ -6,9 +6,14 @@ $(document).ready(function() {
     .removeClass()
     .hide();
 
+  $(".indexJoin-spotlightL").hide();
+  $(".indexJoin-spotlightR").hide();
+
   $("#indexJoin-btnO , #indexJoin-ckO").click(function() {
     $("#indexJoin-btnO").attr("disabled", "disabled");
     $("#indexJoin-btnQr").attr("disabled", "disabled");
+    $(".indexJoin-spotlightR").hide();
+    $(".indexJoin-spotlightL").fadeIn();
 
     setTimeout(() => {
       $("#indexJoin-btnO").removeAttr("disabled");
@@ -59,6 +64,8 @@ $(document).ready(function() {
   $("#indexJoin-btnQr , #indexJoin-ckQr").click(function() {
     $("#indexJoin-btnO").attr("disabled", "disabled");
     $("#indexJoin-btnQr").attr("disabled", "disabled");
+    $(".indexJoin-spotlightL").hide();
+    $(".indexJoin-spotlightR").fadeIn();
 
     setTimeout(() => {
       $("#indexJoin-btnO").removeAttr("disabled");

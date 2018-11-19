@@ -68,7 +68,6 @@ button,input[type="button"]{
     }
 }
 
-
 // 通用按鈕設定
 @mixin btn($w, $bgc:null) {
     
@@ -93,7 +92,6 @@ button,input[type="button"]{
     }
     border-radius: 100px;
     transition: .2s;
-    cursor: pointer;
     &:hover {
         opacity: .7;
         transition: .2s;

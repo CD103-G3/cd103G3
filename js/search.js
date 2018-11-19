@@ -54,35 +54,35 @@ $id('start-search').addEventListener('click',function () {
 
 function startSearch(searchGO) {
 
-  if($id('bookmark-meal').checked==true){
+  // if($id('bookmark-meal').checked==true){
 
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function(){
-      if( xhr.status == 200){
-        window.alert(xhr.responseText);
-        location.href = 'searchToMealUpshot.php';
-      }else{
-        alert(xhr.status);
-      }
-    }
-    xhr.open("post","searchToMeal.php",true);
-    var GOsearch = new FormData(document.getElementById("GOsearch"))
-    xhr.send(GOsearch);
+  //   var xhr = new XMLHttpRequest();
+  //   xhr.onload = function(){
+  //     if( xhr.status == 200){
+  //       window.alert(xhr.responseText);
+  //       location.href = 'searchToMealUpshot.php';
+  //     }else{
+  //       alert(xhr.status);
+  //     }
+  //   }
+  //   xhr.open("post","searchToMeal.php",true);
+  //   var GOsearch = new FormData(document.getElementById("GOsearch"))
+  //   xhr.send(GOsearch);
 
-  }else if($id('bookmark-groupon').checked==true){
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function(){
-      if( xhr.status == 200){
-        window.alert(xhr.responseText);
-        location.href = 'searchToGrouponUpshot.php';
-      }else{
-        alert(xhr.status);
-      }
-    }
-    xhr.open("post","searchToGroupon.php",true);
-    var GOsearch = new FormData(document.getElementById("GOsearch"))
-    xhr.send(GOsearch);
-  }
+  // }else if($id('bookmark-groupon').checked==true){
+  //   var xhr = new XMLHttpRequest();
+  //   xhr.onload = function(){
+  //     if( xhr.status == 200){
+  //       window.alert(xhr.responseText);
+  //       location.href = 'searchToGrouponUpshot.php';
+  //     }else{
+  //       alert(xhr.status);
+  //     }
+  //   }
+  //   xhr.open("post","searchToGroupon.php",true);
+  //   var GOsearch = new FormData(document.getElementById("GOsearch"))
+  //   xhr.send(GOsearch);
+  // }
 }
 // function searchAjax() {
 //   //傳PHP端

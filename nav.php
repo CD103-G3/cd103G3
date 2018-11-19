@@ -6,7 +6,10 @@ session_start();
 	require_once("chatBot.php");
 	
 ?>
+<<<<<<< HEAD
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+=======
+>>>>>>> 1999133e555a2eb4b1f6b213fbed5646404c0845
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <meta name="format-detection" content="telephone=no">
 <header>
@@ -61,6 +64,7 @@ session_start();
 			</li>
 			<li class="initiate">			
 				<div id="view2"></div>
+<<<<<<< HEAD
 				<a href="3-1_createGroupon.php">發起飯團</a>
 			</li>
 			<li class="participate">
@@ -70,6 +74,17 @@ session_start();
 			<li class="table-hidden"><a href="member.php">會員中心</a></li>
 			<li class="table-hidden"><label for="close-chatBot">客服雞器人</label></li>
 			<li class="table-hidden" id="clearMemberSeeion"><a href="javascript:void(0)">登出</a></li>
+=======
+				<a href="javascript:void(0)">發起飯團</a>
+			</li>
+			<li class="participate">
+				<div id="view3"></div>
+				<a href="javascript:void(0)">參加飯團</a>
+			</li>
+			<li class="table-hidden"><a href="member.php">會員中心</a></li>
+			<li class="table-hidden"><label for="close-chatBot">客服雞器人</label></li>
+			<li class="table-hidden" id="clearMemberCookie"><a href="javascript:void(0)">登出</a></li>
+>>>>>>> 1999133e555a2eb4b1f6b213fbed5646404c0845
 		</ul>
 	</nav>
 	<label class="white-Point" for="white-Point-control">
@@ -115,7 +130,16 @@ session_start();
 <div class="nav_height"></div>
 <!-- <script src="js/floaty.js"></script>S -->
 <!-- <script src="js/svgColor.js"></script> -->
+<<<<<<< HEAD
 <script src="node_modules\sweetalert\dist\sweetalert.min.js"></script>
+=======
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<script src="node_modules\sweetalert\dist\sweetalert.min.js"></script>
+
+>>>>>>> 1999133e555a2eb4b1f6b213fbed5646404c0845
 <script src="js/login.js"></script>
 <script src="js/chatBot.js"></script>
 <script src="js/search.js"></script>
@@ -308,6 +332,7 @@ session_start();
 
 </script>
 <script>
+<<<<<<< HEAD
 	var beforeLogin = document.getElementsByClassName("before-login")[0];
 	var afterLogin = document.getElementsByClassName("after-login")[0];
 	var clearMemberSeeion = document.getElementById('clearMemberSeeion');
@@ -363,5 +388,75 @@ session_start();
 	},false);
 	window.addEventListener('load',function(){
 		checkMemberId();
+=======
+
+	function delCookie(name)
+	{
+		var exp = new Date();
+		exp.setTime(exp.getTime() - 1);
+		var cval=cookie(name);
+		if(cval!=null) document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+	}
+	function cookie(name){    
+	   var cookieArray=document.cookie.split("; "); //得到分割的cookie名值對    
+	   var cookie=new Object();    
+	   for (var i=0;i<cookieArray.length;i++){  
+	      // console.log(cookieArray);
+	      var arr=cookieArray[i].split("=");       //將名和值分開
+	      console.log(arr);
+	      console.log(arr[0]+'='+arr[1]);
+	      if(arr[0]==name) return unescape(arr[1]); //如果是指定的cookie，則返回它的值    
+	   } 
+	   return ""; 
+	} 
+	function checkCookie() {
+		 //獲得coolie 的值
+
+	beforeLogin = document.getElementsByClassName("before-login")[0];
+	afterLogin = document.getElementsByClassName("after-login")[0];
+	clearMemberCookie = document.getElementById('clearMemberCookie');
+	  member_No = cookie("member_No");
+	  member_Id = cookie("member_Id");
+	  member_Psw = cookie("member_Psw");
+	  member_Nick = cookie("member_Nick");
+	  email = cookie("email");
+	  member_Pic = cookie("member_Pic");
+	  member_Bonus = cookie("member_Bonus");
+	  member_buyCount = cookie("member_buyCount");
+	  if (member_No != null && member_No != "") {
+	    beforeLogin.style.display = "none";
+	    afterLogin.style.display = "inline-block";
+	    clearMemberCookie.style.display = "inline-block";
+		var buyCount = document.querySelectorAll(".after-login span")[0];
+		var memberyPic = document.querySelectorAll(".after-login img")[0];
+		var nike = document.querySelectorAll(".after-login span")[1];
+		nike.innerText = member_Nick;
+		memberyPic.src = member_Pic;
+		buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${member_buyCount}`;
+
+	  } else {
+		beforeLogin.style.display = "inline-block";
+	    afterLogin.style.display = "none";
+	    clearMemberCookie.style.display = "none";
+	  }
+	}
+
+	document.getElementById('clearMemberCookie').addEventListener('click',function(){
+		delCookie("member_No");
+		delCookie("member_Id");
+		delCookie("member_Psw");
+		delCookie("member_Nick");
+		delCookie("email");
+		delCookie("member_Pic");
+		delCookie("member_Bonus");
+		delCookie("member_buyCount");
+		checkCookie();
+	    // beforeLogin.style.display = "inline-block";
+	    // afterLogin.style.display = "none";
+	    // clearMemberCookie.style.display = "none";
+	},false);
+	window.addEventListener('load',function(){
+		checkCookie();
+>>>>>>> 1999133e555a2eb4b1f6b213fbed5646404c0845
 	},false);
 </script>

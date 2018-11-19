@@ -103,7 +103,6 @@ button, input[type="button"] {
   box-shadow: 0px 4px 0px #76391B;
   border-radius: 100px;
   transition: .2s;
-  cursor: pointer;
   margin: auto;
   font-size: 20px;
   max-width: 150px;
@@ -437,7 +436,6 @@ button, input[type="button"] {
     box-shadow: 0px 4px 0px #FED44F;
     border-radius: 100px;
     transition: .2s;
-    cursor: pointer;
     margin: 10px;
     font-size: 20px;
     background-color: #BB7232;
@@ -642,7 +640,6 @@ button, input[type="button"] {
     box-shadow: 0px 4px 0px #76391B;
     border-radius: 100px;
     transition: .2s;
-    cursor: pointer;
     margin: auto;
     font-size: 20px;
     max-width: 150px;
@@ -1061,7 +1058,6 @@ input[name="mealGenre-No"]:nth-of-type(1):checked ~ .mealGenre-No:nth-of-type(1)
     box-shadow: 0px 4px 0px #FED44F;
     border-radius: 100px;
     transition: .2s;
-    cursor: pointer;
     margin: 10px;
     font-size: 20px;
     background-color: #BB7232;

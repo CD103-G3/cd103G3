@@ -1,8 +1,6 @@
 <?php
 try{
-    $dsn = "mysql:host=localhost;port=3306;dbname=cd103g3;charset=utf8";
-    $user = "root";
-    $password = "Pp0983510219";
+	require_once('phpDB/connectDB_CD103G3.php');
     $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
     $pdo = new PDO($dsn, $user, $password, $options);
     $name = isset($_REQUEST["search"]) ? trim($_REQUEST["search"]) : '';

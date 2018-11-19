@@ -3,7 +3,7 @@ ob_start();
 session_start();
 try{
  $loginInfo = json_decode($_REQUEST["jsonStr"]);  //取得前端送來的json字串，並將其轉成物件
-  require_once("connectBooks.php");
+  require_once('phpDB/connectDB_CD103G3.php');
   $sql = "select * from member where member_Id=:member_Id or email=:email";
   $member = $pdo->prepare($sql);
   $member->bindValue(":member_Id", $loginInfo->member_Id);

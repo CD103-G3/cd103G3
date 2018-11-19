@@ -28,7 +28,7 @@ try{
     $member->bindValue(":meal_No", substr($_POST["mealNo"], 2));
     $member->execute();
 
-  };
+  }
     
 
 
