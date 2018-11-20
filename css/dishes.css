@@ -62,13 +62,14 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, label, table, tr, th, td, foot
 input[type="text"]::-webkit-input-placeholder {
   font-family: 微軟正黑體, arial, "LiHei-Pro", "sans serif"; }
 
-button, input[type="button"] {
+button, input[type="button"], input[type="text"] {
   -webkit-appearance: none;
   /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
   -moz-appearance: none;
   /* FireFox */
   appearance: none;
-  font-family: 微軟正黑體, arial, "LiHei-Pro", "sans serif"; }
+  font-family: 微軟正黑體, arial, "LiHei-Pro", "sans serif";
+  cursor: pointer; }
 
 .swal-content {
   display: inline-block;
@@ -1406,9 +1407,9 @@ header {
         header .phone-nav .nav-left img,
         header .phone-nav .logo img {
           height: 120px; }
-    header #clearMemberCookie {
+    header #clearMemberSeeion {
       position: fixed;
-      left: 100%; }
+      left: 200%; }
     header nav {
       width: 71.42857142%;
       position: relative;
@@ -2003,16 +2004,21 @@ body {
 .food-title {
   vertical-align: middle; }
   .food-title h2 {
-    font-size: 18px;
-    margin: 10px; }
+    font-size: 24px;
+    margin: 10px;
+    font-weight: 600; }
+    @media screen and (min-width: 1200px) {
+      .food-title h2 {
+        font-size: 20px; } }
 
 .food-pic {
   margin: 0 auto;
   position: relative;
-  font-size: 16px;
+  font-size: 24px;
   margin-bottom: 30px;
   position: relative;
-  width: 240px; }
+  width: 240px;
+  font-weight: 600; }
   .food-pic #circle {
     position: absolute;
     width: 60px;
@@ -2053,26 +2059,35 @@ body {
   transform: scale(1.2); }
 
 .food-price {
-  font-size: 18px;
+  font-size: 24px;
   text-align: center;
   font-weight: 600;
   color: #FF5000;
+  display: inline-block;
+  vertical-align: middle; }
+  @media screen and (min-width: 1200px) {
+    .food-price {
+      font-size: 20px; } }
+
+.score-container {
   display: inline-block;
   vertical-align: middle; }
 
 .food-score {
   padding: 10px 0;
   font-size: 0;
-  text-align: left; }
+  text-align: center; }
   .food-score .calc-score {
     color: #76391B;
     font-weight: 600;
-    font-size: 24px;
-    line-height: 1.6; }
+    font-size: 16px;
+    line-height: 1.6;
+    vertical-align: middle;
+    padding: 0 10px; }
   .food-score .scoreEgg-container ul li {
     display: inline-block;
-    width: 25px;
-    margin-right: 3px; }
+    width: 16px;
+    margin-right: 5px; }
   .food-score .pic img {
     width: 100%; }
   .food-score .scoreEgg-container {
@@ -2085,7 +2100,7 @@ body {
     font-size: 24px;
     color: #76391B;
     margin-top: 5px;
-    display: inline-block;
+    display: none;
     float: right; }
 
 .food-button {
@@ -2094,6 +2109,7 @@ body {
     position: relative;
     display: inline-block;
     height: 40px;
+    width: 40px;
     line-height: 40px;
     text-align: center;
     font-weight: 600;
@@ -2104,7 +2120,7 @@ body {
     transition: .2s;
     cursor: pointer;
     margin: auto;
-    padding: 0 10px; }
+    padding: 1px 7px; }
     .food-button-save p {
       display: inline-block; }
     .food-button-save:hover {
@@ -2114,7 +2130,6 @@ body {
       margin-right: 8px;
       width: 25px; }
     .food-button-save span {
-      font-size: 20px;
       vertical-align: middle; }
     .food-button-save svg {
       margin-right: 8px;
@@ -2145,7 +2160,9 @@ body {
     cursor: pointer;
     margin: auto;
     font-size: 20px;
-    padding: 0 10px; }
+    padding: 0 10px;
+    vertical-align: middle;
+    margin-left: 10px; }
     .food-button-buy p {
       display: inline-block; }
     .food-button-buy .wrap {
@@ -2245,12 +2262,6 @@ body {
   margin-bottom: 0px;
   margin: auto;
   margin-top: 24px; }
-
-.food-button-save {
-  float: left; }
-
-.food-button-buy {
-  float: right; }
 
 @media screen and (min-width: 360px) and (max-width: 415px) {
   .food-choose_item {
@@ -2384,7 +2395,8 @@ body {
     transform: translateX(-50%);
     z-index: 1; }
   .food-button-buy {
-    width: 220px; }
+    width: 220px;
+    vertical-align: middle; }
   .food-choose .food-icon-lan,
   .food-choose .food-icon-don,
   .food-choose .food-icon-soup {
@@ -2479,14 +2491,13 @@ body {
     margin-left: 25px;
     box-sizing: border-box; }
   .food-button-save {
-    float: left; }
+    vertical-align: middle; }
   .food-button-buy {
-    float: right;
-    width: initial; }
+    width: initial;
+    padding: 0 20px; }
   .food-score {
     padding: 10px 0;
     font-size: 0;
-    text-align: left;
     font-size: 16px; }
   .food-choose_item {
     padding: 0;

@@ -36,14 +36,14 @@ function searchImg() {
 
 var markGroupon = document.getElementById("bookmark-animation-groupon");
 var markMeal = document.getElementById("bookmark-animation-meal");
-var markGrouponText = $("#bookmark-animation-groupon").text();
-var markMealText = $("#bookmark-animation-meal").text();
+var markGrouponText = $id("bookmark-animation-groupon").innerText;
+var markMealText = $id("bookmark-animation-meal").innerText;
 // var markSearchValue = markSearch.placeholder;
 markGroupon.addEventListener("click", function() {
-  $("#input-search").attr("placeholder", "請輸入" + markGrouponText + "關鍵字");
+  $id("input-search").placeholder="請輸入" + markGrouponText + "關鍵字";
 });
 markMeal.addEventListener("click", function() {
-  $("#input-search").attr("placeholder", "請輸入" + markMealText + "關鍵字");
+  $id("input-search").placeholder="請輸入" + markMealText + "關鍵字";
 });
 $id('start-search').addEventListener('click',function () {
   var searchText = [];

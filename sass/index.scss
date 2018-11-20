@@ -1,10 +1,7 @@
 @import "layout/nav";
 
 //變數
-$color_main1: #fce444; //小雞黃 / yellow / #FCE444 ;
-$color_main2: #76391b; //褐色 / brown / 7#6391B ;
-$color_main3: #fcf2ca; //淡黃色 / lightYellow / #FCF2CA;
-$color_main4: #bb7232; //淡褐色 / lightBrown / #BB7232;
+
 $white: #fff;
 $black: #333;
 $searchHeight: 40px;
@@ -12,16 +9,6 @@ $fz18: 18px;
 $borderRadius: 1000px;
 $grouponBr: 20px;
 $boxshadow: 0 3px 0 $color_main2;
-
-//字體:
-$fontSize_text: 16px;
-$fontSize_S: 20px;
-$fontSize_M: 24px;
-$fontSize_L: 30px;
-$fontSize_XL: 36px;
-$fontSize_XXL: 48px;
-$fmy: 微軟正黑體, arial, "sans serif";
-$lineHeight: 1.6;
 
 //平底鍋變數
 $color-bg: #f0ead6;
@@ -292,14 +279,15 @@ a {
             }
           }
           img:nth-child(2) {
-            width: 100%;
+            width: 20%;
             max-width: 62px;
             position: absolute;
-            top: 32px;
-            left: 30%;
-            transform: rotate(-15deg);
+            top: 23px;
+            left: 29%;
+            transform: rotate(-10deg);
+            transform-origin: right 80px;
             z-index: -1;
-            animation: owner 3s 1s infinite alternate;
+            animation: owner 2s 1s infinite alternate;
           }
           div {
             display: none;
@@ -2358,7 +2346,7 @@ a {
         left: 45%;
         cursor: pointer;
         transform: rotate(0deg);
-        transform-origin: top;
+        transform-origin: center -60px;
         animation: confettiRotate linear 3s infinite;
 
         @keyframes confettiAfter {

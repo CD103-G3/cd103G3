@@ -1,15 +1,11 @@
-<?php 
-  ob_start();
-  session_start();
-?>
 <?php
-// $memId = $_POST["memId"];
-// $memPsw = $_POST["memPsw"];
-$memId = "ke_Id";
-$memPsw = "ke_Psw";
+$memId = $_SESSION["member_Id"];
+// $memPsw = $_POST["memberPsw"];
+// $memId = "ke";
+// $memPsw = "ke";
 try{
   require_once("connectMember.php");
-  $sql = "select * from member where member_Id = '$memId' and member_Psw = '$memPsw'";
+  $sql = "select * from member where member_Id = '$memId'";
   $member = $pdo -> query( $sql );
     if( $member->rowCount() == 0){
       echo "帳密錯誤, 請<a href='login.html'>重新輸入</a>";
@@ -23,10 +19,11 @@ try{
             $where = $_SESSION["where"];
             unset( $_SESSION["where"]);
             header("location:$where");
-          }
+		  }
+		//   print_r($memRow);
     }
 }catch(PDOException $ex){
   echo "資料庫操作失敗,原因：",$ex->getMessage(),"<br>";
   echo "行號：",$ex->getLine(),"<br>";
 }
-?>  
+?>

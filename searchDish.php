@@ -1,8 +1,6 @@
 <?php
 try{
 	require_once('phpDB/connectDB_CD103G3.php');
-    $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-    $pdo = new PDO($dsn, $user, $password, $options);
     $name = isset($_REQUEST["search"]) ? trim($_REQUEST["search"]) : '';
     $sql = "select * from meal where meal_Name like :keyword";
     $name = "%$name%"; 

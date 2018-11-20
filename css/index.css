@@ -63,13 +63,14 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, label, table, tr, th, td, foot
 input[type="text"]::-webkit-input-placeholder {
   font-family: 微軟正黑體, arial, "LiHei-Pro", "sans serif"; }
 
-button, input[type="button"] {
+button, input[type="button"], input[type="text"] {
   -webkit-appearance: none;
   /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
   -moz-appearance: none;
   /* FireFox */
   appearance: none;
-  font-family: 微軟正黑體, arial, "LiHei-Pro", "sans serif"; }
+  font-family: 微軟正黑體, arial, "LiHei-Pro", "sans serif";
+  cursor: pointer; }
 
 .swal-content {
   display: inline-block;
@@ -1407,9 +1408,9 @@ header {
         header .phone-nav .nav-left img,
         header .phone-nav .logo img {
           height: 120px; }
-    header #clearMemberCookie {
+    header #clearMemberSeeion {
       position: fixed;
-      left: 100%; }
+      left: 200%; }
     header nav {
       width: 71.42857142%;
       position: relative;
@@ -1611,7 +1612,7 @@ header {
   text-decoration: none; }
 
 body {
-  font-family: 微軟正黑體, arial, "sans serif";
+  font-family: 微軟正黑體, arial, "LiHei-Pro", "sans serif";
   color: #333;
   overflow-x: hidden;
   background-color: #ffe2bf;
@@ -1620,7 +1621,7 @@ body {
 button,
 input {
   outline: none;
-  font-family: 微軟正黑體, arial, "sans serif"; }
+  font-family: 微軟正黑體, arial, "LiHei-Pro", "sans serif"; }
 
 .indexScroll {
   height: calc(100% + 110vh);
@@ -1678,15 +1679,15 @@ input {
 
 a,
 .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
-  color: #76391b; }
+  color: #76391B; }
 
 .mainBtn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn, .indexLogin .wrap .indexLogin-wrap .indexLogin-btn button {
   padding: 10px 20px;
   font-size: 16px;
   border: 0;
   border-radius: 1000px;
-  background-color: #fce444;
-  box-shadow: 0 3px 0 #76391b; }
+  background-color: #FCE444;
+  box-shadow: 0 3px 0 #76391B; }
 
 .joinBtn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button:hover {
   opacity: 1;
@@ -1717,9 +1718,9 @@ a,
         margin: auto;
         padding: 5px 10px;
         border-radius: 1000px;
-        border: 6px solid #bb7232;
-        background-color: #fcf2ca;
-        box-shadow: 0 6px #76391b;
+        border: 6px solid #BB7232;
+        background-color: #FCF2CA;
+        box-shadow: 0 6px #76391B;
         position: relative; }
         .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form div:nth-child(1) {
           display: inline-block;
@@ -1744,7 +1745,7 @@ a,
             padding: 14px 34px 14px 16px;
             border-radius: 1000px;
             border: none;
-            background-color: #bb7232;
+            background-color: #BB7232;
             color: #fff;
             letter-spacing: 1px; }
         .indexSearch .wrap .indexSearch-wrap .indexSearch-searchBar form input[type="text"] {
@@ -1762,7 +1763,7 @@ a,
           margin: -11px -11px -11px -13px;
           border-radius: 1000px;
           border: none;
-          background-color: #bb7232;
+          background-color: #BB7232;
           color: #fff;
           letter-spacing: 1px;
           cursor: pointer;
@@ -1806,14 +1807,15 @@ a,
   50% {
     transform: rotate(0deg); } }
         .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner img:nth-child(2) {
-          width: 100%;
+          width: 20%;
           max-width: 62px;
           position: absolute;
-          top: 32px;
-          left: 30%;
-          transform: rotate(-15deg);
+          top: 23px;
+          left: 29%;
+          transform: rotate(-10deg);
+          transform-origin: right 80px;
           z-index: -1;
-          animation: owner 3s 1s infinite alternate; }
+          animation: owner 2s 1s infinite alternate; }
         .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner div {
           display: none; }
       .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox {
@@ -1852,7 +1854,7 @@ a,
               .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover {
                 width: 200px;
                 height: 85px;
-                background-color: #fcf2ca;
+                background-color: #FCF2CA;
                 position: absolute;
                 border-radius: 40px;
                 top: 70%;
@@ -1895,7 +1897,7 @@ a,
                   display: inline-block;
                   font-size: 18px;
                   padding: 3px 0;
-                  color: #76391b;
+                  color: #76391B;
                   letter-spacing: 1px; }
               .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li img.indexSearch-mealImg {
                 display: inline-block;
@@ -1940,7 +1942,7 @@ a,
           .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner div {
             width: 200px;
             height: 70px;
-            background-color: #fcf2ca;
+            background-color: #FCF2CA;
             display: inline-block;
             border-radius: 100px;
             position: absolute;
@@ -1956,11 +1958,11 @@ a,
               transform: rotate(-40deg);
               border-style: solid;
               border-width: 20px 7.5px 0 7.5px;
-              border-color: #fcf2ca transparent transparent transparent; }
+              border-color: #FCF2CA transparent transparent transparent; }
             .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-owner div p {
               width: 180px;
               font-size: 20px;
-              color: #76391b;
+              color: #76391B;
               line-height: 70px;
               text-align: left;
               padding: 0 0 0 12px;
@@ -2028,7 +2030,7 @@ a,
             .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li .indexSearch-hover {
               width: 200px;
               height: 85px;
-              background-color: #fcf2ca;
+              background-color: #FCF2CA;
               position: absolute;
               border-radius: 40px;
               top: 70%;
@@ -2071,7 +2073,7 @@ a,
                 display: inline-block;
                 font-size: 18px;
                 padding: 3px 0;
-                color: #76391b;
+                color: #76391B;
                 letter-spacing: 1px; }
             .indexSearch .wrap .indexSearch-wrap .indexSearch-conveyor .indexSearch-conveyorBox .indexSearch-table ol li img.indexSearch-mealImg {
               display: inline-block;
@@ -2166,11 +2168,11 @@ a,
         width: 100px;
         margin: -30px 0 10px;
         border-radius: 50%;
-        background-color: #fcf2ca;
+        background-color: #FCF2CA;
         padding: 10px; }
       .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-info p {
-        color: #76391b;
-        text-shadow: 2px 2px 0 #fcf2ca;
+        color: #76391B;
+        text-shadow: 2px 2px 0 #FCF2CA;
         font-size: 18px;
         font-weight: bolder;
         letter-spacing: 0.5px;
@@ -2195,11 +2197,11 @@ a,
 
 @keyframes stepO2-btn {
   0% {
-    background-color: #fce444;
-    box-shadow: 0 3px 0 #76391b; }
+    background-color: #FCE444;
+    box-shadow: 0 3px 0 #76391B; }
   100% {
-    background-color: #bb7232;
-    box-shadow: 0 4px 0 #fce444;
+    background-color: #BB7232;
+    box-shadow: 0 4px 0 #FCE444;
     color: #fff; } }
     .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepO2-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-btn, .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepOrigin .indexJoin-stepO2 .indexJoin-stepQr3-btn {
       display: inline-block;
@@ -2239,7 +2241,7 @@ a,
       .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO3 div:nth-child(1) p:nth-child(2) {
         font-size: 16px;
         font-weight: bolder;
-        color: #76391b; }
+        color: #76391B; }
 
 @keyframes stepO3-scan {
   0% {
@@ -2296,7 +2298,7 @@ a,
         .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(1) p:nth-child(2) {
           font-size: 16px;
           font-weight: bolder;
-          color: #76391b;
+          color: #76391B;
           line-height: 1.2rem; }
 
 @keyframes stepO4 {
@@ -2308,8 +2310,8 @@ a,
         height: 150px; }
         .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepOrigin .indexJoin-stepO4 div:nth-child(2) i.fa-check {
           font-size: 60px;
-          color: #fce444;
-          text-shadow: 0 5px #bb7232;
+          color: #FCE444;
+          text-shadow: 0 5px #BB7232;
           position: absolute;
           top: 145px;
           left: 70px;
@@ -2375,7 +2377,7 @@ a,
         width: 105px;
         height: 176px;
         padding: 30px 10px 0;
-        background-color: #fcf2ca;
+        background-color: #FCF2CA;
         border-radius: 10px;
         position: absolute;
         top: 52px;
@@ -2384,7 +2386,7 @@ a,
           font-size: 14px;
           text-align: center;
           line-height: 1.2rem;
-          color: #76391b; }
+          color: #76391B; }
         .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box p:nth-child(2) {
           padding: 20px 11px 10px;
           font-size: 18px;
@@ -2392,7 +2394,7 @@ a,
           color: #333333; }
         .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input {
           width: 65px;
-          border: 2px solid #76391b;
+          border: 2px solid #76391B;
           padding: 5px 8px;
           border-radius: 10px;
           margin: 0 10px; }
@@ -2400,7 +2402,7 @@ a,
             width: 34px;
             text-align: left;
             border-right: 1px solid;
-            color: #bb7232;
+            color: #BB7232;
             overflow: hidden;
             white-space: nowrap;
             animation: typing 1.2s steps(4), caret 0.3s steps(1) infinite; }
@@ -2455,8 +2457,8 @@ a,
       margin: 0 10px;
       background-image: url(../images/index_watermark.svg);
       background-size: 150%;
-      color: #76391b;
-      text-shadow: 1px 1px 0px #fcf2ca; }
+      color: #76391B;
+      text-shadow: 1px 1px 0px #FCF2CA; }
       .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button:after {
         content: ""; }
       .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox #indexJoin-btn button:disabled {
@@ -2717,7 +2719,7 @@ a,
                 font-size: 20px; }
               .indexJoin .wrap .indexJoin-wrap .indexJoin-phoneBox .indexJoin-phone .indexJoin-stepQrcode .indexJoin-stepQr3 .indexJoin-stepQr3-box .indexJoin-stepQr3-input {
                 width: 100px;
-                border: 2px solid #76391b;
+                border: 2px solid #76391B;
                 padding: 5px 8px;
                 border-radius: 10px;
                 margin: 0 24px; }
@@ -2839,7 +2841,7 @@ a,
     width: 100%; }
   .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .owl-nav {
     font-size: 70px;
-    color: #76391b; }
+    color: #76391B; }
     .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .owl-nav .owl-prev {
       position: absolute;
       top: 200px;
@@ -2860,7 +2862,7 @@ a,
     .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle {
       margin: 0 0 0 -12px;
       padding: 8px;
-      background-color: #fce444;
+      background-color: #FCE444;
       position: relative; }
       .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle h3 {
         padding: 0 0 0 12px; }
@@ -2873,7 +2875,7 @@ a,
         height: 0;
         border-style: solid;
         border-width: 0 12px 7px 0;
-        border-color: transparent #bb7232 transparent transparent; }
+        border-color: transparent #BB7232 transparent transparent; }
       .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average {
         width: 86px;
         height: 86px;
@@ -2889,7 +2891,7 @@ a,
           font-size: 24px;
           font-weight: bolder;
           text-align: center;
-          color: #bb7232; }
+          color: #BB7232; }
           .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sumTitle .indexGroupon-average p:nth-child(1)::after {
             content: "元";
             font-size: 14px; }
@@ -2897,14 +2899,14 @@ a,
           text-align: center;
           font-size: 13px;
           font-weight: bolder;
-          color: #76391b; }
+          color: #76391B; }
     .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part img {
       width: 80%;
       margin: 25px 50% 10px;
       padding: 10px 0px;
       transform: translateX(-50%);
       text-align: center;
-      background-color: #fcf2ca;
+      background-color: #FCF2CA;
       border-radius: 20px; }
     .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-info {
       width: 190px;
@@ -2914,21 +2916,21 @@ a,
       .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-info mark {
         background: linear-gradient(transparent 40%, rgba(255, 255, 255, 0) 40%, rgba(250, 236, 39, 0.8) 50%, transparent 70%);
         padding: 2px 1px;
-        color: #76391b;
+        color: #76391B;
         font-weight: bolder; }
     .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sum {
       width: 190px;
       margin: 0px auto;
       line-height: 2rem; }
       .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sum .indexGroupon-subtitle {
-        color: #76391b;
+        color: #76391B;
         font-weight: bold; }
       .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sum .indexGroupon-countBar {
         display: inline-block;
         width: 100px;
         height: 16px;
         border-radius: 1000px;
-        background-color: #bb7232;
+        background-color: #BB7232;
         line-height: 16px; }
         .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-sum .indexGroupon-countBar p {
           width: 0;
@@ -2936,7 +2938,7 @@ a,
           margin: 0 0 0 -1px;
           text-align: center;
           font-size: 10px;
-          background-color: #fce444;
+          background-color: #FCE444;
           border-radius: 1000px; }
     .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-deadline {
       padding-bottom: 20px; }
@@ -2945,12 +2947,12 @@ a,
       .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-btn a, .indexGroupon .indexMeal-mobile .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-btn .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal-mobile .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-btn .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexGroupon .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-btn button, .indexMeal-mobile .indexGroupon .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn .indexGroupon-wrap .indexGroupon-box .indexGroupon-part .indexGroupon-btn button {
         display: block;
         padding: 8px 10px;
-        background-color: #fce444;
+        background-color: #FCE444;
         border-radius: 20px 0 20px 0;
         position: absolute;
         bottom: 0;
         right: 0;
-        color: #76391b; }
+        color: #76391B; }
   .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part1 .indexGroupon-sum .indexGroupon-count p {
     width: 87px; }
   .indexGroupon .wrap .indexGroupon-wrap .indexGroupon-box .indexGroupon-part2 .indexGroupon-sum .indexGroupon-count p {
@@ -3014,7 +3016,7 @@ a,
     height: 425px;
     margin: auto; }
     .indexMeal-mobile .wrap .indexMeal-slider .swiper-container-horizontal .swiper-scrollbar .swiper-scrollbar-drag {
-      background-color: #fce444; }
+      background-color: #FCE444; }
     .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box {
       position: relative; }
       .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part {
@@ -3067,7 +3069,7 @@ a,
               content: "評分";
               font-size: 18px;
               font-weight: bold;
-              color: #76391b;
+              color: #76391B;
               position: relative;
               bottom: 6px;
               left: 25px; }
@@ -3087,11 +3089,11 @@ a,
           .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn a, .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
             display: inline-block;
             padding: 10px;
-            background-color: #fce444;
+            background-color: #FCE444;
             border-radius: 1000px;
             color: #333;
             font-size: 16px;
-            box-shadow: 0 3px 0 #76391b;
+            box-shadow: 0 3px 0 #76391B;
             margin-right: 5px; }
           .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn svg {
             margin-right: 8px;
@@ -3171,7 +3173,7 @@ a,
       left: 45%;
       cursor: pointer;
       transform: rotate(0deg);
-      transform-origin: top;
+      transform-origin: center -60px;
       animation: confettiRotate linear 3s infinite; }
   @keyframes confettiAfter {
     0% {
@@ -3287,7 +3289,7 @@ a,
                 content: "評分";
                 font-size: 18px;
                 font-weight: bold;
-                color: #76391b;
+                color: #76391B;
                 position: relative;
                 bottom: 6px;
                 left: 25px; }
@@ -3321,11 +3323,11 @@ a,
             .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn a, .indexMeal-desc .indexMeal-mobile .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button, .indexMeal-mobile .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
               display: inline-block;
               padding: 7px 10px;
-              background-color: #fce444;
+              background-color: #FCE444;
               border-radius: 1000px;
               color: #333;
               font-size: 16px;
-              box-shadow: 0 3px 0 #76391b;
+              box-shadow: 0 3px 0 #76391B;
               margin-right: 5px; }
             .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn svg {
               margin-right: 8px;
@@ -3339,11 +3341,11 @@ a,
             .indexMeal-desc .wrap .indexMeal-slider .indexMeal-box .indexMeal-part .indexMeal-topSum .indexMeal-btn button {
               display: inline-block;
               padding: 7px 10px;
-              background-color: #fce444;
+              background-color: #FCE444;
               border-radius: 1000px;
               color: #333;
               font-size: 16px;
-              box-shadow: 0 3px 0 #76391b;
+              box-shadow: 0 3px 0 #76391B;
               padding: 0px 10px;
               border: 0;
               margin-left: 5px; }
@@ -3417,9 +3419,9 @@ a,
             text-align: center;
             padding: 20px;
             color: #fff;
-            background-color: #bb7232;
+            background-color: #BB7232;
             border-radius: 50px;
-            box-shadow: inset -5px -4px 0 #76391b;
+            box-shadow: inset -5px -4px 0 #76391B;
             position: relative;
             animation: flow 1.8s ease 0s infinite normal; }
             .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info .indexLogin-balloon p:after {
@@ -3428,14 +3430,14 @@ a,
               height: 0;
               border-style: solid;
               border-width: 10px 12px 0 12px;
-              border-color: #76391b transparent transparent transparent;
+              border-color: #76391B transparent transparent transparent;
               position: absolute;
               bottom: -10px;
               left: 50%;
               transform: translateX(-50%); }
             .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info .indexLogin-balloon p mark {
               background-color: transparent;
-              color: #fcf2ca; }
+              color: #FCF2CA; }
         .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info img {
           width: 180px; }
       .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-pan {
@@ -3641,9 +3643,9 @@ a,
               text-align: center;
               padding: 20px;
               color: #fff;
-              background-color: #bb7232;
+              background-color: #BB7232;
               border-radius: 50px;
-              box-shadow: inset -5px -4px 0 #76391b;
+              box-shadow: inset -5px -4px 0 #76391B;
               position: relative;
               animation: flow 1.8s ease 0s infinite normal; }
               .indexLogin .wrap .indexLogin-wrap .indexLogin-sum .indexLogin-main .indexLogin-info .indexLogin-balloon p:after {
@@ -3652,7 +3654,7 @@ a,
                 height: 0;
                 border-style: solid;
                 border-width: 10px 12px 0 12px;
-                border-color: #76391b transparent transparent transparent;
+                border-color: #76391B transparent transparent transparent;
                 position: absolute;
                 bottom: -10px;
                 left: 50%;

@@ -41,6 +41,10 @@
                         <input id="index-searchInput-hidden-filter" type="hidden" >
                         <input id="index-searchInput-hidden-p" type="hidden" >
                         <button id="index-searchBtn" class="indexSearch-btn"><i class="fas fa-search"></i></button>
+                        <div class="indexSearch-rope">
+                            <img src="images/index_rope.svg" alt="">
+                            <img src="images/index_rope.svg" alt="">
+                        </div>
                     </form>
                 </div>
                 <!-- <div class="indexSearch-searchBar">
@@ -1292,6 +1296,36 @@ window.onbeforeunload = function(){
             }
         }
     });
+    $class('indexLogin-btn')[0].onclick = function () {
+        xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+            if (xhr.status == 200) {
+                if (xhr.responseText.indexOf("not found") != -1) {
+                    $id('close-login').checked=false;   //打開登入註冊跳窗
+                    $id("to-sigup").checked=true;
+                } else {
+                    swal({
+                        title: "歡迎!",
+                        text: "快來看看",
+                        content: {
+                            element: "a",
+                            attributes: {
+                            href: "https://www.youtube.com/?gl=TW&hl=zh-tw",
+                            text: "目前最HOT!HOT!飯團"
+                            }
+                        }
+                    });
+
+                }
+            } else {
+                alert("3:"+xhr.status);
+                return "s";
+            };
+        }
+        xhr.open("post", "checkSeeion.php", true); //設定好所要連結的程式
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded"); 
+        xhr.send(null); //送出資料
+    }
 
 
     $id("index-searchInput").addEventListener("keyup",function(e){

@@ -6,7 +6,7 @@ session_start();
 	require_once("chatBot.php");
 	
 ?>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <meta name="format-detection" content="telephone=no">
 <header>
@@ -19,7 +19,7 @@ session_start();
 			</label>
 		</div>
 		<div class="logo">
-			<a href="javascript:void(0)">
+			<a href="index.php">
 				<img src="images/logo.png" alt="logo">
 			</a>
 		</div>
@@ -34,7 +34,7 @@ session_start();
 		<ul>
 			<li class="logo">
 				<div id="view4"></div>
-				<a href="javascript:void(0)">
+				<a href="index.php">
 					<img src="images/logo.png" alt="logo">
 				</a>
 			</li>
@@ -57,7 +57,7 @@ session_start();
 			</li>
 			<li class="meals">
 					<div id="view5"></div>
-				<a href="javascript:void(0)">日食餐點</a>
+				<a href="dishes.php">日食餐點</a>
 			</li>
 			<li class="initiate">			
 				<div id="view2"></div>
@@ -92,7 +92,7 @@ session_start();
 				</a>
 			</li>
 			<li class="table-hidden">
-				<a href="javascript:void(0)">
+				<a href="game.php">
 					<img src="images/icon/game_white.svg" alt="game"><br>
 					想吃什麼？
 				</a>
@@ -104,7 +104,7 @@ session_start();
 				</a>
 			</li>
 			<li class="table-hidden">
-				<a href="javascript:void(0)">
+				<a href="5-1_NotChanged.php">
 					<img src="images/icon/riceball_white.svg" alt="riceball"><br>
 					我的飯團
 				</a>
@@ -355,6 +355,7 @@ session_start();
 	var buyCount = document.querySelectorAll(".after-login span")[0];
 	var memberyPic = document.querySelectorAll(".after-login img")[0];
 	var nike = document.querySelectorAll(".after-login span")[1];
+
 	function checkMemberId() {
 		xhr = new XMLHttpRequest();
 		xhr.onload = function() {
@@ -365,6 +366,7 @@ session_start();
 					clearMemberSeeion.style.display = "none";
 				} else {
 					beforeLogin.style.display = "none";
+					beforeLogin.style.opacity = "0";
 					afterLogin.style.display = "inline-block";
 					clearMemberSeeion.style.display = "inline-block";
 					

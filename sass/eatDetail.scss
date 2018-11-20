@@ -15,7 +15,7 @@ $space_sm_lr: 0 30px;  //平板左右
     //共用
     .eatDetail-body{
         background-image: url("../images/tableCloth.png");
-        background-size: 91.5%;
+        background-size: 95%;
         background-repeat: repeat-y;
         background-position-x: center; 
     }
@@ -54,13 +54,13 @@ $space_sm_lr: 0 30px;  //平板左右
             padding: 20px 10px 0;
         }
     }
-
     //產品介紹
     .banner{ 
         .banner-pic,.banner-txt{ padding: 0 10px; }
         .banner-pic{
             .heart_icon{
                 float: right;
+                background-color: transparent;
                 img,span{ 
                     display: inline-block; 
                     vertical-align: middle;
@@ -518,7 +518,7 @@ $space_sm_lr: 0 30px;  //平板左右
 
 @include rwd(md,float) {  //1024px
     .eatDetail{
-        .eatDetail-body{ background-size: 94%; }
+        .eatDetail-body{ background-size: 1024px; }
         //共用
         .wrap{ 
             padding: 80px 30px 20px;
@@ -564,7 +564,9 @@ $space_sm_lr: 0 30px;  //平板左右
 
 @include rwd(lg,float) { //1200px
     .eatDetail{
-        .eatDetail-body{ background-size: 62.5%; }
+        .eatDetail-body{
+             background-size: 90%; 
+            }
         //共用
         .wrap{ 
             width: 1200px; 

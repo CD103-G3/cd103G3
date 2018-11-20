@@ -17,9 +17,13 @@
 
 	<?php
 		require_once("nav.php");
+		require_once('login.php');
+		require_once('login1.php');
 	?>
+ 
 
-	<div class="image-cutting-contain">
+
+<div class="image-cutting-contain">
 		<div class="container">
 			<img src="" id="photo">
 		</div>
@@ -31,6 +35,7 @@
 	<div class="member">
 		<div class="member-list">
 			<div class="member-list-item">
+			
 				<!-- <form action="#" id="myform" method="post" enctype="multipart/form-data"> -->
 					<label class="member-Pic-box" for="upFile">
 						<!-- <input type="file" id="input" class="sr-only"> -->
@@ -376,6 +381,8 @@
 
 		<div class="table-hide"></div>
 	</div>
+
+	
 	<script>
 
 	// 調整顯示訂單菜色的父層大小

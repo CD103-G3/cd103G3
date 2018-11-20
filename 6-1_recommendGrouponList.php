@@ -5,7 +5,7 @@
 try {
     require_once('phpDB/connectDB_CD103G3.php');
     //使用搜尋條件
-    $tagNo = $_REQUEST['tagNo'];
+    // $tagNo = $_REQUEST['tagNo'];
       
     $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon ORDER BY success DESC  LIMIT 8";
 

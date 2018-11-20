@@ -40,7 +40,7 @@
                 <figure>
                     <img class="sunder-img-zoom" src="images/meals/<?php echo $dishesRow->meal_Pic; ?>" alt="<?php echo $dishesRow->meal_Name; ?>">
                 </figure>
-                <p class="heart_icon">
+                <button class="heart_icon">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
                         <g>
@@ -58,7 +58,7 @@
                         </g>
                     </svg>
                     <span>收藏</span>
-                </p>
+                </button>
             </div>
             <div class="banner-txt part-md-6 part-lg-6">
                 <h2 class="product color"> <?php echo $dishesRow->meal_Name; ?> </h2>
@@ -95,8 +95,8 @@
                     </div>    
                 </div>
                 <div class="count-btn clearfix">
-                    <button class="add-cart mainBTN cart_icon" name="add-cart" id="A0 <?php echo $dishesRow->meal_No; ?>">
-                    <input type="hidden" value="<?php echo $dishesRow->meal_Name; ?> | <?php echo $dishesRow->meal_Pic; ?> | <?php echo $dishesRow->meal_Price; ?> |1">
+                    <button class="add-cart mainBTN cart_icon" name="add-cart" id="A0<?php echo $dishesRow->meal_No; ?>">
+                    <input type="hidden" value="<?php echo $dishesRow->meal_Name; ?>|<?php echo $dishesRow->meal_Pic; ?>|<?php echo $dishesRow->meal_Price; ?>|1">
                         <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
                             <g>
@@ -262,5 +262,10 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/iconCliCK.js"></script>
 <script src="js/eatDetail.js"></script>
+<script>
+    document.getElementsByClassName('go-cart ')[0].addEventListener('click',function () {
+        location.href='shopping_cart.php';
+    })
+</script>
 
 </html>

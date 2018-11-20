@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -244,7 +243,7 @@
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.0/dist/sweetalert2.all.min.js"></script>
+	<script src="node_modules\sweetalert\dist\sweetalert.min.js"></script>
 	<script src="js/alertCustom.js"></script>
 	<script src="js/Swiper.js"></script>
 	<script src="js/puzzle.js"></script>
@@ -255,13 +254,13 @@
 	<script src='https://cdn.jsdelivr.net/mojs/0.265.6/mo.min.js'></script>
 	<script src="js/iconClick.js"></script>
 	<script>
-		var index = sessionStorage;
 		function getDishes(){
-
+			
 			if(index['index_search']!=null){
 				document.getElementById('searchInputMeal').value=index.getItem('index_search');
 				index.removeItem('index_search');
-				console.log(document.getElementById('searchInputMeal').value);
+			}else{
+				document.getElementById('searchInputMeal').value='';
 			}
 			var xhr = new XMLHttpRequest();
 			xhr.onreadystatechange=function(){
@@ -278,31 +277,30 @@
   			xhr.send( null );
 		}
         
-
         window.addEventListener("load", function(){
+			getDishes();
+
         	document.getElementById("searchInputMeal").addEventListener("keypress",function(e){
          		// window.alert(2);
+        		console.log("eeeeeeeeee");
+        		console.log(e);
         		if(e.keyCode == 13){
         			getDishes();
         		}       		
 			});
-			getDishes();
         });
-
 		var coll = document.querySelectorAll('.food-button-save'); 
 	    for(var i=0;i<coll.length;i++){
 	        coll[i].addEventListener('click',function(){
 	          // alert('hi');
 	          var mealState = this.getElementsByClassName('mealState')[0];
 	          var mealNo = this.getElementsByClassName('mealNo')[0];
-
 	          if(mealState.value == 'false') {
 	          	mealState.value = 'true';
 	          } else {
 	          	mealState.value = 'false';
 	          } //切換該筆餐點的收藏狀態
  
-
 	          // console.log(mealState.value);
 	          // if(this.value == '')
 	          // console.log(this);
@@ -319,10 +317,12 @@
 	                    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 	                    //餐點收藏狀態
 	                    var data_info = "mealState=" + mealState.value + "&mealNo=" + mealNo.value;
+	                    console.log(data_info);
 	                                     //餐點編號
 	                    xhr.send(data_info);
 	        });
 	    }
 	</script>
+
 </body>
 </html>
