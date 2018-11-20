@@ -12,6 +12,7 @@
 
     <?php
         require_once("nav.php");
+        require_once('login1.php'); //要判斷登入會員，否則抓不到會員資料
     ?>
 
     <div class="shopping_step">    
@@ -62,7 +63,7 @@
                         <span class="memOrder_amount">結帳金額 <strong class="memOrder_amount_t">NT$200</strong></span>
                     </div>
                     <div class="shopping_choose">
-                        <button class="continue_shopping_button mainBTN">繼續購物</button>
+                        <a class="continue_shopping_button mainBTN" href="dishes.php">繼續購物</a>
                         <button class="subBTN" id="shopping_Next_button">下一步</button>
                     </div>                   
                 </div>

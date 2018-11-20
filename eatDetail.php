@@ -139,7 +139,7 @@
                         <figure class="member-img fl">
                             <img src="images/icon7.png">
                         </figure>
-                        <div class="member-id fl color">訪客訪客訪客</div>
+                        <div class="member-id fl color">訪客</div>
                     </div>
                     <!-- <div class="comments-time fl">2018-01-01</div> -->
                 </div>
@@ -163,7 +163,7 @@
                             <figure class="member-img fl">
                                 <img src="images/icon7.png">
                             </figure>
-                            <div class="member-id fl color">ABC123</div>
+                            <div class="member-id fl color">使用者留言</div>
                         </div>
                         <div class="comments-time fl"><?php echo $msgRow -> message_Time ?> </div>
                     </div>
@@ -183,7 +183,7 @@
                             <figure class="member-img fl">
                                 <img src="images/icon7.png">
                             </figure>
-                            <div class="member-id fl color">ABC123</div>
+                            <div class="member-id fl color">使用者留言</div>
                         </div>
                         <div class="comments-time fl"></div>
                     </div>

@@ -5,12 +5,11 @@ session_start();
 
 try {
     require_once('phpDB/connectDB_CD103G3.php');
-
-    if(isset($_SESSION['memId'])) {
-        $memId = $_SESSION['memId']; //會員id
+    
+    if(isset($_SESSION['member_Id'])) {
+        $memId = $_SESSION['member_Id']; //會員id
         $memNo = $_SESSION['member_No']; //會員編號
     }
-    
     
     $grouponNo = $_REQUEST['no'];
     $sql = "INSERT INTO `membergroupon` (`memberGrouponList_No`, `member_No`, `groupon_No`) VALUES (NULL, :memberNo, :grouponNo)";
@@ -18,7 +17,7 @@ try {
 
     //更新會員參加的飯團
     $groupon = $pdo -> prepare($sql);
-    $groupon -> bindValue('memberNo', $memNo); //id no.為3的會員
+    $groupon -> bindValue('memberNo', $memNo); //id no.的會員
     $groupon -> bindValue('grouponNo', $grouponNo);
     $groupon -> execute();
 
