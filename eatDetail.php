@@ -151,37 +151,65 @@
                     </div>
                 </div>
             </div>
+            <div class="text-container">
             <?php
+            
+                
                 $sql = "select * from message where message.meal_No=$meal_No && message.message_Reported = false ORDER BY message.message_No DESC";
                 $message = $pdo -> query($sql);
-                while($msgRow = $message->fetchObject()){;
+                if($message -> rowCount() == 0) {
+                    $memId = '訪客';
+                    $memPic = 'icon7.png';
+                }
+                while($msgRow = $message->fetchObject()){
+                     
+                        $sql = 'SELECT * from member WHERE member_No = (SELECT member_No from message WHERE message_No = :memNo)';
+                        $memInfo = $pdo -> prepare($sql);
+                        $memInfo -> bindValue('memNo', $msgRow -> message_No);
+                        $memInfo -> execute();
+                        if($memInfo -> rowCount() == 0) {
+                            $memId = '訪客';
+                            $memPic = 'icon7.png';
+                        } else {
+                            $memInfoR = $memInfo -> fetchAll();
+                            $memId = $memInfoR[0]['member_Id'];
+                            $memPic = $memInfoR[0]['member_Pic'];
+                        }
+                    
+                        
+                        
+                    
+                        
+                    
             ?>
-            <div class="text-container">
+                <div class="member-msg">
+                        <div class="member-data clearfix">
+                            <div class="member-pic fl">
+                                <figure class="member-img fl">
+                                    <img src="images/<?php echo $memPic ?>">
+                                </figure>
+                                <div class="member-id fl color"><?php echo $memId ?>留言</div>
+                            </div>
+                            <div class="comments-time fl"><?php echo $msgRow -> message_Time ?> </div>
+                        </div>
+                        <div class="comments clearfix">
+                            <p><?php echo $msgRow -> message_Content ?></p>
+                            <div class="msg-btn">  
+                                <button type="submit" name="comments" id="num<?php echo $msgRow -> message_No ?>" class="nextBTN report">檢舉</button>
+                                <input type="hidden" id="mealnum<?php echo $msgRow -> message_No ?>" value="<?php echo $msgRow -> meal_No ?>">
+                                
+                                <input type="hidden" id="msgnum<?php echo $msgRow -> message_No ?>" value="<?php echo $msgRow -> message_No ?>">
+                            </div>
+                        </div>
+                    </div>
+                
+            
+            <?php }; ?> 
                 <div class="member-msg">
                     <div class="member-data clearfix">
                         <div class="member-pic fl">
                             <figure class="member-img fl">
-                                <img src="images/icon7.png">
-                            </figure>
-                            <div class="member-id fl color">使用者留言</div>
-                        </div>
-                        <div class="comments-time fl"><?php echo $msgRow -> message_Time ?> </div>
-                    </div>
-                    <div class="comments clearfix">
-                        <p><?php echo $msgRow -> message_Content ?></p>
-                        <div class="msg-btn">  
-                            <button type="submit" name="comments" id="num<?php echo $msgRow -> message_No ?>" class="nextBTN report">檢舉</button>
-                            <input type="hidden" id="mealnum<?php echo $msgRow -> message_No ?>" value="<?php echo $msgRow -> meal_No ?>">
-                            
-                            <input type="hidden" id="msgnum<?php echo $msgRow -> message_No ?>" value="<?php echo $msgRow -> message_No ?>">
-                        </div>
-                    </div>
-                </div>
-                <div class="member-msg">
-                    <div class="member-data clearfix">
-                        <div class="member-pic fl">
-                            <figure class="member-img fl">
-                                <img src="images/icon7.png">
+                                <img src="images/<?php echo $memPic ?>">
                             </figure>
                             <div class="member-id fl color">使用者留言</div>
                         </div>
@@ -194,8 +222,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <?php }; ?>   
+            </div>  
         </div>
     </div>
 

@@ -48,7 +48,7 @@ try {
         <div class="grouponDetail-container g_<?php echo $grouponR["groupon_TagNo"] ?>">
             <div class="grouponTitle-wrapper">
                 <div class="text-box">
-                    <span class="tag">#
+                    <span class="tag" tagNo="<?php echo $grouponR['groupon_TagNo'] ?>">#
                         <?php 
                     
                             echo $tagR[$grouponR["groupon_TagNo"] - 1]['groupon_TagName'] 
@@ -476,18 +476,19 @@ function showAchie(jsonStr) {
 
 //顯示推薦部分
 function getRecommendURL() {
-    var tagNo = $all('.tag')[0].innerText;
+    var tagNo = $all('.tag')[0].getAttribute('tagNo');
+    console.log(tagNo);
     url = '6-1_recommendGrouponList.php?tagNo=' + tagNo;
     getMealAll('recomm');
 }
 
 function showRecomm(jsonStr) {
     var recommGroupon = JSON.parse(jsonStr);
-    // console.log(recommGroupon);
+    console.log(recommGroupon);
     var recommGrouponCount = recommGroupon.length;
     for(let i = 0;i < recommGrouponCount; i++) {
         var recommTemp = 
-        `<div class="groupon-box">
+        `<div class="groupon-box g_8">
             <div class="groupon_topUI clearfix">
                 <div class="leftUI grid-12">
                     <div class="titleTag grid-12">
@@ -575,7 +576,6 @@ function showRecomm(jsonStr) {
         $all('.grouponPrice')[i+1].getElementsByTagName('span')[0].innerHTML = Math.round(toPrice * discountR) +'元';
     }
     startOwl(); //全部加載後再load套件
-    console.log('//');
 
 }
 

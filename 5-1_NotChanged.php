@@ -10,7 +10,13 @@
     <script src="js/gsap/src/minified/TweenMax.min.js"></script>
     <script src="js/gsap/src/minified/easing/CustomEase.min.js"></script>
     <script src="js/main.js"></script>
-    <title>5-1</title>
+    <style>
+        #chatBot {
+            display: none;
+        }
+    
+    </style>
+    <title>您已參加的飯團</title>
 </head>
 
 <body>
