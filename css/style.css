@@ -59,10 +59,17 @@ table {
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, label, table, tr, th, td, footer, header, section, ol, ul, textarea {
   font-family: 微軟正黑體, arial, "LiHei-Pro", "sans serif"; }
 
-input[type="text"]::-webkit-input-placeholder {
+input[type="text"] {
+  -webkit-appearance: none;
+  /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
+  -moz-appearance: none;
+  /* FireFox */
+  appearance: none;
   font-family: 微軟正黑體, arial, "LiHei-Pro", "sans serif"; }
+  input[type="text"]::-webkit-input-placeholder {
+    font-family: 微軟正黑體, arial, "LiHei-Pro", "sans serif"; }
 
-button, input[type="button"], input[type="text"] {
+button, input[type="button"] {
   -webkit-appearance: none;
   /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
   -moz-appearance: none;
@@ -297,7 +304,7 @@ button, input[type="button"], input[type="text"] {
   right: 0;
   z-index: 50;
   background-color: #aaa9; }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1200px) {
     #login-wrap {
       position: fixed;
       top: 100px;
@@ -317,6 +324,8 @@ button, input[type="button"], input[type="text"] {
     color: #333333; }
   .login-wrap input[type="radio"] {
     display: none; }
+  .login-wrap::-webkit-scrollbar {
+    width: 0px; }
   @media screen and (min-width: 768px) {
     .login-wrap {
       width: 26.66667%;
@@ -1370,7 +1379,7 @@ header {
 .nav_height {
   height: 75px; }
 
-#clearCookie {
+#clearMemberSeeion {
   display: none; }
 
 @media screen and (min-width: 1024px) {
@@ -1610,10 +1619,17 @@ header {
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, label, table, tr, th, td, footer, header, section, ol, ul, textarea {
   font-family: 微軟正黑體, arial, "LiHei-Pro", "sans serif"; }
 
-input[type="text"]::-webkit-input-placeholder {
+input[type="text"] {
+  -webkit-appearance: none;
+  /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
+  -moz-appearance: none;
+  /* FireFox */
+  appearance: none;
   font-family: 微軟正黑體, arial, "LiHei-Pro", "sans serif"; }
+  input[type="text"]::-webkit-input-placeholder {
+    font-family: 微軟正黑體, arial, "LiHei-Pro", "sans serif"; }
 
-button, input[type="button"], input[type="text"] {
+button, input[type="button"] {
   -webkit-appearance: none;
   /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
   -moz-appearance: none;

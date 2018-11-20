@@ -4,7 +4,6 @@ session_start();
 	require_once("login.php");
 	require_once("search.php");
 	require_once("chatBot.php");
-	
 ?>
  <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -41,18 +40,12 @@ session_start();
 			<li class="index-member">
 				<div id="view6"></div>
 				<label for="close-login" class="before-login">
-					註冊／登入
+					<!-- 註冊登入 -->
 				</label>
 				<div class="after-login">
-					<div>
-						<a href="member.php">
-							<img src="images/icon/user_white.svg" alt="member-Pic" class="member-Pic">
-						</a>
-					</div>
-					<div>
-						<span><img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">300積分</span><br>
-						<span>Sara. always</span>
-					</div>
+					<?php 
+						require_once('memberInfo.php');
+					?>
 				</div>
 			</li>
 			<li class="meals">
@@ -349,42 +342,18 @@ session_start();
 
 </script>
 <script>
-	var beforeLogin = document.getElementsByClassName("before-login")[0];
-	var afterLogin = document.getElementsByClassName("after-login")[0];
-	var clearMemberSeeion = document.getElementById('clearMemberSeeion');
-	var buyCount = document.querySelectorAll(".after-login span")[0];
-	var memberyPic = document.querySelectorAll(".after-login img")[0];
-	var nike = document.querySelectorAll(".after-login span")[1];
-
-	function checkMemberId() {
-		xhr = new XMLHttpRequest();
-		xhr.onload = function() {
-			if (xhr.status == 200) {
-				if (xhr.responseText.indexOf("not found") != -1) {
-					beforeLogin.style.display = "inline-block";
-					afterLogin.style.display = "none";
-					clearMemberSeeion.style.display = "none";
-				} else {
-					beforeLogin.style.display = "none";
-					beforeLogin.style.opacity = "0";
-					afterLogin.style.display = "inline-block";
-					clearMemberSeeion.style.display = "inline-block";
-					
-					var jsonStr = JSON.parse(xhr.responseText);
-					nike.innerText = jsonStr[0].member_Nick ; 
-					memberyPic.src = `images/${jsonStr[0].member_Pic}` ;
-					buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${jsonStr[0].member_buyCount}`;
-				
-				}
-			} else {
-				alert("3:"+xhr.status);
-				return "s";
-			};
+var beforeLogin = document.getElementsByClassName("before-login")[0];
+var afterLogin = document.getElementsByClassName("after-login")[0];
+var clearMemberSeeion = document.getElementById('clearMemberSeeion');
+	<?php
+		if(isset($_SESSION["member_Id"])){
+			echo 'beforeLogin.style.display = "none";
+				  afterLogin.style.display = "inline-block";
+				  clearMemberSeeion.style.display = "inline-block"';
+		}else{
+			echo 'beforeLogin.innerText="登入/註冊"';
 		}
-		xhr.open("post", "checkSeeion.php", true); //設定好所要連結的程式
-		xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded"); 
-		xhr.send(null); //送出資料
-	};
+	?>
 
 	document.getElementById('clearMemberSeeion').addEventListener('click',function(){ //點擊登出
 		//清除SEEION
@@ -392,10 +361,11 @@ session_start();
         xhr.onload = function(){
 			var memerIdLive = 0;
 			beforeLogin.style.display = "inline-block";
+			beforeLogin.innerText="登入/註冊";
 			afterLogin.style.display = "none";
 			clearMemberSeeion.style.display = "none";
 			nike.innerText = "" ; 
-			memberyPic.src = "" ;
+			memberPic.src = "" ;
 			buyCount.innerHTML = "";
 			swal("已登出", {
 				button: false,
@@ -404,7 +374,5 @@ session_start();
         xhr.open("get","Logout.php", true);
         xhr.send( null);
 	},false);
-	window.addEventListener('load',function(){
-		checkMemberId();
-	},false);
+
 </script>

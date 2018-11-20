@@ -1,4 +1,4 @@
-	<input type="checkbox" id="close-login" checked>
+<input type="checkbox" id="close-login" checked>
 	<div id="login-wrap">
 		<div class="login-wrap">
 			<label for="close-login" class="close-login btn-cup"></label>

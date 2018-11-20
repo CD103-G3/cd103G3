@@ -148,6 +148,7 @@ needCheckPsw.addEventListener("input", function() {
   }
   if (hasNumABC === false) {
     this.parentNode.lastChild.src = "images/icon/checkN.svg";
+    
     $(this)
       .parent()
       .append(newPlace);
@@ -332,6 +333,9 @@ needCheckEmail[1].addEventListener("input", function() {
 });
 var beforeLogin = document.getElementsByClassName("before-login")[0];
 var afterLogin = document.getElementsByClassName("after-login")[0];
+var clearMemberSeeion = document.getElementById('clearMemberSeeion');
+var buyCount = document.querySelectorAll(".after-login span")[0];
+var nike = document.querySelectorAll(".after-login span")[1];
 var memberPic = document.getElementsByClassName("member-Pic")[0];
 //登入
 $id("siginSubmit").addEventListener(
@@ -347,6 +351,7 @@ $id("siginSubmit").addEventListener(
       xhr.onload = function() {
         if (xhr.status == 200) {
           if (xhr.responseText.indexOf("not found") != -1) {
+
             swal({
               title: "帳號或密碼錯誤!",
               icon: "error",
@@ -371,8 +376,18 @@ $id("siginSubmit").addEventListener(
             );
           } else {
             //登入成功
-            checkMemberId();
+            beforeLogin.style.display = "none";
+            afterLogin.style.display = "inline-block";
+            clearMemberSeeion.style.display = "inline-block";
+
+            var jsonStr = JSON.parse(xhr.responseText);
+            console.log(jsonStr);
+            nike.innerText = jsonStr.member_Nick ; 
+            memberPic.src = `images/${jsonStr.member_Pic}` ;
+            buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${jsonStr.member_buyCount}`;
+
             document.getElementById("close-login").checked = true;
+
             swal({
               title: "歡迎!",
               text: "快來看看",
@@ -419,8 +434,17 @@ $id("sigupSubmit").addEventListener(
       xhr.onload = function() {
         if (xhr.status == 200) {
           if (xhr.responseText.indexOf("not found") != -1) {
-            checkMemberId();
+            beforeLogin.style.display = "none";
+            afterLogin.style.display = "inline-block";
+            clearMemberSeeion.style.display = "inline-block";
+
+            var jsonStr = JSON.parse(xhr.responseText);
+            nike.innerText = jsonStr.member_Nick ; 
+            memberPic.src = `images/${jsonStr.member_Pic}` ;
+            buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${jsonStr.member_buyCount}`;
+
             document.getElementById("close-login").checked = true;
+
             swal({
               title: "歡迎!",
               text: "日食送你一張每日刮刮樂，快去看看吧!",

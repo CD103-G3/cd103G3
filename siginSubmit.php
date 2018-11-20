@@ -8,6 +8,8 @@ try{
   $member = $pdo->prepare($sql);
   $member->bindValue(":member_Id", $loginInfo->member_Id);
   $member->bindValue(":member_Psw", $loginInfo->member_Psw);
+  // $member->bindValue(":member_Id", "ke");
+  // $member->bindValue(":member_Psw", "ke");
   $member->execute();
 
   if( $member->rowCount()==0){ //查無此人
@@ -15,7 +17,6 @@ try{
   }else{ //登入成功
     //自資料庫中取回資料
   	$memRow = $member->fetch(PDO::FETCH_ASSOC);
-
   	//將登入者的資訊寫入session暫存區
   	$_SESSION["member_No"] = $memRow["member_No"]; //會員編號
   	$_SESSION["member_Id"] = $memRow["member_Id"]; //會員帳號
@@ -26,8 +27,11 @@ try{
     $_SESSION["member_Pic"] = $memRow["member_Pic"];  //會員大頭貼
     $_SESSION["member_Bonus"] = $memRow["member_Bonus"];  //會員購物金
     $_SESSION["member_buyCount"] = $memRow["member_buyCount"];  //會員購買數量
+
+    $jsonStr = json_encode($memRow);
+
   	//送出登入者的姓名資料
-    echo $memRow["member_Nick"].','.$memRow["member_Pic"].','.$memRow["member_buyCount"]; 
+    echo $jsonStr;
   }
 }catch(PDOException $e){
   echo $e->getMessage();

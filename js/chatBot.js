@@ -75,6 +75,7 @@ function CallAjax(text) {
       alert(xhr.status);
     }
   };
+
   xhr.open("post", "chatBotSaveSession.php", true);
   xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
   var data_info = "jsonStr=" + jsonStr;
@@ -145,18 +146,19 @@ var keywordWrap = document.querySelector(".chatBot-keyword");
 var cc = 0;
 var maxW = 0;
 var keywordWidth = [];
-for (let i = 0; i < keyword.length; i++) {  //看li有幾個
-  keywordWidth.push(parseInt(getComputedStyle(keyword[i], null).width));  //把li的寬度放入陣列
-  maxW += keywordWidth[i];  //把陣列內容加起來
-}
+// for (let i = 0; i < keyword.length; i++) {  //看li有幾個
+//   keywordWidth.push(parseInt(getComputedStyle(keyword[i], null).width));  //把li的寬度放入陣列
+//   maxW += keywordWidth[i];  //把陣列內容加起來
+//   console.log(keyword[i].offsetWidth);
+// }
 //捲動關鍵字項目-完成捲動
 //當滾輪發生時執行addKey
 keywordWrap.onmousewheel = addKey;
 function addKey(e) {
+ 
   var e = e || window.event; //看是哪個瀏覽器
   // console.log();
   if (keywordWrap.contains(e.target)) { //如果摸到時包含ul子層
-    var minW = -maxW;
     var orient = event.deltaY;
     if (orient > 0) {
       cc += 35;
@@ -165,8 +167,8 @@ function addKey(e) {
       }
     } else if (orient < 0) {
       cc -= 35;
-      if (cc < minW) {
-        cc = minW;
+      if (cc < 0) {
+        cc = 0;
       }
     }
     keywordWrap.scrollTo({
@@ -180,4 +182,10 @@ function addKey(e) {
 }
 document.getElementById("close-chatBot").addEventListener("click", function() {
   document.getElementById("navctrl").checked = false;
+  for (let i = 0; i < keyword.length; i++) {  //看li有幾個
+    keywordWidth.push(parseInt(getComputedStyle(keyword[i], null).width));  //把li的寬度放入陣列
+    maxW += keywordWidth[i];  //把陣列內容加起來
+    
+  }
+  console.log(maxW);
 });

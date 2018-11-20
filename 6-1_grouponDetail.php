@@ -30,9 +30,6 @@ try {
 ?>
 
 
-
-
-
     <title><?php echo $grouponR["groupon_Name"] ?></title>
 </head>
 <body>
@@ -301,6 +298,8 @@ try {
     
 </body>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<!-- <script src="js/jquery-3.3.1.min.js"></script> -->
+
 <script>
 function startOwl() {
     $(".owl-carousel").owlCarousel({

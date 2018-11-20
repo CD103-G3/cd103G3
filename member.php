@@ -17,13 +17,10 @@
 
 	<?php
 		require_once("nav.php");
-		require_once('login.php');
-		require_once('login1.php');
+		require_once("login1.php");
 	?>
- 
 
-
-<div class="image-cutting-contain">
+	<div class="image-cutting-contain">
 		<div class="container">
 			<img src="" id="photo">
 		</div>
@@ -35,7 +32,6 @@
 	<div class="member">
 		<div class="member-list">
 			<div class="member-list-item">
-			
 				<!-- <form action="#" id="myform" method="post" enctype="multipart/form-data"> -->
 					<label class="member-Pic-box" for="upFile">
 						<!-- <input type="file" id="input" class="sr-only"> -->
@@ -63,24 +59,24 @@
 				</p>
 			</div>
 			<script>
-				// document.getElementById("subBTN-pic").addEventListener('click',function(){
-				// 	//=====使用Ajax,更新登入者頭像
-				// 	var xhr = new XMLHttpRequest();
-				// 	// alert(document.getElementById("member-Pic").src);
-				// 	xhr.onload = function (){
-				// 		if( xhr.status == 200){
-				// 			// alert("會員頭像修改成功");
-				// 			swal("會員頭像修改成功", "", "success");
-				// 		}else{
-				// 			alert(xhr.status);
-				// 		}
-				// 	}
-				// 	xhr.open("post", "memberPicUpdate.php", true);
-				// 	xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-				// 	var data_info = "memberPic=" + document.getElementById("member-Pic").src; //會員頭像url
-				// 	// alert(data_info);
-				// 	xhr.send(data_info);
-				// });
+				document.getElementById("subBTN-pic").addEventListener('click',function(){
+					//=====使用Ajax,更新登入者頭像
+					var xhr = new XMLHttpRequest();
+					// alert(document.getElementById("member-Pic").src);
+					xhr.onload = function (){
+						if( xhr.status == 200){
+							// alert("會員頭像修改成功");
+							swal("會員頭像修改成功", "", "success");
+						}else{
+							alert(xhr.status);
+						}
+					}
+					xhr.open("post", "memberPicUpdate.php", true);
+					xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+					var data_info = "memberPic=" + document.getElementById("member-Pic").src; //會員頭像url
+					// alert(data_info);
+					xhr.send(data_info);
+				});
 
 
 				// $("#subBTN-pic").click(function() {
@@ -113,7 +109,7 @@
 					<h2>
 						<img src="images/member-data-img.svg" alt="基本資料">
 					</h2>
-					<tr>
+						<tr>
 							<td><label for="member-nickname">暱稱</label></td>
 							<td>
 								<input type="text" id="member-nickname" name="nickname" name="fname" value=<?php echo $memRow->member_Nick ?>>
@@ -150,6 +146,13 @@
 							if( xhr.status == 200){
 								// alert("會員資料修改成功");
 								swal("會員資料修改成功", "", "success");
+
+								setInterval(() => {
+									document.querySelector(".swal-button").addEventListener('click',function(){
+										window.history.go(0);//重新整理頁面
+									});
+								}, 100);
+								
 							}else{
 								alert(xhr.status);
 							}
@@ -161,8 +164,7 @@
 										"&tel=" + document.getElementById("member-tel").value;//會員手機
 						// alert(data_info);
 						xhr.send(data_info);
-						
-						window.history.go(0);//重新整理頁面
+
 					});
 				</script>
 					<!-- 密碼修改 -->
@@ -381,8 +383,6 @@
 
 		<div class="table-hide"></div>
 	</div>
-
-	
 	<script>
 
 	// 調整顯示訂單菜色的父層大小

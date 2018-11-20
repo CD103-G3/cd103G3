@@ -38,7 +38,8 @@ try{
     $_SESSION["member_buyCount"] = $memRow["member_buyCount"];  //會員購買數量
     $_SESSION["where"] = "login";  //告知我是註冊登入
     //送出登入者的姓名資料
-    echo "not found".','.$memRow["member_Nick"].','.$memRow["member_Pic"].','.$memRow["member_buyCount"]; 
+    $jsonStr = json_encode($memRow);
+    echo $jsonStr;
     // echo 'not found'; //會員大頭貼
   }else{ //註冊失敗
     echo 'hasMember';

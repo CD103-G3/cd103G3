@@ -254,19 +254,17 @@
 	<script src='https://cdn.jsdelivr.net/mojs/0.265.6/mo.min.js'></script>
 	<script src="js/iconClick.js"></script>
 	<script>
+	// var index = sessionStorage;
 		function getDishes(){
 			
-			if(index['index_search']!=null){
-				document.getElementById('searchInputMeal').value=index.getItem('index_search');
-				index.removeItem('index_search');
-			}else{
-				document.getElementById('searchInputMeal').value='';
-			}
 			var xhr = new XMLHttpRequest();
 			xhr.onreadystatechange=function(){
 				if(xhr.readyState == 4){
 					if(xhr.status == 200){
 						document.querySelector(".food-content").innerHTML = xhr.responseText;  
+						if(index['index_search']!=null){
+							index.removeItem('index_search');
+						}
 					}else{
 						alert(xhr.status);
 					}
@@ -278,7 +276,12 @@
 		}
         
         window.addEventListener("load", function(){
-			getDishes();
+			if(index['index_search']!=null){
+				alert("1" + index['index_search']);
+				document.getElementById('searchInputMeal').value=index.getItem('index_search');
+				alert("2" + document.getElementById('searchInputMeal').value);
+				getDishes();
+			}
 
         	document.getElementById("searchInputMeal").addEventListener("keypress",function(e){
          		// window.alert(2);
