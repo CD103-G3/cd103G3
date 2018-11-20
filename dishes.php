@@ -254,13 +254,12 @@
 	<script src='https://cdn.jsdelivr.net/mojs/0.265.6/mo.min.js'></script>
 	<script src="js/iconClick.js"></script>
 	<script>
+		var index = sessionStorage;
 		function getDishes(){
 			
 			if(index['index_search']!=null){
 				document.getElementById('searchInputMeal').value=index.getItem('index_search');
 				index.removeItem('index_search');
-			}else{
-				document.getElementById('searchInputMeal').value='';
 			}
 			var xhr = new XMLHttpRequest();
 			xhr.onreadystatechange=function(){

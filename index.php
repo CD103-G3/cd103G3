@@ -1296,6 +1296,17 @@ window.onbeforeunload = function(){
             }
         }
     });
+
+    $id("index-searchInput").addEventListener("keyup",function(e){
+        if(indexSelect.options[0].selected==true){
+            index['index_search'] = $id("index-searchInput").value;
+            console.log( $id("index-searchInput").value );
+            // console.log( index['index_search']  );
+        }
+        if(e.keyCode == 13){
+            $id('indexSearch-searchBar').submit();
+        }    
+    });
     $class('indexLogin-btn')[0].onclick = function () {
         xhr = new XMLHttpRequest();
         xhr.onload = function() {
@@ -1328,15 +1339,7 @@ window.onbeforeunload = function(){
     }
 
 
-    $id("index-searchInput").addEventListener("keyup",function(e){
-        if(indexSelect.options[0].selected==true){
-            index['index_search'] = $id("index-searchInput").value;
-            console.log( $id("index-searchInput").value );
-        }
-        if(e.keyCode == 13){
-            $id('indexSearch-searchBar').submit();
-        }    
-    });
+
     </script>
 
     <!-- 評分蛋 -->
