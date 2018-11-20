@@ -50,29 +50,31 @@
 			<!-- 橘色 -->
 			<div class="coll_total_background">
 				<div class="coll_total part-12 part-s-6 part-l-6">
-				
-					<?php
-						try{
-							require_once("connectmenu.php");
-						      
-							$collsql = "select Count(distinct membercoll.meal_No) counts from membercoll,meal where membercoll.meal_No = meal.meal_No && meal.mealGenre_No && membercoll.member_No = $memNo";
-							$colltotal = $pdo->prepare($collsql);
-							$colltotal->execute();
-							while($rowcoll=$colltotal->fetch(PDO::FETCH_ASSOC)){
-					?>
-
-					<p class="coll_total_num"><?php echo $rowcoll['counts']?></p>
-
-					<?php
-							}
-						?>		
+					<div class="coll-container">
+					
 						<?php
-							}catch(PDOException $e){
-								echo $e->getMessage();
-							}
+							try{
+								require_once("connectmenu.php");
+								
+								$collsql = "select Count(distinct membercoll.meal_No) counts from membercoll,meal where membercoll.meal_No = meal.meal_No && meal.mealGenre_No && membercoll.member_No = $memNo";
+								$colltotal = $pdo->prepare($collsql);
+								$colltotal->execute();
+								while($rowcoll=$colltotal->fetch(PDO::FETCH_ASSOC)){
 						?>
 
-					<p class="coll_total_title">已收藏菜色總數</p>
+						<p class="coll_total_num"><?php echo $rowcoll['counts']?></p>
+
+						<?php
+								}
+							?>		
+							<?php
+								}catch(PDOException $e){
+									echo $e->getMessage();
+								}
+							?>
+
+						<p class="coll_total_title">已收藏菜色總數</p>
+					</div>
 				</div>
 				<div class="coll_total_s part-12 part-s-6 part-l-6">
 					<p>已收藏菜色總數</p>
@@ -269,7 +271,7 @@
 					<p class="coll_nocoll">尚未有任何收藏項目種類</p>
 				</div>
 				<div class="coll_food coll_nocoll_txt part-6 part-s-6 part-l-6">
-					<p id="coll_nocoll_txt">您目前沒有任何收藏，建議前往<a href="">餐點一覽</a>參考看看</p>
+					<p id="coll_nocoll_txt">您目前沒有任何收藏，建議前往<a href="dishes.php" class="nextBTN"> 餐點一覽 </a>參考看看</p>
 
 				</div>
 			</div>

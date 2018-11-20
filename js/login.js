@@ -428,11 +428,15 @@ $id("sigupSubmit").addEventListener(
               content: {
                 element: "a",
                 attributes: {
-                  href: "https://www.youtube.com/?gl=TW&hl=zh-tw",
+                  href: "scratch.php",
                   text: "前往刮刮樂"
                 }
               }
             });
+            setTimeout(function() {
+              location.href = 'scratch.php';
+            },1500);
+            
           } else {
             //註冊失敗
             if (xhr.responseText.indexOf("hasMember") != -1) {

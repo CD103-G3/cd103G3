@@ -483,7 +483,7 @@ function getRecommendURL() {
 
 function showRecomm(jsonStr) {
     var recommGroupon = JSON.parse(jsonStr);
-    console.log(recommGroupon);
+    // console.log(recommGroupon);
     var recommGrouponCount = recommGroupon.length;
     for(let i = 0;i < recommGrouponCount; i++) {
         var recommTemp = 
