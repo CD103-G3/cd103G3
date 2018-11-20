@@ -4,7 +4,6 @@ session_start();
 	require_once("login.php");
 	require_once("search.php");
 	require_once("chatBot.php");
-	
 ?>
  <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -19,7 +18,7 @@ session_start();
 			</label>
 		</div>
 		<div class="logo">
-			<a href="index.php">
+			<a href="index_front.php">
 				<img src="images/logo.png" alt="logo">
 			</a>
 		</div>
@@ -34,11 +33,12 @@ session_start();
 		<ul>
 			<li class="logo">
 				<div id="view4"></div>
-				<a href="index.php">
+				<a href="index_front.php">
 					<img src="images/logo.png" alt="logo">
 				</a>
 			</li>
-			<li class="index-member">
+			<li class="index-member"> 
+			<!-- hover跳窗 -->
 				<div id="view6"></div>
 				<label for="close-login" class="before-login">
 					註冊／登入
@@ -53,6 +53,20 @@ session_start();
 						<span><img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">300積分</span><br>
 						<span>Sara. always</span>
 					</div>
+				</div>
+				<div class="hoverBox">
+					<a href="coll.php">
+						我的收藏
+					</a>
+					<a href="5-1_NotChanged.php">
+						我的飯團
+					</a>
+					<form action="Logout.php">
+						<button type="submit">
+							登出
+						</button>
+					</form>
+					
 				</div>
 			</li>
 			<li class="meals">
@@ -121,7 +135,17 @@ session_start();
 <script src="js/search.js"></script>
 
 <script>
-
+	function $id(id) {
+		return document.getElementById(id);
+	}
+	function $class(className) {
+		return document.getElementsByClassName(className);
+	}
+	function $all(all) {
+		return document.querySelectorAll(all);
+	}
+	
+	
 	for (var i = 1; i <= 7; i++) {
 	
 		var view = document.querySelector("#view" +　i);
@@ -407,4 +431,8 @@ session_start();
 	window.addEventListener('load',function(){
 		checkMemberId();
 	},false);
+
+
+
+	
 </script>

@@ -1,8 +1,8 @@
-var storage = sessionStorage;
-storage['A02'] = '鮮茄蔬食鍋|vg_02.png|150|1|false';
-storage['A04'] = '菇菇瑧品拉麵|vg_04.png|240|2|true';
-storage['A03'] = '什蔬燴黑醋醬便當|vg_03.png|240|3|false'; 
-storage['addItemList'] = 'A02,A04,A03,'; 
+// var storage = sessionStorage;
+// storage['A02'] = '鮮茄蔬食鍋|vg_02.png|150|1|false';
+// storage['A04'] = '菇菇瑧品拉麵|vg_04.png|240|2|true';
+// storage['A03'] = '什蔬燴黑醋醬便當|vg_03.png|240|3|false'; 
+// storage['addItemList'] = 'A02,A04,A03,'; 
 
 var mealNo_list = "";
 var mealQuantity_list = "";

@@ -10,7 +10,9 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.css">
 
 	<!-- -----------------日食餐點--------------- -->
+	<!-- <link rel="stylesheet" href="css/style.css"> -->
 	<link rel="stylesheet" href="css/dishes.css">
+	
 	
 </head>
 <body>

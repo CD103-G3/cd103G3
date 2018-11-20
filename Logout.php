@@ -9,4 +9,6 @@ unset( $_SESSION["mobile"]);
 unset( $_SESSION["member_Pic"]);
 unset( $_SESSION["member_Bonus"]);
 unset( $_SESSION["member_buyCount"]);
-?>      
+header('Location: index_front.php');  
+?>
+    
