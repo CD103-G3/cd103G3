@@ -84,11 +84,11 @@ session_start();
 		<ul>
 			<div id="view7"></div>
 			<li>
-				<a href="shopping_cart.php">
+				<a id="cartBTN">
 					<img class="phone-hidden" src="images/icon/cart_black.svg" alt="cart">
 					<img class="table-hidden" src="images/icon/cart_white.svg" alt="cart"><br>
 					購物車
-					<span>3</span>
+					<!-- <span>3</span> -->
 				</a>
 			</li>
 			<li>
@@ -96,7 +96,7 @@ session_start();
 					<img class="phone-hidden" src="images/icon/qrcode_black.svg" alt="qrcode">
 					<img class="table-hidden" src="images/icon/qrcode_white.svg" alt="cart"><br>
 					快速取餐
-					<span>2</span>
+					<!-- <span>2</span> -->
 				</a>
 			</li>
 			<li class="table-hidden">

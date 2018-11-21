@@ -137,9 +137,9 @@
                 <div class="member-data clearfix">
                     <div class="member-pic fl">
                         <figure class="member-img fl">
-                            <img src="images/icon7.png">
+                            <img src="images/longFork.png" style="width: auto; height: 60px; margin: auto;">
                         </figure>
-                        <div class="member-id fl color">訪客</div>
+                        <div class="member-id fl color">餐點留言區</div>
                     </div>
                     <!-- <div class="comments-time fl">2018-01-01</div> -->
                 </div>

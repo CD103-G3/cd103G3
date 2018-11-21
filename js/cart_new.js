@@ -1,4 +1,4 @@
-// var storage = sessionStorage;
+var storage = sessionStorage;
 // storage['A02'] = '鮮茄蔬食鍋|vg_02.png|150|1|false';
 // storage['A04'] = '菇菇瑧品拉麵|vg_04.png|240|2|true';
 // storage['A03'] = '什蔬燴黑醋醬便當|vg_03.png|240|3|false'; 
@@ -6,39 +6,53 @@
 
 var mealNo_list = "";
 var mealQuantity_list = "";
+if(storage.addItemList == null) {
+    storage.addItemList = '';
+}
 memberBonus = document.getElementById('groupon_bonus_hidden').value; //會員持有購物金
         
 function doFirst(){
 
-	var itemList = storage.getItem('addItemList');
-    var itemArray = itemList.substr(0, itemList.length - 1).split(',');
+	
+
+    if(storage.addItemList != '') {
+        $class('notMealYet')[0].style.display = 'none';
+        var itemList = storage.getItem('addItemList');
+        var itemArray = itemList.substr(0, itemList.length - 1).split(',');
+    } else {
+        $class('notMealYet')[0].style.display = 'block';
+    }
    
     itemTime = 0; total = 0; itemSum = 0;
     for(var i in itemArray) {
         var itemInfo = storage.getItem(itemArray[i]);
+        if(itemInfo != null) {
+            createCartList(itemArray[i], itemInfo);
+
+            itemTime += 15;
+            document.getElementsByClassName('taketime_t')[0].innerText = itemTime;
+            document.getElementsByClassName('taketime_t')[1].innerText = itemTime;
+
+            itemSum += parseInt(itemInfo.split('|')[3]);
+            document.getElementsByClassName('shopping_number_t')[0].innerText = itemSum;
+            document.getElementsByClassName('shopping_number_t')[1].innerText = itemSum;
         
-        createCartList(itemArray[i], itemInfo);
+            total += parseInt(itemInfo.split('|')[2] * parseInt(itemInfo.split('|')[3]));
+            document.getElementsByClassName('shopping_sum_t')[0].innerText = "NT$ " + total;
+            document.getElementsByClassName('shopping_sum_t')[1].innerText = "NT$ " + total;
 
-        itemTime += 15;
-        document.getElementsByClassName('taketime_t')[0].innerText = itemTime;
-        document.getElementsByClassName('taketime_t')[1].innerText = itemTime;
+            Bonus = memberBonus > total*0.2 ? total*0.2 : memberBonus; 
+            document.getElementsByClassName('groupon_bonus_t')[0].innerText = "NT$ " + Bonus;
+            document.getElementsByClassName('groupon_bonus_t')[1].innerText = "NT$ " + Bonus;
 
-        itemSum += parseInt(itemInfo.split('|')[3]);
-        document.getElementsByClassName('shopping_number_t')[0].innerText = itemSum;
-        document.getElementsByClassName('shopping_number_t')[1].innerText = itemSum;
+            document.getElementsByClassName('memOrder_amount_t')[0].innerText = "NT$ " + (total - Bonus);
+            document.getElementsByClassName('memOrder_amount_t')[1].innerText = "NT$ " + (total - Bonus); 
     
-        total += parseInt(itemInfo.split('|')[2] * parseInt(itemInfo.split('|')[3]));
-        document.getElementsByClassName('shopping_sum_t')[0].innerText = "NT$ " + total;
-        document.getElementsByClassName('shopping_sum_t')[1].innerText = "NT$ " + total;
+            mealQuantity_list += itemInfo.split('|')[3] + "," ; //餐點數量
+        }
+        
 
-        Bonus = memberBonus > total*0.2 ? total*0.2 : memberBonus; 
-        document.getElementsByClassName('groupon_bonus_t')[0].innerText = "NT$ " + Bonus;
-        document.getElementsByClassName('groupon_bonus_t')[1].innerText = "NT$ " + Bonus;
-
-        document.getElementsByClassName('memOrder_amount_t')[0].innerText = "NT$ " + (total - Bonus);
-        document.getElementsByClassName('memOrder_amount_t')[1].innerText = "NT$ " + (total - Bonus); 
- 
-        mealQuantity_list += itemInfo.split('|')[3] + "," ; //餐點數量
+        
     }
 
     function createCartList(item, itemInfo) {
@@ -275,7 +289,9 @@ function doFirst(){
                     isSwitcha = iconSwitch(this, "a", "0766ff", isSwitcha);
                     deleteItem.call(this);
                     // alert(isSwitch);
+                    
                 });
+                
             }
        }
     }
@@ -315,7 +331,19 @@ function deleteItem() {
         parentNode.removeChild(document.querySelector('.' + thid));
         document.querySelector('.' + thid).
         parentNode.removeChild(document.querySelector('.' + thid));
+
+        if(storage.addItemList != '') {
+            $class('notMealYet')[0].style.display = 'none';
+        } else {
+            $class('notMealYet')[0].style.display = 'block';
+        }
     },1000);
+
+    if($class('shopping_list')[0].children.length > 0) {
+        $class('notMealYet')[0].style.display = 'none';
+    } else {
+        $class('notMealYet')[0].style.display = 'block';
+    }
 }
 
 // 點擊下一步按鈕

@@ -13,12 +13,13 @@ try{
       $memRow = $member->fetchObject();
       // echo $memRow->member_Id, ", 您好~~ <br>";
         //登入成功, 寫入session
-        $_SESSION["member_No"] = $memRow->member_No; // 會員編號
+        $_SESSION["member_No"] = $memRow->member_No;
+         // 會員編號
         //是否從別支程式跳轉過來
           if(isset($_SESSION["where"]) == true){
             $where = $_SESSION["where"];
             unset( $_SESSION["where"]);
-            header("location:$where");
+           
 		  }
 		//   print_r($memRow);
     }

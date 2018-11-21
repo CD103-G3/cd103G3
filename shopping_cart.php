@@ -50,17 +50,22 @@
                         </tr>
                     </table>
                     <table class="shopping_list">
+                        
+                                <a href="dishes.php" class="nextBTN notMealYet">
+                                    還沒有選購餐點，去挑挑看吧~
+                                </a>
+                            
                     </table>
                     <div class="shopping_message">
                         <span class="taketime">預計等待時間：<strong class="taketime_t">15</strong>分</span>
                         <div class="shopping_message_box">
-                            <span class="shopping_number">共 <strong class="shopping_number_t">1</strong> 件</span>
-                            <span class="shopping_sum">總計 <strong class="shopping_sum_t">NT$200</strong></span>
-                            <span>使用購物金</span>
-                            <span class="groupon_bonus"><strong class="groupon_bonus_t">NT$10</strong></span>
+                            <span class="shopping_number">共 <strong class="shopping_number_t">0</strong> 件</span>
+                            <span class="shopping_sum">總計 <strong class="shopping_sum_t">NT$0</strong></span>
+                            <span>使用購物金<br>(20%)</span>
+                            <span class="groupon_bonus"><strong class="groupon_bonus_t">NT$0</strong></span>
                             <input type="hidden" value="<?php echo $memRow->member_Bonus ?>" id="groupon_bonus_hidden">
                         </div>
-                        <span class="memOrder_amount">結帳金額 <strong class="memOrder_amount_t">NT$200</strong></span>
+                        <span class="memOrder_amount">結帳金額 <strong class="memOrder_amount_t">NT$0</strong></span>
                     </div>
                     <div class="shopping_choose">
                         <a class="continue_shopping_button mainBTN" href="dishes.php">繼續購物</a>
@@ -80,14 +85,14 @@
                     <table class="shopping_list">
                     </table>
                     <div class="shopping_message">
-                        <span class="taketime">預計等待時間：<strong class="taketime_t">15</strong>分</span>
+                        <span class="taketime">預計等待時間：<strong class="taketime_t">0</strong>分</span>
                         <div class="shopping_message_box">
-                            <span class="shopping_number">共 <strong class="shopping_number_t">1</strong> 件</span>
+                            <span class="shopping_number">共 <strong class="shopping_number_t">0</strong> 件</span>
                             <span class="shopping_sum">總計 <strong class="shopping_sum_t">NT$200</strong></span>
                             <span>使用購物金</span>
                             <span class="groupon_bonus"><strong class="groupon_bonus_t">NT$10</strong></span>
                         </div>
-                        <span class="memOrder_amount">結帳金額 <strong class="memOrder_amount_t">NT$200</strong></span>
+                        <span class="memOrder_amount">結帳金額 <strong class="memOrder_amount_t">NT$0</strong></span>
                     </div>
                     <div class="shopping_choose">
                         <button class="continue_shopping_button mainBTN" id="shopping_pre_button">上一步</button>
@@ -111,7 +116,7 @@
                                 <p id="take_meal_code">Meal0020239</p>
                             </div>
                         </div>
-                        <button id="order_record_button" class="subBTN">查看訂購記錄</button>
+                        <a href="member.php" id="order_record_button" class="subBTN">查看訂購記錄</a>
                     </div>
                 </div>
             </div>
@@ -222,6 +227,18 @@
             console.log(data_info);
             xhr.send(data_info);      
         });
+
+        function $id(id) {
+            return document.getElementById(id);
+        }
+        function $class(className) {
+            return document.getElementsByClassName(className);
+        }
+        function $all(all) {
+            return document.querySelectorAll(all);
+        }
+        
+        
     </script>
 </body>
 </html>
