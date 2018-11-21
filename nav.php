@@ -18,7 +18,7 @@ session_start();
 				<span class="line"></span>
 			</label>
 		</div>
-		<div class="logo">
+		<div class="logo" >
 			<a href="index_front.php">
 				<img src="images/logo.png" alt="logo">
 			</a>
@@ -35,7 +35,7 @@ session_start();
 			<li class="logo">
 				<div id="view4"></div>
 				<a href="index_front.php">
-					<img src="images/logo.png" alt="logo">
+					<img src="images/logo.png" alt="logo" style="margin-top: -2px;">
 				</a>
 			</li>
 			<li class="index-member"> 
@@ -139,7 +139,27 @@ session_start();
 	function $all(all) {
 		return document.querySelectorAll(all);
 	}
+	var logged = false;
+	document.getElementById('cartBTN').onclick = function() {
+		if(logged) {
+			location.href = 'shopping_cart.php';
+		} else {
+			document.getElementById('close-login').checked = false;
+		}
+	}
 	
+	<?php 
+	if(isset($_SESSION['member_Id'])) {
+		echo "document.getElementById('cartBTN').onclick = function() {
+			location.href = 'shopping_cart.php';
+		}";
+		echo "";
+	} else {
+		echo "document.getElementById('cartBTN').onclick = function() {
+			document.getElementById('close-login').checked = false;
+		}";
+	}
+	?>
 	
 	for (var i = 1; i <= 7; i++) {
 	

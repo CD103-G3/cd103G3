@@ -127,39 +127,20 @@
     <script src="js/iconCliCK.js"></script>	
     <script src="js/cart_new.js"></script>
     <script>
+
+        function $id(id) {
+            return document.getElementById(id);
+        }
+        function $class(className) {
+            return document.getElementsByClassName(className);
+        }
+        function $all(all) {
+            return document.querySelectorAll(all);
+        }
         //下單
         document.getElementById("checkout_immediately_button").addEventListener("click", function(){
             
-            //取得目前時間
-            // var t = new Date();
-            // var current = t.getFullYear() + "/" + (t.getMonth()+1) + "/" + t.getDate();
-            // var memOrderTime = t.getFullYear() + "-" + (t.getMonth()+1) + "-" + t.getDate() + " " + t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds();   
-            // // var memOrderTakeTime = t.getFullYear() + "-" + (t.getMonth()+1) + "-" + t.getDate() + " " + t.getHours() + ":" + t.getMinutes() + ":" + (t.getSeconds() + itemTime);   
-            // // 2018-11-17 22:52:04
-            // //=====使用Ajax,新增購物車訂單 
-            // var xhr = new XMLHttpRequest();
-            // xhr.onload = function (){
-            //     if( xhr.status == 200){
-            //         // alert("下單成功");
-            //         swal("下單成功", "", "success");
-            //     }else{
-            //         alert(xhr.status);
-            //     }
-            // }
-            // xhr.open("post", "cartDataUpdate.php", true);
-            // xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-
-            // var data_info = "memOrderAmount=" + (total - Bonus) + //訂單金額
-            //                 "&memOrderTime=" + memOrderTime + //下單時間
-            //                 "&memOrderTakeTime=" + itemTime + //取餐等待時間                    
-            //                 "&mealNo=" + storage.getItem('addItemList') + //餐點編號
-            //                 "&mealQuantity=" + mealQuantity_list + //餐點數量
-            //                 "&memberbuyCount=" + itemSum + //餐點購買總數
-            //                 "&memberBonus=" + Bonus; //會員所消耗購物金
-            // console.log(data_info);
-            // xhr.send(data_info);
-            
-            // 從資料庫取得目前最後的訂單編號
+           
             <?php 
                 $errMsg = "";
                 try {
@@ -226,17 +207,11 @@
                             "&imgSrc=" + msg; //檔案位置
             console.log(data_info);
             xhr.send(data_info);      
+
+            sessionStorage.clear();
         });
 
-        function $id(id) {
-            return document.getElementById(id);
-        }
-        function $class(className) {
-            return document.getElementsByClassName(className);
-        }
-        function $all(all) {
-            return document.querySelectorAll(all);
-        }
+        
         
         
     </script>

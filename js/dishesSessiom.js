@@ -1,19 +1,29 @@
 var storage = sessionStorage;
 
-function dishAddToCart(){
+function doFirst(){
 
-    if(storage.addItemList == null){
-        storage.addItemList = '';
+    if(storage['addItemList']==null){
+        storage['addItemList']= '';
     }
-    var list = document.querySelectorAll('.food-button-buy.v2'); 
+    var list = document.querySelectorAll('.food-button-buy'); 
     console.log(list);
     for(var i=0;i<list.length;i++){
         list[i].addEventListener('click',function(){
-            alert('該餐點已加入購物車');
             var dishes = document.querySelector('#'+this.id+' input').value;
-            addItem(this.id, dishes);
+            // alert(dishes);
+            var coll = document.querySelector('.mealState').value; 
+            addItem(this.id, dishes + "|" + coll);
         });
     }
+    // var coll = document.querySelectorAll('.food-button-save'); 
+    // console.log(list);
+    // for(var i=0;i<coll.length;i++){
+    //     coll[i].addEventListener('click',function(){
+            
+    //         var coll = document.querySelector('#'+this.id+' .mealState').value;
+    //         addItem(this.id, coll);
+    //     });
+    // }
 }
 
 function addItem(itemId, itemValue){
@@ -25,4 +35,4 @@ function addItem(itemId, itemValue){
         storage['addItemList'] += itemId + ',';
     }
 }
-window.addEventListener('load',dishAddToCart);
+window.addEventListener('load',doFirst);

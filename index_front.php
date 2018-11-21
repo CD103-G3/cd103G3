@@ -1221,7 +1221,7 @@
         </section>
     </div>
 
-    <a href="game.php" id="capsuleMachine"> 
+    <a href="game.php" target="_blank" id="capsuleMachine"> 
     <!-- //轉蛋機 -->
         <img src="images/indexCapsule.png" alt="capsuleMachine">
         <div class="textBox">
@@ -1276,6 +1276,11 @@ window.onbeforeunload = function(){
     var indexHiddenP = document.getElementById('index-searchInput-hidden-p');
     var index = sessionStorage;
     //依選項改變placeholder & action;
+
+    // var kw = $id('index-searchInput').value;
+    $id('indexSearch-searchBar').action='dishes.php';
+    $id('index-searchInput').name="search";
+
     indexSelect.addEventListener('change',function () {
         for (let  i= 0; i < indexSelect.options.length; i++) {
             if(indexSelect.options[i].selected==true){
@@ -1291,16 +1296,18 @@ window.onbeforeunload = function(){
                     if(index['index_search']!=null){
                         index.removeItem('index_search');
                     }
-                }else if(indexSelect.options[i].value=='meal'){
+                }else if(indexSelect.options[i].value == 'meal'){
+                    console.log('///');
+                    var kw = $id('index-searchInput').value;
                     $id('indexSearch-searchBar').action='dishes.php';
                     indexHiddenF.name="";
-                    indexHiddenF.value="";
+                    indexHiddenF.value= '';
                     indexHiddenP.name="";
                     indexHiddenP.value="";
-                    $id('index-searchInput').name="";
-                    if(index['index_search']==null){
-                        index['index_search'] = '';	//storage.setItem('addItemList','');
-                    }
+                    $id('index-searchInput').name="search";
+                    // if(index['index_search']==null){
+                    //     index['index_search'] = '';	//storage.setItem('addItemList','');
+                    // }
                 }
             }
         }
@@ -1451,6 +1458,10 @@ window.onbeforeunload = function(){
         window.addEventListener('load', function() {
             // getRecommOfficial();
         })
+
+        // $id('index-searchBtn').addEventListner('click', function() {
+
+        // })
     </script>
 </body>
 

@@ -381,7 +381,9 @@ $id("siginSubmit").addEventListener(
             clearMemberSeeion.style.display = "inline-block";
 
             var jsonStr = JSON.parse(xhr.responseText);
-            console.log(jsonStr);
+            // console.log(jsonStr);
+            sessionStorage.logged = true;
+
             nike.innerText = jsonStr.member_Nick ; 
             memberPic.src = `images/${jsonStr.member_Pic}` ;
             buyCount.innerHTML = `<img src="images/achieve/${jsonStr[0].achievement_Pic}" width="30" alt="achievement-Pic" class="achievement-Pic">${jsonStr.member_buyCount}`;
@@ -395,13 +397,16 @@ $id("siginSubmit").addEventListener(
               content: {
                 element: "a",
                 attributes: {
-                  href: "https://www.youtube.com/?gl=TW&hl=zh-tw",
+                  href: "4-1_grouponList.php?search=&order=latest&p=1",
                   text: "目前最HOT!HOT!飯團"
                 }
               }
             })
             // .then(function() {
-            //   location.reload();
+              setTimeout(function() {
+                location.reload();
+              }, 500); //重新仔入
+              
             // });
           }
         } else {

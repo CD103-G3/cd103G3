@@ -2,7 +2,7 @@
 	
 	<div class="search-wrap">
 		<label for="close-search" class="close-search"></label>
-		<form action="" class="search-bg" id="GOsearch">
+		<div action="" class="search-bg" id="GOsearch">
 			<!-- 頁籤類別 -->
 			<input type="radio" name="bookmark" id="bookmark-meal" value="meal" checked>
 			<input type="radio" name="bookmark" id="bookmark-groupon" value="groupon">
@@ -13,8 +13,9 @@
 
 			<!-- 輸入關鍵字區 -->
 			<div class="input-wrap">
-				<input type="text" id="input-search" class="input-search" maxlength="30" placeholder="請輸入餐點關鍵字">
-				<button type="submit" id="start-search" class="mainBTN">搜尋<span class="search-img"><img src="images/icon/search.svg" alt="搜尋" class="img-search"></span></button>
+				<input type="text" id="input-search-meal" class="input-search" maxlength="30" placeholder="請輸入餐點關鍵字" >
+				<input type="text" id="input-search-groupon" class="input-search" maxlength="30" placeholder="請輸入飯團關鍵字" style="display:none;">
+				<div  id="start-search" class="mainBTN">搜尋<span class="search-img"><img src="images/icon/search.svg" alt="搜尋" class="img-search"></span></div>
 			</div>
 			<!-- 頁籤類別內容-餐點 -->
 			<div class="bookmark-cetentier bookmark-meal">
@@ -90,7 +91,7 @@
 					</div>
 				</div>
 			</div>
-		</form>
+		</div>
 	</div>
 
 	<script>
@@ -103,12 +104,69 @@
 		function $all(all) {
 			return document.querySelectorAll(all);
 		}
-		if($id('bookmark-groupon').checked) {
-			var kw = $id('input-search').value;
-			$id('bookmark-animation-groupon').onclick = function() {
-				location.href = '4-1_grouponList.php?search='+ kw  +'&order=latest&p=1'
-			}
+
+		var kw; 
+		$id('start-search').onclick = function() {
+			// alert('11');
+		} 
+		
+		
+		//預設是餐點
+		// var gValue = $id('input-search-groupon').value;
+		// var mValue = $id('input-search-meal').value;
+		$id('start-search').onclick = function() {
+			kw = $id('input-search-meal').value;
+			// console.log(kw);
+			location.href = 'dishes.php?search=' + kw; //暫時先跳轉
+			
 		}
+
+		//預設是餐點
+		$id('bookmark-animation-meal').addEventListener('click', function() {
+			
+			$id('input-search-groupon').style.display = 'none';
+			$id('input-search-meal').style.display = 'block';
+			if(gValue != '') {
+				mValue = gValue;
+			}
+			$id('start-search').onclick = function() {
+				kw = $id('input-search-meal').value;
+				// console.log(kw);
+				location.href = 'dishes.php?search=' + kw; //暫時先跳轉
+			}
+		})
+		
+
+
+		//飯團
+		$id('bookmark-animation-groupon').addEventListener('click', function() {
+			console.log($id('bookmark-groupon').checked);
+		}) //飯團
+		$id('bookmark-animation-groupon').addEventListener('click', function() {
+			var gValue = $id('input-search-groupon').value;
+			var mValue = $id('input-search-meal').value;
+
+			$id('input-search-groupon').style.display = 'block';
+			$id('input-search-meal').style.display = 'none';
+			gValue = mValue;
+
+			$id('start-search').onclick = function() {
+				kw = $id('input-search-groupon').value;
+				// console.log(kw);
+				location.href = '4-1_grouponList.php?search='+ kw +'&order=latest&p=1'; //暫時先跳轉
+				
+			}
+		})
+		
+		
+		
+		// if($id('bookmark-groupon')) {
+			
+		// 	var kw = $id('input-search').value;
+		// 	$id('bookmark-animation-groupon').onclick = function() {
+		// 		location.href = '4-1_grouponList.php?search='+ kw  +'&order=latest&p=1'
+		// 	}
+		// }
 		
 		// bookmark-animation-groupon
 	

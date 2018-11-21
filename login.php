@@ -81,15 +81,32 @@
 				
 	</div>
 <script>
+	function $id(id) {
+		return document.getElementById(id);
+	}
+	function $class(className) {
+		return document.getElementsByClassName(className);
+	}
+	function $all(all) {
+		return document.querySelectorAll(all);
+	}
 	function checkSubmit() {
 	  return false;
 	}
 	window.addEventListener('load', function() {
 		<?php if(isset($_SESSION['member_No']) == false ) {
-			echo "document.getElementsByClassName('hoverBox')[0].style.display = 'none'";	
+			echo "document.getElementsByClassName('hoverBox')[0].style.display = 'none';";	
 		} else {
-			echo "document.getElementsByClassName('hoverBox')[0].style.display = 'block'";	
+			echo "document.getElementsByClassName('hoverBox')[0].style.display = 'block';";	
 		}?>
+		if($class('swal-button--confirm').length > 0) {
+			$class('swal-button--confirm')[0].onclick = function() {
+			location.reload();
+			}
+			$class('swal-overlay--show-modal')[0].onclick = function() {
+				location.reload();
+			}
+		} 
 		
 	})
 </script>

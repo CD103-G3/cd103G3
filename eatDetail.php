@@ -1,26 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/eatDetail.css">
-    <title>餐點介紹</title>
-</head>
-<body>
-    
-    <?php
-         require_once('nav.php');
-    ?>
-    <div class="eatDetail">
-    <div class="eatDetail-body">
-
-<!-- 產品介紹 -->
-    <?php
+<?php
         try{
             $meal_No = $_REQUEST["meal_No"];
             $_SESSION["quantity"][$meal_No] = 1;
@@ -33,7 +11,31 @@
                 echo "查無此商品資料";
             }else{
                 $dishesRow = $dishes -> fetchObject();
-    ?>    
+    ?> 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/eatDetail.css">
+    <title><?php echo $dishesRow->meal_Name; ?></title>
+</head>
+<body>
+    
+    <?php
+         require_once('nav.php');
+    ?>
+    <div class="eatDetail">
+    <div class="eatDetail-body">
+
+<!-- 產品介紹 -->
+       
     <div class="banner">
         <div class="wrap clearfix">
             <div class="banner-pic part-md-6 part-lg-6 clearfix">

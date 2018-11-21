@@ -12,6 +12,16 @@
 	<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.0.0.js "></script>
  	<script src="http://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 	<!-- <script src="js/jquery-3.3.1.min.js"></script> -->
+	<style>
+		.member .member-contain .member-order .member-order-list li:last-child{
+			display: none;
+		}
+		.member-panel label:hover {
+			background-color: #FED44F;
+			opacity: .8;
+			/* color: #fff; */
+		}
+	</style>
 </head>
 <body onresize="myFunction()">
 
@@ -93,9 +103,9 @@
 			<div class="member-panel">	
 				<label for="member-Information-radio">會員資料</label>
 				<label for="member-Order-radio">訂餐紀錄</label>
-				<label for=""><a href="5-1_NotChanged.php">我的飯團</a></label>
 				<label for="member-Achievement-radio" id="achievement-button">我的成就</label>
-				<label for=""><a href="javascript:void(0)">我的收藏</a></label>
+				<label for=""><a href="coll.php">我的收藏</a></label>
+				<label for=""><a href="5-1_NotChanged.php">我的飯團</a></label>
 			</div>
 			<div class="notebook"></div>
 		</div>
@@ -264,9 +274,11 @@
 					<?php 
 						$errMsg = "";
 						try {
+							$memNo = $_SESSION['member_No'];
 							// require_once("connectBooks.php");
-							$sqlMemberOrder = "select * from memberOrder";
+							$sqlMemberOrder = "select * from memberOrder WHERE member_No = $memNo ORDER BY memOrder_Time DESC";
 							$productsMemberOrder = $pdo -> query( $sqlMemberOrder );
+							// $productsMemberOrder -> bindValue()
 						} catch (PDOException $e) {
 							$errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
 							$errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";
@@ -346,7 +358,8 @@
 					$errMsg = "";
 					try {
 						// require_once("connectBooks.php");
-						$sqlAchievement = "select * from achievement where isAchievable = 1";
+						$memBuyCount = $_SESSION['member_buyCount'];
+						$sqlAchievement = "SELECT * FROM `achievement` WHERE meal_Total <= $memBuyCount and isAchievable = 1 order by `meal_Total` ASC";
 						$productsAchievement = $pdo -> query( $sqlAchievement );
 					} catch (PDOException $e) {
 						$errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
@@ -370,7 +383,7 @@
 								<?php echo $prodRowAchievement->meal_Total ?>
 							</div> -->
 							<p class="achievement-info">目標：完成訂購<?php echo $prodRowAchievement->meal_Total ?>道菜</p>
-							<mark class="achievement-bonus">獎勵：<?php echo $prodRowAchievement->achievement_Bonus ?>元折價券＊1</mark>
+							<mark class="achievement-bonus">獎勵：<?php echo $prodRowAchievement->achievement_Bonus ?>元購物金</mark>
 						</div>
 					</li>
 				<?php
@@ -584,6 +597,14 @@
 		$(function(){
 			initCropper($('#photo'),$('#upFile'));
 		});
+
+
+		if(document.getElementById('checkout_immediately_button')) {
+			document.getElementById('checkout_immediately_button').addEventListener('click', function() {
+			sessionStorage.clear();
+			})
+		}
+		
 	</script>
 </body>
 </html>
