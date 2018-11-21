@@ -241,9 +241,12 @@
 
 														filename = document.getElementById("viewAchievementPic<?php echo $prodRowAchievement->achievement_No ?>").value;
                                                         filenameSub = filename.substr(filename.lastIndexOf("\\") + 1, filename.length - filename.lastIndexOf("/"))
+
+                                                        filenameSub = filenameSub || document.getElementById("viewAchievementPicName<?php echo $prodRowAchievement->achievement_No ?>").innerText;
+
 														document.getElementById("viewAchievementPicName<?php echo $prodRowAchievement->achievement_No ?>").innerText = filenameSub;
-                                                        
-														xhr.open("post", "backstage-achievement-Updata.php", true);
+                                                      
+                                                        xhr.open("post", "backstage-achievement-Updata.php", true);
 														xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 														var data_info = "viewAchievementNo=" + document.getElementById("viewAchievementNo<?php echo $prodRowAchievement->achievement_No ?>").value + //成就編號
 																		"&viewAchievementName=" + document.getElementById("viewAchievementName<?php echo $prodRowAchievement->achievement_No ?>").value + //成就名稱
