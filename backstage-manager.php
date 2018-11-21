@@ -190,13 +190,20 @@
                                              <script>
                                                 document.getElementById("manager-updata<?php echo $rowmanager['manager_No'] ?>").addEventListener('click',function(){
 
+                                                    var Auth = document.getElementById("viewMealAuth<?php echo $rowmanager["manager_No"]?>").value;
                                                     
+                                                    if(Auth == '停權'){
+                                                        i = 0;
+                                                    }else{
+                                                        i = 1;
+                                                    }
+                                                   
                                                     //=====使用Ajax,更新  
                                                     var xhr = new XMLHttpRequest();
                                                     xhr.onload = function (){
                                                         if( xhr.status == 200){
                                                             alert("資料更新成功");
-
+                                                          
                                                             // swal("成就資料更新成功", "", "success");
                                                         }else{
                                                             alert(xhr.status);
@@ -208,13 +215,13 @@
                                                     xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
                                                     var data_info = "viewMealNo=" + document.getElementById("viewMealNo<?php echo $rowmanager["manager_No"]?>").value + //會員編號
                                                                     
-                                                                    "&viewManagerPsw=" + document.getElementById("viewManagerPsw<?php echo $rowmanager["manager_No"]?>").value; //會員密碼
-                                                                    // "&viewMealAuth=" + document.getElementById("viewMealAuth<?php echo $rowmanager["manager_No"]?>").value;//會員狀態
+                                                                    "&viewManagerPsw=" + document.getElementById("viewManagerPsw<?php echo $rowmanager["manager_No"]?>").value + //會員密碼
+                                                                    "&viewMealAuth=" + i;//會員狀態
                                                                       
                                                     console.log(data_info);
                                                     xhr.send(data_info);
                                                 
-                                                    window.history.go(0);//重新整理頁面
+                                                    location.reload();//重新整理頁面
                                                 });
                                             </script>
                                         </div>

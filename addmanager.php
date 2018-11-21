@@ -13,7 +13,7 @@
     $addmanager->bindValue(":managerId", $_POST['managerId']);
     $addmanager->bindValue(":managerPsw", $_POST['managerPsw']);
     $addmanager->execute();
-    echo 'success';
+    echo '新增成功';
      
   // header(location:getenv("HTTP_REFERER"));
   }
