@@ -225,27 +225,12 @@ table {
     width: calc(25% - 20px);
     display: block; }
   .coll_total {
-    position: relative;
     width: 45%;
-    height: 0px;
-    padding-top: 45%;
+    height: 200px;
     border-radius: 999px;
     background-color: #E69500;
     margin: 35px 26% 0;
     z-index: 2; }
-    .coll-container {
-      position: absolute;
-      display: flex;
-      flex-flow: column;
-      justify-content: center;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    .coll-container .coll_total_num {
-      margin: 10px 0 0;
-    }
   .coll_total_num {
     text-align: center;
     font-size: 30px;
@@ -481,8 +466,8 @@ table {
     width: 100%; }
   .coll_slogan {
     width: 100%;
-    height: 150px;
-    background-image: url(../images/slogan1920.png);
+    height: 100px;
+    background-image: url(../images/slogan1920.jpg);
     background-size: 100% 100%;
     font-size: 0; }
   .coll_slogan_title {
@@ -581,6 +566,7 @@ table {
     background-color: #333333;
     color: #fff; }
   .coll_title_kind {
+    margin: 10% 0;
     font-size: 0;
     padding: 0; }
   .title_kind_icon {
@@ -740,8 +726,8 @@ table {
     width: 100%; }
   .coll_slogan {
     width: 100%;
-    height: 150px;
-    background-image: url(../images/slogan1920.jpg);
+    height: 100px;
+    background-image: url(/images/slogan1920.jpg);
     background-size: 100% 100%;
     font-size: 0;
     opacity: 0.7; }
@@ -752,8 +738,8 @@ table {
     color: #fff;
     margin: 5% auto; }
   .coll_slogan_title p {
-    max-width: 80px;
-    font-size: 20px;
+    max-width: 200px;
+    font-size: 42px;
     margin: auto;
     padding: 10px 0; }
   .coll_slogan_right {
@@ -772,7 +758,7 @@ table {
     display: block;
     font-size: 0; }
   .coll_total_background {
-    background-image: url(../image/slogan1024.jpg); }
+    background-image: url(../images/slogan1024.jpg); }
   .coll_total {
     max-width: 100px;
     height: 100px;
@@ -828,7 +814,7 @@ table {
     background-color: #333333;
     color: #fff; }
   .coll_title_kind {
-    margin: 0 0 0px 0;
+    margin: 0 0 15px 0;
     font-size: 0;
     padding: 0; }
   .title_kind_icon {
@@ -969,7 +955,7 @@ header {
   header .phone_nav {
     padding: 0 40px 0 10px;
     height: 75px;
-    background: url(../image/nav_background_768.png) repeat-x;
+    background: url(../images/nav_background_768.png) repeat-x;
     position: relative; }
     header .phone_nav:after {
       content: '';
@@ -1146,7 +1132,7 @@ header {
 
 @media screen and (min-width: 1024px) {
   header {
-    background-image: url(../image/nav_background.png);
+    background-image: url(../images/nav_background.png);
     font-size: 0;
     text-align: center; }
     header #navctrl:checked ~ nav {
@@ -1293,7 +1279,7 @@ header {
         transform-style: preserve-3d;
         transform-origin: center top;
         transition: 150ms ease-in-out;
-        background-image: url(../image/nav_background.png);
+        background-image: url(../images/nav_background.png);
         perspective: 1000px;
         position: relative;
         top: 100%; }

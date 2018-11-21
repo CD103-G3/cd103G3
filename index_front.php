@@ -48,24 +48,6 @@
                         </div>
                     </form>
                 </div>
-                <!-- <div class="indexSearch-searchBar">
-                    <form action="">
-                        <div>
-                            <select name="search" id="indexSearch-select">
-                                <option value="meal">餐點</option>
-                                <option value="meal">飯團</option>
-                            </select>
-                        </div>
-                        <input type="text" placeholder="以餐點關鍵字搜尋">
-                        <button class="indexSearch-btn">
-                            <i class="fas fa-search"></i>
-                        </button>
-                        <div class="indexSearch-rope">
-                            <img src="images/index_rope.svg" alt="">
-                            <img src="images/index_rope.svg" alt="">
-                        </div>
-                    </form>
-                </div> -->
                 <div class="indexSearch-conveyor">
                     <div class="indexSearch-owner">
                         <img src="images/index_owner.svg" alt="">
@@ -273,7 +255,7 @@
                                 <?php   
                                     try{          
                                     require_once("connectBooks.php");
-                                    $sql = "select * from groupon where groupon_No = 14";
+                                    $sql = "select * from groupon where groupon_No = 25";
                                     $meal = $pdo -> query($sql);
                                     $groupRow = $meal -> fetchObject();
                                 ?>
@@ -296,7 +278,12 @@
                                     <div class="indexGroupon-count">
                                         <span class="indexGroupon-subtitle">參加人數｜</span>
                                         <div class="indexGroupon-countBar">
-                                            <p><?php echo $groupRow->memberNow;?>/<?php echo $groupRow->groupon_MemberNeed;?></p>
+                                            <p style="width:<?php
+                                            $memberNow = $groupRow->memberNow;
+                                            $memberNeed = $groupRow->groupon_MemberNeed;
+                                            $memberCountBar = (100/$memberNeed)*$memberNow ;
+                                            echo $memberCountBar;
+                                            ?>px"><?php echo $groupRow->memberNow;?>/<?php echo $groupRow->groupon_MemberNeed;?></p>
                                         </div>
                                     </div>
                                     <div class="indexGroupon-deadline">
@@ -318,7 +305,7 @@
                                 <?php   
                                     try{          
                                     require_once("connectBooks.php");
-                                    $sql = "select * from groupon where groupon_No = 15";
+                                    $sql = "select * from groupon where groupon_No = 26";
                                     $meal = $pdo -> query($sql);
                                     $groupRow = $meal -> fetchObject();
                                 ?>
@@ -332,7 +319,7 @@
                                     </div>
                                 </div>
                                 <img src="images/index_meal2.png" alt="">
-                                <p class="indexGroupon-info"><mark>每日不同菜色讓你吃不膩，省錢之餘兼具美味。</mark></p>
+                                <p class="indexGroupon-info"><mark>日食招牌餐點－－丼飯，每一分都是真材實料！</mark></p>
                                 <div class="indexGroupon-sum">
                                     <div class="indexGroupon-days">
                                         <span class="indexGroupon-subtitle">飯團天數｜</span>
@@ -341,7 +328,12 @@
                                     <div class="indexGroupon-count">
                                         <span class="indexGroupon-subtitle">參加人數｜</span>
                                         <div class="indexGroupon-countBar">
-                                            <p><?php echo $groupRow->memberNow;?>/<?php echo $groupRow->groupon_MemberNeed;?></p>
+                                            <p style="width:<?php
+                                            $memberNow = $groupRow->memberNow;
+                                            $memberNeed = $groupRow->groupon_MemberNeed;
+                                            $memberCountBar = (100/$memberNeed)*$memberNow ;
+                                            echo $memberCountBar;
+                                            ?>px"><?php echo $groupRow->memberNow;?>/<?php echo $groupRow->groupon_MemberNeed;?></p>
                                         </div>
                                     </div>
                                     <div class="indexGroupon-deadline">
@@ -363,7 +355,7 @@
                                 <?php   
                                     try{          
                                     require_once("connectBooks.php");
-                                    $sql = "select * from groupon where groupon_No = 16";
+                                    $sql = "select * from groupon where groupon_No = 27";
                                     $meal = $pdo -> query($sql);
                                     $groupRow = $meal -> fetchObject();
                                 ?>
@@ -377,7 +369,7 @@
                                     </div>
                                 </div>
                                 <img src="images/index_meal3.png" alt="">
-                                <p class="indexGroupon-info"><mark>每日不同菜色讓你吃不膩，省錢之餘兼具美味。</mark></p>
+                                <p class="indexGroupon-info"><mark>給吃不胖的你滿滿的大份量，開始你的養豬計畫。</mark></p>
                                 <div class="indexGroupon-sum">
                                     <div class="indexGroupon-days">
                                         <span class="indexGroupon-subtitle">飯團天數｜</span>
@@ -386,7 +378,12 @@
                                     <div class="indexGroupon-count">
                                         <span class="indexGroupon-subtitle">參加人數｜</span>
                                         <div class="indexGroupon-countBar">
-                                            <p><?php echo $groupRow->memberNow;?>/<?php echo $groupRow->groupon_MemberNeed;?></p>
+                                            <p style="width:<?php
+                                            $memberNow = $groupRow->memberNow;
+                                            $memberNeed = $groupRow->groupon_MemberNeed;
+                                            $memberCountBar = (100/$memberNeed)*$memberNow ;
+                                            echo $memberCountBar;
+                                            ?>px"><?php echo $groupRow->memberNow;?>/<?php echo $groupRow->groupon_MemberNeed;?></p>
                                         </div>
                                     </div>
                                     <div class="indexGroupon-deadline">
@@ -408,7 +405,7 @@
                                 <?php   
                                     try{          
                                     require_once("connectBooks.php");
-                                    $sql = "select * from groupon where groupon_No = 17";
+                                    $sql = "select * from groupon where groupon_No = 28";
                                     $meal = $pdo -> query($sql);
                                     $groupRow = $meal -> fetchObject();
                                 ?>
@@ -422,7 +419,7 @@
                                     </div>
                                 </div>
                                 <img src="images/index_meal4.png" alt="">
-                                <p class="indexGroupon-info"><mark>每日不同菜色讓你吃不膩，省錢之餘兼具美味。</mark></p>
+                                <p class="indexGroupon-info"><mark>素食還能更不一樣，跟著阿宏一起我素我驕傲！</mark></p>
                                 <div class="indexGroupon-sum">
                                     <div class="indexGroupon-days">
                                         <span class="indexGroupon-subtitle">飯團天數｜</span>
@@ -431,7 +428,12 @@
                                     <div class="indexGroupon-count">
                                         <span class="indexGroupon-subtitle">參加人數｜</span>
                                         <div class="indexGroupon-countBar">
-                                            <p><?php echo $groupRow->memberNow;?>/<?php echo $groupRow->groupon_MemberNeed;?></p>
+                                            <p style="width:<?php
+                                            $memberNow = $groupRow->memberNow;
+                                            $memberNeed = $groupRow->groupon_MemberNeed;
+                                            $memberCountBar = (100/$memberNeed)*$memberNow ;
+                                            echo $memberCountBar;
+                                            ?>px"><?php echo $groupRow->memberNow;?>/<?php echo $groupRow->groupon_MemberNeed;?></p>
                                         </div>
                                     </div>
                                     <div class="indexGroupon-deadline">
@@ -468,7 +470,7 @@
                                 <?php   
                                     try{          
                                     require_once("connectBooks.php");
-                                    $sql = "select * from groupon where groupon_No = 14";
+                                    $sql = "select * from groupon where groupon_No = 25";
                                     $meal = $pdo -> query($sql);
                                     $groupRow = $meal -> fetchObject();
                                 ?>
@@ -491,7 +493,12 @@
                                     <div class="indexGroupon-count">
                                         <span class="indexGroupon-subtitle">參加人數｜</span>
                                         <div class="indexGroupon-countBar">
-                                            <p><?php echo $groupRow->memberNow;?>/<?php echo $groupRow->groupon_MemberNeed;?></p>
+                                            <p style="width:<?php
+                                            $memberNow = $groupRow->memberNow;
+                                            $memberNeed = $groupRow->groupon_MemberNeed;
+                                            $memberCountBar = (100/$memberNeed)*$memberNow ;
+                                            echo $memberCountBar;
+                                            ?>px"><?php echo $groupRow->memberNow;?>/<?php echo $groupRow->groupon_MemberNeed;?></p>
                                         </div>
                                     </div>
                                     <div class="indexGroupon-deadline">
@@ -513,7 +520,7 @@
                                 <?php   
                                     try{          
                                     require_once("connectBooks.php");
-                                    $sql = "select * from groupon where groupon_No = 15";
+                                    $sql = "select * from groupon where groupon_No = 26";
                                     $meal = $pdo -> query($sql);
                                     $groupRow = $meal -> fetchObject();
                                 ?>
@@ -527,7 +534,7 @@
                                     </div>
                                 </div>
                                 <img src="images/index_meal2.png" alt="">
-                                <p class="indexGroupon-info"><mark>每日不同菜色讓你吃不膩，省錢之餘兼具美味。</mark></p>
+                                <p class="indexGroupon-info"><mark>日食招牌餐點－－丼飯，每一分都是真材實料！</mark></p>
                                 <div class="indexGroupon-sum">
                                     <div class="indexGroupon-days">
                                         <span class="indexGroupon-subtitle">飯團天數｜</span>
@@ -536,7 +543,12 @@
                                     <div class="indexGroupon-count">
                                         <span class="indexGroupon-subtitle">參加人數｜</span>
                                         <div class="indexGroupon-countBar">
-                                            <p><?php echo $groupRow->memberNow;?>/<?php echo $groupRow->groupon_MemberNeed;?></p>
+                                            <p style="width:<?php
+                                            $memberNow = $groupRow->memberNow;
+                                            $memberNeed = $groupRow->groupon_MemberNeed;
+                                            $memberCountBar = (100/$memberNeed)*$memberNow ;
+                                            echo $memberCountBar;
+                                            ?>px"><?php echo $groupRow->memberNow;?>/<?php echo $groupRow->groupon_MemberNeed;?></p>
                                         </div>
                                     </div>
                                     <div class="indexGroupon-deadline">
@@ -558,7 +570,7 @@
                                 <?php   
                                     try{          
                                     require_once("connectBooks.php");
-                                    $sql = "select * from groupon where groupon_No = 16";
+                                    $sql = "select * from groupon where groupon_No = 27";
                                     $meal = $pdo -> query($sql);
                                     $groupRow = $meal -> fetchObject();
                                 ?>
@@ -572,7 +584,7 @@
                                     </div>
                                 </div>
                                 <img src="images/index_meal3.png" alt="">
-                                <p class="indexGroupon-info"><mark>每日不同菜色讓你吃不膩，省錢之餘兼具美味。</mark></p>
+                                <p class="indexGroupon-info"><mark>給吃不胖的你滿滿的大份量，開始你的養豬計畫。</mark></p>
                                 <div class="indexGroupon-sum">
                                     <div class="indexGroupon-days">
                                         <span class="indexGroupon-subtitle">飯團天數｜</span>
@@ -581,7 +593,12 @@
                                     <div class="indexGroupon-count">
                                         <span class="indexGroupon-subtitle">參加人數｜</span>
                                         <div class="indexGroupon-countBar">
-                                            <p><?php echo $groupRow->memberNow;?>/<?php echo $groupRow->groupon_MemberNeed;?></p>
+                                            <p style="width:<?php
+                                            $memberNow = $groupRow->memberNow;
+                                            $memberNeed = $groupRow->groupon_MemberNeed;
+                                            $memberCountBar = (100/$memberNeed)*$memberNow ;
+                                            echo $memberCountBar;
+                                            ?>px"><?php echo $groupRow->memberNow;?>/<?php echo $groupRow->groupon_MemberNeed;?></p>
                                         </div>
                                     </div>
                                     <div class="indexGroupon-deadline">
@@ -603,7 +620,7 @@
                                 <?php   
                                     try{          
                                     require_once("connectBooks.php");
-                                    $sql = "select * from groupon where groupon_No = 17";
+                                    $sql = "select * from groupon where groupon_No = 28";
                                     $meal = $pdo -> query($sql);
                                     $groupRow = $meal -> fetchObject();
                                 ?>
@@ -617,7 +634,7 @@
                                     </div>
                                 </div>
                                 <img src="images/index_meal4.png" alt="">
-                                <p class="indexGroupon-info"><mark>每日不同菜色讓你吃不膩，省錢之餘兼具美味。</mark></p>
+                                <p class="indexGroupon-info"><mark>素食還能更不一樣，跟著阿宏一起我素我驕傲！</mark></p>
                                 <div class="indexGroupon-sum">
                                     <div class="indexGroupon-days">
                                         <span class="indexGroupon-subtitle">飯團天數｜</span>
@@ -626,7 +643,12 @@
                                     <div class="indexGroupon-count">
                                         <span class="indexGroupon-subtitle">參加人數｜</span>
                                         <div class="indexGroupon-countBar">
-                                            <p><?php echo $groupRow->memberNow;?>/<?php echo $groupRow->groupon_MemberNeed;?></p>
+                                            <p style="width:<?php
+                                            $memberNow = $groupRow->memberNow;
+                                            $memberNeed = $groupRow->groupon_MemberNeed;
+                                            $memberCountBar = (100/$memberNeed)*$memberNow ;
+                                            echo $memberCountBar;
+                                            ?>px"><?php echo $groupRow->memberNow;?>/<?php echo $groupRow->groupon_MemberNeed;?></p>
                                         </div>
                                     </div>
                                     <div class="indexGroupon-deadline">
@@ -1237,7 +1259,7 @@ window.onbeforeunload = function(){
  }
 </script>
 
-    <!-- 套件 -->
+    <!-- JS -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/jquery.mousewheel.min.js"></script>
@@ -1246,8 +1268,8 @@ window.onbeforeunload = function(){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.esm.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.esm.bundle.js"></script>
     <script src='https://cdn.jsdelivr.net/mojs/0.265.6/mo.min.js'></script>
-    <script src="js/iconCliCK.js"></script>
 
+    <script src="js/iconCliCK.js"></script>
     <script src="js/indexJoin.js"></script>
     <script src="js/indexBtn.js"></script>
     <script src="js/indexSlider.js"></script>
@@ -1389,80 +1411,14 @@ window.onbeforeunload = function(){
             });
         });
 
-        
-        // function showRecommGroupon(jsonStr) {
-        //     var recommGroupon = JSON.parse(jsonStr);
-        //     var recommL = recommGroupon.length;
-        //     console.log(recommGroupon);
-            
-        //     for(let i = 0;i < recommL;i++) {
-        //         var tempRecomm = 
-        //         `<div class="indexGroupon-part indexGroupon-part1 item">
-        //             <div class="indexGroupon-sumTitle">
-        //                 <h3>
-        //                     <a href="6-1_grouponDetail.php?no=${recommGroupon[i][0]}">${recommGroupon[i][1]}</a>
-        //                 </h3>
-        //                 <div class="indexGroupon-average">
-        //                     <p>${recommGroupon[i][6]}</p>
-        //                     <p>購物金</p>
-        //                 </div>
-        //             </div>
-        //             <img src="images/index_meal1.png" alt="">
-        //             <p class="indexGroupon-info"><mark>每日不同菜色讓你吃不膩，省錢之餘兼具美味。</mark></p>
-        //             <div class="indexGroupon-sum">
-        //                 <div class="indexGroupon-days">
-        //                     <span class="indexGroupon-subtitle">飯團天數｜</span>
-        //                     <span>7天</span>
-        //                 </div>
-        //                 <div class="indexGroupon-count">
-        //                     <span class="indexGroupon-subtitle">參加人數｜</span>
-        //                     <div class="indexGroupon-countBar">
-        //                         <p>${recommGroupon[i][7]}/${recommGroupon[i][9]}</p>
-        //                     </div>
-        //                 </div>
-        //                 <div class="indexGroupon-deadline">
-        //                     <span class="indexGroupon-subtitle">門檻截止｜</span>
-        //                     <span>${recommGroupon[i][5]}前</span>
-        //                 </div>
-        //             </div>
-        //             <div class="indexGroupon-btn">
-        //                 <a href="6-1_grouponDetail.php?no=${recommGroupon[i][0]}">查看飯團</a>
-        //             </div>
-        //         </div>`;
-        //          $class('indexGroupon-box')[0].innerHTML += tempRecomm;
-        //     }
-            
-        //     // $class('indexGroupon-box')[0].innerHTML += tempRecomm;
-        // }               
-        // function getRecommOfficial() {
-        //     var xhr = new XMLHttpRequest();
-        //     xhr.onload=function (){
-        //         if( xhr.status == 200 ){
-        //             if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found
-                        
-        //             } else  {
-        //                 showRecommGroupon(xhr.responseText); 
-        //             } 
-        //         }else{
-        //             alert( xhr.status );
-        //         }
-        //     }
-        //     var url = '6-1_recommendGrouponList.php?tagNo=8';
-        //     xhr.open("Get", url, true);
-        //     xhr.send( null );
-        // }
-
-
-
-
         window.addEventListener('load', function() {
-            // getRecommOfficial();
         })
 
         // $id('index-searchBtn').addEventListner('click', function() {
 
         // })
     </script>
+
 </body>
 
 </html>
