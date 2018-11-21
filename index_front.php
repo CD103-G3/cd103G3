@@ -1259,7 +1259,7 @@ window.onbeforeunload = function(){
  }
 </script>
 
-    <!-- 套件 -->
+    <!-- JS -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/jquery.mousewheel.min.js"></script>
@@ -1268,8 +1268,8 @@ window.onbeforeunload = function(){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.esm.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.esm.bundle.js"></script>
     <script src='https://cdn.jsdelivr.net/mojs/0.265.6/mo.min.js'></script>
-    <script src="js/iconCliCK.js"></script>
 
+    <script src="js/iconCliCK.js"></script>
     <script src="js/indexJoin.js"></script>
     <script src="js/indexBtn.js"></script>
     <script src="js/indexSlider.js"></script>
