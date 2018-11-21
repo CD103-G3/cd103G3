@@ -10,9 +10,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.css">
 
 	<!-- -----------------日食餐點--------------- -->
-	<!-- <link rel="stylesheet" href="css/style.css"> -->
 	<link rel="stylesheet" href="css/dishes.css">
-	
 	
 </head>
 <body>
@@ -130,7 +128,7 @@
 				require_once('phpDB/connectDB_CD103G3.php');
 				// -------------------------------------------------------------------
 				//下sql查詢抓表格
-				$sql = "SELECT * from meal WHERE meal_Sold = 0";
+				$sql = "select * from meal where meal_Sold = 0";
 				$dishes = $pdo -> query($sql);
 				while($dishesRow = $dishes -> fetchObject()){			
 		?>		
@@ -153,9 +151,7 @@
 							<div class="food-score clearfix">
 								<span class="calc-score">評分</span>
 								<div class="score-container clearfix">
-									<span class="scoreNum">
-										<?php echo $dishesRow->meal_Total;?>
-									</span>
+									<span class="scoreNum"><?php echo $dishesRow->meal_Total;?></span>
 									<div class="scoreEgg-container" score="2.7" >
 										<ul>
 											<li>
@@ -213,17 +209,13 @@
 								
 									    <input class="mealState" type="hidden" name="mealstate" value="false">
 									    <input class="mealNo" type="hidden"  name="mealNo" value="A0<?php echo $dishesRow->meal_No;?>">
-									<div class="subBall b1"></div>
+								
 								</a>
 								<a class="food-button-buy v2" id="A0<?php echo $dishesRow->meal_No;?>">
 									<span class="fas fa-cart-plus"></span>
 									<p>加入購物車</p>
-									<input type="hidden" value="<?php echo $dishesRow->meal_Name;?>|<?php echo $dishesRow->meal_Pic; ?>|<?php echo $dishesRow->meal_Price;?>|1|false">
-									<div class="wrap">
-										<div class="mainBall b1"></div>
-										<div class="mainBall b2"></div>	
-										<div class="mainBall b3"></div>	
-									</div>
+									<input type="hidden" value="<?php echo $dishesRow->meal_Name;?>|<?php echo $dishesRow->meal_Pic; ?>|<?php echo $dishesRow->meal_Price;?>|1">
+									
 								</a>
 							</div>
 						</div>
@@ -244,7 +236,7 @@
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
 		
-  	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script> -->
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.js"></script>
 	<script src="node_modules\sweetalert\dist\sweetalert.min.js"></script>
@@ -254,94 +246,54 @@
 	<script src="js/filiter.js"></script>  
 	<script src="js/dishes-icon.js"></script>
 	<script src="js/eggView.js"></script>
-	
+	<script src="js/dishesSessiom.js"></script>
 	<script src='https://cdn.jsdelivr.net/mojs/0.265.6/mo.min.js'></script>
 	<script src="js/iconClick.js"></script>
-	<script src="js/dishesSessiom.js"></script>
 	<script>
 		var index = sessionStorage;
-		var storage = sessionStorage;
-		
-		function dishAddToCart(){
-
-			if(storage.addItemList == null){
-				storage.addItemList = '';
-			}
-			var list = document.querySelectorAll('.food-button-buy.v2'); 
-			console.log(list);
-			for(var i=0;i<list.length;i++){
-				list[i].addEventListener('click',function(){
-					alert('該餐點已加入購物車');
-					var dishes = document.querySelector('#'+this.id+' input').value;
-					addItem(this.id, dishes);
-				});
-			}
-		}
-
-		function addItem(itemId, itemValue){
-			if(storage[itemId]){
-				console.log('got it');
-			}else{
-				storage[itemId] = itemValue;
-				console.log(storage[itemId]);
-				storage['addItemList'] += itemId + ',';
-			}
-		}
-
-		function getDishes(){
-			
-			if(storage['storage_search']!=null){
-				document.getElementById('searchInputMeal').value=storage.getItem('storage_search');
-				storage.removeItem('storage_search');
-			}
-			var xhr = new XMLHttpRequest();
-			xhr.onreadystatechange=function(){
-				if(xhr.readyState == 4){
-					if(xhr.status == 200){
-						document.querySelector(".food-content").innerHTML = xhr.responseText;  
-						if(index['index_search']!=null){
-							index.removeItem('index_search');
-						}
-						// console.log(xhr.responseText);
-						document.querySelector(".food-content").innerHTML = xhr.responseText;
-						dishAddToCart();  
-						eggScore.egg({
-							container: $all('.score-container'),
-							whiteEgg: 'images/eggEmpty.svg',
-							blackEgg: 'images/eggFull.svg',
-						});
-					}else{
-						alert(xhr.status);
-					}
-				}
-			}
-			var url = "searchDish.php?search="+ document.getElementById("searchInputMeal").value;
-			xhr.open("Get", url, true);
-  			xhr.send( null );
-		}
+		  function getDishes(){
+		   
+		   var xhr = new XMLHttpRequest();
+		   xhr.onreadystatechange=function(){
+		    if(xhr.readyState == 4){
+		     if(xhr.status == 200){
+		      document.querySelector(".food-content").innerHTML = xhr.responseText;  
+		      if(index['index_search']!=null){
+		       index.removeItem('index_search');
+		      }
+		     }else{
+		      alert(xhr.status);
+		     }
+		    }
+		   }
+		   var url = "searchDish.php?search="+ document.getElementById("searchInputMeal").value;
+		   xhr.open("Get", url, true);
+		     xhr.send( null );
+		  }
         
         window.addEventListener("load", function(){
-			if(index['index_search']!=null){
-				document.getElementById('searchInputMeal').value=index.getItem('index_search');
-				getDishes();
-			}
+		   if(index['index_search']!=null){
 
-        	document.getElementById("searchInputMeal").addEventListener("keypress",function(e){
-         		// window.alert(2);
-        		console.log("eeeeeeeeee");
-        		console.log(e);
-        		if(e.keyCode == 13){
-        			getDishes();
-        		}       		
-			});
-			
-		});
+		    document.getElementById('searchInputMeal').value=index.getItem('index_search');
 		
+		    getDishes();
+		   }
+
+		         document.getElementById("searchInputMeal").addEventListener("keypress",function(e){
+		           // window.alert(2);
+		          console.log("eeeeeeeeee");
+		          console.log(e);
+		          if(e.keyCode == 13){
+		           getDishes();
+		          }         
+		   });
+        });
+
 		var coll = document.querySelectorAll('.food-button-save'); 
 
 	    for(var i=0;i<coll.length;i++){
 	        coll[i].addEventListener('click',function(){
-			alert('//');
+	         
 	          var mealState = this.querySelectorAll('.mealState')[0];
 	          
 	          var mealNo = this.querySelectorAll('.mealNo')[0];
@@ -371,6 +323,6 @@
 	        });
 	    }
 	</script>
-	
+
 </body>
 </html>
