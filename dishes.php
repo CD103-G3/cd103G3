@@ -130,7 +130,7 @@
 				require_once('phpDB/connectDB_CD103G3.php');
 				// -------------------------------------------------------------------
 				//下sql查詢抓表格
-				$sql = "select * from meal";
+				$sql = "SELECT * from meal WHERE meal_Sold = 0";
 				$dishes = $pdo -> query($sql);
 				while($dishesRow = $dishes -> fetchObject()){			
 		?>		

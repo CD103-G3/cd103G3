@@ -2,8 +2,7 @@
 
 try {
 
-require_once("connectMember.php");
-
+	require_once("../connectMember.php");
 
 $mealno=$_REQUEST['meal_No'];
 $mealgenereno=$_REQUEST['mealGenre_No'];
@@ -14,7 +13,6 @@ $mealcal=$_REQUEST['meal_Cal'];
 $mealsold=$_REQUEST['meal_Sold'];
 $mealpic=$_REQUEST['meal_Pic'];
 
-echo $mealno,$mealgenereno,$mealname,$mealprice,$mealinfo,$mealcal,$mealsold,$mealpic;
 // $sql="update table"
 if( $mealpic == '') {
 	$sql1="update meal 
@@ -43,10 +41,11 @@ $mealedit = $pdo->prepare($sql1);
 $mealedit->bindValue(":noo",$mealno,PDO::PARAM_INT );
 $mealedit->bindValue(":GenNo",$mealgenereno,PDO::PARAM_INT );
 $mealedit->bindValue(":name",$mealname);
+// $mealedit->bindValue(":pic",);
 $mealedit->bindValue(":price",$mealprice);
 $mealedit->bindValue(":info",$mealinfo);
 $mealedit->bindValue(":cal",$mealcal);
-$mealedit->bindValue(":sold",$mealsold);
+// $mealedit->bindValue(":sold",$mealsold);
 $mealedit->execute();
 
 echo 'success';

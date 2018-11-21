@@ -2,7 +2,7 @@
  
 try
 {
-    require_once("connectMember.php");
+	require_once("../connectMember.php");
 
     // $no = $_POST['mealNo'];
     $genre = $_POST['mealGenre'];
