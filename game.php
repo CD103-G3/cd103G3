@@ -12,6 +12,9 @@
   		require_once('nav.php');
 	?>
     <div id="gameCapusle">
+    	<h2>
+    		<img class="game-title" src="images/game_title.svg" alt="">
+    	</h2>
     	<div class="niu_danji">
 		<div class="game_qu">
 			<div class="game_go"></div>
