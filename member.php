@@ -36,7 +36,7 @@
 					<label class="member-Pic-box" for="upFile">
 						<!-- <input type="file" id="input" class="sr-only"> -->
 						<input type="file" id="upFile" name="upFile" accept="image/*">
-						<img src="<?php echo $memRow->member_Pic ?>" alt="member-Pic" title="會員頭像" class="member-Pic" id="member-Pic">
+						<img src="images/member_Pic/<?php echo $memRow->member_Pic ?>" alt="member-Pic" title="會員頭像" class="member-Pic" id="member-Pic">
 						<span class="member-camera"></span>
 					</label>
 					<button type="submit" class="subBTN" id="subBTN-pic">修改頭像</button>

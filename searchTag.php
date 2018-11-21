@@ -2,7 +2,7 @@
 try{
   require_once('phpDB/connectDB_CD103G3.php');
   $sql = "select * from groupontag";
-  $groupontag = $pdo->query($sql);
+  $groupontag = $pdo -> query($sql);
 
   while ($Row = $groupontag->fetch(PDO::FETCH_ASSOC)) {
     ?>

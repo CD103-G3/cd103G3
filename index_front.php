@@ -1383,73 +1383,73 @@ window.onbeforeunload = function(){
         });
 
         
-        function showRecommGroupon(jsonStr) {
-            var recommGroupon = JSON.parse(jsonStr);
-            var recommL = recommGroupon.length;
-            console.log(recommGroupon);
+        // function showRecommGroupon(jsonStr) {
+        //     var recommGroupon = JSON.parse(jsonStr);
+        //     var recommL = recommGroupon.length;
+        //     console.log(recommGroupon);
             
-            for(let i = 0;i < recommL;i++) {
-                var tempRecomm = 
-                `<div class="indexGroupon-part indexGroupon-part1 item">
-                    <div class="indexGroupon-sumTitle">
-                        <h3>
-                            <a href="6-1_grouponDetail.php?no=${recommGroupon[i][0]}">${recommGroupon[i][1]}</a>
-                        </h3>
-                        <div class="indexGroupon-average">
-                            <p>${recommGroupon[i][6]}</p>
-                            <p>購物金</p>
-                        </div>
-                    </div>
-                    <img src="images/index_meal1.png" alt="">
-                    <p class="indexGroupon-info"><mark>每日不同菜色讓你吃不膩，省錢之餘兼具美味。</mark></p>
-                    <div class="indexGroupon-sum">
-                        <div class="indexGroupon-days">
-                            <span class="indexGroupon-subtitle">飯團天數｜</span>
-                            <span>7天</span>
-                        </div>
-                        <div class="indexGroupon-count">
-                            <span class="indexGroupon-subtitle">參加人數｜</span>
-                            <div class="indexGroupon-countBar">
-                                <p>${recommGroupon[i][7]}/${recommGroupon[i][9]}</p>
-                            </div>
-                        </div>
-                        <div class="indexGroupon-deadline">
-                            <span class="indexGroupon-subtitle">門檻截止｜</span>
-                            <span>${recommGroupon[i][5]}前</span>
-                        </div>
-                    </div>
-                    <div class="indexGroupon-btn">
-                        <a href="6-1_grouponDetail.php?no=${recommGroupon[i][0]}">查看飯團</a>
-                    </div>
-                </div>`;
-                 $class('indexGroupon-box')[0].innerHTML += tempRecomm;
-            }
+        //     for(let i = 0;i < recommL;i++) {
+        //         var tempRecomm = 
+        //         `<div class="indexGroupon-part indexGroupon-part1 item">
+        //             <div class="indexGroupon-sumTitle">
+        //                 <h3>
+        //                     <a href="6-1_grouponDetail.php?no=${recommGroupon[i][0]}">${recommGroupon[i][1]}</a>
+        //                 </h3>
+        //                 <div class="indexGroupon-average">
+        //                     <p>${recommGroupon[i][6]}</p>
+        //                     <p>購物金</p>
+        //                 </div>
+        //             </div>
+        //             <img src="images/index_meal1.png" alt="">
+        //             <p class="indexGroupon-info"><mark>每日不同菜色讓你吃不膩，省錢之餘兼具美味。</mark></p>
+        //             <div class="indexGroupon-sum">
+        //                 <div class="indexGroupon-days">
+        //                     <span class="indexGroupon-subtitle">飯團天數｜</span>
+        //                     <span>7天</span>
+        //                 </div>
+        //                 <div class="indexGroupon-count">
+        //                     <span class="indexGroupon-subtitle">參加人數｜</span>
+        //                     <div class="indexGroupon-countBar">
+        //                         <p>${recommGroupon[i][7]}/${recommGroupon[i][9]}</p>
+        //                     </div>
+        //                 </div>
+        //                 <div class="indexGroupon-deadline">
+        //                     <span class="indexGroupon-subtitle">門檻截止｜</span>
+        //                     <span>${recommGroupon[i][5]}前</span>
+        //                 </div>
+        //             </div>
+        //             <div class="indexGroupon-btn">
+        //                 <a href="6-1_grouponDetail.php?no=${recommGroupon[i][0]}">查看飯團</a>
+        //             </div>
+        //         </div>`;
+        //          $class('indexGroupon-box')[0].innerHTML += tempRecomm;
+        //     }
             
-            // $class('indexGroupon-box')[0].innerHTML += tempRecomm;
-        }               
-        function getRecommOfficial() {
-            var xhr = new XMLHttpRequest();
-            xhr.onload=function (){
-                if( xhr.status == 200 ){
-                    if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found
+        //     // $class('indexGroupon-box')[0].innerHTML += tempRecomm;
+        // }               
+        // function getRecommOfficial() {
+        //     var xhr = new XMLHttpRequest();
+        //     xhr.onload=function (){
+        //         if( xhr.status == 200 ){
+        //             if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found
                         
-                    } else  {
-                        showRecommGroupon(xhr.responseText); 
-                    } 
-                }else{
-                    alert( xhr.status );
-                }
-            }
-            var url = '6-1_recommendGrouponList.php?tagNo=8';
-            xhr.open("Get", url, true);
-            xhr.send( null );
-        }
+        //             } else  {
+        //                 showRecommGroupon(xhr.responseText); 
+        //             } 
+        //         }else{
+        //             alert( xhr.status );
+        //         }
+        //     }
+        //     var url = '6-1_recommendGrouponList.php?tagNo=8';
+        //     xhr.open("Get", url, true);
+        //     xhr.send( null );
+        // }
 
 
 
 
         window.addEventListener('load', function() {
-            getRecommOfficial();
+            // getRecommOfficial();
         })
     </script>
 </body>
