@@ -18,6 +18,7 @@
 
     <?php
     require_once('nav.php');
+    // session_start();
     ?>
 
 
@@ -96,8 +97,10 @@
                                         <p>
                                             <a href="eatDetail.php?meal_No=<?php echo $mealRow->meal_No;?>"><?php echo $mealRow->meal_Name;?></a>
                                         </p>
-                                        <p class="score-container">
-                                            <span class="scoreNum"><?php echo $mealRow->meal_Total;?></span>
+                                        <div class="score-container">
+                                            <span class="scoreNum" style="display:none;">
+                                                <?php echo $mealRow->meal_Total;?>
+                                            </span>
                                             <div class="scoreEgg-container">
                                                 <ul>
                                                     <li>
@@ -127,7 +130,7 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </p>
+                                        </div>
                                         <p><?php echo $mealRow->meal_Price;?>元</p>
                                     </div>
                                     <img class="indexSearch-mealImg" src="images/meals/<?php echo $mealRow->meal_Pic;?>" alt="">
@@ -674,8 +677,8 @@
                                     <h3><a href="eatDetail.php?meal_No=<?php echo $topRow->meal_No;?>"><?php echo $topRow->meal_Name;?></a>
                                         <h4><?php echo $topRow->meal_Price;?></h4>
                                     </h3>
-                                        <p class="score-container">
-                                            <span class="scoreNum"><?php echo $topRow->meal_Total;?></span>
+                                        <div class="score-container">
+                                            <span class="scoreNum" style="display:none;"><?php echo $topRow->meal_Total;?></span>
                                             <div class="scoreEgg-container">
                                                 <ul>
                                                     <li>
@@ -705,7 +708,7 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </p>
+                                        </div>
                                     <div class="indexMeal-btn">
                                         <a href="eatDetail.php?meal_No=<?php echo $topRow->meal_No;?>">查看餐點</a>
                                         <button>
@@ -757,8 +760,8 @@
                                     <h3><a href="eatDetail.php?meal_No=<?php echo $topRow->meal_No;?>"><?php echo $topRow->meal_Name;?></a>
                                         <h4><?php echo $topRow->meal_Price;?></h4>
                                     </h3>
-                                        <p class="score-container">
-                                            <span class="scoreNum"><?php echo $topRow->meal_Total;?></span>
+                                        <div class="score-container">
+                                            <span class="scoreNum" style="display:none;"><?php echo $topRow->meal_Total;?></span>
                                             <div class="scoreEgg-container">
                                                 <ul>
                                                     <li>
@@ -788,7 +791,7 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </p>
+                                        </div>
                                     <div class="indexMeal-btn">
                                         <a href="eatDetail.php?meal_No=<?php echo $topRow->meal_No;?>">查看餐點</a>
                                         <button>
@@ -838,8 +841,8 @@
                                     <h3><a href="eatDetail.php?meal_No=<?php echo $topRow->meal_No;?>"><?php echo $topRow->meal_Name;?></a>
                                         <h4><?php echo $topRow->meal_Price;?></h4>
                                     </h3>
-                                        <p class="score-container">
-                                            <span class="scoreNum"><?php echo $topRow->meal_Total;?></span>
+                                        <div class="score-container">
+                                            <span class="scoreNum" style="display:none;"><?php echo $topRow->meal_Total;?></span>
                                             <div class="scoreEgg-container">
                                                 <ul>
                                                     <li>
@@ -869,7 +872,7 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </p>
+                                        </div>
                                     <div class="indexMeal-btn">
                                         <a href="eatDetail.php?meal_No=<?php echo $topRow->meal_No;?>">查看餐點</a>
                                         <button>
@@ -949,8 +952,8 @@
                                     <h3><a href="eatDetail.php?meal_No=<?php echo $topRow->meal_No;?>"><?php echo $topRow->meal_Name;?></a>
                                         <h4><?php echo $topRow->meal_Price;?></h4>
                                     </h3>
-                                        <p class="score-container">
-                                            <span class="scoreNum"><?php echo $topRow->meal_Total;?></span>
+                                        <div class="score-container">
+                                            <span class="scoreNum" style="display:none;"><?php echo $topRow->meal_Total;?></span>
                                             <div class="scoreEgg-container">
                                                 <ul>
                                                     <li>
@@ -980,7 +983,7 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </p>
+                                        </div>
                                     <div class="indexMeal-btn">
                                         <a href="eatDetail.php?meal_No=<?php echo $topRow->meal_No;?>">查看餐點</a>
                                         <button>
@@ -1030,8 +1033,8 @@
                                     <h3><a href="eatDetail.php?meal_No=<?php echo $topRow->meal_No;?>"><?php echo $topRow->meal_Name;?></a>
                                         <h4><?php echo $topRow->meal_Price;?></h4>
                                     </h3>
-                                        <p class="score-container">
-                                            <span class="scoreNum"><?php echo $topRow->meal_Total;?></span>
+                                        <div class="score-container">
+                                            <span class="scoreNum" style="display:none;"><?php echo $topRow->meal_Total;?></span>
                                             <div class="scoreEgg-container">
                                                 <ul>
                                                     <li>
@@ -1061,7 +1064,7 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </p>
+                                        </div>
                                     <div class="indexMeal-btn">
                                         <a href="eatDetail.php?meal_No=<?php echo $topRow->meal_No;?>">查看餐點</a>
                                         <button>
@@ -1111,8 +1114,8 @@
                                     <h3><a href="eatDetail.php?meal_No=<?php echo $topRow->meal_No;?>"><?php echo $topRow->meal_Name;?></a>
                                         <h4><?php echo $topRow->meal_Price;?></h4>
                                     </h3>
-                                        <p class="score-container">
-                                            <span class="scoreNum"><?php echo $topRow->meal_Total;?></span>
+                                        <div class="score-container">
+                                            <span class="scoreNum" style="display:none;"><?php echo $topRow->meal_Total;?></span>
                                             <div class="scoreEgg-container">
                                                 <ul>
                                                     <li>
@@ -1142,7 +1145,7 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </p>
+                                        </div>
                                     <div class="indexMeal-btn">
                                         <a href="eatDetail.php?meal_No=<?php echo $topRow->meal_No;?>">查看餐點</a>
                                         <button>
@@ -1357,7 +1360,7 @@ window.onbeforeunload = function(){
             egg(egg) {
                 egg.container.forEach(function(e,w) {
                     var score = Math.round(e.children[0].innerText);
-                    // console.log(score);
+                    // console.log(e);
                     
                     var li = e.children[1].children[0].getElementsByTagName('li');
                     for(let i = 0; i < li.length ; i ++) {
