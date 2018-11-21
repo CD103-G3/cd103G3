@@ -2,7 +2,7 @@
 	// require_once('nav.php');
 	ob_start();
 	session_start();
-	$_SESSION['member_No'] = 3 ;
+	// $_SESSION['member_No'] = ;
 ?>
 <!DOCTYPE html>
 <html lang="en">
