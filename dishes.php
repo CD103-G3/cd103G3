@@ -242,7 +242,7 @@
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
 		
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
+  	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.js"></script>
 	<script src="node_modules\sweetalert\dist\sweetalert.min.js"></script>
@@ -251,23 +251,54 @@
 	<script src="js/puzzle.js"></script>
 	<script src="js/filiter.js"></script>  
 	<script src="js/dishes-icon.js"></script>
-	<script src="js/eggView.js"></script>
-	<script src="js/dishesSessiom.js"></script>
+	<!-- <script src="js/eggView.js"></script> -->
+	
 	<script src='https://cdn.jsdelivr.net/mojs/0.265.6/mo.min.js'></script>
 	<script src="js/iconClick.js"></script>
+	<script src="js/dishesSessiom.js"></script>
 	<script>
-		var index = sessionStorage;
+		var storage = sessionStorage;
+		
+		
+		function dishAddToCart(){
+
+			if(storage.addItemList == null){
+				storage.addItemList = '';
+			}
+			var list = document.querySelectorAll('.food-button-buy.v2'); 
+			console.log(list);
+			for(var i=0;i<list.length;i++){
+				list[i].addEventListener('click',function(){
+					alert('該餐點已加入購物車');
+					var dishes = document.querySelector('#'+this.id+' input').value;
+					addItem(this.id, dishes);
+				});
+			}
+		}
+
+		function addItem(itemId, itemValue){
+			if(storage[itemId]){
+				console.log('got it');
+			}else{
+				storage[itemId] = itemValue;
+				console.log(storage[itemId]);
+				storage['addItemList'] += itemId + ',';
+			}
+		}
+
 		function getDishes(){
 			
-			if(index['index_search']!=null){
-				document.getElementById('searchInputMeal').value=index.getItem('index_search');
-				index.removeItem('index_search');
+			if(storage['storage_search']!=null){
+				document.getElementById('searchInputMeal').value=storage.getItem('storage_search');
+				storage.removeItem('storage_search');
 			}
 			var xhr = new XMLHttpRequest();
 			xhr.onreadystatechange=function(){
 				if(xhr.readyState == 4){
 					if(xhr.status == 200){
-						document.querySelector(".food-content").innerHTML = xhr.responseText;  
+						// console.log(xhr.responseText);
+						document.querySelector(".food-content").innerHTML = xhr.responseText;
+						dishAddToCart();  
 					}else{
 						alert(xhr.status);
 					}
@@ -289,11 +320,14 @@
         			getDishes();
         		}       		
 			});
-        });
+			
+		});
+		
 		var coll = document.querySelectorAll('.food-button-save'); 
 	    for(var i=0;i<coll.length;i++){
+			console.log(coll.length);
 	        coll[i].addEventListener('click',function(){
-	          // alert('hi');
+	        //   alert('hi');
 	          var mealState = this.getElementsByClassName('mealState')[0];
 	          var mealNo = this.getElementsByClassName('mealNo')[0];
 	          if(mealState.value == 'false') {
@@ -305,8 +339,7 @@
 	          // console.log(mealState.value);
 	          // if(this.value == '')
 	          // console.log(this);
-	             var xhr = new XMLHttpRequest();
-	                    
+	             var xhr = new XMLHttpRequest();  
 	                    xhr.onload = function (){
 	                        if( xhr.status == 200){
 	                            alert("收藏資料修改成功");
@@ -322,8 +355,8 @@
 	                                     //餐點編號
 	                    xhr.send(data_info);
 	        });
-	    }
+		}
 	</script>
-
+	
 </body>
 </html>

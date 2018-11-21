@@ -3844,3 +3844,29 @@ a,
           background-color: #76391B;
           color: #fff;
       }
+      
+        #capsuleMachine {
+          display: none;
+          position: fixed;
+          left: 10px;
+          bottom: 10px;
+        }
+        #capsuleMachine img {
+          width: 100px;
+        }
+        #capsuleMachine .textBox {
+          position: absolute;
+          top: -70px;
+          width: 120%;
+          padding: 10px;
+          border-radius: 10px;
+          background-color: #222;
+          color: #fff;
+          line-height: 1.6;
+        }
+        @media screen and (min-width: 768px) {
+          #capsuleMachine {
+            display: block;
+          }
+        }
+      

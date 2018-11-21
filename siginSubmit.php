@@ -26,6 +26,8 @@ try{
     $_SESSION["member_Pic"] = $memRow["member_Pic"];  //會員大頭貼
     $_SESSION["member_Bonus"] = $memRow["member_Bonus"];  //會員購物金
     $_SESSION["member_buyCount"] = $memRow["member_buyCount"];  //會員購買數量
+    
+    //  header("Refresh: 0");
   	//送出登入者的姓名資料
     echo $memRow["member_Nick"].','.$memRow["member_Pic"].','.$memRow["member_buyCount"]; 
   }

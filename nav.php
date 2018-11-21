@@ -90,11 +90,11 @@ session_start();
 		<ul>
 			<div id="view7"></div>
 			<li>
-				<a href="shopping_cart.php">
+				<a id="cartBTN">
 					<img class="phone-hidden" src="images/icon/cart_black.svg" alt="cart">
 					<img class="table-hidden" src="images/icon/cart_white.svg" alt="cart"><br>
 					購物車
-					<span>3</span>
+					<!-- <span>3</span> -->
 				</a>
 			</li>
 			<li>
@@ -102,7 +102,7 @@ session_start();
 					<img class="phone-hidden" src="images/icon/qrcode_black.svg" alt="qrcode">
 					<img class="table-hidden" src="images/icon/qrcode_white.svg" alt="cart"><br>
 					快速取餐
-					<span>2</span>
+					<!-- <span>2</span> -->
 				</a>
 			</li>
 			<li class="table-hidden">
@@ -388,6 +388,9 @@ session_start();
 					beforeLogin.style.display = "inline-block";
 					afterLogin.style.display = "none";
 					clearMemberSeeion.style.display = "none";
+					document.getElementById('cartBTN').onclick = function() {
+						alert('請先登入會員喔~');
+					};
 				} else {
 					beforeLogin.style.display = "none";
 					beforeLogin.style.opacity = "0";
@@ -398,6 +401,10 @@ session_start();
 					nike.innerText = jsonStr[0].member_Nick ; 
 					memberyPic.src = `images/${jsonStr[0].member_Pic}` ;
 					buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${jsonStr[0].member_buyCount}`;
+
+					document.getElementById('cartBTN').onclick = function() {
+						location.href = 'shopping_cart.php';
+					};
 				
 				}
 			} else {
@@ -431,6 +438,7 @@ session_start();
 	window.addEventListener('load',function(){
 		checkMemberId();
 	},false);
+
 
 
 

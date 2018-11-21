@@ -97,7 +97,7 @@
 			<div class="member-panel">	
 				<label for="member-Information-radio">會員資料</label>
 				<label for="member-Order-radio">訂餐紀錄</label>
-				<label for=""><a href="javascript:void(0)">飯團查詢</a></label>
+				<label for=""><a href="5-1_NotChanged.php">我的飯團</a></label>
 				<label for="member-Achievement-radio" id="achievement-button">我的成就</label>
 				<label for=""><a href="javascript:void(0)">我的收藏</a></label>
 			</div>

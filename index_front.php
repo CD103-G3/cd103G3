@@ -1218,9 +1218,13 @@
         </section>
     </div>
 
-
-
-
+    <a href="game.php" id="capsuleMachine"> 
+    <!-- //轉蛋機 -->
+        <img src="images/indexCapsule.png" alt="capsuleMachine">
+        <div class="textBox">
+            想不到吃什麼? <br> 點我看看~
+        </div>
+    </a>
 
 
 <script>
