@@ -56,7 +56,7 @@
 			<h2>
 				<b><?php echo $dishesRow["meal_Name"];?></b><span>NT $<?php echo $dishesRow["meal_Price"];?></span>
 			</h2>
-			<span class="checkDishes nextBTN" href="javascript::">確認</span>
+			<a href="eatDetail.php?meal_No=<?php echo $dishesRow["meal_No"] ?>"><span class="checkDishes nextBTN" href="javascript::">確認</span></a>
 			
 		</div>
 	</div>
