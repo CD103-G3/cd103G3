@@ -439,6 +439,7 @@ $id("sigupSubmit").addEventListener(
             clearMemberSeeion.style.display = "inline-block";
 
             var jsonStr = JSON.parse(xhr.responseText);
+            console.log(jsonStr);
             nike.innerText = jsonStr.member_Nick ; 
             memberPic.src = `images/${jsonStr.member_Pic}` ;
             buyCount.innerHTML = `<img src="images/achieve/${jsonStr[0].achievement_Pic}" width="30" alt="achievement-Pic" class="achievement-Pic">${jsonStr.member_buyCount}`;

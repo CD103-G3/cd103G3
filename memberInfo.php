@@ -13,9 +13,9 @@ if(isset($_SESSION["member_Id"])){
 
 			$memRow = $member->fetchObject();//撈會員資料
 			$buyCount = $memRow->member_buyCount; //存購買數量
-			$sql2 = "select * from achievement where meal_Total < :meal_Total order by achievement_No desc";	//比對成就條件，如果購買數量大於成就條件，撈出來，用成就編號大到小
-			$achievement = $pdo->prepare($sql2);
-			$achievement->bindValue(":meal_Total", $buyCount);
+			$sql2 = "select * from achievement where meal_Total <= :meal_Total order by achievement_No desc";	//比對成就條件，如果購買數量大於成就條件，撈出來，用成就編號大到小
+			$achievement = $pdo->prepare($sql2); 
+			$achievement->bindValue(":meal_Total", (int)$buyCount);
 			$achievement->execute();
 			$achievementRow = $achievement->fetchObject();//撈成就資料一次。
 			//登入成功, 寫入session

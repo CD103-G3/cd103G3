@@ -25,10 +25,11 @@ try{
     $memberCall->bindValue(":member_Id", $loginInfo->member_Id);
     $memberCall->execute();
     $memRow = $memberCall->fetch(PDO::FETCH_ASSOC);
+
     $buyCount = $memRow["member_buyCount"];
-    $sql2 = "select * from achievement where meal_Total < :meal_Total order by achievement_No desc";	//比對成就條件，如果購買數量大於成就條件，撈出來，用成就編號大到小
+    $sql2 = "select * from achievement where meal_Total <= :meal_Total order by achievement_No desc";	//比對成就條件，如果購買數量大於成就條件，撈出來，用成就編號大到小
     $achievement = $pdo->prepare($sql2);
-    $achievement->bindValue(":meal_Total", $buyCount);
+    $achievement->bindValue(":meal_Total", (int)$buyCount);
     $achievement->execute();
     $achievementRow = $achievement->fetch();//撈成就資料一次。
     array_push($memRow, $achievementRow);
