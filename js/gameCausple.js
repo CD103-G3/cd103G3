@@ -28,6 +28,7 @@ $(document).ready(function (e) {
 			// 按鈕轉動
 			$(".game_go").click(function(){
 				rotateButton(360, ".game_go");
+				
 			});
 			function rotateButton(d){
 				var elem = $(".game_go");
