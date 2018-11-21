@@ -5,7 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>日食扭蛋機</title>
-    <link rel="stylesheet" href="css/gameCapusle.css">
+	<link rel="stylesheet" href="css/gameCapusle.css">
+	<style>
+		.game_go {
+			cursor: pointer;
+		}
+		h3 {
+			margin: auto;
+			text-align: center;
+			font-size: 20px; 
+		}
+	</style>
 </head>
 <body>
 	<?php
@@ -14,7 +24,10 @@
     <div id="gameCapusle">
     	<h2>
     		<img class="game-title" src="images/game_title.svg" alt="">
-    	</h2>
+		</h2>
+		<h3>
+			試試看點擊黃色的旋鈕吧~
+		</h3>
     	<div class="niu_danji">
 		<div class="game_qu">
 			<div class="game_go"></div>
@@ -37,6 +50,7 @@
 		<div class="zjdl ">
 			<span></span>
 		</div>
+		<!-- <div class="hint"></div> -->
 	</div>
 
 	<!-- ---------------------------吃甚麼小遊戲------------------------ -->
