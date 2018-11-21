@@ -1,6 +1,6 @@
 <?php
 try{
-	require_once("../connectMember.php");
+  require_once("connectMember.php");
 
   $sql = "select * from meal A1 inner join meal_genre A2 on A1.mealGenre_No = A2.mealGenre_No where meal_No = :mealNo group by A1.meal_No order by meal_No";
   $meal = $pdo->prepare($sql);

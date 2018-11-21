@@ -1,4 +1,4 @@
-node_modules
+node_modules/*
 
 libs 
 gulpfile.js 
@@ -6,5 +6,5 @@ gulpfile.js
 bower.json 
 package.json
 package-lock.json
-.gitignore
 node_modules
+phpDB/*

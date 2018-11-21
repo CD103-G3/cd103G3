@@ -84,4 +84,12 @@
 	function checkSubmit() {
 	  return false;
 	}
+	window.addEventListener('load', function() {
+		<?php if(isset($_SESSION['member_No']) == false ) {
+			echo "document.getElementsByClassName('hoverBox')[0].style.display = 'none'";	
+		} else {
+			echo "document.getElementsByClassName('hoverBox')[0].style.display = 'block'";	
+		}?>
+		
+	})
 </script>

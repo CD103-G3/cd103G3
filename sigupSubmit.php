@@ -41,6 +41,7 @@ try{
     $jsonStr = json_encode($memRow);
     echo $jsonStr;
     // echo 'not found'; //會員大頭貼
+    header('Location: scratch.php');
   }else{ //註冊失敗
     echo 'hasMember';
   }

@@ -18,7 +18,7 @@ session_start();
 			</label>
 		</div>
 		<div class="logo">
-			<a href="index.php">
+			<a href="index_front.php">
 				<img src="images/logo.png" alt="logo">
 			</a>
 		</div>
@@ -33,11 +33,12 @@ session_start();
 		<ul>
 			<li class="logo">
 				<div id="view4"></div>
-				<a href="index.php">
+				<a href="index_front.php">
 					<img src="images/logo.png" alt="logo">
 				</a>
 			</li>
-			<li class="index-member">
+			<li class="index-member"> 
+			<!-- hover跳窗 -->
 				<div id="view6"></div>
 				<label for="close-login" class="before-login">
 					<!-- 註冊登入 -->
@@ -46,6 +47,20 @@ session_start();
 					<?php 
 						require_once('memberInfo.php');
 					?>
+				</div>
+				<div class="hoverBox">
+					<a href="coll.php">
+						我的收藏
+					</a>
+					<a href="5-1_NotChanged.php">
+						我的飯團
+					</a>
+					<form action="Logout.php">
+						<button type="submit">
+							登出
+						</button>
+					</form>
+					
 				</div>
 			</li>
 			<li class="meals">
@@ -114,7 +129,17 @@ session_start();
 <script src="js/search.js"></script>
 
 <script>
-
+	function $id(id) {
+		return document.getElementById(id);
+	}
+	function $class(className) {
+		return document.getElementsByClassName(className);
+	}
+	function $all(all) {
+		return document.querySelectorAll(all);
+	}
+	
+	
 	for (var i = 1; i <= 7; i++) {
 	
 		var view = document.querySelector("#view" +　i);
@@ -374,5 +399,15 @@ var clearMemberSeeion = document.getElementById('clearMemberSeeion');
         xhr.open("get","Logout.php", true);
         xhr.send( null);
 	},false);
+<<<<<<< HEAD
 
+=======
+	window.addEventListener('load',function(){
+		checkMemberId();
+	},false);
+
+
+
+	
+>>>>>>> 1d675deb6d96ad7afc725eb2bada984c9533a201
 </script>

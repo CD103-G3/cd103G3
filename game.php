@@ -12,6 +12,9 @@
   		require_once('nav.php');
 	?>
     <div id="gameCapusle">
+    	<h2>
+    		<img class="game-title" src="images/game_title.svg" alt="">
+    	</h2>
     	<div class="niu_danji">
 		<div class="game_qu">
 			<div class="game_go"></div>
@@ -56,7 +59,7 @@
 			<h2>
 				<b><?php echo $dishesRow["meal_Name"];?></b><span>NT $<?php echo $dishesRow["meal_Price"];?></span>
 			</h2>
-			<span class="checkDishes nextBTN" href="javascript::">確認</span>
+			<a href="eatDetail.php?meal_No=<?php echo $dishesRow["meal_No"] ?>"><span class="checkDishes nextBTN" href="javascript::">確認</span></a>
 			
 		</div>
 	</div>

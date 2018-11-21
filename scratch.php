@@ -22,7 +22,7 @@
   </div>
   <div class="promo-container" style="display:none;">
     <div class="promo-code"></div>
-    <a href="javascript::" target="_blank" class="btn nextBTN">確認</a>
+    <a href="dishes.php" class="btn nextBTN">馬上選購餐點!</a>
   </div>
 </div>
 
