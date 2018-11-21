@@ -16,8 +16,16 @@ try{
 	  echo "not found";
   }else{ //登入成功
     //自資料庫中取回資料
-  	$memRow = $member->fetch(PDO::FETCH_ASSOC);
-  	//將登入者的資訊寫入session暫存區
+    $memRow = $member->fetch(PDO::FETCH_ASSOC);
+    $buyCount = $memRow["member_buyCount"];
+    $sql2 = "select * from achievement where meal_Total < :meal_Total order by achievement_No desc";	//比對成就條件，如果購買數量大於成就條件，撈出來，用成就編號大到小
+    $achievement = $pdo->prepare($sql2);
+    $achievement->bindValue(":meal_Total", $buyCount);
+    $achievement->execute();
+    $achievementRow = $achievement->fetch();//撈成就資料一次。
+    array_push($memRow, $achievementRow);
+  
+    //將登入者的資訊寫入session暫存區
   	$_SESSION["member_No"] = $memRow["member_No"]; //會員編號
   	$_SESSION["member_Id"] = $memRow["member_Id"]; //會員帳號
   	$_SESSION["member_Psw"] = $memRow["member_Psw"]; //會員密碼
@@ -27,7 +35,6 @@ try{
     $_SESSION["member_Pic"] = $memRow["member_Pic"];  //會員大頭貼
     $_SESSION["member_Bonus"] = $memRow["member_Bonus"];  //會員購物金
     $_SESSION["member_buyCount"] = $memRow["member_buyCount"];  //會員購買數量
-
     $jsonStr = json_encode($memRow);
 
   	//送出登入者的姓名資料

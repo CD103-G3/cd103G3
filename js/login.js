@@ -384,7 +384,7 @@ $id("siginSubmit").addEventListener(
             console.log(jsonStr);
             nike.innerText = jsonStr.member_Nick ; 
             memberPic.src = `images/${jsonStr.member_Pic}` ;
-            buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${jsonStr.member_buyCount}`;
+            buyCount.innerHTML = `<img src="images/achieve/${jsonStr[0].achievement_Pic}" width="30" alt="achievement-Pic" class="achievement-Pic">${jsonStr.member_buyCount}`;
 
             document.getElementById("close-login").checked = true;
 
@@ -441,7 +441,7 @@ $id("sigupSubmit").addEventListener(
             var jsonStr = JSON.parse(xhr.responseText);
             nike.innerText = jsonStr.member_Nick ; 
             memberPic.src = `images/${jsonStr.member_Pic}` ;
-            buyCount.innerHTML = `<img src="images/icon/riceball_white.svg" width="30" alt="achievement-Pic" class="achievement-Pic">${jsonStr.member_buyCount}`;
+            buyCount.innerHTML = `<img src="images/achieve/${jsonStr[0].achievement_Pic}" width="30" alt="achievement-Pic" class="achievement-Pic">${jsonStr.member_buyCount}`;
 
             document.getElementById("close-login").checked = true;
 
