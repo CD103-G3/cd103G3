@@ -62,7 +62,7 @@ function CallAjax(text) {
     if (xhr.status == 200) {
       if (xhr.responseText.indexOf("not found") != -1) {
         //回傳的資料中有not found
-        BotText = "啊~甚麼~你可以點選關鍵字問問我";
+        BotText = "你可以點選關鍵字問問我~或是聯絡客服(03)-4257387";
       } else {
         //查有此keyword
         BotText = xhr.responseText.replace(/(\r\n)/g , "<br>");

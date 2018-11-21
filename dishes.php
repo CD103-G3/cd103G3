@@ -254,7 +254,7 @@
 	<script src='https://cdn.jsdelivr.net/mojs/0.265.6/mo.min.js'></script>
 	<script src="js/iconClick.js"></script>
 	<script>
-	// var index = sessionStorage;
+	var index = sessionStorage;
 		function getDishes(){
 			
 			var xhr = new XMLHttpRequest();
