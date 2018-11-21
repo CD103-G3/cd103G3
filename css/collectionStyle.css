@@ -466,7 +466,7 @@ table {
     width: 100%; }
   .coll_slogan {
     width: 100%;
-    height: 150px;
+    height: 100px;
     background-image: url(../images/slogan1920.jpg);
     background-size: 100% 100%;
     font-size: 0; }
@@ -726,7 +726,7 @@ table {
     width: 100%; }
   .coll_slogan {
     width: 100%;
-    height: 150px;
+    height: 100px;
     background-image: url(/images/slogan1920.jpg);
     background-size: 100% 100%;
     font-size: 0;
@@ -738,8 +738,8 @@ table {
     color: #fff;
     margin: 5% auto; }
   .coll_slogan_title p {
-    max-width: 80px;
-    font-size: 20px;
+    max-width: 200px;
+    font-size: 42px;
     margin: auto;
     padding: 10px 0; }
   .coll_slogan_right {
@@ -814,7 +814,7 @@ table {
     background-color: #333333;
     color: #fff; }
   .coll_title_kind {
-    margin: 0 0 0px 0;
+    margin: 0 0 15px 0;
     font-size: 0;
     padding: 0; }
   .title_kind_icon {
