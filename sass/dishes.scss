@@ -479,17 +479,22 @@ body{
 .food-title{
     vertical-align: middle;
     h2{
-        font-size: 18px;
+        font-size: 24px;
         margin: 10px;
+        font-weight: 600;
+        @include rwd(lg){
+            font-size: 20px;
+        }
     }
 }
 .food-pic{
     margin: 0 auto;
     position: relative;
-    font-size: 16px;
+    font-size: 24px;
     margin-bottom: 30px;
     position:relative;
     width:240px;
+    font-weight: 600;
     #circle {
         position: absolute;
         width:60px;
@@ -535,27 +540,36 @@ body{
 }
     
 .food-price{
-    font-size: 18px;
+    font-size: $fontSize_M;
     text-align: center;
     font-weight: 600;
     color:$color_hot;
+    display: inline-block;
+    vertical-align: middle;
+    @include rwd(lg){
+        font-size: $fontSize_S;
+    }
+}
+.score-container{
     display: inline-block;
     vertical-align: middle;
 }
 .food-score{
     padding: 10px 0;
     font-size: 0;
-    text-align: left;
+    text-align: center;
     .calc-score{
         color:$color_main2;
         font-weight: 600;
-        font-size: $fontSize_M;
+        font-size: $fontSize_text;
         line-height: 1.6;
+        vertical-align: middle;
+        padding: 0 10px;
     }
     .scoreEgg-container ul li {
         display: inline-block;
-        width: 25px;
-        margin-right: 3px;
+        width: 16px;
+        margin-right: 5px;
     }
     .pic img {
         width: 100%;
@@ -573,7 +587,7 @@ body{
         font-size:$fontSize_M;
         color:$color_main2;
         margin-top: 5px;
-        display: inline-block;
+        display: none;
         float:right;
     }
 }
@@ -584,6 +598,7 @@ body{
         position: relative;
         display: inline-block;
         height: 40px;
+        width: 40px;
         line-height: 40px;
         text-align: center;
         font-weight: 600;
@@ -594,7 +609,7 @@ body{
         transition: .2s;
         cursor: pointer;
         margin: auto;
-        padding: 0 10px;
+        padding: 1px 7px;
         p{
             display: inline-block;
         }
@@ -636,7 +651,6 @@ body{
               }
 
               span{
-                  font-size: 20px;
                   vertical-align: middle;
               }
               
@@ -680,6 +694,8 @@ body{
         margin: auto;
         font-size: 20px;
         padding: 0 10px;
+        vertical-align: middle;
+        margin-left: 10px; 
         p{
             display: inline-block;
         }
@@ -769,12 +785,12 @@ body{
     margin-top: 24px;
 }
 
-.food-button-save{
-    float:left;
-} 
-.food-button-buy{
-    float:right;
-}
+// .food-button-save{
+//     float:left;
+// } 
+// .food-button-buy{
+//     float:right;
+// }
 @media screen and (min-width:360px) and (max-width:415px){
     .food-choose_item{
         width: 100%;
@@ -875,6 +891,7 @@ body{
     }
     .food-button-buy {
         width: 220px;
+        vertical-align: middle;
     }
     .food-choose .food-icon-lan,
     .food-choose .food-icon-don,
@@ -941,16 +958,16 @@ body{
     }
     
     .food-button-save{
-        float: left;
+        vertical-align: middle;
     } 
     .food-button-buy {
-        float: right;
         width: initial;
+        padding:0 20px;
+
     }
     .food-score {
         padding: 10px 0;
         font-size: 0;
-        text-align: left;
         font-size:16px;
     }
     .food-choose_item {

@@ -1,17 +1,19 @@
 <?php
+session_start();
 try{
-$dsn = "mysql:host=localhost;port=3306;dbname=cd103g3;charset=utf8";
-$user = "root";
-$password = "Pp0983510219";
-$options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-$pdo = new PDO($dsn, $user, $password, $options);
+require_once('phpDB/connectDB_CD103G3.php');
 
 $sql  = "insert into message (member_No, meal_No, message_Content, message_Time) values (:meNo, :mealNo, :meCont, NOW())";
 
 $sentmsg = $pdo->prepare($sql);
 
+if(isset($_SESSION['member_No'])) {
+    $memNo = $_SESSION['member_No'];
+} else {
+    $memNo = NULL;
+}
 // $sentmsg-> bindValue(":msNo",$_REQUEST["messageNo"]);
-$sentmsg-> bindValue(":meNo",1);
+$sentmsg-> bindValue(":meNo", $memNo);
 $sentmsg-> bindValue(":mealNo",$_POST["mealNo"]);
 $sentmsg-> bindValue(":meCont",$_POST["msg"]);
 $sentmsg->execute();

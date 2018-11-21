@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/groupon.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/gsap/src/minified/TweenMax.min.js"></script>
@@ -192,7 +192,7 @@ try {
         
         
         // 最後再清空暫存資料
-        // storage.clear();
+        storage.clear();
         // 等6-1作好後，抓QRcode資料 和產生代碼，測試網頁連結
     });
 </script>

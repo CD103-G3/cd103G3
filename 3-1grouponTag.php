@@ -19,8 +19,8 @@
 
 
 <?php
-if(isset($_SESSION['memId'])) {
-    $memId = $_SESSION['memId'];
+if(isset($_SESSION['member_Id'])) {
+    $memId = $_SESSION['member_Id'];
     if( strrpos($memId,'ayCook') ) {?>
         <option value="tag8">
             官方飯團

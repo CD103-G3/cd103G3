@@ -1,6 +1,6 @@
 <?php
 try{
-  require_once("connectBooks.php");
+  require_once('phpDB/connectDB_CD103G3.php');
   $sql = "select * from groupontag";
   $groupontag = $pdo->query($sql);
 

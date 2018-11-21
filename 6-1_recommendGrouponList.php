@@ -5,9 +5,13 @@
 try {
     require_once('phpDB/connectDB_CD103G3.php');
     //使用搜尋條件
-    $tagNo = $_REQUEST['tagNo'];
-      
-    $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon ORDER BY success DESC  LIMIT 8";
+    if(isset($_REQUEST['tagNo'])) { //官方推薦
+        $tagNo = $_REQUEST['tagNo'];
+        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon WHERE groupon_TagNo = $tagNo ORDER BY success DESC LIMIT 4";
+    } else {
+        $sql = "SELECT *,(memberNow / groupon_MemberNeed) as success from groupon ORDER BY success DESC LIMIT 8";
+    }
+    
 
     $groupon = $pdo -> prepare($sql);
     $groupon -> execute();

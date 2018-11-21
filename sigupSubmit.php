@@ -40,6 +40,7 @@ try{
     //送出登入者的姓名資料
     echo "not found".','.$memRow["member_Nick"].','.$memRow["member_Pic"].','.$memRow["member_buyCount"]; 
     // echo 'not found'; //會員大頭貼
+    header('Location: scratch.php');
   }else{ //註冊失敗
     echo 'hasMember';
   }

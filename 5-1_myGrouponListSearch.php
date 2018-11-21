@@ -17,7 +17,7 @@ if( $groupon -> rowCount() != 0) { //如果有飯團
     $grouponR = $groupon -> fetchAll(); //1. 先找到所有飯團
 
 
-    $sql_memberGroupon = 'SELECT * from membergroupon where member_No = :memberNo order by member_No ASC' ;
+    $sql_memberGroupon = 'SELECT * from membergroupon where member_No = :memberNo order by memberGrouponList_No DESC' ;
     $memberGroupon = $pdo -> prepare($sql_memberGroupon);
     $memberGroupon -> bindValue('memberNo', $idNo);
     $memberGroupon -> execute();

@@ -36,14 +36,14 @@ function searchImg() {
 
 var markGroupon = document.getElementById("bookmark-animation-groupon");
 var markMeal = document.getElementById("bookmark-animation-meal");
-var markGrouponText = $("#bookmark-animation-groupon").text();
-var markMealText = $("#bookmark-animation-meal").text();
+var markGrouponText = $id("bookmark-animation-groupon").innerText;
+var markMealText = $id("bookmark-animation-meal").innerText;
 // var markSearchValue = markSearch.placeholder;
 markGroupon.addEventListener("click", function() {
-  $("#input-search").attr("placeholder", "請輸入" + markGrouponText + "關鍵字");
+  $id("input-search").placeholder="請輸入" + markGrouponText + "關鍵字";
 });
 markMeal.addEventListener("click", function() {
-  $("#input-search").attr("placeholder", "請輸入" + markMealText + "關鍵字");
+  $id("input-search").placeholder="請輸入" + markMealText + "關鍵字";
 });
 $id('start-search').addEventListener('click',function () {
   var searchText = [];
@@ -54,35 +54,35 @@ $id('start-search').addEventListener('click',function () {
 
 function startSearch(searchGO) {
 
-  if($id('bookmark-meal').checked==true){
+  // if($id('bookmark-meal').checked==true){
 
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function(){
-      if( xhr.status == 200){
-        window.alert(xhr.responseText);
-        location.href = 'searchToMealUpshot.php';
-      }else{
-        alert(xhr.status);
-      }
-    }
-    xhr.open("post","searchToMeal.php",true);
-    var GOsearch = new FormData(document.getElementById("GOsearch"))
-    xhr.send(GOsearch);
+  //   var xhr = new XMLHttpRequest();
+  //   xhr.onload = function(){
+  //     if( xhr.status == 200){
+  //       window.alert(xhr.responseText);
+  //       location.href = 'searchToMealUpshot.php';
+  //     }else{
+  //       alert(xhr.status);
+  //     }
+  //   }
+  //   xhr.open("post","searchToMeal.php",true);
+  //   var GOsearch = new FormData(document.getElementById("GOsearch"))
+  //   xhr.send(GOsearch);
 
-  }else if($id('bookmark-groupon').checked==true){
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function(){
-      if( xhr.status == 200){
-        window.alert(xhr.responseText);
-        location.href = 'searchToGrouponUpshot.php';
-      }else{
-        alert(xhr.status);
-      }
-    }
-    xhr.open("post","searchToGroupon.php",true);
-    var GOsearch = new FormData(document.getElementById("GOsearch"))
-    xhr.send(GOsearch);
-  }
+  // }else if($id('bookmark-groupon').checked==true){
+  //   var xhr = new XMLHttpRequest();
+  //   xhr.onload = function(){
+  //     if( xhr.status == 200){
+  //       window.alert(xhr.responseText);
+  //       location.href = 'searchToGrouponUpshot.php';
+  //     }else{
+  //       alert(xhr.status);
+  //     }
+  //   }
+  //   xhr.open("post","searchToGroupon.php",true);
+  //   var GOsearch = new FormData(document.getElementById("GOsearch"))
+  //   xhr.send(GOsearch);
+  // }
 }
 // function searchAjax() {
 //   //傳PHP端

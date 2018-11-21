@@ -63,31 +63,31 @@ body {
   top: 13vh;
   animation-duration: 47s;
   animation-delay: -5s;
-  transform: rotate(-30deg) scale(0.8); }
+  transform: rotate(-30deg) scale(0.2); }
 
 .cloud2 {
-  top: 21vh;
+  top: 19vh;
   animation-duration: 44s;
   animation-delay: -10s;
-  transform: rotate(-30deg) scale(0.8); }
+  transform: rotate(-30deg) scale(0.2); }
 
 .cloud3 {
-  top: 24vh;
+  top: 16vh;
   animation-duration: 41s;
   animation-delay: -15s;
-  transform: rotate(-30deg) scale(0.8); }
+  transform: rotate(-30deg) scale(0.5); }
 
 .cloud4 {
-  top: 21vh;
+  top: 20vh;
   animation-duration: 38s;
   animation-delay: -20s;
-  transform: rotate(-30deg) scale(0.6); }
+  transform: rotate(-30deg) scale(0.3); }
 
 .cloud5 {
-  top: 6vh;
+  top: 25vh;
   animation-duration: 35s;
   animation-delay: -25s;
-  transform: rotate(-30deg) scale(0.6); }
+  transform: rotate(-30deg) scale(0.4); }
 
 .ball {
   width: 20px;

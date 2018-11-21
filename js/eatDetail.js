@@ -214,7 +214,7 @@ function eatDetailMsg() {
                         <figure class="member-img fl">
                             <img src=${memberImg}>
                         </figure>
-                        <div class="member-id fl color">訪客訪客訪客</div>
+                        <div class="member-id fl color">訪客</div>
                     </div>
                     <div class="comments-time fl">${year}/${mon}/${day}</div>
                 </div>
@@ -226,6 +226,7 @@ function eatDetailMsg() {
                 </div>`;
             var textContainer = document.getElementsByClassName('text-container')[0];  //設定變數為放留言的空間
             textContainer.insertBefore(textDiv, textContainer.childNodes[0]);  //送出留言後，把留言設定在最上面
+            location.reload();
         }
     }
 };
@@ -295,7 +296,8 @@ function messagereport(){
             // alert(msgnum);
             sendMsgReport();
             // alert('ok');
-            console.log(this);
+            // console.log(this);
+            
         });
     };
     function sendMsgReport(){
@@ -312,8 +314,10 @@ function messagereport(){
         xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
         var reportData = 
          "&message_No=" + document.getElementById(msgnum).value;
+         location.reload();
         alert('已檢舉該留言');
         xhr.send(reportData);
+        location.reload();
     };
 };  
 window.addEventListener('load', messagereport);
@@ -340,6 +344,7 @@ function getRecomm() {
     var url = '6-1_recommendGrouponList.php';
     xhr.open("Get", url, true);
     xhr.send( null );
+    
 }
 function showRecomm(jsonStr) {
     var recommGroupon = JSON.parse(jsonStr);
@@ -382,6 +387,7 @@ function showRecomm(jsonStr) {
             </div>
         </div>`;
         document.querySelector('.eatDetail .groupon').innerHTML += recommBox;
+        
 
         for(let j = 0; j < mealTotal ; j++) { //加餐點
             mealPrice += parseInt(recommGroupon[i][11][j][2]);
