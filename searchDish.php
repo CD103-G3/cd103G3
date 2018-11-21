@@ -2,7 +2,7 @@
 try{
 	require_once('phpDB/connectDB_CD103G3.php');
     $name = isset($_REQUEST["search"]) ? trim($_REQUEST["search"]) : '';
-    $sql = "select * from meal where meal_Name like :keyword &&  meal_Sold = 0";
+    $sql = "select * from meal where meal_Name like :keyword && meal_Sold = 0";
     $name = "%$name%"; 
     $dishes = $pdo->prepare( $sql );
     $dishes->bindValue(":keyword", $name);

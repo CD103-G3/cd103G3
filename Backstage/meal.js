@@ -38,8 +38,8 @@ function showDishes(jsonStr,no){
                               <div class="d-flex form-group">
                                    <label for="viewMealSold" class="title-width">餐點狀態</label>
                                    <select class="form-control change-select" id="viewMealSold" name="status">
-                                    <option value="1">上架</option>
-                                     <option value="0">下架</option>
+                                    <option value="0">上架</option>
+                                     <option value="1">下架</option>
                                   </select>
                                 </div>
                                <div class="d-flex form-group">

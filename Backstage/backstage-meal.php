@@ -126,14 +126,14 @@
                             <td scope="row"><?php echo $prodRow->meal_No; ?></td>
                             <td><?php echo $prodRow->mealGenre_Name; ?></td>
                             <td><?php echo $prodRow->meal_Name; ?></td>
-                            <td><img src="../images/<?php echo $prodRow->meal_Pic; ?>" class="one-size" alt=""></td>
+                            <td><img src="../images/meals/<?php echo $prodRow->meal_Pic; ?>" class="one-size" alt=""></td>
                             <td><?php echo $prodRow->meal_Price; ?></td>
                             <td style="display: none;"><?php echo $prodRow->meal_Info; ?></td>
                             <td><?php echo $prodRow->meal_Cal;?></td>
                             <td><?php if($prodRow -> meal_Sold == 0) {
                                 echo '上架';
                             } else {
-                                echo '下架中';
+                                echo '下架';
                             } ?></td>
                             
 
@@ -234,12 +234,12 @@
       document.getElementById("viewMealPic").innerText = filenameSub;
 
       var data_info = "meal_No=" + document.querySelector("#viewMealNo").value + 
-      "&mealGenre_No=" + document.querySelector("#viewMealGenre option").value +
+      "&mealGenre_No=" + document.querySelector("#viewMealGenre").value +
       "&meal_Name=" + document.querySelector("#viewMealName").value +
       "&meal_Price=" + document.querySelector("#viewMealPrice").value + 
       "&meal_Info=" + document.querySelector("#viewMealInfo").value + 
       "&meal_Cal=" + document.querySelector("#viewMealCal").value + 
-      "&meal_Sold=" + document.querySelector("#viewMealSold option").value +
+      "&meal_Sold=" + document.querySelector("#viewMealSold").value +
       "&meal_Pic=" + filenameSub;
       console.log(data_info);
       xhr.send(data_info);
@@ -265,7 +265,7 @@
     
     </script>
     
-    <!-- <script>
+    <script>
         
         $(".touch").click(function(){
 
@@ -286,5 +286,5 @@
                 //..........
             });
         });
-    </script> -->
+    </script>
 </html>

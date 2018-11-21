@@ -153,7 +153,9 @@
 							<div class="food-score clearfix">
 								<span class="calc-score">評分</span>
 								<div class="score-container clearfix">
-									<span class="scoreNum"><?php echo $dishesRow->meal_Total;?></span>
+									<span class="scoreNum">
+										<?php echo $dishesRow->meal_Total;?>
+									</span>
 									<div class="scoreEgg-container" score="2.7" >
 										<ul>
 											<li>
@@ -251,7 +253,7 @@
 	<script src="js/puzzle.js"></script>
 	<script src="js/filiter.js"></script>  
 	<script src="js/dishes-icon.js"></script>
-	<!-- <script src="js/eggView.js"></script> -->
+	<script src="js/eggView.js"></script>
 	
 	<script src='https://cdn.jsdelivr.net/mojs/0.265.6/mo.min.js'></script>
 	<script src="js/iconClick.js"></script>
@@ -303,6 +305,11 @@
 						// console.log(xhr.responseText);
 						document.querySelector(".food-content").innerHTML = xhr.responseText;
 						dishAddToCart();  
+						eggScore.egg({
+							container: $all('.score-container'),
+							whiteEgg: 'images/eggEmpty.svg',
+							blackEgg: 'images/eggFull.svg',
+						});
 					}else{
 						alert(xhr.status);
 					}
@@ -331,38 +338,38 @@
 		});
 		
 		var coll = document.querySelectorAll('.food-button-save'); 
+
 	    for(var i=0;i<coll.length;i++){
-			console.log(coll.length);
 	        coll[i].addEventListener('click',function(){
-	        //   alert('hi');
-	          var mealState = this.getElementsByClassName('mealState')[0];
-	          var mealNo = this.getElementsByClassName('mealNo')[0];
+			alert('//');
+	          var mealState = this.querySelectorAll('.mealState')[0];
+	          
+	          var mealNo = this.querySelectorAll('.mealNo')[0];
 	          if(mealState.value == 'false') {
 	          	mealState.value = 'true';
 	          } else {
 	          	mealState.value = 'false';
-	          } //切換該筆餐點的收藏狀態
- 
-	          // console.log(mealState.value);
-	          // if(this.value == '')
-	          // console.log(this);
-	             var xhr = new XMLHttpRequest();  
-	                    xhr.onload = function (){
-	                        if( xhr.status == 200){
-	                            alert("收藏資料修改成功");
-	                        }else{
-	                            alert(xhr.status);
-	                        }
-	                    }
-	                    xhr.open("post", "heartDataUpdate.php", true);
-	                    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-	                    //餐點收藏狀態
-	                    var data_info = "mealState=" + mealState.value + "&mealNo=" + mealNo.value;
-	                    console.log(data_info);
-	                                     //餐點編號
-	                    xhr.send(data_info);
+	          } 
+	           var xhr = new XMLHttpRequest();
+                xhr.onload = function (){
+                    if( xhr.status == 200){
+                        alert("收藏資料修改成功");
+                    }else{
+                        alert(xhr.status);
+                    }
+                }
+                xhr.open("POST", "heartDataUpdate.php", true);
+
+                xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+
+                //餐點收藏狀態
+                var data_info = "mealState=" + mealState.value + "&mealNo=" + mealNo.value;
+                
+                console.log(data_info);
+
+                xhr.send(data_info);
 	        });
-		}
+	    }
 	</script>
 	
 </body>

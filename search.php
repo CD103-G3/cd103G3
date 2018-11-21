@@ -1,4 +1,5 @@
 	<input type="checkbox" id="close-search" checked>
+	
 	<div class="search-wrap">
 		<label for="close-search" class="close-search"></label>
 		<form action="" class="search-bg" id="GOsearch">
