@@ -1,3 +1,6 @@
+<?php
+	require_once("Backstage-login-success.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,27 +8,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="css/backstage.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../css/backstage.css">
     <title>餐點資料後台</title>
 </head>
 <body class="out">
-    <div class="d-flex">
+    <div class="d-flex" name="top">
         <div class="container col-xl-2">
             <div class="list-group back-nav">
-                <div class="back-logo"><img src="images/logo3.png" alt="logo"></div>
+                <div class="back-logo"><img src="../images/logo3.png" alt="logo"></div>
                 <div class="back-signout">
-                    <span>登入者</span>
-                    <a href="#">登出</a>
+                    <span><?php echo $prodRowmanager->manager_Id ?></span>
+                    <form action="Backstage-login-out.php">
+                        <button type="submit" class="mainBTN" id="manager-out">登出</button>
+                    </form>
                 </div>
-                <a href="backstage-meal.html" class="list-group-item list-group-item-action back-change focus-color">餐點資訊</a>
-                <a href="backstage-groupon.html" class="list-group-item list-group-item-action back-change">飯團管理</a>
-                <a href="backstage-message.html" class="list-group-item list-group-item-action back-change">留言審核</a>
-                <a href="backstage-chatBot.html" class="list-group-item list-group-item-action back-change">客服雞器人</a>
-                <a href="backstage-achievement.html" class="list-group-item list-group-item-action back-change">成就管理</a>
-                <a href="backstage-memberOrder.html" class="list-group-item list-group-item-action back-change">訂單管理</a>
-                <a href="backstage-manager.html" class="list-group-item list-group-item-action back-change">管理員帳號</a>
+                <a href="backstage-meal.php" class="list-group-item list-group-item-action back-change focus-color">餐點資訊</a>
+                <!-- <a href="backstage-groupon.php" class="list-group-item list-group-item-action back-change">飯團管理</a> -->
+                <a href="backstage-message.php" class="list-group-item list-group-item-action back-change">留言審核</a>
+                <a href="backstage-chatBot.php" class="list-group-item list-group-item-action back-change">客服雞器人</a>
+                <a href="backstage-achievement.php" class="list-group-item list-group-item-action back-change">成就管理</a>
+                <a href="backstage-memberOrder.php" class="list-group-item list-group-item-action back-change">訂單管理</a>
+                <a href="backstage-manager.php" class="list-group-item list-group-item-action back-change">管理員帳號</a>
+                <a href="takeMealAfter.php" class="list-group-item list-group-item-action back-change">會員取餐</a>
             </div>
         </div>
     
@@ -37,7 +43,7 @@
                         <!-- 新增跳窗 -->
                         <div class="modal-content">
                             <figure class="modal-img">
-                                <img src="images/dayCookIndex_whiteBG1.svg" alt="">
+                                <img src="../images/dayCookIndex_whiteBG1.svg" alt="">
                             </figure>
                             <div class="modal-header">
                                 <h5 class="modal-title" id="MealTitle">新增餐點資料</h5>
@@ -111,7 +117,7 @@
                     <tbody>
                     <?php 
                         try {
-                            require_once("connectMember.php");
+                            require_once("../connectMember.php");
                             $sql = "select * from meal A1 inner join meal_genre A2 on A1.mealGenre_No = A2.mealGenre_No group by A1.meal_No order by meal_No";
                             $products = $pdo -> query( $sql );
                             while($prodRow = $products->fetchObject()){
@@ -120,7 +126,7 @@
                             <td scope="row"><?php echo $prodRow->meal_No; ?></td>
                             <td><?php echo $prodRow->mealGenre_Name; ?></td>
                             <td><?php echo $prodRow->meal_Name; ?></td>
-                            <td><img src="images/meals/<?php echo $prodRow->meal_Pic; ?>" class="one-size" alt=""></td>
+                            <td><img src="../images/<?php echo $prodRow->meal_Pic; ?>" class="one-size" alt=""></td>
                             <td><?php echo $prodRow->meal_Price; ?></td>
                             <td style="display: none;"><?php echo $prodRow->meal_Info; ?></td>
                             <td><?php echo $prodRow->meal_Cal;?></td>
@@ -143,7 +149,7 @@
                                     <!-- 新增跳窗 -->
                                     <div class="modal-content">
                                         <figure class="modal-img">
-                                            <img src="images/dayCookIndex_whiteBG1.svg" alt="">
+                                            <img src="../images/dayCookIndex_whiteBG1.svg" alt="">
                                         </figure>
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="viewAddMealTitle">餐點資料</h5>
@@ -176,7 +182,8 @@
             </div>
         </div>
     </div>   
-    
+
+    <a href="#top" class="toTop-arrow"><i class="fas fa-arrow-circle-up"></i></a>
 </body>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -232,7 +239,7 @@
       "&meal_Price=" + document.querySelector("#viewMealPrice").value + 
       "&meal_Info=" + document.querySelector("#viewMealInfo").value + 
       "&meal_Cal=" + document.querySelector("#viewMealCal").value + 
-      "&meal_Sold=" + document.querySelector("#viewMealSold").value +
+      "&meal_Sold=" + document.querySelector("#viewMealSold option").value +
       "&meal_Pic=" + filenameSub;
       console.log(data_info);
       xhr.send(data_info);
@@ -258,7 +265,7 @@
     
     </script>
     
-    <script>
+    <!-- <script>
         
         $(".touch").click(function(){
 
@@ -279,5 +286,5 @@
                 //..........
             });
         });
-    </script>
+    </script> -->
 </html>
