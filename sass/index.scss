@@ -172,6 +172,7 @@ a {
           background-color: $color_main3;
           box-shadow: 0 6px $color_main2;
           position: relative;
+          outline: none;
 
           div:nth-child(1) {
             display: inline-block;
@@ -503,9 +504,17 @@ a {
   }
 }
 
+@media screen and (min-width: 1024px) {
+  .indexSearch {
+    height: calc(100vh - 80px);
+    margin-top: -20px;
+  }
+}
+
 @media screen and (min-width: 1200px) {
   .indexSearch {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 80px);
+    margin-top: -20px;
     .wrap {
       .indexSearch-wrap {
         height: calc(100vh - 100px);
@@ -1232,24 +1241,30 @@ a {
           .indexJoin-phone {
             @keyframes spotlightMoveB {
               0% {
-                transform: rotate(3deg);
+                transform: rotate(1deg);
+              }
+              50% {
+                transform: rotate(-1deg);
               }
               100% {
-                transform: rotate(-3deg);
+                transform: rotate(1deg);
               }
             }
             @keyframes spotlightMoveA {
               0% {
-                left: -30px;
+                left: -10px;
+              }
+              50% {
+                left: 10px;
               }
               100% {
-                left: 30px;
+                left: -10px;
               }
             }
             .indexJoin-spotlightL {
               position: absolute;
               bottom: -20px;
-              left: -330px;
+              left: -260px;
               transform-origin: top;
 
               &::before,
@@ -1263,33 +1278,32 @@ a {
                 height: 0;
                 width: 0;
                 border: 3px solid;
-                border-width: 610px 140px;
-                border-color: transparent transparent #f7f7f7;
+                border-width: 610px 120px;
+                border-color: transparent transparent #ffffff;
                 opacity: 0.3;
-                filter: blur(10px);
-                transform: rotate(-3deg);
+                filter: blur(6px);
+                transform: rotate(-1deg);
                 animation: spotlightMoveB 3s infinite alternate;
               }
               &::after {
                 bottom: 33px;
-                width: 283px;
-                height: 40px;
-                background: lighten(#a7a7a7, 10%);
+                width: 232px;
+                height: 36px;
+                background: lighten(#5a5a5a, 10%);
                 border-radius: 200%;
                 position: relative;
                 display: block;
                 margin: 0 auto;
-                opacity: 0.3;
-                box-shadow: 0px 2px 0px lighten(#a7a7a7, 25%);
-                filter: blur(3px);
-                left: -30px;
+                opacity: 0.2;
+                box-shadow: 0px 2px 0px lighten(#5a5a5a, 25%);
+                filter: blur(1px);
                 animation: spotlightMoveA 3s infinite alternate;
               }
             }
             .indexJoin-spotlightR {
               position: absolute;
               bottom: -20px;
-              right: -330px;
+              right: -260px;
               transform-origin: top;
 
               &::before,
@@ -1303,26 +1317,25 @@ a {
                 height: 0;
                 width: 0;
                 border: 3px solid;
-                border-width: 610px 140px;
-                border-color: transparent transparent #f7f7f7;
+                border-width: 610px 120px;
+                border-color: transparent transparent #ffffff;
                 opacity: 0.3;
-                filter: blur(10px);
-                transform: rotate(-3deg);
+                filter: blur(6px);
+                transform: rotate(-1deg);
                 animation: spotlightMoveB 3s infinite alternate;
               }
               &::after {
                 bottom: 33px;
-                width: 283px;
-                height: 40px;
-                background: lighten(#a7a7a7, 10%);
+                width: 232px;
+                height:36px;
+                background: lighten(#5a5a5a, 10%);
                 border-radius: 200%;
                 position: relative;
                 display: block;
                 margin: 0 auto;
-                opacity: 0.3;
-                box-shadow: 0px 2px 0px lighten(#a7a7a7, 25%);
-                filter: blur(3px);
-                left: -30px;
+                opacity: 0.2;
+                box-shadow: 0px 2px 0px lighten(#5a5a5a, 25%);
+                filter: blur(1px);
                 animation: spotlightMoveA 3s infinite alternate;
               }
             }
@@ -1700,6 +1713,12 @@ a {
       .indexJoin-wrap {
         .indexJoin-phoneBox {
           .indexJoin-phone {
+            .indexJoin-spotlightL {
+              left: -330px;
+            }
+            .indexJoin-spotlightR {
+              right: -330px;
+            }
             .indexJoin-bg {
               @keyframes chickenLGPC1 {
                 0% {
@@ -1921,24 +1940,22 @@ a {
               color: $color_main2;
               font-weight: bold;
             }
-            .indexGroupon-countBar {
-              display: inline-block;
-              width: 100px;
-              height: 16px;
-              border-radius: $borderRadius;
-              background-color: $color_main4;
-              line-height: 16px;
-
-              p {
-                width: 0;
+              .indexGroupon-countBar {
+                display: inline-block;
+                width: 100px;
                 height: 16px;
-                margin: 0 0 0 -1px;
-                text-align: center;
-                font-size: 10px;
-                background-color: $color_main1;
                 border-radius: $borderRadius;
+                background-color: $color_main4;
+                line-height: 16px;
+                p {
+                  height: 16px;
+                  margin: 0 0 0 -1px;
+                  text-align: center;
+                  font-size: 10px;
+                  background-color: $color_main1;
+                  border-radius: $borderRadius;
+                }          
               }
-            }
           }
 
           .indexGroupon-deadline {
@@ -1957,88 +1974,9 @@ a {
               bottom: 0;
               right: 0;
               color: $color_main2;
-            }
-          }
-        }
-
-        // @keyframes countBar1 {
-        //   0% {
-        //     width: 0;
-        //   }
-        //   100% {
-        //     width: 87px;
-        //   }
-        // }
-
-        // @keyframes countBar2 {
-        //   0% {
-        //     width: 0;
-        //   }
-        //   100% {
-        //     width: 50px;
-        //   }
-        // }
-
-        // @keyframes countBar3 {
-        //   0% {
-        //     width: 0;
-        //   }
-        //   100% {
-        //     width: 35px;
-        //   }
-        // }
-
-        // @keyframes countBar4 {
-        //   0% {
-        //     width: 0;
-        //   }
-        //   100% {
-        //     width: 95px;
-        //   }
-        // }
-
-        .indexGroupon-part1 {
-          .indexGroupon-sum {
-            .indexGroupon-count {
-              p {
-                width: 87px;
-                // animation: countBar1 1s linear 5s 1;
-                // animation-fill-mode: forwards;
-              }
-            }
-          }
-        }
-
-        .indexGroupon-part2 {
-          .indexGroupon-sum {
-            .indexGroupon-count {
-              p {
-                width: 50px;
-                // animation: countBar2 1s linear 5.2s 1;
-                // animation-fill-mode: forwards;
-              }
-            }
-          }
-        }
-
-        .indexGroupon-part3 {
-          .indexGroupon-sum {
-            .indexGroupon-count {
-              p {
-                width: 35px;
-                // animation: countBar3 1s linear 5.4s 1;
-                // animation-fill-mode: forwards;
-              }
-            }
-          }
-        }
-        .indexGroupon-part4 {
-          .indexGroupon-sum {
-            .indexGroupon-count {
-              p {
-                width: 95px;
-                // animation: countBar4 1s linear 5.6s 1;
-                // animation-fill-mode: forwards;
+              &:hover {
+                opacity: .7;
+                transition: .2s;
               }
             }
           }
@@ -2071,7 +2009,7 @@ a {
           img:nth-child(1) {
             width: 100%;
             position: relative;
-            top: 384px;
+            top: 377px;
             left: 0;
             z-index: 1;
           }
@@ -2229,6 +2167,14 @@ a {
                 font-size: $fontSize_text;
                 box-shadow: $boxshadow;
                 margin-right: 5px;
+                position: relative;
+                &:hover {
+                  opacity: .7;
+                  transition: .2s;
+                }
+                &:active {
+                  top: 2px;
+                }
               }
 
               svg {
@@ -2251,6 +2197,14 @@ a {
                 padding: 0px 10px;
                 border: 0;
                 margin-left: 5px;
+                position: relative;
+                  &:hover {
+                    opacity: .7;
+                    transition: .2s;
+                  }
+                  &:active {
+                    top: 2px;
+                  }
                 p {
                   font-size: 16px;
                   padding: 8px 2px;
@@ -2561,6 +2515,14 @@ a {
                   font-size: $fontSize_text;
                   box-shadow: $boxshadow;
                   margin-right: 5px;
+                  position: relative;
+                  &:hover {
+                    opacity: .7;
+                    transition: .2s;
+                  }
+                  &:active {
+                    top: 2px;
+                  }
                 }
 
                 svg {
@@ -2589,6 +2551,14 @@ a {
                   padding: 0px 10px;
                   border: 0;
                   margin-left: 5px;
+                  position: relative;
+                  &:hover {
+                    opacity: .7;
+                    transition: .2s;
+                  }
+                  &:active {
+                    top: 2px;
+                  }
                   p {
                     font-size: 16px;
                     padding: 5px 2px;
@@ -2929,6 +2899,14 @@ a {
         margin: 180px auto 0px;
         cursor: pointer;
         text-align: center;
+        position: relative;
+          &:hover {
+            opacity: .7;
+            transition: .2s;
+          }
+          &:active {
+            top: 2px;
+          }
         button {
           @extend .mainBtn;
         }
