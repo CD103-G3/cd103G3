@@ -2,7 +2,7 @@
 	// require_once('nav.php');
 	ob_start();
 	session_start();
-	// $_SESSION['member_No'] = 2 ;
+	$_SESSION['member_No'] = 3 ;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -262,7 +262,7 @@
 		try{
 			require_once("connectmenu.php");
 
-		    $sql = "select * from meal_genre";
+		    $sql = "select * from meal_genre,membercoll where membercoll.member_No =" . $_SESSION['member_No'];
 		    $Menu = $pdo ->query($sql);
 		   
 
@@ -272,11 +272,12 @@ if( $Menu->rowCount()==0){
 							<p class="coll_nocoll">尚未有任何收藏項目種類</p>
 						</div>
 						<div class="coll_food coll_nocoll_txt part-6 part-s-6 part-l-6">
-							<p id="coll_nocoll_txt">您目前沒有任何收藏，建議前往<a href="">餐點一覽</a>參考看看</p>
+							<p id="coll_nocoll_txt">您目前沒有任何收藏，建議前往<a href="dishes.php">餐點一覽</a>參考看看</p>
 
 						</div>
 <?php
 }  //if終止
+
 else{
 	while($rowMenu=$Menu->fetch(PDO::FETCH_ASSOC)){	//餐點分類
 
