@@ -3412,7 +3412,7 @@ h2 {
   position: fixed;
   z-index: 2;
   height: auto;
-  top: 60px;
+  top: 130px;
   display: none;
   max-width: 400px;
   width: 100%;
@@ -4875,3 +4875,7 @@ h2 {
   .plusAndMinus:active {
     top: 2px;
     box-shadow: 0px 2px 0px #76391B; }
+
+    .penguinPage .changeMeal-container .groupon_topUI .leftUI .meal-container .meal-box:nth-child(4),
+      .penguinPage .changeMeal-container .groupon_topUI .leftUI .meal-container .meal-box:nth-child(3) {
+        display: inline-block; }

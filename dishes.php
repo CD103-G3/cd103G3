@@ -341,19 +341,20 @@
 
 	    for(var i=0;i<coll.length;i++){
 	        coll[i].addEventListener('click',function(){
-			alert('//');
+			
 	          var mealState = this.querySelectorAll('.mealState')[0];
-	          
+	          var mealVal = mealState.value;
 	          var mealNo = this.querySelectorAll('.mealNo')[0];
 	          if(mealState.value == 'false') {
-	          	mealState.value = 'true';
-	          } else {
-	          	mealState.value = 'false';
-	          } 
+					mealState.value = 'true';
+				} else {
+					mealState.value = 'false';
+				}
 	           var xhr = new XMLHttpRequest();
                 xhr.onload = function (){
                     if( xhr.status == 200){
-                        alert("收藏資料修改成功");
+						alert("收藏資料修改成功");
+						 
                     }else{
                         alert(xhr.status);
                     }
@@ -363,7 +364,7 @@
                 xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
 
                 //餐點收藏狀態
-                var data_info = "mealState=" + mealState.value + "&mealNo=" + mealNo.value;
+                var data_info = "mealState=" + mealVal + "&mealNo=" + mealNo.value;
                 
                 console.log(data_info);
 

@@ -8,8 +8,7 @@ try{
   if($_REQUEST["mealState"]=="false"){ //會員是否收藏過此餐點
 
       //新增
-      $sql = "INSERT INTO membercoll (memberColl_No, member_No, meal_No) 
-              VALUES(NULL, :member_No, :meal_No)";
+      $sql = "INSERT INTO membercoll (memberColl_No, member_No, meal_No) VALUES (NULL, :member_No, :meal_No)";
 
       $member = $pdo->prepare( $sql);
       $member->bindValue("member_No", $_SESSION["member_No"]);

@@ -1330,8 +1330,8 @@ window.onbeforeunload = function(){
                         content: {
                             element: "a",
                             attributes: {
-                            href: "https://www.youtube.com/?gl=TW&hl=zh-tw",
-                            text: "目前最HOT!HOT!飯團"
+                            href: "4-1_grouponList.php?search=&order=latest&p=1",
+                            text: "目前最 HOT!HOT!飯團"
                             }
                         }
                     });

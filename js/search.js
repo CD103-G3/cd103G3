@@ -49,7 +49,7 @@ $id('start-search').addEventListener('click',function () {
   var searchText = [];
   inputText = $id('input-search').innerText;
   searchText =  inputText.split(" ");
-  startSearch(searchText); 
+  // startSearch(searchText); 
 },false);
 
 function startSearch(searchGO) {

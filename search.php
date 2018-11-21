@@ -93,3 +93,24 @@
 		</form>
 	</div>
 
+	<script>
+		function $id(id) {
+			return document.getElementById(id);
+		}
+		function $class(className) {
+			return document.getElementsByClassName(className);
+		}
+		function $all(all) {
+			return document.querySelectorAll(all);
+		}
+		if($id('bookmark-groupon').checked) {
+			var kw = $id('input-search').value;
+			$id('bookmark-animation-groupon').onclick = function() {
+				location.href = '4-1_grouponList.php?search='+ kw  +'&order=latest&p=1'
+			}
+		}
+		
+		// bookmark-animation-groupon
+	
+	</script>
+
