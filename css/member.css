@@ -1591,14 +1591,14 @@ header {
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-  opacity: .6; }
+  opacity: 0.6; }
 
 ::-webkit-scrollbar-thumb {
-  background: #76391B;
+  background: #76391b;
   border-radius: 10px; }
 
 ::-webkit-scrollbar-track {
-  background-color: #FCF2CA; }
+  background-color: #fcf2ca; }
 
 .image-cutting-contain {
   width: 100%;
@@ -1722,14 +1722,14 @@ header {
           width: 35px;
           height: 35px;
           border-radius: 50%;
-          background-color: #76391B;
+          background-color: #76391b;
           cursor: pointer;
           display: inline-block;
           position: absolute;
           top: 74%;
           left: 65%; }
           .member-list-item .member-Pic-box .member-camera:after {
-            content: '';
+            content: "";
             margin: 4px 0 0 1.5px;
             width: 70%;
             height: 70%;
@@ -1819,7 +1819,7 @@ header {
         .member .member-contain .member-Information .member-content label,
         .member .member-contain .member-Information .change-paw label {
           font-size: 20px;
-          color: #76391B;
+          color: #76391b;
           font-weight: 700;
           vertical-align: middle;
           display: inline-block; }
@@ -1872,7 +1872,7 @@ header {
         padding: 0 2%;
         width: 96%;
         border-radius: 10px;
-        border: 3px solid #76391B;
+        border: 3px solid #76391b;
         display: inline-block;
         vertical-align: top; }
         .member .member-contain .member-order .member-order-list > li .ordering-news {
@@ -1880,22 +1880,22 @@ header {
           padding: 5px 30px 0 0;
           width: 80%;
           color: #000;
-          background-color: #FCE444;
+          background-color: #fce444;
           text-align: center;
           position: relative; }
           .member .member-contain .member-order .member-order-list > li .ordering-news:before {
-            content: '';
+            content: "";
             border-width: 27px 0px 27px 20px;
             border-style: solid;
-            border-color: #FCE444 transparent #FCE444 transparent;
+            border-color: #fce444 transparent #fce444 transparent;
             top: 0;
             right: 100%;
             position: absolute; }
           .member .member-contain .member-order .member-order-list > li .ordering-news:after {
-            content: '';
+            content: "";
             border-width: 27px 20px 27px 0px;
             border-style: solid;
-            border-color: #FCE444 transparent #FCE444 transparent;
+            border-color: #fce444 transparent #fce444 transparent;
             top: 0;
             left: 100%;
             position: absolute; }
@@ -1941,13 +1941,13 @@ header {
                 width: 96%;
                 font-size: 16px;
                 text-align: center;
-                background-color: #FCE444; }
+                background-color: #fce444; }
               .member .member-contain .member-order .member-order-list > li .ordering-contain ul li span {
                 padding: 8px;
                 border-radius: 0 0 0 17px;
                 font-size: 16px;
                 color: #fff;
-                background-color: #76391B;
+                background-color: #76391b;
                 position: absolute;
                 top: 0;
                 right: 0; }
@@ -1958,7 +1958,7 @@ header {
         padding: 2%;
         width: 92%;
         border-radius: 10px;
-        outline: 3px solid #76391B;
+        outline: 3px solid #76391b;
         display: inline-block; }
         .member .member-contain .member-achievement .member-achievement-list li .achievement-pic {
           margin-right: 5%;
@@ -1979,7 +1979,7 @@ header {
             padding: 5px 0;
             font-size: 20px;
             font-weight: 700;
-            color: #FF5000; }
+            color: #ff5000; }
           .member .member-contain .member-achievement .member-achievement-list li .achievement-contain .meal-count {
             margin: 5px 0;
             padding: 5px 0 15px;
@@ -1988,7 +1988,7 @@ header {
             border: 1px solid #000;
             border-radius: 15px;
             font-size: 16px;
-            background: linear-gradient(90deg, #FCE444 0%, #fff 0%);
+            background: linear-gradient(90deg, #fce444 0%, #fff 0%);
             text-align: center;
             transition: 1s; }
           .member .member-contain .member-achievement .member-achievement-list li .achievement-contain .achievement-info,
