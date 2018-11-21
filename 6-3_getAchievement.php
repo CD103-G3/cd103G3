@@ -31,7 +31,7 @@
         $founderPic = $memberR[0]['member_Pic'];
     }
 
-    $sql_achieve = "SELECT * FROM `achievement` WHERE meal_Total <= $memBuyCount and isAchievable = 0 order by `meal_Total` DESC limit 1" ; 
+    $sql_achieve = "SELECT * FROM `achievement` WHERE meal_Total <= $memBuyCount and isAchievable = 1 order by `meal_Total` DESC limit 1" ; 
     $memberAchie = $pdo -> prepare($sql_achieve);
     $memberAchie -> execute();
     $memberAchie_R = $memberAchie -> fetchAll();

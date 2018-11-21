@@ -46,10 +46,10 @@
 				<p class="member-list-item-contain">
 					<span>  
 						<img src="images/icon/user_black.svg" alt="member-Id" title="帳號" class="mem-icon">
-						<?php echo $memRow->member_Id ?>	
+						帳號ID: <?php echo $memRow->member_Id ?>	
 					</span>
 					<span>
-						<img src="images/icon/money_black.svg" alt="member-Bonus" title="購物金" class="mem-icon">
+						<img src="images/icon/money_black.svg" alt="member-Bonus" title="購物金" class="mem-icon">購物金: 
 						<?php echo $memRow->member_Bonus ?>
 					</span>
 					<span>

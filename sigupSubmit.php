@@ -41,6 +41,13 @@ try{
     $jsonStr = json_encode($memRow);
     echo $jsonStr;
     // echo 'not found'; //會員大頭貼
+    
+    $memNo = $memRow["member_No"];
+    $sql = "INSERT INTO `memberorder` (`memOrder_No`, `member_No`, `memOrder_Time`, `memOrder_TakeTime`, `memOrder_status`, `memOrder_Amount`, `is_memOrder`, `memOrder_QR`) VALUES (NULL, $memNo, Now(), Now(), 'ing', '246', '0', '8.png')";
+    $memOrder = $pdo -> prepare($sql);
+    $memOrder -> execute();
+
+
     header('Location: scratch.php');
   }else{ //註冊失敗
     echo 'hasMember';
