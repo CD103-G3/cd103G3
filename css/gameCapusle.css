@@ -3,10 +3,6 @@
   font-family: 'Mamelon';
   src: url(../font/Mamelon.otf) format("opentype"); }
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -1728,11 +1724,14 @@ button, input[type="button"] {
   outline: none;
   box-shadow: 0px 4px 0px #76391B; }
 
-#gameCapusle {
-  /* .qiu_11{ position:absolute; left:333px; top:248px;}
-  .qiu_11:after{content:""; position:absolute; left:0; top:0; width:115px; height:115px; display:block;background:url(../images/canpin_4.png) no-repeat;animation:zhuan 1s linear forwards ;-webkit-animation:zhuan 1s linear forwards ;} */
-  /*æŽ‰è½åŠ¨ç”»*/
-  /* 跳窗 */ }
+#gameCapusle h2{
+    text-align: center;
+  }  
+    #gameCapusle .game-title{
+      width: 400px;
+      height: 100px;
+
+    }
   #gameCapusle * {
     padding: 0px;
     margin: 0px;
@@ -1770,32 +1769,32 @@ button, input[type="button"] {
     -webkit-tap-highlight-color: transparent; }
   #gameCapusle .none {
     display: none; }
-  #gameCapusle .niu_danji {
+ #gameCapusle .niu_danji {
     width: 640px;
     height: 1039px;
     margin: 0px auto;
     overflow: hidden;
     position: relative; }
     #gameCapusle .niu_danji .game_qu {
-      background: url(../images/game.svg) no-repeat;
-      width: 553px;
-      height: 767px;
-      left: 60%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      position: absolute;
-      z-index: 3; }
+          background: url(../images/game2.svg) no-repeat;
+        width: 490px;
+    height: 600px;
+    left: 60%;
+    top: 32%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 3;}
     #gameCapusle .niu_danji .game_go {
-      width: 100px;
-      height: 100px;
-      position: absolute;
-      left: 160px;
-      bottom: 170px;
-      background: url(../images/button.svg) no-repeat;
-      font-size: 18px;
-      color: #fff;
-      line-height: 20px;
-      text-align: center; }
+      width: 88px;
+    height: 88px;
+    position: absolute;
+    left: 122px;
+    bottom: 125px;
+    background: url(../images/button.svg) no-repeat;
+    font-size: 18px;
+    color: #fff;
+    line-height: 20px;
+    text-align: center;}
       #gameCapusle .niu_danji .game_go:after {
         content: '';
         width: 25px;
@@ -1831,9 +1830,9 @@ button, input[type="button"] {
       width: 500px;
       height: 447px;
       position: absolute;
-      left: 120px;
-      top: 150px;
-      z-index: -1;
+    left: 120px;
+    top: -76px;
+    z-index: 3;
       -webkit-border-radius: 240px 240px 0px 0px;
       -moz-border-radius: 240px 240px 0px 0px;
       border-radius: 240px 240px 0px 0px; }
@@ -1841,9 +1840,9 @@ button, input[type="button"] {
         width: 115px;
         height: 115px; }
   #gameCapusle .qiu_1 {
-    position: absolute;
+        position: absolute;
     left: 55px;
-    bottom: -53px; }
+    bottom: -52px;}
     #gameCapusle .qiu_1:after {
       content: "";
       position: absolute;
@@ -1856,9 +1855,9 @@ button, input[type="button"] {
       animation: zhuan 1s linear forwards;
       -webkit-animation: zhuan 1s linear forwards; }
   #gameCapusle .qiu_2 {
-    position: absolute;
+        position: absolute;
     left: 122px;
-    bottom: -90px; }
+    bottom: -97px;}
     #gameCapusle .qiu_2:after {
       content: "";
       position: absolute;
@@ -1871,9 +1870,10 @@ button, input[type="button"] {
       animation: zhuan 1s linear forwards;
       -webkit-animation: zhuan 1s linear forwards; }
   #gameCapusle .qiu_3 {
-    position: absolute;
+       position: absolute;
     right: 169px;
-    bottom: -92px; }
+    bottom: -81px;
+}
     #gameCapusle .qiu_3:after {
       content: "";
       position: absolute;
@@ -1886,9 +1886,10 @@ button, input[type="button"] {
       animation: zhuan 1s linear forwards;
       -webkit-animation: zhuan 1s linear forwards; }
   #gameCapusle .qiu_4 {
-    position: absolute;
+        position: absolute;
     left: 156px;
-    top: 377px; }
+    top: 377px;
+}
     #gameCapusle .qiu_4:after {
       content: "";
       position: absolute;
@@ -1901,9 +1902,10 @@ button, input[type="button"] {
       animation: zhuan 1s linear forwards;
       -webkit-animation: zhuan 1s linear forwards; }
   #gameCapusle .qiu_5 {
-    position: absolute;
+        position: absolute;
     left: 174px;
-    top: 422px; }
+    top: 428px;
+}
     #gameCapusle .qiu_5:after {
       content: "";
       position: absolute;
@@ -1916,9 +1918,10 @@ button, input[type="button"] {
       animation: zhuan 1s linear forwards;
       -webkit-animation: zhuan 1s linear forwards; }
   #gameCapusle .qiu_6 {
-    position: absolute;
+        position: absolute;
     left: 78px;
-    top: 414px; }
+    top: 408px;
+}
     #gameCapusle .qiu_6:after {
       content: "";
       position: absolute;
@@ -1932,8 +1935,11 @@ button, input[type="button"] {
       -webkit-animation: zhuan 1s linear forwards; }
   #gameCapusle .qiu_7 {
     position: absolute;
-    left: 216px;
-    bottom: -37px; }
+    left: 213px;
+    bottom: -37px;
+}
+
+
     #gameCapusle .qiu_7:after {
       content: "";
       position: absolute;
@@ -1946,9 +1952,10 @@ button, input[type="button"] {
       animation: zhuan 1s linear forwards;
       -webkit-animation: zhuan 1s linear forwards; }
   #gameCapusle .qiu_8 {
-    position: absolute;
+        position: absolute;
     left: 103px;
-    top: 369px; }
+    top: 378px;
+}
     #gameCapusle .qiu_8:after {
       content: "";
       position: absolute;
@@ -1961,9 +1968,10 @@ button, input[type="button"] {
       animation: zhuan 1s linear forwards;
       -webkit-animation: zhuan 1s linear forwards; }
   #gameCapusle .qiu_9 {
-    position: absolute;
-    left: 256px;
-    top: 390px; }
+        position: absolute;
+    left: 242px;
+    top: 390px;
+}
     #gameCapusle .qiu_9:after {
       content: "";
       position: absolute;
@@ -1976,9 +1984,9 @@ button, input[type="button"] {
       animation: zhuan 1s linear forwards;
       -webkit-animation: zhuan 1s linear forwards; }
   #gameCapusle .qiu_10 {
-    position: absolute;
-    left: 289px;
-    top: 353px; }
+   position: absolute;
+    left: 259px;
+    top: 353px;}
     #gameCapusle .qiu_10:after {
       content: "";
       position: absolute;
@@ -2400,11 +2408,11 @@ button, input[type="button"] {
     transform: translateY(0%);
     opacity: 1; } }
 
-@keyframes zhuan {
+/* @keyframes zhuan {
   0% {
     transform: rotate(0); }
   100% {
-    transform: rotate(360deg); } }
+    transform: rotate(360deg); } } */
 
 @keyframes around1 {
   /* 0%{ transform:translate(0px,0px)  }
@@ -2424,10 +2432,10 @@ button, input[type="button"] {
     transform: rotate(0deg); }
   50% {
     transform: translate(5px, 0px);
-    transform: rotate(90deg); }
+    transform: rotate(10deg); }
   100% {
     transform: translate(10px, 0px);
-    transform: rotate(180deg); } }
+    transform: rotate(20deg); } }
 
 @keyframes around2 {
   /* 0%{ transform:translate(0px,0px)  }
@@ -2438,13 +2446,13 @@ button, input[type="button"] {
     100%{transform:translate(300px,-180px) } */
   0% {
     transform: translate(0px, 0px);
-    transform: rotate(0deg); }
+   }
   50% {
     transform: translate(5px, -5px);
-    transform: rotate(-90deg); }
+    transform: rotate(-10deg); }
   100% {
     transform: translate(10px, -10px);
-    transform: rotate(-180deg); } }
+    transform: rotate(-20deg); } }
 
 @-webkit-keyframes around3 {
   /* 0%{ -webkit-transform:translate(0px,0px)  }
@@ -2455,71 +2463,71 @@ button, input[type="button"] {
   0% {
     transform: rotate(0deg); }
   50% {
-    transform: rotate(-35deg); }
+    transform: rotate(-10deg); }
   100% {
-    transform: rotate(-40deg); } }
+    transform: rotate(-20deg); } }
 
 @keyframes around3 {
   0% {
     transform: rotate(0deg); }
   50% {
-    transform: rotate(-35deg); }
+    transform: rotate(-10deg); }
   100% {
-    transform: rotate(-40deg); } }
+    transform: rotate(-42deg); } }
 
 @keyframes around4 {
   0% {
     transform: translate(0px, 0px); }
   12% {
-    transform: translate(50px, 80px); }
+    transform: translate(10px, 10px); }
   30% {
-    transform: translate(-10px, -30px); }
+    transform: translate(-10px, -10px); }
   60% {
-    transform: translate(-14px, 60px); }
+    transform: translate(-14px, 5px); }
   80% {
-    transform: translate(-10px, -30px); }
+    transform: translate(-10px, -10px); }
   100% {
-    transform: translate(-20px, 20px); } }
+    transform: translate(-10px, 10px); } }
 
 @keyframes around5 {
   0% {
     transform: translate(0px, 0px); }
   12% {
-    transform: translate(40px, -17px); }
+    transform: translate(10px, -17px); }
   30% {
-    transform: translate(-40px, 20px); }
+    transform: translate(-10px, 20px); }
   60% {
-    transform: translate(-24px, 52px); }
+    transform: translate(-14px, 12px); }
   80% {
-    transform: translate(-40px, -16px); }
+    transform: translate(-10px, -11px); }
   100% {
-    transform: translate(-20px, 50px); } }
+    transform: translate(-20px, 1px); } }
 
 @keyframes around6 {
   0% {
     transform: translate(0px, 0px); }
   12% {
-    transform: translate(10px, 70px); }
+    transform: translate(10px, 20px); }
   30% {
-    transform: translate(-25px, -40px); }
+    transform: translate(-15px, -10px); }
   60% {
     transform: translate(-19px, 5px); }
   80% {
     transform: translate(-13px, -20px); }
   100% {
-    transform: translate(-58px, 60px); } }
+    transform: translate(-10px, 6px); } }
 
 @keyframes around7 {
   0% {
     transform: translate(0px, 0px); }
   20% {
-    transform: translate(-30px, -17px); }
+    transform: translate(-20px, -17px); }
   40% {
-    transform: translate(20px, 16px); }
+    transform: translate(10px, 16px); }
   60% {
-    transform: translate(-22px, -14px); }
+    transform: translate(-12px, -14px); }
   80% {
-    transform: translate(16px, -14px); }
+    transform: translate(11px, -14px); }
   100% {
     transform: translate(-10px, -10px); } }
 
@@ -2527,13 +2535,13 @@ button, input[type="button"] {
   0% {
     transform: translate(0px, 0px); }
   20% {
-    transform: translate(14px, -12px); }
+    transform: translate(10px, -12px); }
   40% {
-    transform: translate(-14px, 30px); }
+    transform: translate(-14px, 10px); }
   60% {
     transform: translate(-18px, -24px); }
   80% {
-    transform: translate(10px, 30px); }
+    transform: translate(10px, 20px); }
   100% {
     transform: translate(-18px, -22px); } }
 
@@ -2541,9 +2549,9 @@ button, input[type="button"] {
   0% {
     transform: translate(0px, 0px); }
   30% {
-    transform: translate(-30px, -18px); }
+    transform: translate(-10px, -18px); }
   60% {
-    transform: translate(-35px, 12px); }
+    transform: translate(-20px, 12px); }
   80% {
     transform: translate(-10px, -20px); }
   100% {
@@ -2553,7 +2561,7 @@ button, input[type="button"] {
   0% {
     transform: translate(0px, 0px); }
   15% {
-    transform: translate(-30px, -27px); }
+    transform: translate(-6px, -10px); }
   30% {
     transform: translate(20px, -22px); }
   50% {
@@ -2561,19 +2569,19 @@ button, input[type="button"] {
   75% {
     transform: translate(0px, -15px); }
   100% {
-    transform: translate(-30px, -30px); } }
+    transform: translate(-10px, -10px); } }
 
 @keyframes around11 {
   0% {
     transform: translate(0px, 0px); }
   32% {
-    transform: translate(-27px, -60px); }
+    transform: translate(-10px, -10px); }
   60% {
-    transform: translate(-32px, 22px); }
+    transform: translate(-12px, 22px); }
   80% {
     transform: translate(10px, -10px); }
   100% {
-    transform: translate(-26px, 22px); } }
+    transform: translate(-21px, 2px); } }
   #gameCapusle .dishes-img img {
     width: 250px;
     text-align: center; }
