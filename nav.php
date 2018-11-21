@@ -399,15 +399,4 @@ var clearMemberSeeion = document.getElementById('clearMemberSeeion');
         xhr.open("get","Logout.php", true);
         xhr.send( null);
 	},false);
-<<<<<<< HEAD
-
-=======
-	window.addEventListener('load',function(){
-		checkMemberId();
-	},false);
-
-
-
-	
->>>>>>> 1d675deb6d96ad7afc725eb2bada984c9533a201
 </script>

@@ -1,8 +1,7 @@
-@import "layout/nav";
-
-*{
-    // outline: 1px solid red;
-}
+@import "reset";
+@import "daycookVar";
+@import "general_mixins";
+@import "nav";
 
 ::-webkit-scrollbar{
     width: 8px;
@@ -226,10 +225,6 @@
                 }
             }
         } 
-
-        .notebook{
-
-        }
     }
 
     .member-contain{
@@ -437,7 +432,7 @@
                         ul{
                             margin-bottom: 20px;
                             width: 250%;
-
+                        
                             li{
                                 margin: 10px;
                                 border: 4px solid transparent;

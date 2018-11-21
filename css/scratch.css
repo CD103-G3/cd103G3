@@ -1876,7 +1876,7 @@ html {
   #scratchGame .nextBTN, #scratchGame .cancelBTN {
     position: relative;
     display: inline-block;
-    /* width: 120px; */
+    width: 120px;
     height: 40px;
     line-height: 20px;
     text-align: center;
@@ -1953,43 +1953,3 @@ html {
       height: 500px;
       margin: 0 10px;
       /* border: 1px solid black; */ } }
-
-
-
-      .hoverBox {
-        box-sizing: border-box;
-        display: none;
-        position: absolute;
-        top: 100px;
-        left: -10000px;
-        opacity: 0;
-        width: 100%;
-        /* height: 200px; */
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0px 0px 20px #222;
-        transition: opacity .3s;
-    }
-    .index-member:hover > .hoverBox {
-        /* display: block; */
-        left: 0;
-        opacity: 1;
-        transition: opacity .3s;
-    }
-    header .hoverBox a,
-      header .hoverBox button {
-        box-sizing: border-box;
-          display: block;
-          color: #76391B;
-          font-weight: 900;
-          width: 100%;
-          padding: 10px;
-          font-size: 20px;
-          cursor: pointer;
-          background-color: transparent;
-      }
-      header .hoverBox a:hover,
-      header .hoverBox button:hover {
-          background-color: #76391B;
-          color: #fff;
-      }  
